@@ -31,6 +31,7 @@ namespace KHSave
 		[Data(0x28)] public int Munny { get; set; }
 		[Data(0x2C)] public byte Level { get; set; }
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
+		[Data(0x5B0)] public short SavesCount { get; set; }
 
 		[Data(0x1878, 3, 0x18)]
 		public List<Weapon> Weapons { get; set; }
