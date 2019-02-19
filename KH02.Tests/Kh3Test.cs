@@ -43,6 +43,11 @@ namespace KHSave.Tests
 			Assert.Equal(63, save.Level);
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
+			Assert.Equal(0x30F, save.Pc[0].Weapons[0].Id);
+			Assert.Equal(0x312, save.Pc[0].Weapons[1].Id);
+			Assert.Equal(0x308, save.Pc[0].Weapons[2].Id);
+			Assert.Equal(0x444, save.Pc[0].Abilities[0].Data);
+			Assert.Equal(0x444, save.Pc[0].Abilities[save.Pc[0].Abilities.Count - 1].Data);
 			Assert.Equal(270, save.Pc[0].Hp);
 			Assert.Equal(135, save.Pc[0].Mp);
 			Assert.Equal(100, save.Pc[0].Focus);

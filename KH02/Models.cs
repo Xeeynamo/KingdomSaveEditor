@@ -17,9 +17,28 @@
 */
 
 using KHSave.Attributes;
+using KHSave.Extensions;
+using System.Collections.Generic;
 
 namespace KHSave
 {
+	public class Inventory
+	{
+		[Data] public byte Count { get; set; }
+		[Data] public byte Unknown { get; set; }
+	}
+
+	public class Ability
+	{
+		[Data] public int Data { get; set; }
+
+		public bool Enabled
+		{
+			get => Data.GetFlag(1);
+			set => Data.SetFlag(1, value);
+		}
+	}
+
 	public class PhotoEntry
 	{
 		[Data] public int Length { get; set; }
@@ -29,7 +48,9 @@ namespace KHSave
 
 	public class PlayableCharacter
 	{
-		[Data] public byte AtkBoost { get; set; }
+		[Data(0x80, 3, 8)] public List<Weapon> Weapons { get; set; }
+		[Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
+		[Data(0x980)] public byte AtkBoost { get; set; }
 		[Data] public byte MagBoost { get; set; }
 		[Data] public byte DefBoost { get; set; }
 		[Data] public byte ApBoost { get; set; }

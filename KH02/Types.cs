@@ -95,6 +95,20 @@ namespace KHSave
 		Buzz = 15
 	}
 
+	public enum InventoryIndexType
+	{
+		Potion,
+		HiPotion,
+		MegaPotion,
+		Ether,
+		MegaEther,
+		HiEther,
+		Panacea,
+		Refocuser,
+		HiRefocuser,
+
+	}
+
 	public enum CommandType
 	{
 		Empty_Dash = 0x0,

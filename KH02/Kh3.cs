@@ -33,29 +33,16 @@ namespace KHSave
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
 
-		[Data(0x1878, 3, 0x18)]
-		public List<Weapon> Weapons { get; set; }
+		[Data(0x17F8, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }
 
-		[Data(0x2178, 16, 0x9C0)]
-		public List<PlayableCharacter> Pc { get; set; }
+		[Data(0xBB18, 0x100)] public string MapPath { get; set; }
+		[Data(0xBC18, 0x40)] public string MapSpawn { get; set; }
+		[Data(0xBC58, 0x100)] public string PlayerScript { get; set; }
+		[Data(0xBD58, 0x100)] public string PlayerCharacter { get; set; }
 
-		[Data(0xBB18, 0x100)]
-		public string MapPath { get; set; }
+		[Data(0xBE98, 3)] public List<ShortcutGroup> Shortcuts { get; set; }
 
-		[Data(0xBC18, 0x40)]
-		public string MapSpawn { get; set; }
-
-		[Data(0xBC58, 0x100)]
-		public string PlayerScript { get; set; }
-
-		[Data(0xBD58, 0x100)]
-		public string PlayerCharacter { get; set; }
-
-		[Data(0xBE98, 3)]
-		public List<ShortcutGroup> Shortcuts { get; set; }
-
-		[Data(0xBE98, 90, 0x19004)]
-		public List<PhotoEntry> Photos { get; set; }
+		[Data(0xBE98, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
 
 		public static Kh3 Read(Stream stream) =>
 			DataAttribute.ReadObject(new BinaryReader(stream), new Kh3()) as Kh3;
