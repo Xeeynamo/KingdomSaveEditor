@@ -36,7 +36,7 @@ namespace KHSave
 		[Data(0x1878, 3, 0x18)]
 		public List<Weapon> Weapons { get; set; }
 
-		[Data(0x217C, 16, 0x9C0)]
+		[Data(0x2178, 16, 0x9C0)]
 		public List<PlayableCharacter> Pc { get; set; }
 
 		[Data(0xBB18, 0x100)]

@@ -29,6 +29,10 @@ namespace KHSave
 
 	public class PlayableCharacter
 	{
+		[Data] public byte AtkBoost { get; set; }
+		[Data] public byte MagBoost { get; set; }
+		[Data] public byte DefBoost { get; set; }
+		[Data] public byte ApBoost { get; set; }
 		[Data] public int Hp { get; set; }
 		[Data] public int Mp { get; set; }
 		[Data] public int Focus { get; set; }
