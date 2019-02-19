@@ -55,16 +55,16 @@ namespace KHSave
 		AcreWood = 10,
 
 		[WorldInfo("mi", "Monstropolis")]
-		Monstropolis,
+		Monstropolis = 11,
 
 		[WorldInfo("tt", "Twilight Town")]
-		TwilightTown,
+		TwilightTown = 12,
 
 		[WorldInfo("??", "The Mysterious Tower")]
-		MysteriousTower,
+		MysteriousTower = 13,
 
 		[WorldInfo("kg", "Keyblade Graveyard")]
-		KeybladeGraveyard,
+		KeybladeGraveyard = 14,
 
 		[WorldInfo("bx", "San Fransokyo")]
 		SanFransokyo = 19,
@@ -97,9 +97,38 @@ namespace KHSave
 
 	public enum CommandType
 	{
+		Empty_Dash = 0x0,
+		Empty_1 = 0x1,
+		PaybackStrike = 0x2,
+		CounterSlash = 0x3,
+		CounterImpact = 0x4,
+		CounterKick = 0x5,
+		CounterBlast = 0x6,
+		RisingHook = 0x7,
+		RiskRaid = 0x8,
+		Backslash = 0x9,
+		TeleportSlash = 0xa,
+		DivingStrike = 0xb,
+		FinalBlow = 0xc,
+		Raid = 0xd,
+		NanoCounter = 0xe,
+		CounterBlade = 0xf,
+		WrathfulFist = 0x10,
+		WrathfulFlurry = 0x11,
+		FlameTorrent = 0x12,
+		FlameBarrage = 0x13,
+		Lightning = 0x14,
+		Sneeze = 0x15,
+		UnisonFire = 0x16,
+		UnisonBlizzard = 0x17,
+		UnisonThunder = 0x18,
+		FusionSpin = 0x19,
+		FusionRocket = 0x1a,
+		Attack = 0x1b,
+		Empty_2 = 0x1c,
 		Fire = 0x1d,
-		Fira,
-		Firaga,
+		Fira = 0x1e,
+		Firaga = 0x1f,
 		Firaza,
 		Blizzard,
 		Blizzara,
