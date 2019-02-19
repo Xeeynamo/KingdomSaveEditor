@@ -9,6 +9,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Tests", "KH02.Tests\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave", "KH02\KHSave.csproj", "{66531854-A216-4F15-ABE5-F723EA257BF2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XeEngine.Tools.Public", "XeEngine.Tools.Public", "{F556CBD8-76F3-45A3-9619-8FB81FA64C22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe", "XeEngine.Tools.Public\Xe\Xe.csproj", "{61D2474A-EDC5-4792-A4E6-7E935856617A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Drawing", "XeEngine.Tools.Public\Xe.Drawing\Xe.Drawing.csproj", "{9ECB58D2-3790-4693-8A40-FF2584F263E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Tools", "XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj", "{2F15C257-7E50-42B5-ADB4-7534B88F466B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xe.Tools.Wpf", "XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj", "{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +37,31 @@ Global
 		{66531854-A216-4F15-ABE5-F723EA257BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66531854-A216-4F15-ABE5-F723EA257BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66531854-A216-4F15-ABE5-F723EA257BF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D2474A-EDC5-4792-A4E6-7E935856617A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D2474A-EDC5-4792-A4E6-7E935856617A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D2474A-EDC5-4792-A4E6-7E935856617A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D2474A-EDC5-4792-A4E6-7E935856617A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ECB58D2-3790-4693-8A40-FF2584F263E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECB58D2-3790-4693-8A40-FF2584F263E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECB58D2-3790-4693-8A40-FF2584F263E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECB58D2-3790-4693-8A40-FF2584F263E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F15C257-7E50-42B5-ADB4-7534B88F466B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F15C257-7E50-42B5-ADB4-7534B88F466B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F15C257-7E50-42B5-ADB4-7534B88F466B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F15C257-7E50-42B5-ADB4-7534B88F466B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61D2474A-EDC5-4792-A4E6-7E935856617A} = {F556CBD8-76F3-45A3-9619-8FB81FA64C22}
+		{9ECB58D2-3790-4693-8A40-FF2584F263E6} = {F556CBD8-76F3-45A3-9619-8FB81FA64C22}
+		{2F15C257-7E50-42B5-ADB4-7534B88F466B} = {F556CBD8-76F3-45A3-9619-8FB81FA64C22}
+		{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393} = {F556CBD8-76F3-45A3-9619-8FB81FA64C22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEB14EB2-578B-40D4-88D1-5B497F2967F4}
