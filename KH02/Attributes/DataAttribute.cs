@@ -44,7 +44,7 @@ namespace KHSave.Attributes
 			Stride = stride;
 		}
 
-		public static object ReadObject(BinaryReader reader, object obj)
+		public static object ReadObject(BinaryReader reader, object obj, int baseOffset = 0)
 		{
 			var properties = obj.GetType()
 				.GetProperties()
@@ -64,7 +64,7 @@ namespace KHSave.Attributes
 
 				if (offset.HasValue)
 				{
-					reader.BaseStream.Position = offset.Value;
+					reader.BaseStream.Position = baseOffset + offset.Value;
 				}
 
 				if (type == typeof(byte)) value = reader.ReadByte();
@@ -89,8 +89,8 @@ namespace KHSave.Attributes
 
 					for (int i = 0; i < property.DataInfo.Count; i++)
 					{
-						var oldPosition = reader.BaseStream.Position;
-						addMethod.Invoke(value, new object[] { ReadObject(reader, Activator.CreateInstance(listType)) });
+						var oldPosition = (int)reader.BaseStream.Position;
+						addMethod.Invoke(value, new object[] { ReadObject(reader, Activator.CreateInstance(listType), oldPosition) });
 
 						var newPosition = reader.BaseStream.Position;
 						reader.BaseStream.Position += Math.Max(0, property.DataInfo.Stride - (newPosition - oldPosition));
