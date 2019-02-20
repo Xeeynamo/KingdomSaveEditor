@@ -27,6 +27,7 @@ namespace KHSave
 		[Data(0x14)] public DifficultyType Difficulty { get; set; }
 		[Data(0x18)] public WorldType WorldLogo { get; set; }
 
+        [Data(0x20)] public System.DateTime GameTime { get; set; }
 		[Data(0x24)] public int TotalExp { get; set; }
 		[Data(0x28)] public int Munny { get; set; }
 		[Data(0x2C)] public byte Level { get; set; }
