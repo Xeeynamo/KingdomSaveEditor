@@ -184,4 +184,14 @@ namespace KHSave
 		ArsArcanum = 0xad,
 		AncientLight = 0xae
 	}
+	
+	public enum ItemType
+	{
+		Type0 = 0,
+		Type1 = 1,
+		Type2 = 2,
+		Weapon = 3,
+		Type4 = 4,
+		Type5 = 5
+	}
 }
