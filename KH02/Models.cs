@@ -45,10 +45,10 @@ namespace KHSave
 
 	public class ShortcutGroup
 	{
-		[Data] public int Circle { get; set; }
-		[Data] public int Triangle { get; set; }
-		[Data] public int Square { get; set; }
-		[Data] public int Cross { get; set; }
+		[Data] public CommandType Circle { get; set; }
+		[Data] public CommandType Triangle { get; set; }
+		[Data] public CommandType Square { get; set; }
+		[Data] public CommandType Cross { get; set; }
 	}
 	
 	public class MagicGroup
@@ -66,7 +66,7 @@ namespace KHSave
 
 	public class Weapon
 	{
-		[Data] public int Id { get; set; }
-		[Data] public int Unknown { get; set; }
+		[Data] public int ID { get; set; }
+		[Data] public ItemType Type { get; set; }
 	}
 }
