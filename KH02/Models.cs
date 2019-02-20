@@ -50,6 +50,19 @@ namespace KHSave
 		[Data] public int Square { get; set; }
 		[Data] public int Cross { get; set; }
 	}
+	
+	public class MagicGroup
+	{
+		[Data] public CommandType Magic1 { get; set; }
+		[Data] public CommandType Magic2 { get; set; }
+		[Data] public CommandType Magic3 { get; set; }
+		[Data] public CommandType Magic4 { get; set; }
+		[Data] public CommandType Magic5 { get; set; }
+		[Data] public CommandType Magic6 { get; set; }
+		[Data] public CommandType Magic7 { get; set; }
+		[Data] public CommandType Magic8 { get; set; }
+		[Data] public CommandType Magic9 { get; set; }
+	}
 
 	public class Weapon
 	{
