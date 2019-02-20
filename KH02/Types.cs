@@ -154,7 +154,6 @@ namespace KHSave
 		SeaBlizzard,
 		SeaThunder,
 		SeaAero,
-
 		Potion = 0x3a,
 		HiPotion,
 		MegaPotion,

@@ -64,7 +64,7 @@ namespace KHSave
 		[Data] public CommandType Magic9 { get; set; }
 	}
 
-	public class Weapon
+	public class Item
 	{
 		[Data] public int ID { get; set; }
 		[Data] public ItemType Type { get; set; }

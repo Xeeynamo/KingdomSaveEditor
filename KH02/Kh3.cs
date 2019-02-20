@@ -34,7 +34,7 @@ namespace KHSave
 		[Data(0x5B0)] public short SavesCount { get; set; }
 
 		[Data(0x1878, 3, 0x18)]
-		public List<Weapon> Weapons { get; set; }
+		public List<Item> Weapons { get; set; }
 
 		[Data(0x2178, 16, 0x9C0)]
 		public List<PlayableCharacter> Pc { get; set; }
@@ -53,7 +53,8 @@ namespace KHSave
 
 		[Data(0xBE98, 3)]
 		public List<ShortcutGroup> Shortcuts { get; set; }
-		[Data(0xBEC8)] public MagicGroup { get; set; }
+
+		[Data(0xBEC8)] public MagicGroup Magic{ get; set; }
 
 		[Data(0xBE98, 90, 0x19004)]
 		public List<PhotoEntry> Photos { get; set; }
