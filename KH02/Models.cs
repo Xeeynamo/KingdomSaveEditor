@@ -37,6 +37,11 @@ namespace KHSave
 			get => Data.GetFlag(1);
 			set => Data.SetFlag(1, value);
 		}
+
+		public override string ToString()
+		{
+			return $"{Enabled} {Data:X08}";
+		}
 	}
 
 	public class PhotoEntry

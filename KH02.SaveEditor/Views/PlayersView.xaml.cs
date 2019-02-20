@@ -1,5 +1,4 @@
-﻿using KH02.SaveEditor.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KH02.SaveEditor
+namespace KH02.SaveEditor.Views
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for PlayersView.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class PlayersView : UserControl
 	{
-		private readonly MainWindowViewModel context;
-
-		public MainWindow()
+		public PlayersView()
 		{
 			InitializeComponent();
-			DataContext = context = new MainWindowViewModel();
-
-			context.Open(@"..\..\..\KH02.Tests\Saves\kh3.bin");
 		}
 	}
 }
