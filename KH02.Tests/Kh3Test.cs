@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using System.IO;
 using Xunit;
 
@@ -48,8 +49,8 @@ namespace KHSave.Tests
 			Assert.Equal(100, save.Pc[0].Focus);
 			Assert.Equal(180, save.Pc[1].Hp);
 
-			Assert.Equal(0x31, save.Shortcuts[0].Circle);
-			Assert.Equal(0x27, save.Shortcuts[0].Triangle);
+			Assert.Equal(CommandType.Aeroza, save.Shortcuts[0].Circle);
+			Assert.Equal(CommandType.Thundara, save.Shortcuts[0].Triangle);
 			Assert.Equal(3, save.Shortcuts.Count);
 
 			Assert.Equal("/Game/Levels/ts/ts_02/ts_02", save.MapPath);
