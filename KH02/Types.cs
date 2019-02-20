@@ -20,7 +20,7 @@ using KHSave.Attributes;
 
 namespace KHSave
 {
-	public enum DifficultyType
+	public enum DifficultyType : byte
 	{
 		Easy,
 		Normal,
@@ -28,7 +28,7 @@ namespace KHSave
 		Critical
 	}
 
-	public enum WorldType
+	public enum WorldType : byte
 	{
 		[WorldInfo("bt", "Scala Ad Caelum")]
 		ScalaAdCaelum = 1,
@@ -76,7 +76,7 @@ namespace KHSave
 		LandOfDeparture = 25
 	}
 
-	public enum CharacterIconType
+	public enum CharacterIconType : byte
 	{
 		Sora = 1,
 		Riku = 2,
@@ -95,7 +95,7 @@ namespace KHSave
 		Buzz = 15
 	}
 
-	public enum CommandType
+	public enum CommandType : int
 	{
 		Empty_Dash = 0x0,
 		Empty_1 = 0x1,
@@ -184,7 +184,7 @@ namespace KHSave
 		AncientLight = 0xae
 	}
 	
-	public enum ItemType
+	public enum ItemType : byte
 	{
 		Type0 = 0,
 		Type1 = 1,

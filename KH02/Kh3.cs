@@ -54,7 +54,7 @@ namespace KHSave
 		[Data(0xBE98, 3)]
 		public List<ShortcutGroup> Shortcuts { get; set; }
 
-		[Data(0xBEC8)] public MagicGroup Magic{ get; set; }
+		[Data(0xBEC8, 9, 4)] public List<CommandType> Magics { get; set; }
 
 		[Data(0xBE98, 90, 0x19004)]
 		public List<PhotoEntry> Photos { get; set; }
