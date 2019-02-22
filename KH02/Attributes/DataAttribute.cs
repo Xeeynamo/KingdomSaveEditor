@@ -68,7 +68,8 @@ namespace KHSave.Attributes
 					reader.BaseStream.Position = offset.Value;
 				}
 
-				if (type == typeof(byte)) value = reader.ReadByte();
+				if (type == typeof(bool)) value = reader.ReadByte() != 0;
+				else if (type == typeof(byte)) value = reader.ReadByte();
 				else if (type == typeof(sbyte)) value = reader.ReadSByte();
 				else if (type == typeof(short)) value = reader.ReadInt16();
 				else if (type == typeof(ushort)) value = reader.ReadUInt16();
