@@ -6,7 +6,41 @@
              xmlns:local="clr-namespace:KH02.SaveEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Background="White">
+        <TextBlock Text="Difficulty"/>
+        <ComboBox
+            ItemsSource="{Binding DifficultyType}"
+            SelectedValue="{Binding Difficulty}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="World logo"/>
+        <ComboBox
+            ItemsSource="{Binding WorldIconType}"
+            SelectedValue="{Binding WorldIcon}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Character icon"/>
+        <ComboBox
+            ItemsSource="{Binding CharacterIconType}"
+            SelectedValue="{Binding CharacterIcon}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Game timer"/>
+        <TextBox IsReadOnly="True" Text="{Binding GameTimer, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="Total exp"/>
+        <TextBox Text="{Binding TotalExp, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="Display level"/>
+        <TextBox Text="{Binding DisplayLevel, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="Munny"/>
+        <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="Save count"/>
+        <TextBox Text="{Binding SavesCount, UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
 </UserControl>
