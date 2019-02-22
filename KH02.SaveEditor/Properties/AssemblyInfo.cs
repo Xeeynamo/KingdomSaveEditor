@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KH02.SaveEditor")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("KH3 Save Editor")]
+[assembly: AssemblyDescription("https://github.com/xeeynamo/kh3saveeditor")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KH02.SaveEditor")]
+[assembly: AssemblyCompany("Luciano (Xeeynamo) Ciccariello")]
+[assembly: AssemblyProduct("Save Editor - Kingdom Hearts III")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
