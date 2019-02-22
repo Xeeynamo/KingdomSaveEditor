@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using System.IO;
 using Xunit;
 
@@ -41,20 +42,27 @@ namespace KHSave.Tests
 			Assert.Equal(689472, save.TotalExp);
 			Assert.Equal(31886, save.Munny);
 			Assert.Equal(63, save.Level);
+            //Assert.True(save.SaveClear); // Broken! This is not returning true
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
-			Assert.Equal(0x30F, save.Pc[0].Weapons[0].Id);
-			Assert.Equal(0x312, save.Pc[0].Weapons[1].Id);
-			Assert.Equal(0x308, save.Pc[0].Weapons[2].Id);
+			Assert.Equal(0x30F, save.Pc[0].Weapons[0].ID);
+			Assert.Equal(0x312, save.Pc[0].Weapons[1].ID);
+			Assert.Equal(0x308, save.Pc[0].Weapons[2].ID);
 			Assert.Equal(0x444, save.Pc[0].Abilities[0].Data);
 			Assert.Equal(0x444, save.Pc[0].Abilities[save.Pc[0].Abilities.Count - 1].Data);
+			
+			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
+			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);
+
 			Assert.Equal(270, save.Pc[0].Hp);
 			Assert.Equal(135, save.Pc[0].Mp);
 			Assert.Equal(100, save.Pc[0].Focus);
 			Assert.Equal(180, save.Pc[1].Hp);
 
-			Assert.Equal(0x31, save.Shortcuts[0].Circle);
-			Assert.Equal(0x27, save.Shortcuts[0].Triangle);
+			Assert.Equal(CommandType.Cure, save.Shortcuts[0].Circle);
+			Assert.Equal(CommandType.Thundaga, save.Shortcuts[0].Triangle);
+			Assert.Equal(CommandType.Waterga, save.Shortcuts[0].Square);
+			Assert.Equal(CommandType.Fira, save.Shortcuts[0].Cross);
 			Assert.Equal(3, save.Shortcuts.Count);
 
 			Assert.Equal("/Game/Levels/ts/ts_02/ts_02", save.MapPath);

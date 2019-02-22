@@ -53,7 +53,7 @@ namespace KHSave
 
 	public class PlayableCharacter
 	{
-		[Data(0x80, 3, 8)] public List<Weapon> Weapons { get; set; }
+		[Data(0x80, 3, 8)] public List<Item> Weapons { get; set; }
 		[Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
 		[Data(0x980)] public byte AtkBoost { get; set; }
 		[Data] public byte MagBoost { get; set; }
@@ -71,15 +71,28 @@ namespace KHSave
 
 	public class ShortcutGroup
 	{
-		[Data] public int Circle { get; set; }
-		[Data] public int Triangle { get; set; }
-		[Data] public int Square { get; set; }
-		[Data] public int Cross { get; set; }
+		[Data] public CommandType Circle { get; set; }
+		[Data] public CommandType Triangle { get; set; }
+		[Data] public CommandType Square { get; set; }
+		[Data] public CommandType Cross { get; set; }
+	}
+	
+	public class MagicGroup
+	{
+		[Data] public CommandType Magic1 { get; set; }
+		[Data] public CommandType Magic2 { get; set; }
+		[Data] public CommandType Magic3 { get; set; }
+		[Data] public CommandType Magic4 { get; set; }
+		[Data] public CommandType Magic5 { get; set; }
+		[Data] public CommandType Magic6 { get; set; }
+		[Data] public CommandType Magic7 { get; set; }
+		[Data] public CommandType Magic8 { get; set; }
+		[Data] public CommandType Magic9 { get; set; }
 	}
 
-	public class Weapon
+	public class Item
 	{
-		[Data] public int Id { get; set; }
-		[Data] public int Unknown { get; set; }
+		[Data] public int ID { get; set; }
+		[Data] public ItemType Type { get; set; }
 	}
 }

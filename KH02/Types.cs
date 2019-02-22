@@ -20,7 +20,7 @@ using KHSave.Attributes;
 
 namespace KHSave
 {
-	public enum DifficultyType
+	public enum DifficultyType : byte
 	{
 		Easy,
 		Normal,
@@ -28,7 +28,7 @@ namespace KHSave
 		Critical
 	}
 
-	public enum WorldType
+	public enum WorldType : byte
 	{
 		[WorldInfo("bt", "Scala Ad Caelum")]
 		ScalaAdCaelum = 1,
@@ -76,7 +76,7 @@ namespace KHSave
 		LandOfDeparture = 25
 	}
 
-	public enum CharacterIconType
+	public enum CharacterIconType : byte
 	{
 		Sora = 1,
 		Riku = 2,
@@ -95,21 +95,7 @@ namespace KHSave
 		Buzz = 15
 	}
 
-	public enum InventoryIndexType
-	{
-		Potion,
-		HiPotion,
-		MegaPotion,
-		Ether,
-		MegaEther,
-		HiEther,
-		Panacea,
-		Refocuser,
-		HiRefocuser,
-
-	}
-
-	public enum CommandType
+	public enum CommandType : int
 	{
 		Empty_Dash = 0x0,
 		Empty_1 = 0x1,
@@ -143,7 +129,7 @@ namespace KHSave
 		Fire = 0x1d,
 		Fira = 0x1e,
 		Firaga = 0x1f,
-		Firaza,
+		Firaza = 0x20,
 		Blizzard,
 		Blizzara,
 		Blizzaga,
@@ -158,7 +144,7 @@ namespace KHSave
 		Waterza,
 		Aero,
 		Aerora,
-		Aeroga,
+		Aeroga = 0x2f,
 		Aeroza,
 		Cure,
 		Cura,
@@ -168,7 +154,6 @@ namespace KHSave
 		SeaBlizzard,
 		SeaThunder,
 		SeaAero,
-
 		Potion = 0x3a,
 		HiPotion,
 		MegaPotion,
@@ -197,5 +182,15 @@ namespace KHSave
 		[Info("Infinite jump")] Jump = 0xc6,
 		ArsArcanum = 0xad,
 		AncientLight = 0xae
+	}
+	
+	public enum ItemType : byte
+	{
+		Type0 = 0,
+		Type1 = 1,
+		Type2 = 2,
+		Weapon = 3,
+		Type4 = 4,
+		Type5 = 5
 	}
 }

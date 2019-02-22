@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace KHSave.Attributes
 {
@@ -67,7 +68,8 @@ namespace KHSave.Attributes
 					reader.BaseStream.Position = baseOffset + offset.Value;
 				}
 
-				if (type == typeof(byte)) value = reader.ReadByte();
+				if (type == typeof(bool)) value = reader.ReadByte() != 0;
+				else if (type == typeof(byte)) value = reader.ReadByte();
 				else if (type == typeof(sbyte)) value = reader.ReadSByte();
 				else if (type == typeof(short)) value = reader.ReadInt16();
 				else if (type == typeof(ushort)) value = reader.ReadUInt16();
@@ -77,7 +79,20 @@ namespace KHSave.Attributes
 				else if (type == typeof(ulong)) value = reader.ReadUInt64();
 				else if (type == typeof(string)) value = reader.ReadString(property.DataInfo.Count);
 				else if (type == typeof(byte[])) value = reader.ReadBytes(property.DataInfo.Count);
-				else if (type.IsEnum) value = reader.ReadByte();
+				else if (type.IsEnum)
+				{
+					var underlyingType = Enum.GetUnderlyingType(type);
+
+					if (underlyingType == typeof(byte)) value = reader.ReadByte();
+					else if (underlyingType == typeof(sbyte)) value = reader.ReadSByte();
+					else if (underlyingType == typeof(short)) value = reader.ReadInt16();
+					else if (underlyingType == typeof(ushort)) value = reader.ReadUInt16();
+					else if (underlyingType == typeof(int)) value = reader.ReadInt32();
+					else if (underlyingType == typeof(uint)) value = reader.ReadUInt32();
+					else if (underlyingType == typeof(long)) value = reader.ReadInt64();
+					else if (underlyingType == typeof(ulong)) value = reader.ReadUInt64();
+					else throw new InvalidDataException($"The enum {type.Name} has an unspported size.");
+				}
 				else if (type.IsGenericType && (type.GetGenericTypeDefinition() == typeof(List<>)))
 				{
 					var listType = type.GetGenericArguments().FirstOrDefault();

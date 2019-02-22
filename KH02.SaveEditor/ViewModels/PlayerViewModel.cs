@@ -54,17 +54,17 @@ namespace KH02.SaveEditor.ViewModels
 			set => playableCharacter.Focus = value;
 		}
 
-		public Weapon Weapon1
+		public Item Weapon1
 		{
 			get => playableCharacter.Weapons[0];
 		}
 
-		public Weapon Weapon2
+		public Item Weapon2
 		{
 			get => playableCharacter.Weapons[1];
 		}
 
-		public Weapon Weapon3
+		public Item Weapon3
 		{
 			get => playableCharacter.Weapons[2];
 		}

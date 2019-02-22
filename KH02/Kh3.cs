@@ -27,20 +27,23 @@ namespace KHSave
 		[Data(0x14)] public DifficultyType Difficulty { get; set; }
 		[Data(0x18)] public WorldType WorldLogo { get; set; }
 
+        [Data(0x20)] public int GameTime { get; set; }
 		[Data(0x24)] public int TotalExp { get; set; }
 		[Data(0x28)] public int Munny { get; set; }
 		[Data(0x2C)] public byte Level { get; set; }
+        [Data(0x3A)] public bool SaveClear { get; set; }
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
-
+		[Data(0x86c, 256, 2)] public List<InventoryEntry> Inventory { get; set; }
 		[Data(0x17F8, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }
-
 		[Data(0xBB18, 0x100)] public string MapPath { get; set; }
 		[Data(0xBC18, 0x40)] public string MapSpawn { get; set; }
 		[Data(0xBC58, 0x100)] public string PlayerScript { get; set; }
 		[Data(0xBD58, 0x100)] public string PlayerCharacter { get; set; }
 
 		[Data(0xBE98, 3)] public List<ShortcutGroup> Shortcuts { get; set; }
+
+		[Data(0xBEC8, 9, 4)] public List<CommandType> Magics { get; set; }
 
 		[Data(0xBE98, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
 
