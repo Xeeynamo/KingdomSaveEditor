@@ -45,6 +45,9 @@ namespace KHSave.Tests
             //Assert.True(save.SaveClear); // Broken! This is not returning true
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
+			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
+			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);
+
 			Assert.Equal(270, save.Pc[0].Hp);
 			Assert.Equal(135, save.Pc[0].Mp);
 			Assert.Equal(100, save.Pc[0].Focus);
