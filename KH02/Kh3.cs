@@ -1,4 +1,4 @@
-/*
+﻿/*
     Kingdom Hearts 0.2 and 3 Save Editor
     Copyright (C) 2019  Luciano Ciccariello
 
@@ -34,6 +34,7 @@ namespace KHSave
         [Data(0x3A)] public bool SaveClear { get; set; }
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
+		[Data(0x86c, 256, 2)] public List<InventoryEntry> Inventory { get; set; }
 
 		[Data(0x1878, 3, 0x18)]
 		public List<Item> Weapons { get; set; }
@@ -58,7 +59,7 @@ namespace KHSave
 
 		[Data(0xBEC8, 9, 4)] public List<CommandType> Magics { get; set; }
 
-		[Data(0xBE98, 90, 0x19004)]
+		[Data(0x84784, 90, 0x19004)]
 		public List<PhotoEntry> Photos { get; set; }
 
 		public static Kh3 Read(Stream stream) =>
