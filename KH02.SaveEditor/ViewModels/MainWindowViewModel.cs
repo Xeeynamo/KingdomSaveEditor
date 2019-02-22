@@ -63,6 +63,7 @@ namespace KH02.SaveEditor.ViewModels
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc.Select(x => new PlayerViewModel(x)));
 
+			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Players));
 		}
 	}
