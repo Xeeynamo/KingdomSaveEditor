@@ -79,6 +79,7 @@ namespace KHSave.Attributes
 				else if (type == typeof(ulong)) value = reader.ReadUInt64();
 				else if (type == typeof(string)) value = reader.ReadString(property.DataInfo.Count);
 				else if (type == typeof(byte[])) value = reader.ReadBytes(property.DataInfo.Count);
+				else if (type == typeof(TimeSpan)) value = new TimeSpan(0, 0, 0, reader.ReadInt32(), 0);
 				else if (type.IsEnum)
 				{
 					var underlyingType = Enum.GetUnderlyingType(type);

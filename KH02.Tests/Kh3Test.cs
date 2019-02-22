@@ -17,6 +17,7 @@
 */
 
 using KHSave.Attributes;
+using System;
 using System.IO;
 using Xunit;
 
@@ -39,6 +40,7 @@ namespace KHSave.Tests
 		{
 			Assert.Equal(DifficultyType.Proud, save.Difficulty);
 			Assert.Equal(WorldType.ToyBox, save.WorldLogo);
+			Assert.Equal(new TimeSpan(47, 0, 39), save.GameTime);
 			Assert.Equal(689472, save.TotalExp);
 			Assert.Equal(31886, save.Munny);
 			Assert.Equal(63, save.Level);
