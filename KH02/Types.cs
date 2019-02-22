@@ -144,7 +144,7 @@ namespace KHSave
 		Waterza,
 		Aero,
 		Aerora,
-		Aeroga = 0x30,
+		Aeroga = 0x2f,
 		Aeroza,
 		Cure,
 		Cura,

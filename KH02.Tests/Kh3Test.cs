@@ -50,8 +50,10 @@ namespace KHSave.Tests
 			Assert.Equal(100, save.Pc[0].Focus);
 			Assert.Equal(180, save.Pc[1].Hp);
 
-			Assert.Equal(CommandType.Aeroza, save.Shortcuts[0].Circle);
+			Assert.Equal(CommandType.Cure, save.Shortcuts[0].Circle);
 			Assert.Equal(CommandType.Thundaga, save.Shortcuts[0].Triangle);
+			Assert.Equal(CommandType.Waterga, save.Shortcuts[0].Square);
+			Assert.Equal(CommandType.Fira, save.Shortcuts[0].Cross);
 			Assert.Equal(3, save.Shortcuts.Count);
 
 			Assert.Equal("/Game/Levels/ts/ts_02/ts_02", save.MapPath);
