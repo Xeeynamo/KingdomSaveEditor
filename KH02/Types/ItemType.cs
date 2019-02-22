@@ -16,11 +16,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace KHSave.Attributes
+namespace KHSave.Types
 {
-	public class UnusedAttribute : Attribute
+	public enum ItemType : byte
 	{
+		Type0 = 0,
+		Type1 = 1,
+		Type2 = 2,
+		Weapon = 3,
+		Type4 = 4,
+		Type5 = 5
 	}
 }

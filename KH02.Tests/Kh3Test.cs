@@ -19,6 +19,7 @@
 using KHSave.Attributes;
 using System;
 using System.IO;
+using KHSave.Types;
 using Xunit;
 
 namespace KHSave.Tests

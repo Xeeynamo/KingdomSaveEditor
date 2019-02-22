@@ -16,11 +16,21 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
+using KHSave.Attributes;
+using KHSave.Types;
 
-namespace KHSave.Attributes
+namespace KHSave.Models
 {
-	public class UnusedAttribute : Attribute
+	public class MagicGroup
 	{
+		[Data] public CommandType Magic1 { get; set; }
+		[Data] public CommandType Magic2 { get; set; }
+		[Data] public CommandType Magic3 { get; set; }
+		[Data] public CommandType Magic4 { get; set; }
+		[Data] public CommandType Magic5 { get; set; }
+		[Data] public CommandType Magic6 { get; set; }
+		[Data] public CommandType Magic7 { get; set; }
+		[Data] public CommandType Magic8 { get; set; }
+		[Data] public CommandType Magic9 { get; set; }
 	}
 }

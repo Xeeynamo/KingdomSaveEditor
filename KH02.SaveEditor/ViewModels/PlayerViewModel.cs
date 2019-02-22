@@ -1,5 +1,6 @@
 ﻿using KHSave;
 using System.Collections.Generic;
+using KHSave.Models;
 using Xe.Tools;
 
 namespace KH02.SaveEditor.ViewModels

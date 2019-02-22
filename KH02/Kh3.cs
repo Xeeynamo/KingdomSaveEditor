@@ -20,6 +20,8 @@ using KHSave.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using KHSave.Models;
+using KHSave.Types;
 
 namespace KHSave
 {

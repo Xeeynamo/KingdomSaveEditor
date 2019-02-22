@@ -16,11 +16,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
+using KHSave.Attributes;
+using KHSave.Extensions;
 
-namespace KHSave.Attributes
+namespace KHSave.Models
 {
-	public class UnusedAttribute : Attribute
+	public class Ability
 	{
+		[Data] public int Data { get; set; }
+
+		public bool Enabled
+		{
+			get => Data.GetFlag(1);
+			set => Data.SetFlag(1, value);
+		}
+
+		public override string ToString()
+		{
+			return $"{Enabled} {Data:X08}";
+		}
 	}
 }

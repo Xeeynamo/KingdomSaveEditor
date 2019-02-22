@@ -16,11 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
+using System.Collections.Generic;
+using KHSave.Attributes;
 
-namespace KHSave.Attributes
+namespace KHSave.Models
 {
-	public class UnusedAttribute : Attribute
+	public class PlayableCharacter
 	{
+		[Data(0x80, 3, 8)] public List<Item> Weapons { get; set; }
+		[Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
+		[Data(0x980)] public byte AtkBoost { get; set; }
+		[Data] public byte MagBoost { get; set; }
+		[Data] public byte DefBoost { get; set; }
+		[Data] public byte ApBoost { get; set; }
+		[Data] public int Hp { get; set; }
+		[Data] public int Mp { get; set; }
+		[Data] public int Focus { get; set; }
+
+		public override string ToString()
+		{
+			return $"HP {Hp} MP {Mp}";
+		}
 	}
 }

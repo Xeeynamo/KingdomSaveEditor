@@ -16,11 +16,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace KHSave.Attributes
+namespace KHSave.Types
 {
-	public class UnusedAttribute : Attribute
+	public enum CharacterIconType : byte
 	{
+		Sora = 1,
+		Riku = 2,
+		Kairi = 3,
+		Terra = 4,
+		Ventus = 5,
+		Aqua = 6,
+		Roxas = 7,
+		Axel = 8,
+		Xion = 9,
+		Mickey = 10,
+		Donald = 11,
+		Goofy = 12,
+		Hercules = 13,
+		Woody = 14,
+		Buzz = 15
 	}
 }

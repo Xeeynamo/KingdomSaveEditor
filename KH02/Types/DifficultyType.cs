@@ -16,11 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace KHSave.Attributes
+namespace KHSave.Types
 {
-	public class UnusedAttribute : Attribute
+	public enum DifficultyType : byte
 	{
+		Easy,
+		Normal,
+		Proud,
+		Critical
 	}
 }

@@ -18,83 +18,8 @@
 
 using KHSave.Attributes;
 
-namespace KHSave
+namespace KHSave.Types
 {
-	public enum DifficultyType : byte
-	{
-		Easy,
-		Normal,
-		Proud,
-		Critical
-	}
-
-	public enum WorldType : byte
-	{
-		[WorldInfo("bt", "Scala Ad Caelum")]
-		ScalaAdCaelum = 1,
-
-		[WorldInfo("dw", "Dark World")]
-		DarkWorld = 3,
-
-		[WorldInfo("he", "Olympus")]
-		Olympus = 4,
-
-		[WorldInfo("ts", "Toy Box")]
-		ToyBox = 5,
-
-		[WorldInfo("ra", "Kindom of Corona")]
-		KingdomOfCorona = 7,
-
-		[WorldInfo("fz", "Arendelle")]
-		Arendelle = 8,
-
-		[WorldInfo("ca", "Caribbean")]
-		Caribbean = 9,
-
-		[WorldInfo("po", "100 Acre Wood")]
-		AcreWood = 10,
-
-		[WorldInfo("mi", "Monstropolis")]
-		Monstropolis = 11,
-
-		[WorldInfo("tt", "Twilight Town")]
-		TwilightTown = 12,
-
-		[WorldInfo("??", "The Mysterious Tower")]
-		MysteriousTower = 13,
-
-		[WorldInfo("kg", "Keyblade Graveyard")]
-		KeybladeGraveyard = 14,
-
-		[WorldInfo("bx", "San Fransokyo")]
-		SanFransokyo = 19,
-
-		[WorldInfo("dw", "The Final World")]
-		FinalWorld = 22,
-
-		[WorldInfo("dp", "Land of Departure")]
-		LandOfDeparture = 25
-	}
-
-	public enum CharacterIconType : byte
-	{
-		Sora = 1,
-		Riku = 2,
-		Kairi = 3,
-		Terra = 4,
-		Ventus = 5,
-		Aqua = 6,
-		Roxas = 7,
-		Axel = 8,
-		Xion = 9,
-		Mickey = 10,
-		Donald = 11,
-		Goofy = 12,
-		Hercules = 13,
-		Woody = 14,
-		Buzz = 15
-	}
-
 	public enum CommandType : int
 	{
 		Empty_Dash = 0x0,
@@ -182,15 +107,5 @@ namespace KHSave
 		[Info("Infinite jump")] Jump = 0xc6,
 		ArsArcanum = 0xad,
 		AncientLight = 0xae
-	}
-	
-	public enum ItemType : byte
-	{
-		Type0 = 0,
-		Type1 = 1,
-		Type2 = 2,
-		Weapon = 3,
-		Type4 = 4,
-		Type5 = 5
 	}
 }

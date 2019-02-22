@@ -16,11 +16,14 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
+using KHSave.Attributes;
 
-namespace KHSave.Attributes
+namespace KHSave.Models
 {
-	public class UnusedAttribute : Attribute
+	public class PhotoEntry
 	{
+		[Data] public int Length { get; set; }
+
+		[Data(Count = 0x19000)] public byte[] Data { get; set; }
 	}
 }

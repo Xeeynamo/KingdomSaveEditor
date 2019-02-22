@@ -16,11 +16,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
+using KHSave.Attributes;
+using KHSave.Types;
 
-namespace KHSave.Attributes
+namespace KHSave.Models
 {
-	public class UnusedAttribute : Attribute
+	public class ShortcutGroup
 	{
+		[Data] public CommandType Circle { get; set; }
+		[Data] public CommandType Triangle { get; set; }
+		[Data] public CommandType Square { get; set; }
+		[Data] public CommandType Cross { get; set; }
 	}
 }
