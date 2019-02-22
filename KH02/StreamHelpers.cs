@@ -53,5 +53,23 @@ namespace KHSave
 		{
 			return (c & (1 << offset)) != 0;
 		}
+
+		public static void Write(this BinaryWriter writer, string str, int length)
+		{
+			var data = Encoding.UTF8.GetBytes(str);
+			if (data.Length <= length)
+			{
+				writer.Write(data, 0, data.Length);
+				int remainsBytes = length = data.Length;
+				if (remainsBytes > 0)
+				{
+					writer.Write(new byte[remainsBytes]);
+				}
+			}
+			else
+			{
+				writer.Write(data, 0, length);
+			}
+		}
 	}
 }

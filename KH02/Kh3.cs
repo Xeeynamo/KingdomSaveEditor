@@ -1,4 +1,4 @@
-/*
+﻿/*
     Kingdom Hearts 0.2 and 3 Save Editor
     Copyright (C) 2019  Luciano Ciccariello
 
@@ -25,6 +25,8 @@ namespace KHSave
 {
 	public class Kh3
 	{
+		[Data(0, 0x94E8F0)] public byte[] Data { get; set; }
+
 		[Data(0x14)] public DifficultyType Difficulty { get; set; }
 		[Data(0x18)] public WorldType WorldLogo { get; set; }
 
@@ -47,6 +49,9 @@ namespace KHSave
 		[Data(0xBEC8, 9, 4)] public List<CommandType> Magics { get; set; }
 
 		[Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
+
+		public void Write(Stream stream) =>
+			DataAttribute.WriteObject(new BinaryWriter(stream), this);
 
 		public static Kh3 Read(Stream stream) =>
 			DataAttribute.ReadObject(new BinaryReader(stream), new Kh3()) as Kh3;

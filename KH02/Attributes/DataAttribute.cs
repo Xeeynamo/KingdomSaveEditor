@@ -17,6 +17,7 @@
 */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -113,6 +114,78 @@ namespace KHSave.Attributes
 					}
 
 
+				}
+				else throw new NotSupportedException($"Type {type.Name} is not supported by {nameof(ReadObject)}.");
+
+				property.MemberInfo.SetValue(obj, value);
+			}
+
+			return obj;
+		}
+
+		public static object WriteObject(BinaryWriter writer, object obj, int baseOffset = 0)
+		{
+			var properties = obj.GetType()
+				.GetProperties()
+				.Select(x => new
+				{
+					MemberInfo = x,
+					DataInfo = GetCustomAttribute(x, typeof(DataAttribute)) as DataAttribute
+				})
+				.Where(x => x.DataInfo != null)
+				.ToList();
+
+			foreach (var property in properties)
+			{
+				object value = property.MemberInfo.GetValue(obj);
+				var type = property.MemberInfo.PropertyType;
+				var offset = property.DataInfo.Offset;
+
+				if (offset.HasValue)
+				{
+					writer.BaseStream.Position = baseOffset + offset.Value;
+				}
+
+				if (type == typeof(bool)) writer.Write((bool)value ? 1 : 0);
+				else if (type == typeof(byte)) writer.Write((byte)value);
+				else if (type == typeof(sbyte)) writer.Write((sbyte)value);
+				else if (type == typeof(short)) writer.Write((short)value);
+				else if (type == typeof(ushort)) writer.Write((ushort)value);
+				else if (type == typeof(int)) writer.Write((int)value);
+				else if (type == typeof(uint)) writer.Write((uint)value);
+				else if (type == typeof(long)) writer.Write((long)value);
+				else if (type == typeof(ulong)) writer.Write((ulong)value);
+				else if (type == typeof(string)) writer.Write(value as string, property.DataInfo.Count);
+				else if (type == typeof(byte[])) writer.Write((byte[])value, 0, property.DataInfo.Count);
+				else if (type == typeof(TimeSpan)) writer.Write((int)((TimeSpan)value).TotalSeconds);
+				else if (type.IsEnum)
+				{
+					var underlyingType = Enum.GetUnderlyingType(type);
+					
+					if (underlyingType == typeof(byte)) writer.Write((byte)value);
+					else if (underlyingType == typeof(sbyte)) writer.Write((sbyte)value);
+					else if (underlyingType == typeof(short)) writer.Write((short)value);
+					else if (underlyingType == typeof(ushort)) writer.Write((ushort)value);
+					else if (underlyingType == typeof(int)) writer.Write((int)value);
+					else if (underlyingType == typeof(uint)) writer.Write((uint)value);
+					else if (underlyingType == typeof(long)) writer.Write((long)value);
+					else if (underlyingType == typeof(ulong)) writer.Write((ulong)value);
+					else throw new InvalidDataException($"The enum {type.Name} has an unspported size.");
+				}
+				else if (type.IsGenericType && (type.GetGenericTypeDefinition() == typeof(List<>)))
+				{
+					var listType = type.GetGenericArguments().FirstOrDefault();
+					if (listType == null)
+						throw new InvalidDataException($"The list {property.MemberInfo.Name} does not have any specified type.");
+
+					foreach (var item in value as IEnumerable)
+					{
+						var oldPosition = (int)writer.BaseStream.Position;
+						WriteObject(writer, item, oldPosition);
+
+						var newPosition = writer.BaseStream.Position;
+						writer.BaseStream.Position += Math.Max(0, property.DataInfo.Stride - (newPosition - oldPosition));
+					}
 				}
 				else throw new NotSupportedException($"Type {type.Name} is not supported by {nameof(ReadObject)}.");
 

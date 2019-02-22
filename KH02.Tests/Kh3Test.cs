@@ -25,7 +25,7 @@ namespace KHSave.Tests
 {
 	public class Kh3Test
 	{
-		private readonly Kh3 save;
+		private Kh3 save;
 
 		public Kh3Test()
 		{
@@ -71,6 +71,41 @@ namespace KHSave.Tests
 			Assert.Equal("ts_02_Lv_Save_01", save.MapSpawn);
 			Assert.Equal("/Script/TresGame.TresPlayerControllerSora", save.PlayerScript);
 			Assert.Equal("/Game/Blueprints/Player/p_ts001/p_ts001_Pawn.p_ts001_Pawn_C", save.PlayerCharacter);
+		}
+
+		[Fact]
+		public void TestWriteWithoutChanges()
+		{
+			var mem = new MemoryStream(9758960);
+			save.Write(mem);
+
+			mem.Position = 0;
+			save = Kh3.Read(mem);
+			TestRead();
+		}
+
+		[Fact]
+		public void TestWriteWithChanges()
+		{
+			save.TotalExp = 1234;
+			save.Difficulty = DifficultyType.Normal;
+			save.GameTime = new TimeSpan(12, 34, 56);
+			save.MapPath = "TestPath";
+			save.Shortcuts[0].Triangle = CommandType.SeaBlizzard;
+
+			var mem = new MemoryStream(9758960);
+			save.Write(mem);
+
+			mem.Position = 0;
+			var save2 = Kh3.Read(mem);
+
+			Assert.Equal(1234, save2.TotalExp);
+			Assert.Equal(DifficultyType.Normal, save2.Difficulty);
+			Assert.Equal(new TimeSpan(12, 34, 56), save2.GameTime);
+			Assert.Equal("TestPath", save2.MapPath);
+			Assert.Equal(CommandType.SeaBlizzard, save2.Shortcuts[0].Triangle);
+
+
 		}
 	}
 }

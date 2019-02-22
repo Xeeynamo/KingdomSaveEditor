@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows;
 using KHSave;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
@@ -11,9 +12,25 @@ namespace KH02.SaveEditor.ViewModels
 {
 	public class MainWindowViewModel : BaseNotifyPropertyChanged
 	{
+		private string fileName;
+
 		public Kh3 Save { get; set; }
 
-		public string Title => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+		private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+
+		private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
+
+		public string Title => string.IsNullOrEmpty(FileName) ? OriginalTitle : $"{Path.GetFileName(FileName)} | {OriginalTitle}";
+
+		public string FileName
+		{
+			get => fileName;
+			set
+			{
+				fileName = value;
+				OnPropertyChanged(nameof(Title));
+			}
+		}
 
 		public RelayCommand OpenCommand { get; }
 		public RelayCommand SaveCommand { get; }
@@ -38,6 +55,40 @@ namespace KH02.SaveEditor.ViewModels
 				}
 			}, x => true);
 
+			SaveCommand = new RelayCommand(o =>
+			{
+				if (!string.IsNullOrEmpty(FileName))
+				{
+					using (var stream = File.Open(FileName, FileMode.Create))
+					{
+						Save.Write(stream);
+					}
+				}
+				else
+				{
+					SaveAsCommand.Execute(o);
+				}
+			}, x => true);
+
+			SaveAsCommand = new RelayCommand(o =>
+			{
+				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts III Save", "bin"));
+				fd.DefaultFileName = FileName;
+
+				if (fd.ShowDialog() == true)
+				{
+					using (var stream = File.Open(fd.FileName, FileMode.Create))
+					{
+						Save.Write(stream);
+					}
+				}
+			}, x => true);
+
+			ExitCommand = new RelayCommand(x =>
+			{
+				Window.Close();
+			}, x => true);
+
 			AboutCommand = new RelayCommand(x =>
 			{
 				var contributors = string.Join("\n", new string[]
@@ -55,6 +106,7 @@ namespace KH02.SaveEditor.ViewModels
 
 		public void Open(string fileName)
 		{
+			FileName = fileName;
 			using (var file = File.Open(fileName, FileMode.Open))
 			{
 				Save = Kh3.Read(file);
