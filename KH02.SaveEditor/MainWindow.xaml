@@ -33,8 +33,23 @@
                 <MenuItem Header="_About" Command="{Binding AboutCommand}"/>
             </MenuItem>
         </Menu>
-        <views:PlayersView
-            Grid.Row="1"
-            DataContext="{Binding Players}"/>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="System">
+                <views:SystemView
+                    Grid.Row="1"
+                    DataContext="{Binding System}"/>
+            </TabItem>
+            <TabItem Header="Inventory">
+                <views:InventoryView
+                    Grid.Row="1"
+                    DataContext="{Binding Inventory}"/>
+            </TabItem>
+            <TabItem Header="Characters">
+                <views:PlayersView
+                    Grid.Row="1"
+                    DataContext="{Binding Players}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

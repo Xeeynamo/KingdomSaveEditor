@@ -24,6 +24,7 @@ namespace KH02.SaveEditor.ViewModels
 
 		public bool IsAdvancedMode { get; set; }
 
+		public InventoryViewModel Inventory { get; set; }
 		public PlayersViewModel Players { get; set; }
 
 		public MainWindowViewModel()
@@ -59,6 +60,7 @@ namespace KH02.SaveEditor.ViewModels
 				Save = Kh3.Read(file);
 			}
 
+			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc.Select(x => new PlayerViewModel(x)));
 
 			OnPropertyChanged(nameof(Players));
