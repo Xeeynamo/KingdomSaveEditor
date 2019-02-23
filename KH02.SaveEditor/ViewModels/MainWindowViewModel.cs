@@ -44,6 +44,7 @@ namespace KH02.SaveEditor.ViewModels
 		public SystemViewModel System { get; set; }
 		public InventoryViewModel Inventory { get; set; }
 		public PlayersViewModel Players { get; set; }
+		public PhotosViewModel Photos { get; set; }
 
 		public MainWindowViewModel()
 		{
@@ -116,10 +117,12 @@ namespace KH02.SaveEditor.ViewModels
 			System = new SystemViewModel(Save);
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc);
+			Photos = new PhotosViewModel(Save.Photos);
 
 			OnPropertyChanged(nameof(System));
 			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Players));
+			OnPropertyChanged(nameof(Photos));
 		}
 	}
 }
