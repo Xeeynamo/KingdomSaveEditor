@@ -13,11 +13,14 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="10 0 0 0" Text="{Binding Description}"/>
-                    <Button Grid.Column="1" Content="Export" Command="{Binding ExportCommand}"/>
+                    <Button Grid.Column="2" Content="Export" Command="{Binding ExportCommand}"/>
+                    <Button Grid.Column="4" Content="Import" Command="{Binding ImportCommand}"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>

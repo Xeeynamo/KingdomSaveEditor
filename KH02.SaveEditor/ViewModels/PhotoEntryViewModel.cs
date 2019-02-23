@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using KH02.SaveEditor.Exceptions;
 using KHSave.Models;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
@@ -23,6 +24,8 @@ namespace KH02.SaveEditor.ViewModels
 
 		public RelayCommand ExportCommand { get; }
 
+		public RelayCommand ImportCommand { get; }
+
 		public string Description => $"Photo #{Index}";
 
 		public PhotoEntryViewModel(PhotoEntry entry, int index)
@@ -30,17 +33,11 @@ namespace KH02.SaveEditor.ViewModels
 			_entry = entry;
 			Index = index + 1;
 
-			if (_entry.Length > 0)
-			{
-				using (var memStream = new MemoryStream(_entry.Data))
-				{
-					Image = BitmapFrame.Create(memStream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-				}
-			}
+			CreateThumbnailImage();
 
 			ExportCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts III Save", "bin"));
+				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Jpeg image", "jpg"));
 				fd.DefaultFileName = $"Kingdom Hearts III - Photo {Index}.jpg";
 
 				if (fd.ShowDialog() == true)
@@ -56,6 +53,30 @@ namespace KH02.SaveEditor.ViewModels
 					}
 				}
 			}, x => true);
+
+			ImportCommand = new RelayCommand(o =>
+			{
+				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Open, ("Jpeg image", "jpg"));
+				fd.DefaultFileName = $"Kingdom Hearts III - Photo {Index}.jpg";
+
+				if (fd.ShowDialog() == true)
+				{
+					try
+					{
+						Import(fd.FileName);
+					}
+					catch (ImageTooLargeException e)
+					{
+						MessageBox.Show(Window, e.Message, "Error", MessageBoxButton.OK,
+							MessageBoxImage.Error);
+					}
+					catch (Exception e)
+					{
+						MessageBox.Show(Window, "Unable to export the photo", "Error", MessageBoxButton.OK,
+							MessageBoxImage.Error);
+					}
+				}
+			}, x => true);
 		}
 
 		public void Export(string fileName)
@@ -63,7 +84,20 @@ namespace KH02.SaveEditor.ViewModels
 			Directory.CreateDirectory(Path.GetDirectoryName(fileName));
 			using (var stream = File.Open(fileName, FileMode.Create))
 			{
-				stream.Write(_entry.Data, 0, _entry.Data.Length);
+				stream.Write(_entry.Data, 0, _entry.Length);
+			}
+		}
+
+		public void Import(string fileName)
+		{
+			using (var stream = File.Open(fileName, FileMode.Open))
+			{
+				if (stream.Length > _entry.Data.Length)
+					throw new ImageTooLargeException(_entry.Data.Length);
+
+				_entry.Data = new byte[_entry.Data.Length];
+				_entry.Length = (int)stream.Length;
+				stream.Read(_entry.Data, 0, _entry.Data.Length);
 			}
 		}
 
@@ -71,6 +105,23 @@ namespace KH02.SaveEditor.ViewModels
 		{
 			_entry.Length = 0;
 			_entry.Data = new byte[_entry.Data.Length];
+			CreateThumbnailImage();
+		}
+
+		private void CreateThumbnailImage()
+		{
+			if (_entry.Length > 0)
+			{
+				using (var memStream = new MemoryStream(_entry.Data))
+				{
+					Image = BitmapFrame.Create(memStream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+				}
+			}
+			else
+			{
+				Image = null;
+			}
+
 			OnPropertyChanged(nameof(Image));
 		}
 	}
