@@ -68,6 +68,12 @@ namespace KH02.SaveEditor.ViewModels
 			set => save.Level = value;
 		}
 
+		public bool SaveClear
+		{
+			get => save.SaveClear;
+			set => save.SaveClear = value;
+		}
+
 		public short SavesCount
 		{
 			get => save.SavesCount;

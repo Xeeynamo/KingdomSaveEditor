@@ -103,11 +103,15 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Save count"/>
-                <TextBox Text="{Binding SavesCount, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text=""/>
+                <CheckBox
+                    Content="Save clear"
+                    IsChecked="{Binding SaveClear}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
+                <TextBlock Text="Save count"/>
+                <TextBox Text="{Binding SavesCount, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
 

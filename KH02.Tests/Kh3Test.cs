@@ -45,7 +45,7 @@ namespace KHSave.Tests
 			Assert.Equal(689472, save.TotalExp);
 			Assert.Equal(31886, save.Munny);
 			Assert.Equal(63, save.Level);
-            //Assert.True(save.SaveClear); // Broken! This is not returning true
+            Assert.True(save.SaveClear);
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
 			Assert.Equal(WeaponType.UltimaWeapon, save.Pc[0].Weapons[0].WeaponId);
