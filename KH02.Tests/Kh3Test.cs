@@ -51,6 +51,8 @@ namespace KHSave.Tests
 			Assert.Equal(WeaponType.UltimaWeapon, save.Pc[0].Weapons[0].WeaponId);
 			Assert.Equal(WeaponType.Starlight, save.Pc[0].Weapons[1].WeaponId);
 			Assert.Equal(WeaponType.HunnySpout, save.Pc[0].Weapons[2].WeaponId);
+			Assert.Equal(ArmorType.CosmicChain, save.Pc[1].Armors[0].ArmorId);
+			Assert.Equal(AccessoryType.FlanniversaryBadge, save.Pc[0].Accessories[1].AccessoryId);
 			Assert.Equal(0x444, save.Pc[0].Abilities[0].Data);
 			Assert.Equal(0x444, save.Pc[0].Abilities[save.Pc[0].Abilities.Count - 1].Data);
 			

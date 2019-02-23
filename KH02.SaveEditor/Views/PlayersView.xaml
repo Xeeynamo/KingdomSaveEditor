@@ -20,8 +20,10 @@
             SelectedItem="{Binding SelectedItem}"
             DisplayMemberPath="Name"
             />
-        <local:PlayerView
-            Grid.Column="2"
-            DataContext="{Binding SelectedItem}"/>
+        <ScrollViewer
+            Grid.Column="2">
+            <local:PlayerView
+                DataContext="{Binding SelectedItem}"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>

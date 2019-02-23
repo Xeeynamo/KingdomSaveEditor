@@ -35,4 +35,22 @@ namespace KHSave.Models
 			set => Id = (byte)value;
 		}
 	}
+
+	public class ArmorEquipmentItem : EquipmentItem
+	{
+		public ArmorType ArmorId
+		{
+			get => (ArmorType)Id;
+			set => Id = (byte)value;
+		}
+	}
+
+	public class AccessoryEquipmentItem : EquipmentItem
+	{
+		public AccessoryType AccessoryId
+		{
+			get => (AccessoryType)Id;
+			set => Id = (byte)value;
+		}
+	}
 }
