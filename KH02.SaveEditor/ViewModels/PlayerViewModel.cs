@@ -18,17 +18,15 @@ namespace KH02.SaveEditor.ViewModels
 			this.index = index;
 
 			WeaponType = new GenericEnumModel<WeaponType>();
-			ArmorType = new GenericEnumModel<ArmorType>();
-			AccessoryType = new GenericEnumModel<AccessoryType>();
-			ItemType = new GenericEnumModel<ConsumableType>();
+
+			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
+			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
+			Consumables = new EquipmentItemsViewModel<ConsumableType>(playableCharacter.Items);
 		}
 
 		public string Name => ((PlayableCharacterType)index).ToString();
 
 		public GenericEnumModel<WeaponType> WeaponType { get; }
-		public GenericEnumModel<ArmorType> ArmorType { get; }
-		public GenericEnumModel<AccessoryType> AccessoryType { get; }
-		public GenericEnumModel<ConsumableType> ItemType { get; }
 
 		public byte AtkBoost
 		{
@@ -131,131 +129,9 @@ namespace KH02.SaveEditor.ViewModels
 			}
 		}
 
-		public ArmorType Armor1
-		{
-			get => playableCharacter.Armors[0].ArmorId;
-			set => playableCharacter.Armors[0].ArmorId = value;
-		}
-
-		public ArmorType Armor2
-		{
-			get => playableCharacter.Armors[1].ArmorId;
-			set => playableCharacter.Armors[1].ArmorId = value;
-		}
-		public ArmorType Armor3
-		{
-			get => playableCharacter.Armors[2].ArmorId;
-			set => playableCharacter.Armors[2].ArmorId = value;
-		}
-		public ArmorType Armor4
-		{
-			get => playableCharacter.Armors[3].ArmorId;
-			set => playableCharacter.Armors[3].ArmorId = value;
-		}
-		public ArmorType Armor5
-		{
-			get => playableCharacter.Armors[4].ArmorId;
-			set => playableCharacter.Armors[4].ArmorId = value;
-		}
-		public ArmorType Armor6
-		{
-			get => playableCharacter.Armors[5].ArmorId;
-			set => playableCharacter.Armors[5].ArmorId = value;
-		}
-		public ArmorType Armor7
-		{
-			get => playableCharacter.Armors[6].ArmorId;
-			set => playableCharacter.Armors[6].ArmorId = value;
-		}
-		public ArmorType Armor8
-		{
-			get => playableCharacter.Armors[7].ArmorId;
-			set => playableCharacter.Armors[7].ArmorId = value;
-		}
-
-		public AccessoryType Accessory1
-		{
-			get => playableCharacter.Accessories[0].AccessoryId;
-			set => playableCharacter.Accessories[0].AccessoryId = value;
-		}
-
-		public AccessoryType Accessory2
-		{
-			get => playableCharacter.Accessories[1].AccessoryId;
-			set => playableCharacter.Accessories[1].AccessoryId = value;
-		}
-		public AccessoryType Accessory3
-		{
-			get => playableCharacter.Accessories[2].AccessoryId;
-			set => playableCharacter.Accessories[2].AccessoryId = value;
-		}
-		public AccessoryType Accessory4
-		{
-			get => playableCharacter.Accessories[3].AccessoryId;
-			set => playableCharacter.Accessories[3].AccessoryId = value;
-		}
-		public AccessoryType Accessory5
-		{
-			get => playableCharacter.Accessories[4].AccessoryId;
-			set => playableCharacter.Accessories[4].AccessoryId = value;
-		}
-		public AccessoryType Accessory6
-		{
-			get => playableCharacter.Accessories[5].AccessoryId;
-			set => playableCharacter.Accessories[5].AccessoryId = value;
-		}
-		public AccessoryType Accessory7
-		{
-			get => playableCharacter.Accessories[6].AccessoryId;
-			set => playableCharacter.Accessories[6].AccessoryId = value;
-		}
-		public AccessoryType Accessory8
-		{
-			get => playableCharacter.Accessories[7].AccessoryId;
-			set => playableCharacter.Accessories[7].AccessoryId = value;
-		}
-
-		public ConsumableType Item1
-		{
-			get => playableCharacter.Items[0].ConsumableId;
-			set => playableCharacter.Items[0].ConsumableId = value;
-		}
-
-		public ConsumableType Item2
-		{
-			get => playableCharacter.Items[1].ConsumableId;
-			set => playableCharacter.Items[1].ConsumableId = value;
-		}
-		public ConsumableType Item3
-		{
-			get => playableCharacter.Items[2].ConsumableId;
-			set => playableCharacter.Items[2].ConsumableId = value;
-		}
-		public ConsumableType Item4
-		{
-			get => playableCharacter.Items[3].ConsumableId;
-			set => playableCharacter.Items[3].ConsumableId = value;
-		}
-		public ConsumableType Item5
-		{
-			get => playableCharacter.Items[4].ConsumableId;
-			set => playableCharacter.Items[4].ConsumableId = value;
-		}
-		public ConsumableType Item6
-		{
-			get => playableCharacter.Items[5].ConsumableId;
-			set => playableCharacter.Items[5].ConsumableId = value;
-		}
-		public ConsumableType Item7
-		{
-			get => playableCharacter.Items[6].ConsumableId;
-			set => playableCharacter.Items[6].ConsumableId = value;
-		}
-		public ConsumableType Item8
-		{
-			get => playableCharacter.Items[7].ConsumableId;
-			set => playableCharacter.Items[7].ConsumableId = value;
-		}
+		public EquipmentItemsViewModel<ArmorType> Armors { get; }
+		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
+		public EquipmentItemsViewModel<ConsumableType> Consumables { get; }
 
 		public IEnumerable<Ability> Abilities
 		{

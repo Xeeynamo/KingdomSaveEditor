@@ -50,6 +50,8 @@
     </ApplicationDefinition>
     <Compile Include="Exceptions\ImageTooLargeException.cs" />
     <Compile Include="Models\GenericEnumModel.cs" />
+    <Compile Include="ViewModels\EquipmentItemEntryViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
     <Compile Include="ViewModels\InventoryItemViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -58,6 +60,12 @@
     <Compile Include="ViewModels\PlayersViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModel.cs" />
+    <Compile Include="Views\EquipmentItemEntryView.xaml.cs">
+      <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EquipmentItemsView.xaml.cs">
+      <DependentUpon>EquipmentItemsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +93,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EquipmentItemEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
