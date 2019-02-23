@@ -20,6 +20,7 @@ namespace KH02.SaveEditor.ViewModels
 			WeaponType = new GenericEnumModel<WeaponType>();
 			ArmorType = new GenericEnumModel<ArmorType>();
 			AccessoryType = new GenericEnumModel<AccessoryType>();
+			ItemType = new GenericEnumModel<ConsumableType>();
 		}
 
 		public string Name => ((PlayableCharacterType)index).ToString();
@@ -27,6 +28,7 @@ namespace KH02.SaveEditor.ViewModels
 		public GenericEnumModel<WeaponType> WeaponType { get; }
 		public GenericEnumModel<ArmorType> ArmorType { get; }
 		public GenericEnumModel<AccessoryType> AccessoryType { get; }
+		public GenericEnumModel<ConsumableType> ItemType { get; }
 
 		public byte AtkBoost
 		{
@@ -211,6 +213,48 @@ namespace KH02.SaveEditor.ViewModels
 		{
 			get => playableCharacter.Accessories[7].AccessoryId;
 			set => playableCharacter.Accessories[7].AccessoryId = value;
+		}
+
+		public ConsumableType Item1
+		{
+			get => playableCharacter.Items[0].ConsumableId;
+			set => playableCharacter.Items[0].ConsumableId = value;
+		}
+
+		public ConsumableType Item2
+		{
+			get => playableCharacter.Items[1].ConsumableId;
+			set => playableCharacter.Items[1].ConsumableId = value;
+		}
+		public ConsumableType Item3
+		{
+			get => playableCharacter.Items[2].ConsumableId;
+			set => playableCharacter.Items[2].ConsumableId = value;
+		}
+		public ConsumableType Item4
+		{
+			get => playableCharacter.Items[3].ConsumableId;
+			set => playableCharacter.Items[3].ConsumableId = value;
+		}
+		public ConsumableType Item5
+		{
+			get => playableCharacter.Items[4].ConsumableId;
+			set => playableCharacter.Items[4].ConsumableId = value;
+		}
+		public ConsumableType Item6
+		{
+			get => playableCharacter.Items[5].ConsumableId;
+			set => playableCharacter.Items[5].ConsumableId = value;
+		}
+		public ConsumableType Item7
+		{
+			get => playableCharacter.Items[6].ConsumableId;
+			set => playableCharacter.Items[6].ConsumableId = value;
+		}
+		public ConsumableType Item8
+		{
+			get => playableCharacter.Items[7].ConsumableId;
+			set => playableCharacter.Items[7].ConsumableId = value;
 		}
 
 		public IEnumerable<Ability> Abilities

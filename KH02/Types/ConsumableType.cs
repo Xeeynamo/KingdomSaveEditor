@@ -17,49 +17,22 @@
 */
 
 using KHSave.Attributes;
-using KHSave.Types;
 
-namespace KHSave.Models
+namespace KHSave.Types
 {
-	public class EquipmentItem
+	public enum ConsumableType : byte
 	{
-		[Data] public byte Id { get; set; }
-		[Data] public ItemType ItemType { get; set; }
-	}
-
-	public class WeaponEquipmentItem : EquipmentItem
-	{
-		public WeaponType WeaponId
-		{
-			get => (WeaponType)Id;
-			set => Id = (byte)value;
-		}
-	}
-
-	public class ArmorEquipmentItem : EquipmentItem
-	{
-		public ArmorType ArmorId
-		{
-			get => (ArmorType)Id;
-			set => Id = (byte)value;
-		}
-	}
-
-	public class AccessoryEquipmentItem : EquipmentItem
-	{
-		public AccessoryType AccessoryId
-		{
-			get => (AccessoryType)Id;
-			set => Id = (byte)value;
-		}
-	}
-
-	public class ConsumableEquipmentItem : EquipmentItem
-	{
-		public ConsumableType ConsumableId
-		{
-			get => (ConsumableType)Id;
-			set => Id = (byte)value;
-		}
+		[Consumable("Empty")] Empty,
+		[Consumable("Potion")] Potion,
+		[Consumable("Hi-Potion")] HiPotion,
+		[Consumable("Mega-Potion")] MegaPotion,
+		[Consumable("Ether")] Ether,
+		[Consumable("Mega-Ether")] MegaEther,
+		[Consumable("Elixir")] Elixir,
+		[Consumable("Megalixir")] Megalixir,
+		[Consumable("Refocuser")] Refocuser,
+		[Consumable("Hi-Refocuser")] HiRefocuser,
+		[Consumable("Panacea")] Panacea,
+		[Consumable("Hi-Ether")] HiEther,
 	}
 }

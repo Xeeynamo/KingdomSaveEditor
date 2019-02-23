@@ -290,6 +290,85 @@
             </StackPanel>
         </Grid>
 
+        <TextBlock Text="Items"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item1}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="0">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item2}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item3}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="1">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item4}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="2">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item5}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="2">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item6}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="3">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item7}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="3">
+                <ComboBox
+                    ItemsSource="{Binding ItemType}"
+                    SelectedValue="{Binding Item8}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
         <TextBlock Text="Abilities"/>
         <ComboBox ItemsSource="{Binding Abilities}"/>
     </StackPanel>
