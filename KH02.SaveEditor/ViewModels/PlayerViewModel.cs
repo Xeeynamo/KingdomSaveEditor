@@ -18,6 +18,9 @@ namespace KH02.SaveEditor.ViewModels
 			this.index = index;
 
 			WeaponType = new GenericEnumModel<WeaponType>();
+			AiCombatStyleType = new GenericEnumModel<AiCombatStyleType>();
+			AiAbilityType = new GenericEnumModel<AiAbilityType>();
+			AiRecoveryType = new GenericEnumModel<AiRecoveryType>();
 
 			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
 			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
@@ -27,6 +30,9 @@ namespace KH02.SaveEditor.ViewModels
 		public string Name => ((PlayableCharacterType)index).ToString();
 
 		public GenericEnumModel<WeaponType> WeaponType { get; }
+		public GenericEnumModel<AiCombatStyleType> AiCombatStyleType { get; }
+		public GenericEnumModel<AiAbilityType> AiAbilityType { get; }
+		public GenericEnumModel<AiRecoveryType> AiRecoveryType { get; }
 
 		public byte AtkBoost
 		{
@@ -132,6 +138,25 @@ namespace KH02.SaveEditor.ViewModels
 		public EquipmentItemsViewModel<ArmorType> Armors { get; }
 		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
 		public EquipmentItemsViewModel<ConsumableType> Consumables { get; }
+
+		public AiCombatStyleType AiCombatStyle
+		{
+			get => playableCharacter.Ai.CombatStyle;
+			set => playableCharacter.Ai.CombatStyle = value;
+		}
+
+		public AiAbilityType AiAbility
+		{
+			get => playableCharacter.Ai.Abilitiy;
+			set => playableCharacter.Ai.Abilitiy = value;
+		}
+
+		public AiRecoveryType AiRecovery
+		{
+			get => playableCharacter.Ai.Recovery;
+			set => playableCharacter.Ai.Recovery = value;
+		}
+
 
 		public IEnumerable<Ability> Abilities
 		{
