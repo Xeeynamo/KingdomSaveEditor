@@ -55,6 +55,10 @@ namespace KHSave.Tests
 			Assert.Equal(AccessoryType.FlanniversaryBadge, save.Pc[0].Accessories[1].AccessoryId);
 			Assert.Equal(0x444, save.Pc[0].Abilities[0].Data);
 			Assert.Equal(0x444, save.Pc[0].Abilities[save.Pc[0].Abilities.Count - 1].Data);
+			Assert.Equal(AiCombatStyleType.StickBySora, save.Pc[1].Ai.CombatStyle);
+			Assert.Equal(AiAbilityType.GoWild, save.Pc[1].Ai.Abilitiy);
+			Assert.Equal(AiRecoveryType.UseInEmergencies, save.Pc[1].Ai.Recovery);
+			Assert.Equal(0b1111, save.Pc[1].Ai.RecoveryTargets);
 			
 			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
 			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);

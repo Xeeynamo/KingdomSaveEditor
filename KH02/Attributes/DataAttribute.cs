@@ -21,7 +21,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace KHSave.Attributes
 {
@@ -115,7 +114,10 @@ namespace KHSave.Attributes
 
 
 				}
-				else throw new NotSupportedException($"Type {type.Name} is not supported by {nameof(ReadObject)}.");
+				else
+				{
+					value = ReadObject(reader, Activator.CreateInstance(type), (int)reader.BaseStream.Position);
+				}
 
 				property.MemberInfo.SetValue(obj, value);
 			}
@@ -187,7 +189,10 @@ namespace KHSave.Attributes
 						writer.BaseStream.Position += Math.Max(0, property.DataInfo.Stride - (newPosition - oldPosition));
 					}
 				}
-				else throw new NotSupportedException($"Type {type.Name} is not supported by {nameof(ReadObject)}.");
+				else
+				{
+					WriteObject(writer, value, (int)writer.BaseStream.Position);
+				}
 
 				property.MemberInfo.SetValue(obj, value);
 			}
