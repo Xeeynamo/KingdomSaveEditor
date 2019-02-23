@@ -52,6 +52,7 @@
     <Compile Include="ViewModels\InventoryItemViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\PhotoEntryViewModel.cs" />
     <Compile Include="ViewModels\PhotosViewModel.cs" />
     <Compile Include="ViewModels\PlayersViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />

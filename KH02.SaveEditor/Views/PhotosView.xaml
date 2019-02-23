@@ -24,7 +24,27 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="{Binding Info}"/>
+            <Button Grid.Column="2" Content="Export all" Command="{Binding ExportAllCommand}"/>
+            <Button Grid.Column="4" Content="Delete all" Command="{Binding DeleteAllCommand}"/>
+        </Grid>
+
         <ListView
+            Grid.Row="1"
             Name="MovieListView"
             ItemTemplate="{StaticResource PhotoTemplate}"
             ItemsSource="{Binding Items}"
