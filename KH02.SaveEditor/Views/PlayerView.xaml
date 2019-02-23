@@ -7,51 +7,131 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Background="White">
-        <TextBlock Text="HP"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Hp}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock Text="MP"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Mp}"/>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="HP"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding Hp}"/>
+            </StackPanel>
 
-        <TextBlock Text="Focus"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Focus}"/>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="MP"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding Mp}"/>
+            </StackPanel>
+        </Grid>
 
-        <TextBlock Text="Attack boost"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding AtkBoost}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Magic boost"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding MagBoost}"/>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Focus"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding Focus}"/>
+            </StackPanel>
 
-        <TextBlock Text="Defense boost"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding DefBoost}"/>
+            <StackPanel Grid.Column="2">
+            </StackPanel>
+        </Grid>
 
-        <TextBlock Text="AP boost"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding ApBoost}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Attack boost"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding AtkBoost}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Magic boost"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding MagBoost}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Defense boost"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding DefBoost}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="AP boost"/>
+                <TextBox
+                    Grid.Column="0" Margin="0 0 0 5"
+                    Text="{Binding ApBoost}"/>
+            </StackPanel>
+        </Grid>
 
         <TextBlock Text="Weapons"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Path=Weapon1.Id, StringFormat=ID {0:X03}}"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Weapon2.Id, StringFormat=ID {0:X03}}"/>
-        <TextBox
-            Grid.Column="0" Margin="0 0 0 5"
-            Text="{Binding Weapon3.Id, StringFormat=ID {0:X03}}"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBox Margin="0 0 0 5"
+                    Text="{Binding Weapon1Id, StringFormat=ID {0:X03}}"/>
+                <ComboBox
+                    ItemsSource="{Binding WeaponType}"
+                    SelectedValue="{Binding Weapon1}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBox Margin="0 0 0 5"
+                    Text="{Binding Weapon2Id, StringFormat=ID {0:X03}}"/>
+                <ComboBox
+                    ItemsSource="{Binding WeaponType}"
+                    SelectedValue="{Binding Weapon2}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="4">
+                <TextBox Margin="0 0 0 5"
+                    Text="{Binding Weapon3Id, StringFormat=ID {0:X03}}"/>
+                <ComboBox
+                    ItemsSource="{Binding WeaponType}"
+                    SelectedValue="{Binding Weapon3}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
 
         <TextBlock Text="Abilities"/>
         <ComboBox ItemsSource="{Binding Abilities}"/>

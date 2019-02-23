@@ -1,6 +1,8 @@
 ﻿using KHSave;
 using System.Collections.Generic;
+using KH02.SaveEditor.Models;
 using KHSave.Models;
+using KHSave.Types;
 using Xe.Tools;
 
 namespace KH02.SaveEditor.ViewModels
@@ -8,11 +10,19 @@ namespace KH02.SaveEditor.ViewModels
 	public class PlayerViewModel : BaseNotifyPropertyChanged
 	{
 		private readonly PlayableCharacter playableCharacter;
+		private readonly int index;
 
-		public PlayerViewModel(PlayableCharacter playableCharacter)
+		public PlayerViewModel(PlayableCharacter playableCharacter, int index)
 		{
 			this.playableCharacter = playableCharacter;
+			this.index = index;
+
+			WeaponType = new GenericEnumModel<WeaponType>();
 		}
+
+		public string Name => ((PlayableCharacterType)index).ToString();
+
+		public GenericEnumModel<WeaponType> WeaponType { get; }
 
 		public byte AtkBoost
 		{
@@ -55,19 +65,64 @@ namespace KH02.SaveEditor.ViewModels
 			set => playableCharacter.Focus = value;
 		}
 
-		public Item Weapon1
+		public int Weapon1Id
 		{
-			get => playableCharacter.Weapons[0];
+			get => (int)playableCharacter.Weapons[0].Id;
+			set
+			{
+				playableCharacter.Weapons[0].Id = (WeaponType)value;
+				OnPropertyChanged(nameof(Weapon1));
+			}
 		}
 
-		public Item Weapon2
+		public WeaponType Weapon1
 		{
-			get => playableCharacter.Weapons[1];
+			get => playableCharacter.Weapons[0].Id;
+			set
+			{
+				playableCharacter.Weapons[0].Id = value;
+				OnPropertyChanged(nameof(Weapon1Id));
+			}
 		}
 
-		public Item Weapon3
+		public int Weapon2Id
 		{
-			get => playableCharacter.Weapons[2];
+			get => (int)playableCharacter.Weapons[1].Id;
+			set
+			{
+				playableCharacter.Weapons[1].Id = (WeaponType)value;
+				OnPropertyChanged(nameof(Weapon2));
+			}
+		}
+
+		public WeaponType Weapon2
+		{
+			get => playableCharacter.Weapons[1].Id;
+			set
+			{
+				playableCharacter.Weapons[1].Id = value;
+				OnPropertyChanged(nameof(Weapon2Id));
+			}
+		}
+
+		public int Weapon3Id
+		{
+			get => (int)playableCharacter.Weapons[2].Id;
+			set
+			{
+				playableCharacter.Weapons[2].Id = (WeaponType)value;
+				OnPropertyChanged(nameof(Weapon3));
+			}
+		}
+
+		public WeaponType Weapon3
+		{
+			get => playableCharacter.Weapons[2].Id;
+			set
+			{
+				playableCharacter.Weapons[2].Id = value;
+				OnPropertyChanged(nameof(Weapon3Id));
+			}
 		}
 
 		public IEnumerable<Ability> Abilities

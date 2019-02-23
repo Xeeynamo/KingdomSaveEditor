@@ -18,7 +18,7 @@
             ItemsSource="{Binding Items}"
             SelectedIndex="{Binding SelectedIndex}"
             SelectedItem="{Binding SelectedItem}"
-            DisplayMemberPath="Text"
+            DisplayMemberPath="Name"
             />
         <local:PlayerView
             Grid.Column="2"

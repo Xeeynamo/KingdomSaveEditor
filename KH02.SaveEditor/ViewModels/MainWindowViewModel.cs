@@ -115,7 +115,7 @@ namespace KH02.SaveEditor.ViewModels
 
 			System = new SystemViewModel(Save);
 			Inventory = new InventoryViewModel(Save.Inventory);
-			Players = new PlayersViewModel(Save.Pc.Select(x => new PlayerViewModel(x)));
+			Players = new PlayersViewModel(Save.Pc);
 
 			OnPropertyChanged(nameof(System));
 			OnPropertyChanged(nameof(Inventory));

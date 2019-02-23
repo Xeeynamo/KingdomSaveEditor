@@ -16,13 +16,25 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Attributes;
-using KHSave.Types;
-
-namespace KHSave.Models
+namespace KHSave.Types
 {
-	public class Item
+	public enum PlayableCharacterType
 	{
-		[Data] public WeaponType Id { get; set; }
+		Sora,
+		Donald,
+		Goofy,
+		Hercules,
+		Woody,
+		Buzz,
+		Rapunzel,
+		Flinn,
+		Sulley,
+		Mike,
+		Marshmallow,
+		Baymax,
+		Jack,
+		Riku,
+		Mickey,
+		Unused
 	}
 }
