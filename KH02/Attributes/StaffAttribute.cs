@@ -16,18 +16,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
 namespace KHSave.Attributes
 {
-	public class WorldAttribute : InfoAttribute
+	public class StaffAttribute : InfoAttribute
 	{
-		public string Id { get; set; }
-
-		public WorldAttribute(string id, string name) :
+		public StaffAttribute(string name) :
 			base(name)
-		{
-			Id = id;
-		}
+		{ }
 	}
 }

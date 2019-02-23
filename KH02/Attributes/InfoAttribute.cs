@@ -17,6 +17,7 @@
 */
 
 using System;
+using System.Linq;
 
 namespace KHSave.Attributes
 {
@@ -27,6 +28,23 @@ namespace KHSave.Attributes
 		public InfoAttribute(string info)
 		{
 			Info = info;
+		}
+
+		public static string GetInfo(object value)
+		{
+			var memberValue = value.ToString();
+			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
+
+			if (memberInfo != null)
+			{
+				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
+					.FirstOrDefault() is InfoAttribute attribute)
+				{
+					return attribute.Info;
+				}
+			}
+
+			return memberValue;
 		}
 	}
 }

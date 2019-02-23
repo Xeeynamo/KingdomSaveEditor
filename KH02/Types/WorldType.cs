@@ -22,49 +22,49 @@ namespace KHSave.Types
 {
 	public enum WorldType : byte
 	{
-		[WorldInfo("bt", "Scala Ad Caelum")]
+		[World("bt", "Scala Ad Caelum")]
 		ScalaAdCaelum = 1,
-
-		[WorldInfo("dw", "Dark World")]
+		
+		[World("dw", "Dark World")]
 		DarkWorld = 3,
 
-		[WorldInfo("he", "Olympus")]
+		[World("he", "Olympus")]
 		Olympus = 4,
 
-		[WorldInfo("ts", "Toy Box")]
+		[World("ts", "Toy Box")]
 		ToyBox = 5,
 
-		[WorldInfo("ra", "Kindom of Corona")]
+		[World("ra", "Kindom of Corona")]
 		KingdomOfCorona = 7,
 
-		[WorldInfo("fz", "Arendelle")]
+		[World("fz", "Arendelle")]
 		Arendelle = 8,
 
-		[WorldInfo("ca", "Caribbean")]
+		[World("ca", "Caribbean")]
 		Caribbean = 9,
 
-		[WorldInfo("po", "100 Acre Wood")]
+		[World("po", "100 Acre Wood")]
 		AcreWood = 10,
 
-		[WorldInfo("mi", "Monstropolis")]
+		[World("mi", "Monstropolis")]
 		Monstropolis = 11,
 
-		[WorldInfo("tt", "Twilight Town")]
+		[World("tt", "Twilight Town")]
 		TwilightTown = 12,
 
-		[WorldInfo("??", "The Mysterious Tower")]
+		[World("??", "The Mysterious Tower")]
 		MysteriousTower = 13,
 
-		[WorldInfo("kg", "Keyblade Graveyard")]
+		[World("kg", "Keyblade Graveyard")]
 		KeybladeGraveyard = 14,
 
-		[WorldInfo("bx", "San Fransokyo")]
+		[World("bx", "San Fransokyo")]
 		SanFransokyo = 19,
 
-		[WorldInfo("dw", "The Final World")]
+		[World("dw", "The Final World")]
 		FinalWorld = 22,
 
-		[WorldInfo("dp", "Land of Departure")]
+		[World("dp", "Land of Departure")]
 		LandOfDeparture = 25
 	}
 }
