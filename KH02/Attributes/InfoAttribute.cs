@@ -38,7 +38,7 @@ namespace KHSave.Attributes
 			if (memberInfo != null)
 			{
 				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
-					.FirstOrDefault() is InfoAttribute attribute)
+					.FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
 				{
 					return attribute.Info;
 				}
