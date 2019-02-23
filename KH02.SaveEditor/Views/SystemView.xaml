@@ -21,6 +21,13 @@
             DisplayMemberPath="Name"
             SelectedValuePath="Value"/>
 
+        <TextBlock Text="Location"/>
+        <ComboBox
+            ItemsSource="{Binding LocationType}"
+            SelectedValue="{Binding Location}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
         <TextBlock Text="Character icon"/>
         <ComboBox
             ItemsSource="{Binding CharacterIconType}"

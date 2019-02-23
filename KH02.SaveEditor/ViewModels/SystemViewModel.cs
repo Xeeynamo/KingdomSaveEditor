@@ -15,11 +15,13 @@ namespace KH02.SaveEditor.ViewModels
 			this.save = save;
 			DifficultyType = new GenericEnumModel<DifficultyType>();
 			WorldIconType = new GenericEnumModel<WorldType>();
+			LocationType = new GenericEnumModel<LocationType>();
 			CharacterIconType = new GenericEnumModel<CharacterIconType>();
 		}
 
 		public GenericEnumModel<DifficultyType> DifficultyType { get; }
 		public GenericEnumModel<WorldType> WorldIconType { get; }
+		public GenericEnumModel<LocationType> LocationType { get; }
 		public GenericEnumModel<CharacterIconType> CharacterIconType { get; }
 
 		public DifficultyType Difficulty
@@ -32,6 +34,12 @@ namespace KH02.SaveEditor.ViewModels
 		{
 			get => save.WorldLogo;
 			set => save.WorldLogo = value;
+		}
+
+		public LocationType Location
+		{
+			get => save.LocationName;
+			set => save.LocationName = value;
 		}
 
 		public CharacterIconType CharacterIcon
