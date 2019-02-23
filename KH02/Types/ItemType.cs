@@ -24,7 +24,7 @@ namespace KHSave.Types
 		Type1 = 1,
 		Type2 = 2,
 		Weapon = 3,
-		Type4 = 4,
-		Type5 = 5
+		Armor = 4,
+		Accessory = 5
 	}
 }

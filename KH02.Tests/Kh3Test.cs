@@ -48,9 +48,9 @@ namespace KHSave.Tests
             //Assert.True(save.SaveClear); // Broken! This is not returning true
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
-			Assert.Equal(WeaponType.UltimaWeapon, save.Pc[0].Weapons[0].Id);
-			Assert.Equal(WeaponType.Starlight, save.Pc[0].Weapons[1].Id);
-			Assert.Equal(WeaponType.HunnySpout, save.Pc[0].Weapons[2].Id);
+			Assert.Equal(WeaponType.UltimaWeapon, save.Pc[0].Weapons[0].WeaponId);
+			Assert.Equal(WeaponType.Starlight, save.Pc[0].Weapons[1].WeaponId);
+			Assert.Equal(WeaponType.HunnySpout, save.Pc[0].Weapons[2].WeaponId);
 			Assert.Equal(0x444, save.Pc[0].Abilities[0].Data);
 			Assert.Equal(0x444, save.Pc[0].Abilities[save.Pc[0].Abilities.Count - 1].Data);
 			

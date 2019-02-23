@@ -21,8 +21,18 @@ using KHSave.Types;
 
 namespace KHSave.Models
 {
-	public class Item
+	public class EquipmentItem
 	{
-		[Data] public WeaponType Id { get; set; }
+		[Data] public byte Id { get; set; }
+		[Data] public ItemType ItemType { get; set; }
+	}
+
+	public class WeaponEquipmentItem : EquipmentItem
+	{
+		public WeaponType WeaponId
+		{
+			get => (WeaponType)Id;
+			set => Id = (byte)value;
+		}
 	}
 }

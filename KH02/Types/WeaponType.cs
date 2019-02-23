@@ -20,9 +20,9 @@ using KHSave.Attributes;
 
 namespace KHSave.Types
 {
-	public enum WeaponType
+	public enum WeaponType : byte
 	{
-		[Keyblade("Kingdom Key")] KingdomKey = 0x301,
+		[Keyblade("Kingdom Key")] KingdomKey = 0x01,
 		[Keyblade("Hero's Origin")] HeroOrigin,
 		[Keyblade("Shooting Star")] ShootingStar,
 		[Keyblade("Favorite Deputy")] FavoriteDeputy,
@@ -42,9 +42,9 @@ namespace KHSave.Types
 		[Keyblade("Starlight")] Starlight,
 		[Keyblade("Dawn Till Dusk")] DawnTillDusk,
 
-		[Weapon("Kingdom Key D")] KingdomKeyD = 0x342,
-		[Weapon("Kingdom Key D+")] KingdomKeyDPlus = 0x343,
-		[Weapon("Heart of Hero")] HeartOfHero = 0x345,
+		[Weapon("Kingdom Key D")] KingdomKeyD = 0x42,
+		[Weapon("Kingdom Key D+")] KingdomKeyDPlus = 0x43,
+		[Weapon("Heart of Hero")] HeartOfHero = 0x45,
 		[Weapon("Cowboy's Pride")] CowboyPride,
 		[Weapon("Space Ranger Suit")] SpaceRangerSuit,
 		[Weapon("Golden Hair")] GoldenHair,

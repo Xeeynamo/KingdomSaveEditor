@@ -23,7 +23,7 @@ namespace KHSave.Models
 {
 	public class PlayableCharacter
 	{
-		[Data(0x80, 3, 8)] public List<Item> Weapons { get; set; }
+		[Data(0x80, 3, 8)] public List<WeaponEquipmentItem> Weapons { get; set; }
 		[Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
 		[Data(0x980)] public byte AtkBoost { get; set; }
 		[Data] public byte MagBoost { get; set; }
