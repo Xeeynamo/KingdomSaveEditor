@@ -1,5 +1,6 @@
 ﻿using KHSave;
 using System;
+using KH02.SaveEditor.Models;
 using KHSave.Types;
 using Xe.Tools.Models;
 
@@ -12,14 +13,14 @@ namespace KH02.SaveEditor.ViewModels
 		public SystemViewModel(Kh3 save)
 		{
 			this.save = save;
-			DifficultyType = new EnumModel<DifficultyType>();
-			WorldIconType = new EnumModel<WorldType>();
-			CharacterIconType = new EnumModel<CharacterIconType>();
+			DifficultyType = new GenericEnumModel<DifficultyType>();
+			WorldIconType = new GenericEnumModel<WorldType>();
+			CharacterIconType = new GenericEnumModel<CharacterIconType>();
 		}
 
-		public EnumModel<DifficultyType> DifficultyType { get; }
-		public EnumModel<WorldType> WorldIconType { get; }
-		public EnumModel<CharacterIconType> CharacterIconType { get; }
+		public GenericEnumModel<DifficultyType> DifficultyType { get; }
+		public GenericEnumModel<WorldType> WorldIconType { get; }
+		public GenericEnumModel<CharacterIconType> CharacterIconType { get; }
 
 		public DifficultyType Difficulty
 		{
