@@ -25,8 +25,8 @@ namespace KH02.SaveEditor.Models
 {
 	public class InventoryItemViewModel : BaseNotifyPropertyChanged
 	{
-		private InventoryEntry inventoryEntry;
-		private int index;
+		private readonly InventoryEntry inventoryEntry;
+		private readonly int index;
 
 		public InventoryItemViewModel(InventoryEntry inventoryEntry, int index)
 		{
@@ -36,15 +36,13 @@ namespace KH02.SaveEditor.Models
 
 		public string Name => ((InventoryType)index).ToString();
 
-		public string NameAndCount => $"{Name} x{Count}";
-
 		public int Count
 		{
 			get => inventoryEntry.Count;
 			set
 			{
 				inventoryEntry.Count = (byte)Math.Min(byte.MaxValue, Math.Max(byte.MinValue, value));
-				OnPropertyChanged(nameof(NameAndCount));
+				OnPropertyChanged(nameof(Count));
 			}
 		}
 	}
