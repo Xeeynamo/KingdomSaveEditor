@@ -2,6 +2,8 @@
 
 This is the repository for a Windows application that allows to modify a decrypted save of Kingdom Hearts III.
 
+![demo](docs/demo1.png)
+
 ## Features
 
 * Change game difficulty (even Critical Mode)
@@ -49,7 +51,6 @@ The following features are missing:
 
 The following improvements are nice to have:
 * Make the editor compatible with Kingdom Hearts 0.2
-* Make the interface more similar to KH3 HUD (icons, colors, etc.)
 * Advanced mode, to hide unused stuff from the game
 
 ## To conclude
