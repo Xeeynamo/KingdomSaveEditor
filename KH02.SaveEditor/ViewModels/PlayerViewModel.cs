@@ -1,4 +1,4 @@
-﻿using KHSave;
+using KHSave;
 using System.Collections.Generic;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
@@ -18,21 +18,25 @@ namespace KH02.SaveEditor.ViewModels
 			this.index = index;
 
 			WeaponType = new GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType>();
-			AiCombatStyleType = new GenericEnumModel<AiCombatStyleType>();
-			AiAbilityType = new GenericEnumModel<AiAbilityType>();
-			AiRecoveryType = new GenericEnumModel<AiRecoveryType>();
 
 			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
 			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
 			Consumables = new EquipmentItemsViewModel<ConsumableType>(playableCharacter.Items);
+
+			AiCombatStyle = new ItemComboBoxModel<AiCombatStyleType>(
+				() => playableCharacter.Ai.CombatStyle,
+				x => playableCharacter.Ai.CombatStyle = x);
+			AiAbility = new ItemComboBoxModel<AiAbilityType>(
+				() => playableCharacter.Ai.Abilitiy,
+				x => playableCharacter.Ai.Abilitiy = x);
+			AiRecovery = new ItemComboBoxModel<AiRecoveryType>(
+				() => playableCharacter.Ai.Recovery,
+				x => playableCharacter.Ai.Recovery = x);
 		}
 
 		public string Name => ((PlayableCharacterType)index).ToString();
 
 		public GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType> WeaponType { get; }
-		public GenericEnumModel<AiCombatStyleType> AiCombatStyleType { get; }
-		public GenericEnumModel<AiAbilityType> AiAbilityType { get; }
-		public GenericEnumModel<AiRecoveryType> AiRecoveryType { get; }
 
 		public byte AtkBoost
 		{
@@ -97,24 +101,9 @@ namespace KH02.SaveEditor.ViewModels
 		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
 		public EquipmentItemsViewModel<ConsumableType> Consumables { get; }
 
-		//public EquipmentItemsViewModel<AiCombatStyleType> AiCombatStyle { get; }
-		public AiCombatStyleType AiCombatStyle
-		{
-			get => playableCharacter.Ai.CombatStyle;
-			set => playableCharacter.Ai.CombatStyle = value;
-		}
-
-		public AiAbilityType AiAbility
-		{
-			get => playableCharacter.Ai.Abilitiy;
-			set => playableCharacter.Ai.Abilitiy = value;
-		}
-
-		public AiRecoveryType AiRecovery
-		{
-			get => playableCharacter.Ai.Recovery;
-			set => playableCharacter.Ai.Recovery = value;
-		}
+		public ItemComboBoxModel<AiCombatStyleType> AiCombatStyle { get; }
+		public ItemComboBoxModel<AiAbilityType> AiAbility { get; }
+		public ItemComboBoxModel<AiRecoveryType> AiRecovery { get; }
 
 
 		public IEnumerable<Ability> Abilities

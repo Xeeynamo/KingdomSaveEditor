@@ -22,8 +22,8 @@ namespace KHSave.Types
 {
 	public enum AiAbilityType : byte
 	{
-		[Info("Go Wild")] GoWild,
-		[Info("Watch MP")] WatchMP,
-		[Info("Conserve")] Conserve,
+		[CombatStyle("Go Wild")] GoWild,
+		[CombatStyle("Watch MP")] WatchMP,
+		[CombatStyle("Conserve")] Conserve,
 	}
 }
