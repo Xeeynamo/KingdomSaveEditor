@@ -127,12 +127,13 @@ namespace KH02.SaveEditor.ViewModels
 			{
 				var contributors = string.Join("\n", new string[]
 				{
-					"Keytotruth"
+					"Keytotruth, additional coding and offsets",
+					"Troopah, for providing the icons",
 				}.Select(name => $" - {name}")
 				.ToList());
 
 				var aboutDialog = new AboutDialog(Assembly.GetExecutingAssembly());
-				aboutDialog.Author += "\n\nAdditional developers:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
+				aboutDialog.Author += "\n\nContributors:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
 
 				aboutDialog.ShowDialog();
 			}, x => true);
