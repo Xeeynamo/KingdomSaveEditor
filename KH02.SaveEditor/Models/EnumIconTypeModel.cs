@@ -32,6 +32,7 @@ namespace KH02.SaveEditor.Models
 		private static readonly Dictionary<string, Uri> ICONS = new Dictionary<string, string>()
 		{
 			["Consumable"] = "ItemIcon",
+			["Tent"] = "TentIcon",
 			["KeyItem"] = "KeyItemIcon",
 			["Food"] = "FoodIcon",
 			["Magic"] = "MagicIcon",

@@ -192,7 +192,10 @@
       <Name>Xe.Tools</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\SnackIcon.png" />
+    <Resource Include="Images\TentIcon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AbilityEquippedIcon.png" />
     <Resource Include="Images\AbilityUnequippedIcon.png" />
