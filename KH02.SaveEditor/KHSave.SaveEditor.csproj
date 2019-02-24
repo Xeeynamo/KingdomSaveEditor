@@ -72,6 +72,15 @@
     <Compile Include="Views\PhotosView.xaml.cs">
       <DependentUpon>PhotosView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PlayerAbilityView.xaml.cs">
+      <DependentUpon>PlayerAbilityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerEquipmentView.xaml.cs">
+      <DependentUpon>PlayerEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerStatusView.xaml.cs">
+      <DependentUpon>PlayerStatusView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlayersView.xaml.cs">
       <DependentUpon>PlayersView.xaml</DependentUpon>
     </Compile>
@@ -106,6 +115,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PhotosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerAbilityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerEquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerStatusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

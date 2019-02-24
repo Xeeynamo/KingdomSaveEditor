@@ -75,64 +75,22 @@ namespace KH02.SaveEditor.ViewModels
 			set => playableCharacter.Focus = value;
 		}
 
-		public int Weapon1Id
-		{
-			get => (int)playableCharacter.Weapons[0].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[0].WeaponId = (WeaponType)value;
-				OnPropertyChanged(nameof(Weapon1));
-			}
-		}
-
 		public WeaponType Weapon1
 		{
 			get => playableCharacter.Weapons[0].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[0].WeaponId = value;
-				OnPropertyChanged(nameof(Weapon1Id));
-			}
-		}
-
-		public int Weapon2Id
-		{
-			get => (int)playableCharacter.Weapons[1].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[1].WeaponId = (WeaponType)value;
-				OnPropertyChanged(nameof(Weapon2));
-			}
+			set => playableCharacter.Weapons[0].WeaponId = value;
 		}
 
 		public WeaponType Weapon2
 		{
 			get => playableCharacter.Weapons[1].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[1].WeaponId = value;
-				OnPropertyChanged(nameof(Weapon2Id));
-			}
-		}
-
-		public int Weapon3Id
-		{
-			get => (int)playableCharacter.Weapons[2].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[2].WeaponId = (WeaponType)value;
-				OnPropertyChanged(nameof(Weapon3));
-			}
+			set => playableCharacter.Weapons[1].WeaponId = value;
 		}
 
 		public WeaponType Weapon3
 		{
 			get => playableCharacter.Weapons[2].WeaponId;
-			set
-			{
-				playableCharacter.Weapons[2].WeaponId = value;
-				OnPropertyChanged(nameof(Weapon3Id));
-			}
+			set => playableCharacter.Weapons[2].WeaponId = value;
 		}
 
 		public EquipmentItemsViewModel<ArmorType> Armors { get; }
