@@ -10,7 +10,7 @@ namespace KH02.SaveEditor.Models
 	public class GenericEnumModel<T> : IEnumerable<EnumItemModel<T>>
 		where T : struct, IConvertible
 	{
-		private readonly IEnumerable<EnumItemModel<T>> items;
+		private readonly EnumItemModel<T>[] items;
 
 		public GenericEnumModel()
 		{
@@ -26,17 +26,19 @@ namespace KH02.SaveEditor.Models
 				{
 					Value = e,
 					Name = InfoAttribute.GetInfo(e)
-				});
+				}).ToArray();
 		}
 
 		public IEnumerator<EnumItemModel<T>> GetEnumerator()
 		{
-			return items.GetEnumerator();
+			return items.AsEnumerable().GetEnumerator();
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return items.GetEnumerator();
 		}
+
+		public EnumItemModel<T> this[int i] => items[i];
 	}
 }
