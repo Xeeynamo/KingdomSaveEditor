@@ -17,7 +17,7 @@ namespace KH02.SaveEditor.ViewModels
 			this.playableCharacter = playableCharacter;
 			this.index = index;
 
-			WeaponType = new GenericEnumModel<WeaponType>();
+			WeaponType = new GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType>();
 			AiCombatStyleType = new GenericEnumModel<AiCombatStyleType>();
 			AiAbilityType = new GenericEnumModel<AiAbilityType>();
 			AiRecoveryType = new GenericEnumModel<AiRecoveryType>();
@@ -29,7 +29,7 @@ namespace KH02.SaveEditor.ViewModels
 
 		public string Name => ((PlayableCharacterType)index).ToString();
 
-		public GenericEnumModel<WeaponType> WeaponType { get; }
+		public GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType> WeaponType { get; }
 		public GenericEnumModel<AiCombatStyleType> AiCombatStyleType { get; }
 		public GenericEnumModel<AiAbilityType> AiAbilityType { get; }
 		public GenericEnumModel<AiRecoveryType> AiRecoveryType { get; }

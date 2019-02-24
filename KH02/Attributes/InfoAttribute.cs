@@ -38,13 +38,31 @@ namespace KHSave.Attributes
 			if (memberInfo != null)
 			{
 				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
-					.FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
+					    .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
 				{
 					return attribute.Info;
 				}
 			}
 
 			return memberValue;
+		}
+
+		public static string[] GetItemTypes(object value)
+		{
+			var memberValue = value.ToString();
+			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
+
+			if (memberInfo != null)
+			{
+				return memberInfo.CustomAttributes.Select(x =>
+				{
+					var name = x.AttributeType.Name;
+					var indexAttributeStr = name.IndexOf("Attribute");
+					return indexAttributeStr > 0 ? name.Substring(0, indexAttributeStr) : null;
+				}).Where(x => !string.IsNullOrEmpty(x)).ToArray();
+			}
+
+			return new string[0];
 		}
 	}
 }
