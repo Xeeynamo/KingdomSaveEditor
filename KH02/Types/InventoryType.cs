@@ -22,7 +22,7 @@ namespace KHSave.Types
 {
 	public enum InventoryType
 	{
-		[Consumable("Empty")] Empty,
+		Empty,
 		[Consumable("Potion")] Potion,
 		[Consumable("Hi-Potion")] HiPotion,
 		[Consumable("Mega-Potion")] MegaPotion,

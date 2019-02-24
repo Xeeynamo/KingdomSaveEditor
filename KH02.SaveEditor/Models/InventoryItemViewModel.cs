@@ -17,24 +17,24 @@
 */
 
 using System;
+using KHSave.Attributes;
 using KHSave.Models;
 using KHSave.Types;
 using Xe.Tools;
 
 namespace KH02.SaveEditor.Models
 {
-	public class InventoryItemViewModel : BaseNotifyPropertyChanged
+	public class InventoryItemViewModel : EnumIconTypeModel<InventoryType>
 	{
 		private readonly InventoryEntry inventoryEntry;
-		private readonly int index;
 
 		public InventoryItemViewModel(InventoryEntry inventoryEntry, int index)
 		{
 			this.inventoryEntry = inventoryEntry;
-			this.index = index;
+			Value = (InventoryType)index;
 		}
 
-		public string Name => ((InventoryType)index).ToString();
+		public string Name => InfoAttribute.GetInfo(Value);
 
 		public int Count
 		{

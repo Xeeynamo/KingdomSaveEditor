@@ -17,10 +17,11 @@
 */
 
 using System;
+using Xe.Tools;
 
 namespace KH02.SaveEditor.Models
 {
-	public class ItemComboBoxModel<T>
+	public class ItemComboBoxModel<T> : BaseNotifyPropertyChanged
 		where T : struct, IConvertible
 	{
 		private readonly Func<T> _getter;
