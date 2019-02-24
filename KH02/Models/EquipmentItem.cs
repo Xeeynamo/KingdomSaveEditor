@@ -25,6 +25,8 @@ namespace KHSave.Models
 	{
 		[Data] public byte Id { get; set; }
 		[Data] public ItemType ItemType { get; set; }
+
+		[Data(4)] public bool Enabled { get; set; }
 	}
 
 	public class WeaponEquipmentItem : EquipmentItem

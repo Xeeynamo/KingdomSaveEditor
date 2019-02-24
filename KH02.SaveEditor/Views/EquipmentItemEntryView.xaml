@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="22" d:DesignWidth="100">
     <Grid>
-        <ComboBox
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <CheckBox VerticalAlignment="Center" Margin="0 0 3 0"
+            IsChecked="{Binding Enabled}"/>
+        <ComboBox Grid.Column="1"
+            IsEnabled="{Binding Enabled}"
             ItemsSource="{Binding EquipmentType}"
             SelectedValue="{Binding ItemId}"
             DisplayMemberPath="Name"

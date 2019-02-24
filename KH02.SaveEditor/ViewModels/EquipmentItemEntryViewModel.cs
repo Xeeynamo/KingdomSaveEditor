@@ -11,6 +11,12 @@ namespace KH02.SaveEditor.ViewModels
 
 		public EquipmentItem Item { get; }
 
+		public bool Enabled
+		{
+			get => Item.Enabled;
+			set => Item.Enabled = value;
+		}
+
 		public T ItemId
 		{
 			get => (T)(object)Item.Id;
