@@ -62,9 +62,12 @@ namespace KH02.SaveEditor.ViewModels
 
 		public bool IsAdvancedMode
 		{
-			get => _isAdvancedMode;
+			get => Properties.Settings.Default.AdvancedMode;
 			set
 			{
+				Properties.Settings.Default.AdvancedMode = value;
+				Properties.Settings.Default.Save();
+
 				_isAdvancedMode = value;
 				System.IsAdvancedMode = value;
 			}
@@ -143,7 +146,7 @@ namespace KH02.SaveEditor.ViewModels
 				Save = Kh3.Read(file);
 			}
 
-			System = new SystemViewModel(Save);
+			System = new SystemViewModel(Save) {IsAdvancedMode = IsAdvancedMode};
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc);
 			Photos = new PhotosViewModel(Save.Photos);
