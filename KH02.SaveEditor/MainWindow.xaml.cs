@@ -1,6 +1,7 @@
 ﻿using KH02.SaveEditor.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,12 @@ namespace KH02.SaveEditor
 			InitializeComponent();
 			DataContext = context = new MainWindowViewModel();
 
-			context.Open(@"..\..\..\KH02.Tests\Saves\kh3.bin");
+#if DEBUG
+			if (Debugger.IsAttached)
+			{
+				context.Open(@"..\..\..\KH02.Tests\Saves\kh3.bin");
+			}
+#endif
 		}
 	}
 }
