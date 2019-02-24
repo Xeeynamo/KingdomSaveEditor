@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KH02.SaveEditor.Views"
+             xmlns:controls="clr-namespace:KH02.SaveEditor.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Background="White">
@@ -103,29 +104,20 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Combat style"/>
-                <ComboBox
-                    ItemsSource="{Binding AiCombatStyleType}"
-                    SelectedValue="{Binding AiCombatStyle}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <controls:ItemComboBox
+                    DataContext="{Binding AiCombatStyle}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Ability usage"/>
-                <ComboBox
-                    ItemsSource="{Binding AiAbilityType}"
-                    SelectedValue="{Binding AiAbility}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <controls:ItemComboBox
+                    DataContext="{Binding AiAbility}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="4">
                 <TextBlock Text="Recovery"/>
-                <ComboBox
-                    ItemsSource="{Binding AiRecoveryType}"
-                    SelectedValue="{Binding AiRecovery}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <controls:ItemComboBox
+                    DataContext="{Binding AiRecovery}"/>
             </StackPanel>
         </Grid>
     </StackPanel>

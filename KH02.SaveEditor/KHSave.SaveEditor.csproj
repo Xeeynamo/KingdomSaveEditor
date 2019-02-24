@@ -48,11 +48,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ItemComboBox.xaml.cs">
+      <DependentUpon>ItemComboBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions\ImageTooLargeException.cs" />
+    <Compile Include="Models\EnumIconTypeModel.cs" />
+    <Compile Include="Models\EquipmentItemEntryViewModel.cs" />
     <Compile Include="Models\GenericEnumModel.cs" />
-    <Compile Include="ViewModels\EquipmentItemEntryViewModel.cs" />
+    <Compile Include="Models\InventoryItemViewModel.cs" />
+    <Compile Include="Models\ItemComboBoxModel.cs" />
     <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
-    <Compile Include="ViewModels\InventoryItemViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PhotoEntryViewModel.cs" />
@@ -90,6 +95,10 @@
     <Compile Include="Views\SystemView.xaml.cs">
       <DependentUpon>SystemView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\ItemComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,6 +191,34 @@
       <Project>{2F15C257-7E50-42B5-ADB4-7534B88F466B}</Project>
       <Name>Xe.Tools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\AbilityEquippedIcon.png" />
+    <Resource Include="Images\AbilityUnequippedIcon.png" />
+    <Resource Include="Images\AccessoryIcon.png" />
+    <Resource Include="Images\AeroIcon.png" />
+    <Resource Include="Images\ArmorIcon.png" />
+    <Resource Include="Images\BlizzardIcon.png" />
+    <Resource Include="Images\CombatStyleIcon.png" />
+    <Resource Include="Images\DarkIcon.png" />
+    <Resource Include="Images\DefenseIcon.png" />
+    <Resource Include="Images\FireIcon.png" />
+    <Resource Include="Images\FoodIcon.png" />
+    <Resource Include="Images\ItemIcon.png" />
+    <Resource Include="Images\KeybladeIcon.png" />
+    <Resource Include="Images\KeyItemIcon.png" />
+    <Resource Include="Images\KupoCoinIcon.png" />
+    <Resource Include="Images\LinkIcon.png" />
+    <Resource Include="Images\MagicIcon.png" />
+    <Resource Include="Images\MagicStatIcon.png" />
+    <Resource Include="Images\MineralIcon.png" />
+    <Resource Include="Images\MiscWeaponIcon.png" />
+    <Resource Include="Images\ShieldIcon.png" />
+    <Resource Include="Images\StaffIcon.png" />
+    <Resource Include="Images\StrengthIcon.png" />
+    <Resource Include="Images\ThunderIcon.png" />
+    <Resource Include="Images\WaterIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

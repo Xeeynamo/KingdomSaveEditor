@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using KH02.SaveEditor.Models;
+using KH02.SaveEditor.Views;
 using KHSave.Models;
 
 namespace KH02.SaveEditor.ViewModels

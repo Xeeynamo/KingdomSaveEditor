@@ -7,10 +7,11 @@ using Xe.Tools.Models;
 
 namespace KH02.SaveEditor.Models
 {
-	public class GenericEnumModel<T> : IEnumerable<EnumItemModel<T>>
+	public class GenericEnumModel<TModel, T> : IEnumerable<TModel>
 		where T : struct, IConvertible
+		where TModel : EnumItemModel<T>
 	{
-		private readonly EnumItemModel<T>[] items;
+		private readonly TModel[] items;
 
 		public GenericEnumModel()
 		{
@@ -22,14 +23,17 @@ namespace KH02.SaveEditor.Models
 
 			items = Enum.GetValues(type)
 				.Cast<T>()
-				.Select(e => new EnumItemModel<T>()
+				.Select(e =>
 				{
-					Value = e,
-					Name = InfoAttribute.GetInfo(e)
+					var item = Activator.CreateInstance<TModel>() as EnumItemModel<T>;
+					item.Value = e;
+					item.Name = InfoAttribute.GetInfo(e);
+
+					return (TModel)item;
 				}).ToArray();
 		}
 
-		public IEnumerator<EnumItemModel<T>> GetEnumerator()
+		public IEnumerator<TModel> GetEnumerator()
 		{
 			return items.AsEnumerable().GetEnumerator();
 		}
@@ -40,5 +44,10 @@ namespace KH02.SaveEditor.Models
 		}
 
 		public EnumItemModel<T> this[int i] => items[i];
+	}
+
+	public class GenericEnumModel<T> : GenericEnumModel<EnumItemModel<T>, T>
+		where T : struct, IConvertible
+	{
 	}
 }

@@ -22,8 +22,8 @@ namespace KHSave.Types
 {
 	public enum AiRecoveryType : byte
 	{
-		[Info("Use As Needed")] UseAsNeeded,
-		[Info("Use in Emergencies")] UseInEmergencies,
-		[Info("Use Like Crazy")] UseLikeCrazy,
+		[CombatStyle("Use As Needed")] UseAsNeeded,
+		[CombatStyle("Use in Emergencies")] UseInEmergencies,
+		[CombatStyle("Use Like Crazy")] UseLikeCrazy,
 	}
 }

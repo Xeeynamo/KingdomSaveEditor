@@ -22,9 +22,9 @@ namespace KHSave.Types
 {
 	public enum AiCombatStyleType : byte
 	{
-		[Info("Stick By Sora")] StickBySora,
-		[Info("Be Yourself")] BeYourself,
-		[Info("Hands Off")] HandsOff,
-		[Info("Finish the Job")] FinishTheJob,
+		[CombatStyle("Stick By Sora")] StickBySora,
+		[CombatStyle("Be Yourself")] BeYourself,
+		[CombatStyle("Hands Off")] HandsOff,
+		[CombatStyle("Finish the Job")] FinishTheJob,
 	}
 }

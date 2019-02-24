@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KH02.SaveEditor.Views"
+             xmlns:controls="clr-namespace:KH02.SaveEditor.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="300">
     <StackPanel Background="White">
@@ -17,29 +18,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
-                <ComboBox
-                    ItemsSource="{Binding WeaponType}"
-                    SelectedValue="{Binding Weapon1}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="2">
-                <ComboBox
-                    ItemsSource="{Binding WeaponType}"
-                    SelectedValue="{Binding Weapon2}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="4">
-                <ComboBox
-                    ItemsSource="{Binding WeaponType}"
-                    SelectedValue="{Binding Weapon3}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-            </StackPanel>
+            <controls:ItemComboBox
+                Grid.Column="0"
+                DataContext="{Binding Weapon1}"/>
+            <controls:ItemComboBox
+                Grid.Column="2"
+                DataContext="{Binding Weapon2}"/>
+            <controls:ItemComboBox
+                Grid.Column="4"
+                DataContext="{Binding Weapon3}"/>
         </Grid>
 
         <TextBlock Text="Armors"/>

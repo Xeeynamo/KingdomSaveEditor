@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KH02.SaveEditor.Views"
+             xmlns:controls="clr-namespace:KH02.SaveEditor.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="22" d:DesignWidth="100">
     <Grid>
@@ -13,11 +14,9 @@
         </Grid.ColumnDefinitions>
         <CheckBox VerticalAlignment="Center" Margin="0 0 3 0"
             IsChecked="{Binding Enabled}"/>
-        <ComboBox Grid.Column="1"
+        <controls:ItemComboBox
+            Grid.Column="1"
             IsEnabled="{Binding Enabled}"
-            ItemsSource="{Binding EquipmentType}"
-            SelectedValue="{Binding ItemId}"
-            DisplayMemberPath="Name"
-            SelectedValuePath="Value"/>
+            DataContext="{Binding}"/>
     </Grid>
 </UserControl>
