@@ -39,8 +39,10 @@ namespace KHSave
         [Data(0x39)] public bool SaveClear { get; set; }
         [Data(0x54)] public LocationType LocationName { get; set; }
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
+        [Data(0x68)] public int EnemiesDefeated { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
 		[Data(0x86c, 512, 2)] public List<InventoryEntry> Inventory { get; set; }
+        [Data(0x1764)] public int CrabsCollected { get; set; }
 		[Data(0x17F8, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }
 		[Data(0xBB18, 0x100)] public string MapPath { get; set; }
 		[Data(0xBC18, 0x40)] public string MapSpawn { get; set; }
