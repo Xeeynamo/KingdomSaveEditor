@@ -20,19 +20,43 @@ using System.Collections.Generic;
 using System.Linq;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
+using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Models;
 
 namespace KH02.SaveEditor.ViewModels
 {
 	public class InventoryViewModel : GenericListModel<InventoryItemViewModel>
 	{
+		public RelayCommand Research0Command { get; }
+		public RelayCommand Research1Command { get; }
+		public RelayCommand Research2Command { get; }
+		public RelayCommand Research3Command { get; }
+		public RelayCommand Research4Command { get; }
+		public RelayCommand Research5Command { get; }
+
 		public InventoryViewModel(IEnumerable<InventoryEntry> list) :
 			this(list.Select((item, index) => new InventoryItemViewModel(item, index)))
 		{ }
 
 		public InventoryViewModel(IEnumerable<InventoryItemViewModel> list) :
 			base(list)
-		{ }
+		{
+
+			Research0Command = new RelayCommand(o => DoResearch(0), x => true);
+			Research1Command = new RelayCommand(o => DoResearch(100), x => true);
+			Research2Command = new RelayCommand(o => DoResearch(200), x => true);
+			Research3Command = new RelayCommand(o => DoResearch(300), x => true);
+			Research4Command = new RelayCommand(o => DoResearch(400), x => true);
+			Research5Command = new RelayCommand(o => DoResearch(500, 12), x => true);
+		}
+
+		private void DoResearch(int startIndex, int count = 100)
+		{
+			for (var i = 0; i < count; i++)
+			{
+				Items[startIndex + i].Count = i + 1;
+			}
+		}
 
 		protected override InventoryItemViewModel OnNewItem()
 		{

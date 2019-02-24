@@ -10,7 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
         <ListBox
@@ -18,6 +18,21 @@
             ItemsSource="{Binding Items}"
             SelectedIndex="{Binding SelectedIndex}"
             SelectedItem="{Binding SelectedItem}"
+            DisplayMemberPath="NameAndCount"
             />
+
+        <StackPanel Grid.Column="2">
+            <TextBlock Text="Item count"/>
+            <TextBox Text="{Binding SelectedItem.Count, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Separator Margin="0 20 0 10"/>
+            <TextBlock TextWrapping="WrapWithOverflow" >The research buttons are useful to add the missing values in the source code. It is quite easy to do, even for a person that does not code. Any help is appreciated!</TextBlock>
+            <Button Content="Research 0-99" Command="{Binding Research0Command}"/>
+            <Button Content="Research 100-199" Command="{Binding Research1Command}"/>
+            <Button Content="Research 200-299" Command="{Binding Research2Command}"/>
+            <Button Content="Research 300-399" Command="{Binding Research3Command}"/>
+            <Button Content="Research 400-499" Command="{Binding Research4Command}"/>
+            <Button Content="Research 500-512" Command="{Binding Research5Command}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
