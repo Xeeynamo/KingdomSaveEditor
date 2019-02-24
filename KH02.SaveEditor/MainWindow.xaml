@@ -23,7 +23,7 @@
                 <Separator/>
                 <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
             </MenuItem>
-            <MenuItem Header="_Options">
+            <MenuItem Header="_Options" Visibility="Collapsed">
                 <CheckBox
                     Content="_Advanced mode"
                     IsChecked="{Binding IsAdvancedMode}"/>

@@ -14,9 +14,6 @@
             <TabItem Header="Equipment">
                 <local:PlayerEquipmentView DataContext="{Binding}"/>
             </TabItem>
-            <TabItem Header="Ability">
-                <local:PlayerAbilityView DataContext="{Binding}"/>
-            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>
