@@ -1,10 +1,9 @@
-﻿using KHSave;
-using System;
+﻿using System;
 using KHSave.Models;
 using KHSave.Types;
 using Xe.Tools;
 
-namespace KH02.SaveEditor.ViewModels
+namespace KH02.SaveEditor.Models
 {
 	public class InventoryItemViewModel : BaseNotifyPropertyChanged
 	{

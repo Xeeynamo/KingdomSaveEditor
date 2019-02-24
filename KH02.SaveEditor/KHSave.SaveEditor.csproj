@@ -53,11 +53,11 @@
     </Compile>
     <Compile Include="Exceptions\ImageTooLargeException.cs" />
     <Compile Include="Models\EnumIconTypeModel.cs" />
+    <Compile Include="Models\EquipmentItemEntryViewModel.cs" />
     <Compile Include="Models\GenericEnumModel.cs" />
+    <Compile Include="Models\InventoryItemViewModel.cs" />
     <Compile Include="Models\ItemComboBoxModel.cs" />
-    <Compile Include="ViewModels\EquipmentItemEntryViewModel.cs" />
     <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
-    <Compile Include="ViewModels\InventoryItemViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PhotoEntryViewModel.cs" />
