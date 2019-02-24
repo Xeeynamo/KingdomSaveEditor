@@ -115,5 +115,41 @@
             </StackPanel>
         </Grid>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Map path"/>
+                <TextBox Text="{Binding MapPath}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Spawn point"/>
+                <TextBox Text="{Binding MapSpawn}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Player script"/>
+                <TextBox Text="{Binding PlayerScript}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Pawn path"/>
+                <TextBox Text="{Binding PlayerCharacter}"/>
+            </StackPanel>
+        </Grid>
+
     </StackPanel>
 </UserControl>

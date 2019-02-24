@@ -95,5 +95,29 @@ namespace KH02.SaveEditor.ViewModels
 			get => save.SavesCount;
 			set => save.SavesCount = value;
 		}
+
+		public string MapPath
+		{
+			get => save.MapPath;
+			set => save.MapPath = value;
+		}
+
+		public string MapSpawn
+		{
+			get => save.MapSpawn;
+			set => save.MapSpawn = value;
+		}
+
+		public string PlayerScript
+		{
+			get => save.PlayerScript;
+			set => save.PlayerScript = value;
+		}
+
+		public string PlayerCharacter
+		{
+			get => save.PlayerCharacter;
+			set => save.PlayerCharacter = value;
+		}
 	}
 }
