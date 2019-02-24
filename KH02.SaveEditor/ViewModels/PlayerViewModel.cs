@@ -1,4 +1,4 @@
-using KHSave;
+﻿using KHSave;
 using System.Collections.Generic;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
@@ -17,7 +17,15 @@ namespace KH02.SaveEditor.ViewModels
 			this.playableCharacter = playableCharacter;
 			this.index = index;
 
-			WeaponType = new GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType>();
+			Weapon1 = new ItemComboBoxModel<WeaponType>(
+				() => playableCharacter.Weapons[0].WeaponId,
+				x => playableCharacter.Weapons[0].WeaponId = x);
+			Weapon2 = new ItemComboBoxModel<WeaponType>(
+				() => playableCharacter.Weapons[1].WeaponId,
+				x => playableCharacter.Weapons[1].WeaponId = x);
+			Weapon3 = new ItemComboBoxModel<WeaponType>(
+				() => playableCharacter.Weapons[2].WeaponId,
+				x => playableCharacter.Weapons[2].WeaponId = x);
 
 			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
 			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
@@ -35,8 +43,6 @@ namespace KH02.SaveEditor.ViewModels
 		}
 
 		public string Name => ((PlayableCharacterType)index).ToString();
-
-		public GenericEnumModel<EnumIconTypeModel<WeaponType>, WeaponType> WeaponType { get; }
 
 		public byte AtkBoost
 		{
@@ -79,23 +85,9 @@ namespace KH02.SaveEditor.ViewModels
 			set => playableCharacter.Focus = value;
 		}
 
-		public WeaponType Weapon1
-		{
-			get => playableCharacter.Weapons[0].WeaponId;
-			set => playableCharacter.Weapons[0].WeaponId = value;
-		}
-
-		public WeaponType Weapon2
-		{
-			get => playableCharacter.Weapons[1].WeaponId;
-			set => playableCharacter.Weapons[1].WeaponId = value;
-		}
-
-		public WeaponType Weapon3
-		{
-			get => playableCharacter.Weapons[2].WeaponId;
-			set => playableCharacter.Weapons[2].WeaponId = value;
-		}
+		public ItemComboBoxModel<WeaponType> Weapon1 { get; }
+		public ItemComboBoxModel<WeaponType> Weapon2 { get; }
+		public ItemComboBoxModel<WeaponType> Weapon3 { get; }
 
 		public EquipmentItemsViewModel<ArmorType> Armors { get; }
 		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
