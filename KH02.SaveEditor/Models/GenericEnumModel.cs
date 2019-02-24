@@ -25,31 +25,33 @@ using Xe.Tools.Models;
 
 namespace KH02.SaveEditor.Models
 {
-	public class GenericEnumModel<TModel, T> : IEnumerable<TModel>
-		where T : struct, IConvertible
-		where TModel : EnumItemModel<T>
+	public class GenericEnumModel<TModel, TEnum, TValue> : IEnumerable<TModel>
+		where TEnum : struct, IConvertible
+		where TModel : EnumItemModel<TValue>
 	{
 		private readonly TModel[] items;
 
-		public GenericEnumModel()
+		public GenericEnumModel(Func<TEnum, TValue> valueGetter, Func<TEnum, string> nameGetter = null)
 		{
-			var type = typeof(T);
+			var type = typeof(TEnum);
 			if (type.IsEnum == false)
 			{
 				throw new InvalidOperationException($"{type} is not an enum.");
 			}
 
 			items = Enum.GetValues(type)
-				.Cast<T>()
+				.Cast<TEnum>()
 				.Select(e =>
 				{
-					var item = Activator.CreateInstance<TModel>() as EnumItemModel<T>;
-					item.Value = e;
-					item.Name = InfoAttribute.GetInfo(e);
+					var item = Activator.CreateInstance<TModel>() as EnumItemModel<TValue>;
+					item.Value = valueGetter(e);
+					item.Name = nameGetter != null ? nameGetter(e) : InfoAttribute.GetInfo(e);
 
 					return (TModel)item;
 				}).ToArray();
 		}
+
+		private static string DefaultNameGetter(TEnum value) => InfoAttribute.GetInfo(value);
 
 		public IEnumerator<TModel> GetEnumerator()
 		{
@@ -61,7 +63,16 @@ namespace KH02.SaveEditor.Models
 			return items.GetEnumerator();
 		}
 
-		public EnumItemModel<T> this[int i] => items[i];
+		public EnumItemModel<TValue> this[int i] => items[i];
+	}
+
+	public class GenericEnumModel<TModel, T> : GenericEnumModel<TModel, T, T>
+		where T : struct, IConvertible
+		where TModel : EnumItemModel<T>
+	{
+		public GenericEnumModel(Func<T, string> nameGetter = null) :
+			base(x => x, nameGetter)
+		{ }
 	}
 
 	public class GenericEnumModel<T> : GenericEnumModel<EnumItemModel<T>, T>

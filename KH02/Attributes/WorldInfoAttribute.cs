@@ -17,6 +17,8 @@
 */
 
 using System;
+using System.Linq;
+using KHSave.Types;
 
 namespace KHSave.Attributes
 {
@@ -28,6 +30,23 @@ namespace KHSave.Attributes
 			base(name)
 		{
 			Id = id;
+		}
+
+		public static string GetWorldId(object value)
+		{
+			var memberValue = value.ToString();
+			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
+
+			if (memberInfo != null)
+			{
+				if (memberInfo.GetCustomAttributes(typeof(WorldAttribute), false)
+					    .FirstOrDefault() is WorldAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
+				{
+					return attribute.Id;
+				}
+			}
+
+			return null;
 		}
 	}
 }

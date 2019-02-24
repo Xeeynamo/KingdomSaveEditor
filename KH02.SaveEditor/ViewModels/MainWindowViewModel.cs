@@ -31,6 +31,7 @@ namespace KH02.SaveEditor.ViewModels
 	public class MainWindowViewModel : BaseNotifyPropertyChanged
 	{
 		private string fileName;
+		private bool _isAdvancedMode;
 
 		public Kh3 Save { get; set; }
 
@@ -59,7 +60,15 @@ namespace KH02.SaveEditor.ViewModels
 		public RelayCommand GetLatestVersionCommand { get; }
 		public RelayCommand AboutCommand { get; }
 
-		public bool IsAdvancedMode { get; set; }
+		public bool IsAdvancedMode
+		{
+			get => _isAdvancedMode;
+			set
+			{
+				_isAdvancedMode = value;
+				System.IsAdvancedMode = value;
+			}
+		}
 
 		public SystemViewModel System { get; set; }
 		public InventoryViewModel Inventory { get; set; }
