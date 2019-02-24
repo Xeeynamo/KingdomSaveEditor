@@ -50,6 +50,8 @@ namespace KH02.SaveEditor.ViewModels
 			}
 		}
 
+		public bool IsFileLoad => Save != null;
+
 		public RelayCommand OpenCommand { get; }
 		public RelayCommand SaveCommand { get; }
 		public RelayCommand SaveAsCommand { get; }
@@ -137,6 +139,7 @@ namespace KH02.SaveEditor.ViewModels
 			Players = new PlayersViewModel(Save.Pc);
 			Photos = new PhotosViewModel(Save.Photos);
 
+			OnPropertyChanged(nameof(IsFileLoad));
 			OnPropertyChanged(nameof(System));
 			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Players));

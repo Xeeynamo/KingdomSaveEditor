@@ -34,7 +34,7 @@
             </MenuItem>
         </Menu>
 
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" IsEnabled="{Binding IsFileLoad}">
             <TabItem Header="System">
                 <views:SystemView
                     Grid.Row="1"
