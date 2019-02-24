@@ -9,12 +9,9 @@ using KHSave.Models;
 
 namespace KH02.SaveEditor.ViewModels
 {
-	public class EquipmentItemEntryViewModel<T>
+	public class EquipmentItemEntryViewModel<T> : ItemComboBoxModel<T>
 		where T : struct, IConvertible
 	{
-
-		public GenericEnumModel<EnumIconTypeModel<T>, T> EquipmentType { get; }
-
 		public EquipmentItem Item { get; }
 
 		public bool Enabled
@@ -23,15 +20,9 @@ namespace KH02.SaveEditor.ViewModels
 			set => Item.Enabled = value;
 		}
 
-		public T ItemId
+		public EquipmentItemEntryViewModel(EquipmentItem item) :
+			base(() => (T)(object)item.Id, x => item.Id = (byte)(object)x)
 		{
-			get => (T)(object)Item.Id;
-			set => Item.Id = (byte)(object)value;
-		}
-
-		public EquipmentItemEntryViewModel(EquipmentItem item)
-		{
-			EquipmentType = new GenericEnumModel<EnumIconTypeModel<T>, T>();
 			Item = item;
 		}
 	}

@@ -97,6 +97,7 @@ namespace KH02.SaveEditor.ViewModels
 		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
 		public EquipmentItemsViewModel<ConsumableType> Consumables { get; }
 
+		//public EquipmentItemsViewModel<AiCombatStyleType> AiCombatStyle { get; }
 		public AiCombatStyleType AiCombatStyle
 		{
 			get => playableCharacter.Ai.CombatStyle;

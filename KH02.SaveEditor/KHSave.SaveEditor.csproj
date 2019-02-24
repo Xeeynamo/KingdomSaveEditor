@@ -54,6 +54,7 @@
     <Compile Include="Exceptions\ImageTooLargeException.cs" />
     <Compile Include="Models\EnumIconTypeModel.cs" />
     <Compile Include="Models\GenericEnumModel.cs" />
+    <Compile Include="Models\ItemComboBoxModel.cs" />
     <Compile Include="ViewModels\EquipmentItemEntryViewModel.cs" />
     <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
     <Compile Include="ViewModels\InventoryItemViewModel.cs" />
