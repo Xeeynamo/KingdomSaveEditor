@@ -209,7 +209,7 @@ namespace KH02.SaveEditor.ViewModels
 					if (spawnIndex > 0)
 					{
 						var separator = lastPart.LastIndexOf("_");
-						return separator > 0 ? lastPart.Substring(0, separator) : lastPart;
+						return separator > 0 ? lastPart.Substring(0, separator) : null;
 					}
 
 					return lastPart;

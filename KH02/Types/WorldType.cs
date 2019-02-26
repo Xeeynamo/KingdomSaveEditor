@@ -52,7 +52,7 @@ namespace KHSave.Types
 		[World("tt", "Twilight Town")]
 		TwilightTown = 12,
 
-		[World("??", "The Mysterious Tower")]
+		[World("yt", "The Mysterious Tower")]
 		MysteriousTower = 13,
 
 		[World("kg", "Keyblade Graveyard")]
@@ -65,6 +65,9 @@ namespace KHSave.Types
 		FinalWorld = 22,
 
 		[World("dp", "Land of Departure")]
-		LandOfDeparture = 25
+		LandOfDeparture = 25,
+
+		[World("wm", "World Map")]
+		WorldMap = 28
 	}
 }
