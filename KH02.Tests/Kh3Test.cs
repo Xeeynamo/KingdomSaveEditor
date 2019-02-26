@@ -59,7 +59,9 @@ namespace KHSave.Tests
 			Assert.Equal(AiAbilityType.GoWild, save.Pc[1].Ai.Abilitiy);
 			Assert.Equal(AiRecoveryType.UseInEmergencies, save.Pc[1].Ai.Recovery);
 			Assert.Equal(0b1111, save.Pc[1].Ai.RecoveryTargets);
-			
+
+			Assert.Equal(CommandType.Firaga, save.Magics[0]);
+
 			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
 			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);
 
@@ -99,6 +101,7 @@ namespace KHSave.Tests
 			save.GameTime = new TimeSpan(12, 34, 56);
 			save.MapPath = "TestPath";
 			save.Shortcuts[0].Triangle = CommandType.SeaBlizzard;
+			save.Magics[0] = CommandType.SeaFire;
 
 			var mem = new MemoryStream(9758960);
 			save.Write(mem);
@@ -111,6 +114,7 @@ namespace KHSave.Tests
 			Assert.Equal(new TimeSpan(12, 34, 56), save2.GameTime);
 			Assert.Equal("TestPath", save2.MapPath);
 			Assert.Equal(CommandType.SeaBlizzard, save2.Shortcuts[0].Triangle);
+			Assert.Equal(CommandType.SeaFire, save2.Magics[0]);
 
 
 		}
