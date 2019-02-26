@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	public class ConsumableAttribute : InfoAttribute
 	{
-		public ConsumableAttribute(string name) :
+		public ConsumableAttribute(string name = null) :
 			base(name)
 		{ }
 	}

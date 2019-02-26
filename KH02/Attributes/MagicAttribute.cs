@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	class MagicAttribute : InfoAttribute
 	{
-		public MagicAttribute(string name) :
+		public MagicAttribute(string name = null) :
 			base(name)
 		{ }
 	}
