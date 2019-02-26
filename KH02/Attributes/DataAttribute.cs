@@ -83,7 +83,14 @@ namespace KHSave.Attributes
 					for (int i = 0; i < property.DataInfo.Count; i++)
 					{
 						var oldPosition = (int)reader.BaseStream.Position;
-						addMethod.Invoke(value, new object[] { ReadObject(reader, Activator.CreateInstance(listType), oldPosition) });
+						if (ReadPrimitive(reader, listType, out var listValue))
+						{
+							addMethod.Invoke(value, new[] { listValue });
+						}
+						else
+						{
+							addMethod.Invoke(value, new[] { ReadObject(reader, Activator.CreateInstance(listType), oldPosition) });
+						}
 
 						var newPosition = reader.BaseStream.Position;
 						reader.BaseStream.Position += Math.Max(0, property.DataInfo.Stride - (newPosition - oldPosition));
@@ -137,7 +144,8 @@ namespace KHSave.Attributes
 					foreach (var item in value as IEnumerable)
 					{
 						var oldPosition = (int)writer.BaseStream.Position;
-						WriteObject(writer, item, oldPosition);
+						if (!WritePrimitive(writer, listType, item))
+							WriteObject(writer, item, oldPosition);
 
 						var newPosition = writer.BaseStream.Position;
 						writer.BaseStream.Position += Math.Max(0, property.DataInfo.Stride - (newPosition - oldPosition));
