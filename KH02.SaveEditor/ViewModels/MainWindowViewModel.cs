@@ -76,6 +76,7 @@ namespace KH02.SaveEditor.ViewModels
 		public SystemViewModel System { get; set; }
 		public InventoryViewModel Inventory { get; set; }
 		public PlayersViewModel Players { get; set; }
+		public ShortcutsViewModel Shortcuts { get; set; }
 		public PhotosViewModel Photos { get; set; }
 
 		public MainWindowViewModel()
@@ -150,6 +151,7 @@ namespace KH02.SaveEditor.ViewModels
 			System = new SystemViewModel(Save) {IsAdvancedMode = IsAdvancedMode};
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc);
+			Shortcuts = new ShortcutsViewModel(Save);
 			Photos = new PhotosViewModel(Save.Photos);
 
 			OnPropertyChanged(nameof(IsFileLoad));

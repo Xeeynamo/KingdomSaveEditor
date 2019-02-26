@@ -26,7 +26,8 @@ namespace KH02.SaveEditor.Models
 	{
 		private readonly Func<T> _getter;
 		private readonly Action<T> _setter;
-		public GenericEnumModel<EnumIconTypeModel<T>, T> EquipmentType { get; }
+		public GenericEnumModel<EnumIconTypeModel<T>, T> ValueSet { get; }
+		public GenericEnumModel<EnumIconTypeModel<T>, T> EquipmentType => ValueSet; // deprecated
 
 		public T ItemId
 		{
@@ -39,7 +40,7 @@ namespace KH02.SaveEditor.Models
 			_getter = getter;
 			_setter = setter;
 
-			EquipmentType = new GenericEnumModel<EnumIconTypeModel<T>, T>();
+			ValueSet = new GenericEnumModel<EnumIconTypeModel<T>, T>();
 		}
 	}
 }
