@@ -144,17 +144,19 @@
                     Text="{Binding RoomMapIndex, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3"
+                    Visibility="Collapsed"
                     Text="Spawn type"/>
                 <ComboBox Grid.Column="0" Grid.Row="4"
-                    ItemsSource="{Binding SpawnType}"
+                    Visibility="Collapsed"
                     SelectedValue="{Binding SpawnTypeValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
 
                 <TextBlock Grid.Column="2" Grid.Row="3"
+                    Visibility="Collapsed"
                     Text="Spawn index"/>
                 <TextBox Grid.Column="2" Grid.Row="4"
-                    Text="{Binding SpawnIndex, UpdateSourceTrigger=PropertyChanged}"/>
+                    Visibility="Collapsed"/>
             </Grid>
         </GroupBox>
 
