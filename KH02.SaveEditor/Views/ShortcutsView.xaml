@@ -52,7 +52,7 @@
                           DataContext="{Binding Square}"/>
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Cross"/>
                 <ComboBox Grid.Column="2" Grid.Row="3"
-                          DataContext="{Binding Square}"/>
+                          DataContext="{Binding Cross}"/>
             </Grid>
             <Separator/>
 
@@ -80,7 +80,7 @@
                           DataContext="{Binding Square}"/>
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Cross"/>
                 <ComboBox Grid.Column="2" Grid.Row="3"
-                          DataContext="{Binding Square}"/>
+                          DataContext="{Binding Cross}"/>
             </Grid>
             <Separator/>
 
@@ -108,7 +108,7 @@
                           DataContext="{Binding Square}"/>
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Cross"/>
                 <ComboBox Grid.Column="2" Grid.Row="3"
-                          DataContext="{Binding Square}"/>
+                          DataContext="{Binding Cross}"/>
             </Grid>
             <Separator/>
 
