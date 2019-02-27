@@ -115,6 +115,24 @@
             </StackPanel>
         </Grid>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Enemies defeated"/>
+                <TextBox Text="{Binding EnemiesDefeated, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Crabs collected"/>
+                <TextBox Text="{Binding CrabsCollected, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
         <GroupBox Header="Room mod" Visibility="{Binding SimpleVisibility}">
             <Grid>
                 <Grid.ColumnDefinitions>

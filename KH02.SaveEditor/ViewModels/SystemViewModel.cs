@@ -128,6 +128,18 @@ namespace KH02.SaveEditor.ViewModels
 			set => save.SavesCount = value;
 		}
 
+		public int EnemiesDefeated
+		{
+			get => save.EnemiesDefeated;
+			set => save.EnemiesDefeated = value;
+		}
+
+		public int CrabsCollected
+		{
+			get => save.CrabsCollected;
+			set => save.CrabsCollected = value;
+		}
+
 		public string MapPath
 		{
 			get => save.MapPath;
