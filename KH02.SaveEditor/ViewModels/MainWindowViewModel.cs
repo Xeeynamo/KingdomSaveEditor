@@ -159,6 +159,7 @@ namespace KH02.SaveEditor.ViewModels
 			OnPropertyChanged(nameof(System));
 			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Players));
+			OnPropertyChanged(nameof(Shortcuts));
 			OnPropertyChanged(nameof(Photos));
 		}
 	}
