@@ -12,7 +12,9 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox VerticalAlignment="Center" Margin="0 0 3 0"
+        <CheckBox
+            VerticalAlignment="Center" Margin="0 0 3 0"
+            Visibility="Collapsed"
             IsChecked="{Binding Enabled}"/>
         <controls:ItemComboBox
             Grid.Column="1"
