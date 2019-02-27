@@ -45,6 +45,7 @@ namespace KH02.SaveEditor.Models
 			["Accessory"] = "AccessoryIcon",
 			["Ability"] = "AbilityEquippedIcon",
 			["CombatStyle"] = "CombatStyleIcon",
+			["Command"] = "AbilityUnequippedIcon",
 		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KH02.SaveEditor;component/Images/{x.Value}.png"));
 
 		public ImageSource Icon
