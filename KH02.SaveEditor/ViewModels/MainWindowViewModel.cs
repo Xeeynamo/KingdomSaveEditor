@@ -112,6 +112,7 @@ namespace KH02.SaveEditor.ViewModels
 
 				if (fd.ShowDialog() == true)
 				{
+					FileName = fd.FileName;
 					using (var stream = File.Open(fd.FileName, FileMode.Create))
 					{
 						Save.Write(stream);
