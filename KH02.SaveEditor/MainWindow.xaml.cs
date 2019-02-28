@@ -36,10 +36,5 @@ namespace KH02.SaveEditor
 			}
 #endif
 		}
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
