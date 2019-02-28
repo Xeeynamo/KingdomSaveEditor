@@ -58,7 +58,7 @@ namespace KHSave.Types
 		Unknown21,
 		[Armor("Arcisus")] Arcisus,
 		[Armor("Cosmic Chain")] CosmicChain,
-		Unknown24,
+		[Armor("Petite Ribbon")] PetiteRibbon,
 		[Armor("Ribbon")] Ribbon,
 		Unknown26,
 		Unknown27,
