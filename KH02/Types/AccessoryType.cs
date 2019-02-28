@@ -132,6 +132,6 @@ namespace KHSave.Types
         [Accessory("Star Medal")] StarMedal_6B,
         [Accessory("Star Medal")] StarMedal_6C,
         [Accessory("Star Medal")] StarMedal_6D,
-        [Accessory("Star Medal")] StarMedal_6E,
+        [Accessory("Star Medal")] StarMedal_6E
     }
 }

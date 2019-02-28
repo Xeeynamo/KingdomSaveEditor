@@ -28,7 +28,7 @@
                     Content="_Advanced mode"
                     IsChecked="{Binding IsAdvancedMode}"/>
             </MenuItem>
-            <MenuItem Header="_Info">
+            <MenuItem Header="_Info" Click="MenuItem_Click">
                 <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}" IsEnabled="False"/>
                 <MenuItem Header="_About" Command="{Binding AboutCommand}"/>
             </MenuItem>
