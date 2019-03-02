@@ -20,10 +20,7 @@
             SelectedItem="{Binding SelectedItem}"
             DisplayMemberPath="Name"
             />
-        <ScrollViewer Grid.Column="2"
-            VerticalScrollBarVisibility="Auto">
-            <local:PlayerView Margin="0 0 10 0"
+        <local:PlayerView Margin="0 0 10 0" Grid.Column="2"
                 DataContext="{Binding SelectedItem}"/>
-        </ScrollViewer>
     </Grid>
 </UserControl>

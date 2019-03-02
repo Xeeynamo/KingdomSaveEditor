@@ -9,10 +9,14 @@
     <Grid>
         <TabControl>
             <TabItem Header="Status">
-                <local:PlayerStatusView DataContext="{Binding}"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                    <local:PlayerStatusView DataContext="{Binding}"/>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Equipment">
-                <local:PlayerEquipmentView DataContext="{Binding}"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                    <local:PlayerEquipmentView DataContext="{Binding}"/>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>
