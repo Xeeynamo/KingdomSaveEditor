@@ -285,6 +285,30 @@ namespace KHSave.Types
         [Accessory("Star Medal")] StarMedal_6B,
         [Accessory("Star Medal")] StarMedal_6C,
         [Accessory("Star Medal")] StarMedal_6D,
-        [Accessory("Star Medal")] StarMedal_6E
+        [Accessory("Star Medal")] StarMedal_6E,
+
+        [Synthesis("Blazing Shard")] BlazingShard = 489,
+        [Synthesis("Blazing Stone")] BlazingStone,
+        [Synthesis("Blazing Gem")] BlazingGem,
+        [Synthesis("Blazing Crystal")] BlazingCrystal,
+        [Synthesis("Frost Shard")] FrostShard,
+        [Synthesis("Frost Stone")] FrostStone,
+        [Synthesis("Frost Gem")] FrostGem,
+        [Synthesis("Frost Crystal")] FrostCrystal,
+        [Synthesis("Lightning Shard")] LightningShard,
+        [Synthesis("Lightning Stone")] LightningStone,
+        [Synthesis("Lightning Gem")] LightningGem,
+        [Synthesis("Lightning Crystal")] LightningCrystal = 500,
+        [Synthesis("Lucid Shard")] LucidShard,
+        [Synthesis("Lucid Stone")] LucidStone,
+        [Synthesis("Lucid Gem")] LucidGem,
+        [Synthesis("Lucid Crystal")] LucidCrystal,
+        [Synthesis("Pulsing Shard")] PulsingShard,
+        [Synthesis("Pulsing Stone")] PulsingStone,
+        [Synthesis("Pulsing Gem")] PulsingGem,
+        [Synthesis("Pulsing Crystal")] PulsingCrystal,
+        [Synthesis("Writhing Shard")] WrithingShard,
+        [Synthesis("Writhing Stone")] WrithingStone,
+        [Synthesis("Writhing Gem")] WrithingGem
     }
 }
