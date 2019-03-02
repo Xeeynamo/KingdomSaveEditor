@@ -18,9 +18,9 @@
 
 namespace KHSave.Attributes
 {
-    public class FoodAttribute : InfoAttribute
+    public class IngredientAttribute : InfoAttribute
     {
-        public FoodAttribute(string name) :
+        public IngredientAttribute(string name) :
             base(name)
         { }
     }
