@@ -27,7 +27,7 @@ namespace KHSave.Types
 		Woody,
 		Buzz,
 		Rapunzel,
-		Flinn,
+		Flynn,
 		Sulley,
 		Mike,
 		Marshmallow,

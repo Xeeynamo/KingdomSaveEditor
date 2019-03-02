@@ -38,7 +38,7 @@ namespace KHSave.Types
 		Buzz,
 		Hercules,
 		Rapunzel,
-		Flinn,
+		Flynn,
 		Sulley,
 		Mike,
 		Empty20,
