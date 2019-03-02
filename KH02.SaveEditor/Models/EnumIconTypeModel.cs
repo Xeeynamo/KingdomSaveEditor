@@ -35,6 +35,7 @@ namespace KH02.SaveEditor.Models
 			["Tent"] = "TentIcon",
 			["KeyItem"] = "KeyItemIcon",
 			["Food"] = "FoodIcon",
+            ["Snack"] = "SnackIcon",
 			["Magic"] = "MagicIcon",
 			["Link"] = "LinkIcon",
 			["Keyblade"] = "KeybladeIcon",
