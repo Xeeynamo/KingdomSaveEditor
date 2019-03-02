@@ -57,6 +57,7 @@
     <Compile Include="Models\GenericEnumModel.cs" />
     <Compile Include="Models\InventoryItemViewModel.cs" />
     <Compile Include="Models\ItemComboBoxModel.cs" />
+    <Compile Include="ViewModels\AbilitiesViewModel.cs" />
     <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

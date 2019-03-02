@@ -16,31 +16,33 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KHSave.Extensions
+namespace KHSave.Attributes
 {
-	public static class BitExtensions
+	public class AbilityAttribute : InfoAttribute
 	{
-		public static bool GetFlag(this int value, int bit)
-		{
-			return (value & (1 << bit)) != 0;
-		}
+		public AbilityAttribute(string name) :
+			base(name)
+		{ }
+	}
 
-		public static int SetFlag(int value, int bit, bool set)
-		{
-			if (set)
-			{
-				value |= 1 << bit;
-			}
-			else
-			{
-				value &= ~(1 << bit);
-			}
+	public class AbilityActionAttribute : AbilityAttribute
+	{
+		public AbilityActionAttribute(string name) :
+			base(name)
+		{ }
+	}
 
-			return value;
-		}
+	public class AbilityMobilityAttribute : AbilityAttribute
+	{
+		public AbilityMobilityAttribute(string name) :
+			base(name)
+		{ }
+	}
+
+	public class AbilitySupportAttribute : AbilityAttribute
+	{
+		public AbilitySupportAttribute(string name) :
+			base(name)
+		{ }
 	}
 }

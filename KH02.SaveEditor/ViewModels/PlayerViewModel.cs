@@ -16,7 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
 using KHSave.Types;
@@ -47,6 +49,7 @@ namespace KH02.SaveEditor.ViewModels
 			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
 			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
 			Consumables = new EquipmentItemsViewModel<ConsumableType>(playableCharacter.Items);
+			Abilities = new AbilitiesViewModel(playableCharacter.Abilities);
 
 			AiCombatStyle = new ItemComboBoxModel<AiCombatStyleType>(
 				() => playableCharacter.Ai.CombatStyle,
@@ -114,12 +117,7 @@ namespace KH02.SaveEditor.ViewModels
 		public ItemComboBoxModel<AiAbilityType> AiAbility { get; }
 		public ItemComboBoxModel<AiRecoveryType> AiRecovery { get; }
 
-
-		public IEnumerable<Ability> Abilities
-		{
-			get => playableCharacter.Abilities;
-			set { }
-		}
+		public AbilitiesViewModel Abilities { get; }
 
 		public string Text => playableCharacter.ToString();
 	}

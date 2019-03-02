@@ -25,10 +25,28 @@ namespace KHSave.Models
 	{
 		[Data] public int Data { get; set; }
 
+		public bool Unlocked
+		{
+			get => Data.GetFlag(0);
+			set => Data = BitExtensions.SetFlag(Data, 0, value);
+		}
+
 		public bool Enabled
 		{
 			get => Data.GetFlag(1);
-			set => Data.SetFlag(1, value);
+			set => Data = BitExtensions.SetFlag(Data, 1, value);
+		}
+
+		public bool Unseen
+		{
+			get => Data.GetFlag(2);
+			set => Data = BitExtensions.SetFlag(Data, 2, value);
+		}
+
+		public bool Flag3
+		{
+			get => Data.GetFlag(3);
+			set => Data = BitExtensions.SetFlag(Data, 3, value);
 		}
 
 		public override string ToString()
