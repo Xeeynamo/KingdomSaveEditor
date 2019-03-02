@@ -87,7 +87,7 @@ namespace KHSave.Types
 		[Unused] [Info("")] Location3e,
 		[Info("Realm of the Gods / Apex")] Location3f,
 		[Unused] [Info("")] Location40,
-		[Unused] [Info("")] Location41,
+		[Info("Mount Olympus / Cliff Ascent")] Location41,
 		[Info("Mount Olympus / Mountainside")] Location42,
 		[Info("Mount Olympus / Summit")] Location43,
 		[Info("Thebes / Agora")] Location44,
