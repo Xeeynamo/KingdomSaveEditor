@@ -32,7 +32,6 @@ namespace KH02.SaveEditor.ViewModels
 		public RelayCommand Research2Command { get; }
 		public RelayCommand Research3Command { get; }
 		public RelayCommand Research4Command { get; }
-		public RelayCommand Research5Command { get; }
 
 		public InventoryViewModel(IEnumerable<InventoryEntry> list) :
 			this(list.Select((item, index) => new InventoryItemViewModel(item, index)))
@@ -42,12 +41,11 @@ namespace KH02.SaveEditor.ViewModels
 			base(list)
 		{
 
-			Research0Command = new RelayCommand(o => DoResearch(0), x => true);
-			Research1Command = new RelayCommand(o => DoResearch(100), x => true);
-			Research2Command = new RelayCommand(o => DoResearch(200), x => true);
-			Research3Command = new RelayCommand(o => DoResearch(300), x => true);
-			Research4Command = new RelayCommand(o => DoResearch(400), x => true);
-			Research5Command = new RelayCommand(o => DoResearch(500, 12), x => true);
+			Research0Command = new RelayCommand(o => DoResearch(500), x => true);
+			Research1Command = new RelayCommand(o => DoResearch(600), x => true);
+			Research2Command = new RelayCommand(o => DoResearch(700), x => true);
+			Research3Command = new RelayCommand(o => DoResearch(800), x => true);
+			Research4Command = new RelayCommand(o => DoResearch(900), x => true);
 		}
 
 		private void DoResearch(int startIndex, int count = 100)
