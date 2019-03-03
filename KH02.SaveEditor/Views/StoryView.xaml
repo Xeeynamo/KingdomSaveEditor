@@ -17,7 +17,7 @@
                 <DataGridTextColumn
                     Header="Value"
                     Width="Auto"
-                    Binding="{Binding Value}" />
+                    Binding="{Binding Value, Mode=TwoWay}" />
                 <DataGridTemplateColumn 
                     Header="Use"
                     Width="*">
@@ -25,7 +25,7 @@
                         <DataTemplate>
                             <ComboBox
                                 ItemsSource="{Binding Preset.Items}"
-                                SelectedValue="{Binding Value}"
+                                SelectedValue="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
                                 DisplayMemberPath="Name"
                                 SelectedValuePath="Value"/>
                         </DataTemplate>

@@ -3,6 +3,7 @@ using KHSave.Presets;
 using KHSave.Types;
 using System.Collections.Generic;
 using System.Linq;
+using Xe.Tools;
 using Xe.Tools.Models;
 using Xe.Tools.Wpf.Models;
 
@@ -22,7 +23,7 @@ namespace KH02.SaveEditor.ViewModels
 		}
 	}
 
-	public class StoryEntryModel
+	public class StoryEntryModel : BaseNotifyPropertyChanged
 	{
 		private readonly List<int> storyFlag;
 		private readonly int index;
@@ -42,7 +43,15 @@ namespace KH02.SaveEditor.ViewModels
 
 		public string Name => InfoAttribute.GetInfo((StoryFlagType)index) ?? $"{index:X02}";
 
-		public int Value { get => storyFlag[index]; set => storyFlag[index] = value; }
+		public int Value
+		{
+			get => storyFlag[index];
+			set
+			{
+				storyFlag[index] = value;
+				OnPropertyChanged(nameof(Value));
+			}
+		}
 	}
 
 	public class StoryPresetModel : GenericListModel<EnumItemModel<int>>
