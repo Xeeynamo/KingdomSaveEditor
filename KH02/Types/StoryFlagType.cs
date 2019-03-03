@@ -11,7 +11,7 @@ namespace KHSave.Types
 		[Info("")] Story04,
 		[Info("")] Story05,
 		[Info("")] Story06,
-		[Info("Destiny Island")] Story07,
+		[Info("Destiny Island")] DestinyIsland,
 		[Info("Land of Departure")] Story08,
 		[Info("Dark World")] Story09,
 		[Info("")] Story0A,

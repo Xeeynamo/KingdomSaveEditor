@@ -11,13 +11,26 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="Name"
-                    Width="*"
+                    Width="Auto"
                     Binding="{Binding Name}"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Header="Value"
-                    Width="*"
+                    Width="Auto"
                     Binding="{Binding Value}" />
+                <DataGridTemplateColumn 
+                    Header="Use"
+                    Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding Preset.Items}"
+                                SelectedValue="{Binding Value}"
+                                DisplayMemberPath="Name"
+                                SelectedValuePath="Value"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
