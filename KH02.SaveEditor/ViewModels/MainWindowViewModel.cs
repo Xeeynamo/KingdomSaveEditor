@@ -78,6 +78,7 @@ namespace KH02.SaveEditor.ViewModels
 		public PlayersViewModel Players { get; set; }
 		public StoryViewModel Story { get; set; }
 		public ShortcutsViewModel Shortcuts { get; set; }
+		public RecordsViewModel Records { get; set; }
 		public PhotosViewModel Photos { get; set; }
 
 		public MainWindowViewModel()
@@ -156,6 +157,7 @@ namespace KH02.SaveEditor.ViewModels
 			Players = new PlayersViewModel(Save.Pc);
 			Story = new StoryViewModel(Save.Storyflags);
 			Shortcuts = new ShortcutsViewModel(Save);
+			Records = new RecordsViewModel(Save);
 			Photos = new PhotosViewModel(Save.Photos);
 
 			OnPropertyChanged(nameof(IsFileLoad));
@@ -164,6 +166,7 @@ namespace KH02.SaveEditor.ViewModels
 			OnPropertyChanged(nameof(Players));
 			OnPropertyChanged(nameof(Story));
 			OnPropertyChanged(nameof(Shortcuts));
+			OnPropertyChanged(nameof(Records));
 			OnPropertyChanged(nameof(Photos));
 		}
 	}

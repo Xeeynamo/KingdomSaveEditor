@@ -60,6 +60,11 @@
                     Grid.Row="1"
                     DataContext="{Binding Shortcuts}"/>
             </TabItem>
+            <TabItem Header="Records">
+                <views:RecordsView
+                    Grid.Row="1"
+                    DataContext="{Binding Records}"/>
+            </TabItem>
             <TabItem Header="Photos">
                 <views:PhotosView
                     Grid.Row="1"

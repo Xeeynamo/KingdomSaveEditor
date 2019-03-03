@@ -44,6 +44,7 @@ namespace KHSave
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
         [Data(0x68)] public int EnemiesDefeated { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
+		[Data(0x6C8, 0x40, 2)] public List<short> RecordShotlocks { get; set; }
 		[Data(0x86c, 0x400, 2)] public List<InventoryEntry> Inventory { get; set; }
         [Data(0x1764)] public int CrabsCollected { get; set; }
 		[Data(0x17F8, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }

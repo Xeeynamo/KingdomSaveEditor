@@ -64,6 +64,7 @@
     <Compile Include="ViewModels\PhotosViewModel.cs" />
     <Compile Include="ViewModels\PlayersViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
+    <Compile Include="ViewModels\RecordsViewModel.cs" />
     <Compile Include="ViewModels\ShortcutsViewModel.cs" />
     <Compile Include="ViewModels\StoryViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModel.cs" />
@@ -93,6 +94,9 @@
     </Compile>
     <Compile Include="Views\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecordsView.xaml.cs">
+      <DependentUpon>RecordsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShortcutsView.xaml.cs">
       <DependentUpon>ShortcutsView.xaml</DependentUpon>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlayerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecordsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
