@@ -68,6 +68,15 @@ namespace KHSave.Types
 		LandOfDeparture = 25,
 
 		[World("wm", "World Map")]
-		WorldMap = 28
+		WorldMap = 28,
+
+		[World("di", "Destiny Island")]
+		DestinyIsland = 0xF0,
+
+		[World("rg", "Radiant Garden")]
+		RadiantGarden = 0xF1,
+
+		[World("gm", "Gummiship")]
+		Gummiship = 0xF2,
 	}
 }
