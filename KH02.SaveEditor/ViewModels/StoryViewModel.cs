@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using KHSave.Attributes;
+using KHSave.Types;
+using System.Collections.Generic;
 using System.Linq;
 using Xe.Tools.Wpf.Models;
 
@@ -29,7 +31,7 @@ namespace KH02.SaveEditor.ViewModels
 			this.index = index;
 		}
 
-		public string Name => $"{index}";
+		public string Name => InfoAttribute.GetInfo((StoryFlagType)index) ?? $"{index:X02}";
 
 		public int Value { get => storyFlag[index]; set => storyFlag[index] = value; }
 	}
