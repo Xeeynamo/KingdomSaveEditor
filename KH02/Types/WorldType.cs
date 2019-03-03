@@ -61,7 +61,7 @@ namespace KHSave.Types
 		[World("bx", "San Fransokyo")]
 		SanFransokyo = 19,
 
-		[World("dw", "The Final World")]
+		[World("ew", "The Final World")]
 		FinalWorld = 22,
 
 		[World("dp", "Land of Departure")]
