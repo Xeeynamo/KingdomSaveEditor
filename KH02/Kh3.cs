@@ -29,6 +29,7 @@ namespace KHSave
 	{
 		[Data(0, 0x94E8F0)] public byte[] Data { get; set; }
 
+		[Data(0xC)] public int Unknown0000C { get; set; } // Changes every time
 		[Data(0x14)] public DifficultyType Difficulty { get; set; }
 		[Data(0x18)] public WorldType WorldLogo { get; set; }
 
@@ -38,6 +39,8 @@ namespace KHSave
 		[Data(0x2C)] public byte Level { get; set; }
         [Data(0x39)] public bool SaveClear { get; set; }
         [Data(0x54)] public LocationType LocationName { get; set; }
+		[Data(0x58)] public int Unknown00058 { get; set; } // Changes every time
+		[Data(0x5C)] public int Unknown0005C { get; set; } // Changes every time
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
         [Data(0x68)] public int EnemiesDefeated { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
