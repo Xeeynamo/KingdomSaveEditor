@@ -61,7 +61,7 @@ namespace KHSave.Presets
 			[(int)StoryFlagType.MysteriousTower] = new Dictionary<int, string>
 			{
 				[0] = "Prelude to Adventure",
-				[50] = "A Fresh Start",
+				[10] = "A Fresh Start",
 				[100] = "A Quick Review",
 				[200] = "The Guardians of Light Gather",
 				[300] = "Beneath the Same Stars",
