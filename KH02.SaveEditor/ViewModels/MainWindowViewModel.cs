@@ -132,6 +132,7 @@ namespace KH02.SaveEditor.ViewModels
 				{
 					"Keytotruth, additional coding and offsets",
 					"Troopah, for providing the icons",
+					"Sonicshadowsilver2, for story flags and records offsets",
 				}.Select(name => $" - {name}")
 				.ToList());
 
