@@ -50,6 +50,11 @@
                     Grid.Row="1"
                     DataContext="{Binding Players}"/>
             </TabItem>
+            <TabItem Header="Story">
+                <views:StoryView
+                    Grid.Row="1"
+                    DataContext="{Binding Story}"/>
+            </TabItem>
             <TabItem Header="Shortcuts">
                 <views:ShortcutsView
                     Grid.Row="1"

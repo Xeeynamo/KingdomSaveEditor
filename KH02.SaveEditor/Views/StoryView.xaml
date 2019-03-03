@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="KH02.SaveEditor.Views.StoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KH02.SaveEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="400">
+    <Grid>
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Name"
+                    Width="*"
+                    Binding="{Binding Name}"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Header="Value"
+                    Width="*"
+                    Binding="{Binding Value}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

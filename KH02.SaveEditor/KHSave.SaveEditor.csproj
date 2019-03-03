@@ -65,6 +65,7 @@
     <Compile Include="ViewModels\PlayersViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
     <Compile Include="ViewModels\ShortcutsViewModel.cs" />
+    <Compile Include="ViewModels\StoryViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModel.cs" />
     <Compile Include="Views\EquipmentItemEntryView.xaml.cs">
       <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
@@ -95,6 +96,9 @@
     </Compile>
     <Compile Include="Views\ShortcutsView.xaml.cs">
       <DependentUpon>ShortcutsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoryView.xaml.cs">
+      <DependentUpon>StoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemView.xaml.cs">
       <DependentUpon>SystemView.xaml</DependentUpon>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortcutsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
