@@ -16,7 +16,15 @@ namespace KHSave.Presets
 				[222] = "Confront Armored Xehanort once you are duly prepared!",
 				[244] = "No Information Box",
 			},
-			[(int)StoryFlagType.DestinyIsland] = new Dictionary<int, string>
+            [(int)StoryFlagType.SanFransokyo] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.Caribbean] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.DestinyIsland] = new Dictionary<int, string>
 			{
 				[0] = "Interval VIII: The Destiny Islands",
 				[10] = "Return to Light",
@@ -34,6 +42,10 @@ namespace KHSave.Presets
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
 			},
+            [(int)StoryFlagType.DarkWorld] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
             [(int)StoryFlagType.TheFinalWorld] = new Dictionary<int, string>
             {
                 [2300] = "End of tutorial",
@@ -41,6 +53,14 @@ namespace KHSave.Presets
             [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
             {
                 [8820] = "Story Done",
+            },
+            [(int)StoryFlagType.Gummi] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.Hercules] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
             },
             [(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
 			{
@@ -57,6 +77,31 @@ namespace KHSave.Presets
 				[14696] = "After Xehanort Trio",
 				[99999] = "Story Done",
 			},
+            [(int)StoryFlagType.Monstropolis] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.Pooh] = new Dictionary<int, string>
+            {
+                [100] = "First minigame beaten",
+                [200] = "Second minigame beaten",
+            },
+            [(int)StoryFlagType.KingdomOfCorona] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.RadiantGarden] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.ToyBox] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.TwilightTown] = new Dictionary<int, string>
+            {
+                [9999] = "Story Done",
+            },
             [(int)StoryFlagType.WorldMap] = new Dictionary<int, string>
             {
                 [0] = "Start of World Map",
