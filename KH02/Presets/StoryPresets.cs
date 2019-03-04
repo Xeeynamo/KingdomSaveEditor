@@ -55,6 +55,11 @@ namespace KHSave.Presets
                 [3300] = "After exiting Ice Tower",
                 [8820] = "Story Done",
             },
+            [(int)StoryFlagType.ArendelleAvalanche] = new Dictionary<int, string>
+            {
+                [0] = "Avalanche Minigame",
+                [2120] = "Avalanche Done [Black screen]",
+            },
             [(int)StoryFlagType.Gummi] = new Dictionary<int, string>
             {
                 [9999] = "Story Done",

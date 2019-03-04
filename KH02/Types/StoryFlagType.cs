@@ -25,7 +25,7 @@ namespace KHSave.Types
 		[Info("")] Story12,
 		[Info("")] Story13,
 		[Info("Arendelle")] Arendelle,
-		[Info("")] Story15,
+		[Info("Arendelle Avalanche")] ArendelleAvalanche,
 		[Info("Gummi")] Gummi,
 		[Info("")] Story17,
 		[Info("")] Story18,
