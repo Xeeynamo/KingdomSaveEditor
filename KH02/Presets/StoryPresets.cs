@@ -52,6 +52,7 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
             {
+                [3300] = "After exiting Ice Tower",
                 [8820] = "Story Done",
             },
             [(int)StoryFlagType.Gummi] = new Dictionary<int, string>
@@ -88,6 +89,7 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.KingdomOfCorona] = new Dictionary<int, string>
             {
+                [3170] = "Going back to Rapunzel's Tower",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.RadiantGarden] = new Dictionary<int, string>
