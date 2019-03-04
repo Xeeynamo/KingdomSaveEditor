@@ -34,7 +34,7 @@ namespace KHSave.Types
 		[World("ts", "Toy Box")]
 		ToyBox = 5,
 
-		[World("ra", "Kindom of Corona")]
+		[World("ra", "Kingdom of Corona")]
 		KingdomOfCorona = 7,
 
 		[World("fz", "Arendelle")]
