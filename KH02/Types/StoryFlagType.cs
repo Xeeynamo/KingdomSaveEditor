@@ -15,7 +15,7 @@ namespace KHSave.Types
 		[Info("Land of Departure")] LandOfDeparture,
 		[Info("Dark World")] DarkWorld,
 		[Info("")] Story0A,
-		[Info("The Final World")] Story0B,
+		[Info("The Final World")] TheFinalWorld,
 		[Info("")] Story0C,
 		[Info("")] Story0D,
 		[Info("")] Story0E,

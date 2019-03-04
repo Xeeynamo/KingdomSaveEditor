@@ -34,6 +34,10 @@ namespace KHSave.Presets
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
 			},
+            [(int)StoryFlagType.TheFinalWorld] = new Dictionary<int, string>
+            {
+                [2300] = "End of tutorial",
+            },
             [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
             {
                 [8820] = "Story Done",
