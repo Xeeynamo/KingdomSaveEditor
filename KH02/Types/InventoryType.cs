@@ -364,8 +364,17 @@ namespace KHSave.Types
         [Synthesis("Pulsing Stone")] PulsingStone,
         [Synthesis("Pulsing Gem")] PulsingGem,
         [Synthesis("Pulsing Crystal")] PulsingCrystal,
-        [Synthesis("Writhing Shard")] WrithingShard,
-        [Synthesis("Writhing Stone")] WrithingStone,
-        [Synthesis("Writhing Gem")] WrithingGem
-    }
+		[Synthesis("Writhing Shard")] WrithingShard,
+		[Synthesis("Writhing Stone")] WrithingStone,
+		[Synthesis("Writhing Gem")] WrithingGem,
+		[Synthesis("Writhing Crystal")] WrithingCrystal,
+		[Synthesis("Betwixt Shard")] BetwixtShard,
+		[Synthesis("Betwixt Stone")] BetwixtStone,
+		[Synthesis("Betwixt Gem")] BetwixtGem,
+		[Synthesis("Betwixt Crystal")] BetwixtCrystal,
+		[Synthesis("Twilight Shard")] TwilightShard,
+		[Synthesis("Twilight Stone")] TwilightStone,
+		[Synthesis("Twilight Gem")] TwilightGem,
+		[Synthesis("Twilight Crystal")] TwilightCrystal,
+	}
 }
