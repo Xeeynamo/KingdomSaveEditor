@@ -212,7 +212,7 @@ namespace KHSave.Types
         [Command("Pirate Ship")] PirateShip,
         [Command("Mad Tea Cups")] MadTeaCups,
         [Command("Blaster Blaze")] BlasterBlaze,
-        [Command("Magic Carrousel")] MagicCarrousel,
+        [Command("Magic Carousel")] MagicCarrousel,
         [Command("Splash Run")] SplashRun,
         [Command("Finish")] Finish_C0,
         [Command("Trinity Guard")] TrinityGuard,

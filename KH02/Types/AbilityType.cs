@@ -231,7 +231,7 @@ namespace KHSave.Types
 		[AbilityAction("Goofy Tornado")] Ability0CE,
 		[AbilityAction("Goofy Turbo")] Ability0CF,
 		[AbilityAction("Goofy Discus")] Ability0D0,
-		[AbilityAction("Boulder Tossd")] Ability0D1,
+		[AbilityAction("Boulder Toss")] Ability0D1,
 		Ability0D2,
 		Ability0D3,
 		Ability0D4,
