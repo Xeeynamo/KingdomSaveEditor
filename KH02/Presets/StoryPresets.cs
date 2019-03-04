@@ -34,15 +34,6 @@ namespace KHSave.Presets
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
 			},
-			[(int)StoryFlagType.WorldMap] = new Dictionary<int, string>
-			{
-				[0] = "Start of World Map",
-				[100] = "A Replica for Roxas (Part 1)",
-				[210] = "A Replica for Roxas (Part 2)",
-				[320] = "A Message from Merlin",
-				[500] = "A Guiding Key (Part 1)",
-				[9999] = "Story Done",
-			},
 			[(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
 			{
 				[0] = "Vexen's Return",
@@ -58,7 +49,16 @@ namespace KHSave.Presets
 				[14696] = "After Xehanort Trio",
 				[99999] = "Story Done",
 			},
-			[(int)StoryFlagType.MysteriousTower] = new Dictionary<int, string>
+            [(int)StoryFlagType.WorldMap] = new Dictionary<int, string>
+            {
+                [0] = "Start of World Map",
+                [100] = "A Replica for Roxas (Part 1)",
+                [210] = "A Replica for Roxas (Part 2)",
+                [320] = "A Message from Merlin",
+                [500] = "A Guiding Key (Part 1)",
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.MysteriousTower] = new Dictionary<int, string>
 			{
 				[0] = "Prelude to Adventure",
 				[10] = "A Fresh Start",
