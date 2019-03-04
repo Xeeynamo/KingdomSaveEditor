@@ -34,7 +34,11 @@ namespace KHSave.Presets
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
 			},
-			[(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
+            [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
+            {
+                [8820] = "Story Done",
+            },
+            [(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
 			{
 				[0] = "Vexen's Return",
 				[18] = "The Organization's Origins",
