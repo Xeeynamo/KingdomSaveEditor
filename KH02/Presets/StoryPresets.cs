@@ -104,7 +104,8 @@ namespace KHSave.Presets
             [(int)StoryFlagType.SecretForest] = new Dictionary<int, string>
             {
                 [0] = "Talking On Paper",
-                [10] = "Nothing's As It Should Be"
+                [10] = "Nothing's As It Should Be",
+                [9999] = "Story Done"
             },
             [(int)StoryFlagType.ToyBox] = new Dictionary<int, string>
             {
