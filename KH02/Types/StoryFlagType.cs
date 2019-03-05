@@ -49,7 +49,7 @@ namespace KHSave.Types
 		[Info("")] Story2A,
 		[Info("")] Story2B,
 		[Info("Radiant Garden")] RadiantGarden,
-		[Info("")] Story2D,
+		[Info("Secret Forest")] SecretForest,
 		[Info("Toy Box")] ToyBox,
 		[Info("")] Story2F,
 		[Info("Twilight Town")] TwilightTown,
