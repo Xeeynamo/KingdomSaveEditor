@@ -71,7 +71,7 @@ namespace KHSave.Presets
             [(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
 			{
 				[0] = "Vexen's Return",
-				[18] = "The Organization's Origins",
+				[10] = "The Organization's Origins",
 				[50] = "The Xehanorts Gather",
 				[100] = "1 Million Heartless",
 				[200] = "Before The Final World",
