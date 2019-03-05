@@ -37,6 +37,7 @@ namespace KH02.SaveEditor.Models
 			["Food"] = "FoodIcon",
             ["Snack"] = "SnackIcon",
             ["Synthesis"] = "MineralIcon",
+            ["MogItem"] = "KupoCoinIcon",
 			["Magic"] = "MagicIcon",
 			["Link"] = "LinkIcon",
 			["Keyblade"] = "KeybladeIcon",
