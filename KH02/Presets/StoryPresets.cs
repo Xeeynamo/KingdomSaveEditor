@@ -116,6 +116,7 @@ namespace KHSave.Presets
                 [210] = "A Replica for Roxas (Part 2)",
                 [320] = "A Message from Merlin",
                 [500] = "A Guiding Key (Part 1)",
+                [3000] = "Ienzo Checks In",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.MysteriousTower] = new Dictionary<int, string>

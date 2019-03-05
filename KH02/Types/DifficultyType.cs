@@ -20,7 +20,7 @@ namespace KHSave.Types
 {
 	public enum DifficultyType : byte
 	{
-		Easy,
+		Beginner,
 		Normal,
 		Proud,
 		Critical
