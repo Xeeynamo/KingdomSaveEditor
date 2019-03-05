@@ -476,7 +476,7 @@ namespace KHSave.Types
         [KeyItem("Ocean Heartbinder")] OceanHeartbinder,
         [KeyItem("Golden Herc Figure")] GoldenHercFigure,
         
-        [MogItem("")] KupoCoin = 677,
+        [MogItem("Kupo Coin")] KupoCoin = 677,
 
     }
 }
