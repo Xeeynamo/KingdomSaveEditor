@@ -44,6 +44,17 @@ namespace KHSave.Presets
 			},
             [(int)StoryFlagType.DarkWorld] = new Dictionary<int, string>
             {
+                [0] = "A Dwindling Trail",
+                [14] = "The Dark Margin",
+                [22] = "Demon Tower I",
+                [50] = "Reunion (After Demon Tower I)",
+                [100] = "An Unexpected Encounter",
+                [200] = "Riku and the King's Peril",
+                [300] = "Too Late",
+                [410] = "Demon Tower II",
+                [520] = "Braving the Darkness",
+                [608] = "Anti-Aqua",
+                [718] = "Return to the Light (Part 1)",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.TheFinalWorld] = new Dictionary<int, string>
@@ -66,6 +77,9 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.Hercules] = new Dictionary<int, string>
             {
+                [0] = "Start of Olympus",
+                [50] = "After Agora heartless",
+                [1280] = "Start of Realm of Gods",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.KeybladeGraveyard] = new Dictionary<int, string>
@@ -113,11 +127,25 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.TwilightTown] = new Dictionary<int, string>
             {
+                [0] = "Nostalgic Streets",
+                [100] = "The Neighborhood Nobodies",
+                [116] = "Hello, Good-bye",
+                [124] = "Demon Tide I",
+                [132] = "Defeat the Demon Tide!",
+                [140] = "Before The Woods Powerwilds",
+                [200] = "The Woods Powerwilds",
+                [250] = "Before Entering the Mansion",
+                [300] = "Datascapes (Part 2)",
+                [350] = "Before The Old Mansion Fight",
+                [400] = "After The Old Mansion Fight",
+                [450] = "The Old Mansion Fight",
+                [500] = "Collect Ingredients",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.WorldMap] = new Dictionary<int, string>
             {
-                [0] = "Start of World Map",
+                [0] = "Prelude to Adventure (Part 2)",
+                [22] = "Heart Within a Heart",
                 [100] = "A Replica for Roxas (Part 1)",
                 [210] = "A Replica for Roxas (Part 2)",
                 [320] = "A Message from Merlin",
