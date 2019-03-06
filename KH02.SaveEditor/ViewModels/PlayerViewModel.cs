@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
 using KHSave.Types;
@@ -63,6 +64,9 @@ namespace KH02.SaveEditor.ViewModels
 		}
 
 		public string Name => ((PlayableCharacterType)index).ToString();
+
+		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
 		public byte AtkBoost
 		{
