@@ -3,6 +3,7 @@ using KHSave.Presets;
 using KHSave.Types;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using Xe.Tools;
 using Xe.Tools.Models;
 using Xe.Tools.Wpf.Models;
@@ -16,6 +17,9 @@ namespace KH02.SaveEditor.ViewModels
 		{
 
 		}
+
+		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
 		protected override StoryEntryModel OnNewItem()
 		{

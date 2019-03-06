@@ -103,6 +103,12 @@
     <Compile Include="Views\ShortcutsView.xaml.cs">
       <DependentUpon>ShortcutsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\StoryAdvancedView.xaml.cs">
+      <DependentUpon>StoryAdvancedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoryBasicView.xaml.cs">
+      <DependentUpon>StoryBasicView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StoryView.xaml.cs">
       <DependentUpon>StoryView.xaml</DependentUpon>
     </Compile>
@@ -166,6 +172,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortcutsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryAdvancedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryBasicView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

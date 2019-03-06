@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KH02.SaveEditor.Views.StoryView"
+﻿<UserControl x:Class="KH02.SaveEditor.Views.StoryBasicView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,11 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
     <Grid>
-        <local:StoryAdvancedView
-            DataContext="{Binding}"
-            Visibility="{Binding AdvancedVisibility}"/>
-        <local:StoryBasicView
-            DataContext="{Binding}"
-            Visibility="{Binding SimpleVisibility}"/>
+        <TextBlock
+            Margin="10"
+            TextWrapping="Wrap"
+            TextAlignment="Center"
+            Text="The current tab is in an experimental state and it has been disabled in basic mode. If you are curious or you know what you are doing, enable the Advanced Mode."/>
     </Grid>
 </UserControl>
