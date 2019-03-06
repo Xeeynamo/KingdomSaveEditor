@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts 0.2 and 3 Save Editor
     Copyright (C) 2019  Luciano Ciccariello
 
@@ -16,15 +16,20 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
+using KH02.SaveEditor.VersionCheck;
 using KHSave;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
+using Xe.VersionCheck;
 
 namespace KH02.SaveEditor.ViewModels
 {
@@ -69,11 +74,25 @@ namespace KH02.SaveEditor.ViewModels
 				Properties.Settings.Default.Save();
 
 				_isAdvancedMode = value;
-				System.IsAdvancedMode = value;
+				KhSystem.IsAdvancedMode = value;
+				OnPropertyChanged();
 			}
 		}
 
-		public SystemViewModel System { get; set; }
+		public bool IsUpdateCheckingEnabled
+		{
+			get => Properties.Settings.Default.IsUpdateCheckingEnabled;
+			set
+			{
+				Properties.Settings.Default.IsUpdateCheckingEnabled = value;
+				Properties.Settings.Default.Save();
+				OnPropertyChanged();
+			}
+		}
+
+		public bool IsItTimeForCheckingNewVersion => Properties.Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+
+		public SystemViewModel KhSystem { get; set; }
 		public InventoryViewModel Inventory { get; set; }
 		public PlayersViewModel Players { get; set; }
 		public StoryViewModel Story { get; set; }
@@ -127,6 +146,24 @@ namespace KH02.SaveEditor.ViewModels
 				Window.Close();
 			}, x => true);
 
+			GetLatestVersionCommand = new RelayCommand(x =>
+			{
+				Task.Run(async () =>
+				{
+					var found = await CheckLastVersionAsync(true);
+					if (found == false)
+					{
+						Application.Current.Dispatcher.Invoke(() =>
+						{
+							MessageBox.Show("No new versions has been found.",
+								"Check update",
+								MessageBoxButton.OK,
+								MessageBoxImage.Information);
+						});
+					}
+				});
+			});
+
 			AboutCommand = new RelayCommand(x =>
 			{
 				var contributors = string.Join("\n", new string[]
@@ -152,7 +189,7 @@ namespace KH02.SaveEditor.ViewModels
 				Save = Kh3.Read(file);
 			}
 
-			System = new SystemViewModel(Save) {IsAdvancedMode = IsAdvancedMode};
+			KhSystem = new SystemViewModel(Save) {IsAdvancedMode = IsAdvancedMode};
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc);
 			Story = new StoryViewModel(Save.Storyflags);
@@ -168,6 +205,39 @@ namespace KH02.SaveEditor.ViewModels
 			OnPropertyChanged(nameof(Shortcuts));
 			OnPropertyChanged(nameof(Records));
 			OnPropertyChanged(nameof(Photos));
+		}
+
+		public void UpdateLastTimeForCheckingNewVersion()
+		{
+			Properties.Settings.Default.LastUpdateCheck = DateTime.UtcNow;
+			Properties.Settings.Default.Save();
+		}
+
+		public async Task<bool> CheckLastVersionAsync(bool forceUpdateCheck = false)
+		{
+			if (forceUpdateCheck == false)
+			{
+				if (IsItTimeForCheckingNewVersion == false)
+					return false;
+			}
+
+			UpdateLastTimeForCheckingNewVersion();
+			var checkCurrentVersion = new DesktopCheckCurrentVersion();
+			var checkLastVersion = new GithubCheckLatestVersion("xeeynamo", "kh3saveeditor");
+			var releaseUpdater = new VersionChecker(checkCurrentVersion, checkLastVersion);
+
+			var lastVersion = await releaseUpdater.GetLatestVersionAsync();
+			if (lastVersion != null)
+			{
+				Application.Current.Dispatcher.Invoke(() =>
+				{
+					new UpdateWindow(lastVersion).ShowDialog();
+				});
+
+				return true;
+			}
+
+			return false;
 		}
 	}
 }

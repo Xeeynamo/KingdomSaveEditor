@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -57,6 +60,10 @@
     <Compile Include="Models\GenericEnumModel.cs" />
     <Compile Include="Models\InventoryItemViewModel.cs" />
     <Compile Include="Models\ItemComboBoxModel.cs" />
+    <Compile Include="UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VersionCheck\DesktopCheckCurrentVersion.cs" />
     <Compile Include="ViewModels\AbilitiesViewModel.cs" />
     <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
@@ -69,6 +76,7 @@
     <Compile Include="ViewModels\ShortcutsViewModel.cs" />
     <Compile Include="ViewModels\StoryViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModel.cs" />
+    <Compile Include="ViewModels\UpdateViewModel.cs" />
     <Compile Include="Views\EquipmentItemEntryView.xaml.cs">
       <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
     </Compile>
@@ -124,6 +132,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EquipmentItemEntryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +207,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -207,6 +220,10 @@
     <ProjectReference Include="..\KH02\KHSave.csproj">
       <Project>{66531854-A216-4F15-ABE5-F723EA257BF2}</Project>
       <Name>KHSave</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xe.ReleaseUpdater\Xe.VersionCheck\Xe.VersionCheck.csproj">
+      <Project>{F37CC0C9-BFE1-4563-87D8-960FE630E601}</Project>
+      <Name>Xe.VersionCheck</Name>
     </ProjectReference>
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj">
       <Project>{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}</Project>
