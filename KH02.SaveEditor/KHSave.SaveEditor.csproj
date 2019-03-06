@@ -52,6 +52,7 @@
       <DependentUpon>ItemComboBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\ImageTooLargeException.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Models\EnumIconTypeModel.cs" />
     <Compile Include="Models\EquipmentItemEntryViewModel.cs" />
     <Compile Include="Models\GenericEnumModel.cs" />

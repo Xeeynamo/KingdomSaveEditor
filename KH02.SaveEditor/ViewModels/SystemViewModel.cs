@@ -50,20 +50,8 @@ namespace KH02.SaveEditor.ViewModels
 			SpawnType = new GenericEnumModel<RoomSpawnType>();
 		}
 
-		public bool IsAdvancedMode
-		{
-			get => _isAdvanceMode;
-			set
-			{
-				_isAdvanceMode = value;
-				OnPropertyChanged(nameof(IsAdvancedMode));
-				OnPropertyChanged(nameof(SimpleVisibility));
-				OnPropertyChanged(nameof(AdvancedVisibility));
-			}
-		}
-
-		public Visibility SimpleVisibility => IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
-		public Visibility AdvancedVisibility => IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
 		public GenericEnumModel<DifficultyType> DifficultyType { get; }
 		public GenericEnumModel<WorldType> WorldIconType { get; }
