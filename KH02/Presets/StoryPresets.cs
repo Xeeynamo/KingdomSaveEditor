@@ -12,16 +12,43 @@ namespace KHSave.Presets
 				[0] = "A Strange World",
 				[100] = "Before Mysterious Adversaries",
 				[200] = "Mysterious Adversaries",
-				[218] = "Stairway to the Sky (Before Armored Xehanort)",
+				[218] = "Stairway to the Sky (Part 1)",
 				[222] = "Confront Armored Xehanort once you are duly prepared!",
-				[244] = "No Information Box",
-			},
+				[244] = "Stairway to the Sky (Part 2)",
+                [300] = "Armored Xehanort (1st Phase)",
+                [350] = "Armored Xehanort (2nd Phase) [Cutscene before fight]",
+                [400] = "Armored Xehanort (2nd Phase)",
+                [450] = "Armored Xehanort (3rd Phase) [Cutscene before fight]",
+                [500] = "Armored Xehanort (3rd Phase)",
+                [550] = "One Sky, One Destiny",
+                [720] = "Checkmate (Part 1)",
+                [800] = "Checkmate (Part 2)",
+                [810] = "Checkmate (Part 3)",
+            },
             [(int)StoryFlagType.SanFransokyo] = new Dictionary<int, string>
             {
+                [0] = "City of Superheroes",
+                [22] = "Bridge Heartless",
+                [50] = "Rock Troll II",
+                [75] = "The AR Device",
+                [100] = "Before Flash Tracer",
+                [256] = "Upgraded",
+                [512] = "Microbots",
+                [608] = "Before Darkubes I",
+                [618] = "Darkubes I",
+                [624] = "After Darkubes I",
+                [646] = "Rescue Big Hero 6",
+                [652] = "Darkubes II",
+                [668] = "A Riku From the Past?",
+                [676] = "The First Baymax",
+                [692] = "Friend of Yours?",
+                [718] = "Before Dark Baymax",
+                [1024] = "Subdue Dark Baymax!",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.Caribbean] = new Dictionary<int, string>
             {
+                [0] = "Start of the World",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.DestinyIsland] = new Dictionary<int, string>
@@ -63,6 +90,7 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
             {
+                [0] = "Start of the World",
                 [3300] = "After exiting Ice Tower",
                 [8820] = "Story Done",
             },
@@ -97,22 +125,48 @@ namespace KHSave.Presets
 				[14696] = "After Xehanort Trio",
 				[99999] = "Story Done",
 			},
+            [(int)StoryFlagType.KG_Riku_Xigbar] = new Dictionary<int, string>
+            {
+                [0] = "Before Fight",
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.KG_Luxord_Marluxia_Larxene] = new Dictionary<int, string>
+            {
+                [0] = "Before Fight",
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.KG_Vanitas_Terra] = new Dictionary<int, string>
+            {
+                [0] = "Before Fight",
+                [9999] = "Story Done",
+            },
+            [(int)StoryFlagType.KG_Xion_Saix] = new Dictionary<int, string>
+            {
+                [0] = "Before Fight",
+                [9999] = "Story Done",
+            },
             [(int)StoryFlagType.Monstropolis] = new Dictionary<int, string>
             {
+                [0] = "Start of the World",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.Pooh] = new Dictionary<int, string>
             {
+                [0] = "Start of the world",
                 [100] = "First minigame beaten",
                 [200] = "Second minigame beaten",
+                [9999] = "Story Done",
             },
             [(int)StoryFlagType.KingdomOfCorona] = new Dictionary<int, string>
             {
+                [0] = "Start of the World",
                 [3170] = "Going back to Rapunzel's Tower",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.RadiantGarden] = new Dictionary<int, string>
             {
+                [0] = "Terra's Whereabouts",
+                [100] = "The Benched Enact a Plan",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.SecretForest] = new Dictionary<int, string>
@@ -123,6 +177,7 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.ToyBox] = new Dictionary<int, string>
             {
+                [0] = "Start of the World",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.TwilightTown] = new Dictionary<int, string>
