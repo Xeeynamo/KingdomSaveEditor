@@ -18,6 +18,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
 using Xe.Tools.Wpf.Commands;
@@ -32,6 +33,9 @@ namespace KH02.SaveEditor.ViewModels
 		public RelayCommand Research2Command { get; }
 		public RelayCommand Research3Command { get; }
 		public RelayCommand Research4Command { get; }
+
+		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
 		public InventoryViewModel(IEnumerable<InventoryEntry> list) :
 			this(list.Select((item, index) => new InventoryItemViewModel(item, index)))
