@@ -68,6 +68,7 @@ namespace KHSave.Presets
 				[300] = "An End to Slumber (Part 1) (After Vanitas)",
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
+				[9999] = "Story Done",
 			},
             [(int)StoryFlagType.DarkWorld] = new Dictionary<int, string>
             {
