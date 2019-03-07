@@ -16,7 +16,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0"
+            Margin="10 0 0 0"
+            Source="Images/icon-128.png"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
             <Label Content="A new version of Kingdom Hearts III Save Editor has been released."/>
             <Label Content="It is recommended to update it to enjoy the latest features and fixes."/>
             <Label>
@@ -29,7 +36,7 @@
             </Label>
             <Label Content="Do you want to download the new version now?"/>
         </StackPanel>
-        <Grid Background="#F0F0F0" Grid.Row="1">
+        <Grid Background="#F0F0F0" Grid.Row="1" Grid.ColumnSpan="2">
             <StackPanel
             Orientation="Horizontal"
             HorizontalAlignment="Center">
