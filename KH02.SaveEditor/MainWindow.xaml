@@ -1,4 +1,4 @@
-﻿<Window x:Class="KH02.SaveEditor.MainWindow"
+<Window x:Class="KH02.SaveEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KH02.SaveEditor"
         xmlns:views="clr-namespace:KH02.SaveEditor.Views"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="500" Width="560">
+        Title="{Binding Title}" Height="500" Width="560" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,9 +27,12 @@
                 <CheckBox
                     Content="_Advanced mode"
                     IsChecked="{Binding IsAdvancedMode}"/>
+                <CheckBox
+                    Content="Automatic _Update checking"
+                    IsChecked="{Binding IsUpdateCheckingEnabled}"/>
             </MenuItem>
             <MenuItem Header="_Info">
-                <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}" IsEnabled="False"/>
+                <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}"/>
                 <MenuItem Header="_About" Command="{Binding AboutCommand}"/>
             </MenuItem>
         </Menu>
@@ -38,7 +41,7 @@
             <TabItem Header="System">
                 <views:SystemView
                     Grid.Row="1"
-                    DataContext="{Binding System}"/>
+                    DataContext="{Binding KhSystem}"/>
             </TabItem>
             <TabItem Header="Inventory">
                 <views:InventoryView

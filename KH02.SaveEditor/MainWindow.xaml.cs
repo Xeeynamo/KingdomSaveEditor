@@ -36,5 +36,16 @@ namespace KH02.SaveEditor
 			}
 #endif
 		}
-    }
+
+		private void Window_Loaded(object sender, EventArgs e)
+		{
+			Task.Run(async () =>
+			{
+				if (context.IsUpdateCheckingEnabled)
+				{
+					await context.CheckLastVersionAsync();
+				}
+			});
+		}
+	}
 }

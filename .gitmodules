@@ -1,3 +1,6 @@
 [submodule "XeEngine.Tools.Public"]
 	path = XeEngine.Tools.Public
 	url = https://github.com/xeeynamo/XeEngine.Tools.Public
+[submodule "Xe.ReleaseUpdater"]
+	path = Xe.ReleaseUpdater
+	url = https://github.com/Xeeynamo/Xe.ReleaseUpdater.git

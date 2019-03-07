@@ -1,4 +1,6 @@
-# Kingdom Hearts III Save Editor
+![Kingdom Hearts III Save Editor](docs/banner.png)
+
+---
 
 This is the repository for a Windows application that allows to modify a decrypted save of Kingdom Hearts III.
 
@@ -9,7 +11,7 @@ This is the repository for a Windows application that allows to modify a decrypt
 * Change game difficulty (even Critical Mode)
 * Info and decorations (eg. game timer, save icons)
 * Exp, Munny
-* Manage story progressio!
+* Manage story progression!
 * Statistics (eg. save count)
 * Inventory editor - Choose any items you want
 * Sora and partners editor:
@@ -17,6 +19,7 @@ This is the repository for a Windows application that allows to modify a decrypt
     * Weapons equipped
     * Armors equipped
     * Accessories equipped
+	* Basic Ability support
 * Photo gallery management
     * View the existing photos
     * Export one or all the photos
