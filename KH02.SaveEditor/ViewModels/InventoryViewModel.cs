@@ -42,7 +42,7 @@ namespace KH02.SaveEditor.ViewModels
 		{ }
 
 		public InventoryViewModel(IEnumerable<InventoryItemViewModel> list) :
-			base(list)
+			base(list.Where(x => Global.CanDisplay(x.Value)))
 		{
 
 			Research0Command = new RelayCommand(o => DoResearch(500), x => true);

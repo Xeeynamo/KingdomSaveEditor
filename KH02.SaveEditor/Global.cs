@@ -1,4 +1,6 @@
-﻿namespace KH02.SaveEditor
+﻿using KHSave.Attributes;
+
+namespace KH02.SaveEditor
 {
 	public static class Global
 	{
@@ -10,6 +12,11 @@
 				Properties.Settings.Default.AdvancedMode = value;
 				Properties.Settings.Default.Save();
 			}
+		}
+
+		public static bool CanDisplay(object item)
+		{
+			return IsAdvancedMode || !UnusedAttribute.IsUnused(item);
 		}
 	}
 }

@@ -17,10 +17,29 @@
 */
 
 using System;
+using System.Linq;
 
 namespace KHSave.Attributes
 {
 	public class UnusedAttribute : Attribute
 	{
+		public static bool IsUnused(object value)
+		{
+			var memberValue = value.ToString();
+			var memberInfo = value
+				.GetType()
+				.GetMember(memberValue)
+				.FirstOrDefault();
+
+			if (memberInfo != null)
+			{
+				if (memberInfo.GetCustomAttributes(typeof(UnusedAttribute), false).Length > 0)
+					return true;
+				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false).Length > 0)
+					return false;
+			}
+
+			return true;
+		}
 	}
 }
