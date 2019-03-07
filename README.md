@@ -1,4 +1,6 @@
-# Kingdom Hearts III Save Editor
+![Kingdom Hearts III Save Editor](docs/banner.png)
+
+---
 
 This is the repository for a Windows application that allows to modify a decrypted save of Kingdom Hearts III.
 
