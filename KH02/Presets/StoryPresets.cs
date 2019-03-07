@@ -53,10 +53,10 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.DestinyIsland] = new Dictionary<int, string>
 			{
-				[0] = "Interval VIII: The Destiny Islands",
-				[10] = "Return to Light",
+				[0] = "A Guiding Key (Part 2)",
+				[10] = "Return to the Light (Part 2)",
 				[100] = "A Replica's Resolve Pt. 1",
-				[200] = "A Replica's Resolve Pt. 2",
+				[200] = "The Papou Fruit",
 				[9999] = "Story Done",
 			},
 			[(int)StoryFlagType.LandOfDeparture] = new Dictionary<int, string>
@@ -64,7 +64,7 @@ namespace KHSave.Presets
 				[0] = "Castle Oblivion Is Unlocked (Part 1)",
 				[50] = "Castle Oblivion Is Unlocked (Part 2)",
 				[100] = "Before Vanitas fight",
-				[200] = "During Vanitas fight",
+				[200] = "Vanitas Boss Battle",
 				[300] = "An End to Slumber (Part 1) (After Vanitas)",
 				[490] = "An End to Slumber (Part 2)",
 				[502] = "An End to Slumber (Part 3)",
@@ -86,6 +86,7 @@ namespace KHSave.Presets
             },
             [(int)StoryFlagType.TheFinalWorld] = new Dictionary<int, string>
             {
+                [2200] = "Darkside Boss Battle",
                 [2300] = "End of tutorial",
             },
             [(int)StoryFlagType.Arendelle] = new Dictionary<int, string>
@@ -117,7 +118,18 @@ namespace KHSave.Presets
 				[50] = "The Xehanorts Gather",
 				[100] = "1 Million Heartless",
 				[200] = "Before The Final World",
-				[11500] = "Start of The Skein of Severance",
+                [512] = "Light Expires",
+                [9999] = "Go Toward the Light (Part 1)",
+                [10000] = "Go Toward the Light (Part 2)",
+                [10240] = "Light in the Darkness",
+                [10752] = "Thanks, Kairi",
+                [11100] = "Before Demon Tide II",
+                [11104] = "Demon Tide II",
+                [11300] = "The Light of the Past",
+                [11400] = "Demon Tide II (Union Cross)",
+                [11413] = "A Corridor of Light",
+                [11424] = "The X-Blade",
+                [11500] = "Start of The Skein of Severance",
 				[11600] = "Before 1st Set of Organization XIII Fights",
 				[13050] = "Before 2nd Set of Organization XIII Fights",
 				[13500] = "Before Young Master Xehanort, Ansem, & Xemnas",
@@ -166,7 +178,9 @@ namespace KHSave.Presets
             [(int)StoryFlagType.RadiantGarden] = new Dictionary<int, string>
             {
                 [0] = "Terra's Whereabouts",
+                [50] = "The Missing Scientist",
                 [100] = "The Benched Enact a Plan",
+                [200] = "A Present from Vexen",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.SecretForest] = new Dictionary<int, string>
