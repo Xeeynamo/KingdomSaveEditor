@@ -198,7 +198,7 @@ namespace KH02.SaveEditor.ViewModels
 			Photos = new PhotosViewModel(Save.Photos);
 
 			OnPropertyChanged(nameof(IsFileLoad));
-			OnPropertyChanged(nameof(System));
+			OnPropertyChanged(nameof(KhSystem));
 			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Players));
 			OnPropertyChanged(nameof(Story));
