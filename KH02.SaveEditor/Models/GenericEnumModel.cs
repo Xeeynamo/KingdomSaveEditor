@@ -48,7 +48,9 @@ namespace KH02.SaveEditor.Models
 					item.Name = nameGetter != null ? nameGetter(e) : InfoAttribute.GetInfo(e);
 
 					return (TModel)item;
-				}).ToArray();
+				})
+				.Where(x => Global.CanDisplay(x.Value))
+				.ToArray();
 		}
 
 		private static string DefaultNameGetter(TEnum value) => InfoAttribute.GetInfo(value);

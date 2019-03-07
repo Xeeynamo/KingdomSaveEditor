@@ -25,6 +25,9 @@ namespace KHSave.Attributes
 	{
 		public string Info { get; set; }
 
+		public InfoAttribute()
+		{ }
+
 		public InfoAttribute(string info)
 		{
 			Info = info;

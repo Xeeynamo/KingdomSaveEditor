@@ -16,7 +16,9 @@ namespace KH02.SaveEditor
 
 		public static bool CanDisplay(object item)
 		{
-			return IsAdvancedMode || !UnusedAttribute.IsUnused(item);
+			return IsAdvancedMode ||
+				item.GetType() == typeof(string) ||
+				!UnusedAttribute.IsUnused(item);
 		}
 	}
 }

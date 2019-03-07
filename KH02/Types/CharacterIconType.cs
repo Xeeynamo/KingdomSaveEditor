@@ -16,33 +16,35 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
+
 namespace KHSave.Types
 {
 	public enum CharacterIconType : byte
 	{
-		Empty,
-		Sora,
-		Riku,
-		Kairi,
-		Terra,
-		Ventus,
-		Aqua,
-		Roxas,
-		Axel,
-		Xion,
-		Mickey,
-		Donald,
-		Goofy,
-		Jack,
-		Woody,
-		Buzz,
-		Hercules,
-		Rapunzel,
-		Flynn,
-		Sulley,
-		Mike,
-		Empty20,
-		Marshmallow,
-		Baymax
+		[Info] Empty,
+		[Info] Sora,
+		[Info] Riku,
+		[Info] Kairi,
+		[Info] Terra,
+		[Info] Ventus,
+		[Info] Aqua,
+		[Info] Roxas,
+		[Info] Axel,
+		[Info] Xion,
+		[Info] Mickey,
+		[Info] Donald,
+		[Info] Goofy,
+		[Info] Jack,
+		[Info] Woody,
+		[Info] Buzz,
+		[Info] Hercules,
+		[Info] Rapunzel,
+		[Info] Flynn,
+		[Info] Sulley,
+		[Info] Mike,
+		[Info] Empty20,
+		[Info] Marshmallow,
+		[Info] Baymax
 	}
 }

@@ -16,13 +16,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
+
 namespace KHSave.Types
 {
 	public enum DifficultyType : byte
 	{
-		Beginner,
-		Normal,
-		Proud,
-		Critical
+		[Info] Beginner,
+		[Info] Normal,
+		[Info] Proud,
+		[Info] Critical
 	}
 }
