@@ -10,14 +10,34 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <CheckBox
+            Grid.Column="0"
             VerticalAlignment="Center" Margin="0 0 3 0"
-            Visibility="Collapsed"
+            Visibility="{Binding AdvancedVisibility}"
             IsChecked="{Binding Enabled}"/>
-        <controls:ItemComboBox
+        <ComboBox
             Grid.Column="1"
+            Width="44"
+            Visibility="{Binding AdvancedVisibility}"
+            IsEnabled="false"
+            ItemsSource="{Binding ItemType}"
+            SelectedValue="{Binding ItemType.SelectedValue}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <controls:ItemComboBox
+            Grid.Column="2"
             IsEnabled="{Binding Enabled}"
             DataContext="{Binding}"/>
     </Grid>

@@ -17,7 +17,9 @@
 */
 
 using System;
+using System.Windows;
 using KHSave.Models;
+using KHSave.Types;
 
 namespace KH02.SaveEditor.Models
 {
@@ -29,13 +31,25 @@ namespace KH02.SaveEditor.Models
 		public bool Enabled
 		{
 			get => Item.Enabled;
-			set => Item.Enabled = value;
+			set
+			{
+				Item.Enabled = value;
+				OnPropertyChanged();
+			}
 		}
+
+		public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ItemType { get; }
+
+		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
 		public EquipmentItemEntryViewModel(EquipmentItem item) :
 			base(() => (T)(object)item.Id, x => item.Id = (byte)(object)x)
 		{
 			Item = item;
+			ItemType = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(
+				() => item.ItemType,
+				x => item.ItemType = x);
 		}
 	}
 }
