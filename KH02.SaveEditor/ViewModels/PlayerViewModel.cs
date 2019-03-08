@@ -16,9 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using KH02.SaveEditor.Models;
 using KHSave.Models;
@@ -47,9 +44,9 @@ namespace KH02.SaveEditor.ViewModels
 				() => playableCharacter.Weapons[2].WeaponId,
 				x => playableCharacter.Weapons[2].WeaponId = x);
 
-			Armors = new EquipmentItemsViewModel<ArmorType>(playableCharacter.Armors);
-			Accessories = new EquipmentItemsViewModel<AccessoryType>(playableCharacter.Accessories);
-			Consumables = new EquipmentItemsViewModel<ConsumableType>(playableCharacter.Items);
+			Armors = new EquipmentItemsViewModel(playableCharacter.Armors);
+			Accessories = new EquipmentItemsViewModel(playableCharacter.Accessories);
+			Consumables = new EquipmentItemsViewModel(playableCharacter.Items);
 			Abilities = new AbilitiesViewModel(playableCharacter.Abilities);
 
 			AiCombatStyle = new ItemComboBoxModel<AiCombatStyleType>(
@@ -113,9 +110,9 @@ namespace KH02.SaveEditor.ViewModels
 		public ItemComboBoxModel<WeaponType> Weapon2 { get; }
 		public ItemComboBoxModel<WeaponType> Weapon3 { get; }
 
-		public EquipmentItemsViewModel<ArmorType> Armors { get; }
-		public EquipmentItemsViewModel<AccessoryType> Accessories { get; }
-		public EquipmentItemsViewModel<ConsumableType> Consumables { get; }
+		public EquipmentItemsViewModel Armors { get; }
+		public EquipmentItemsViewModel Accessories { get; }
+		public EquipmentItemsViewModel Consumables { get; }
 
 		public ItemComboBoxModel<AiCombatStyleType> AiCombatStyle { get; }
 		public ItemComboBoxModel<AiAbilityType> AiAbility { get; }

@@ -22,7 +22,7 @@
             Grid.Column="1"
             Width="44"
             Visibility="{Binding AdvancedVisibility}"
-            IsEnabled="false"
+            IsEnabled="{Binding Enabled}"
             ItemsSource="{Binding ItemType}"
             SelectedValue="{Binding ItemType.SelectedValue}"
             SelectedValuePath="Value">
