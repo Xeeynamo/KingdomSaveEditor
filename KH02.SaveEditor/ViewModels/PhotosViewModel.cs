@@ -63,7 +63,7 @@ namespace KH02.SaveEditor.ViewModels
 					}
 					catch (Exception e)
 					{
-						MessageBox.Show(Window, "Unable to export the photo", "Error", MessageBoxButton.OK,
+						MessageBox.Show(Window, $"Unable to export all the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
 							MessageBoxImage.Error);
 					}
 				}
