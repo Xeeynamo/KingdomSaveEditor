@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	public class ArmorAttribute : InfoAttribute
 	{
-		public ArmorAttribute(string name) :
+		public ArmorAttribute(string name = null) :
 			base(name)
 		{ }
 	}

@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	public class WeaponAttribute : InfoAttribute
 	{
-		public WeaponAttribute(string name) :
+		public WeaponAttribute(string name = null) :
 			base(name)
 		{ }
 	}

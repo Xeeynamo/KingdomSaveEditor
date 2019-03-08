@@ -16,15 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
+
 namespace KHSave.Types
 {
 	public enum ItemType : byte
 	{
-		Type0 = 0,
-		Type1 = 1,
-		Type2 = 2,
-		Weapon = 3,
-		Armor = 4,
-		Accessory = 5
+		[Consumable] Consumable,
+		[Info] Type1,
+		[Info] Type2,
+		[Weapon] Weapon,
+		[Armor] Armor,
+		[Accessory] Accessory
 	}
 }
