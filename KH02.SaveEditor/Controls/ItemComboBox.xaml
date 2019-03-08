@@ -6,20 +6,18 @@
              xmlns:local="clr-namespace:KH02.SaveEditor.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="22" d:DesignWidth="100">
-    <Grid>
-        <ComboBox
-            ItemsSource="{Binding EquipmentType}"
-            SelectedValue="{Binding ItemId}"
-            SelectedValuePath="Value">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="0 0 3 0" Width="16" Height="16"
+    <ComboBox
+        ItemsSource="{Binding EquipmentType}"
+        SelectedValue="{Binding ItemId}"
+        SelectedValuePath="Value">
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="0 0 3 0" Width="16" Height="16"
                             Source="{Binding Icon}"/>
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-    </Grid>
+                    <TextBlock Text="{Binding Name}" />
+                </StackPanel>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+    </ComboBox>
 </UserControl>
