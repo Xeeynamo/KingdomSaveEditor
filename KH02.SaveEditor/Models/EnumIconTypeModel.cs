@@ -22,11 +22,10 @@ using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using KHSave.Attributes;
-using Xe.Tools.Models;
 
 namespace KH02.SaveEditor.Models
 {
-	public class EnumIconTypeModel<T> : EnumItemModel<T>
+	public class EnumIconTypeModel<T> : GenericEntryModel<string, T>
 		where T : struct, IConvertible
 	{
 		private static readonly Dictionary<string, Uri> ICONS = new Dictionary<string, string>()

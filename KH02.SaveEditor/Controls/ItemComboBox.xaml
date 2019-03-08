@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="22" d:DesignWidth="100">
     <ComboBox
-        ItemsSource="{Binding EquipmentType}"
-        SelectedValue="{Binding ItemId}"
+        ItemsSource="{Binding ValueSet}"
+        SelectedValue="{Binding ValueSet.SelectedValue}"
         SelectedValuePath="Value">
         <ComboBox.ItemTemplate>
             <DataTemplate>

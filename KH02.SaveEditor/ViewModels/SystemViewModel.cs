@@ -23,7 +23,6 @@ using KH02.SaveEditor.Models;
 using KHSave.Attributes;
 using KHSave.Types;
 using Xe.Tools;
-using Xe.Tools.Models;
 
 namespace KH02.SaveEditor.ViewModels
 {
@@ -42,47 +41,24 @@ namespace KH02.SaveEditor.ViewModels
 		public SystemViewModel(Kh3 save)
 		{
 			this.save = save;
-			DifficultyType = new GenericEnumModel<DifficultyType>();
-			WorldIconType = new GenericEnumModel<WorldType>();
-			LocationType = new GenericEnumModel<LocationType>();
-			CharacterIconType = new GenericEnumModel<CharacterIconType>();
-			RoomWorldType = new GenericEnumModel<EnumItemModel<string>, WorldType, string>(x => WorldAttribute.GetWorldId(x));
-			SpawnType = new GenericEnumModel<RoomSpawnType>();
+			Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
+			WorldIcon = new KhEnumListModel<WorldType>(() => save.WorldLogo, x => save.WorldLogo = x);
+			Location = new KhEnumListModel<LocationType>(() => save.LocationName, x => save.LocationName = x);
+			CharacterIcon = new KhEnumListModel<CharacterIconType>(() => save.MySaveIcon, x => save.MySaveIcon = x);
+			RoomWorld = new KhEnumListModel<GenericEntryModel<string, string>, WorldType, string>(
+				() => RoomWorldId,
+				x => RoomWorldId = x,
+				x => WorldAttribute.GetWorldId(x));
 		}
 
 		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
 		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-		public GenericEnumModel<DifficultyType> DifficultyType { get; }
-		public GenericEnumModel<WorldType> WorldIconType { get; }
-		public GenericEnumModel<LocationType> LocationType { get; }
-		public GenericEnumModel<CharacterIconType> CharacterIconType { get; }
-		public GenericEnumModel<EnumItemModel<string>, WorldType, string> RoomWorldType { get; }
-		public GenericEnumModel<RoomSpawnType> SpawnType { get; }
-
-		public DifficultyType Difficulty
-		{
-			get => save.Difficulty;
-			set => save.Difficulty = value;
-		}
-
-		public WorldType WorldIcon
-		{
-			get => save.WorldLogo;
-			set => save.WorldLogo = value;
-		}
-
-		public LocationType Location
-		{
-			get => save.LocationName;
-			set => save.LocationName = value;
-		}
-
-		public CharacterIconType CharacterIcon
-		{
-			get => save.MySaveIcon;
-			set => save.MySaveIcon = value;
-		}
+		public KhEnumListModel<DifficultyType> Difficulty { get; }
+		public KhEnumListModel<WorldType> WorldIcon { get; }
+		public KhEnumListModel<LocationType> Location { get; }
+		public KhEnumListModel<CharacterIconType> CharacterIcon { get; }
+		public KhEnumListModel<GenericEntryModel<string, string>, WorldType, string> RoomWorld { get; }
 
 		public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
 

@@ -24,23 +24,11 @@ namespace KH02.SaveEditor.Models
 	public class ItemComboBoxModel<T> : BaseNotifyPropertyChanged
 		where T : struct, IConvertible
 	{
-		private readonly Func<T> _getter;
-		private readonly Action<T> _setter;
-		public GenericEnumModel<EnumIconTypeModel<T>, T> ValueSet { get; }
-		public GenericEnumModel<EnumIconTypeModel<T>, T> EquipmentType => ValueSet; // deprecated
-
-		public T ItemId
-		{
-			get => _getter();
-			set => _setter(value);
-		}
+		public KhEnumListModel<EnumIconTypeModel<T>, T> ValueSet { get; }
 
 		public ItemComboBoxModel(Func<T> getter, Action<T> setter)
 		{
-			_getter = getter;
-			_setter = setter;
-
-			ValueSet = new GenericEnumModel<EnumIconTypeModel<T>, T>();
+			ValueSet = new KhEnumListModel<EnumIconTypeModel<T>, T>(getter, setter);
 		}
 	}
 }

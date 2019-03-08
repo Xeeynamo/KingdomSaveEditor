@@ -21,7 +21,7 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="ItemsSource" Value="{Binding ValueSet}"/>
-            <Setter Property="SelectedValue" Value="{Binding ItemId}"/>
+            <Setter Property="SelectedValue" Value="{Binding ValueSet.SelectedValue}"/>
             <Setter Property="SelectedValuePath" Value="Value"/>
             <Setter Property="Margin" Value="0 0 0 3"/>
         </Style>

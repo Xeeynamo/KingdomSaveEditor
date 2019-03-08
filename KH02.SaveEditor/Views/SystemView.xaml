@@ -17,8 +17,8 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Difficulty"/>
                 <ComboBox
-                    ItemsSource="{Binding DifficultyType}"
-                    SelectedValue="{Binding Difficulty}"
+                    ItemsSource="{Binding Difficulty}"
+                    SelectedValue="{Binding Difficulty.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
             </StackPanel>
@@ -26,8 +26,8 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Character icon"/>
                 <ComboBox
-                    ItemsSource="{Binding CharacterIconType}"
-                    SelectedValue="{Binding CharacterIcon}"
+                    ItemsSource="{Binding CharacterIcon}"
+                    SelectedValue="{Binding CharacterIcon.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
             </StackPanel>
@@ -43,8 +43,8 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="World logo"/>
                 <ComboBox
-                    ItemsSource="{Binding WorldIconType}"
-                    SelectedValue="{Binding WorldIcon}"
+                    ItemsSource="{Binding WorldIcon}"
+                    SelectedValue="{Binding WorldIcon.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
             </StackPanel>
@@ -52,8 +52,8 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Location"/>
                 <ComboBox
-                    ItemsSource="{Binding LocationType}"
-                    SelectedValue="{Binding Location}"
+                    ItemsSource="{Binding Location}"
+                    SelectedValue="{Binding Location.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
             </StackPanel>
@@ -151,7 +151,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="0"
                     Text="World"/>
                 <ComboBox Grid.Column="0" Grid.Row="1"
-                    ItemsSource="{Binding RoomWorldType}"
+                    ItemsSource="{Binding RoomWorld}"
                     SelectedValue="{Binding RoomWorldId}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>

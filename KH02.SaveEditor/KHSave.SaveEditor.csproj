@@ -62,9 +62,12 @@
     <Compile Include="Global.cs" />
     <Compile Include="Models\EnumIconTypeModel.cs" />
     <Compile Include="Models\EquipmentItemEntryViewModel.cs" />
-    <Compile Include="Models\GenericEnumModel.cs" />
+    <Compile Include="Models\GenericEnumListModel.cs" />
+    <Compile Include="Models\GenericListModel.cs" />
+    <Compile Include="Models\KhEnumListModel.cs" />
     <Compile Include="Models\InventoryItemViewModel.cs" />
     <Compile Include="Models\ItemComboBoxModel.cs" />
+    <Compile Include="Models\GenericEntryModel.cs" />
     <Compile Include="UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
@@ -289,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
