@@ -48,7 +48,7 @@ namespace KHSave
 		[Data(0x86c, 0x400, 2)] public List<InventoryEntry> Inventory { get; set; }
         [Data(0x1764)] public int CrabsCollected { get; set; }
 		[Data(0x17F8, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }
-		[Data(0xB43C, 0x80, 4)] public List<int> Storyflags { get; set; }
+		[Data(0xB43C, 0x40, 4)] public List<int> Storyflags { get; set; }
 		[Data(0xBB18, 0x100)] public string MapPath { get; set; }
 		[Data(0xBC18, 0x40)] public string MapSpawn { get; set; }
 		[Data(0xBC58, 0x100)] public string PlayerScript { get; set; }
