@@ -29,7 +29,6 @@ namespace KH02.SaveEditor.ViewModels
 	public class SystemViewModel : BaseNotifyPropertyChanged
 	{
 		private readonly Kh3 save;
-		private bool _isAdvanceMode;
 
 		public enum RoomSpawnType
 		{
