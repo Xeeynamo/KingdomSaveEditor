@@ -11,6 +11,8 @@ namespace KH02.SaveEditor.Models
 		public TName Name { get; set; }
 
 		public TValue Value { get; set; }
+
+		public override string ToString() => Name.ToString();
 	}
 
 	public class GenericEntryModel<TValue>

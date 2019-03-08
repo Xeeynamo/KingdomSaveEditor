@@ -293,8 +293,6 @@
   <ItemGroup>
     <Resource Include="Images\icon-128.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
