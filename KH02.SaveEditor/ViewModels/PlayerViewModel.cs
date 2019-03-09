@@ -34,16 +34,9 @@ namespace KH02.SaveEditor.ViewModels
 			this.playableCharacter = playableCharacter;
 			this.index = index;
 
-			Weapon1 = new ItemComboBoxModel<WeaponType>(
-				() => playableCharacter.Weapons[0].WeaponId,
-				x => playableCharacter.Weapons[0].WeaponId = x);
-			Weapon2 = new ItemComboBoxModel<WeaponType>(
-				() => playableCharacter.Weapons[1].WeaponId,
-				x => playableCharacter.Weapons[1].WeaponId = x);
-			Weapon3 = new ItemComboBoxModel<WeaponType>(
-				() => playableCharacter.Weapons[2].WeaponId,
-				x => playableCharacter.Weapons[2].WeaponId = x);
-
+			Weapon1 = new EquipmentItemEntryViewModel(playableCharacter.Weapons[0]);
+			Weapon2 = new EquipmentItemEntryViewModel(playableCharacter.Weapons[1]);
+			Weapon3 = new EquipmentItemEntryViewModel(playableCharacter.Weapons[2]);
 			Armors = new EquipmentItemsViewModel(playableCharacter.Armors);
 			Accessories = new EquipmentItemsViewModel(playableCharacter.Accessories);
 			Consumables = new EquipmentItemsViewModel(playableCharacter.Items);
@@ -106,10 +99,9 @@ namespace KH02.SaveEditor.ViewModels
 			set => playableCharacter.Focus = value;
 		}
 
-		public ItemComboBoxModel<WeaponType> Weapon1 { get; }
-		public ItemComboBoxModel<WeaponType> Weapon2 { get; }
-		public ItemComboBoxModel<WeaponType> Weapon3 { get; }
-
+		public EquipmentItemEntryViewModel Weapon1 { get; }
+		public EquipmentItemEntryViewModel Weapon2 { get; }
+		public EquipmentItemEntryViewModel Weapon3 { get; }
 		public EquipmentItemsViewModel Armors { get; }
 		public EquipmentItemsViewModel Accessories { get; }
 		public EquipmentItemsViewModel Consumables { get; }
