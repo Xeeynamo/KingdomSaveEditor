@@ -94,24 +94,32 @@ namespace KH02.SaveEditor.Models
 			switch (itemType)
 			{
 				case KHSave.Types.ItemType.Consumable:
-					ValueSet = new KhEnumListModel<EnumIconTypeModel<ConsumableType>, ConsumableType>(
-						() => (ConsumableType)(object)Item.Id,
-						x => Item.Id = (byte)(object)x);
+				case KHSave.Types.ItemType.Type1:
+					ValueSet = NewList<ConsumableType>();
+					break;
+				case KHSave.Types.ItemType.Tent:
+					ValueSet = NewList<TentType>();
 					break;
 				case KHSave.Types.ItemType.Weapon:
-					ValueSet = new KhEnumListModel<EnumIconTypeModel<WeaponType>, WeaponType>(
-						() => (WeaponType)(object)Item.Id,
-						x => Item.Id = (byte)(object)x);
+					ValueSet = NewList<WeaponType>();
 					break;
 				case KHSave.Types.ItemType.Armor:
-					ValueSet = new KhEnumListModel<EnumIconTypeModel<ArmorType>, ArmorType>(
-						() => (ArmorType)(object)Item.Id,
-						x => Item.Id = (byte)(object)x);
+					ValueSet = NewList<ArmorType>();
 					break;
 				case KHSave.Types.ItemType.Accessory:
-					ValueSet = new KhEnumListModel<EnumIconTypeModel<AccessoryType>, AccessoryType>(
-						() => (AccessoryType)(object)Item.Id,
-						x => Item.Id = (byte)(object)x);
+					ValueSet = NewList<AccessoryType>();
+					break;
+				case KHSave.Types.ItemType.Snack:
+					ValueSet = NewList<SnackType>();
+					break;
+				case KHSave.Types.ItemType.Synthesis:
+					ValueSet = NewList<SynthesisType>();
+					break;
+				case KHSave.Types.ItemType.Food:
+					ValueSet = NewList<FoodType>();
+					break;
+				case KHSave.Types.ItemType.KeyItem:
+					ValueSet = NewList<KeyItemType>();
 					break;
 				default:
 					ValueSet = null;
@@ -119,6 +127,14 @@ namespace KH02.SaveEditor.Models
 			}
 
 			OnPropertyChanged(nameof(ValueSet));
+		}
+
+		private object NewList<T>()
+		where T : struct, IConvertible
+		{
+			return new KhEnumListModel<EnumIconTypeModel<T>, T>(
+				() => (T)(object)Item.Id,
+				x => Item.Id = (byte)(object)x);
 		}
 	}
 }

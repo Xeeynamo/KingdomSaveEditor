@@ -24,9 +24,13 @@ namespace KHSave.Types
 	{
 		[Consumable] Consumable,
 		[Info] Type1,
-		[Info] Type2,
+		[Tent] Tent,
 		[Weapon] Weapon,
 		[Armor] Armor,
-		[Accessory] Accessory
+		[Accessory] Accessory,
+		[Snack] Snack,
+		[Synthesis] Synthesis,
+		[Food] Food,
+		[KeyItem] KeyItem,
 	}
 }
