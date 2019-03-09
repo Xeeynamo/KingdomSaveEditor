@@ -2,20 +2,20 @@
 
 namespace KHSave.Types
 {
-	public enum KeyItemType : byte
+	public enum MogType : byte
 	{
 		[Info] Empty,
-		[KeyItem("<no text>")] Item01,
-		[KeyItem("Gummiphone")] Gummiphone,
-		[KeyItem("AR Device")] ARDevice,
-		[KeyItem("Prize Postcard")] PrizePostcard,
-		[KeyItem("M.O.G. Card")] MOGCard,
-		[KeyItem("Dream Heartbinder")] DreamHeartbinder,
-		[KeyItem("Pixel Heartbinder")] PixelHeartbinder,
-		[KeyItem("'Ohana Heartbinder")] OhanaHeartbinder,
-		[KeyItem("Pride Heartbinder")] PrideHeartbinder,
-		[KeyItem("Ocean Heartbinder")] OceanHeartbinder,
-		[KeyItem("Golden Herc Figure")] GoldenHercFigure,
+		[MogItem("Kupo Coin")] Item01,
+		Item02,
+		Item03,
+		Item04,
+		Item05,
+		Item06,
+		Item07,
+		Item08,
+		Item09,
+		Item0a,
+		Item0b,
 		Item0c,
 		Item0d,
 		Item0e,

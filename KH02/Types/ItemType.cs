@@ -23,7 +23,7 @@ namespace KHSave.Types
 	public enum ItemType : byte
 	{
 		[Consumable] Consumable,
-		[Info] Type1,
+		[Consumable("Consumable (same)")] ConsumableMirrored,
 		[Tent] Tent,
 		[Weapon] Weapon,
 		[Armor] Armor,
@@ -32,5 +32,15 @@ namespace KHSave.Types
 		[Synthesis] Synthesis,
 		[Food] Food,
 		[KeyItem] KeyItem,
+		[MogItem] Mog,
+		[KeyItem("Gummiphone game")] Type0b,
+		[Info] Untested0c,
+		[KeyItem("Ansem report")] AnsemReport,
+		[Info("Gummi block")] GummiBlock,
+		[Info("Gummi related?")] GummiRelated,
+		[Info] Untested10,
+		[Info] Untested11,
+		[Info] Untested12,
+		[Info] Untested13,
 	}
 }

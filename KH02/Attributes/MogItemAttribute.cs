@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
     public class MogItemAttribute : InfoAttribute
     {
-        public MogItemAttribute(string name) :
+        public MogItemAttribute(string name = null) :
             base(name)
         { }
     }

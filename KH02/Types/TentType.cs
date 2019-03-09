@@ -5,11 +5,11 @@ namespace KHSave.Types
 	public enum TentType : byte
 	{
 		[Info] Empty,
-		[Tent("Tent")] Item01,
-		Item02,
-		Item03,
-		Item04,
-		Item05,
+		[Tent("Tent")] Tent,
+		[Tent("Strength boost")] StrengthBoost,
+		[Tent("Magic boost")] MagicBoost,
+		[Tent("Defense boost")] DefenseBoost,
+		[Tent("AP boost")] ApBoost,
 		Item06,
 		Item07,
 		Item08,

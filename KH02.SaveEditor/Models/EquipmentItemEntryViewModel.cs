@@ -94,7 +94,7 @@ namespace KH02.SaveEditor.Models
 			switch (itemType)
 			{
 				case KHSave.Types.ItemType.Consumable:
-				case KHSave.Types.ItemType.Type1:
+				case KHSave.Types.ItemType.ConsumableMirrored:
 					ValueSet = NewList<ConsumableType>();
 					break;
 				case KHSave.Types.ItemType.Tent:

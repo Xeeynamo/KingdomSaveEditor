@@ -465,7 +465,7 @@ namespace KHSave.Types
         [Food("")] Quail,
         [Food("Filet Mignon")] FiletMignon,
 
-        [KeyItem("")] Gummiphone = 654,
+        [KeyItem("Gummiphone")] Gummiphone = 654,
         [KeyItem("AR Device")] ARDevice,
         [KeyItem("Prize Postcard")] PrizePostcard,
         [KeyItem("M.O.G. Card")] MOGCard,
