@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
     public class SnackAttribute : InfoAttribute
     {
-        public SnackAttribute(string name) :
+        public SnackAttribute(string name = null) :
             base(name)
         { }
     }

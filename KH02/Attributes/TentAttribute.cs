@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	public class TentAttribute : InfoAttribute
 	{
-		public TentAttribute(string name) :
+		public TentAttribute(string name = null) :
 			base(name)
 		{ }
 	}

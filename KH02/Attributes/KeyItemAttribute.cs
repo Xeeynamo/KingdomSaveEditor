@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
 	public class KeyItemAttribute : InfoAttribute
 	{
-		public KeyItemAttribute(string name) :
+		public KeyItemAttribute(string name = null) :
 			base(name)
 		{ }
 	}

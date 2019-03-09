@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
     public class SynthesisAttribute : InfoAttribute
     {
-        public SynthesisAttribute(string name) :
+        public SynthesisAttribute(string name = null) :
             base(name)
         { }
     }

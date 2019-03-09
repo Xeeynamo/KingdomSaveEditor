@@ -20,7 +20,7 @@ namespace KHSave.Attributes
 {
     public class FoodAttribute : InfoAttribute
     {
-        public FoodAttribute(string name) :
+        public FoodAttribute(string name = null) :
             base(name)
         { }
     }
