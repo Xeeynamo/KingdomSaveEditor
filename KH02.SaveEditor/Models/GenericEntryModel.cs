@@ -12,7 +12,7 @@ namespace KH02.SaveEditor.Models
 
 		public TValue Value { get; set; }
 
-		public override string ToString() => Name.ToString();
+		public override string ToString() => Name?.ToString() ?? Value?.ToString() ?? "<null>";
 	}
 
 	public class GenericEntryModel<TValue>
