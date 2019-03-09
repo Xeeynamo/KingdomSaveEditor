@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KH02.SaveEditor"
         xmlns:views="clr-namespace:KH02.SaveEditor.Views"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="500" Width="560" Loaded="Window_Loaded">
+        Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
