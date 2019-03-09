@@ -22,7 +22,7 @@ namespace KHSave.Types
 {
 	public enum AccessoryType : byte
 	{
-		Empty,
+		[Info] Empty,
         [Accessory("Laughter Pin")] LaughterPin,
         [Accessory("Forest Clasp")] ForestClasp,
         [Accessory("Ability Ring")] AbilityRing,

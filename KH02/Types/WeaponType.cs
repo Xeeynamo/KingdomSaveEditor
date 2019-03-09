@@ -22,7 +22,7 @@ namespace KHSave.Types
 {
 	public enum WeaponType : byte
 	{
-		Empty,
+		[Info] Empty,
 		[Keyblade("Kingdom Key")] KingdomKey,
 		[Keyblade("Hero's Origin")] HeroOrigin,
 		[Keyblade("Shooting Star")] ShootingStar,

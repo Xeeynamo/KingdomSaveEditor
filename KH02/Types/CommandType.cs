@@ -22,8 +22,8 @@ namespace KHSave.Types
 {
 	public enum CommandType : int
 	{
-		[Info("Empty")] Empty_Dash = 0x0,
-        [Command(" ")] Empty_1 = 0x1,
+		[Info] Empty,
+		[Command(" ")] Empty_1 = 0x1,
         [Command("Payback Strike")] PaybackStrike = 0x2,
         [Command("Counter Slash")] CounterSlash = 0x3,
         [Command("Counter Impact")] CounterImpact = 0x4,

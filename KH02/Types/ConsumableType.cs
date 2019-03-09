@@ -22,7 +22,7 @@ namespace KHSave.Types
 {
 	public enum ConsumableType : byte
 	{
-		[Consumable("Empty")] Empty,
+		[Info] Empty,
 		[Consumable("Potion")] Potion,
 		[Consumable("Hi-Potion")] HiPotion,
 		[Consumable("Mega-Potion")] MegaPotion,

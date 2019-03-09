@@ -22,8 +22,8 @@ namespace KHSave.Types
 {
 	public enum ArmorType : byte
 	{
-		Empty,
-        [Armor("Hero's Belt")] HerosBelt,
+		[Info] Empty,
+		[Armor("Hero's Belt")] HerosBelt,
         [Armor("Hero's Glove")] HerosGlove,
         [Armor("Shield Belt")] ShieldBelt,
         [Armor("DefenseBelt")] DefenseBelt,
