@@ -6,11 +6,31 @@
              xmlns:local="clr-namespace:KH02.SaveEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
-    <Grid>
+    <StackPanel Background="White">
+        <Button
+            Margin="3"
+            Command="{Binding NewGamePlusCommand}"
+            Content="{Binding NewGamePlusCommand}"/>
+        <Button
+            Margin="3"
+            Command="{Binding NewGamePlusGlitchyCommand}"
+            Content="{Binding NewGamePlusGlitchyCommand}"/>
+        <Button
+            Margin="3"
+            Command="{Binding CompleteGameCommand}"
+            Content="{Binding CompleteGameCommand}"/>
+        <Button
+            Margin="3"
+            Command="{Binding LandOfDepartureCommand}"
+            Content="{Binding LandOfDepartureCommand}"/>
+        <Button
+            Margin="3"
+            Command="{Binding KgBattleGameCommand}"
+            Content="{Binding KgBattleGameCommand}"/>
         <TextBlock
             Margin="10"
             TextWrapping="Wrap"
             TextAlignment="Center"
-            Text="The current tab is in an experimental state and it has been disabled in basic mode. If you are curious or you know what you are doing, enable the Advanced Mode."/>
-    </Grid>
+            Text="The current tab is in an experimental state. To have a complete access to the story flags, then enable the Advanced Mode."/>
+    </StackPanel>
 </UserControl>

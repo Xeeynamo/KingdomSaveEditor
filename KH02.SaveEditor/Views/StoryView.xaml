@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
     <Grid>
-        <local:StoryAdvancedView
-            DataContext="{Binding}"
-            Visibility="{Binding AdvancedVisibility}"/>
-        <local:StoryBasicView
-            DataContext="{Binding}"
-            Visibility="{Binding SimpleVisibility}"/>
+        <Grid Visibility="{Binding AdvancedVisibility}">
+            <local:StoryAdvancedView DataContext="{Binding Advanced}"/>
+        </Grid>
+        <Grid Visibility="{Binding SimpleVisibility}">
+            <local:StoryBasicView DataContext="{Binding Simple}"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -192,7 +192,7 @@ namespace KH02.SaveEditor.ViewModels
 			KhSystem = new SystemViewModel(Save);
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Players = new PlayersViewModel(Save.Pc);
-			Story = new StoryViewModel(Save.Storyflags);
+			Story = new StoryViewModel(Save);
 			Shortcuts = new ShortcutsViewModel(Save);
 			Records = new RecordsViewModel(Save);
 			Photos = new PhotosViewModel(Save.Photos);
