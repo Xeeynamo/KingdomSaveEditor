@@ -18,6 +18,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using KHSave.Models;
 using Xe.Tools.Wpf.Models;
 
@@ -35,6 +36,16 @@ namespace KH02.SaveEditor.ViewModels
 			base(list)
 		{
 
+		}
+
+		public Visibility PlayerVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+		public Visibility PlayerNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+
+		protected override void OnSelectedItem(PlayerViewModel item)
+		{
+			base.OnSelectedItem(item);
+			OnPropertyChanged(nameof(PlayerVisible));
+			OnPropertyChanged(nameof(PlayerNotVisible));
 		}
 
 		protected override PlayerViewModel OnNewItem()

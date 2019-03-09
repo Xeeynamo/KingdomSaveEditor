@@ -20,7 +20,15 @@
             SelectedItem="{Binding SelectedItem}"
             DisplayMemberPath="Name"
             />
-        <local:PlayerView Margin="0 0 10 0" Grid.Column="2"
-                DataContext="{Binding SelectedItem}"/>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding PlayerNotVisible}">
+            <Label Content="Select a player to view or edit"/>
+        </Grid>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding PlayerVisible}">
+            <local:PlayerView DataContext="{Binding SelectedItem}"/>
+        </Grid>
     </Grid>
 </UserControl>
