@@ -16,17 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using KHSave.Models;
 using KHSave.Types;
+using Xe.BinaryMapper;
 
 namespace KHSave
 {
 	public class Kh3
 	{
+        static Kh3()
+        {
+            BinaryMapping.SetMapping<TimeSpan>(new BinaryMapping.Mapping
+            {
+                Reader = x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
+                Writer = x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
+            });
+        }
+
 		[Data(0, 0x94E8F0)] public byte[] Data { get; set; }
 
 		[Data(0xC)] public int Unknown0000C { get; set; } // Changes every time
@@ -62,9 +71,9 @@ namespace KHSave
 		[Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
 
 		public void Write(Stream stream) =>
-			DataAttribute.WriteObject(new BinaryWriter(stream), this);
+			BinaryMapping.WriteObject(new BinaryWriter(stream), this);
 
 		public static Kh3 Read(Stream stream) =>
-			DataAttribute.ReadObject(new BinaryReader(stream), new Kh3()) as Kh3;
+			BinaryMapping.ReadObject(new BinaryReader(stream), new Kh3()) as Kh3;
 	}
 }

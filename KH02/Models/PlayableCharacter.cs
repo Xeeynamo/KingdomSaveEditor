@@ -17,7 +17,7 @@
 */
 
 using System.Collections.Generic;
-using KHSave.Attributes;
+using Xe.BinaryMapper;
 
 namespace KHSave.Models
 {
