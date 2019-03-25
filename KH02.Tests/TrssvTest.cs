@@ -63,7 +63,11 @@ namespace KHSave.Tests
             var slot = save.Slots[0];
             Assert.Equal(115, slot.Hp);
             Assert.Equal(80, slot.Mp);
-            Assert.Equal("/Game/Levels/dw/dw_08/dw_08", slot.MapName);
+            Assert.Equal("/Game/Levels/dw/dw_08/dw_08", slot.MapPath);
+            Assert.Equal("dw_08_Lv_Save_03", slot.MapSpawn);
+            Assert.Equal("/Script/TresGame.TresPlayerControllerSora", slot.PlayerScript);
+            Assert.Equal("/Game/Blueprints/Player/p_ex002/p_ex002_Pawn.p_ex002_Pawn_C", slot.PlayerCharacter);
+            Assert.Equal("/Game/Blueprints/Npc/n_dw003/n_dw003_Pawn.n_dw003_Pawn_C", slot.SupportCharacter);
         }
 	}
 }
