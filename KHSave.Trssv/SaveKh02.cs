@@ -19,9 +19,9 @@
 using System.IO;
 using Xe.BinaryMapper;
 
-namespace KHSave
+namespace KHSave.Trssv
 {
-    public class Trssv
+    public class SaveKh02
     {
         [Data(0, 0x1725B0)] public byte[] Data { get; set; }
 
@@ -53,7 +53,7 @@ namespace KHSave
 
         [Data(0x33d4, 0x100)] public string MapName { get; set; }
 
-        private Trssv MyRead(Stream stream)
+        private SaveKh02 MyRead(Stream stream)
         {
             var reader = new BinaryReader(stream);
 
@@ -71,14 +71,13 @@ namespace KHSave
         public void Write(Stream stream) =>
             BinaryMapping.WriteObject(new BinaryWriter(stream), this);
 
-        public static Trssv Read(Stream stream)
+        public static SaveKh02 Read(Stream stream)
         {
             var oldPosition = stream.Position;
-            var save = new Trssv().MyRead(stream);
+            var save = new SaveKh02().MyRead(stream);
             stream.Position = oldPosition;
 
-            return BinaryMapping.ReadObject(new BinaryReader(stream), save) as Trssv;
+            return BinaryMapping.ReadObject(new BinaryReader(stream), save) as SaveKh02;
         }
-	}
-
+    }
 }

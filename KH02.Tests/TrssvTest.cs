@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Trssv;
 using System.IO;
 using Xunit;
 
@@ -23,13 +24,13 @@ namespace KHSave.Tests
 {
 	public class TrssvTest
 	{
-		private readonly Trssv save;
+		private readonly SaveKh02 save;
 
 		public TrssvTest()
 		{
 			using (var stream = File.OpenRead("Saves/kh02.sav"))
 			{
-				save = Trssv.Read(stream);
+				save = SaveKh02.Read(stream);
 			}
 		}
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KH02\KHSave.csproj" />
+    <ProjectReference Include="..\KHSave.Trssv\KHSave.Trssv.csproj" />
   </ItemGroup>
 
   <ItemGroup>
