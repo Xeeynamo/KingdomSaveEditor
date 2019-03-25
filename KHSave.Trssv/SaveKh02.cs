@@ -16,6 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Trssv.Models;
+using System.Collections.Generic;
 using System.IO;
 using Xe.BinaryMapper;
 
@@ -47,11 +49,7 @@ namespace KHSave.Trssv
 
         [Data(0x38)] public int TheaterMode { get; set; }
 
-        [Data(0x24C0)] public int Hp { get; set; }
-
-        [Data(0x24C4)] public int Mp { get; set; }
-
-        [Data(0x33d4, 0x100)] public string MapName { get; set; }
+        [Data(0xB0, 100, 0x3B40)] public List<Slot> Slots { get; set; }
 
         private SaveKh02 MyRead(Stream stream)
         {
