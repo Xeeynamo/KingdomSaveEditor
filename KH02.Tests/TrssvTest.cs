@@ -24,17 +24,27 @@ namespace KHSave.Tests
 {
 	public class TrssvTest
 	{
-		private readonly SaveKh02 save;
+        private static readonly string FilePath = "Saves/kh02.sav";
+        private readonly SaveKh02 save;
 
 		public TrssvTest()
 		{
-			using (var stream = File.OpenRead("Saves/kh02.sav"))
+			using (var stream = File.OpenRead(FilePath))
 			{
 				save = SaveKh02.Read(stream);
 			}
-		}
+        }
 
-		[Fact]
+        [Fact]
+        public void TestIsValid()
+        {
+            using (var stream = File.OpenRead(FilePath))
+            {
+                Assert.True(SaveKh02.IsValid(stream));
+            }
+        }
+
+        [Fact]
 		public void TestRead()
 		{
             Assert.True(save.IsVibrationEnable);

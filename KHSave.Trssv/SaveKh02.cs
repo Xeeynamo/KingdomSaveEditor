@@ -66,6 +66,15 @@ namespace KHSave.Trssv
             return this;
         }
 
+        public static bool IsValid(Stream stream)
+        {
+            var prevPosition = stream.Position;
+            var magicCode = new BinaryReader(stream).ReadInt32();
+            stream.Position = prevPosition;
+
+            return magicCode == 0x45564153; // SAVE
+        }
+
         public void Write(Stream stream) =>
             BinaryMapping.WriteObject(new BinaryWriter(stream), this);
 

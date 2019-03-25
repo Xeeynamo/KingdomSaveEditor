@@ -25,12 +25,13 @@ using Xunit;
 namespace KHSave.Tests
 {
 	public class Kh3Test
-	{
-		private Kh3 save;
+    {
+        private static readonly string FilePath = "Saves/kh3.bin";
+        private Kh3 save;
 
 		public Kh3Test()
 		{
-			using (var stream = File.OpenRead("Saves/kh3.bin"))
+			using (var stream = File.OpenRead(FilePath))
 			{
 				save = Kh3.Read(stream);
 			}
@@ -39,7 +40,7 @@ namespace KHSave.Tests
         [Fact]
         public void TestIsValid()
         {
-            using (var stream = File.OpenRead("Saves/kh3.bin"))
+            using (var stream = File.OpenRead(FilePath))
             {
                 Assert.True(Kh3.IsValid(stream));
             }
