@@ -36,6 +36,15 @@ namespace KHSave.Tests
 			}
 		}
 
+        [Fact]
+        public void TestIsValid()
+        {
+            using (var stream = File.OpenRead("Saves/kh3.bin"))
+            {
+                Assert.True(Kh3.IsValid(stream));
+            }
+        }
+
 		[Fact]
 		public void TestRead()
 		{
