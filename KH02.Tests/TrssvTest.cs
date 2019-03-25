@@ -34,9 +34,22 @@ namespace KHSave.Tests
 		}
 
 		[Fact]
-		public void Test1()
+		public void TestRead()
 		{
-			Assert.Equal("/Game/Levels/dw/dw_08/dw_08", save.MapName);
-		}
+            Assert.True(save.IsVibrationEnable);
+            Assert.False(save.InvertCameraVertical);
+            Assert.False(save.InvertCameraHorizontal);
+            Assert.True(save.IsMapVisible);
+            Assert.True(save.IsSubtitlesVisible);
+            Assert.True(save.Unk10_Bit5);
+            Assert.False(save.CanEarnExp);
+            Assert.Equal(2, save.CameraSpeed);
+            Assert.Equal(200, save.Brightness);
+            Assert.Equal(-1, save.TheaterModeWatched);
+            Assert.Equal(-1, save.TheaterMode);
+            Assert.Equal(115, save.Hp);
+            Assert.Equal(80, save.Mp);
+            Assert.Equal("/Game/Levels/dw/dw_08/dw_08", save.MapName);
+        }
 	}
 }

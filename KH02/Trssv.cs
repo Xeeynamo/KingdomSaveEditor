@@ -16,71 +16,69 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
 using System.IO;
-using System.Text;
+using Xe.BinaryMapper;
 
 namespace KHSave
 {
-	public class Trssv
-	{
-		public int MagicCode { get; set; }
+    public class Trssv
+    {
+        [Data(0, 0x1725B0)] public byte[] Data { get; set; }
 
-		public int IsFirstRun { get; set; }
+        public bool IsVibrationEnable { get; set; }
 
+        public bool InvertCameraVertical { get; set; }
 
-		public bool IsVibrationVisible { get; set; }
+        public bool InvertCameraHorizontal { get; set; }
 
-		public bool InvertCameraVertical { get; set; }
+        public bool IsMapVisible { get; set; }
 
-		public bool InvertCameraHorizontal { get; set; }
+        public bool IsSubtitlesVisible { get; set; }
 
-		public bool IsMapVisible { get; set; }
+        public bool Unk10_Bit5 { get; set; }
 
-		public bool IsSubtitlesVisible { get; set; }
+        public bool CanEarnExp { get; set; }
 
-		public bool Unk10_Bit5 { get; set; }
+        [Data(0x14)] public int CameraSpeed { get; set; }
 
-		public bool CanEarnExp { get; set; }
+        [Data(0x18)] public int Brightness { get; set; }
 
-		public int CameraSpeed { get; set; }
+        [Data(0x1C)] public int TheaterModeWatched { get; set; }
 
-		public int Brightness { get; set; }
+        [Data(0x38)] public int TheaterMode { get; set; }
 
-		public int TheaterModeWatched { get; set; }
+        [Data(0x24C0)] public int Hp { get; set; }
 
-		public int TheaterMode { get; set; }
+        [Data(0x24C4)] public int Mp { get; set; }
 
-		public string MapName { get; set; }
+        [Data(0x33d4, 0x100)] public string MapName { get; set; }
 
-		public int Hp { get; set; }
+        private Trssv MyRead(Stream stream)
+        {
+            var reader = new BinaryReader(stream);
 
-		public int Mp { get; set; }
+            IsVibrationEnable = reader.ReadFlag(0x10, 0);
+            InvertCameraHorizontal = reader.ReadFlag(0x10, 1);
+            InvertCameraVertical = reader.ReadFlag(0x10, 2);
+            IsMapVisible = reader.ReadFlag(0x10, 3);
+            IsSubtitlesVisible = reader.ReadFlag(0x10, 4);
+            Unk10_Bit5 = reader.ReadFlag(0x10, 5);
+            CanEarnExp = reader.ReadFlag(0x10, 6);
 
-		private Trssv MyRead(Stream stream)
-		{
-			var reader = new BinaryReader(stream);
+            return this;
+        }
 
-			IsVibrationVisible = reader.ReadFlag(0x10, 0);
-			InvertCameraHorizontal = reader.ReadFlag(0x10, 1);
-			InvertCameraVertical = reader.ReadFlag(0x10, 2);
-			IsMapVisible = reader.ReadFlag(0x10, 3);
-			IsSubtitlesVisible = reader.ReadFlag(0x10, 4);
-			Unk10_Bit5 = reader.ReadFlag(0x10, 5);
-			CanEarnExp = reader.ReadFlag(0x10, 6);
-			CameraSpeed = reader.ReadInt32(0x14);
-			Brightness = reader.ReadInt32(0x18);
-			TheaterModeWatched = reader.ReadInt32(0x1C);
-			TheaterMode = reader.ReadInt32(0x38);
+        public void Write(Stream stream) =>
+            BinaryMapping.WriteObject(new BinaryWriter(stream), this);
 
-			Hp = reader.ReadInt32(0x24C0);
-			Mp = reader.ReadInt32(0x24C4);
-			MapName = reader.ReadString(0x33D4, 0x100);
+        public static Trssv Read(Stream stream)
+        {
+            var oldPosition = stream.Position;
+            var save = new Trssv().MyRead(stream);
+            stream.Position = oldPosition;
 
-			return this;
-		}
-
-		public static Trssv Read(Stream stream) => new Trssv().MyRead(stream);
+            return BinaryMapping.ReadObject(new BinaryReader(stream), save) as Trssv;
+        }
 	}
 
 }
