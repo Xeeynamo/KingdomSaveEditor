@@ -70,9 +70,12 @@ namespace KHSave.Tests
             Assert.Equal(10, slot.MagicBlizzardUses);
             Assert.Equal(55, slot.MagicThundagaUses);
             Assert.Equal(2, slot.MagicCuragaUses);
-            Assert.Equal(115, slot.Hp);
-            Assert.Equal(80, slot.Mp);
-            Assert.Equal(100, slot.Focus);
+            Assert.Equal(115, slot.Pc[0].Hp);
+            Assert.Equal(80, slot.Pc[0].Mp);
+            Assert.Equal(100, slot.Pc[0].Focus);
+            Assert.Equal(140, slot.Pc[1].Hp);
+            Assert.Equal(130, slot.Pc[1].Mp);
+            Assert.Equal(100, slot.Pc[1].Focus);
             Assert.Equal("/Game/Levels/dw/dw_08/dw_08", slot.MapPath);
             Assert.Equal("dw_08_Lv_Save_03", slot.MapSpawn);
             Assert.Equal("/Script/TresGame.TresPlayerControllerSora", slot.PlayerScript);

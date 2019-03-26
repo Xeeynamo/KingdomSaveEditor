@@ -1,5 +1,6 @@
 ﻿using KHSave.Trssv.Types;
 using System;
+using System.Collections.Generic;
 using Xe.BinaryMapper;
 
 namespace KHSave.Trssv.Models
@@ -22,10 +23,7 @@ namespace KHSave.Trssv.Models
 
         [Data(0x24)] public byte Location { get; set; }
 
-        [Data(0x2410)] public int Hp { get; set; }
-
-        [Data(0x2414)] public int Mp { get; set; }
-        [Data(0x2418)] public int Focus { get; set; }
+        [Data(0x2384, 5, 0x200)] public List<PlayableCharacter> Pc { get; set; }
 
         [Data(0x3324, 0x100)] public string MapPath { get; set; }
         [Data(0x3424, 0x40)] public string MapSpawn { get; set; }
