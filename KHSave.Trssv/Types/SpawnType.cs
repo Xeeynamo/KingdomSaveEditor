@@ -1,6 +1,6 @@
 ﻿namespace KHSave.Trssv.Types
 {
-    enum SpawnType
+    public enum SpawnType
     {
         dw_01_Lv_AutoSave_01,
         dw_01_Lv_AutoSave_02,

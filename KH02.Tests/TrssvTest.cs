@@ -17,6 +17,7 @@
 */
 
 using KHSave.Trssv;
+using KHSave.Trssv.Types;
 using System.IO;
 using Xunit;
 
@@ -61,9 +62,17 @@ namespace KHSave.Tests
             Assert.Equal(100, save.Slots.Count);
 
             var slot = save.Slots[1];
+            Assert.Equal(DifficultyType.Beginner, slot.Difficulty);
             Assert.Equal(53, slot.Level);
+            Assert.Equal(129, slot.EnemiesDefeated);
+            Assert.Equal(14, slot.StyleChangesPerformed);
+            Assert.Equal(48, slot.MagicFiragaUses);
+            Assert.Equal(10, slot.MagicBlizzardUses);
+            Assert.Equal(55, slot.MagicThundagaUses);
+            Assert.Equal(2, slot.MagicCuragaUses);
             Assert.Equal(115, slot.Hp);
             Assert.Equal(80, slot.Mp);
+            Assert.Equal(100, slot.Focus);
             Assert.Equal("/Game/Levels/dw/dw_08/dw_08", slot.MapPath);
             Assert.Equal("dw_08_Lv_Save_03", slot.MapSpawn);
             Assert.Equal("/Script/TresGame.TresPlayerControllerSora", slot.PlayerScript);
