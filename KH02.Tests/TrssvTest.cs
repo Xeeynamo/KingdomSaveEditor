@@ -63,6 +63,7 @@ namespace KHSave.Tests
 
             var slot = save.Slots[1];
             Assert.Equal(DifficultyType.Beginner, slot.Difficulty);
+            Assert.Equal(474344, slot.Experience);
             Assert.Equal(53, slot.Level);
             Assert.Equal(129, slot.EnemiesDefeated);
             Assert.Equal(14, slot.StyleChangesPerformed);

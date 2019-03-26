@@ -11,6 +11,7 @@ namespace KHSave.Trssv.Models
 
         [Data(0x04)] public DifficultyType Difficulty { get; set; }
 
+        [Data(0x18)] public int Experience { get; set; }
         [Data(0x20)] public byte Level { get; set; }
 
         [Data(0x30)] public int EnemiesDefeated { get; set; }
