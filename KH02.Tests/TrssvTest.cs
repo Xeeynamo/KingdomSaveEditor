@@ -60,7 +60,8 @@ namespace KHSave.Tests
             Assert.Equal(-1, save.TheaterMode);
             Assert.Equal(100, save.Slots.Count);
 
-            var slot = save.Slots[0];
+            var slot = save.Slots[1];
+            Assert.Equal(53, slot.Level);
             Assert.Equal(115, slot.Hp);
             Assert.Equal(80, slot.Mp);
             Assert.Equal("/Game/Levels/dw/dw_08/dw_08", slot.MapPath);

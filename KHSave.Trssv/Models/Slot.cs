@@ -1,9 +1,14 @@
-﻿using Xe.BinaryMapper;
+﻿using System;
+using Xe.BinaryMapper;
 
 namespace KHSave.Trssv.Models
 {
     public class Slot
     {
+        [Data(0, 0x3B40)] public byte[] Data { get; set; }
+
+        [Data(0x20)] public byte Level { get; set; }
+
         [Data(0x2410)] public int Hp { get; set; }
 
         [Data(0x2414)] public int Mp { get; set; }
