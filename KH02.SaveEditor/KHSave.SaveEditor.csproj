@@ -50,8 +50,8 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xe.BinaryMapper, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xe.BinaryMapper.1.1.0\lib\netstandard2.0\Xe.BinaryMapper.dll</HintPath>
+    <Reference Include="Xe.BinaryMapper, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xe.BinaryMapper.1.1.1\lib\netstandard2.0\Xe.BinaryMapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
