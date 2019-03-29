@@ -71,6 +71,7 @@ namespace KHSave.Tests
             Assert.Equal(10, slot.MagicBlizzardUses);
             Assert.Equal(55, slot.MagicThundagaUses);
             Assert.Equal(2, slot.MagicCuragaUses);
+            Assert.Equal(350, slot.StoryProgression);
             Assert.Equal(115, slot.Pc[0].Hp);
             Assert.Equal(80, slot.Pc[0].Mp);
             Assert.Equal(100, slot.Pc[0].Focus);
@@ -82,6 +83,14 @@ namespace KHSave.Tests
             Assert.Equal("/Script/TresGame.TresPlayerControllerSora", slot.PlayerScript);
             Assert.Equal("/Game/Blueprints/Player/p_ex002/p_ex002_Pawn.p_ex002_Pawn_C", slot.PlayerCharacter);
             Assert.Equal("/Game/Blueprints/Npc/n_dw003/n_dw003_Pawn.n_dw003_Pawn_C", slot.SupportCharacter);
+            Assert.Equal(CommandType.Firaga, slot.Shortcut1Circle);
+            Assert.Equal(CommandType.Blizzaga, slot.Shortcut1Triangle);
+            Assert.Equal(CommandType.Thundaga, slot.Shortcut1Square);
+            Assert.Equal(CommandType.Curaga, slot.Shortcut1Cross);
+            Assert.Equal(CommandType.Empty, slot.Shortcut2Circle);
+            Assert.Equal(CommandType.Empty, slot.Shortcut2Triangle);
+            Assert.Equal(CommandType.Ether, slot.Shortcut2Square);
+            Assert.Equal(CommandType.HiPotion, slot.Shortcut2Cross);
         }
 	}
 }

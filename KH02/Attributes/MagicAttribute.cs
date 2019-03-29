@@ -18,7 +18,7 @@
 
 namespace KHSave.Attributes
 {
-	class MagicAttribute : InfoAttribute
+	public class MagicAttribute : InfoAttribute
 	{
 		public MagicAttribute(string name = null) :
 			base(name)
