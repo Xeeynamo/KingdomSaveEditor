@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
+    <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30,7 +30,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.VersionCheck", "Xe.Relea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Http", "Xe.ReleaseUpdater\Xe.Http\Xe.Http.csproj", "{52E2ACD1-845A-41DC-8318-22A0A7274677}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.Lib02", "KHSave.Lib02\KHSave.Lib02.csproj", "{FE823BD9-B309-49E6-85F1-ADAE55752B72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Lib02", "KHSave.Lib02\KHSave.Lib02.csproj", "{FE823BD9-B309-49E6-85F1-ADAE55752B72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.Lib3", "KHSave.Lib3\KHSave.Lib3.csproj", "{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,10 @@ Global
 		{FE823BD9-B309-49E6-85F1-ADAE55752B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE823BD9-B309-49E6-85F1-ADAE55752B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE823BD9-B309-49E6-85F1-ADAE55752B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

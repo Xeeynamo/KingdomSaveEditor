@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Windows;
 using KHSave.Models;
 using KHSave.Types;
+using System;
+using System.Windows;
 using Xe.Tools;
 
 namespace KH02.SaveEditor.Models

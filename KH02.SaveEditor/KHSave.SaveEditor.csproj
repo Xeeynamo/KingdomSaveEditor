@@ -243,6 +243,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj">
+      <Project>{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}</Project>
+      <Name>KHSave.Lib3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KHSave\KHSave.csproj">
       <Project>{66531854-A216-4F15-ABE5-F723EA257BF2}</Project>
       <Name>KHSave</Name>

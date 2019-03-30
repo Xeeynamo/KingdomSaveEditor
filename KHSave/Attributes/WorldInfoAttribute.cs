@@ -18,7 +18,6 @@
 
 using System;
 using System.Linq;
-using KHSave.Types;
 
 namespace KHSave.Attributes
 {
