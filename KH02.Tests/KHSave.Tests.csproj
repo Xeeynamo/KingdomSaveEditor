@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KHSave.Trssv\KHSave.Trssv.csproj" />
+    <Folder Include="Saves\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Saves\" />
+    <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
   </ItemGroup>
 
   <ItemGroup>

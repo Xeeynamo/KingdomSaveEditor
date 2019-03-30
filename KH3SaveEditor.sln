@@ -30,7 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.VersionCheck", "Xe.Relea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Http", "Xe.ReleaseUpdater\Xe.Http\Xe.Http.csproj", "{52E2ACD1-845A-41DC-8318-22A0A7274677}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.Trssv", "KHSave.Trssv\KHSave.Trssv.csproj", "{FE823BD9-B309-49E6-85F1-ADAE55752B72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.Lib02", "KHSave.Lib02\KHSave.Lib02.csproj", "{FE823BD9-B309-49E6-85F1-ADAE55752B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
