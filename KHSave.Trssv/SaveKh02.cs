@@ -27,19 +27,13 @@ namespace KHSave.Trssv
     {
         [Data(0, 0x1725B0)] public byte[] Data { get; set; }
 
-        public bool IsVibrationEnable { get; set; }
-
-        public bool InvertCameraVertical { get; set; }
-
-        public bool InvertCameraHorizontal { get; set; }
-
-        public bool IsMapVisible { get; set; }
-
-        public bool IsSubtitlesVisible { get; set; }
-
-        public bool Unk10_Bit5 { get; set; }
-
-        public bool CanEarnExp { get; set; }
+        [Data(0x10)] public bool IsVibrationEnable { get; set; }
+        [Data] public bool InvertCameraVertical { get; set; }
+        [Data] public bool InvertCameraHorizontal { get; set; }
+        [Data] public bool IsMapVisible { get; set; }
+        [Data] public bool IsSubtitlesVisible { get; set; }
+        [Data] public bool Unk10_Bit5 { get; set; }
+        [Data] public bool CanEarnExp { get; set; }
 
         [Data(0x14)] public int CameraSpeed { get; set; }
 
@@ -51,21 +45,6 @@ namespace KHSave.Trssv
 
         [Data(0xB0, 100, 0x3B40)] public List<Slot> Slots { get; set; }
 
-        private SaveKh02 MyRead(Stream stream)
-        {
-            var reader = new BinaryReader(stream);
-
-            IsVibrationEnable = reader.ReadFlag(0x10, 0);
-            InvertCameraHorizontal = reader.ReadFlag(0x10, 1);
-            InvertCameraVertical = reader.ReadFlag(0x10, 2);
-            IsMapVisible = reader.ReadFlag(0x10, 3);
-            IsSubtitlesVisible = reader.ReadFlag(0x10, 4);
-            Unk10_Bit5 = reader.ReadFlag(0x10, 5);
-            CanEarnExp = reader.ReadFlag(0x10, 6);
-
-            return this;
-        }
-
         public static bool IsValid(Stream stream)
         {
             var prevPosition = stream.Position;
@@ -75,16 +54,8 @@ namespace KHSave.Trssv
             return magicCode == 0x45564153; // SAVE
         }
 
-        public void Write(Stream stream) =>
-            BinaryMapping.WriteObject(new BinaryWriter(stream), this);
+        public void Write(Stream stream) => BinaryMapping.WriteObject(stream, this);
 
-        public static SaveKh02 Read(Stream stream)
-        {
-            var oldPosition = stream.Position;
-            var save = new SaveKh02().MyRead(stream);
-            stream.Position = oldPosition;
-
-            return BinaryMapping.ReadObject(new BinaryReader(stream), save) as SaveKh02;
-        }
+        public static SaveKh02 Read(Stream stream) => BinaryMapping.ReadObject<SaveKh02>(stream);
     }
 }
