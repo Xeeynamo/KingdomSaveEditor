@@ -24,20 +24,24 @@ namespace KH02.SaveEditor
 	{
 		private readonly MainWindowViewModel context;
 
-		public MainWindow()
+        public MainWindow() :
+            this(null)
+        {
+
+        }
+
+		public MainWindow(string fileName)
 		{
 			InitializeComponent();
 			DataContext = context = new MainWindowViewModel();
 
-#if DEBUG
-			if (Debugger.IsAttached)
-			{
-				context.Open(@"..\..\..\KH02.Tests\Saves\kh3.bin");
-			}
-#endif
-		}
+            if (!string.IsNullOrWhiteSpace(fileName))
+            {
+                context.Open(fileName);
+            }
+        }
 
-		private void Window_Loaded(object sender, EventArgs e)
+        private void Window_Loaded(object sender, EventArgs e)
 		{
 			Task.Run(async () =>
 			{

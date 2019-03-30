@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 
 namespace KH02.SaveEditor
 {
@@ -7,5 +8,26 @@ namespace KH02.SaveEditor
 	/// </summary>
 	public partial class App : Application
 	{
-	}
+        private Window window;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            window = new MainWindow(GetFileName(e));
+            window.Show();
+        }
+
+        private string GetFileName(StartupEventArgs e)
+        {
+            if (e.Args.Length > 0)
+                return e.Args[0];
+
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                return "../../../KHSave.Tests/Saves/kh3.bin";
+            }
+#endif
+            return null;
+        }
+    }
 }
