@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KH02\KHSave.csproj" />
     <ProjectReference Include="..\KHSave.Trssv\KHSave.Trssv.csproj" />
   </ItemGroup>
 
