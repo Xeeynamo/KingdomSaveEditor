@@ -23,13 +23,14 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
 using KHSave.SaveEditor.VersionCheck;
 using KHSave;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
 using Xe.VersionCheck;
+using KHSave.SaveEditor.Kh3.ViewModels;
+using KHSave.SaveEditor.Common;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -37,7 +38,7 @@ namespace KHSave.SaveEditor.ViewModels
 	{
 		private string fileName;
 
-		public Kh3 Save { get; set; }
+		public SaveKh3 Save { get; set; }
 
 		private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
 
@@ -181,7 +182,7 @@ namespace KHSave.SaveEditor.ViewModels
 			FileName = fileName;
 			using (var file = File.Open(fileName, FileMode.Open))
 			{
-				Save = Kh3.Read(file);
+				Save = SaveKh3.Read(file);
 			}
 
 			RefreshUi();

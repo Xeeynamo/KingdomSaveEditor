@@ -26,13 +26,13 @@ namespace KHSave.Tests
 	public class Kh3Test
     {
         private static readonly string FilePath = "Saves/kh3.bin";
-        private Kh3 save;
+        private SaveKh3 save;
 
 		public Kh3Test()
 		{
 			using (var stream = File.OpenRead(FilePath))
 			{
-				save = Kh3.Read(stream);
+				save = SaveKh3.Read(stream);
 			}
 		}
 
@@ -41,7 +41,7 @@ namespace KHSave.Tests
         {
             using (var stream = File.OpenRead(FilePath))
             {
-                Assert.True(Kh3.IsValid(stream));
+                Assert.True(SaveKh3.IsValid(stream));
             }
         }
 
@@ -98,7 +98,7 @@ namespace KHSave.Tests
 			save.Write(mem);
 
 			mem.Position = 0;
-			save = Kh3.Read(mem);
+			save = SaveKh3.Read(mem);
 			TestRead();
 		}
 
@@ -116,7 +116,7 @@ namespace KHSave.Tests
 			save.Write(mem);
 
 			mem.Position = 0;
-			var save2 = Kh3.Read(mem);
+			var save2 = SaveKh3.Read(mem);
 
 			Assert.Equal(1234, save2.TotalExp);
 			Assert.Equal(DifficultyType.Normal, save2.Difficulty);

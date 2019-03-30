@@ -59,85 +59,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ItemComboBox.xaml.cs">
-      <DependentUpon>ItemComboBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Exceptions\ImageTooLargeException.cs" />
-    <Compile Include="Global.cs" />
-    <Compile Include="Models\EnumIconTypeModel.cs" />
-    <Compile Include="Models\EquipmentItemEntryViewModel.cs" />
-    <Compile Include="Models\GenericEnumListModel.cs" />
-    <Compile Include="Models\GenericListModel.cs" />
-    <Compile Include="Models\KhEnumListModel.cs" />
-    <Compile Include="Models\InventoryItemViewModel.cs" />
-    <Compile Include="Models\ItemComboBoxModel.cs" />
-    <Compile Include="Models\GenericEntryModel.cs" />
     <Compile Include="UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="VersionCheck\DesktopCheckCurrentVersion.cs" />
-    <Compile Include="ViewModels\AbilitiesViewModel.cs" />
-    <Compile Include="ViewModels\EquipmentItemsViewModel.cs" />
-    <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\PhotoEntryViewModel.cs" />
-    <Compile Include="ViewModels\PhotosViewModel.cs" />
-    <Compile Include="ViewModels\PlayersViewModel.cs" />
-    <Compile Include="ViewModels\PlayerViewModel.cs" />
-    <Compile Include="ViewModels\RecordsViewModel.cs" />
-    <Compile Include="ViewModels\ShortcutsViewModel.cs" />
-    <Compile Include="ViewModels\StoryViewModel.cs" />
-    <Compile Include="ViewModels\SystemViewModel.cs" />
     <Compile Include="ViewModels\UpdateViewModel.cs" />
-    <Compile Include="Views\EquipmentItemEntryView.xaml.cs">
-      <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EquipmentItemsView.xaml.cs">
-      <DependentUpon>EquipmentItemsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InventoryView.xaml.cs">
-      <DependentUpon>InventoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PhotosView.xaml.cs">
-      <DependentUpon>PhotosView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlayerAbilityView.xaml.cs">
-      <DependentUpon>PlayerAbilityView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlayerEquipmentView.xaml.cs">
-      <DependentUpon>PlayerEquipmentView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlayerStatusView.xaml.cs">
-      <DependentUpon>PlayerStatusView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlayersView.xaml.cs">
-      <DependentUpon>PlayersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlayerView.xaml.cs">
-      <DependentUpon>PlayerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RecordsView.xaml.cs">
-      <DependentUpon>RecordsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ShortcutsView.xaml.cs">
-      <DependentUpon>ShortcutsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StoryAdvancedView.xaml.cs">
-      <DependentUpon>StoryAdvancedView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StoryBasicView.xaml.cs">
-      <DependentUpon>StoryBasicView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StoryView.xaml.cs">
-      <DependentUpon>StoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SystemView.xaml.cs">
-      <DependentUpon>SystemView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Controls\ItemComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,66 +78,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UpdateWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EquipmentItemEntryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EquipmentItemsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InventoryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PhotosView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlayerAbilityView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlayerEquipmentView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlayerStatusView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlayersView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlayerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RecordsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ShortcutsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StoryAdvancedView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StoryBasicView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StoryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SystemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +113,14 @@
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj">
       <Project>{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}</Project>
       <Name>KHSave.Lib3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj">
+      <Project>{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}</Project>
+      <Name>KHSave.SaveEditor.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj">
+      <Project>{873cd9b2-3984-44dd-a077-b5093714ec56}</Project>
+      <Name>KHSave.SaveEditor.Kh3</Name>
     </ProjectReference>
     <ProjectReference Include="..\KHSave\KHSave.csproj">
       <Project>{66531854-A216-4F15-ABE5-F723EA257BF2}</Project>

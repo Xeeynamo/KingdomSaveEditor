@@ -25,9 +25,9 @@ using Xe.BinaryMapper;
 
 namespace KHSave
 {
-	public class Kh3
+	public class SaveKh3
 	{
-        static Kh3()
+        static SaveKh3()
         {
             BinaryMapping.SetMapping<TimeSpan>(new BinaryMapping.Mapping
             {
@@ -84,7 +84,7 @@ namespace KHSave
 		public void Write(Stream stream) =>
 			BinaryMapping.WriteObject(new BinaryWriter(stream), this);
 
-		public static Kh3 Read(Stream stream) =>
-			BinaryMapping.ReadObject(new BinaryReader(stream), new Kh3()) as Kh3;
+		public static SaveKh3 Read(Stream stream) =>
+			BinaryMapping.ReadObject(new BinaryReader(stream), new SaveKh3()) as SaveKh3;
 	}
 }
