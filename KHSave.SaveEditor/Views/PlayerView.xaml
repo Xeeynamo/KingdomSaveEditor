@@ -1,0 +1,36 @@
+<UserControl x:Class="KHSave.SaveEditor.Views.PlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Status">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                    <local:PlayerStatusView DataContext="{Binding}"/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Equipment">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                    <local:PlayerEquipmentView DataContext="{Binding}"/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Ability">
+                <Grid>
+                    <local:PlayerAbilityView
+                        DataContext="{Binding}"
+                        Visibility="{Binding AdvancedVisibility}"/>
+                    <TextBlock
+                        Margin="10"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        Visibility="{Binding SimpleVisibility}"
+                        Text="The current tab is in an experimental state and it has been disabled in basic mode. If you are curious or you know what you are doing, enable the Advanced Mode."/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

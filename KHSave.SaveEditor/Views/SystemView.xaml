@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Views.SystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <StackPanel Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Difficulty"/>
+                <ComboBox
+                    ItemsSource="{Binding Difficulty}"
+                    SelectedValue="{Binding Difficulty.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Character icon"/>
+                <ComboBox
+                    ItemsSource="{Binding CharacterIcon}"
+                    SelectedValue="{Binding CharacterIcon.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="World logo"/>
+                <ComboBox
+                    ItemsSource="{Binding WorldIcon}"
+                    SelectedValue="{Binding WorldIcon.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Location"/>
+                <ComboBox
+                    ItemsSource="{Binding Location}"
+                    SelectedValue="{Binding Location.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Game timer"/>
+                <TextBox IsReadOnly="True" Text="{Binding GameTimer, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Display level"/>
+                <TextBox Text="{Binding DisplayLevel, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Total exp"/>
+                <TextBox Text="{Binding TotalExp, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Munny"/>
+                <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text=""/>
+                <CheckBox
+                    Content="Save clear"
+                    IsChecked="{Binding SaveClear}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Save count"/>
+                <TextBox Text="{Binding SavesCount, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Enemies defeated"/>
+                <TextBox Text="{Binding EnemiesDefeated, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Crabs collected"/>
+                <TextBox Text="{Binding CrabsCollected, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
+        <GroupBox Header="Room mod" Visibility="{Binding SimpleVisibility}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                    Text="World"/>
+                <ComboBox Grid.Column="0" Grid.Row="1"
+                    ItemsSource="{Binding RoomWorld}"
+                    SelectedValue="{Binding RoomWorldId}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                    Text="Map Id"/>
+                <TextBox Grid.Column="2" Grid.Row="1"
+                    Text="{Binding RoomMapIndex, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                    Visibility="Collapsed"
+                    Text="Spawn type"/>
+                <ComboBox Grid.Column="0" Grid.Row="4"
+                    Visibility="Collapsed"
+                    SelectedValue="{Binding SpawnTypeValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="3"
+                    Visibility="Collapsed"
+                    Text="Spawn index"/>
+                <TextBox Grid.Column="2" Grid.Row="4"
+                    Visibility="Collapsed"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Room mod (advanced mode)" Visibility="{Binding AdvancedVisibility}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                    Text="Map path"/>
+                <TextBox Grid.Column="0" Grid.Row="1"
+                    Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                    Text="Spawn point"/>
+                <TextBox Grid.Column="2" Grid.Row="1"
+                    Text="{Binding MapSpawn}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                    Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="4"
+                    Text="{Binding PlayerScript}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="3"
+                    Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="4"
+                    Text="{Binding PlayerCharacter}"/>
+            </Grid>
+        </GroupBox>
+
+    </StackPanel>
+</UserControl>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor", "KH02.SaveEditor\KHSave.SaveEditor.csproj", "{3F04C476-E496-4B96-959F-5C3B3EC4D4E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor", "KHSave.SaveEditor\KHSave.SaveEditor.csproj", "{3F04C476-E496-4B96-959F-5C3B3EC4D4E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Tests", "KH02.Tests\KHSave.Tests.csproj", "{A0A13F70-E37B-4D86-824C-61F3483A2CF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Tests", "KHSave.Tests\KHSave.Tests.csproj", "{A0A13F70-E37B-4D86-824C-61F3483A2CF8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave", "KHSave\KHSave.csproj", "{66531854-A216-4F15-ABE5-F723EA257BF2}"
 EndProject
