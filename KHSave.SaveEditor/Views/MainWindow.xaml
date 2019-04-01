@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+        xmlns:kh02="clr-namespace:KHSave.SaveEditor.Kh02;assembly=KHSave.SaveEditor.Kh02"
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
@@ -52,6 +53,11 @@
                 <Label>The save loaded is not supported.</Label>
                 <Label>Be sure to have the last version or that the save is decrypted or supported.</Label>
             </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1"
+            IsEnabled="{Binding IsKh02Save}"
+            Visibility="{Binding VisibilityKh02}">
+            <kh02:MainView DataContext="{Binding DataContext}"/>
         </Grid>
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsKh3Save}"

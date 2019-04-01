@@ -17,7 +17,6 @@
 */
 
 using KHSave.Trssv.Types;
-using System;
 using System.Collections.Generic;
 using Xe.BinaryMapper;
 

@@ -54,7 +54,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.Kh02\KHSave.SaveEditor.Kh02.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj" />
     <ProjectReference Include="..\Xe.ReleaseUpdater\Xe.VersionCheck\Xe.VersionCheck.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />

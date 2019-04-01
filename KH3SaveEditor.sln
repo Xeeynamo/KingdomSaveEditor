@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor", "KHSave.SaveEditor\KHSave.SaveEditor.csproj", "{3F04C476-E496-4B96-959F-5C3B3EC4D4E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor", "KHSave.SaveEditor\KHSave.SaveEditor.csproj", "{3F04C476-E496-4B96-959F-5C3B3EC4D4E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Tests", "KHSave.Tests\KHSave.Tests.csproj", "{A0A13F70-E37B-4D86-824C-61F3483A2CF8}"
 EndProject
@@ -34,9 +34,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Lib02", "KHSave.Lib0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Lib3", "KHSave.Lib3\KHSave.Lib3.csproj", "{7BA3EFB5-AF90-434E-9906-B5DAA82B09CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.Kh3", "KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj", "{873CD9B2-3984-44DD-A077-B5093714EC56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Kh3", "KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj", "{873CD9B2-3984-44DD-A077-B5093714EC56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.Common", "KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj", "{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Common", "KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj", "{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.Kh02", "KHSave.SaveEditor.Kh02\KHSave.SaveEditor.Kh02.csproj", "{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +98,10 @@ Global
 		{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

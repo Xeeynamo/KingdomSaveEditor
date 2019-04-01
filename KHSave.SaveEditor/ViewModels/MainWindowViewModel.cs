@@ -32,6 +32,8 @@ using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Views;
 using KHSave.SaveEditor.Common.Contracts;
+using KHSave.Trssv;
+using KHSave.SaveEditor.Kh02.ViewModels;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -39,6 +41,7 @@ namespace KHSave.SaveEditor.ViewModels
     {
         Unload,
         Unknown,
+        KingdomHearts02,
         KingdomHearts3
     }
 
@@ -103,6 +106,8 @@ namespace KHSave.SaveEditor.ViewModels
         public Visibility VisibilityUnload => IsUnload ? Visibility.Visible : Visibility.Collapsed;
         public bool IsUnknown => SaveKind == SaveType.Unknown;
         public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsKh02Save => SaveKind == SaveType.KingdomHearts02;
+        public Visibility VisibilityKh02 => IsKh02Save ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
         public Visibility VisibilityKh3 => IsKh3Save ? Visibility.Visible : Visibility.Collapsed;
 
@@ -229,9 +234,22 @@ namespace KHSave.SaveEditor.ViewModels
 
         public void Open(Stream stream)
         {
-            bool isOpen = TryOpenKh3(stream);
+            bool isOpen = TryOpenKh02(stream) || TryOpenKh3(stream);
             if (isOpen == false)
                 SaveKind = SaveType.Unknown;
+        }
+
+        public bool TryOpenKh02(Stream stream)
+        {
+            if (!SaveKh02.IsValid(stream))
+                return false;
+
+            var saveViewModel = new Kh02ViewModel(stream);
+            DataContext = saveViewModel;
+            RefreshUi = saveViewModel;
+            SaveKind = SaveType.KingdomHearts02;
+
+            return true;
         }
 
         public bool TryOpenKh3(Stream stream)
