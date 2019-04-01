@@ -24,13 +24,13 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using KHSave.SaveEditor.VersionCheck;
-using KHSave;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
 using Xe.VersionCheck;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Views;
 
 namespace KHSave.SaveEditor.ViewModels
 {

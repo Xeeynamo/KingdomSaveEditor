@@ -1,10 +1,10 @@
-﻿<Window x:Class="KHSave.SaveEditor.UpdateWindow"
+﻿<Window x:Class="KHSave.SaveEditor.Views.UpdateWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions"
-        xmlns:local="clr-namespace:KHSave.SaveEditor"
+        xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
         mc:Ignorable="d"
         Title="New version released"
         SizeToContent="WidthAndHeight" Height="Auto" Width="Auto" ResizeMode="NoResize">

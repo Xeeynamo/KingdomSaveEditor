@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using KHSave.SaveEditor.Views;
+using System.Diagnostics;
 using System.Windows;
 
 namespace KHSave.SaveEditor
