@@ -206,8 +206,10 @@ namespace KHSave.SaveEditor.ViewModels
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 var assemblyName = assembly.GetName();
-                var aboutDialog = new AboutDialog(assembly);
-                aboutDialog.Version = $"{assemblyName.Version.Major}.{assemblyName.Version.Minor}.{assemblyName.Version.Build}";
+                var aboutDialog = new AboutDialog(assembly)
+                {
+                    Version = $"{assemblyName.Version.Major}.{assemblyName.Version.Minor}.{assemblyName.Version.Build}"
+                };
                 aboutDialog.Author += "\n\nContributors:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
 
 				aboutDialog.ShowDialog();
