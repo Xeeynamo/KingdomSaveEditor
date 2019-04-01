@@ -31,47 +31,78 @@ using Xe.VersionCheck;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Views;
+using KHSave.SaveEditor.Common.Contracts;
 
 namespace KHSave.SaveEditor.ViewModels
 {
-	public class MainWindowViewModel : BaseNotifyPropertyChanged
-	{
-		private string fileName;
+    public enum SaveType
+    {
+        KingdomHearts3
+    }
 
-		public SaveKh3 Save { get; set; }
+    public class MainWindowViewModel : BaseNotifyPropertyChanged
+    {
+        private string fileName;
+        private SaveType saveType;
+        private object dataContext;
 
-		private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+        private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
 
-		private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
+        private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-		public string Title => string.IsNullOrEmpty(FileName) ? OriginalTitle : $"{Path.GetFileName(FileName)} | {OriginalTitle}";
+        public string Title => string.IsNullOrEmpty(FileName) ? OriginalTitle : $"{Path.GetFileName(FileName)} | {OriginalTitle}";
 
-		public string FileName
-		{
-			get => fileName;
-			set
-			{
-				fileName = value;
-				OnPropertyChanged(nameof(Title));
-			}
-		}
+        public string FileName
+        {
+            get => fileName;
+            set
+            {
+                fileName = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
 
-		public bool IsFileLoad => Save != null;
+        public bool IsFileLoad { get; private set; }
 
-		public RelayCommand OpenCommand { get; }
-		public RelayCommand SaveCommand { get; }
-		public RelayCommand SaveAsCommand { get; }
-		public RelayCommand ExitCommand { get; }
-		public RelayCommand GetLatestVersionCommand { get; }
-		public RelayCommand AboutCommand { get; }
+        public RelayCommand OpenCommand { get; }
+        public RelayCommand SaveCommand { get; }
+        public RelayCommand SaveAsCommand { get; }
+        public RelayCommand ExitCommand { get; }
+        public RelayCommand GetLatestVersionCommand { get; }
+        public RelayCommand AboutCommand { get; }
 
-		public bool IsAdvancedMode
+        public object DataContext
+        {
+            get => dataContext;
+            set
+            {
+                dataContext = value;
+                OnPropertyChanged();
+            }
+        }
+        public IRefreshUi RefreshUi { get; private set; }
+        public IWriteToStream WriteToStream { get; private set; }
+
+        public SaveType SaveKind
+        {
+            get => saveType;
+            set
+            {
+                saveType = value;
+                OnPropertyChanged(nameof(IsKh3Save));
+                OnPropertyChanged(nameof(VisibilityKh3));
+            }
+        }
+        public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
+        public Visibility VisibilityKh3 => IsKh3Save ? Visibility.Visible : Visibility.Collapsed;
+
+        public bool IsAdvancedMode
 		{
 			get => Global.IsAdvancedMode;
 			set
 			{
 				Global.IsAdvancedMode = value;
-				RefreshUi();
+				InvokeRefreshUi();
 			}
 		}
 
@@ -87,14 +118,6 @@ namespace KHSave.SaveEditor.ViewModels
 		}
 
 		public bool IsItTimeForCheckingNewVersion => Properties.Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
-
-		public SystemViewModel KhSystem { get; set; }
-		public InventoryViewModel Inventory { get; set; }
-		public PlayersViewModel Players { get; set; }
-		public StoryViewModel Story { get; set; }
-		public ShortcutsViewModel Shortcuts { get; set; }
-		public RecordsViewModel Records { get; set; }
-		public PhotosViewModel Photos { get; set; }
 
 		public MainWindowViewModel()
 		{
@@ -113,8 +136,9 @@ namespace KHSave.SaveEditor.ViewModels
 				{
 					using (var stream = File.Open(FileName, FileMode.Create))
 					{
-						Save.Write(stream);
-					}
+                        WriteToStream.WriteToStream(stream);
+
+                    }
 				}
 				else
 				{
@@ -131,9 +155,9 @@ namespace KHSave.SaveEditor.ViewModels
 				{
 					FileName = fd.FileName;
 					using (var stream = File.Open(fd.FileName, FileMode.Create))
-					{
-						Save.Write(stream);
-					}
+                    {
+                        WriteToStream.WriteToStream(stream);
+                    }
 				}
 			}, x => true);
 
@@ -182,33 +206,24 @@ namespace KHSave.SaveEditor.ViewModels
 			FileName = fileName;
 			using (var file = File.Open(fileName, FileMode.Open))
 			{
-				Save = SaveKh3.Read(file);
+                Open(file);
 			}
 
-			RefreshUi();
+            InvokeRefreshUi();
 		}
 
-		public void RefreshUi()
-		{
-			KhSystem = new SystemViewModel(Save);
-			Inventory = new InventoryViewModel(Save.Inventory);
-			Players = new PlayersViewModel(Save.Pc);
-			Story = new StoryViewModel(Save);
-			Shortcuts = new ShortcutsViewModel(Save);
-			Records = new RecordsViewModel(Save);
-			Photos = new PhotosViewModel(Save.Photos);
+        public void Open(Stream stream)
+        {
+            var saveViewModel = new Kh3ViewModel(stream);
+            DataContext = saveViewModel;
+            RefreshUi = saveViewModel;
+            SaveKind = SaveType.KingdomHearts3;
+        }
 
-			OnPropertyChanged(nameof(IsFileLoad));
-			OnPropertyChanged(nameof(KhSystem));
-			OnPropertyChanged(nameof(Inventory));
-			OnPropertyChanged(nameof(Players));
-			OnPropertyChanged(nameof(Story));
-			OnPropertyChanged(nameof(Shortcuts));
-			OnPropertyChanged(nameof(Records));
-			OnPropertyChanged(nameof(Photos));
-		}
+        public void InvokeRefreshUi() => RefreshUi.RefreshUi();
 
-		public void UpdateLastTimeForCheckingNewVersion()
+
+        public void UpdateLastTimeForCheckingNewVersion()
 		{
 			Properties.Settings.Default.LastUpdateCheck = DateTime.UtcNow;
 			Properties.Settings.Default.Save();

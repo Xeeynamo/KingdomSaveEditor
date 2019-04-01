@@ -37,6 +37,10 @@
             </MenuItem>
         </Menu>
 
-        <kh3:MainView/>
+        <Grid Grid.Row="1"
+            IsEnabled="{Binding IsKh3Save}"
+            Visibility="{Binding VisibilityKh3}">
+            <kh3:MainView DataContext="{Binding DataContext}"/>
+        </Grid>
     </Grid>
 </Window>
