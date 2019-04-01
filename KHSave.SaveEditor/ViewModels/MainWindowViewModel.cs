@@ -138,7 +138,11 @@ namespace KHSave.SaveEditor.ViewModels
 		{
 			OpenCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, ("Kingdom Hearts III Save", "bin"));
+				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
+                {
+                    ("Kingdom Hearts III Save", "bin"),
+                    ("Kingdom Hearts 0.2 Save", "sav"),
+                });
 				if (fd.ShowDialog() == true)
 				{
 					Open(fd.FileName);

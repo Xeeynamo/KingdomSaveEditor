@@ -25,7 +25,7 @@ namespace KHSave.SaveEditor
 #if DEBUG
             if (Debugger.IsAttached)
             {
-                return "../../../../KHSave.Tests/Saves/kh3.bin";
+                return "../../../../KHSave.Tests/Saves/kh02.sav";
             }
 #endif
             return null;

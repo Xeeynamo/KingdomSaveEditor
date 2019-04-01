@@ -16,9 +16,9 @@
     <PackageReleaseNotes></PackageReleaseNotes>
     <FileVersion>1.4.0.0</FileVersion>
     <PackageId>KHSave.SaveEditor</PackageId>
-    <Authors>KHSave.SaveEditor2</Authors>
+    <Authors>KHSave.SaveEditor</Authors>
     <Company>KHSave.SaveEditor</Company>
-    <Product>Save Editor - Kingdom Hearts III</Product>
+    <Product>Save Editor - Kingdom Hearts</Product>
     <PackageLicenseExpression>GPL3</PackageLicenseExpression>
   </PropertyGroup>
 
