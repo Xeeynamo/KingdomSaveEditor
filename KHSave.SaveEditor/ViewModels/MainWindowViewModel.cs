@@ -37,13 +37,15 @@ namespace KHSave.SaveEditor.ViewModels
 {
     public enum SaveType
     {
+        Unload,
+        Unknown,
         KingdomHearts3
     }
 
     public class MainWindowViewModel : BaseNotifyPropertyChanged
     {
         private string fileName;
-        private SaveType saveType;
+        private SaveType saveType = SaveType.Unload;
         private object dataContext;
 
         private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
@@ -89,10 +91,18 @@ namespace KHSave.SaveEditor.ViewModels
             set
             {
                 saveType = value;
+                OnPropertyChanged(nameof(IsUnload));
+                OnPropertyChanged(nameof(VisibilityUnload));
+                OnPropertyChanged(nameof(IsUnknown));
+                OnPropertyChanged(nameof(VisibilityUnknown));
                 OnPropertyChanged(nameof(IsKh3Save));
                 OnPropertyChanged(nameof(VisibilityKh3));
             }
         }
+        public bool IsUnload => SaveKind == SaveType.Unload;
+        public Visibility VisibilityUnload => IsUnload ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsUnknown => SaveKind == SaveType.Unknown;
+        public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
         public Visibility VisibilityKh3 => IsKh3Save ? Visibility.Visible : Visibility.Collapsed;
 
@@ -214,10 +224,22 @@ namespace KHSave.SaveEditor.ViewModels
 
         public void Open(Stream stream)
         {
+            bool isOpen = TryOpenKh3(stream);
+            if (isOpen == false)
+                SaveKind = SaveType.Unknown;
+        }
+
+        public bool TryOpenKh3(Stream stream)
+        {
+            if (!SaveKh3.IsValid(stream))
+                return false;
+
             var saveViewModel = new Kh3ViewModel(stream);
             DataContext = saveViewModel;
             RefreshUi = saveViewModel;
             SaveKind = SaveType.KingdomHearts3;
+
+            return true;
         }
 
         public void InvokeRefreshUi() => RefreshUi.RefreshUi();
