@@ -7,8 +7,7 @@
              xmlns:views="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
-
-    <TabControl Grid.Row="1" IsEnabled="{Binding IsFileLoad}">
+    <TabControl>
         <TabItem Header="System">
             <views:SystemView
                     Grid.Row="1"
