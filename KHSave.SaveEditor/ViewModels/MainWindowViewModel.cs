@@ -194,18 +194,21 @@ namespace KHSave.SaveEditor.ViewModels
 				});
 			});
 
-			AboutCommand = new RelayCommand(x =>
+            AboutCommand = new RelayCommand(x =>
 			{
-				var contributors = string.Join("\n", new string[]
+				var contributors = string.Join("\n", (new string[]
 				{
 					"Keytotruth, additional coding and offsets",
 					"Troopah, for providing the icons",
 					"Sonicshadowsilver2, for story flags and records offsets",
-				}.Select(name => $" - {name}")
+				}).Select(name => $" - {name}")
 				.ToList());
 
-				var aboutDialog = new AboutDialog(Assembly.GetExecutingAssembly());
-				aboutDialog.Author += "\n\nContributors:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                var assemblyName = assembly.GetName();
+                var aboutDialog = new AboutDialog(assembly);
+                aboutDialog.Version = $"{assemblyName.Version.Major}.{assemblyName.Version.Minor}.{assemblyName.Version.Build}";
+                aboutDialog.Author += "\n\nContributors:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
 
 				aboutDialog.ShowDialog();
 			}, x => true);
