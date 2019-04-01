@@ -15,6 +15,32 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
+                <TextBlock Text="Difficulty"/>
+                <ComboBox
+                    ItemsSource="{Binding Difficulty}"
+                    SelectedValue="{Binding Difficulty.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Location"/>
+                <ComboBox
+                    ItemsSource="{Binding Location}"
+                    SelectedValue="{Binding Location.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
                 <TextBlock Text="Display level"/>
                 <TextBox Text="{Binding DisplayLevel, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
@@ -24,5 +50,68 @@
                 <TextBox Text="{Binding TotalExp, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
+
+        <Grid Visibility="{Binding SimpleVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!--<ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>-->
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Map"/>
+                <ComboBox
+                    ItemsSource="{Binding Maps}"
+                    SelectedValue="{Binding CurrentMap}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <!--<StackPanel Grid.Column="2">
+                <TextBlock Text="Spawn point"/>
+                <ComboBox
+                    ItemsSource="{Binding SpawnPoints}"
+                    SelectedValue="{Binding MapSpawn}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>-->
+        </Grid>
+
+        <GroupBox Header="Room mod (advanced mode)" Visibility="{Binding AdvancedVisibility}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                    Text="Map path"/>
+                <TextBox Grid.Column="0" Grid.Row="1"
+                    Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                    Text="Spawn point"/>
+                <TextBox Grid.Column="2" Grid.Row="1"
+                    Text="{Binding MapSpawn}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="3"
+                    Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="4"
+                    Text="{Binding PlayerScript}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="3"
+                    Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="4"
+                    Text="{Binding PlayerCharacter}"/>
+            </Grid>
+        </GroupBox>
     </StackPanel>
 </UserControl>

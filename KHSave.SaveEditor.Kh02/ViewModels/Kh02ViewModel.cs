@@ -59,6 +59,11 @@ namespace KHSave.SaveEditor.Kh02.ViewModels
             GlobalSystem = new GlobalSystemViewModel(Save);
 
             OnPropertyChanged(nameof(GlobalSystem));
+
+            var prevSlot = SelectedSlot;
+            SelectedSlot = null;
+            OnPropertyChanged(nameof(SelectedSlot));
+            SelectedSlot = prevSlot;
         }
 
         public void WriteToStream(Stream stream) => Save.Write(stream);
