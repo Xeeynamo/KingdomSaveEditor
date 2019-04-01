@@ -1,0 +1,50 @@
+﻿<Window x:Class="KHSave.SaveEditor.Views.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions"
+        xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+        mc:Ignorable="d"
+        Title="New version released"
+        SizeToContent="WidthAndHeight" Height="Auto" Width="Auto" ResizeMode="NoResize">
+    <Window.Resources>
+        <SolidColorBrush x:Key="textHyperlink" Color="#3366BB" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0"
+            Margin="10 0 0 0"
+            Source="Images/icon-128.png"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+            <Label Content="A new version of Kingdom Hearts III Save Editor has been released."/>
+            <Label Content="It is recommended to update it to enjoy the latest features and fixes."/>
+            <Label>
+                <Hyperlink
+                    NavigateUri="{Binding PageUri}"
+                    TextDecorations="{x:Null}"
+                    RequestNavigate="Hyperlink_RequestNavigate">
+                    <TextBlock Text="{Binding PageUri}" Foreground="{DynamicResource textHyperlink}"/>
+                </Hyperlink>
+            </Label>
+            <Label Content="Do you want to download the new version now?"/>
+        </StackPanel>
+        <Grid Background="#F0F0F0" Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                <Button Content="Yesss!!! 🤩" Margin="10" Width="80" Height="24"
+                Command="{Binding DownloadCommand}"/>
+                <Button Content="Later... 😪" Margin="10" Width="80" Height="24"
+                Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

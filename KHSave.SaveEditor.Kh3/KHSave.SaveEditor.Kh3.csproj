@@ -1,0 +1,142 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MainView.xaml" />
+    <None Remove="Views\EquipmentItemEntryView.xaml" />
+    <None Remove="Views\EquipmentItemsView.xaml" />
+    <None Remove="Views\InventoryView.xaml" />
+    <None Remove="Views\PhotosView.xaml" />
+    <None Remove="Views\PlayerAbilityView.xaml" />
+    <None Remove="Views\PlayerEquipmentView.xaml" />
+    <None Remove="Views\PlayerStatusView.xaml" />
+    <None Remove="Views\PlayersView.xaml" />
+    <None Remove="Views\PlayerView.xaml" />
+    <None Remove="Views\RecordsView.xaml" />
+    <None Remove="Views\ShortcutsView.xaml" />
+    <None Remove="Views\StoryAdvancedView.xaml" />
+    <None Remove="Views\StoryBasicView.xaml" />
+    <None Remove="Views\StoryView.xaml" />
+    <None Remove="Views\SystemView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentItemEntryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhotosView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerAbilityView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerEquipmentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerStatusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecordsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShortcutsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryAdvancedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryBasicView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
+    <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />
+    <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EquipmentItemEntryView.xaml.cs">
+      <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EquipmentItemsView.xaml.cs">
+      <DependentUpon>EquipmentItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PhotosView.xaml.cs">
+      <DependentUpon>PhotosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerAbilityView.xaml.cs">
+      <DependentUpon>PlayerAbilityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerEquipmentView.xaml.cs">
+      <DependentUpon>PlayerEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerStatusView.xaml.cs">
+      <DependentUpon>PlayerStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayersView.xaml.cs">
+      <DependentUpon>PlayersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerView.xaml.cs">
+      <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecordsView.xaml.cs">
+      <DependentUpon>RecordsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ShortcutsView.xaml.cs">
+      <DependentUpon>ShortcutsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StoryAdvancedView.xaml.cs">
+      <DependentUpon>StoryAdvancedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StoryBasicView.xaml.cs">
+      <DependentUpon>StoryBasicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StoryView.xaml.cs">
+      <DependentUpon>StoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SystemView.xaml.cs">
+      <DependentUpon>SystemView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

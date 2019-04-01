@@ -1,0 +1,130 @@
+﻿/*
+    Kingdom Hearts Save Editor
+    Copyright (C) 2019 Luciano Ciccariello
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+using KHSave.Attributes;
+
+namespace KHSave.Types
+{
+	public enum RecordUsageType
+	{
+		[Info("Kingdom Key / King of Hearts Total Uses")] Usage00,
+		[Info("Kingdom Key / Ragnarok Total Uses")] Usage01,
+		[Info("Hero's Origin / Drain Shock Total Uses")] Usage02,
+		[Info("Hero's Origin / Atomic Deluge Total Uses")] Usage03,
+		[Info("Shooting Star / Meteor Shower Total Uses")] Usage04,
+		[Info("Shooting Star / Diving Barrage Total Uses")] Usage05,
+		[Info("Shooting Star / Cluster Cannonade Total Uses")] Usage06,
+		[Info("Favorite Deputy / Ghost Horde Total Uses")] Usage07,
+		[Info("Favorite Deputy / Drill Dive Total Uses")] Usage08,
+		[Info("Ever After / Shimmering Drops Total Uses")] Usage09,
+		[Info("Ever After / Spectral Rays Total Uses")] Usage0a,
+		[Info("Happy Gear / Snakebite Total Uses")] Usage0b,
+		[Info("Happy Gear / Warp Trick Total Uses")] Usage0c,
+		[Info("Crystal Snow / Diamond Dust Total Uses")] Usage0d,
+		[Info("Crystal Snow / Frozen Crescents Total Uses")] Usage0e,
+		[Info("Wheel of Fate / Blade Storm Total Uses")] Usage0f,
+		[Info("Wheel of Fate / Flag Rampage Total Uses")] Usage10,
+		[Info("Nano Gear / Cubic Stream Total Uses")] Usage11,
+		[Info("Nano Gear / Zone Connector Total Uses")] Usage12,
+		[Info("Hunny Spout / Hunny Burst Total Uses")] Usage13,
+		[Info("Hunny Spout / Hunny Drizzle Total Uses")] Usage14,
+		[Info("Hunny Spout / Sweet Surprise Total Uses")] Usage15,
+		[Info("Grand Chef / Steam Spiral Total Uses")] Usage16,
+		[Info("Grand Chef / Fruit Crusher Total Uses")] Usage17,
+		[Info("Classic Tone / Phantom Rush Total Uses")] Usage18,
+		[Info("Classic Tone / Noise Flux Total Uses")] Usage19,
+		[Info("Starlight / Knights of the Round Total Uses")] Usage1a,
+		[Info("Starlight / Union Ragnarok Total Uses")] Usage1b,
+		[Info("Ultima Weapon / Infinity Circle Total Uses")] Usage1c,
+		[Unused] [Info("")] Usage1d,
+		[Unused] [Info("")] Usage1e,
+		[Unused] [Info("")] Usage1f,
+		[Unused] [Info("")] Usage20,
+		[Unused] [Info("")] Usage21,
+		[Unused] [Info("")] Usage22,
+		[Unused] [Info("")] Usage23,
+		[Unused] [Info("")] Usage24,
+		[Unused] [Info("")] Usage25,
+		[Unused] [Info("")] Usage26,
+		[Unused] [Info("")] Usage27,
+		[Unused] [Info("")] Usage28,
+		[Unused] [Info("")] Usage29,
+		[Unused] [Info("")] Usage2a,
+		[Unused] [Info("")] Usage2b,
+		[Unused] [Info("")] Usage2c,
+		[Unused] [Info("")] Usage2d,
+		[Unused] [Info("")] Usage2e,
+		[Unused] [Info("")] Usage2f,
+		[Unused] [Info("")] Usage30,
+		[Unused] [Info("")] Usage31,
+		[Unused] [Info("")] Usage32,
+		[Unused] [Info("")] Usage33,
+		[Unused] [Info("")] Usage34,
+		[Unused] [Info("")] Usage35,
+		[Unused] [Info("")] Usage36,
+		[Unused] [Info("")] Usage37,
+		[Unused] [Info("")] Usage38,
+		[Unused] [Info("")] Usage39,
+		[Unused] [Info("")] Usage3a,
+		[Unused] [Info("")] Usage3b,
+		[Unused] [Info("")] Usage3c,
+		[Unused] [Info("")] Usage3d,
+		[Unused] [Info("")] Usage3e,
+		[Unused] [Info("")] Usage3f,
+		[Unused] [Info("")] Usage40,
+		[Unused] [Info("")] Usage41,
+		[Unused] [Info("")] Usage42,
+		[Unused] [Info("")] Usage43,
+		[Unused] [Info("")] Usage44,
+		[Unused] [Info("")] Usage45,
+		[Unused] [Info("")] Usage46,
+		[Unused] [Info("")] Usage47,
+		[Unused] [Info("")] Usage48,
+		[Unused] [Info("")] Usage49,
+		[Unused] [Info("")] Usage4a,
+		[Unused] [Info("")] Usage4b,
+		[Unused] [Info("")] Usage4c,
+		[Unused] [Info("")] Usage4d,
+		[Unused] [Info("")] Usage4e,
+		[Unused] [Info("")] Usage4f,
+		[Unused] [Info("")] Usage50,
+		[Unused] [Info("")] Usage51,
+		[Unused] [Info("")] Usage52,
+		[Unused] [Info("")] Usage53,
+		[Unused] [Info("")] Usage54,
+		[Unused] [Info("")] Usage55,
+		[Unused] [Info("")] Usage56,
+		[Unused] [Info("")] Usage57,
+		[Unused] [Info("")] Usage58,
+		[Unused] [Info("")] Usage59,
+		[Unused] [Info("")] Usage5a,
+		[Unused] [Info("")] Usage5b,
+		[Unused] [Info("")] Usage5c,
+		[Unused] [Info("")] Usage5d,
+		[Unused] [Info("")] Usage5e,
+		[Unused] [Info("")] Usage5f,
+		[Unused] [Info("")] Usage60,
+		[Unused] [Info("")] Usage61,
+		[Unused] [Info("")] Usage62,
+		[Unused] [Info("")] Usage63,
+		[Unused] [Info("")] Usage64,
+		[Unused] [Info("")] Usage65,
+		[Unused] [Info("")] Usage66,
+		[Unused] [Info("")] Usage67,
+	}
+}
