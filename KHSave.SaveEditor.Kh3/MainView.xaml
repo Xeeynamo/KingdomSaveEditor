@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh3.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3"
+             xmlns:views="clr-namespace:KHSave.SaveEditor.Kh3.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="400">
+
+    <TabControl Grid.Row="1" IsEnabled="{Binding IsFileLoad}">
+        <TabItem Header="System">
+            <views:SystemView
+                    Grid.Row="1"
+                    DataContext="{Binding KhSystem}"/>
+        </TabItem>
+        <TabItem Header="Inventory">
+            <views:InventoryView
+                    Grid.Row="1"
+                    DataContext="{Binding Inventory}"/>
+        </TabItem>
+        <TabItem Header="Characters">
+            <views:PlayersView
+                    Grid.Row="1"
+                    DataContext="{Binding Players}"/>
+        </TabItem>
+        <TabItem Header="Story">
+            <views:StoryView
+                    Grid.Row="1"
+                    DataContext="{Binding Story}"/>
+        </TabItem>
+        <TabItem Header="Shortcuts">
+            <views:ShortcutsView
+                    Grid.Row="1"
+                    DataContext="{Binding Shortcuts}"/>
+        </TabItem>
+        <TabItem Header="Records">
+            <views:RecordsView
+                    Grid.Row="1"
+                    DataContext="{Binding Records}"/>
+        </TabItem>
+        <TabItem Header="Photos">
+            <views:PhotosView
+                    Grid.Row="1"
+                    DataContext="{Binding Photos}"/>
+        </TabItem>
+    </TabControl>
+</UserControl>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KHSave.SaveEditor"
-        xmlns:viewsKh3="clr-namespace:KHSave.SaveEditor.Kh3.Views;assembly=KHSave.SaveEditor.Kh3"
+        xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
     <Grid>
@@ -37,42 +37,6 @@
             </MenuItem>
         </Menu>
 
-        <TabControl Grid.Row="1" IsEnabled="{Binding IsFileLoad}">
-            <TabItem Header="System">
-                <viewsKh3:SystemView
-                    Grid.Row="1"
-                    DataContext="{Binding KhSystem}"/>
-            </TabItem>
-            <TabItem Header="Inventory">
-                <viewsKh3:InventoryView
-                    Grid.Row="1"
-                    DataContext="{Binding Inventory}"/>
-            </TabItem>
-            <TabItem Header="Characters">
-                <viewsKh3:PlayersView
-                    Grid.Row="1"
-                    DataContext="{Binding Players}"/>
-            </TabItem>
-            <TabItem Header="Story">
-                <viewsKh3:StoryView
-                    Grid.Row="1"
-                    DataContext="{Binding Story}"/>
-            </TabItem>
-            <TabItem Header="Shortcuts">
-                <viewsKh3:ShortcutsView
-                    Grid.Row="1"
-                    DataContext="{Binding Shortcuts}"/>
-            </TabItem>
-            <TabItem Header="Records">
-                <viewsKh3:RecordsView
-                    Grid.Row="1"
-                    DataContext="{Binding Records}"/>
-            </TabItem>
-            <TabItem Header="Photos">
-                <viewsKh3:PhotosView
-                    Grid.Row="1"
-                    DataContext="{Binding Photos}"/>
-            </TabItem>
-        </TabControl>
+        <kh3:MainView/>
     </Grid>
 </Window>

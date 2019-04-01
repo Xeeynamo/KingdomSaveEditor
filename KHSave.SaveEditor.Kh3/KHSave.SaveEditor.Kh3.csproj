@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MainView.xaml" />
     <None Remove="Views\EquipmentItemEntryView.xaml" />
     <None Remove="Views\EquipmentItemsView.xaml" />
     <None Remove="Views\InventoryView.xaml" />
@@ -23,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EquipmentItemEntryView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +89,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\EquipmentItemEntryView.xaml.cs">
       <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
     </Compile>
