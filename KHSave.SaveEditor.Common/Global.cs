@@ -17,22 +17,21 @@
 */
 
 using KHSave.Attributes;
+using KHSave.SaveEditor.Common.Properties;
 
 namespace KHSave.SaveEditor.Common
 {
 	public static class Global
 	{
-        //public static bool IsAdvancedMode
-        //{
-        //	get => Properties.Settings.Default.AdvancedMode;
-        //	set
-        //	{
-        //		Properties.Settings.Default.AdvancedMode = value;
-        //		Properties.Settings.Default.Save();
-        //	}
-        //}
-
-        public static bool IsAdvancedMode { get; set; }
+        public static bool IsAdvancedMode
+        {
+            get => Settings.Default.AdvancedMode;
+            set
+            {
+                Settings.Default.AdvancedMode = value;
+                Settings.Default.Save();
+            }
+        }
 
 
         public static bool CanDisplay(object item)

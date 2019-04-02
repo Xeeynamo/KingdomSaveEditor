@@ -30,6 +30,7 @@ using Xe.Tools.Wpf.Dialogs;
 using Xe.VersionCheck;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Views;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
@@ -123,16 +124,16 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public bool IsUpdateCheckingEnabled
 		{
-			get => Properties.Settings.Default.IsUpdateCheckingEnabled;
+			get => Settings.Default.IsUpdateCheckingEnabled;
 			set
 			{
-				Properties.Settings.Default.IsUpdateCheckingEnabled = value;
-				Properties.Settings.Default.Save();
+				Settings.Default.IsUpdateCheckingEnabled = value;
+				Settings.Default.Save();
 				OnPropertyChanged();
 			}
 		}
 
-		public bool IsItTimeForCheckingNewVersion => Properties.Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+		public bool IsItTimeForCheckingNewVersion => Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
 
 		public MainWindowViewModel()
 		{
@@ -275,8 +276,8 @@ namespace KHSave.SaveEditor.ViewModels
 
         public void UpdateLastTimeForCheckingNewVersion()
 		{
-			Properties.Settings.Default.LastUpdateCheck = DateTime.UtcNow;
-			Properties.Settings.Default.Save();
+			Settings.Default.LastUpdateCheck = DateTime.UtcNow;
+			Settings.Default.Save();
 		}
 
 		public async Task<bool> CheckLastVersionAsync(bool forceUpdateCheck = false)
