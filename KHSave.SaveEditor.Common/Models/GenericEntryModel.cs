@@ -22,17 +22,10 @@ namespace KHSave.SaveEditor.Common.Models
 {
 	public class GenericEntryModel<TName, TValue> : BaseNotifyPropertyChanged
 	{
-		public TName Name { get; set; }
+		public virtual TName Name { get; set; }
 
-		public TValue Value { get; set; }
+		public virtual TValue Value { get; set; }
 
 		public override string ToString() => Name?.ToString() ?? Value?.ToString() ?? "<null>";
-	}
-
-	public class GenericEntryModel<TValue>
-	{
-		public string Name { get; set; }
-
-		public TValue Value { get; set; }
 	}
 }

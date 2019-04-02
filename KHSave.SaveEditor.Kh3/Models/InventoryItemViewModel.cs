@@ -34,7 +34,7 @@ namespace KHSave.SaveEditor.Kh3.Models
 			Value = (InventoryType)index;
 		}
 
-		public string Name => InfoAttribute.GetInfo(Value);
+		public override string Name => InfoAttribute.GetInfo(Value);
 
 		public int Count
 		{

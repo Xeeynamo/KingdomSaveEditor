@@ -53,7 +53,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			Value = (AbilityType)index;
 		}
 
-		public string Name => InfoAttribute.GetInfo(Value);
+		public override string Name => InfoAttribute.GetInfo(Value);
 
 		public string Raw => $"{ability.Data:X07}";
 		public bool Unlocked { get => ability.Unlocked; set { ability.Unlocked = value; OnPropertyChanged(nameof(Raw)); } }
