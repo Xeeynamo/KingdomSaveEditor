@@ -210,6 +210,7 @@ namespace KHSave.SaveEditor.ViewModels
 					"Keytotruth, additional coding and offsets",
 					"Troopah, for providing the icons",
 					"Sonicshadowsilver2, for story flags and records offsets",
+                    "TALESIOFIFREAK, for the ability list",
 				}).Select(name => $" - {name}")
 				.ToList());
 
