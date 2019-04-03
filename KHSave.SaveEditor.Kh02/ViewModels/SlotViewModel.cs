@@ -41,11 +41,11 @@ namespace KHSave.SaveEditor.Kh02.ViewModels
             Difficulty = new KhEnumListModel<DifficultyType>(() => slot.Difficulty, x => slot.Difficulty = x);
             Location = new KhEnumListModel<LocationType>(() => slot.Location, x => slot.Location = x);
             Maps = new KhEnumListModel<MapType>(
-                () => Enum.TryParse<MapType>(CurrentMap, out var result) ? result : default,
+                () => Enum.TryParse<MapType>(CurrentMap, out var result) ? result : default(MapType),
                 x => MapInfoAttribute.GetMapId(x),
                 x => InfoAttribute.GetInfo(x));
             SpawnPoints = new KhEnumListModel<SpawnType>(
-                () => Enum.TryParse<SpawnType>(MapSpawn, out var result) ? result : default,
+                () => Enum.TryParse<SpawnType>(MapSpawn, out var result) ? result : default(SpawnType),
                 x => x.ToString());
         }
 
