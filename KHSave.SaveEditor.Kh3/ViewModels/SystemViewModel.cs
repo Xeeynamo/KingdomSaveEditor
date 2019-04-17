@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -23,6 +23,7 @@ using KHSave.Types;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common;
+using KHSave.Lib3.Types;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -48,7 +49,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				() => RoomWorldId,
 				x => RoomWorldId = x,
 				x => WorldAttribute.GetWorldId(x));
-		}
+            DesireChoice = new KhEnumListModel<DesireChoice>(() => save.DesireChoice, x => save.DesireChoice = x);
+            PowerChoice = new KhEnumListModel<PowerChoice>(() => save.PowerChoice, x => save.PowerChoice = x);
+        }
 
 		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
 		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
@@ -58,8 +61,10 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public KhEnumListModel<LocationType> Location { get; }
 		public KhEnumListModel<CharacterIconType> CharacterIcon { get; }
 		public KhEnumListModel<GenericEntryModel<string, string>, WorldType, string> RoomWorld { get; }
+        public KhEnumListModel<DesireChoice> DesireChoice { get; }
+        public KhEnumListModel<PowerChoice> PowerChoice { get; }
 
-		public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
+        public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
 
 		public int TotalExp
 		{

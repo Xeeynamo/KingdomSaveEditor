@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using KHSave.Lib3.Types;
 using KHSave.Models;
 using KHSave.Types;
 using Xe.BinaryMapper;
@@ -48,6 +49,8 @@ namespace KHSave
 		[Data(0x24)] public int TotalExp { get; set; }
 		[Data(0x28)] public int Munny { get; set; }
 		[Data(0x2C)] public byte Level { get; set; }
+        [Data(0x30)] public DesireChoice DesireChoice { get; set; }
+        [Data(0x31)] public PowerChoice PowerChoice { get; set; }
         [Data(0x39)] public bool SaveClear { get; set; }
         [Data(0x54)] public LocationType LocationName { get; set; }
 		[Data(0x58)] public int Unknown00058 { get; set; } // Changes every time

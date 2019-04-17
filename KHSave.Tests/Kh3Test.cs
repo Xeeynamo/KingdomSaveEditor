@@ -18,6 +18,7 @@
 
 using System;
 using System.IO;
+using KHSave.Lib3.Types;
 using KHSave.Types;
 using Xunit;
 
@@ -54,6 +55,8 @@ namespace KHSave.Tests
 			Assert.Equal(689472, save.TotalExp);
 			Assert.Equal(31886, save.Munny);
 			Assert.Equal(63, save.Level);
+			Assert.Equal(DesireChoice.Vitality, save.DesireChoice);
+			Assert.Equal(PowerChoice.Warrior, save.PowerChoice);
             Assert.True(save.SaveClear);
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 

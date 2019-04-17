@@ -85,6 +85,32 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
+                <TextBlock Text="Desire choice"/>
+                <ComboBox
+                    ItemsSource="{Binding DesireChoice}"
+                    SelectedValue="{Binding DesireChoice.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Power choice"/>
+                <ComboBox
+                    ItemsSource="{Binding PowerChoice}"
+                    SelectedValue="{Binding PowerChoice.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
                 <TextBlock Text="Total exp"/>
                 <TextBox Text="{Binding TotalExp, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
