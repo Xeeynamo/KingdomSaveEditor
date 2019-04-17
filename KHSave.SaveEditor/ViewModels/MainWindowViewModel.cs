@@ -253,6 +253,7 @@ namespace KHSave.SaveEditor.ViewModels
             var saveViewModel = new Kh02ViewModel(stream);
             DataContext = saveViewModel;
             RefreshUi = saveViewModel;
+            WriteToStream = saveViewModel;
             SaveKind = SaveType.KingdomHearts02;
 
             return true;
@@ -266,6 +267,7 @@ namespace KHSave.SaveEditor.ViewModels
             var saveViewModel = new Kh3ViewModel(stream);
             DataContext = saveViewModel;
             RefreshUi = saveViewModel;
+            WriteToStream = saveViewModel;
             SaveKind = SaveType.KingdomHearts3;
 
             return true;
