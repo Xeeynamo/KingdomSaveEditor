@@ -40,7 +40,9 @@ namespace KHSave
 		[Data(0, 0x94E8F0)] public byte[] Data { get; set; }
 
         [Data(0x0)] public int MagicCode { get; set; } // Identify the save
-
+        [Data] public int FileSize { get; set; }
+        [Data] public short MajorVersion { get; set; }
+        [Data] public short MinorVersion { get; set; }
         [Data(0xC)] public int Unknown0000C { get; set; } // Changes every time
 		[Data(0x14)] public DifficultyType Difficulty { get; set; }
 		[Data(0x18)] public WorldType WorldLogo { get; set; }
@@ -73,7 +75,8 @@ namespace KHSave
 		[Data(0xBEC8, 6, 4)] public List<CommandType> Magics { get; set; }
 		[Data(0xBEE0, 5, 4)] public List<CommandType> Links { get; set; }
 
-		[Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
+        [Data(0x84770)] public int PhotoMaxCount { get; set; }
+        [Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
 
         public static bool IsValid(Stream stream)
         {

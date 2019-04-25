@@ -48,9 +48,13 @@ namespace KHSave.Tests
 
 		[Fact]
 		public void TestRead()
-		{
-			Assert.Equal(DifficultyType.Proud, save.Difficulty);
-			Assert.Equal(WorldType.ToyBox, save.WorldLogo);
+        {
+            Assert.Equal(0x45764053, save.MagicCode);
+            Assert.Equal(0x94e8e0, save.FileSize);
+            Assert.Equal(1, save.MajorVersion);
+            Assert.Equal(2, save.MinorVersion);
+            Assert.Equal(DifficultyType.Proud, save.Difficulty);
+            Assert.Equal(WorldType.ToyBox, save.WorldLogo);
 			Assert.Equal(new TimeSpan(47, 0, 39), save.GameTime);
 			Assert.Equal(689472, save.TotalExp);
 			Assert.Equal(31886, save.Munny);
