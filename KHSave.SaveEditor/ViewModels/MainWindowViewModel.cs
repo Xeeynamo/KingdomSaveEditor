@@ -212,6 +212,7 @@ namespace KHSave.SaveEditor.ViewModels
 					"Troopah, for providing the icons",
 					"Sonicshadowsilver2, for story flags and records offsets",
                     "TALESIOFIFREAK, for the ability list",
+                    "SilverCam , for the gummiship inventory items",
 				}).Select(name => $" - {name}")
 				.ToList());
 
@@ -221,7 +222,7 @@ namespace KHSave.SaveEditor.ViewModels
                 {
                     Version = $"{assemblyName.Version.Major}.{assemblyName.Version.Minor}.{assemblyName.Version.Build}"
                 };
-                aboutDialog.Author += "\n\nContributors:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
+                aboutDialog.Author += "\n\nContributors and special thanks:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
 
 				aboutDialog.ShowDialog();
 			}, x => true);
