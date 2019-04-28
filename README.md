@@ -8,7 +8,7 @@ The project offers a code library to help to create complex editors of scripts o
 
 | Game               | Support |
 |--------------------| --------|
-| Kingdom Hearts 0.2 | code    |
+| Kingdom Hearts 0.2 | editor    |
 | Kingdom Hearts III | editor  |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
@@ -19,9 +19,11 @@ Here is a screenshot preview of how the editor in action looks like:
 
 ![demo](docs/demo1.png)
 
-## Features
+## Features in Kingdom Hearts III editor
 
-* Change game difficulty (even Critical Mode)
+* Tested support for the version 1.05 of Kingdom Hearts III
+* Change game difficulty (even Critical Mode in version 1.03 or below)
+* Make new saves compatible with older versions (advanced feature)
 * Info and decorations (eg. game timer, save icons)
 * Exp, Munny
 * Manage story progression!
@@ -32,15 +34,23 @@ Here is a screenshot preview of how the editor in action looks like:
     * Weapons equipped
     * Armors equipped
     * Accessories equipped
-	* Basic Ability support
+	* Ability support (advanced feature)
 * Photo gallery management
     * View the existing photos
     * Export one or all the photos
     * Import custom photo in the game
     * Delete all the photos
 
+# Features in Kingdom Hearts 0.2 editor
+
+* Multiple slot editing
+* Change game difficulty
+* Exp editor and level up
+* Room mod
+
 
 ## How to use it
+
 You need first to get a decrypted save. There are two ways to achieve it:
 
 1) Playstation 4 Save Mounter: If you have a PS4 with a HEN or Custom Firmware, you may want to use this free and fast tool: https://github.com/ChendoChap/Playstation-4-Save-Mounter
@@ -48,6 +58,16 @@ You need first to get a decrypted save. There are two ways to achieve it:
 2) Save Wizard: If you do not have a custom firmware, you can obtain a copy of a decrypted save and re-encrypt it using the following paid software: https://www.savewizard.net/
 
 Once you get your save, just open it using the KH3SaveEditor from File\Open, then save it with File\Save. If you want to transfer back the file on your Playstation 4, just follow the guide lines of the tool that you used for decryption
+
+## Use saves from Kingdom Hearts 1.05
+
+The latest version of the game converts your existing 1.00-1.03 save into a new version, creating a `kh3sv2`, which is a copy of `kh3sv` with few values changed.
+
+Save Wizard still does not support the new `kh3sv2`, so in order to use it you can just go to the USB drive, go to the folder where KH3 saves are located and you can just rename `kh3sv2` to `kh3sv` (you might move the existing `kh3sv`).
+
+It is not needed to change the name back to `kh3sv2`.
+
+The version 1.05 changes only three values when it converts your saves: the major/minor version goes from 1.2 to 3.1 (editable in Advance Mode) and the Max selfie count value goes from 100 to 200.
 
 ## Contribute to make it better
 
@@ -64,10 +84,6 @@ The following features are missing:
 * AI customization
 * Records
 * Everything related to the Gummiphone
-
-The following improvements are nice to have:
-* Make the editor compatible with Kingdom Hearts 0.2
-* Advanced mode, to hide unused stuff from the game
 
 ## To conclude
 
