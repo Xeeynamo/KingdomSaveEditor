@@ -475,6 +475,8 @@ namespace KHSave.Types
         [KeyItem("Pride Heartbinder")] PrideHeartbinder,
         [KeyItem("Ocean Heartbinder")] OceanHeartbinder,
         [KeyItem("Golden Herc Figure")] GoldenHercFigure,
+        [KeyItem("Proof of Promises")] Item664,
+        [KeyItem("Proof of Times Past")] Item665,
         
         [MogItem("Kupo Coin")] KupoCoin = 677,
 
