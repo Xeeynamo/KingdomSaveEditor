@@ -159,6 +159,31 @@
             </StackPanel>
         </Grid>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Maximum selfie count"/>
+                <TextBox Text="{Binding MaxSelfieCount, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Visibility="{Binding AdvancedVisibility}">
+                <TextBlock Text="Major save ver. (?)"/>
+                <TextBox Text="{Binding VersionMajor, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="4" Visibility="{Binding AdvancedVisibility}">
+                <TextBlock Text="Minor save ver. (?)"/>
+                <TextBox Text="{Binding VersionMinor, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Grid>
+
         <GroupBox Header="Room mod" Visibility="{Binding SimpleVisibility}">
             <Grid>
                 <Grid.ColumnDefinitions>

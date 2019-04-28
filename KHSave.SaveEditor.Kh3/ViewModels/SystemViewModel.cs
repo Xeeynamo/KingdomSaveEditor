@@ -106,9 +106,27 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		{
 			get => save.CrabsCollected;
 			set => save.CrabsCollected = value;
-		}
+        }
 
-		public string MapPath
+        public int MaxSelfieCount
+        {
+            get => save.PhotoMaxCount;
+            set => save.PhotoMaxCount = value;
+        }
+
+        public short VersionMajor
+        {
+            get => save.MajorVersion;
+            set => save.MajorVersion = value;
+        }
+
+        public short VersionMinor
+        {
+            get => save.MinorVersion;
+            set => save.MinorVersion = value;
+        }
+
+        public string MapPath
 		{
 			get => save.MapPath;
 			set
