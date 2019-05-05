@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -45,5 +45,38 @@ namespace KHSave.SaveEditor.Kh3.Models
 				OnPropertyChanged(nameof(Count));
 			}
 		}
-	}
+
+        public bool Obtained { get => inventoryEntry.Obtained; set => inventoryEntry.Obtained = value; }
+        public bool Unseen { get => inventoryEntry.Unseen; set => inventoryEntry.Unseen = value; }
+        public bool ShopVisible
+        {
+            get => inventoryEntry.ShopFlag1 | inventoryEntry.ShopFlag2;
+            set
+            {
+                inventoryEntry.ShopFlag1 = inventoryEntry.ShopFlag2 = value;
+                OnPropertyChanged(nameof(Flag2));
+                OnPropertyChanged(nameof(Flag3));
+            }
+        }
+        public bool Flag2
+        {
+            get => inventoryEntry.ShopFlag1; set
+            {
+                inventoryEntry.ShopFlag1 = value;
+                OnPropertyChanged(nameof(ShopVisible));
+            }
+        }
+        public bool Flag3
+        {
+            get => inventoryEntry.ShopFlag2; set
+            {
+                inventoryEntry.ShopFlag2 = value;
+                OnPropertyChanged(nameof(ShopVisible));
+            }
+        }
+        public bool Flag4 { get => inventoryEntry.Flag4; set => inventoryEntry.Flag4 = value; }
+        public bool Flag5 { get => inventoryEntry.Flag5; set => inventoryEntry.Flag5 = value; }
+        public bool Flag6 { get => inventoryEntry.Flag6; set => inventoryEntry.Flag6 = value; }
+        public bool Flag7 { get => inventoryEntry.Flag7; set => inventoryEntry.Flag7 = value; }
+    }
 }
