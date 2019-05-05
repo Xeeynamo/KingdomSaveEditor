@@ -28,6 +28,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		
         public SystemViewModel KhSystem { get; set; }
 		public InventoryViewModel Inventory { get; set; }
+        public MaterialsViewModel Materials { get; set; }
 		public PlayersViewModel Players { get; set; }
 		public StoryViewModel Story { get; set; }
 		public ShortcutsViewModel Shortcuts { get; set; }
@@ -44,6 +45,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		{
 			KhSystem = new SystemViewModel(Save);
 			Inventory = new InventoryViewModel(Save.Inventory);
+			Materials = new MaterialsViewModel(Save);
 			Players = new PlayersViewModel(Save.Pc);
 			Story = new StoryViewModel(Save);
 			Shortcuts = new ShortcutsViewModel(Save);
@@ -52,6 +54,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 			OnPropertyChanged(nameof(KhSystem));
 			OnPropertyChanged(nameof(Inventory));
+			OnPropertyChanged(nameof(Materials));
 			OnPropertyChanged(nameof(Players));
 			OnPropertyChanged(nameof(Story));
 			OnPropertyChanged(nameof(Shortcuts));

@@ -10,6 +10,7 @@
     <None Remove="Views\EquipmentItemEntryView.xaml" />
     <None Remove="Views\EquipmentItemsView.xaml" />
     <None Remove="Views\InventoryView.xaml" />
+    <None Remove="Views\MaterialsView.xaml" />
     <None Remove="Views\PhotosView.xaml" />
     <None Remove="Views\PlayerAbilityView.xaml" />
     <None Remove="Views\PlayerEquipmentView.xaml" />
@@ -35,6 +36,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InventoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterialsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PhotosView.xaml">
@@ -101,6 +105,9 @@
     </Compile>
     <Compile Update="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MaterialsView.xaml.cs">
+      <DependentUpon>MaterialsView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\PhotosView.xaml.cs">
       <DependentUpon>PhotosView.xaml</DependentUpon>

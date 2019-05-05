@@ -18,6 +18,11 @@
                     Grid.Row="1"
                     DataContext="{Binding Inventory}"/>
         </TabItem>
+        <TabItem Header="Materials">
+            <views:MaterialsView
+                    Grid.Row="1"
+                    DataContext="{Binding Materials}"/>
+        </TabItem>
         <TabItem Header="Characters">
             <views:PlayersView
                     Grid.Row="1"

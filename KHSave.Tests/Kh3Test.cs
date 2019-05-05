@@ -81,6 +81,10 @@ namespace KHSave.Tests
 			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
 			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);
 
+            Assert.Equal(57, save.MaterialsCount[0]);
+            Assert.Equal(46, save.MaterialsCount[1]);
+            Assert.Equal(113, save.MaterialsCount[40]);
+
 			Assert.Equal(270, save.Pc[0].Hp);
 			Assert.Equal(135, save.Pc[0].Mp);
 			Assert.Equal(100, save.Pc[0].Focus);
