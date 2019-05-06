@@ -24,27 +24,38 @@ using KHSave.Types;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {
-	public class InventoryItemViewModel : EnumIconTypeModel<InventoryType>
-	{
-		private readonly InventoryEntry inventoryEntry;
+    public class InventoryItemViewModel : EnumIconTypeModel<InventoryType>
+    {
+        private readonly InventoryEntry inventoryEntry;
+        private bool isSelected;
 
-		public InventoryItemViewModel(InventoryEntry inventoryEntry, int index)
-		{
-			this.inventoryEntry = inventoryEntry;
-			Value = (InventoryType)index;
-		}
+        public InventoryItemViewModel(InventoryEntry inventoryEntry, int index)
+        {
+            this.inventoryEntry = inventoryEntry;
+            Value = (InventoryType)index;
+        }
 
-		public override string Name => InfoAttribute.GetInfo(Value);
+        public bool IsSelected
+        {
+            get => isSelected;
+            set
+            {
+                isSelected = value;
+                OnPropertyChanged();
+            }
+        }
 
-		public int Count
-		{
-			get => inventoryEntry.Count;
-			set
-			{
-				inventoryEntry.Count = (byte)Math.Min(byte.MaxValue, Math.Max(byte.MinValue, value));
-				OnPropertyChanged(nameof(Count));
-			}
-		}
+        public override string Name => InfoAttribute.GetInfo(Value);
+
+        public int Count
+        {
+            get => inventoryEntry.Count;
+            set
+            {
+                inventoryEntry.Count = (byte)Math.Min(byte.MaxValue, Math.Max(byte.MinValue, value));
+                OnPropertyChanged(nameof(Count));
+            }
+        }
 
         public bool Obtained { get => inventoryEntry.Obtained; set => inventoryEntry.Obtained = value; }
         public bool Unseen { get => inventoryEntry.Unseen; set => inventoryEntry.Unseen = value; }

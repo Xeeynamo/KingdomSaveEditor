@@ -25,6 +25,7 @@ using Xe.Tools.Wpf.Models;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Kh3.Models;
 using System;
+using System.Collections.ObjectModel;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -32,6 +33,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
     {
         private string searchTerm;
 
+        public RelayCommand SelectAllCommand { get; }
         public RelayCommand Research0Command { get; }
         public RelayCommand Research1Command { get; }
         public RelayCommand Research2Command { get; }
@@ -54,6 +56,8 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             }
         }
 
+        public IEnumerable<InventoryItemViewModel> SelectedItems => Items.Where(x => x.IsSelected);
+
         public InventoryViewModel(IEnumerable<InventoryEntry> list) :
             this(list.Select((item, index) => new InventoryItemViewModel(item, index)))
         { }
@@ -66,6 +70,99 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             Research2Command = new RelayCommand(o => DoResearch(700), x => true);
             Research3Command = new RelayCommand(o => DoResearch(800), x => true);
             Research4Command = new RelayCommand(o => DoResearch(900), x => true);
+
+            SelectAllCommand = new RelayCommand(o =>
+            {
+                foreach (var item in Items)
+                    item.IsSelected = true;
+            }, x => true);
+        }
+
+        public int? SelectedItemCount
+        {
+            get => GetForAll(SelectedItems, x => x.Count, out var count) ? count : (int?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Count = v ?? 0, value);
+        }
+
+        public bool? SelectedItemFlagObtained
+        {
+            get => GetForAll(SelectedItems, x => x.Obtained, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Obtained = v ?? false, value);
+        }
+
+        public bool? SelectedItemFlagUnseen
+        {
+            get => GetForAll(SelectedItems, x => x.Unseen, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Unseen = v ?? false, value);
+        }
+
+        public bool? SelectedItemFlagShop
+        {
+            get => GetForAll(SelectedItems, x => x.ShopVisible, out var flag) ? flag : (bool?)null;
+            set
+            {
+                SetForAll(SelectedItems, (x, v) => x.ShopVisible = v ?? false, value);
+                OnPropertyChanged(nameof(SelectedItemFlag2));
+                OnPropertyChanged(nameof(SelectedItemFlag3));
+            }
+        }
+
+        public bool? SelectedItemFlag2
+        {
+            get => GetForAll(SelectedItems, x => x.Flag2, out var flag) ? flag : (bool?)null;
+            set
+            {
+                SetForAll(SelectedItems, (x, v) => x.Flag2 = v ?? false, value);
+                OnPropertyChanged(nameof(SelectedItemFlagShop));
+            }
+        }
+
+        public bool? SelectedItemFlag3
+        {
+            get => GetForAll(SelectedItems, x => x.Flag3, out var flag) ? flag : (bool?)null;
+            set
+            {
+                SetForAll(SelectedItems, (x, v) => x.Flag3 = v ?? false, value);
+                OnPropertyChanged(nameof(SelectedItemFlagShop));
+            }
+        }
+
+        public bool? SelectedItemFlag4
+        {
+            get => GetForAll(SelectedItems, x => x.Flag4, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Flag4 = v ?? false, value);
+        }
+
+        public bool? SelectedItemFlag5
+        {
+            get => GetForAll(SelectedItems, x => x.Flag5, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Flag5 = v ?? false, value);
+        }
+
+        public bool? SelectedItemFlag6
+        {
+            get => GetForAll(SelectedItems, x => x.Flag6, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Flag6 = v ?? false, value);
+        }
+
+        public bool? SelectedItemFlag7
+        {
+            get => GetForAll(SelectedItems, x => x.Flag7, out var flag) ? flag : (bool?)null;
+            set => SetForAll(SelectedItems, (x, v) => x.Flag7 = v ?? false, value);
+        }
+
+        public void ChangeSelectedItems()
+        {
+            OnPropertyChanged(nameof(SelectedItemCount));
+            OnPropertyChanged(nameof(SelectedItemFlagObtained));
+            OnPropertyChanged(nameof(SelectedItemFlagUnseen));
+            OnPropertyChanged(nameof(SelectedItemFlagShop));
+            OnPropertyChanged(nameof(SelectedItemFlag2));
+            OnPropertyChanged(nameof(SelectedItemFlag3));
+            OnPropertyChanged(nameof(SelectedItemFlag4));
+            OnPropertyChanged(nameof(SelectedItemFlag5));
+            OnPropertyChanged(nameof(SelectedItemFlag6));
+            OnPropertyChanged(nameof(SelectedItemFlag7));
         }
 
         private void DoResearch(int startIndex, int count = 100)
@@ -74,6 +171,32 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             {
                 Items[startIndex + i].Count = i + 1;
             }
+        }
+
+        private static bool GetForAll<TModel, TValue>(IEnumerable<TModel> items, Func<TModel, TValue> getter, out TValue value)
+        {
+            if (!(items is List<TModel> list)) // speed hack
+                list = items.ToList();
+
+            if (list.Count == 0)
+            {
+                value = default(TValue);
+                return false;
+            }
+
+            value = getter(list[0]);
+
+            if (list.Count == 1)
+                return true;
+
+            var myValue = value;
+            return list.All(x => getter(x).GetHashCode() == myValue.GetHashCode());
+        }
+
+        private static void SetForAll<TModel, TValue>(IEnumerable<TModel> items, Action<TModel, TValue> setter, TValue value)
+        {
+            foreach (var item in items)
+                setter(item, value);
         }
 
         private static bool FilterInventoryAdvanced(string value, InventoryItemViewModel x) =>

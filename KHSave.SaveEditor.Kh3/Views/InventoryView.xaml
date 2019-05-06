@@ -24,7 +24,17 @@
                 ItemsSource="{Binding Items}"
                 SelectedIndex="{Binding SelectedIndex}"
                 SelectedItem="{Binding SelectedItem}"
+                SelectionMode="Extended"
+                SelectionChanged="ListBox_SelectionChanged"
                 HorizontalContentAlignment="Stretch">
+                <ListBox.InputBindings>
+                    <KeyBinding Gesture="Ctrl+A" Command="{Binding SelectAllCommand}" />
+                </ListBox.InputBindings>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -57,22 +67,22 @@
         <StackPanel Grid.Column="2">
             <TextBlock Text="Item count"/>
             <TextBox Margin="0 0 0 5"
-                Text="{Binding SelectedItem.Count, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding SelectedItemCount, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Text="Flags"/>
-            <CheckBox Content="Obtained" IsChecked="{Binding SelectedItem.Obtained}"/>
-            <CheckBox Content="Unseen" IsChecked="{Binding SelectedItem.Unseen}"/>
-            <CheckBox Content="Can buy at shop" IsChecked="{Binding SelectedItem.ShopVisible}"/>
+            <CheckBox Content="Obtained" IsChecked="{Binding SelectedItemFlagObtained}"/>
+            <CheckBox Content="Unseen" IsChecked="{Binding SelectedItemFlagUnseen}"/>
+            <CheckBox Content="Can buy at shop" IsChecked="{Binding SelectedItemFlagShop}"/>
             
             <StackPanel Visibility="{Binding AdvancedVisibility}">
                 <CheckBox Margin="10 0 0 0"
-                    Content="Shop flag 1" IsChecked="{Binding SelectedItem.Flag2}"/>
+                    Content="Shop flag 1" IsChecked="{Binding SelectedItemFlag2}"/>
                 <CheckBox Margin="10 0 0 0"
-                    Content="Shop flag 2" IsChecked="{Binding SelectedItem.Flag3}"/>
-                <CheckBox Content="Flag 4" IsChecked="{Binding SelectedItem.Flag4}"/>
-                <CheckBox Content="Flag 5" IsChecked="{Binding SelectedItem.Flag5}"/>
-                <CheckBox Content="Flag 6" IsChecked="{Binding SelectedItem.Flag6}"/>
-                <CheckBox Content="Flag 7" IsChecked="{Binding SelectedItem.Flag7}"/>
+                    Content="Shop flag 2" IsChecked="{Binding SelectedItemFlag3}"/>
+                <CheckBox Content="Flag 4" IsChecked="{Binding SelectedItemFlag4}"/>
+                <CheckBox Content="Flag 5" IsChecked="{Binding SelectedItemFlag5}"/>
+                <CheckBox Content="Flag 6" IsChecked="{Binding SelectedItemFlag6}"/>
+                <CheckBox Content="Flag 7" IsChecked="{Binding SelectedItemFlag7}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using KHSave.SaveEditor.Kh3.Models;
+using KHSave.SaveEditor.Kh3.ViewModels;
+using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Kh3.Views
 {
@@ -11,5 +13,11 @@ namespace KHSave.SaveEditor.Kh3.Views
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataContext is InventoryViewModel vm)
+                vm.ChangeSelectedItems();
+        }
+    }
 }
