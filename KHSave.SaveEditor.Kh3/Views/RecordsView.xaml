@@ -6,25 +6,44 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
-    <Grid>
-        <TabControl>
-            <TabItem Header="Shotlocks">
-                <DataGrid
+    <TabControl>
+        <TabItem Header="Shotlocks">
+            <DataGrid
                     ItemsSource="{Binding Shotlocks.Items}"
                     AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
+                <DataGrid.Columns>
+                    <DataGridTextColumn
                             Header="Name"
                             Width="*"
                             IsReadOnly="True"
                             Binding="{Binding Name}"/>
-                        <DataGridTextColumn
+                    <DataGridTextColumn
                             Header="Uses count"
                             Width="*"
                             Binding="{Binding Value}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-        </TabControl>
-    </Grid>
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="Flantastics">
+            <DataGrid
+                    ItemsSource="{Binding Flantastics}"
+                    AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                            Header="Name"
+                            Width="*"
+                            IsReadOnly="True"
+                            Binding="{Binding Name}"/>
+                    <DataGridTextColumn
+                            Header="High score"
+                            Width="*"
+                            Binding="{Binding HighScore}"/>
+                    <DataGridTextColumn
+                            Header="Attempts"
+                            Width="*"
+                            Binding="{Binding AttemptCount}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+    </TabControl>
 </UserControl>

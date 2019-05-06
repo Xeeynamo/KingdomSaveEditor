@@ -62,11 +62,25 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		private readonly SaveKh3 save;
 
 		public CustomListModel<RecordUsageType> Shotlocks { get; }
+        public IEnumerable<FlantasticModel> Flantastics { get; }
 
 		public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
 			Shotlocks = new CustomListModel<RecordUsageType>(save.RecordShotlocks);
-		}
-	}
+            Flantastics = GetFlantasticModels(save);
+        }
+
+        private static IEnumerable<FlantasticModel> GetFlantasticModels(SaveKh3 save) =>
+            new FlantasticModel[]
+            {
+                new FlantasticModel("Cherry Flan", save.Records.CherryFlan),
+                new FlantasticModel("Strawberry Flan", save.Records.StrawberryFlan),
+                new FlantasticModel("Orange Flan", save.Records.OrangeFlan),
+                new FlantasticModel("Banana Flan", save.Records.BananaFlan),
+                new FlantasticModel("Grape Flan", save.Records.GrapeFlan),
+                new FlantasticModel("Watermelon Flan", save.Records.WatermelonFlan),
+                new FlantasticModel("Honeydew Flan", save.Records.HoneydewFlan),
+            };
+    }
 }
