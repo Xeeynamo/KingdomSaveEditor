@@ -20,30 +20,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using KHSave.Attributes;
+using KHSave.SaveEditor.Kh3.Models;
 using KHSave.Types;
 using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class RecordsViewModel
+    public partial class RecordsViewModel
 	{
 		public class CustomListModel<T> :
-			GenericListModel<RecordItemModel<T>>,
-			IEnumerable<RecordItemModel<T>>
+			GenericListModel<ShotlockRecordItemModel<T>>,
+			IEnumerable<ShotlockRecordItemModel<T>>
 			where T : struct, IConvertible
 		{
 			public CustomListModel(List<short> list)
-				: base(list.Select((x, i) => new RecordItemModel<T>(list, i)))
+				: base(list.Select((x, i) => new ShotlockRecordItemModel<T>(list, i)))
 			{
 			}
 
-			public CustomListModel(IEnumerable<RecordItemModel<T>> list)
+			public CustomListModel(IEnumerable<ShotlockRecordItemModel<T>> list)
 				: base(list)
 			{
 			}
 
-			public IEnumerator<RecordItemModel<T>> GetEnumerator()
+			public IEnumerator<ShotlockRecordItemModel<T>> GetEnumerator()
 			{
 				return Items.GetEnumerator();
 			}
@@ -53,30 +53,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				return Items.GetEnumerator();
 			}
 
-			protected override RecordItemModel<T> OnNewItem()
+			protected override ShotlockRecordItemModel<T> OnNewItem()
 			{
 				throw new System.NotImplementedException();
-			}
-		}
-
-		public class RecordItemModel<T>
-			where T : struct, IConvertible
-		{
-			private readonly List<short> items;
-			private readonly int index;
-
-			public RecordItemModel(List<short> items, int index)
-			{
-				this.items = items;
-				this.index = index;
-			}
-
-			public string Name => InfoAttribute.GetInfo((T)(object)index);
-
-			public short Value
-			{
-				get => items[index];
-				set => items[index] = value;
 			}
 		}
 
