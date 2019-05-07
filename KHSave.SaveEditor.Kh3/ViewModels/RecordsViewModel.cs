@@ -61,13 +61,13 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 		private readonly SaveKh3 save;
 
-		public CustomListModel<RecordUsageType> Shotlocks { get; }
+		public CustomListModel<RecordShotlockType> Shotlocks { get; }
         public IEnumerable<FlantasticModel> Flantastics { get; }
 
 		public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
-			Shotlocks = new CustomListModel<RecordUsageType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
+			Shotlocks = new CustomListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
             Flantastics = GetFlantasticModels(save);
         }
 
