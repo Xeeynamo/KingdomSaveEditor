@@ -16,58 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Kh3.Models;
 using KHSave.Types;
-using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public partial class RecordsViewModel
 	{
-		public class CustomListModel<T> :
-			GenericListModel<ShotlockRecordItemModel<T>>,
-			IEnumerable<ShotlockRecordItemModel<T>>
-			where T : struct, IConvertible
-		{
-			public CustomListModel(List<short> list1, List<short> list2)
-				: base(list1.Select((x, i) => new  ShotlockRecordItemModel<T>(list1, list2, i)))
-			{
-			}
-
-			public CustomListModel(IEnumerable<ShotlockRecordItemModel<T>> list)
-				: base(list)
-			{
-			}
-
-			public IEnumerator<ShotlockRecordItemModel<T>> GetEnumerator()
-			{
-				return Items.GetEnumerator();
-			}
-
-			IEnumerator IEnumerable.GetEnumerator()
-			{
-				return Items.GetEnumerator();
-			}
-
-			protected override ShotlockRecordItemModel<T> OnNewItem()
-			{
-				throw new System.NotImplementedException();
-			}
-		}
-
 		private readonly SaveKh3 save;
 
-		public CustomListModel<RecordShotlockType> Shotlocks { get; }
+		public RecordShotlockListModel<RecordShotlockType> Shotlocks { get; }
+		public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
         public IEnumerable<FlantasticModel> Flantastics { get; }
 
 		public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
-			Shotlocks = new CustomListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
+			Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
+            Attractions = new RecordAttractionListModel<RecordAttractionType>(save.RecordAttractionsUseCount, save.Records.AttractionsHighScore);
             Flantastics = GetFlantasticModels(save);
         }
 

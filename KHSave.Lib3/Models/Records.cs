@@ -24,5 +24,6 @@ namespace KHSave.Lib3.Models
         [Data] public FlantasticRecord WatermelonFlan { get; set; }
         [Data] public FlantasticRecord OrangeFlan { get; set; }
         [Data(Count = 0x1e)] public List<short> ShotlocksHighScore { get; set; }
+        [Data(Count = 5)] public List<int> AttractionsHighScore { get; set; }
     }
 }
