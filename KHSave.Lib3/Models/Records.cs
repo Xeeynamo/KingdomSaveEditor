@@ -1,4 +1,5 @@
-﻿using Xe.BinaryMapper;
+﻿using System.Collections.Generic;
+using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
@@ -22,5 +23,6 @@ namespace KHSave.Lib3.Models
         [Data] public FlantasticRecord GrapeFlan { get; set; }
         [Data] public FlantasticRecord WatermelonFlan { get; set; }
         [Data] public FlantasticRecord OrangeFlan { get; set; }
+        [Data(Count = 0x1e)] public List<short> ShotlocksHighScore { get; set; }
     }
 }

@@ -33,8 +33,8 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			IEnumerable<ShotlockRecordItemModel<T>>
 			where T : struct, IConvertible
 		{
-			public CustomListModel(List<short> list)
-				: base(list.Select((x, i) => new ShotlockRecordItemModel<T>(list, i)))
+			public CustomListModel(List<short> list1, List<short> list2)
+				: base(list1.Select((x, i) => new  ShotlockRecordItemModel<T>(list1, list2, i)))
 			{
 			}
 
@@ -67,7 +67,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
-			Shotlocks = new CustomListModel<RecordUsageType>(save.RecordShotlocks);
+			Shotlocks = new CustomListModel<RecordUsageType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
             Flantastics = GetFlantasticModels(save);
         }
 

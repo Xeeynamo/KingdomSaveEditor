@@ -14,13 +14,17 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn
                             Header="Name"
-                            Width="*"
+                            Width="2*"
                             IsReadOnly="True"
                             Binding="{Binding Name}"/>
                     <DataGridTextColumn
-                            Header="Uses count"
-                            Width="*"
-                            Binding="{Binding Value}"/>
+                            Header="High Score"
+                            Width="1*"
+                            Binding="{Binding HighScore}"/>
+                    <DataGridTextColumn
+                            Header="Total Uses"
+                            Width="1*"
+                            Binding="{Binding TotalUses}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </TabItem>

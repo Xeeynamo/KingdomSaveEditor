@@ -25,21 +25,29 @@ namespace KHSave.SaveEditor.Kh3.Models
     public class ShotlockRecordItemModel<T>
         where T : struct, IConvertible
     {
-        private readonly List<short> items;
+        private readonly List<short> itemsTotalUses;
+        private readonly List<short> itemsScore;
         private readonly int index;
 
-        public ShotlockRecordItemModel(List<short> items, int index)
+        public ShotlockRecordItemModel(List<short> itemsTotalUses, List<short> itemsScore, int index)
         {
-            this.items = items;
+            this.itemsTotalUses = itemsTotalUses;
+            this.itemsScore = itemsScore;
             this.index = index;
         }
 
         public string Name => InfoAttribute.GetInfo((T)(object)index);
 
-        public short Value
+        public short HighScore
         {
-            get => items[index];
-            set => items[index] = value;
+            get => itemsScore[index];
+            set => itemsScore[index] = value;
+        }
+
+        public short TotalUses
+        {
+            get => itemsTotalUses[index];
+            set => itemsTotalUses[index] = value;
         }
     }
 }
