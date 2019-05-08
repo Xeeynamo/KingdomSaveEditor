@@ -29,7 +29,7 @@ namespace KHSave.Extensions
 			return (value & (1 << bit)) != 0;
 		}
 
-		public static int SetFlag(int value, int bit, bool set)
+		public static int SetFlag(this int value, int bit, bool set)
 		{
 			if (set)
 			{

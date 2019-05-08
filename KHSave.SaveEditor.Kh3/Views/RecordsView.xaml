@@ -70,5 +70,10 @@
                 </DataGrid.Columns>
             </DataGrid>
         </TabItem>
+        <TabItem Header="Minigames">
+            <ScrollViewer>
+                <local:RecordMinigamesView/>
+            </ScrollViewer>
+        </TabItem>
     </TabControl>
 </UserControl>

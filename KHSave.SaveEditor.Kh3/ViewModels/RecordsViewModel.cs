@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Kh3.Models;
 using KHSave.Types;
+using KHSave.Extensions;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -31,7 +32,70 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
         public IEnumerable<FlantasticModel> Flantastics { get; }
 
-		public RecordsViewModel(SaveKh3 save)
+        public int VerumRexHighScore { get => save.Records.VerumRexHighScore; set => save.Records.VerumRexHighScore = value; }
+        public int VerumRexTimer { get => save.Records.VerumRexTimer; set => save.Records.VerumRexTimer = value; }
+        public int FlashTracer1HighScore { get => save.Records.FlashTracer1HighScore; set => save.Records.FlashTracer1HighScore = value; }
+        public int FlashTracer2HighScore { get => save.Records.FlashTracer2HighScore; set => save.Records.FlashTracer2HighScore = value; }
+        public int FlashTracer1Timer { get => save.Records.FlashTracer1Timer; set => save.Records.FlashTracer1Timer = value; }
+        public int FlashTracer2Timer { get => save.Records.FlashTracer2Timer; set => save.Records.FlashTracer2Timer = value; }
+        public int FrozenSliderHighScore { get => save.Records.FrozenSliderHighScore; set => save.Records.FrozenSliderHighScore = value; }
+        public int FrozenSliderTimer { get => save.Records.FrozenSliderTimer; set => save.Records.FrozenSliderTimer = value; }
+        public int FrozenSliderMedals { get => save.Records.FrozenSliderMedals; set => save.Records.FrozenSliderMedals = value; }
+        public int FestivalDanceHighScore { get => save.Records.FestivalDanceHighScore; set => save.Records.FestivalDanceHighScore = value; }
+        public int FestivalDanceLongestChain { get => save.Records.FestivalDanceLongestChain; set => save.Records.FestivalDanceLongestChain = value; }
+
+        public bool FrozenSliderMedal1
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(0);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(0, value);
+        }
+        public bool FrozenSliderMedal2
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(1);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(1, value);
+        }
+        public bool FrozenSliderMedal3
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(2);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(2, value);
+        }
+        public bool FrozenSliderMedal4
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(3);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(3, value);
+        }
+        public bool FrozenSliderMedal5
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(4);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(4, value);
+        }
+        public bool FrozenSliderMedal6
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(5);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(5, value);
+        }
+        public bool FrozenSliderMedal7
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(6);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(6, value);
+        }
+        public bool FrozenSliderMedal8
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(7);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(7, value);
+        }
+        public bool FrozenSliderMedal9
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(8);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(8, value);
+        }
+        public bool FrozenSliderMedal10
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(9);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(9, value);
+        }
+
+        public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
 			Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
