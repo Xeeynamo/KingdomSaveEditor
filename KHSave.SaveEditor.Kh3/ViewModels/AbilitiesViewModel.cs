@@ -31,7 +31,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	public class AbilitiesViewModel : GenericListModel<AbilityEntryViewModel>
 	{
 		public AbilitiesViewModel(IEnumerable<Ability> list)
-			: this(list.Select((x, i) => new AbilityEntryViewModel(x, i)))
+			: this(list
+                  .Select((x, i) => new AbilityEntryViewModel(x, i))
+                  .Where(x => Global.CanDisplay(x.Value)))
 		{ }
 
 		public AbilitiesViewModel(IEnumerable<AbilityEntryViewModel> list)
