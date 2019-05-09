@@ -53,21 +53,39 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public StorySimpleViewModel(SaveKh3 save)
 		{
 			Save = save;
-			NewGamePlusCommand = new StoryCommand(save, "New Game+", "/Game/Levels/ew/ew_01/ew_01", new Dictionary<StoryFlagType, int>()
+			NewGamePlusCommand = new StoryCommand(save, "New Game+ (simulated)", "/Game/Levels/ew/ew_01/ew_01", new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.TheFinalWorld] = 0,
-				[StoryFlagType.Story33] = 2000
-			}, true);
-			NewGamePlusGlitchyCommand = new StoryCommand(save, "New Game+ (every world is completed anyway)", "/Game/Levels/ew/ew_01/ew_01", new Dictionary<StoryFlagType, int>()
+				[StoryFlagType.Story33] = 2000,
+                [StoryFlagType.Story34] = 0,
+                [StoryFlagType.Story35] = 0,
+                [StoryFlagType.Story36] = 0,
+                [StoryFlagType.Story37] = 0,
+                [StoryFlagType.Story38] = 0,
+                [StoryFlagType.Story39] = 0,
+                [StoryFlagType.Story3A] = 0,
+                [StoryFlagType.Story3B] = 0,
+                [StoryFlagType.Story3C] = 0,
+            }, true);
+			NewGamePlusGlitchyCommand = new StoryCommand(save, "New Game+ (but with story complete)", "/Game/Levels/ew/ew_01/ew_01", CompleteSave(new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.TheFinalWorld] = 0,
-				[StoryFlagType.Story33] = 2000
-			}, false);
+            }), false);
 			CompleteGameCommand = new StoryCommand(save, "Complete game", "/Game/Levels/bt/bt_01/bt_01", CompleteSave(), false);
 			LandOfDepartureCommand = new StoryCommand(save, "Back to Land of Departure (before Vanitas fight)", "/Game/Levels/dp/dp_01/dp_01", new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.LandOfDeparture] = 0,
-			}, false);
+                [StoryFlagType.Story33] = 2000,
+                [StoryFlagType.Story34] = 2000,
+                [StoryFlagType.Story35] = 2000,
+                [StoryFlagType.Story36] = 2000,
+                [StoryFlagType.Story37] = 2000,
+                [StoryFlagType.Story38] = 2000,
+                [StoryFlagType.Story39] = 2000,
+                [StoryFlagType.Story3A] = 0,
+                [StoryFlagType.Story3B] = 0,
+                [StoryFlagType.Story3C] = 0,
+            }, false);
 			KgBattleGameCommand = new StoryCommand(save, "Keyblade Graveyard, before 1000 Heartless", "/Game/Levels/kg/kg_01/kg_01", CompleteSave(new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.ScalaAdCaelum] = 0,
@@ -90,8 +108,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				[StoryFlagType.KG_Xion_Saix] = 0,
 				[StoryFlagType.Story31] = 100,
 				[StoryFlagType.Story32] = 0,
-				[StoryFlagType.Story3B] = 1000,
-				[StoryFlagType.Story3C] = 2000,
 			}), false);
 		}
 
