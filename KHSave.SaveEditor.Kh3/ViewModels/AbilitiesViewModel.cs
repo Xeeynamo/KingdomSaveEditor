@@ -35,6 +35,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public AbilitiesViewModel(IEnumerable<AbilityEntryViewModel> list)
 			: base(list)
 		{
+            
 		}
 
 		protected override AbilityEntryViewModel OnNewItem()
@@ -55,8 +56,23 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 		public override string Name => InfoAttribute.GetInfo(Value);
 
-		public string Raw => $"{ability.Data:X07}";
-		public bool Unlocked { get => ability.Unlocked; set { ability.Unlocked = value; OnPropertyChanged(nameof(Raw)); } }
+        public string Raw
+        {
+            get => $"{ability.Data:X07}";
+            set
+            {
+                if (!int.TryParse(value, System.Globalization.NumberStyles.HexNumber, null, out var newVaule))
+                    return;
+
+                ability.Data = newVaule;
+                OnPropertyChanged(nameof(Unlocked));
+                OnPropertyChanged(nameof(Active));
+                OnPropertyChanged(nameof(Unseen));
+                OnPropertyChanged(nameof(Flag3));
+            }
+        }
+
+        public bool Unlocked { get => ability.Unlocked; set { ability.Unlocked = value; OnPropertyChanged(nameof(Raw)); } }
 		public bool Active { get => ability.Enabled; set { ability.Enabled = value; OnPropertyChanged(nameof(Raw)); } }
 		public bool Unseen { get => ability.Unseen; set { ability.Unseen = value; OnPropertyChanged(nameof(Raw)); } }
 		public bool Flag3 { get => ability.Flag3; set { ability.Flag3 = value; OnPropertyChanged(nameof(Raw)); } }
