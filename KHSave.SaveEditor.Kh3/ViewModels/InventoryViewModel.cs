@@ -109,10 +109,10 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
         public bool? SelectedItemFlag2
         {
-            get => GetForAll(SelectedItems, x => x.Flag2, out var flag) ? flag : (bool?)null;
+            get => GetForAll(SelectedItems, x => x.ShopSeen, out var flag) ? flag : (bool?)null;
             set
             {
-                SetForAll(SelectedItems, (x, v) => x.Flag2 = v ?? false, value);
+                SetForAll(SelectedItems, (x, v) => x.ShopSeen = v ?? false, value);
                 OnPropertyChanged(nameof(SelectedItemFlagShop));
             }
         }

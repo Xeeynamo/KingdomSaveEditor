@@ -72,11 +72,11 @@
             <TextBlock Text="Flags"/>
             <CheckBox Content="Obtained" IsChecked="{Binding SelectedItemFlagObtained}"/>
             <CheckBox Content="Unseen" IsChecked="{Binding SelectedItemFlagUnseen}"/>
-            <CheckBox Content="Can buy at shop" IsChecked="{Binding SelectedItemFlagShop}"/>
+            <CheckBox Content="Shop seen" IsChecked="{Binding SelectedItemFlagShop}"/>
             
             <StackPanel Visibility="{Binding AdvancedVisibility}">
                 <CheckBox Margin="10 0 0 0"
-                    Content="Shop flag 1" IsChecked="{Binding SelectedItemFlag2}"/>
+                    Content="Seen in shop" IsChecked="{Binding SelectedItemFlag2}"/>
                 <CheckBox Margin="10 0 0 0"
                     Content="Shop flag 2" IsChecked="{Binding SelectedItemFlag3}"/>
                 <CheckBox Content="Flag 4" IsChecked="{Binding SelectedItemFlag4}"/>

@@ -65,11 +65,11 @@ namespace KHSave.SaveEditor.Kh3.Models
             set
             {
                 inventoryEntry.ShopFlag1 = inventoryEntry.ShopFlag2 = value;
-                OnPropertyChanged(nameof(Flag2));
+                OnPropertyChanged(nameof(ShopSeen));
                 OnPropertyChanged(nameof(Flag3));
             }
         }
-        public bool Flag2
+        public bool ShopSeen
         {
             get => inventoryEntry.ShopFlag1; set
             {
