@@ -230,6 +230,56 @@ namespace KHSave.Presets
                 [500] = "Collect Ingredients",
                 [9999] = "Story Done",
             },
+            [(int)StoryFlagType.Story33] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story34] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story35] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story36] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story37] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story38] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story39] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story3A] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story3B] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [2000] = "Story Done - All savepoints unlocked"
+            },
+            [(int)StoryFlagType.Story3C] = new Dictionary<int, string>
+            {
+                [0] = "Story beginning",
+                [3000] = "Story Done - All savepoints unlocked"
+            },
             [(int)StoryFlagType.WorldMap] = new Dictionary<int, string>
             {
                 [0] = "Prelude to Adventure (Part 2)",
