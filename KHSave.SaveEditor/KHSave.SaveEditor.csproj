@@ -5,16 +5,16 @@
     <ApplicationIcon>Icon1.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
     <StartupObject />
-    <Version>1.4.1</Version>
+    <Version>1.5.0</Version>
     <RepositoryUrl>https://github.com/xeeynamo/kh3saveeditor</RepositoryUrl>
     <PackageProjectUrl>https://xeeynamo.github.io/kh3saveeditor</PackageProjectUrl>
-    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
     <Description>https://xeeynamo.github.io/kh3saveeditor</Description>
     <Copyright>Copyright (C) 2019 Luciano Ciccariello</Copyright>
     <RepositoryType></RepositoryType>
     <PackageTags></PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <FileVersion>1.4.1.0</FileVersion>
+    <FileVersion>1.5.0.0</FileVersion>
     <PackageId>KHSave.SaveEditor</PackageId>
     <Authors>KHSave.SaveEditor</Authors>
     <Company>KHSave.SaveEditor</Company>
