@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -68,14 +68,14 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
                 OnPropertyChanged(nameof(Unlocked));
                 OnPropertyChanged(nameof(Active));
                 OnPropertyChanged(nameof(Unseen));
-                OnPropertyChanged(nameof(Flag3));
+                OnPropertyChanged(nameof(Duplicate));
             }
         }
 
         public bool Unlocked { get => ability.Unlocked; set { ability.Unlocked = value; OnPropertyChanged(nameof(Raw)); } }
 		public bool Active { get => ability.Enabled; set { ability.Enabled = value; OnPropertyChanged(nameof(Raw)); } }
 		public bool Unseen { get => ability.Unseen; set { ability.Unseen = value; OnPropertyChanged(nameof(Raw)); } }
-		public bool Flag3 { get => ability.Flag3; set { ability.Flag3 = value; OnPropertyChanged(nameof(Raw)); } }
+		public bool Duplicate { get => ability.Flag3; set { ability.Flag3 = value; OnPropertyChanged(nameof(Raw)); } }
 
 		public override string ToString()
 		{
