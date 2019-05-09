@@ -64,7 +64,7 @@
             </Grid>
         </Grid>
 
-        <StackPanel Grid.Column="2">
+        <StackPanel Grid.Column="2" IsEnabled="{Binding IsItemSelected}">
             <TextBlock Text="Item count"/>
             <TextBox Margin="0 0 0 5"
                 Text="{Binding SelectedItemCount, UpdateSourceTrigger=PropertyChanged}"/>
