@@ -21,7 +21,6 @@
         <ComboBox
             Grid.Column="1"
             Width="44"
-            Visibility="{Binding AdvancedVisibility}"
             IsEnabled="{Binding Enabled}"
             ItemsSource="{Binding ItemType}"
             SelectedValue="{Binding ItemType.SelectedValue}"
