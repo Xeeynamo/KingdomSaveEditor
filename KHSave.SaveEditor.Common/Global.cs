@@ -34,11 +34,12 @@ namespace KHSave.SaveEditor.Common
         }
 
 
-        public static bool CanDisplay(object item)
-		{
-			return IsAdvancedMode ||
-				item.GetType() == typeof(string) ||
-				!UnusedAttribute.IsUnused(item);
-		}
+        public static bool CanDisplay(object item) => IsAdvancedMode || CanDisplayInBasicMode(item);
+
+        public static bool CanDisplayInBasicMode(object item)
+        {
+            return item.GetType() == typeof(string) ||
+                !UnusedAttribute.IsUnused(item);
+        }
 	}
 }
