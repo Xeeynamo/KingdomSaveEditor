@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -100,6 +100,14 @@ namespace KHSave.Tests
 			Assert.Equal("ts_02_Lv_Save_01", save.MapSpawn);
 			Assert.Equal("/Script/TresGame.TresPlayerControllerSora", save.PlayerScript);
 			Assert.Equal("/Game/Blueprints/Player/p_ts001/p_ts001_Pawn.p_ts001_Pawn_C", save.PlayerCharacter);
+
+            Assert.Equal(20722, save.Records.CherryFlan.HighScore);
+            Assert.Equal(20722, save.Records.CherryFlan.HighScore2);
+            Assert.Equal(11, save.Records.CherryFlan.AttemptCount);
+            Assert.Equal(24050, save.Records.StrawberryFlan.HighScore);
+            Assert.Equal(24050, save.Records.StrawberryFlan.HighScore2);
+            Assert.Equal(17, save.Records.ShotlocksHighScore[0]);
+            Assert.Equal(23, save.Records.ShotlocksHighScore[1]);
 		}
 
 		[Fact]

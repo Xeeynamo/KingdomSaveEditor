@@ -16,78 +16,103 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using KHSave.Attributes;
+using KHSave.Lib3.Types;
+using KHSave.SaveEditor.Kh3.Models;
 using KHSave.Types;
-using Xe.Tools.Wpf.Models;
+using KHSave.Extensions;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class RecordsViewModel
+    public partial class RecordsViewModel
 	{
-		public class CustomListModel<T> :
-			GenericListModel<RecordItemModel<T>>,
-			IEnumerable<RecordItemModel<T>>
-			where T : struct, IConvertible
-		{
-			public CustomListModel(List<short> list)
-				: base(list.Select((x, i) => new RecordItemModel<T>(list, i)))
-			{
-			}
-
-			public CustomListModel(IEnumerable<RecordItemModel<T>> list)
-				: base(list)
-			{
-			}
-
-			public IEnumerator<RecordItemModel<T>> GetEnumerator()
-			{
-				return Items.GetEnumerator();
-			}
-
-			IEnumerator IEnumerable.GetEnumerator()
-			{
-				return Items.GetEnumerator();
-			}
-
-			protected override RecordItemModel<T> OnNewItem()
-			{
-				throw new System.NotImplementedException();
-			}
-		}
-
-		public class RecordItemModel<T>
-			where T : struct, IConvertible
-		{
-			private readonly List<short> items;
-			private readonly int index;
-
-			public RecordItemModel(List<short> items, int index)
-			{
-				this.items = items;
-				this.index = index;
-			}
-
-			public string Name => InfoAttribute.GetInfo((T)(object)index);
-
-			public short Value
-			{
-				get => items[index];
-				set => items[index] = value;
-			}
-		}
-
 		private readonly SaveKh3 save;
 
-		public CustomListModel<RecordUsageType> Shotlocks { get; }
+		public RecordShotlockListModel<RecordShotlockType> Shotlocks { get; }
+		public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
+        public IEnumerable<FlantasticModel> Flantastics { get; }
 
-		public RecordsViewModel(SaveKh3 save)
+        public int VerumRexHighScore { get => save.Records.VerumRexHighScore; set => save.Records.VerumRexHighScore = value; }
+        public int VerumRexTimer { get => save.Records.VerumRexTimer; set => save.Records.VerumRexTimer = value; }
+        public int FlashTracer1HighScore { get => save.Records.FlashTracer1HighScore; set => save.Records.FlashTracer1HighScore = value; }
+        public int FlashTracer2HighScore { get => save.Records.FlashTracer2HighScore; set => save.Records.FlashTracer2HighScore = value; }
+        public int FlashTracer1Timer { get => save.Records.FlashTracer1Timer; set => save.Records.FlashTracer1Timer = value; }
+        public int FlashTracer2Timer { get => save.Records.FlashTracer2Timer; set => save.Records.FlashTracer2Timer = value; }
+        public int FrozenSliderHighScore { get => save.Records.FrozenSliderHighScore; set => save.Records.FrozenSliderHighScore = value; }
+        public int FrozenSliderTimer { get => save.Records.FrozenSliderTimer; set => save.Records.FrozenSliderTimer = value; }
+        public int FrozenSliderMedals { get => save.Records.FrozenSliderMedals; set => save.Records.FrozenSliderMedals = value; }
+        public int FestivalDanceHighScore { get => save.Records.FestivalDanceHighScore; set => save.Records.FestivalDanceHighScore = value; }
+        public int FestivalDanceLongestChain { get => save.Records.FestivalDanceLongestChain; set => save.Records.FestivalDanceLongestChain = value; }
+
+        public bool FrozenSliderMedal1
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(0);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(0, value);
+        }
+        public bool FrozenSliderMedal2
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(1);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(1, value);
+        }
+        public bool FrozenSliderMedal3
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(2);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(2, value);
+        }
+        public bool FrozenSliderMedal4
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(3);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(3, value);
+        }
+        public bool FrozenSliderMedal5
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(4);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(4, value);
+        }
+        public bool FrozenSliderMedal6
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(5);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(5, value);
+        }
+        public bool FrozenSliderMedal7
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(6);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(6, value);
+        }
+        public bool FrozenSliderMedal8
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(7);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(7, value);
+        }
+        public bool FrozenSliderMedal9
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(8);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(8, value);
+        }
+        public bool FrozenSliderMedal10
+        {
+            get => save.Records.FrozenSliderMedals.GetFlag(9);
+            set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(9, value);
+        }
+
+        public RecordsViewModel(SaveKh3 save)
 		{
 			this.save = save;
-			Shotlocks = new CustomListModel<RecordUsageType>(save.RecordShotlocks);
-		}
-	}
+			Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
+            Attractions = new RecordAttractionListModel<RecordAttractionType>(save.RecordAttractionsUseCount, save.Records.AttractionsHighScore);
+            Flantastics = GetFlantasticModels(save);
+        }
+
+        private static IEnumerable<FlantasticModel> GetFlantasticModels(SaveKh3 save) =>
+            new FlantasticModel[]
+            {
+                new FlantasticModel("Cherry Flan", save.Records.CherryFlan),
+                new FlantasticModel("Strawberry Flan", save.Records.StrawberryFlan),
+                new FlantasticModel("Orange Flan", save.Records.OrangeFlan),
+                new FlantasticModel("Banana Flan", save.Records.BananaFlan),
+                new FlantasticModel("Grape Flan", save.Records.GrapeFlan),
+                new FlantasticModel("Watermelon Flan", save.Records.WatermelonFlan),
+                new FlantasticModel("Honeydew Flan", save.Records.HoneydewFlan),
+            };
+    }
 }

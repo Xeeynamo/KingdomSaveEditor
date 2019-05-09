@@ -62,6 +62,9 @@
     <Page Include="Views\RecordsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RecordMinigamesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShortcutsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +129,9 @@
     </Compile>
     <Compile Update="Views\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecordMinigamesView.xaml.cs">
+      <DependentUpon>RecordMinigamesView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\RecordsView.xaml.cs">
       <DependentUpon>RecordsView.xaml</DependentUpon>

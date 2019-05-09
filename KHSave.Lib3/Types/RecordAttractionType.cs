@@ -16,31 +16,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+using KHSave.Attributes;
 
-namespace KHSave.Extensions
+namespace KHSave.Lib3.Types
 {
-	public static class BitExtensions
-	{
-		public static bool GetFlag(this int value, int bit)
-		{
-			return (value & (1 << bit)) != 0;
-		}
-
-		public static int SetFlag(this int value, int bit, bool set)
-		{
-			if (set)
-			{
-				value |= 1 << bit;
-			}
-			else
-			{
-				value &= ~(1 << bit);
-			}
-
-			return value;
-		}
-	}
+    public enum RecordAttractionType
+    {
+        [Info("Pirate Ship")] Usage00,
+        [Info("Mad Tea Cups")] Usage01,
+        [Info("Blaster Blaze")] Usage02,
+        [Info("Magic Carousel")] Usage03,
+        [Info("Splash Run")] Usage04,
+    }
 }

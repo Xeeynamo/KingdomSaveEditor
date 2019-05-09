@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using KHSave.Lib3.Models;
 using KHSave.Lib3.Types;
 using KHSave.Models;
 using KHSave.Types;
@@ -60,7 +61,8 @@ namespace KHSave
 		[Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
         [Data(0x68)] public int EnemiesDefeated { get; set; }
 		[Data(0x5B0)] public short SavesCount { get; set; }
-		[Data(0x6C8, 0x40, 2)] public List<short> RecordShotlocks { get; set; }
+        [Data(0x68e, 5)] public List<short> RecordAttractionsUseCount { get; set; }
+        [Data(0x6C8, 0x1e, 2)] public List<short> RecordShotlocksUseCount { get; set; }
 		[Data(0x86c, 0x400, 2)] public List<InventoryEntry> Inventory { get; set; }
 		[Data(0x15d6, 100)] public List<short> MaterialsCount { get; set; }
         [Data(0x1764)] public int CrabsCollected { get; set; }
@@ -75,6 +77,8 @@ namespace KHSave
 
 		[Data(0xBEC8, 6, 4)] public List<CommandType> Magics { get; set; }
 		[Data(0xBEE0, 5, 4)] public List<CommandType> Links { get; set; }
+
+        [Data(0x83a70)] public Records Records { get; set; }
 
         [Data(0x84770)] public int PhotoMaxCount { get; set; }
         [Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
