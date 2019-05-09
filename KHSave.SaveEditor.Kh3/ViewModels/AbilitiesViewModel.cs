@@ -23,6 +23,8 @@ using KHSave.Models;
 using KHSave.Types;
 using Xe.Tools.Wpf.Models;
 using KHSave.SaveEditor.Common.Models;
+using System.Windows;
+using KHSave.SaveEditor.Common;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -38,6 +40,8 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             
 		}
 
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 		protected override AbilityEntryViewModel OnNewItem()
 		{
 			throw new System.NotImplementedException();

@@ -10,26 +10,16 @@
         <TabControl>
             <TabItem Header="Status">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                    <local:PlayerStatusView DataContext="{Binding}"/>
+                    <local:PlayerStatusView/>
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Equipment">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                    <local:PlayerEquipmentView DataContext="{Binding}"/>
+                    <local:PlayerEquipmentView/>
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Ability">
-                <Grid>
-                    <local:PlayerAbilityView
-                        DataContext="{Binding}"
-                        Visibility="{Binding AdvancedVisibility}"/>
-                    <TextBlock
-                        Margin="10"
-                        TextWrapping="Wrap"
-                        TextAlignment="Center"
-                        Visibility="{Binding SimpleVisibility}"
-                        Text="The current tab is in an experimental state and it has been disabled in basic mode. If you are curious or you know what you are doing, enable the Advanced Mode."/>
-                </Grid>
+                <local:PlayerAbilityView/>
             </TabItem>
         </TabControl>
     </Grid>
