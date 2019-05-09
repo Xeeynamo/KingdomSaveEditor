@@ -28,19 +28,31 @@ Here is a screenshot preview of how the editor in action looks like:
 * Exp, Munny
 * Manage story progression!
 * Statistics (eg. save count)
-* Inventory editor - Choose any items you want
+* Inventory editor
+    * Set items count between 0 and 255
+    * Set flags (unseen, shop, collected)
+    * Group editing
+    * Search filter
+        * Filter by name
+        * Filter by quantity (eg `=0`, `>50`, `<99`)
+        * Filter by unobtained (`obtained`, `!obtained`)
+        * Filter by shop availability (`shop`, `!shop`)
 * Sora and partners editor:
     * HP, MP, Focus, parameter boosts
     * Weapons equipped
     * Armors equipped
     * Accessories equipped
-	* Ability support (advanced feature)
+	* Ability support
+* Records
+    * Minigames
+    * Flantastics
+    * Shotlocks
 * Photo gallery management
     * View the existing photos
     * Export one or all the photos
     * Import custom photo in the game
     * Delete all the photos
-
+    
 # Features in Kingdom Hearts 0.2 editor
 
 * Multiple slot editing
