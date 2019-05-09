@@ -22,7 +22,7 @@ namespace KHSave.Types
 {
 	public enum AbilityType
     {
-        [Info("<untested???>")] Ability000,
+        [Info("<untested>")] Ability000,
 		[AbilityAction("Aerial Recovery")] Ability001,
 		[AbilityAction("Payback Strike")] Ability002,
 		[AbilityAction("Block")] Ability003,
@@ -31,7 +31,7 @@ namespace KHSave.Types
 		[AbilityAction("Counter Kick")] Ability006,
 		[AbilityAction("Final Blow")] Ability007,
 		[AbilityAction("Risk Dodge")] Ability008,
-		[AbilityAction("No name")] Ability009,
+        [AbilityAction("<unnamed>")] Ability009,
 		[AbilityAction("Rising Spiral")] Ability00A,
 		[AbilityAction("Groundbreaker")] Ability00B,
 		[AbilityAction("Falling Slash")] Ability00C,
