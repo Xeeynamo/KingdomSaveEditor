@@ -73,7 +73,7 @@ namespace KHSave.Types
 		[Info("Twilight Town")] TwilightTown,
 		[Info("")] Story31,
 		[Info("")] Story32,
-		[Info("WM - Olympys")] Story33,
+		[Info("WM - Olympus")] Story33,
 		[Info("WM - Twilight Town")] Story34,
 		[Info("WM - Kingdom of Corona")] Story35,
 		[Info("WM - Toy Story")] Story36,
