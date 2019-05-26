@@ -21,6 +21,7 @@
     <Product>Save Editor - Kingdom Hearts</Product>
     <PackageLicenseExpression>GPL3</PackageLicenseExpression>
     <LangVersion>7</LangVersion>
+    <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
