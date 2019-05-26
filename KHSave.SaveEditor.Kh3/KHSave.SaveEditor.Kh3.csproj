@@ -97,9 +97,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MainView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Update="MainView.xaml.cs" />
     <Compile Update="Views\EquipmentItemEntryView.xaml.cs">
       <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
     </Compile>

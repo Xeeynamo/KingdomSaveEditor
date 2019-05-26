@@ -25,12 +25,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Compile Update="MainView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\SystemView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Update="MainView.xaml.cs" />
+    <Compile Update="Views\SystemView.xaml.cs" />
   </ItemGroup>
   
   <ItemGroup>
