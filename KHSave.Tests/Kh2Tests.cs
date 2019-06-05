@@ -1,5 +1,6 @@
 ﻿using KHSave.Lib2;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace KHSave.Tests
@@ -18,6 +19,16 @@ namespace KHSave.Tests
             stream.Position = 0;
 
             Assert.Equal(expected, SaveKh2.IsValid(stream));
+        }
+
+        [Fact]
+        public void TestChecksum()
+        {
+            var rand = new System.Random(0);
+            var data = Enumerable.Range(0, 0x10000)
+                .Select(x => (byte)rand.Next())
+                .ToArray();
+            Assert.Equal(1527299405U, SaveKh2.CalculateChecksum(data, data.Length));
         }
     }
 }
