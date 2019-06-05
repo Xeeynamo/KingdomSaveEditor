@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib2
 {
-    public class SaveKh2
+    public partial class SaveKh2
     {
         [Data] public uint MagicCode { get; set; }
         [Data] public int Version { get; set; }
