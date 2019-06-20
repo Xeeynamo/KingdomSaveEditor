@@ -24,6 +24,9 @@ using Xe.Tools;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common;
 using KHSave.Lib3.Types;
+using System.Collections.Generic;
+using KHSave.SaveEditor.Kh3.Models;
+using System.Linq;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -51,6 +54,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				x => WorldAttribute.GetWorldId(x));
             DesireChoice = new KhEnumListModel<DesireChoice>(() => save.DesireChoice, x => save.DesireChoice = x);
             PowerChoice = new KhEnumListModel<PowerChoice>(() => save.PowerChoice, x => save.PowerChoice = x);
+            Maps = Lib3.Presets.Presets.MAPS.Select(x => new MapViewModel(x.Key, x.Value)).ToList();
         }
 
 		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
@@ -63,6 +67,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public KhEnumListModel<GenericEntryModel<string, string>, WorldType, string> RoomWorld { get; }
         public KhEnumListModel<DesireChoice> DesireChoice { get; }
         public KhEnumListModel<PowerChoice> PowerChoice { get; }
+        public IEnumerable<MapViewModel> Maps { get; }
 
         public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
 
@@ -166,9 +171,10 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			set
 			{
 				MapPath = $"/Game/Levels/{value}/{value}_{RoomMapIndex:D02}/{value}_{RoomMapIndex:D02}";
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(MapPath));
+				OnPropertyChanged(nameof(Maps));
 				OnPropertyChanged(nameof(MapPath));
-				OnPropertyChanged(nameof(RoomWorldId));
-				OnPropertyChanged(nameof(RoomMapIndex));
 				ResetSpawnPoint(SpawnTypeValue, SpawnIndex);
 			}
 		}
@@ -184,15 +190,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				}
 
 				return index;
-			}
-			set
-			{
-				var index = Math.Min(99, Math.Max(0, value));
-				MapPath = $"/Game/Levels/{RoomWorldId}/{RoomWorldId}_{index:D02}/{RoomWorldId}_{index:D02}";
-				OnPropertyChanged(nameof(MapPath));
-				OnPropertyChanged(nameof(RoomWorldId));
-				OnPropertyChanged(nameof(RoomMapIndex));
-				ResetSpawnPoint(SpawnTypeValue, SpawnIndex);
 			}
 		}
 

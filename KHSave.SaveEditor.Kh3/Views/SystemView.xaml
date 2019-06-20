@@ -208,9 +208,12 @@
                     SelectedValuePath="Value"/>
 
                 <TextBlock Grid.Column="2" Grid.Row="0"
-                    Text="Map Id"/>
-                <TextBox Grid.Column="2" Grid.Row="1"
-                    Text="{Binding RoomMapIndex, UpdateSourceTrigger=PropertyChanged}"/>
+                    Text="Map"/>
+                <ComboBox Grid.Column="2" Grid.Row="1"
+                    ItemsSource="{Binding Maps}"
+                    SelectedValue="{Binding MapPath}"
+                    DisplayMemberPath="Description"
+                    SelectedValuePath="Value"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3"
                     Visibility="Collapsed"
