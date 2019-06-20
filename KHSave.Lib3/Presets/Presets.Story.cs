@@ -21,9 +21,9 @@ using System.Collections.Generic;
 
 namespace KHSave.Presets
 {
-	public static class StoryPresets
+	public static partial class Presets
 	{
-		public static Dictionary<int, Dictionary<int, string>> KnownStoryFlags { get; } = new Dictionary<int, Dictionary<int, string>>
+		public static Dictionary<int, Dictionary<int, string>> STORY { get; } = new Dictionary<int, Dictionary<int, string>>
 		{
 			[(int)StoryFlagType.ScalaAdCaelum] = new Dictionary<int, string>
 			{

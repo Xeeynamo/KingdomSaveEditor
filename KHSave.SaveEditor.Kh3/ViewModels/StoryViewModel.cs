@@ -282,9 +282,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			this.storyFlag = storyFlag;
 			this.index = index;
 
-			if (StoryPresets.KnownStoryFlags.TryGetValue(index, out var preset))
+			if (Presets.Presets.STORY.TryGetValue(index, out var preset))
 			{
-				Preset = new StoryPresetModel(preset);
+                Preset = new StoryPresetModel(preset);
 			}
 		}
 
