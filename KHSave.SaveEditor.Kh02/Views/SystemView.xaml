@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh02.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <StackPanel Background="White">
+    <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

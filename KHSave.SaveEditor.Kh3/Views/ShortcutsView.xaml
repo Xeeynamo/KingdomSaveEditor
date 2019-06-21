@@ -26,7 +26,7 @@
             <Setter Property="Margin" Value="0 0 0 3"/>
         </Style>
     </UserControl.Resources>
-    <ScrollViewer Background="White" HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel>
             <TextBlock Text="Shortcut group 1"/>
             <Grid Margin="5" DataContext="{Binding Shortcut1}">

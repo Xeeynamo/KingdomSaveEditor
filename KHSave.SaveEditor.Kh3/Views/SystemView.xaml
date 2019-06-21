@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh3.Views.SystemView"
+<UserControl x:Class="KHSave.SaveEditor.Kh3.Views.SystemView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <StackPanel Background="White">
+    <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
