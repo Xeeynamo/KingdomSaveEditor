@@ -61,6 +61,11 @@ namespace KHSave.Tests
 			Assert.Equal(63, save.Level);
 			Assert.Equal(DesireChoice.Vitality, save.DesireChoice);
 			Assert.Equal(PowerChoice.Warrior, save.PowerChoice);
+            Assert.Equal(PartyCharacter.SoraToyBox, save.Party[0]);
+            Assert.Equal(PartyCharacter.Donald, save.Party[1]);
+            Assert.Equal(PartyCharacter.Goofy, save.Party[2]);
+            Assert.Equal(PartyCharacter.Woody, save.Party[3]);
+            Assert.Equal(PartyCharacter.Buzz, save.Party[4]);
             Assert.True(save.SaveClear);
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 

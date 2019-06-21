@@ -54,6 +54,7 @@ namespace KHSave
 		[Data(0x2C)] public byte Level { get; set; }
         [Data(0x30)] public DesireChoice DesireChoice { get; set; }
         [Data(0x31)] public PowerChoice PowerChoice { get; set; }
+        [Data(0x32, Count = 5)] public List<PartyCharacter> Party { get; set; }
         [Data(0x39)] public bool SaveClear { get; set; }
         [Data(0x54)] public LocationType LocationName { get; set; }
 		[Data(0x58)] public int Unknown00058 { get; set; } // Changes every time
