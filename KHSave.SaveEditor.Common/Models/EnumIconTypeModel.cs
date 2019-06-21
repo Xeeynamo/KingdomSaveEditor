@@ -30,24 +30,24 @@ namespace KHSave.SaveEditor.Common.Models
 	{
 		private static readonly Dictionary<string, Uri> ICONS = new Dictionary<string, string>()
 		{
-			["Consumable"] = "icon-kh2-item",
-			["Tent"] = "icon-kh2-tent",
-			["KeyItem"] = "item-kh2-key",
+			["Consumable"] = "kh2-icon-item",
+			["Tent"] = "kh2-icon-tent",
+			["KeyItem"] = "kh2-item-key",
 			["Food"] = "FoodIcon",
             ["Snack"] = "SnackIcon",
-            ["Synthesis"] = "icon-kh2-synthesis",
+            ["Synthesis"] = "kh2-icon-synthesis",
             ["MogItem"] = "KupoCoinIcon",
-			["Magic"] = "icon-magic",
+			["Magic"] = "kh2-icon-magic",
 			["Link"] = "LinkIcon",
-			["Keyblade"] = "equip-keyblade",
-			["Staff"] = "equip-staff",
-			["Shield"] = "equip-shield",
+			["Keyblade"] = "kh2-equip-keyblade",
+			["Staff"] = "kh2-equip-staff",
+			["Shield"] = "kh2-equip-shield",
 			["Weapon"] = "MiscWeaponIcon",
-			["Armor"] = "equip-armor",
-			["Accessory"] = "equip-accessory",
-			["Ability"] = "icon-ability",
-			["CombatStyle"] = "icon-style",
-			["Command"] = "icon-mickey",
+			["Armor"] = "kh2-equip-armor",
+			["Accessory"] = "kh2-equip-accessory",
+			["Ability"] = "kh2-icon-ability",
+			["CombatStyle"] = "kh2-icon-style",
+			["Command"] = "kh2-icon-mickey",
 		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
 
 		public ImageSource Icon
