@@ -52,8 +52,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				() => RoomWorldId,
 				x => RoomWorldId = x,
 				x => WorldAttribute.GetWorldId(x));
-            DesireChoice = new KhEnumListModel<DesireChoice>(() => save.DesireChoice, x => save.DesireChoice = x);
-            PowerChoice = new KhEnumListModel<PowerChoice>(() => save.PowerChoice, x => save.PowerChoice = x);
             Maps = Lib3.Presets.Presets.MAPS.Select(x => new MapViewModel(x.Key, x.Value)).ToList();
         }
 
@@ -65,8 +63,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public KhEnumListModel<LocationType> Location { get; }
 		public KhEnumListModel<CharacterIconType> CharacterIcon { get; }
 		public KhEnumListModel<GenericEntryModel<string, string>, WorldType, string> RoomWorld { get; }
-        public KhEnumListModel<DesireChoice> DesireChoice { get; }
-        public KhEnumListModel<PowerChoice> PowerChoice { get; }
         public IEnumerable<MapViewModel> Maps { get; }
 
         public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";

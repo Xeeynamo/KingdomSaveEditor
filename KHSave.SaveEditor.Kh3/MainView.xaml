@@ -28,6 +28,11 @@
                     Grid.Row="1"
                     DataContext="{Binding Players}"/>
         </TabItem>
+        <TabItem Header="Party">
+            <views:PartyView
+                    Grid.Row="1"
+                    DataContext="{Binding Party}"/>
+        </TabItem>
         <TabItem Header="Story">
             <views:StoryView
                     Grid.Row="1"

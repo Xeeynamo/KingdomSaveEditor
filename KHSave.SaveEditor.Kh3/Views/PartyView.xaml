@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh3.Views.PartyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Desire choice"/>
+                <ComboBox
+                    ItemsSource="{Binding DesireChoice}"
+                    SelectedValue="{Binding DesireChoice.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Power choice"/>
+                <ComboBox
+                    ItemsSource="{Binding PowerChoice}"
+                    SelectedValue="{Binding PowerChoice.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="Party member #1"/>
+        <ComboBox
+            ItemsSource="{Binding PartyMembers}"
+            SelectedValue="{Binding PartyMember1}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Party member #2"/>
+        <ComboBox
+            ItemsSource="{Binding PartyMembers}"
+            SelectedValue="{Binding PartyMember2}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Party member #3"/>
+        <ComboBox
+            ItemsSource="{Binding PartyMembers}"
+            SelectedValue="{Binding PartyMember3}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Party member #4"/>
+        <ComboBox
+            ItemsSource="{Binding PartyMembers}"
+            SelectedValue="{Binding PartyMember4}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+
+        <TextBlock Text="Party member #5"/>
+        <ComboBox
+            ItemsSource="{Binding PartyMembers}"
+            SelectedValue="{Binding PartyMember5}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
+    </StackPanel>
+</UserControl>
