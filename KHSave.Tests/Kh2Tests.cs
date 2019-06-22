@@ -33,6 +33,24 @@ namespace KHSave.Tests
             Assert.Equal(expected, SaveKh2.IsValid(stream));
         }
 
+        [Theory]
+        [InlineData(0x4B48324A, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x4B483255, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x4B483245, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x4B483245, 0x2d, GameVersion.American)]
+        [InlineData(0x4B483245, 0x3a, GameVersion.FinalMix)]
+        [InlineData(0xcccccccc, 0x2a, null)]
+        public void TestVersion(uint header, int version, GameVersion? expected)
+        {
+            var stream = new MemoryStream(4);
+            var writer = new BinaryWriter(stream);
+            writer.Write(header);
+            writer.Write(version);
+            stream.Position = 0;
+
+            Assert.Equal(expected, SaveKh2.GetGameVersion(stream));
+        }
+
         [Fact]
         public void TestChecksum()
         {

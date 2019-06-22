@@ -27,6 +27,27 @@ namespace KHSave.Lib2
             }
         }
 
+        public static GameVersion? GetGameVersion(Stream stream)
+        {
+            if (!IsValid(stream))
+                return null;
+
+            var prevPosition = stream.Position;
+            stream.Position = 4;
+            var version = new BinaryReader(stream).ReadUInt32();
+            stream.Position = prevPosition;
+
+            switch ((GameVersion)version)
+            {
+                case GameVersion.Japanese:
+                case GameVersion.American:
+                case GameVersion.FinalMix:
+                    return (GameVersion)version;
+                default:
+                    return null;
+            }
+        }
+
         private const int CrcPolynomial = 0x04c11db7;
         private static uint[] crc_table = GetCrcTable(CrcPolynomial)
                 .Take(0x100)
