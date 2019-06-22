@@ -236,7 +236,14 @@ namespace KHSave.SaveEditor.ViewModels
                 Open(file);
 			}
 
-            InvokeRefreshUi();
+            if (SaveKind != SaveType.Unknown)
+            {
+                InvokeRefreshUi();
+            }
+            else
+            {
+                MessageBox.Show("The specified save game is not recognized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 		}
 
         public void Open(Stream stream)
