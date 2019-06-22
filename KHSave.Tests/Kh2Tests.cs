@@ -20,9 +20,9 @@ namespace KHSave.Tests
         }
 
         [Theory]
-        [InlineData(0x4B48324A, true)]
-        [InlineData(0x4B483255, true)]
-        [InlineData(0x4B483245, true)]
+        [InlineData(0x4a32484b, true)]
+        [InlineData(0x5532484b, true)]
+        [InlineData(0x4532484b, true)]
         [InlineData(0xcccccccc, false)]
         public void TestIsValid(uint header, bool expected)
         {
@@ -34,11 +34,11 @@ namespace KHSave.Tests
         }
 
         [Theory]
-        [InlineData(0x4B48324A, 0x2a, GameVersion.Japanese)]
-        [InlineData(0x4B483255, 0x2a, GameVersion.Japanese)]
-        [InlineData(0x4B483245, 0x2a, GameVersion.Japanese)]
-        [InlineData(0x4B483245, 0x2d, GameVersion.American)]
-        [InlineData(0x4B483245, 0x3a, GameVersion.FinalMix)]
+        [InlineData(0x4a32484b, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x5532484b, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x4532484b, 0x2a, GameVersion.Japanese)]
+        [InlineData(0x4532484b, 0x2d, GameVersion.American)]
+        [InlineData(0x4532484b, 0x3a, GameVersion.FinalMix)]
         [InlineData(0xcccccccc, 0x2a, null)]
         public void TestVersion(uint header, int version, GameVersion? expected)
         {
