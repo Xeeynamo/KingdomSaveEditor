@@ -230,19 +230,20 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public void Open(string fileName)
 		{
-			FileName = fileName;
-			using (var file = File.Open(fileName, FileMode.Open))
-			{
-                Open(file);
-			}
-
-            if (SaveKind != SaveType.Unknown)
+            try
             {
+                using (var file = File.Open(fileName, FileMode.Open))
+                    Open(file);
+
+                if (SaveKind == SaveType.Unknown)
+                    throw new SaveNotSupportedException("The specified save game is not recognized.");
+
+                FileName = fileName;
                 InvokeRefreshUi();
             }
-            else
+            catch (SaveNotSupportedException ex)
             {
-                MessageBox.Show("The specified save game is not recognized.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, ex.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 		}
 
