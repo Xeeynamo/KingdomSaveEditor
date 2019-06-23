@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <TabControl>
+        <TabItem Header="System">
+            <views:SystemView DataContext="{Binding System}"/>
+        </TabItem>
         <TabItem Header="Players">
             <views:PlayersView DataContext="{Binding Players}"/>
         </TabItem>

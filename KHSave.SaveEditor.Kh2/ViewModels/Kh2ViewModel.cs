@@ -46,10 +46,12 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             }
         }
 
+        public SystemViewModel System { get; private set; }
         public PlayersViewModel Players { get; private set; }
 
         public void RefreshUi()
         {
+            System = new SystemViewModel(save);
             Players = new PlayersViewModel(save);
         }
 
