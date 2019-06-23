@@ -1,5 +1,6 @@
 ﻿using KHSave.SaveEditor.ViewModels;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -39,5 +40,11 @@ namespace KHSave.SaveEditor.Views
 				}
 			});
 		}
-	}
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
+    }
 }

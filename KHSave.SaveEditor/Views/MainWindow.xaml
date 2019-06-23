@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+        xmlns:kh2="clr-namespace:KHSave.SaveEditor.Kh2;assembly=KHSave.SaveEditor.Kh2"
         xmlns:kh02="clr-namespace:KHSave.SaveEditor.Kh02;assembly=KHSave.SaveEditor.Kh02"
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
+        xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
+    <Window.Resources>
+        <SolidColorBrush x:Key="textForeground" Color="#F1F1F1" />
+        <SolidColorBrush x:Key="textHyperlink" Color="#569CD6" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -44,24 +50,73 @@
             <StackPanel>
                 <Label>No save is currently load.</Label>
                 <Label>Load the save from File\Open...</Label>
+                <Separator Margin="10"/>
+                <Label>Kingdom Hearts Save Editor currently supports the following saves:</Label>
+                <StackPanel Margin="20 0 0 0">
+                    <TextBlock>Kingdom Hearts II: Final Mix</TextBlock>
+                    <TextBlock>Kingdom Hearts 0.2</TextBlock>
+                    <TextBlock>Kingdom Hearts III</TextBlock>
+                </StackPanel>
+                <Separator Margin="10"/>
+                <TextBlock Margin="10 3 3 3"
+                    Foreground="{DynamicResource textHyperlink}">
+                    <Hyperlink
+                        NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
+                        RequestNavigate="Hyperlink_RequestNavigate"
+                        TextDecorations="{x:Null}">
+                        Kingdom Hearts Save Editor source code
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Margin="10 3 3 3"
+                    Foreground="{DynamicResource textHyperlink}">
+                    <Hyperlink
+                        NavigateUri="https://github.com/xeeynamo/openkh"
+                        RequestNavigate="Hyperlink_RequestNavigate"
+                        TextDecorations="{x:Null}">
+                        OpenKh source code
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Margin="10 3 3 3"
+                    Foreground="{DynamicResource textHyperlink}">
+                    <Hyperlink
+                        NavigateUri="https://xeeynamo.github.io/OpenKh"
+                        RequestNavigate="Hyperlink_RequestNavigate"
+                        TextDecorations="{x:Null}">
+                        OpenKh documentation
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Margin="10 3 3 3"
+                    Foreground="{DynamicResource textHyperlink}">
+                    <Hyperlink
+                        NavigateUri="https://lucianociccariello.com/"
+                        RequestNavigate="Hyperlink_RequestNavigate"
+                        TextDecorations="{x:Null}">
+                        Author website (open to commissions)
+                    </Hyperlink>
+                </TextBlock>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsUnknown}"
-            Visibility="{Binding VisibilityUnknown}">
+            Visibility="{Binding VisibilityUnknown, FallbackValue=Collapsed}">
             <StackPanel>
                 <Label>The save loaded is not supported.</Label>
                 <Label>Be sure to have the last version or that the save is decrypted or supported.</Label>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1"
+            IsEnabled="{Binding IsKh2Save}"
+            Visibility="{Binding VisibilityKh2, FallbackValue=Collapsed}">
+            <kh2:MainView DataContext="{Binding DataContext}"/>
+        </Grid>
+        <Grid Grid.Row="1"
             IsEnabled="{Binding IsKh02Save}"
-            Visibility="{Binding VisibilityKh02}">
+            Visibility="{Binding VisibilityKh02, FallbackValue=Collapsed}">
             <kh02:MainView DataContext="{Binding DataContext}"/>
         </Grid>
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsKh3Save}"
-            Visibility="{Binding VisibilityKh3}">
+            Visibility="{Binding VisibilityKh3, FallbackValue=Collapsed}">
             <kh3:MainView DataContext="{Binding DataContext}"/>
         </Grid>
     </Grid>

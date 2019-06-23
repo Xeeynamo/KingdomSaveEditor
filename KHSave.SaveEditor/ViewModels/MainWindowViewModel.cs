@@ -35,6 +35,9 @@ using KHSave.SaveEditor.Views;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
 using KHSave.SaveEditor.Kh02.ViewModels;
+using KHSave.Lib2;
+using KHSave.SaveEditor.Kh2.ViewModels;
+using KHSave.SaveEditor.Common.Exceptions;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -42,6 +45,7 @@ namespace KHSave.SaveEditor.ViewModels
     {
         Unload,
         Unknown,
+        KingdomHearts2,
         KingdomHearts02,
         KingdomHearts3
     }
@@ -99,6 +103,10 @@ namespace KHSave.SaveEditor.ViewModels
                 OnPropertyChanged(nameof(VisibilityUnload));
                 OnPropertyChanged(nameof(IsUnknown));
                 OnPropertyChanged(nameof(VisibilityUnknown));
+                OnPropertyChanged(nameof(IsKh2Save));
+                OnPropertyChanged(nameof(VisibilityKh2));
+                OnPropertyChanged(nameof(IsKh02Save));
+                OnPropertyChanged(nameof(VisibilityKh02));
                 OnPropertyChanged(nameof(IsKh3Save));
                 OnPropertyChanged(nameof(VisibilityKh3));
             }
@@ -107,6 +115,8 @@ namespace KHSave.SaveEditor.ViewModels
         public Visibility VisibilityUnload => IsUnload ? Visibility.Visible : Visibility.Collapsed;
         public bool IsUnknown => SaveKind == SaveType.Unknown;
         public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsKh2Save => SaveKind == SaveType.KingdomHearts2;
+        public Visibility VisibilityKh2 => IsKh2Save ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh02Save => SaveKind == SaveType.KingdomHearts02;
         public Visibility VisibilityKh02 => IsKh02Save ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
@@ -141,8 +151,9 @@ namespace KHSave.SaveEditor.ViewModels
 			{
 				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
                 {
-                    ("Kingdom Hearts III Save", "bin"),
+                    ("Kingdom Hearts 2 Save", "bin"),
                     ("Kingdom Hearts 0.2 Save", "sav"),
+                    ("Kingdom Hearts III Save", "bin"),
                 });
 				if (fd.ShowDialog() == true)
 				{
@@ -230,20 +241,42 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public void Open(string fileName)
 		{
-			FileName = fileName;
-			using (var file = File.Open(fileName, FileMode.Open))
-			{
-                Open(file);
-			}
+            try
+            {
+                using (var file = File.Open(fileName, FileMode.Open))
+                    Open(file);
 
-            InvokeRefreshUi();
+                if (SaveKind == SaveType.Unknown)
+                    throw new SaveNotSupportedException("The specified save game is not recognized.");
+
+                FileName = fileName;
+                InvokeRefreshUi();
+            }
+            catch (SaveNotSupportedException ex)
+            {
+                MessageBox.Show(ex.Message, ex.Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 		}
 
         public void Open(Stream stream)
         {
-            bool isOpen = TryOpenKh02(stream) || TryOpenKh3(stream);
+            bool isOpen = TryOpenKh2(stream) || TryOpenKh02(stream) || TryOpenKh3(stream);
             if (isOpen == false)
                 SaveKind = SaveType.Unknown;
+        }
+
+        public bool TryOpenKh2(Stream stream)
+        {
+            if (!SaveKh2.IsValid(stream))
+                return false;
+
+            var saveViewModel = new Kh2ViewModel(stream);
+            DataContext = saveViewModel;
+            RefreshUi = saveViewModel;
+            WriteToStream = saveViewModel;
+            SaveKind = SaveType.KingdomHearts2;
+
+            return true;
         }
 
         public bool TryOpenKh02(Stream stream)

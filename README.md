@@ -8,7 +8,8 @@ The project offers a code library to help to create complex editors of scripts o
 
 | Game               | Support |
 |--------------------| --------|
-| Kingdom Hearts 0.2 | editor    |
+| Kingdom Hearts II  | editor  |
+| Kingdom Hearts 0.2 | editor  |
 | Kingdom Hearts III | editor  |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
@@ -53,6 +54,11 @@ Here is a screenshot preview of how the editor in action looks like:
     * Import custom photo in the game
     * Delete all the photos
     
+# Features in Kingdom Hearts II editor
+
+* Shortcuts editor
+* Character editor
+    
 # Features in Kingdom Hearts 0.2 editor
 
 * Multiple slot editing
@@ -61,7 +67,7 @@ Here is a screenshot preview of how the editor in action looks like:
 * Room mod
 
 
-## How to use it
+## How to use it for PS4 games
 
 You need first to get a decrypted save. There are two ways to achieve it:
 
@@ -75,11 +81,11 @@ Once you get your save, just open it using the KH3SaveEditor from File\Open, the
 
 The latest version of the game converts your existing 1.00-1.03 save into a new version, creating a `kh3sv2`, which is a copy of `kh3sv` with few values changed.
 
-Save Wizard still does not support the new `kh3sv2`, so in order to use it you can just go to the USB drive, go to the folder where KH3 saves are located and you can just rename `kh3sv2` to `kh3sv` (you might move the existing `kh3sv`).
-
-It is not needed to change the name back to `kh3sv2`.
-
 The version 1.05 changes only three values when it converts your saves: the major/minor version goes from 1.2 to 3.1 (editable in Advance Mode) and the Max selfie count value goes from 100 to 200.
+
+## How to use it for PS2 games
+
+The editor works on the raw save data from PS2 save game files. As long as you can extract the save slot from the memory card or from your favourite emulator, you can edit it. A native support for reading the save without extracting it from its container will come in a near future.
 
 ## Contribute to make it better
 
@@ -90,11 +96,8 @@ If you want to add missing names, improve it or add new offsets, just clone the 
 ## What's next
 
 The following features are missing:
-* Ability editor
 * Chests
 * Cuisine editor
-* AI customization
-* Records
 * Everything related to the Gummiphone
 
 ## To conclude
