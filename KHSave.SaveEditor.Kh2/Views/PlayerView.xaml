@@ -8,44 +8,42 @@
              xmlns:xe="clr-namespace:Xe.Tools.Wpf.Controls;assembly=Xe.Tools.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
-    <StackPanel>
-        <common:TwoEqualColumnsStackPanel>
-            <TextBlock Text="Level"/>
-            <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Armor count"/>
-            <TextBox Text="{Binding ArmorCount, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Accessory count"/>
-            <TextBox Text="{Binding AccessoryCount, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Item count"/>
-            <TextBox Text="{Binding ItemCount, UpdateSourceTrigger=PropertyChanged}"/>
+    <common:TwoEqualColumnsStackPanel>
+        <TextBlock Text="Level"/>
+        <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Armor count"/>
+        <TextBox Text="{Binding ArmorCount, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Accessory count"/>
+        <TextBox Text="{Binding AccessoryCount, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Item count"/>
+        <TextBox Text="{Binding ItemCount, UpdateSourceTrigger=PropertyChanged}"/>
             
-            <TextBlock Text="HP current"/>
-            <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="HP max"/>
-            <TextBox Text="{Binding HpMax, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="MP current"/>
-            <TextBox Text="{Binding MpCur, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="MP max"/>
-            <TextBox Text="{Binding MpMax, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="HP current"/>
+        <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="HP max"/>
+        <TextBox Text="{Binding HpMax, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="MP current"/>
+        <TextBox Text="{Binding MpCur, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="MP max"/>
+        <TextBox Text="{Binding MpMax, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Text="AP boost"/>
-            <TextBox Text="{Binding ApBoost, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Strength boost"/>
-            <TextBox Text="{Binding StrengthBoost, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Magic boost"/>
-            <TextBox Text="{Binding MagicBoost, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Defense boost"/>
-            <TextBox Text="{Binding DefenseBoost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="AP boost"/>
+        <TextBox Text="{Binding ApBoost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Strength boost"/>
+        <TextBox Text="{Binding StrengthBoost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Magic boost"/>
+        <TextBox Text="{Binding MagicBoost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Defense boost"/>
+        <TextBox Text="{Binding DefenseBoost, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <TextBlock Text="Unk02"/>
-            <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unk0c"/>
-            <TextBox Text="{Binding Unk0c, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unk0d"/>
-            <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unk0e"/>
-            <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Unk02"/>
+        <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Unk0c"/>
+        <TextBox Text="{Binding Unk0c, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Unk0d"/>
+        <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Unk0e"/>
+        <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
 
-        </common:TwoEqualColumnsStackPanel>
-    </StackPanel>
+    </common:TwoEqualColumnsStackPanel>
 </UserControl>
