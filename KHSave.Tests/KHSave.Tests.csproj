@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -17,10 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Saves\" />
+    <Folder Include="Saves\Archives\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
