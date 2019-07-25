@@ -67,6 +67,8 @@ namespace KHSave.Presets
             [(int)StoryFlagType.Caribbean] = new Dictionary<int, string>
             {
                 [0] = "Start of the World",
+                [200] = "Don't let the black pearl escape",
+                [400] = "Sail to the island with the two peaks!",
                 [9999] = "Story Done",
             },
             [(int)StoryFlagType.DestinyIsland] = new Dictionary<int, string>
