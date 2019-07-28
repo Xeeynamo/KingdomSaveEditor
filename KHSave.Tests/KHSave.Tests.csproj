@@ -21,9 +21,13 @@
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
+    <ProjectReference Include="..\KHSave.LibRecom\KHSave.LibRecom.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Saves\BISLPM-66676COM-01">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Saves\kh02.sav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
