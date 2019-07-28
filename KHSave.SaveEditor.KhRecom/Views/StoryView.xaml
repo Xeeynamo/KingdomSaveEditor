@@ -39,6 +39,36 @@
                     <CheckBox Content="Goal 2" IsChecked="{Binding PoGoal2}"/>
                 </StackPanel>
             </GroupBox>
+            <GroupBox Header="Unlocked cards">
+                <StackPanel Margin="5">
+                    <CheckBox Content="Spellbinder" IsChecked="{Binding CaSpellbinder}"/>
+                    <CheckBox Content="Metal Chocobo" IsChecked="{Binding CaMetalChocobo}"/>
+                    <CheckBox Content="Lionheart" IsChecked="{Binding CaLionheart}"/>
+                    <CheckBox Content="Oathkeeper" IsChecked="{Binding CaOathkeeper}"/>
+                    <CheckBox Content="Oblivion" IsChecked="{Binding CaOblivion}"/>
+                    <CheckBox Content="Ultima Weapon" IsChecked="{Binding CaUltimaWeapon}"/>
+                    <CheckBox Content="DiamondDust" IsChecked="{Binding CaDiamondDust}"/>
+                    <CheckBox Content="One-Winged Angel" IsChecked="{Binding CaOneWingedAngel}"/>
+                    <CheckBox Content="Fire" IsChecked="{Binding CaFire}"/>
+                    <CheckBox Content="Thunder" IsChecked="{Binding CaThunder}"/>
+                    <CheckBox Content="Gravity" IsChecked="{Binding CaGravity}"/>
+                    <CheckBox Content="Stop" IsChecked="{Binding CaStop}"/>
+                    <CheckBox Content="Aero" IsChecked="{Binding CaAero}"/>
+                    <CheckBox Content="Simba" IsChecked="{Binding CaSimba}"/>
+                    <CheckBox Content="Genie" IsChecked="{Binding CaGenie}"/>
+                    <CheckBox Content="Bambi" IsChecked="{Binding CaBambi}"/>
+                    <CheckBox Content="Dumbo" IsChecked="{Binding CaDumbo}"/>
+                    <CheckBox Content="Tinkerbell" IsChecked="{Binding CaTinkerbell}"/>
+                    <CheckBox Content="Mushu" IsChecked="{Binding CaMushu}"/>
+                    <CheckBox Content="Cloud" IsChecked="{Binding CaCloud}"/>
+                    <CheckBox Content="Hi-Potion" IsChecked="{Binding CaHiPotion}"/>
+                    <CheckBox Content="Mega-Potion" IsChecked="{Binding CaMegaPotion}"/>
+                    <CheckBox Content="Ether" IsChecked="{Binding CaEther}"/>
+                    <CheckBox Content="Mega-Ether" IsChecked="{Binding CaMegaEther}"/>
+                    <CheckBox Content="Elixir" IsChecked="{Binding CaElixir}"/>
+                    <CheckBox Content="Megalixir" IsChecked="{Binding CaMegalixir}"/>
+                </StackPanel>
+            </GroupBox>
 
             <Rectangle Margin="10"/>
 
