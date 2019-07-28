@@ -3,7 +3,7 @@ using KHSave.LibRecom.Models;
 
 namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class StoryViewModel
+    public class ProgressViewModel
     {
         private readonly DataRecom _save;
         private StoryFlag Sora => _save.SoraStoryFlag;
@@ -12,7 +12,7 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         private TutorialFlags Tuto => _save.Tutorial;
         private CardFlags Card => _save.UnlockedCards;
 
-        public StoryViewModel(DataRecom save)
+        public ProgressViewModel(DataRecom save)
         {
             _save = save;
         }
