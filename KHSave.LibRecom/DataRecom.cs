@@ -7,6 +7,7 @@ namespace KHSave.LibRecom
     {
         [Data(0, 0x3620)] public byte[] Data { get; set; }
         [Data(0x314)] public StoryFlag SoraStoryFlag { get; set; }
-        [Data(0x316)] public StoryFlag RikuStoryFlag { get; set; }
+        [Data] public StoryFlag RikuStoryFlag { get; set; }
+        [Data] public TutorialFlags Tutorial { get; set; }
     }
 }

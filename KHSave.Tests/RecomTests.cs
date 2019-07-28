@@ -64,6 +64,18 @@ namespace KHSave.Tests
             Assert.False(save.RikuStoryFlag.Agrabah);
         });
 
+        [Fact]
+        public void CheckTutorialsClearedFlags() => OnSaveData(save =>
+        {
+            Assert.False(save.Tutorial.KeyRoom);
+            Assert.False(save.Tutorial.MoogleShop);
+            Assert.False(save.Tutorial.FloorMove);
+            Assert.False(save.Tutorial.WarpPoint);
+            Assert.True(save.Tutorial.SavePoint);
+            Assert.True(save.Tutorial.Field);
+            Assert.True(save.Tutorial.WorldSelect);
+        });
+
         private static void OnSave(Action<SaveKhRecom> test)
         {
             const string FilePath = "Saves/BISLPM-66676COM-01";
