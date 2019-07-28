@@ -16,6 +16,8 @@
         </TabItem>
         <TabItem Header="Deck"/>
         <TabItem Header="Journal"/>
-        <TabItem Header="Settings"/>
+        <TabItem Header="Settings">
+            <views:SettingsView DataContext="{Binding Settings}"/>
+        </TabItem>
     </TabControl>
 </UserControl>

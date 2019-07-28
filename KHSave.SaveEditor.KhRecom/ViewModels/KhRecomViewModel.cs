@@ -12,6 +12,7 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
         public SystemViewModel KhSystem { get; private set; }
         public CardInventoryViewModel Inventory { get; private set; }
+        public SettingsViewModel Settings { get; private set; }
 
         public KhRecomViewModel(Stream stream)
         {
@@ -21,11 +22,13 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
         public void RefreshUi()
         {
-            KhSystem = new SystemViewModel(_save.Data);
+            KhSystem = new SystemViewModel(SaveData);
             Inventory = new CardInventoryViewModel();
+            Settings = new SettingsViewModel(SaveData);
 
             OnPropertyChanged(nameof(SystemViewModel));
             OnPropertyChanged(nameof(CardInventoryViewModel));
+            OnPropertyChanged(nameof(SettingsViewModel));
         }
 
         public void WriteToStream(Stream stream) => _save.Write(stream);

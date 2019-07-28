@@ -39,6 +39,7 @@
                 Content="KH2 clear"
                 IsChecked="{Binding Kh2Cleared}"/>
             <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
+            <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
         </common:TwoEqualColumnsStackPanel>
     </Grid>
 </UserControl>
