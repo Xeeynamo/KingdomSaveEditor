@@ -16,6 +16,9 @@
         </TabItem>
         <TabItem Header="Deck"/>
         <TabItem Header="Journal"/>
+        <TabItem Header="Story">
+            <views:StoryView DataContext="{Binding Story}"/>
+        </TabItem>
         <TabItem Header="Settings">
             <views:SettingsView DataContext="{Binding Settings}"/>
         </TabItem>
