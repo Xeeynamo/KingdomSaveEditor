@@ -2,6 +2,7 @@
 using KHSave.LibRecom;
 using System.IO;
 using System;
+using KHSave.LibRecom.Types;
 
 namespace KHSave.Tests
 {
@@ -74,6 +75,18 @@ namespace KHSave.Tests
             Assert.True(save.Tutorial.SavePoint);
             Assert.True(save.Tutorial.Field);
             Assert.True(save.Tutorial.WorldSelect);
+        });
+
+        [Fact]
+        public void CheckPlayMode() => OnSaveData(save =>
+        {
+            Assert.Equal(PlayMode.Sora, save.PlayMode);
+        });
+
+        [Fact]
+        public void CheckDifficulty() => OnSaveData(save =>
+        {
+            Assert.Equal(Difficulty.Standard, save.Difficulty);
         });
 
         private static void OnSave(Action<SaveKhRecom> test)
