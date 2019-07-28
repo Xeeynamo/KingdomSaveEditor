@@ -4,7 +4,8 @@ namespace KHSave.LibRecom.Models
 {
     public class StoryFlag
     {
-        [Data] public bool TraverseTown { get; set; }
+        [Data] public int Data { get; set; }
+        [Data(0)] public bool TraverseTown { get; set; }
         [Data] public bool Agrabah { get; set; }
         [Data] public bool OlympusColiseum { get; set; }
         [Data] public bool Wonderland { get; set; }
