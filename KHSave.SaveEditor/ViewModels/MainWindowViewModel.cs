@@ -36,8 +36,10 @@ using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
 using KHSave.SaveEditor.Kh02.ViewModels;
 using KHSave.Lib2;
+using KHSave.LibRecom;
 using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.SaveEditor.KhRecom.ViewModels;
 using KHSave.Archives;
 using KHSave.SaveEditor.Common.Views;
 using KHSave.SaveEditor.Common.Services;
@@ -50,6 +52,7 @@ namespace KHSave.SaveEditor.ViewModels
         Unknown,
         Archive,
         KingdomHearts2,
+        KingdomHeartsRecom,
         KingdomHearts02,
         KingdomHearts3
     }
@@ -109,6 +112,8 @@ namespace KHSave.SaveEditor.ViewModels
                 OnPropertyChanged(nameof(VisibilityUnknown));
                 OnPropertyChanged(nameof(IsKh2Save));
                 OnPropertyChanged(nameof(VisibilityKh2));
+                OnPropertyChanged(nameof(IsKhRecomSave));
+                OnPropertyChanged(nameof(VisibilityKhRecom));
                 OnPropertyChanged(nameof(IsKh02Save));
                 OnPropertyChanged(nameof(VisibilityKh02));
                 OnPropertyChanged(nameof(IsKh3Save));
@@ -121,6 +126,8 @@ namespace KHSave.SaveEditor.ViewModels
         public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh2Save => SaveKind == SaveType.KingdomHearts2;
         public Visibility VisibilityKh2 => IsKh2Save ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsKhRecomSave => SaveKind == SaveType.KingdomHeartsRecom;
+        public Visibility VisibilityKhRecom => IsKhRecomSave ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh02Save => SaveKind == SaveType.KingdomHearts02;
         public Visibility VisibilityKh02 => IsKh02Save ? Visibility.Visible : Visibility.Collapsed;
         public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
@@ -155,9 +162,7 @@ namespace KHSave.SaveEditor.ViewModels
 			{
 				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
                 {
-                    ("Kingdom Hearts 2 Save", "bin"),
-                    ("Kingdom Hearts 0.2 Save", "sav"),
-                    ("Kingdom Hearts III Save", "bin"),
+                    ("Kingdom Hearts II/ReCom/0.2/3 Save", "*"),
                 });
 				if (fd.ShowDialog() == true)
 				{
@@ -182,7 +187,7 @@ namespace KHSave.SaveEditor.ViewModels
 
 			SaveAsCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts III Save", "bin"));
+				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts II/ReCom/0.2/3 Save", "*"));
 				fd.DefaultFileName = FileName;
 
 				if (fd.ShowDialog() == true)
@@ -340,6 +345,20 @@ namespace KHSave.SaveEditor.ViewModels
             RefreshUi = saveViewModel;
             WriteToStream = saveViewModel;
             SaveKind = SaveType.KingdomHearts2;
+
+            return true;
+        }
+
+        public bool TryOpenKhRecom(Stream stream)
+        {
+            if (!SaveKhRecom.IsValid(stream))
+                return false;
+
+            var saveViewModel = new KhRecomViewModel(stream);
+            DataContext = saveViewModel;
+            RefreshUi = saveViewModel;
+            WriteToStream = saveViewModel;
+            SaveKind = SaveType.KingdomHeartsRecom;
 
             return true;
         }

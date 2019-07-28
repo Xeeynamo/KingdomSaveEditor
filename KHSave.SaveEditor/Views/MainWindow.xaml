@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
         xmlns:kh2="clr-namespace:KHSave.SaveEditor.Kh2;assembly=KHSave.SaveEditor.Kh2"
+        xmlns:khRecom="clr-namespace:KHSave.SaveEditor.KhRecom;assembly=KHSave.SaveEditor.KhRecom"
         xmlns:kh02="clr-namespace:KHSave.SaveEditor.Kh02;assembly=KHSave.SaveEditor.Kh02"
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
         xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
@@ -108,6 +109,11 @@
             IsEnabled="{Binding IsKh2Save}"
             Visibility="{Binding VisibilityKh2, FallbackValue=Collapsed}">
             <kh2:MainView DataContext="{Binding DataContext}"/>
+        </Grid>
+        <Grid Grid.Row="1"
+            IsEnabled="{Binding IsKhRecomSave}"
+            Visibility="{Binding VisibilityKhRecom, FallbackValue=Collapsed}">
+            <khRecom:MainView DataContext="{Binding DataContext}"/>
         </Grid>
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsKh02Save}"

@@ -50,10 +50,12 @@
     <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
+    <ProjectReference Include="..\KHSave.LibRecom\KHSave.LibRecom.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh02\KHSave.SaveEditor.Kh02.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh2\KHSave.SaveEditor.Kh2.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.KhRecom\KHSave.SaveEditor.KhRecom.csproj" />
     <ProjectReference Include="..\Xe.ReleaseUpdater\Xe.VersionCheck\Xe.VersionCheck.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj" />
