@@ -9,6 +9,7 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         private StoryFlag Sora => _save.SoraStoryFlag;
         private StoryFlag Riku => _save.RikuStoryFlag;
         private PoohFlags Pooh => _save.PoohFlags;
+        private TutorialFlags Tuto => _save.Tutorial;
 
         public StoryViewModel(DataRecom save)
         {
@@ -51,5 +52,13 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         public bool PoRabbit { get => Pooh.Rabbit; set => Pooh.Rabbit = value; }
         public bool PoGoal1 { get => Pooh.Goal1; set => Pooh.Goal1 = value; }
         public bool PoGoal2 { get => Pooh.Goal2; set => Pooh.Goal2 = value; }
+
+        public bool TuKeyRoom { get => Tuto.KeyRoom; set => Tuto.KeyRoom = value; }
+        public bool TuMoogleShop { get => Tuto.MoogleShop; set => Tuto.MoogleShop = value; }
+        public bool TuFloorMove { get => Tuto.FloorMove; set => Tuto.FloorMove = value; }
+        public bool TuWarpPoint { get => Tuto.WarpPoint; set => Tuto.WarpPoint = value; }
+        public bool TuSavePoint { get => Tuto.SavePoint; set => Tuto.SavePoint = value; }
+        public bool TuField { get => Tuto.Field; set => Tuto.Field = value; }
+        public bool TuWorldSelect { get => Tuto.WorldSelect; set => Tuto.WorldSelect = value; }
     }
 }

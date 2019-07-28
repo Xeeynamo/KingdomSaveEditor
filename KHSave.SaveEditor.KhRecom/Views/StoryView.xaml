@@ -61,6 +61,18 @@
                     <CheckBox Content="Castle Oblivion" IsChecked="{Binding RikuCastleOblivion}"/>
                 </StackPanel>
             </GroupBox>
+
+            <TextBlock Text="Tutorial already viewed" Margin="10 0 0 0" FontWeight="Bold"/>
+            <Separator Margin="5"/>
+            <StackPanel>
+                <CheckBox Content="Key room" IsChecked="{Binding TuKeyRoom}"/>
+                <CheckBox Content="Moogle shop" IsChecked="{Binding TuMoogleShop}"/>
+                <CheckBox Content="Floor move" IsChecked="{Binding TuFloorMove}"/>
+                <CheckBox Content="Warp point" IsChecked="{Binding TuWarpPoint}"/>
+                <CheckBox Content="Save point" IsChecked="{Binding TuSavePoint}"/>
+                <CheckBox Content="Field tutorial" IsChecked="{Binding TuField}"/>
+                <CheckBox Content="World select" IsChecked="{Binding TuWorldSelect}"/>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
