@@ -25,9 +25,9 @@ namespace KHSave.LibRecom
         [Data(0x492)] public bool Unknown492_0 { get; set; }
         [Data] public bool Kh2Cleared { get; set; }
         [Data] public bool RikuCleared { get; set; }
-        [Data(0x4a0)] public byte Unknown4a0_0 { get; set; }
-        [Data] public byte Unknown4a0_1 { get; set; }
-        [Data] public byte MarluxiaKilled { get; set; }
-        [Data] public byte GameCleared { get; set; }
+        [Data(0x4a0)] public bool Unknown4a0_0 { get; set; }
+        [Data] public bool Unknown4a0_1 { get; set; }
+        [Data] public bool MarluxiaKilled { get; set; }
+        [Data] public bool GameCleared { get; set; }
     }
 }

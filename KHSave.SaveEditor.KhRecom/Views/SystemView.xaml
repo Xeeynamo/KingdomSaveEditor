@@ -22,6 +22,23 @@
                 SelectedValue="{Binding Difficulty}"
                 DisplayMemberPath="Name"
                 SelectedValuePath="Value"/>
+
+            <CheckBox
+                Content="Sora story clear"
+                IsChecked="{Binding SoraCleared}"/>
+            <CheckBox
+                Content="Riku story clear"
+                IsChecked="{Binding RikuCleared}"/>
+            <CheckBox
+                Content="Marluxia defeated"
+                IsChecked="{Binding MarluxiaKilled}"/>
+            <CheckBox
+                Content="Game clear"
+                IsChecked="{Binding GameCleared}"/>
+            <CheckBox
+                Content="KH2 clear"
+                IsChecked="{Binding Kh2Cleared}"/>
+            <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
         </common:TwoEqualColumnsStackPanel>
     </Grid>
 </UserControl>

@@ -30,5 +30,35 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
             get => _save.Difficulty;
             set => _save.Difficulty = value;
         }
+
+        public bool SoraCleared
+        {
+            get => _save.SoraCleared;
+            set => _save.SoraCleared = value;
+        }
+
+        public bool RikuCleared
+        {
+            get => _save.RikuCleared;
+            set => _save.RikuCleared = value;
+        }
+
+        public bool MarluxiaKilled
+        {
+            get => _save.MarluxiaKilled;
+            set => _save.MarluxiaKilled = value;
+        }
+
+        public bool GameCleared
+        {
+            get => _save.GameCleared;
+            set => _save.GameCleared = value;
+        }
+
+        public bool Kh2Cleared
+        {
+            get => _save.Kh2Cleared;
+            set => _save.Kh2Cleared = value;
+        }
     }
 }
