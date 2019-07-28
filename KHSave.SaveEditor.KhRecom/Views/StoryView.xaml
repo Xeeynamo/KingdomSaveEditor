@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.KhRecom.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             xmlns:wpf="clr-namespace:Xe.Tools.Wpf.Controls;assembly=Xe.Tools.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
     <ScrollViewer>
@@ -11,7 +13,7 @@
             <TextBlock Text="Sora story flags" Margin="10 0 0 0" FontWeight="Bold"/>
             <Separator Margin="5"/>
             <GroupBox Header="Has been visited">
-                <StackPanel Margin="5">
+                <wpf:TwoEqualColumnsPanel Margin="5">
                     <CheckBox Content="Traverse Town" IsChecked="{Binding SoraTraverseTown}"/>
                     <CheckBox Content="Agrabah" IsChecked="{Binding SoraAgrabah}"/>
                     <CheckBox Content="Olympus Coliseum" IsChecked="{Binding SoraOlympusColiseum}"/>
@@ -25,10 +27,10 @@
                     <CheckBox Content="Twilight Town" IsChecked="{Binding SoraTwilightTown}"/>
                     <CheckBox Content="Destiny Island" IsChecked="{Binding SoraDestinyIsland}"/>
                     <CheckBox Content="Castle Oblivion" IsChecked="{Binding SoraCastleOblivion}"/>
-                </StackPanel>
+                </wpf:TwoEqualColumnsPanel>
             </GroupBox>
             <GroupBox Header="100 Acre Wood flags">
-                <StackPanel Margin="5">
+                <wpf:TwoEqualColumnsPanel Margin="5">
                     <CheckBox Content="Piglet" IsChecked="{Binding PoPiglet}"/>
                     <CheckBox Content="Owl" IsChecked="{Binding PoOwl}"/>
                     <CheckBox Content="Roo" IsChecked="{Binding PoRoo}"/>
@@ -37,10 +39,10 @@
                     <CheckBox Content="Rabbit" IsChecked="{Binding PoRabbit}"/>
                     <CheckBox Content="Goal 1" IsChecked="{Binding PoGoal1}"/>
                     <CheckBox Content="Goal 2" IsChecked="{Binding PoGoal2}"/>
-                </StackPanel>
+                </wpf:TwoEqualColumnsPanel>
             </GroupBox>
             <GroupBox Header="Unlocked cards">
-                <StackPanel Margin="5">
+                <wpf:TwoEqualColumnsPanel>
                     <CheckBox Content="Spellbinder" IsChecked="{Binding CaSpellbinder}"/>
                     <CheckBox Content="Metal Chocobo" IsChecked="{Binding CaMetalChocobo}"/>
                     <CheckBox Content="Lionheart" IsChecked="{Binding CaLionheart}"/>
@@ -67,15 +69,14 @@
                     <CheckBox Content="Mega-Ether" IsChecked="{Binding CaMegaEther}"/>
                     <CheckBox Content="Elixir" IsChecked="{Binding CaElixir}"/>
                     <CheckBox Content="Megalixir" IsChecked="{Binding CaMegalixir}"/>
-                </StackPanel>
+                </wpf:TwoEqualColumnsPanel>
             </GroupBox>
-
             <Rectangle Margin="10"/>
 
             <TextBlock Text="Riku story flags" Margin="10 0 0 0" FontWeight="Bold"/>
             <Separator Margin="5"/>
             <GroupBox Header="Has been visited">
-                <StackPanel Margin="5">
+                <wpf:TwoEqualColumnsPanel Margin="5">
                     <CheckBox Content="Traverse Town" IsChecked="{Binding RikuTraverseTown}"/>
                     <CheckBox Content="Agrabah" IsChecked="{Binding RikuAgrabah}"/>
                     <CheckBox Content="Olympus Coliseum" IsChecked="{Binding RikuOlympusColiseum}"/>
@@ -89,12 +90,13 @@
                     <CheckBox Content="Twilight Town" IsChecked="{Binding RikuTwilightTown}"/>
                     <CheckBox Content="Destiny Island" IsChecked="{Binding RikuDestinyIsland}"/>
                     <CheckBox Content="Castle Oblivion" IsChecked="{Binding RikuCastleOblivion}"/>
-                </StackPanel>
+                </wpf:TwoEqualColumnsPanel>
             </GroupBox>
+            <Rectangle Margin="10"/>
 
             <TextBlock Text="Tutorial already viewed" Margin="10 0 0 0" FontWeight="Bold"/>
             <Separator Margin="5"/>
-            <StackPanel>
+            <wpf:TwoEqualColumnsPanel Margin="10 0 10 0">
                 <CheckBox Content="Key room" IsChecked="{Binding TuKeyRoom}"/>
                 <CheckBox Content="Moogle shop" IsChecked="{Binding TuMoogleShop}"/>
                 <CheckBox Content="Floor move" IsChecked="{Binding TuFloorMove}"/>
@@ -102,7 +104,8 @@
                 <CheckBox Content="Save point" IsChecked="{Binding TuSavePoint}"/>
                 <CheckBox Content="Field tutorial" IsChecked="{Binding TuField}"/>
                 <CheckBox Content="World select" IsChecked="{Binding TuWorldSelect}"/>
-            </StackPanel>
+            </wpf:TwoEqualColumnsPanel>
+            <Rectangle Margin="10"/>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
