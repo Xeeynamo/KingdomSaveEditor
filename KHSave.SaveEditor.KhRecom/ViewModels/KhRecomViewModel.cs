@@ -7,23 +7,27 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
     public class KhRecomViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream
     {
-        public SaveKhRecom Save { get; }
+        private readonly SaveKhRecom _save;
+        private DataRecom SaveData => _save.Data;
 
+        public SystemViewModel KhSystem { get; private set; }
         public CardInventoryViewModel Inventory { get; private set; }
 
         public KhRecomViewModel(Stream stream)
         {
-            Save = SaveKhRecom.Read(stream);
+            _save = SaveKhRecom.Read(stream);
             RefreshUi();
         }
 
         public void RefreshUi()
         {
+            KhSystem = new SystemViewModel(_save.Data);
             Inventory = new CardInventoryViewModel();
 
+            OnPropertyChanged(nameof(SystemViewModel));
             OnPropertyChanged(nameof(CardInventoryViewModel));
         }
 
-        public void WriteToStream(Stream stream) => Save.Write(stream);
+        public void WriteToStream(Stream stream) => _save.Write(stream);
     }
 }

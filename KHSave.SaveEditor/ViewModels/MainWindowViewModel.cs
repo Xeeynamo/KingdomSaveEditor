@@ -276,6 +276,7 @@ namespace KHSave.SaveEditor.ViewModels
         {
             bool isOpen =
                 TryOpenKh2(stream) ||
+                TryOpenKhRecom(stream) ||
                 TryOpenKh02(stream) ||
                 TryOpenKh3(stream) ||
                 TryOpenArchive(stream);

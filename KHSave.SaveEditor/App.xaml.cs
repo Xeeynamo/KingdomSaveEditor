@@ -25,7 +25,7 @@ namespace KHSave.SaveEditor
 #if DEBUG
             if (Debugger.IsAttached)
             {
-                return @"D:\Xeeynamo\Desktop\modding\Saves\Random PS4 saves\kh2fm_ps4.dat";
+                return "../../../../KHSave.Tests/Saves/BISLPM-66676COM-01";
             }
 #endif
             return null;
