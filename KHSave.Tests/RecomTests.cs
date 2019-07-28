@@ -55,11 +55,23 @@ namespace KHSave.Tests
             }
         });
 
+        [Fact]
+        public void CheckStoryFlags() => OnSaveData(save =>
+        {
+            Assert.True(save.SoraStoryFlag.TraverseTown);
+            Assert.False(save.SoraStoryFlag.Agrabah);
+            Assert.False(save.RikuStoryFlag.TraverseTown);
+            Assert.False(save.RikuStoryFlag.Agrabah);
+        });
+
         private static void OnSave(Action<SaveKhRecom> test)
         {
             const string FilePath = "Saves/BISLPM-66676COM-01";
             using (var stream = File.OpenRead(FilePath))
                 test(SaveKhRecom.Read(stream));
         }
+
+        private static void OnSaveData(Action<DataRecom> test) =>
+            OnSave(save => test(save.Data));
     }
 }
