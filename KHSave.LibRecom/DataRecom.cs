@@ -29,5 +29,7 @@ namespace KHSave.LibRecom
         [Data] public bool Unknown4a0_1 { get; set; }
         [Data] public bool MarluxiaKilled { get; set; }
         [Data] public bool GameCleared { get; set; }
+
+        [Data(0x1FC4, Count = 0x12C)] public byte[] CardInventoryCount { get; set; }
     }
 }
