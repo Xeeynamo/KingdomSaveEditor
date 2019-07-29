@@ -17,6 +17,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KHSave.Attributes
@@ -56,16 +57,23 @@ namespace KHSave.Attributes
 			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
 
 			if (memberInfo != null)
-			{
-				return memberInfo.CustomAttributes.Select(x =>
-				{
-					var name = x.AttributeType.Name;
-					var indexAttributeStr = name.IndexOf("Attribute");
-					return indexAttributeStr > 0 ? name.Substring(0, indexAttributeStr) : null;
-				}).Where(x => !string.IsNullOrEmpty(x)).ToArray();
-			}
+            {
+                return memberInfo.CustomAttributes
+                    .Select(x => GetTypeRecursive(x.AttributeType))
+                    .SelectMany(x => x)
+                    .Where(x => x != null)
+                    .Select(x =>
+                    {
+                        var name = x.Name;
+                        var indexAttributeStr = name.IndexOf("Attribute");
+                        return indexAttributeStr > 0 ? name.Substring(0, indexAttributeStr) : null;
+                    }).Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            }
 
 			return new string[0];
 		}
+
+        private static IEnumerable<Type> GetTypeRecursive(Type type) =>
+            new Type[] { type, }.Concat(type != null ? GetTypeRecursive(type.BaseType) : new Type[] { });
 	}
 }
