@@ -1,6 +1,56 @@
-﻿namespace KHSave.SaveEditor.KhRecom.ViewModels
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using KHSave.LibRecom;
+using KHSave.LibRecom.Types;
+using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.KhRecom.Interfaces;
+using KHSave.SaveEditor.KhRecom.Models;
+
+namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class CardInventoryViewModel
+    public class CardInventoryViewModel : GenericListModel<CardInventoryEntryModel, Card>
     {
+        private CardInventoryEntryModel _selectedItem;
+
+        public CardInventoryViewModel(DataRecom save, ICardCountService cardCountService) :
+            this(GetEntries(save, cardCountService))
+        {
+
+        }
+
+        public CardInventoryViewModel(IEnumerable<CardInventoryEntryModel> cards) :
+            this(cards, () => Card.Empty, _ => { })
+        {
+
+        }
+
+        public CardInventoryViewModel(
+            IEnumerable<CardInventoryEntryModel> items,
+            Func<Card> valueGetter,
+            Action<Card> valueSetter) :
+            base(items, valueGetter, valueSetter)
+        {
+        }
+
+        public CardInventoryEntryModel SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(IsItemSelected));
+            }
+        }
+
+        public bool IsItemSelected => SelectedItem != null;
+
+
+        private static IEnumerable<CardInventoryEntryModel> GetEntries(DataRecom save, ICardCountService cardCountService) =>
+            GetEntries(save.CardInventoryCount.Length, cardCountService);
+
+        private static IEnumerable<CardInventoryEntryModel> GetEntries(int count, ICardCountService cardCountService) =>
+            Enumerable.Range(1, count / Constants.MaxCardValue).Select((_, i) => new CardInventoryEntryModel((Card)i, cardCountService)).ToArray();
     }
 }

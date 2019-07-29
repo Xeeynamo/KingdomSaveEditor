@@ -11,7 +11,7 @@
             <views:SystemView DataContext="{Binding KhSystem}"/>
         </TabItem>
         <TabItem Header="Cards">
-            <views:CardInventoryView/>
+            <views:CardInventoryView DataContext="{Binding Inventory}"/>
         </TabItem>
         <TabItem Header="Deck"/>
         <TabItem Header="Journal"/>
