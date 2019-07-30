@@ -1,8 +1,10 @@
 ﻿using KHSave.LibRecom;
+using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.KhRecom.Interfaces;
 using KHSave.SaveEditor.KhRecom.Models;
+using System;
 using System.IO;
 using Xe.Tools;
 
@@ -40,10 +42,16 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
         public void WriteToStream(Stream stream) => _save.Write(stream);
 
-        public byte GetCardCount(Card card, CardIndex index, bool isSpecial) =>
-            SaveData.CardInventoryCount[(int)card * MaxCardIndex + index];
+        public byte GetCardCount(CardType card, CardIndex index, bool isPremium) =>
+            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x * MaxCardIndex + index]);
 
-        public void SetCardCount(Card card, CardIndex index, bool isSpecial, byte count) =>
-            SaveData.CardInventoryCount[(int)card * MaxCardIndex + index] = count;
+        public void SetCardCount(CardType card, CardIndex index, bool isPremium, byte count) =>
+            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x * MaxCardIndex + index] = count);
+
+        private T OnCard<T>(CardType card, bool isPremium, Func<int, T> action)
+        {
+            var index = CardModel.GetCardInventoryIndex(new Card { CardType = card, IsPremium = isPremium });
+            return index >= 0 ? action(index) : default(T);
+        }
     }
 }

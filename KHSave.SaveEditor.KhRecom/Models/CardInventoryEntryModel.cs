@@ -1,20 +1,29 @@
 ﻿using KHSave.Attributes;
+using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.KhRecom.Interfaces;
 
 namespace KHSave.SaveEditor.KhRecom.Models
 {
-    public class CardInventoryEntryModel : EnumIconTypeModel<Card>
+    public class CardInventoryEntryModel : EnumIconTypeModel<CardType>
     {
         private readonly ICardCountService cardCountService;
 
-        public CardInventoryEntryModel(Card card, ICardCountService cardCountService)
+        public CardInventoryEntryModel(int cardIndex, ICardCountService cardCountService)
         {
-            Name = InfoAttribute.GetInfo(card);
-            Value = card;
             this.cardCountService = cardCountService;
+
+            var cardModel = CardModel.CardInventory[cardIndex];
+            CardType = cardModel.CardType;
+            IsPremium = cardModel.IsPremium;
+            Name = IsPremium ? $"{CardName} (P)" : CardName;
+            Value = CardType;
         }
+
+        public CardType CardType { get; }
+        public bool IsPremium { get; }
+        public string CardName => InfoAttribute.GetInfo(CardType);
 
         public byte CountValue0 { get => GetCount(0); set => SetCount(0, value); }
         public byte CountValue1 { get => GetCount(1); set => SetCount(1, value); }
@@ -30,10 +39,10 @@ namespace KHSave.SaveEditor.KhRecom.Models
         public string CountTotal =>
             $"{CountValue0} {CountValue1} {CountValue2} {CountValue3} {CountValue4} {CountValue5} {CountValue6} {CountValue7} {CountValue8} {CountValue9}";
 
-        private byte GetCount(CardIndex index) => cardCountService.GetCardCount(Value, index, false);
+        private byte GetCount(CardIndex index) => cardCountService.GetCardCount(Value, index, IsPremium);
         private void SetCount(CardIndex index, byte value)
         {
-            cardCountService.SetCardCount(Value, index, false, value);
+            cardCountService.SetCardCount(Value, index, IsPremium, value);
             OnPropertyChanged(nameof(CountTotal));
         }
     }

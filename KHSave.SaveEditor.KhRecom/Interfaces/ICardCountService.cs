@@ -5,8 +5,8 @@ namespace KHSave.SaveEditor.KhRecom.Interfaces
 {
     public interface ICardCountService
     {
-        byte GetCardCount(Card card, CardIndex index, bool isSpecial);
+        byte GetCardCount(CardType card, CardIndex index, bool isSpecial);
 
-        void SetCardCount(Card card, CardIndex index, bool isSpecial, byte count);
+        void SetCardCount(CardType card, CardIndex index, bool isSpecial, byte count);
     }
 }

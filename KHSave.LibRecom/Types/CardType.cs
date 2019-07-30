@@ -3,7 +3,7 @@ using KHSave.LibRecom.Attributes;
 
 namespace KHSave.LibRecom.Types
 {
-    public enum Card
+    public enum CardType
     {
         [Info] Empty,
         [CardWeapon("Kingdom Key")] KingdomKey,

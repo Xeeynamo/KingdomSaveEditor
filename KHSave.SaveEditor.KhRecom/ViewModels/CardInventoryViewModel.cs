@@ -9,7 +9,7 @@ using KHSave.SaveEditor.KhRecom.Models;
 
 namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class CardInventoryViewModel : GenericListModel<CardInventoryEntryModel, Card>
+    public class CardInventoryViewModel : GenericListModel<CardInventoryEntryModel, CardType>
     {
         private CardInventoryEntryModel _selectedItem;
 
@@ -20,15 +20,15 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         }
 
         public CardInventoryViewModel(IEnumerable<CardInventoryEntryModel> cards) :
-            this(cards, () => Card.Empty, _ => { })
+            this(cards, () => CardType.Empty, _ => { })
         {
 
         }
 
         public CardInventoryViewModel(
             IEnumerable<CardInventoryEntryModel> items,
-            Func<Card> valueGetter,
-            Action<Card> valueSetter) :
+            Func<CardType> valueGetter,
+            Action<CardType> valueSetter) :
             base(items, valueGetter, valueSetter)
         {
         }
@@ -51,6 +51,6 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
             GetEntries(save.CardInventoryCount.Length, cardCountService);
 
         private static IEnumerable<CardInventoryEntryModel> GetEntries(int count, ICardCountService cardCountService) =>
-            Enumerable.Range(1, count / Constants.MaxCardValue).Select((_, i) => new CardInventoryEntryModel((Card)i, cardCountService)).ToArray();
+            Enumerable.Range(0, count / Constants.MaxCardValue).Select((_, i) => new CardInventoryEntryModel(i, cardCountService)).ToArray();
     }
 }
