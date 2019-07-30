@@ -43,14 +43,14 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         public void WriteToStream(Stream stream) => _save.Write(stream);
 
         public byte GetCardCount(CardType card, CardIndex index, bool isPremium) =>
-            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x * MaxCardIndex + index]);
+            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x + index]);
 
         public void SetCardCount(CardType card, CardIndex index, bool isPremium, byte count) =>
-            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x * MaxCardIndex + index] = count);
+            OnCard(card, isPremium, x => SaveData.CardInventoryCount[x + index] = count);
 
         private T OnCard<T>(CardType card, bool isPremium, Func<int, T> action)
         {
-            var index = CardModel.GetCardInventoryIndex(new Card { CardType = card, IsPremium = isPremium });
+            var index = CardModel.GetCardInventoryIndex(card, isPremium);
             return index >= 0 ? action(index) : default(T);
         }
     }

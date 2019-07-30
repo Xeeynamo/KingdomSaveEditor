@@ -30,6 +30,6 @@ namespace KHSave.LibRecom
         [Data] public bool MarluxiaKilled { get; set; }
         [Data] public bool GameCleared { get; set; }
 
-        [Data(0x1FB4, Count = 0x26C)] public byte[] CardInventoryCount { get; set; }
+        [Data(0x1FB4, Count = 0x49C)] public byte[] CardInventoryCount { get; set; }
     }
 }

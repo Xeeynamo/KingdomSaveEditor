@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using KHSave.LibRecom;
+using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.KhRecom.Interfaces;
@@ -48,9 +49,8 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
 
         private static IEnumerable<CardInventoryEntryModel> GetEntries(DataRecom save, ICardCountService cardCountService) =>
-            GetEntries(save.CardInventoryCount.Length, cardCountService);
-
-        private static IEnumerable<CardInventoryEntryModel> GetEntries(int count, ICardCountService cardCountService) =>
-            Enumerable.Range(0, count / Constants.MaxCardValue).Select((_, i) => new CardInventoryEntryModel(i, cardCountService)).ToArray();
+            CardModel.CardInventory
+            .GroupBy(x => (int)x.Type | (x.IsPremium.HasValue ? (x.IsPremium.Value ? 0x40000000 : 0) : 0x20000000))
+            .Select(x => new CardInventoryEntryModel(x.First(), cardCountService));
     }
 }
