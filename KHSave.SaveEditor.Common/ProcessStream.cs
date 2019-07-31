@@ -22,19 +22,24 @@ namespace KHSave.SaveEditor.Common
         [DllImport("kernel32.dll")]
         static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 
+        private const int DefaultSearchProcessTimeout = 10000;
+        private const int TimeBreakBetweenProcessSearch = 100;
+
         Process process;
         IntPtr hProcess;
         private long position;
 
         public ProcessStream(Process process, long offset, long length)
         {
+            this.process = process;
             Length = length;
             Offset = offset;
+
             OpenProcess(process);
         }
 
+        public string Name => process.ProcessName;
         public long Offset { get; }
-
 
         public override bool CanRead => true;
 
@@ -58,6 +63,10 @@ namespace KHSave.SaveEditor.Common
         {
             int read;
             var pos = (IntPtr)(Offset + Position);
+
+            count = Math.Max(Math.Min(count, (int)(Length - Position)), 0);
+            if (count <= 0)
+                return 0;
 
             if (offset == 0)
             {
@@ -92,6 +101,8 @@ namespace KHSave.SaveEditor.Common
 
         public override void SetLength(long value)
         {
+            if (value > Length)
+                throw new ArgumentException("Unable to set the length above the pre-defined length.");
         }
 
         public override void Write(byte[] buffer, int offset, int count)
@@ -117,17 +128,20 @@ namespace KHSave.SaveEditor.Common
         {
             var permissions = 0x001FFFFF;
             hProcess = OpenProcess(permissions, true, process.Id);
-            this.process = process;
 
-            var pos = (IntPtr)(0x20000000 + Position);
-            VirtualProtectEx(hProcess, pos, (UIntPtr)Length, 0xFF, out var old);
+            var pos = (IntPtr)(Offset + Position);
+            if (VirtualProtectEx(hProcess, pos, (UIntPtr)Length, 0xFF, out _) == false)
+                throw new Exception($"Failed to obtain page permissions for {Name}.");
         }
 
-        public static ProcessStream SearchProcess(string processName, long offset, long length)
+        public static ProcessStream SearchProcess(string processName, long offset, long length, long timeout = DefaultSearchProcessTimeout)
         {
-            while (true)
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            while (stopwatch.ElapsedMilliseconds < timeout)
             {
-                foreach (Process process in Process.GetProcesses())
+                foreach (var process in Process.GetProcesses())
                 {
                     if (process.ProcessName.Contains(processName))
                     {
@@ -135,15 +149,17 @@ namespace KHSave.SaveEditor.Common
                     }
                 }
 
-                Thread.Sleep(100);
+                Thread.Sleep(TimeBreakBetweenProcessSearch);
             }
+
+            throw new TimeoutException($"Unable to find the process {processName} within {timeout / 1000} seconds.");
         }
 
-        public static async Task<ProcessStream> SearchProcessAsync(string processName, long offset, long length)
+        public static async Task<ProcessStream> SearchProcessAsync(string processName, long offset, long length, long timeout = DefaultSearchProcessTimeout)
         {
             return await Task.Run(() =>
             {
-                return SearchProcess(processName, offset, length);
+                return SearchProcess(processName, offset, length, timeout);
             });
         }
     }
