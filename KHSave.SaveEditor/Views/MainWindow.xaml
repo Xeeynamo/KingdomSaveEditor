@@ -106,17 +106,17 @@
                 <Label>Be sure to have the last version or that the save is decrypted or supported.</Label>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1"
+        <!--<Grid Grid.Row="1"
             IsEnabled="{Binding IsKh2Save}"
             Visibility="{Binding VisibilityKh2, FallbackValue=Collapsed}">
             <kh2:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
+        </Grid>-->
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsKhRecomSave}"
             Visibility="{Binding VisibilityKhRecom, FallbackValue=Collapsed}">
             <khRecom:MainView DataContext="{Binding DataContext}"/>
         </Grid>
-        <Grid Grid.Row="1"
+        <!--<Grid Grid.Row="1"
             IsEnabled="{Binding IsKh02Save}"
             Visibility="{Binding VisibilityKh02, FallbackValue=Collapsed}">
             <kh02:MainView DataContext="{Binding DataContext}"/>
@@ -125,6 +125,6 @@
             IsEnabled="{Binding IsKh3Save}"
             Visibility="{Binding VisibilityKh3, FallbackValue=Collapsed}">
             <kh3:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>
