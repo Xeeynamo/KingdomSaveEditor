@@ -4,8 +4,7 @@ namespace KHSave.LibRecom.Models
 {
     public class CardFlags
     {
-        [Data] public int Data { get; set; }
-        [Data(0)] public bool Spellbinder { get; set; }
+        [Data] public bool Spellbinder { get; set; }
         [Data] public bool MetalChocobo { get; set; }
         [Data] public bool Lionheart { get; set; }
         [Data] public bool Oathkeeper { get; set; }

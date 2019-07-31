@@ -4,8 +4,7 @@ namespace KHSave.LibRecom.Models
 {
     public class StoryFlag
     {
-        [Data] public int Data { get; set; }
-        [Data(0)] public bool TraverseTown { get; set; }
+        [Data] public bool TraverseTown { get; set; }
         [Data] public bool Agrabah { get; set; }
         [Data] public bool OlympusColiseum { get; set; }
         [Data] public bool Wonderland { get; set; }
@@ -18,5 +17,8 @@ namespace KHSave.LibRecom.Models
         [Data] public bool TwilightTown { get; set; }
         [Data] public bool DestinyIsland { get; set; }
         [Data] public bool CastleOblivion { get; set; }
+        [Data] public bool Unknown0d { get; set; }
+        [Data] public bool Unknown0e { get; set; }
+        [Data] public bool Unknown0f { get; set; }
     }
 }

@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Saves\BASLUS-21799COM-02">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Saves\BISLPM-66676COM-01">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

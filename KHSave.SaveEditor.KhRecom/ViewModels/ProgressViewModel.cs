@@ -5,7 +5,7 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
     public class ProgressViewModel
     {
-        private readonly DataRecom _save;
+        private readonly DataRecomTable0 _save;
         private StoryFlag Sora => _save.SoraStoryFlag;
         private StoryFlag Riku => _save.RikuStoryFlag;
         private PoohFlags Pooh => _save.PoohFlags;
@@ -14,7 +14,7 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
         public ProgressViewModel(DataRecom save)
         {
-            _save = save;
+            _save = save.Table0;
         }
 
         public bool SoraTraverseTown { get => Sora.TraverseTown; set => Sora.TraverseTown = value; }

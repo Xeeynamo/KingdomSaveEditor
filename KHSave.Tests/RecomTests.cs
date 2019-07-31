@@ -59,39 +59,85 @@ namespace KHSave.Tests
         [Fact]
         public void CheckStoryFlags() => OnSaveData(save =>
         {
-            Assert.True(save.SoraStoryFlag.TraverseTown);
-            Assert.False(save.SoraStoryFlag.Agrabah);
-            Assert.False(save.RikuStoryFlag.TraverseTown);
-            Assert.False(save.RikuStoryFlag.Agrabah);
+            Assert.True(save.Table0.SoraStoryFlag.TraverseTown);
+            Assert.False(save.Table0.SoraStoryFlag.Agrabah);
+            Assert.False(save.Table0.RikuStoryFlag.TraverseTown);
+            Assert.False(save.Table0.RikuStoryFlag.Agrabah);
+        });
+
+        [Fact]
+        public void CheckTable2() => OnSaveData(save =>
+        {
+            Assert.Equal(2, save.Table2.Data[2]);
+        });
+
+        [Fact]
+        public void CheckCardInventory() => OnSaveData(save =>
+        {
+            Assert.Equal(1, save.McWork.CardInventoryCount[0]);
+            Assert.Equal(1, save.McWork.CardInventoryCount[1]);
+            Assert.Equal(2, save.McWork.CardInventoryCount[2]);
+            Assert.Equal(2, save.McWork.CardInventoryCount[3]);
+            Assert.Equal(2, save.McWork.CardInventoryCount[4]);
+            Assert.Equal(1, save.McWork.CardInventoryCount[5]);
+            Assert.Equal(1, save.McWork.CardInventoryCount[6]);
         });
 
         [Fact]
         public void CheckTutorialsClearedFlags() => OnSaveData(save =>
         {
-            Assert.False(save.Tutorial.KeyRoom);
-            Assert.False(save.Tutorial.MoogleShop);
-            Assert.False(save.Tutorial.FloorMove);
-            Assert.False(save.Tutorial.WarpPoint);
-            Assert.True(save.Tutorial.SavePoint);
-            Assert.True(save.Tutorial.Field);
-            Assert.True(save.Tutorial.WorldSelect);
+            Assert.False(save.Table0.Tutorial.KeyRoom);
+            Assert.False(save.Table0.Tutorial.MoogleShop);
+            Assert.False(save.Table0.Tutorial.FloorMove);
+            Assert.False(save.Table0.Tutorial.WarpPoint);
+            Assert.True(save.Table0.Tutorial.SavePoint);
+            Assert.True(save.Table0.Tutorial.Field);
+            Assert.True(save.Table0.Tutorial.WorldSelect);
         });
 
         [Fact]
         public void CheckPlayMode() => OnSaveData(save =>
         {
-            Assert.Equal(PlayMode.Sora, save.PlayMode);
+            Assert.Equal(PlayMode.Sora, save.Table1.PlayMode);
         });
 
         [Fact]
         public void CheckDifficulty() => OnSaveData(save =>
         {
-            Assert.Equal(Difficulty.Standard, save.Difficulty);
+            Assert.Equal(Difficulty.Standard, save.Table1.Difficulty);
+        });
+
+        [Fact]
+        public void CheckTables() => OnSave2(save =>
+        {
+            Assert.Equal(0xCCCCCC00, (uint)save.Data.Table0.Unknown00);
+
+            Assert.Equal(0x01, save.Data.Table1.Unknown00);
+            Assert.Equal(0xCC, save.Data.Table1.Unknown01);
+            Assert.Equal(0xCC, save.Data.Table1.Unknown02);
+            Assert.Equal(0xCC, save.Data.Table1.Unknown03);
+
+            Assert.Equal(0x02, save.Data.Table2.Data[0]);
+            Assert.Equal(0xCC, save.Data.Table2.Data[1]);
+            Assert.Equal(0xCC, save.Data.Table2.Data[2]);
+            Assert.Equal(0xCC, save.Data.Table2.Data[3]);
+
+            Assert.Equal(0x00, save.Data.McWork.Data[0]);
+            Assert.Equal(0x03, save.Data.McWork.Data[1]);
+            Assert.Equal(0x02, save.Data.McWork.Data[2]);
+            Assert.Equal(0x02, save.Data.McWork.Data[3]);
         });
 
         private static void OnSave(Action<SaveKhRecom> test)
         {
             const string FilePath = "Saves/BISLPM-66676COM-01";
+            using (var stream = File.OpenRead(FilePath))
+                test(SaveKhRecom.Read(stream));
+        }
+
+        private static void OnSave2(Action<SaveKhRecom> test)
+        {
+            const string FilePath = "Saves/BASLUS-21799COM-02";
             using (var stream = File.OpenRead(FilePath))
                 test(SaveKhRecom.Read(stream));
         }

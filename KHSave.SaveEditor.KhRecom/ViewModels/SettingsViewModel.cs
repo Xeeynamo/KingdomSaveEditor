@@ -6,11 +6,11 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
     public class SettingsViewModel
     {
-        private readonly DataRecom _save;
+        private readonly DataRecomTable1 _save;
 
         public SettingsViewModel(DataRecom save)
         {
-            _save = save;
+            _save = save.Table1;
             SoundModeItems = new EnumModel<SoundMode>();
         }
 
