@@ -54,6 +54,19 @@
             Margin="5 0 0 5"
             IsEnabled="{Binding IsItemSelected}"
             DataContext="{Binding SelectedItem}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Height="36" Source="{Binding Icon}"/>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="{Binding Name}"/>
+                </StackPanel>
+            </Grid>
+            
             <GroupBox Header="Card count" Visibility="{Binding MultipleValueGroupVisibility}">
                 <controls:TwoColumnsPanel>
                     <TextBlock Text="Value 0" Margin="{StaticResource LabelMargin}"/>
@@ -97,6 +110,7 @@
                         Text="{Binding CountValue9, UpdateSourceTrigger=PropertyChanged}"/>
                 </controls:TwoColumnsPanel>
             </GroupBox>
+            
             <Grid Visibility="{Binding SingleValueVisibility}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
