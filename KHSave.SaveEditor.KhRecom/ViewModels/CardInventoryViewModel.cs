@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using KHSave.LibRecom;
 using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
@@ -42,11 +43,15 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
                 _selectedItem = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(IsItemSelected));
+                OnPropertyChanged(nameof(CardEntryVisibility));
+                OnPropertyChanged(nameof(CardEntrySelectionMessageVisibility));
             }
         }
 
         public bool IsItemSelected => SelectedItem != null;
 
+        public Visibility CardEntryVisibility => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility CardEntrySelectionMessageVisibility => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
 
         private static IEnumerable<CardInventoryEntryViewModel> GetEntries(DataRecom save, ICardCountService cardCountService) =>
             CardModel.CardInventory

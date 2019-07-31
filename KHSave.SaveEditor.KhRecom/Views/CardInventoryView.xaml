@@ -45,8 +45,17 @@
             </ListBox>
         </Grid>
 
-        <Grid IsEnabled="{Binding IsItemSelected}" Grid.Column="2">
-            <local:CardInventoryEntryView DataContext="{Binding SelectedItem}"/>
+        <Grid Grid.Column="1" Margin="5">
+            <Grid
+                Visibility="{Binding CardEntryVisibility}"
+                IsEnabled="{Binding IsItemSelected}">
+                <local:CardInventoryEntryView DataContext="{Binding SelectedItem}"/>
+            </Grid>
+
+            <StackPanel Visibility="{Binding CardEntrySelectionMessageVisibility}">
+                <TextBlock Text="Please select a card to edit"/>
+            </StackPanel>
         </Grid>
+        
     </Grid>
 </UserControl>
