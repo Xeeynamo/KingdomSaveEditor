@@ -3,16 +3,17 @@ using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.KhRecom.Interfaces;
+using KHSave.SaveEditor.KhRecom.Models;
 using System.Windows;
 
-namespace KHSave.SaveEditor.KhRecom.Models
+namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class CardInventoryEntryModel : EnumIconTypeModel<CardType>
+    public class CardInventoryEntryViewModel : EnumIconTypeModel<CardType>
     {
         private readonly ICardCountService cardCountService;
         private readonly Card _card;
 
-        public CardInventoryEntryModel(Card card, ICardCountService cardCountService)
+        public CardInventoryEntryViewModel(Card card, ICardCountService cardCountService)
         {
             this.cardCountService = cardCountService;
 

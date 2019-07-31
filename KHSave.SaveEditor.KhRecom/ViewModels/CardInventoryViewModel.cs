@@ -10,9 +10,9 @@ using KHSave.SaveEditor.KhRecom.Models;
 
 namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class CardInventoryViewModel : GenericListModel<CardInventoryEntryModel, CardType>
+    public class CardInventoryViewModel : GenericListModel<CardInventoryEntryViewModel, CardType>
     {
-        private CardInventoryEntryModel _selectedItem;
+        private CardInventoryEntryViewModel _selectedItem;
 
         public CardInventoryViewModel(DataRecom save, ICardCountService cardCountService) :
             this(GetEntries(save, cardCountService))
@@ -20,21 +20,21 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 
         }
 
-        public CardInventoryViewModel(IEnumerable<CardInventoryEntryModel> cards) :
+        public CardInventoryViewModel(IEnumerable<CardInventoryEntryViewModel> cards) :
             this(cards, () => CardType.Empty, _ => { })
         {
 
         }
 
         public CardInventoryViewModel(
-            IEnumerable<CardInventoryEntryModel> items,
+            IEnumerable<CardInventoryEntryViewModel> items,
             Func<CardType> valueGetter,
             Action<CardType> valueSetter) :
             base(items, valueGetter, valueSetter)
         {
         }
 
-        public CardInventoryEntryModel SelectedItem
+        public CardInventoryEntryViewModel SelectedItem
         {
             get => _selectedItem;
             set
@@ -48,9 +48,9 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         public bool IsItemSelected => SelectedItem != null;
 
 
-        private static IEnumerable<CardInventoryEntryModel> GetEntries(DataRecom save, ICardCountService cardCountService) =>
+        private static IEnumerable<CardInventoryEntryViewModel> GetEntries(DataRecom save, ICardCountService cardCountService) =>
             CardModel.CardInventory
             .GroupBy(x => (int)x.Type | (x.IsPremium.HasValue ? (x.IsPremium.Value ? 0x40000000 : 0) : 0x20000000))
-            .Select(x => new CardInventoryEntryModel(x.First(), cardCountService));
+            .Select(x => new CardInventoryEntryViewModel(x.First(), cardCountService));
     }
 }
