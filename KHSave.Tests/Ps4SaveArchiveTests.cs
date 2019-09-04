@@ -19,7 +19,7 @@ namespace KHSave.Tests.Saves.Archives
         [Fact]
         public void ReadKh1Archive() => OpenKh1File().Using(stream =>
         {
-            var archive = ArchiveFactory.ReadKh1Ps4(stream);
+            var archive = ArchiveFactories.Ps4Kh1.Read(stream);
 
             Assert.Equal(200, archive.Entries.Count);
 
@@ -48,7 +48,7 @@ namespace KHSave.Tests.Saves.Archives
         [Fact]
         public void ReadKh2Archive() => OpenKh2File().Using(stream =>
         {
-            var archive = ArchiveFactory.ReadKh2Ps4(stream);
+            var archive = ArchiveFactories.Ps4Kh2.Read(stream);
 
             Assert.Equal(100, archive.Entries.Count);
 
@@ -78,16 +78,16 @@ namespace KHSave.Tests.Saves.Archives
         public void WriteBackKh1Archive() => OpenKh2File().Using(expected => Helpers.AssertStream(expected, stream =>
         {
             var actual = new MemoryStream();
-            ArchiveFactory.ReadKh2Ps4(stream).Write(actual);
+            ArchiveFactories.Ps4Kh2.Read(stream).Write(actual);
             return actual;
         }));
 
         [Fact]
         public void CreateKh1Archive()
         {
-            var archive = ArchiveFactory.CreateKh1Ps4();
+            var archive = ArchiveFactories.Ps4Kh1.Create();
 
-            var entry = ArchiveFactory.CreateEntry();
+            var entry = ArchiveFactories.CreateEntry();
             entry.Name = "my test";
             entry.DateCreated = new DateTime(2019, 01, 01);
             entry.DateModified = new DateTime(2020, 01, 01);
@@ -99,7 +99,7 @@ namespace KHSave.Tests.Saves.Archives
             archive.Write(stream);
 
             stream.Position = 0;
-            archive = ArchiveFactory.ReadKh1Ps4(stream);
+            archive = ArchiveFactories.Ps4Kh1.Read(stream);
 
             Assert.Equal(0x11cd800, stream.Length);
             Assert.Equal(200, archive.Entries.Count);
@@ -115,7 +115,7 @@ namespace KHSave.Tests.Saves.Archives
         [Fact]
         public void CreateKh2Archive()
         {
-            var archive = ArchiveFactory.CreateKh2Ps4();
+            var archive = ArchiveFactories.Ps4Kh2.Create();
             var stream = new MemoryStream();
             archive.Write(stream);
 
