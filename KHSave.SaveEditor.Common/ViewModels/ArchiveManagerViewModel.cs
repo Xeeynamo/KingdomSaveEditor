@@ -14,14 +14,16 @@ namespace KHSave.SaveEditor.Common.ViewModels
                 Getter, Setter);
         }
 
-        private ArchiveEntryViewModel Getter() => null;
-
-        private void Setter(ArchiveEntryViewModel obj) { }
+        public string Title => $"{Archive.Name} | Archive manager";
 
         public IArchive Archive { get; }
 
         public GenericListModel<ArchiveEntryViewModel, ArchiveEntryViewModel> Entries { get; }
 
         public IArchiveEntry SelectedEntry { get; set; }
+
+        private ArchiveEntryViewModel Getter() => null;
+
+        private void Setter(ArchiveEntryViewModel obj) { }
     }
 }

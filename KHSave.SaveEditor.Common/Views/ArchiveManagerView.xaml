@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KHSave.SaveEditor.Common.Views"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Archive manager" Height="450" Width="400">
+        Title="{Binding Title}" Height="450" Width="400">
     <Window.Resources>
         <Thickness x:Key="ButtonMargin" Left="0" Top="5" Right="5" Bottom="0" />
         <sys:Double x:Key="ButtonWidth">50</sys:Double>

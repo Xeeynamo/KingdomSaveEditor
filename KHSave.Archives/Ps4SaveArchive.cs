@@ -49,7 +49,7 @@ namespace KHSave.Archives
             Entries = entries;
         }
 
-        public string Name => "PS4";
+        public string Name { get; internal set; } = "PS4 Save Archive";
         public int MaxEntryCount { get; }
         public IList<IArchiveEntry> Entries { get; }
 

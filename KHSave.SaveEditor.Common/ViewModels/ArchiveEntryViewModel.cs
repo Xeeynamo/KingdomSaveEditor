@@ -15,9 +15,11 @@ namespace KHSave.SaveEditor.Common.ViewModels
 
         public string Name
         {
-            get => ArchiveEntry.Name;
+            get => IsEmpty ? "<empty>" : ArchiveEntry.Name;
             set => ArchiveEntry.Name = value;
         }
+
+        public bool IsEmpty => string.IsNullOrEmpty(ArchiveEntry.Name);
 
         public override string ToString() => Name;
     }

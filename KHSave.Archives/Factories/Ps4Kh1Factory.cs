@@ -15,8 +15,13 @@ namespace KHSave.Archives.Factories
         public IArchive Create() =>
             new Ps4SaveArchive(EntryCount, Stride);
 
-        public IArchive Read(Stream stream) =>
-            Ps4SaveArchive.Read(stream, EntryCount, Stride);
+        public IArchive Read(Stream stream)
+        {
+            var archive = Ps4SaveArchive.Read(stream, EntryCount, Stride);
+            archive.Name = Description;
+
+            return archive;
+        }
 
         public bool IsValid(Stream stream) => stream.Length == Size;
 
