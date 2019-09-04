@@ -28,5 +28,11 @@ namespace KHSave.SaveEditor.Common.Views
         }
 
         public IArchiveEntry SelectedEntry => ViewModel?.SelectedEntry;
+
+        private void ListBox_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DialogResult = true;
+            Close();
+        }
     }
 }

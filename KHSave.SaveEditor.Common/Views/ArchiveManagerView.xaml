@@ -20,7 +20,10 @@
         <ListBox
             Grid.Row="0"
             ItemsSource="{Binding Entries}"
-            DisplayMemberPath="Name"/>
+            SelectedValue="{Binding SelectedEntry}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="ArchiveEntry"
+            MouseDoubleClick="ListBox_MouseDoubleClick"/>
 
         <StackPanel
             Grid.Row="1"
