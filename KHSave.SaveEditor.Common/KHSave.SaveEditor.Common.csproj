@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave\KHSave.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj" />
   </ItemGroup>
@@ -48,12 +49,22 @@
     <Compile Update="Controls\ItemComboBox.xaml.cs">
       <DependentUpon>ItemComboBox.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ArchiveManagerView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\ArchiveManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Properties\Settings.settings">
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
       <Generator>PublicSettingsSingleFileGenerator</Generator>
+    </None>
+    <None Update="Views\ArchiveManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
 

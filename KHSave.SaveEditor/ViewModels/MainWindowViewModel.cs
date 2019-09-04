@@ -38,6 +38,8 @@ using KHSave.SaveEditor.Kh02.ViewModels;
 using KHSave.Lib2;
 using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.Archives;
+using KHSave.SaveEditor.Common.Views;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -45,6 +47,7 @@ namespace KHSave.SaveEditor.ViewModels
     {
         Unload,
         Unknown,
+        Archive,
         KingdomHearts2,
         KingdomHearts02,
         KingdomHearts3
@@ -258,11 +261,65 @@ namespace KHSave.SaveEditor.ViewModels
             }
 		}
 
-        public void Open(Stream stream)
+        public bool Open(Stream stream)
         {
-            bool isOpen = TryOpenKh2(stream) || TryOpenKh02(stream) || TryOpenKh3(stream);
+            bool isOpen =
+                TryOpenKh2(stream) ||
+                TryOpenKh02(stream) ||
+                TryOpenKh3(stream) ||
+                TryOpenArchive(stream);
+
             if (isOpen == false)
                 SaveKind = SaveType.Unknown;
+
+            return isOpen;
+        }
+
+        private bool Open(IArchiveFactory archiveFactory, Stream stream) =>
+            Open(archiveFactory.Read(stream));
+
+        private bool Open(IArchive archive)
+        {
+            var archiveManagerDialog = new ArchiveManagerView()
+            {
+                Archive = archive
+            };
+
+            switch (archiveManagerDialog.ShowDialog())
+            {
+                case true:
+                    return Open(archiveManagerDialog.SelectedEntry);
+                case false:
+                    SaveKind = SaveType.Unload;
+                    return true;
+                case null:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        private bool Open(IArchiveEntry archiveEntry)
+        {
+            bool result;
+
+            using (var stream = new MemoryStream(archiveEntry.Data))
+                result = Open(stream);
+
+            // archiveEntry.Name
+            // archiveEntry.DateCreated
+            // archiveEntry.DateModified
+
+            return result;
+        }
+
+        public bool TryOpenArchive(Stream stream)
+        {
+            if (!ArchiveFactories.TryGetFactory(stream, out var archiveFactory))
+                return false;
+
+            stream.Position = 0;
+            return Open(archiveFactory, stream);
         }
 
         public bool TryOpenKh2(Stream stream)
@@ -307,7 +364,7 @@ namespace KHSave.SaveEditor.ViewModels
             return true;
         }
 
-        public void InvokeRefreshUi() => RefreshUi.RefreshUi();
+        public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
 
 
         public void UpdateLastTimeForCheckingNewVersion()
