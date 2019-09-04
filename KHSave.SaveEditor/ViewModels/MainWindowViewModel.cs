@@ -40,6 +40,7 @@ using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Common.Exceptions;
 using KHSave.Archives;
 using KHSave.SaveEditor.Common.Views;
+using KHSave.SaveEditor.Common.Services;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -171,7 +172,6 @@ namespace KHSave.SaveEditor.ViewModels
 					using (var stream = File.Open(FileName, FileMode.Create))
 					{
                         WriteToStream.WriteToStream(stream);
-
                     }
 				}
 				else
@@ -294,7 +294,7 @@ namespace KHSave.SaveEditor.ViewModels
             switch (archiveManagerDialog.ShowDialog())
             {
                 case true:
-                    return Open(archiveManagerDialog.SelectedEntry);
+                    return Open(archive, archiveManagerDialog.SelectedEntry);
                 case false:
                     SaveKind = SaveType.Unload;
                     return true;
@@ -305,7 +305,7 @@ namespace KHSave.SaveEditor.ViewModels
             }
         }
 
-        private bool Open(IArchiveEntry archiveEntry)
+        private bool Open(IArchive archive, IArchiveEntry archiveEntry)
         {
             bool result;
 
@@ -315,6 +315,8 @@ namespace KHSave.SaveEditor.ViewModels
             // archiveEntry.Name
             // archiveEntry.DateCreated
             // archiveEntry.DateModified
+
+            WriteToStream = new ArchiveWriteToStream(WriteToStream, archive, archiveEntry);
 
             return result;
         }
