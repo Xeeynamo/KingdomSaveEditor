@@ -21,6 +21,13 @@ namespace KHSave.Archives
 
         private readonly int _stride;
 
+        internal Ps4SaveArchive(int entryCount, int stride)
+        {
+            MaxEntryCount = entryCount;
+            _stride = stride;
+            Entries = new List<IArchiveEntry>(MaxEntryCount);
+        }
+
         private Ps4SaveArchive(Stream stream, int entryCount, int stride)
         {
             MaxEntryCount = entryCount;
@@ -57,7 +64,15 @@ namespace KHSave.Archives
                     Length = x.Data.Length,
                     Data = x.Data
                 })
-                .ToArray();
+                .Take(MaxEntryCount)
+                .ToList();
+
+            while (entries.Count < MaxEntryCount)
+                entries.Add(new Entry
+                {
+                    Name = string.Empty,
+                    Data = new byte[0]
+                });
 
             stream.Position = 0;
             foreach (var entry in entries)

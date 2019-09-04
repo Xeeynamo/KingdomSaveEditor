@@ -82,6 +82,46 @@ namespace KHSave.Tests.Saves.Archives
             return actual;
         }));
 
+        [Fact]
+        public void CreateKh1Archive()
+        {
+            var archive = ArchiveFactory.CreateKh1Ps4();
+
+            var entry = ArchiveFactory.CreateEntry();
+            entry.Name = "my test";
+            entry.DateCreated = new DateTime(2019, 01, 01);
+            entry.DateModified = new DateTime(2020, 01, 01);
+            entry.Data = new byte[] { 9, 0 };
+
+            archive.Entries.Add(entry);
+
+            var stream = new MemoryStream();
+            archive.Write(stream);
+
+            stream.Position = 0;
+            archive = ArchiveFactory.ReadKh1Ps4(stream);
+
+            Assert.Equal(0x11cd800, stream.Length);
+            Assert.Equal(200, archive.Entries.Count);
+
+            var actual = archive.Entries[0];
+            Assert.Equal("my test", actual.Name);
+            Assert.Equal(2019, actual.DateCreated.Year);
+            Assert.Equal(2020, actual.DateModified.Year);
+            Assert.Equal(2, actual.Data.Length);
+            Assert.Equal(9, actual.Data[0]);
+        }
+
+        [Fact]
+        public void CreateKh2Archive()
+        {
+            var archive = ArchiveFactory.CreateKh2Ps4();
+            var stream = new MemoryStream();
+            archive.Write(stream);
+
+            Assert.Equal(0x6a4c00, stream.Length);
+        }
+
         private Stream OpenKh1File()
         {
             var stream = new MemoryStream();
