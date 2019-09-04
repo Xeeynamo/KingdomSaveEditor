@@ -246,13 +246,19 @@ namespace KHSave.SaveEditor.ViewModels
 		{
             try
             {
+                bool result;
+
                 using (var file = File.Open(fileName, FileMode.Open))
-                    Open(file);
+                    result = Open(file);
 
                 if (SaveKind == SaveType.Unknown)
                     throw new SaveNotSupportedException("The specified save game is not recognized.");
 
-                FileName = fileName;
+                if (result == true)
+                    FileName = fileName;
+                else
+                    FileName = null;
+
                 InvokeRefreshUi();
             }
             catch (SaveNotSupportedException ex)
