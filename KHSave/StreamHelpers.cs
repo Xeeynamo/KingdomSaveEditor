@@ -70,6 +70,18 @@ namespace KHSave
 			{
 				writer.Write(data, 0, length);
 			}
-		}
-	}
+        }
+
+        public static void Copy(this Stream source, Stream destination, int length, int bufferSize = 65536)
+        {
+            int read;
+            byte[] buffer = new byte[Math.Min(length, bufferSize)];
+
+            while ((read = source.Read(buffer, 0, Math.Min(length, bufferSize))) != 0)
+            {
+                destination.Write(buffer, 0, read);
+                length -= read;
+            }
+        }
+    }
 }

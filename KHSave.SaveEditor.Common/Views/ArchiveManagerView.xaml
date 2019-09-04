@@ -1,0 +1,64 @@
+﻿<Window x:Class="KHSave.SaveEditor.Common.Views.ArchiveManagerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KHSave.SaveEditor.Common.Views"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="400">
+    <Window.Resources>
+        <Thickness x:Key="ButtonMargin" Left="0" Top="5" Right="5" Bottom="0" />
+        <sys:Double x:Key="ButtonWidth">50</sys:Double>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox
+            Grid.Row="0"
+            ItemsSource="{Binding Entries}"
+            SelectedValue="{Binding Entries.SelectedValue}"
+            DisplayMemberPath="Name"
+            MouseDoubleClick="ListBox_MouseDoubleClick"/>
+
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal">
+            <Button
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Open"
+                Command="{Binding OpenCommand}"/>
+            <Button
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Import"
+                Command="{Binding ImportCommand}"/>
+            <Button
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Export"
+                Command="{Binding ExportCommand}"/>
+            <Button
+                Visibility="Collapsed"
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Copy"
+                Command="{Binding CopyCommand}"/>
+            <Button
+                Visibility="Collapsed"
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Paste"
+                Command="{Binding PasteCommand}"/>
+            <Button
+                Margin="{StaticResource ButtonMargin}"
+                Width="{StaticResource ButtonWidth}"
+                Content="_Delete"
+                Command="{Binding DeleteCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

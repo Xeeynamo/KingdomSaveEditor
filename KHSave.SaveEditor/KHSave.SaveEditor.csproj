@@ -47,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
