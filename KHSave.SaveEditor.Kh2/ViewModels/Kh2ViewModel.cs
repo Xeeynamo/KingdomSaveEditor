@@ -44,6 +44,8 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
                 default:
                     throw new SaveNotSupportedException("The version has been recognized but it is not supported.");
             }
+
+            RefreshUi();
         }
 
         public SystemViewModel System { get; private set; }
