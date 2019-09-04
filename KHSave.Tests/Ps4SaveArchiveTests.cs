@@ -87,7 +87,7 @@ namespace KHSave.Tests.Saves.Archives
         {
             var archive = ArchiveFactories.Ps4Kh1.Create();
 
-            var entry = ArchiveFactories.CreateEntry();
+            var entry = ArchiveFactories.Ps4Kh1.CreateEntry();
             entry.Name = "my test";
             entry.DateCreated = new DateTime(2019, 01, 01);
             entry.DateModified = new DateTime(2020, 01, 01);

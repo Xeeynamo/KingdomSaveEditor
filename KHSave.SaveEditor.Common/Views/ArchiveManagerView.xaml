@@ -20,9 +20,8 @@
         <ListBox
             Grid.Row="0"
             ItemsSource="{Binding Entries}"
-            SelectedValue="{Binding SelectedEntry}"
+            SelectedValue="{Binding Entries.SelectedValue}"
             DisplayMemberPath="Name"
-            SelectedValuePath="ArchiveEntry"
             MouseDoubleClick="ListBox_MouseDoubleClick"/>
 
         <StackPanel
@@ -44,11 +43,13 @@
                 Content="_Export"
                 Command="{Binding ExportCommand}"/>
             <Button
+                Visibility="Collapsed"
                 Margin="{StaticResource ButtonMargin}"
                 Width="{StaticResource ButtonWidth}"
                 Content="_Copy"
                 Command="{Binding CopyCommand}"/>
             <Button
+                Visibility="Collapsed"
                 Margin="{StaticResource ButtonMargin}"
                 Width="{StaticResource ButtonWidth}"
                 Content="_Paste"
