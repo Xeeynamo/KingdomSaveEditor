@@ -57,7 +57,7 @@ namespace KHSave.Lib3.Presets
             ["bt_02"] = new Map { Name = "" },
             ["bt_03"] = new Map { Name = "" },
             ["bt_04"] = new Map { Name = "" },
-            ["bt_50"] = new Map { Name = "" },
+            ["bt_50"] = new Map { Name = "Chess Room" },
             ["yt_50"] = new Map { Name = "" },
             ["ew_01"] = new Map { Name = "" },
             ["ew_02"] = new Map { Name = "" },
@@ -83,6 +83,10 @@ namespace KHSave.Lib3.Presets
             ["gm_02"] = new Map { Name = "" },
             ["gm_03"] = new Map { Name = "" },
             ["gm_50"] = new Map { Name = "" },
+
+            // The following maps are found in game data, but it is not known if those maps actually exists.
+            ["sp_01"] = new Map { Name = "" },
+            ["dc_50"] = new Map { Name = "Disney Castle" },
         };
     }
 }

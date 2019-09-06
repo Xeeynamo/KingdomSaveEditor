@@ -78,5 +78,11 @@ namespace KHSave.Types
 
 		[World("gm", "Gummiship")]
 		Gummiship = 0xF2,
-	}
+
+        [World("dc", "Disney Castle")]
+        DisneyCastle = 0xF3,
+
+        [World("sp", "SP world")]
+        Sp = 0xF3,
+    }
 }
