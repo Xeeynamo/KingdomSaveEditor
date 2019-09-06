@@ -171,6 +171,9 @@
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0"
@@ -189,20 +192,13 @@
                     DisplayMemberPath="Description"
                     SelectedValuePath="Value"/>
 
-                <TextBlock Grid.Column="0" Grid.Row="3"
-                    Visibility="Collapsed"
-                    Text="Spawn type"/>
-                <ComboBox Grid.Column="0" Grid.Row="4"
-                    Visibility="Collapsed"
-                    SelectedValue="{Binding SpawnTypeValue}"
+                <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" TextWrapping="Wrap"
+                    Text="Playable charater (works only on some maps, like 'Computer Laboratory'). Some characters have no input controls and others trigger battles."/>
+                <ComboBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"
+                    ItemsSource="{Binding PlayableCharacters}"
+                    SelectedValue="{Binding PlayerCharacter}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
-
-                <TextBlock Grid.Column="2" Grid.Row="3"
-                    Visibility="Collapsed"
-                    Text="Spawn index"/>
-                <TextBox Grid.Column="2" Grid.Row="4"
-                    Visibility="Collapsed"/>
             </Grid>
         </GroupBox>
 

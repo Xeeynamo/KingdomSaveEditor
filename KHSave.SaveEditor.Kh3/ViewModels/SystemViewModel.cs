@@ -16,14 +16,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
 using System.Windows;
 using KHSave.Attributes;
 using KHSave.Types;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common;
-using KHSave.Lib3.Types;
 using System.Collections.Generic;
 using KHSave.SaveEditor.Kh3.Models;
 using System.Linq;
@@ -53,6 +51,24 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				x => RoomWorldId = x,
 				x => WorldAttribute.GetWorldId(x));
             Maps = Lib3.Presets.Presets.MAPS.Select(x => new MapViewModel(x.Key, x.Value)).ToList();
+
+            PlayableCharacters =
+                Lib3.Presets.Presets.PlayablePawns.Select(x => new SpawnModel
+                {
+                    Name = x.Value.Name,
+                    Value = string.Format(Lib3.Presets.Presets.PlayablePawnPath, x.Key)
+                })
+                .Concat(Lib3.Presets.Presets.NpcPawns.Select(x => new SpawnModel
+                {
+                    Name = x.Value.Name,
+                    Value = string.Format(Lib3.Presets.Presets.NpcPawnPath, x.Key)
+                }))
+                .Concat(Lib3.Presets.Presets.EnemyPawns.Select(x => new SpawnModel
+                {
+                    Name = x.Value.Name,
+                    Value = string.Format(Lib3.Presets.Presets.EnemyPawnPath, x.Key)
+                }))
+                .ToArray();
         }
 
 		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
@@ -64,6 +80,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		public KhEnumListModel<CharacterIconType> CharacterIcon { get; }
 		public KhEnumListModel<GenericEntryModel<string, string>, WorldType, string> RoomWorld { get; }
         public IEnumerable<MapViewModel> Maps { get; }
+        public IEnumerable<SpawnModel> PlayableCharacters { get; }
 
         public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
 
