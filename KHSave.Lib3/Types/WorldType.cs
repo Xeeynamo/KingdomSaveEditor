@@ -83,6 +83,6 @@ namespace KHSave.Types
         DisneyCastle = 0xF3,
 
         [World("sp", "SP world")]
-        Sp = 0xF3,
+        Sp = 0xF4,
     }
 }
