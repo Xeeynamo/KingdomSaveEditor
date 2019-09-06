@@ -66,6 +66,15 @@
                 <TextBlock Margin="10 3 0 3"
                     Foreground="{DynamicResource textHyperlink}">
                     <Hyperlink
+                        NavigateUri="https://discord.gg/qK8JYkw"
+                        RequestNavigate="Hyperlink_RequestNavigate"
+                        TextDecorations="{x:Null}">
+                        Join Save Editor Discord server
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Margin="10 3 0 3"
+                    Foreground="{DynamicResource textHyperlink}">
+                    <Hyperlink
                         NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
                         RequestNavigate="Hyperlink_RequestNavigate"
                         TextDecorations="{x:Null}">
