@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Views.PatronView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="32" d:DesignWidth="80" Loaded="UserControl_Loaded">
+    <Grid Margin="3 3 6 3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse
+            Margin="0 0 3 0"
+            Width="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualHeight}"
+            Fill="{Binding Brush}"/>
+        <Ellipse
+            x:Name="lightGlow"
+            Opacity="0"
+            Margin="0 0 3 0"
+            Width="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualHeight}"
+            >
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Offset="1"/>
+                    <GradientStop Color="#BFFFFFFF"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Margin="0 0 3 0"
+            Width="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualHeight}" Stroke="Black">
+            <Ellipse.Effect>
+                <DropShadowEffect x:Name="glowEffect" ShadowDepth="0" Color="{Binding Brush}" Opacity="0" BlurRadius="3"/>
+            </Ellipse.Effect>
+        </Ellipse>
+        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>

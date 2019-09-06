@@ -1,6 +1,8 @@
-﻿using KHSave.SaveEditor.ViewModels;
+﻿using KHSave.SaveEditor.Services;
+using KHSave.SaveEditor.ViewModels;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -39,6 +41,53 @@ namespace KHSave.SaveEditor.Views
 					await context.CheckLastVersionAsync();
 				}
 			});
+
+            Task.Run(async () =>
+            {
+                var patreonInfo = await PatreonService.GetPatreonInfo();
+                var patronViews = patreonInfo.Patrons
+                    .Select((patron, i) =>
+                    {
+                        Func<string, PatronViewModel> factory;
+                        bool glow = false;
+                        switch (patron.HighestTier)
+                        {
+                            case Models.Tier.Bronze:
+                                factory = PatronViewModel.Bronze;
+                                glow = false;
+                                break;
+                            case Models.Tier.Silver:
+                                factory = PatronViewModel.Silver;
+                                glow = false;
+                                break;
+                            case Models.Tier.Gold:
+                                factory = PatronViewModel.Gold;
+                                glow = true;
+                                break;
+                            case Models.Tier.Platinum:
+                                factory = PatronViewModel.Platinum;
+                                glow = true;
+                                break;
+                            default:
+                                return null;
+                        }
+
+                        return new PatronView((i + 1) / 32.0, glow)
+                        {
+                            DataContext = factory(patron.Name)
+                        };
+                    })
+                    .Where(x => x != null);
+
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    patronList.Children.Clear();
+                    foreach (var patronView in patronViews)
+                    {
+                        patronList.Children.Add(patronView);
+                    }
+                });
+            });
 		}
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
