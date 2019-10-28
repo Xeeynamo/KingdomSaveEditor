@@ -17,80 +17,44 @@ namespace KHSave.SaveEditor.Services
 
             [JsonProperty("patrons")]
             public IEnumerable<PatronDto> Patrons { get; set; }
-
-            [JsonProperty("tiers")]
-            public IEnumerable<TierDto> Tiers { get; set; }
         }
         private class PatronDto
         {
             [JsonProperty("name")]
             public string Name { get; set; }
 
-            [JsonProperty("amount")]
-            public int Amount { get; set; }
+            [JsonProperty("profileUrl")]
+            public string ProfileUrl { get; set; }
 
-            [JsonProperty("totalAmount")]
-            public int TotalAmount { get; set; }
+            [JsonProperty("tierId")]
+            public int TierId { get; set; }
 
-            [JsonProperty("lastChargeDate")]
-            public DateTime? LastChargeDate { get; set; }
+            [JsonProperty("color")]
+            public string Color { get; set; }
 
-            [JsonProperty("lastChargeStatus")]
-            public DateTime? LastChargeStatus { get; set; }
+            [JsonProperty("badgeUrl")]
+            public string BadgeUrl { get; set; }
 
-            [JsonProperty("tiers")]
-            public IEnumerable<string> Tiers { get; set; }
-        }
-
-        private class TierDto
-        {
-            [JsonProperty("id")]
-            public string Id { get; set; }
-
-            [JsonProperty("patronCount")]
-            public int PatronCount { get; set; }
-
-            [JsonProperty("amount")]
-            public int Amount { get; set; }
+            [JsonProperty("glow")]
+            public bool Glow { get; set; }
         }
 
         public static async Task<PatreonInfo> GetPatreonInfo()
         {
             var response = await FetchPatreonInfo();
-            var patreonInfo = new PatreonInfo
+            return new PatreonInfo
             {
                 PatreonUrl = response.PatreonUrl,
                 Patrons = response.Patrons?.Select(patron => new PatronModel
                 {
                     Name = patron.Name,
-                    Amount = patron.Amount,
-                    TotalAmount = patron.TotalAmount,
-                    HighestTier = patron.Tiers
-                        .Select(x => GetTier(x))
-                        .Max()
-                }),
-                Tiers = response.Tiers?
-                    .Select(tier => new TierModel
-                    {
-                        Tier = GetTier(tier.Id),
-                        PatronCount = tier.PatronCount,
-                        Amount = tier.Amount
-                    })
+                    ProfileUrl = patron.ProfileUrl,
+                    TierId = patron.TierId,
+                    Color = patron.Color,
+                    BadgeUrl = patron.BadgeUrl,
+                    Glow = patron.Glow
+                })
             };
-
-            return patreonInfo;
-        }
-
-        private static Tier GetTier(string tierId)
-        {
-            switch (tierId)
-            {
-                case "3971168": return Tier.Bronze;
-                case "3971171": return Tier.Silver;
-                case "3971175": return Tier.Gold;
-                case "3971183": return Tier.Platinum;
-                default: return Tier.Unknown;
-            }
         }
 
         private static async Task<PatreonResponse> FetchPatreonInfo()

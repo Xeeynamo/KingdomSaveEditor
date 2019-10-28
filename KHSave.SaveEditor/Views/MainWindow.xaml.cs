@@ -49,24 +49,20 @@ namespace KHSave.SaveEditor.Views
                     .Select((patron, i) =>
                     {
                         Func<string, PatronViewModel> factory;
-                        bool glow = false;
-                        switch (patron.HighestTier)
+                        bool glow = patron.Glow;
+                        switch (patron.TierId)
                         {
-                            case Models.Tier.Bronze:
+                            case 1:
                                 factory = PatronViewModel.Bronze;
-                                glow = false;
                                 break;
-                            case Models.Tier.Silver:
+                            case 2:
                                 factory = PatronViewModel.Silver;
-                                glow = false;
                                 break;
-                            case Models.Tier.Gold:
+                            case 3:
                                 factory = PatronViewModel.Gold;
-                                glow = true;
                                 break;
-                            case Models.Tier.Platinum:
+                            case 4:
                                 factory = PatronViewModel.Platinum;
-                                glow = true;
                                 break;
                             default:
                                 return null;

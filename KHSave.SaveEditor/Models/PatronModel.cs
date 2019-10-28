@@ -13,10 +13,16 @@
     {
         public string Name { get; set; }
 
-        public int Amount { get; set; }
+        public string ProfileUrl { get; set; }
 
-        public int TotalAmount { get; set; }
+        public string PhotoUrl { get; set; }
 
-        public Tier HighestTier { get; set; }
+        public int TierId { get; set; }
+
+        public string Color { get; set; }
+
+        public string BadgeUrl { get; set; }
+
+        public bool Glow { get; set; }
     }
 }
