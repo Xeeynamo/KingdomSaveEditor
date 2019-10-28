@@ -107,6 +107,9 @@ namespace KHSave.SaveEditor.Services
 
         private static IEnumerable<PatronModel> ScramblePatreonInfo(IEnumerable<PatronModel> patrons)
         {
+            if (patrons == null)
+                return new PatronModel[0];
+
             var patronsFirstPart = patrons
                 .Where(x => x.HighestTier != Tier.Bronze)
                 .OrderByDescending(x => x.HighestTier)
