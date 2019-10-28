@@ -78,8 +78,6 @@ namespace KHSave.SaveEditor.Services
                     })
             };
 
-            patreonInfo.Patrons = ScramblePatreonInfo(patreonInfo.Patrons);
-
             return patreonInfo;
         }
 
@@ -103,36 +101,6 @@ namespace KHSave.SaveEditor.Services
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<PatreonResponse>(content);
             }
-        }
-
-        private static IEnumerable<PatronModel> ScramblePatreonInfo(IEnumerable<PatronModel> patrons)
-        {
-            if (patrons == null)
-                return new PatronModel[0];
-
-            var patronsFirstPart = patrons
-                .Where(x => x.HighestTier != Tier.Bronze)
-                .OrderByDescending(x => x.HighestTier)
-                .ThenByDescending(x => x.Amount)
-                .ThenByDescending(x => x.TotalAmount);
-
-            var bronzePatrons = patrons
-                .Where(x => x.HighestTier == Tier.Bronze)
-                .ToArray();
-            var bronzePatronsCount = bronzePatrons.Length;
-            var targetBronzePatronsCount = Math.Min(20, (int)Math.Ceiling(bronzePatronsCount / 5.0 * 4));
-
-            var selectedBronzePatrons = bronzePatrons
-                .Select(x => new
-                {
-                    Seed = Guid.NewGuid(),
-                    Patron = x
-                })
-                .OrderBy(x => x.Seed)
-                .Select(x => x.Patron)
-                .Take(targetBronzePatronsCount);
-
-            return patronsFirstPart.Concat(selectedBronzePatrons);
         }
     }
 }
