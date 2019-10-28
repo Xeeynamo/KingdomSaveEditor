@@ -48,29 +48,9 @@ namespace KHSave.SaveEditor.Views
                 var patronViews = patreonInfo.Patrons
                     .Select((patron, i) =>
                     {
-                        Func<string, PatronViewModel> factory;
-                        bool glow = patron.Glow;
-                        switch (patron.TierId)
+                        return new PatronView((i + 1) / 32.0, patron.Glow)
                         {
-                            case 1:
-                                factory = PatronViewModel.Bronze;
-                                break;
-                            case 2:
-                                factory = PatronViewModel.Silver;
-                                break;
-                            case 3:
-                                factory = PatronViewModel.Gold;
-                                break;
-                            case 4:
-                                factory = PatronViewModel.Platinum;
-                                break;
-                            default:
-                                return null;
-                        }
-
-                        return new PatronView((i + 1) / 32.0, glow)
-                        {
-                            DataContext = factory(patron.Name)
+                            DataContext = new PatronViewModel(patron)
                         };
                     })
                     .Where(x => x != null);

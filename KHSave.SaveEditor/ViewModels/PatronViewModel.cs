@@ -1,26 +1,27 @@
-﻿using System.Windows.Media;
+﻿using KHSave.SaveEditor.Models;
+using System.Windows.Media;
 
 namespace KHSave.SaveEditor.ViewModels
 {
     public class PatronViewModel
     {
-        private PatronViewModel(Color color, string name)
+        public PatronViewModel(PatronModel patron)
         {
-            Brush = new SolidColorBrush(color);
-            Name = name;
+            Brush = GetColor(patron.Color);
+            Name = patron.Name;
         }
 
         public Brush Brush { get; }
 
         public string Name { get; }
 
-        public static PatronViewModel Bronze(string name) =>
-            new PatronViewModel(Color.FromRgb(214, 112, 11), name);
-        public static PatronViewModel Silver(string name) =>
-            new PatronViewModel(Color.FromRgb(166, 166, 166), name);
-        public static PatronViewModel Gold(string name) =>
-            new PatronViewModel(Color.FromRgb(255, 215, 0), name);
-        public static PatronViewModel Platinum(string name) =>
-            new PatronViewModel(Color.FromRgb(170, 169, 202), name);
+        private static SolidColorBrush GetColor(string color)
+        {
+            if (string.IsNullOrWhiteSpace(color) ||
+                color[0] != '#')
+                return new SolidColorBrush(Colors.Red);
+
+            return new BrushConverter().ConvertFromString(color) as SolidColorBrush;
+        }
     }
 }
