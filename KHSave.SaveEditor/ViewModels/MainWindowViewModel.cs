@@ -155,9 +155,7 @@ namespace KHSave.SaveEditor.ViewModels
 			{
 				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
                 {
-                    ("Kingdom Hearts 2 Save", "bin"),
-                    ("Kingdom Hearts 0.2 Save", "sav"),
-                    ("Kingdom Hearts III Save", "bin"),
+                    ("Kingdom Hearts 2/0.2/III (PS2/PS4) Save", "bin;*.sav;*.dat;*"),
                 });
 				if (fd.ShowDialog() == true)
 				{
