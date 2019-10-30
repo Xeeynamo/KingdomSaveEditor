@@ -44,7 +44,7 @@ namespace KHSave.SaveEditor.Views
 
             Task.Run(async () =>
             {
-                var patreonInfo = await PatreonService.GetPatreonInfo();
+                var patreonInfo = await new PatreonService(new DesktopAppIdentity()).GetPatreonInfo();
                 var patronViews = patreonInfo.Patrons
                     .Select((patron, i) =>
                     {

@@ -1,14 +1,14 @@
 ﻿using KHSave.SaveEditor.Models;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace KHSave.SaveEditor.Services
 {
-    public static class PatreonService
+    public class PatreonService
     {
         private class PatreonResponse
         {
@@ -39,7 +39,14 @@ namespace KHSave.SaveEditor.Services
             public bool Glow { get; set; }
         }
 
-        public static async Task<PatreonInfo> GetPatreonInfo()
+        private readonly IAppIdentity _appIdentity;
+
+        public PatreonService(IAppIdentity appIdentity)
+        {
+            _appIdentity = appIdentity;
+        }
+
+        public async Task<PatreonInfo> GetPatreonInfo()
         {
             var response = await FetchPatreonInfo();
             return new PatreonInfo
@@ -57,10 +64,16 @@ namespace KHSave.SaveEditor.Services
             };
         }
 
-        private static async Task<PatreonResponse> FetchPatreonInfo()
+        private async Task<PatreonResponse> FetchPatreonInfo()
         {
             using (var client = new HttpClient())
             {
+                var version = _appIdentity.Version;
+#if DEBUG
+                version += "d";
+#endif
+                client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("khsaveeditor", version));
+
                 var response = await client.GetAsync("https://api.xee.dev/v1/khsaveeditor/patreon");
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<PatreonResponse>(content);
