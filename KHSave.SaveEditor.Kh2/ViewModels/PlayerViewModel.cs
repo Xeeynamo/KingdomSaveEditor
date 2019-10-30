@@ -18,6 +18,7 @@
 
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
+using KHSave.SaveEditor.Common.Models;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
@@ -30,11 +31,13 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         {
             this.character = character;
             this.index = index;
+
+            Weapon = new ItemComboBoxModel<WeaponType>(() => character.Weapon, x => character.Weapon = x);
         }
 
         public string Name => $"Character {index:X02}";
 
-        public WeaponType Weapon  { get => character.Weapon; set => character.Weapon = value; }
+        public ItemComboBoxModel<WeaponType> Weapon { get; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }

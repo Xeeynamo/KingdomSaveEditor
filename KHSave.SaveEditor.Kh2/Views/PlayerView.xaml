@@ -45,5 +45,8 @@
         <TextBlock Text="Unk0e"/>
         <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
 
+        <TextBlock Text="Weapon"/>
+        <common:ItemComboBox DataContext="{Binding Weapon}"/>
+
     </common:TwoEqualColumnsStackPanel>
 </UserControl>
