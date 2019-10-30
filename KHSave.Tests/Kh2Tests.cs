@@ -64,7 +64,7 @@ namespace KHSave.Tests
         [Fact]
         public void TestRead()
         {
-            Assert.Equal(0x1f4, save.Characters[0].Weapon);
+            Assert.Equal(WeaponType.UltimaWeapon, save.Characters[0].Weapon);
             Assert.Equal(60, save.Characters[0].HpCur);
             Assert.Equal(60, save.Characters[0].HpMax);
             Assert.Equal(120, save.Characters[0].MpMax);
@@ -77,6 +77,7 @@ namespace KHSave.Tests
             Assert.Equal(137, save.Characters[0].Abilities[0]);
             Assert.Equal(0x81, save.Characters[0].Abilities[0x8d]);
 
+            Assert.Equal(WeaponType.SaveTheQueen, save.Characters[1].Weapon);
             Assert.Equal(BattleStyleType.SoraAttack, save.Characters[1].BattleStyle);
             Assert.Equal(305, save.Characters[1].Armors[0]);
             Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle1);

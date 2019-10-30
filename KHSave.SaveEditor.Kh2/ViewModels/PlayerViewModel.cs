@@ -34,7 +34,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 
         public string Name => $"Character {index:X02}";
 
-        public short Weapon  { get => character.Weapon; set => character.Weapon = value; }
+        public WeaponType Weapon  { get => character.Weapon; set => character.Weapon = value; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }
