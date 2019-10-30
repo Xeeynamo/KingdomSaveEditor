@@ -1,5 +1,9 @@
 ﻿using KHSave.SaveEditor.Models;
+using System;
+using System.Net.Cache;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -9,11 +13,40 @@ namespace KHSave.SaveEditor.ViewModels
         {
             Brush = GetColor(patron.Color);
             Name = patron.Name;
+            ImageUrl = patron.PhotoUrl;
+            BadgeUrl = patron.BadgeUrl;
+
+            if (!IsImageEmpty || !IsBadgeEmpty)
+            {
+                ImageSource = new BitmapImage();
+                ImageSource.BeginInit();
+
+                ImageSource.DecodePixelWidth = 64; // Arbitrary, does not respect DPI
+                ImageSource.CacheOption = BitmapCacheOption.OnDemand;
+                ImageSource.CreateOptions = BitmapCreateOptions.DelayCreation;
+                ImageSource.UriCachePolicy = new RequestCachePolicy(RequestCacheLevel.CacheIfAvailable);
+                ImageSource.UriSource = new Uri(IsImageEmpty ? BadgeUrl : ImageUrl);
+
+                ImageSource.EndInit();
+            }
+
+            BorderColor = IsStandardBadge ? new SolidColorBrush(Colors.Black) : Brush;
         }
 
         public Brush Brush { get; }
-
+        public Brush BorderColor { get; }
         public string Name { get; }
+        public string ImageUrl { get; }
+        public string BadgeUrl { get; }
+        public BitmapImage ImageSource { get; }
+
+        public Visibility ImageVisibility => IsImageEmpty ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility BadgeVisibility => IsBadgeEmpty ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility BorderVisibility => IsBadgeEmpty ? Visibility.Visible : Visibility.Collapsed;
+
+        private bool IsStandardBadge => IsImageEmpty && IsBadgeEmpty;
+        private bool IsImageEmpty => string.IsNullOrWhiteSpace(ImageUrl);
+        private bool IsBadgeEmpty => string.IsNullOrWhiteSpace(BadgeUrl);
 
         private static SolidColorBrush GetColor(string color)
         {
