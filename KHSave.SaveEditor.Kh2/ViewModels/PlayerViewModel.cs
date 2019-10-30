@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
@@ -35,7 +36,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Weapon = new ItemComboBoxModel<WeaponType>(() => character.Weapon, x => character.Weapon = x);
         }
 
-        public string Name => $"Character {index:X02}";
+        public string Name => InfoAttribute.GetInfo((CharacterType)index);
 
         public ItemComboBoxModel<WeaponType> Weapon { get; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
