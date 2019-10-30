@@ -21,10 +21,11 @@ using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
 using System.IO;
 using Xe.BinaryMapper;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class Kh2ViewModel : IRefreshUi, IWriteToStream
+    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream
     {
         private readonly SaveKh2.SaveFinalMix save;
 
@@ -55,6 +56,9 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         {
             System = new SystemViewModel(save);
             Players = new PlayersViewModel(save);
+
+            OnPropertyChanged(nameof(System));
+            OnPropertyChanged(nameof(Players));
         }
 
         public void WriteToStream(Stream stream)
