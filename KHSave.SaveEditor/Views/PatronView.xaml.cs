@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -62,6 +63,12 @@ namespace KHSave.SaveEditor.Views
                 Duration = new Duration(TimeSpan.FromSeconds(0.5 + Math.Sqrt(remainHiddenSeconds / 2.0))),
                 BeginTime = TimeSpan.FromSeconds(remainHiddenSeconds)
             });
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

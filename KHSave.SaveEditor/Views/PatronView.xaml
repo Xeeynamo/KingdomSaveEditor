@@ -51,6 +51,16 @@
                 <DropShadowEffect x:Name="glowEffect" ShadowDepth="0" Color="{Binding Brush}" Opacity="0" BlurRadius="3"/>
             </Ellipse.Effect>
         </Ellipse>
-        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+
+        <TextBlock Visibility="{Binding NormalLabelVisibility}" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+
+        <TextBlock Visibility="{Binding ProfileLinkVisibility}" Grid.Column="1" Foreground="#569CD6" VerticalAlignment="Center">
+            <Hyperlink
+                NavigateUri="{Binding ProfileUrl}"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                TextDecorations="{x:Null}">
+                <TextBlock Text="{Binding Name}"/>
+            </Hyperlink>
+        </TextBlock>
     </Grid>
 </UserControl>

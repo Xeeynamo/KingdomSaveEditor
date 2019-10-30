@@ -15,6 +15,7 @@ namespace KHSave.SaveEditor.ViewModels
             Name = patron.Name;
             ImageUrl = patron.PhotoUrl;
             BadgeUrl = patron.BadgeUrl;
+            ProfileUrl = patron.ProfileUrl;
 
             if (!IsImageEmpty || !IsBadgeEmpty)
             {
@@ -38,15 +39,19 @@ namespace KHSave.SaveEditor.ViewModels
         public string Name { get; }
         public string ImageUrl { get; }
         public string BadgeUrl { get; }
+        public string ProfileUrl { get; }
         public BitmapImage ImageSource { get; }
 
         public Visibility ImageVisibility => IsImageEmpty ? Visibility.Collapsed : Visibility.Visible;
         public Visibility BadgeVisibility => IsBadgeEmpty ? Visibility.Collapsed : Visibility.Visible;
         public Visibility BorderVisibility => IsBadgeEmpty ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility NormalLabelVisibility => IsProfileUrlEmpty ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility ProfileLinkVisibility => IsProfileUrlEmpty ? Visibility.Collapsed : Visibility.Visible;
 
         private bool IsStandardBadge => IsImageEmpty && IsBadgeEmpty;
         private bool IsImageEmpty => string.IsNullOrWhiteSpace(ImageUrl);
         private bool IsBadgeEmpty => string.IsNullOrWhiteSpace(BadgeUrl);
+        private bool IsProfileUrlEmpty => string.IsNullOrWhiteSpace(ProfileUrl);
 
         private static SolidColorBrush GetColor(string color)
         {
