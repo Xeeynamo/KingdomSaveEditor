@@ -19,8 +19,10 @@
 using KHSave.Attributes;
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Kh2.Service;
+using System.Windows;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
@@ -41,6 +43,8 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         }
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
+
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public ItemComboBoxModel<EquipmentType> Weapon { get; }
         public EquipmentItemsViewModel Armors { get; }

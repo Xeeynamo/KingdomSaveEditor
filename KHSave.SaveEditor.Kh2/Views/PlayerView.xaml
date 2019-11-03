@@ -13,12 +13,9 @@
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Level"/>
                 <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Armor count"/>
-                <TextBox Text="{Binding ArmorCount, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Accessory count"/>
-                <TextBox Text="{Binding AccessoryCount, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Item count"/>
-                <TextBox Text="{Binding ItemCount, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Weapon"/>
+                <common:ItemComboBox DataContext="{Binding Weapon}"/>
 
                 <TextBlock Text="HP current"/>
                 <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
@@ -37,7 +34,8 @@
                 <TextBox Text="{Binding MagicBoost, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Defense boost"/>
                 <TextBox Text="{Binding DefenseBoost, UpdateSourceTrigger=PropertyChanged}"/>
-
+            </common:TwoEqualColumnsStackPanel>
+            <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
                 <TextBlock Text="Unk02"/>
                 <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Unk0c"/>
@@ -46,12 +44,6 @@
                 <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Unk0e"/>
                 <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Text="Weapon"/>
-                <common:ItemComboBox DataContext="{Binding Weapon}"/>
-
-                <TextBlock Text="Dummy" Visibility="Hidden"/>
-                <TextBlock Text="Dummy" Visibility="Hidden"/>
             </common:TwoEqualColumnsStackPanel>
             <GroupBox Header="Armors" DataContext="{Binding Armors}">
                 <common:TwoEqualColumnsStackPanel>
