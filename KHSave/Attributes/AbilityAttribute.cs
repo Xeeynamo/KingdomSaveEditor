@@ -20,28 +20,28 @@ namespace KHSave.Attributes
 {
 	public class AbilityAttribute : InfoAttribute
 	{
-		public AbilityAttribute(string name) :
+		public AbilityAttribute(string name = null) :
 			base(name)
 		{ }
 	}
 
 	public class AbilityActionAttribute : AbilityAttribute
 	{
-		public AbilityActionAttribute(string name) :
+		public AbilityActionAttribute(string name = null) :
 			base(name)
 		{ }
 	}
 
 	public class AbilityMobilityAttribute : AbilityAttribute
 	{
-		public AbilityMobilityAttribute(string name) :
+		public AbilityMobilityAttribute(string name = null) :
 			base(name)
 		{ }
 	}
 
 	public class AbilitySupportAttribute : AbilityAttribute
 	{
-		public AbilitySupportAttribute(string name) :
+		public AbilitySupportAttribute(string name = null) :
 			base(name)
 		{ }
 	}

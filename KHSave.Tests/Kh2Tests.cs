@@ -79,14 +79,14 @@ namespace KHSave.Tests
 
             Assert.Equal(WeaponType.SaveTheQueen, save.Characters[1].Weapon);
             Assert.Equal(BattleStyleType.SoraAttack, save.Characters[1].BattleStyle);
-            Assert.Equal(305, save.Characters[1].Armors[0]);
+            Assert.Equal(WeaponType.ChampionBelt, (WeaponType)save.Characters[1].Armors[0]);
             Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle1);
             Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle2);
             Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle3);
             Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle4);
-            Assert.Equal(0, save.Characters[2].Armors[0]);
-            Assert.Equal(57, save.Characters[2].Accessories[0]);
-            Assert.Equal(0, save.Characters[12].Armors[0]);
+            Assert.Equal(WeaponType.Empty, (WeaponType)save.Characters[2].Armors[0]);
+            Assert.Equal(WeaponType.ShadowArchive, (WeaponType)save.Characters[2].Accessories[0]);
+            Assert.Equal(WeaponType.Empty, (WeaponType)save.Characters[12].Armors[0]);
 
             Assert.Equal(PlayableCharacterType.Sora, save.PlayableCharacter);
             Assert.Equal(PlayableCharacterType.Riku, save.CompanionCharacter1);
