@@ -2,7 +2,7 @@
 
 namespace KHSave.Lib2.Types
 {
-    public enum ItemType : short
+    public enum CommandType : short
     {
         Empty,
         Attack,

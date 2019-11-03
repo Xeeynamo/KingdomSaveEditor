@@ -29,16 +29,16 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public SystemViewModel(SaveKh2.SaveFinalMix save)
         {
             this.save = save;
-            ShortcutItems = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(() => default(ItemType), x => { });
+            ShortcutItems = new KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType>(() => default(CommandType), x => { });
         }
 
-        public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ShortcutItems { get; }
+        public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
 
         public int Timer { get => save.Timer; set => save.Timer = value; }
 
-        public ItemType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
-        public ItemType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }
-        public ItemType ShortcutSquare { get => save.ShortcutSquare; set => save.ShortcutSquare = value; }
-        public ItemType ShortcutCross { get => save.ShortcutCross; set => save.ShortcutCross = value; }
+        public CommandType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
+        public CommandType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }
+        public CommandType ShortcutSquare { get => save.ShortcutSquare; set => save.ShortcutSquare = value; }
+        public CommandType ShortcutCross { get => save.ShortcutCross; set => save.ShortcutCross = value; }
     }
 }

@@ -23,10 +23,10 @@ namespace KHSave.Lib2
             [Data(0x357e)] public PlayableCharacterType CompanionCharacter2 { get; set; }
             [Data(0x357f)] public PlayableCharacterType CompanionCharacter3 { get; set; }
 
-            [Data(0x36f8)] public ItemType ShortcutCircle { get; set; }
-            [Data(0x36fa)] public ItemType ShortcutTriangle { get; set; }
-            [Data(0x36fc)] public ItemType ShortcutSquare { get; set; }
-            [Data(0x36fe)] public ItemType ShortcutCross { get; set; }
+            [Data(0x36f8)] public CommandType ShortcutCircle { get; set; }
+            [Data(0x36fa)] public CommandType ShortcutTriangle { get; set; }
+            [Data(0x36fc)] public CommandType ShortcutSquare { get; set; }
+            [Data(0x36fe)] public CommandType ShortcutCross { get; set; }
 
             [Data(0x41a4, BitIndex = 0)] public bool Vibration { get; set; }
             [Data(0x41a4, BitIndex = 3)] public bool NavigationalMap { get; set; }
