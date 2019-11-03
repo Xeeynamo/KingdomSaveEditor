@@ -5,7 +5,7 @@ namespace KHSave.Lib2.Models
 {
     public class Character
     {
-        [Data] public WeaponType Weapon { get; set; }
+        [Data] public EquipmentType Weapon { get; set; }
         [Data] public short Unk02 { get; set; }
         [Data] public byte HpCur { get; set; }
         [Data] public byte HpMax { get; set; }

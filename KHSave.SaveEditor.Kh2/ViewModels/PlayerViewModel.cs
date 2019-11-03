@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -33,12 +33,12 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             this.character = character;
             this.index = index;
 
-            Weapon = new ItemComboBoxModel<WeaponType>(() => character.Weapon, x => character.Weapon = x);
+            Weapon = new ItemComboBoxModel<EquipmentType>(() => character.Weapon, x => character.Weapon = x);
         }
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
 
-        public ItemComboBoxModel<WeaponType> Weapon { get; }
+        public ItemComboBoxModel<EquipmentType> Weapon { get; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }

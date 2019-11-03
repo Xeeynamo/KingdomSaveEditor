@@ -2,7 +2,7 @@
 
 namespace KHSave.Lib2.Types
 {
-    public enum WeaponType : short
+    public enum EquipmentType : short
     {
         [Info] Empty = 0,
         [Consumable("Potion")] Potion = 0x01,
