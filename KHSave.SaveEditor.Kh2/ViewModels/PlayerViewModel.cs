@@ -1,4 +1,4 @@
-/*
+﻿/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -20,6 +20,7 @@ using KHSave.Attributes;
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Service;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
@@ -34,11 +35,17 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             this.index = index;
 
             Weapon = new ItemComboBoxModel<EquipmentType>(() => character.Weapon, x => character.Weapon = x);
+            Armors = new EquipmentItemsViewModel(EquipmentManagerFactory.ForArmor(character));
+            Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character));
+            Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character));
         }
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
 
         public ItemComboBoxModel<EquipmentType> Weapon { get; }
+        public EquipmentItemsViewModel Armors { get; }
+        public EquipmentItemsViewModel Accessories { get; }
+        public EquipmentItemsViewModel Consumables { get; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }
