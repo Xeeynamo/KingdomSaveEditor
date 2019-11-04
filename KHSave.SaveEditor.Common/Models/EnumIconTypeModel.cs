@@ -48,6 +48,12 @@ namespace KHSave.SaveEditor.Common.Models
 			["Ability"] = "kh2-icon-ability",
 			["CombatStyle"] = "kh2-icon-style",
 			["Command"] = "kh2-icon-mickey",
+			["Boost"] = "kh2-icon-tent",
+			["Form"] = "kh2-item-key",
+			["Map"] = "kh2-item-key",
+			["Report"] = "kh2-item-key",
+			["Summon"] = "kh2-item-key",
+			["Recipe"] = "KupoCoinIcon",
 		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
 
 		public ImageSource Icon

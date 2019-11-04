@@ -32,6 +32,9 @@ namespace KHSave.SaveEditor.Services
             [JsonProperty("color")]
             public string Color { get; set; }
 
+            [JsonProperty("photoUrl")]
+            public string PhotoUrl { get; set; }
+
             [JsonProperty("badgeUrl")]
             public string BadgeUrl { get; set; }
 
@@ -58,6 +61,7 @@ namespace KHSave.SaveEditor.Services
                     ProfileUrl = patron.ProfileUrl,
                     TierId = patron.TierId,
                     Color = patron.Color,
+                    PhotoUrl = patron.PhotoUrl,
                     BadgeUrl = patron.BadgeUrl,
                     Glow = patron.Glow
                 })
