@@ -7,7 +7,7 @@ namespace KHSave.Lib2.Types
         [Info] Sora,
         [Info] Donald,
         [Info] Goofy,
-        [Info("3")] Unknown03,
+        [Info] Mickey,
         [Info] Auron,
         [Info] Mulan,
         [Info] Aladdin,

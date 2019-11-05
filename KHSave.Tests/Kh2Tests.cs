@@ -64,29 +64,29 @@ namespace KHSave.Tests
         [Fact]
         public void TestRead()
         {
-            Assert.Equal(EquipmentType.UltimaWeapon, save.Characters[0].Weapon);
-            Assert.Equal(60, save.Characters[0].HpCur);
-            Assert.Equal(60, save.Characters[0].HpMax);
-            Assert.Equal(120, save.Characters[0].MpMax);
-            Assert.Equal(120, save.Characters[0].MpMax);
-            Assert.Equal(99, save.Characters[0].Level);
-            Assert.Equal(4, save.Characters[0].AccessoryCount);
-            Assert.Equal(4, save.Characters[0].ArmorCount);
-            Assert.Equal(8, save.Characters[0].ItemCount);
-            Assert.Equal(0, save.Characters[0].UnknownCount);
-            Assert.Equal(137, save.Characters[0].Abilities[0]);
-            Assert.Equal(0x81, save.Characters[0].Abilities[0x8d]);
+            Assert.Equal(EquipmentType.UltimaWeapon, save.Characters[(int)CharacterType.Sora].Weapon);
+            Assert.Equal(60, save.Characters[(int)CharacterType.Sora].HpCur);
+            Assert.Equal(60, save.Characters[(int)CharacterType.Sora].HpMax);
+            Assert.Equal(120, save.Characters[(int)CharacterType.Sora].MpMax);
+            Assert.Equal(120, save.Characters[(int)CharacterType.Sora].MpMax);
+            Assert.Equal(99, save.Characters[(int)CharacterType.Sora].Level);
+            Assert.Equal(4, save.Characters[(int)CharacterType.Sora].AccessoryCount);
+            Assert.Equal(4, save.Characters[(int)CharacterType.Sora].ArmorCount);
+            Assert.Equal(8, save.Characters[(int)CharacterType.Sora].ItemCount);
+            Assert.Equal(0, save.Characters[(int)CharacterType.Sora].UnknownCount);
+            Assert.Equal(137, save.Characters[(int)CharacterType.Sora].Abilities[0]);
+            Assert.Equal(0x81, save.Characters[(int)CharacterType.Sora].Abilities[0x8d]);
 
-            Assert.Equal(EquipmentType.SaveTheQueen, save.Characters[1].Weapon);
-            Assert.Equal(BattleStyleType.SoraAttack, save.Characters[1].BattleStyle);
-            Assert.Equal(EquipmentType.ChampionBelt, (EquipmentType)save.Characters[1].Armors[0]);
-            Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle1);
-            Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle2);
-            Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle3);
-            Assert.Equal(AbilityStyleType.Free, save.Characters[1].AbilityStyle4);
-            Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[2].Armors[0]);
-            Assert.Equal(EquipmentType.ShadowArchive, (EquipmentType)save.Characters[2].Accessories[0]);
-            Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[12].Armors[0]);
+            Assert.Equal(EquipmentType.SaveTheQueen, save.Characters[(int)CharacterType.Donald].Weapon);
+            Assert.Equal(BattleStyleType.SoraAttack, save.Characters[(int)CharacterType.Donald].BattleStyle);
+            Assert.Equal(EquipmentType.ChampionBelt, (EquipmentType)save.Characters[(int)CharacterType.Donald].Armors[0]);
+            Assert.Equal(AbilityStyleType.Free, save.Characters[(int)CharacterType.Donald].AbilityStyle1);
+            Assert.Equal(AbilityStyleType.Free, save.Characters[(int)CharacterType.Donald].AbilityStyle2);
+            Assert.Equal(AbilityStyleType.Free, save.Characters[(int)CharacterType.Donald].AbilityStyle3);
+            Assert.Equal(AbilityStyleType.Free, save.Characters[(int)CharacterType.Donald].AbilityStyle4);
+            Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[(int)CharacterType.Goofy].Armors[0]);
+            Assert.Equal(EquipmentType.ShadowArchive, (EquipmentType)save.Characters[(int)CharacterType.Goofy].Accessories[0]);
+            Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[(int)CharacterType.Riku].Armors[0]);
 
             Assert.Equal(PlayableCharacterType.Sora, save.PlayableCharacter);
             Assert.Equal(PlayableCharacterType.Riku, save.CompanionCharacter1);
