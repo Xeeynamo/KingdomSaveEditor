@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Services;
 using System;
 using System.Linq;
 
@@ -23,7 +24,9 @@ namespace KHSave.Attributes
 {
 	public class InfoAttribute : Attribute
 	{
-		public string Info { get; set; }
+        private static CacheService<string> cache = new CacheService<string>();
+
+        public string Info { get; set; }
 
 		public InfoAttribute()
 		{ }
@@ -33,24 +36,24 @@ namespace KHSave.Attributes
 			Info = info;
 		}
 
-		public static string GetInfo(object value)
-		{
-			var memberValue = value.ToString();
-			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
+        public static string GetInfo(object value) => cache.Get(value, x =>
+            {
+                var memberValue = x.ToString();
+                var memberInfo = x.GetType().GetMember(memberValue).FirstOrDefault();
 
-			if (memberInfo != null)
-			{
-				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
-					    .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
-				{
-					return attribute.Info;
-				}
-			}
+                if (memberInfo != null)
+                {
+                    if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
+                            .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
+                    {
+                        return attribute.Info;
+                    }
+                }
 
-			return memberValue;
-		}
+                return memberValue;
+            });
 
-		public static string[] GetItemTypes(object value)
+        public static string[] GetItemTypes(object value)
 		{
 			var memberValue = value.ToString();
 			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
