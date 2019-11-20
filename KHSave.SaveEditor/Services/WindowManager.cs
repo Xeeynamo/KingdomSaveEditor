@@ -32,13 +32,19 @@ namespace KHSave.SaveEditor.Services
             _container = container;
         }
 
-        public void Push<TWindow>() where TWindow : Window =>
-            Push(_container.Resolve<TWindow>());
+        public bool? Push<TWindow>(Action<TWindow> onSetup, Func<TWindow, bool> onSuccess) where TWindow : Window
+        {
+            var window = _container.Resolve<TWindow>();
+            onSetup?.Invoke(window);
+            
+            var result = Push(window);
+            return result == true ? onSuccess?.Invoke(window) ?? true : result;
+        }
 
-        public void Push(Window window)
+        public bool? Push(Window window)
         {
             _windowStack.Push(window);
-            window.ShowDialog();
+            return window.ShowDialog();
         }
 
         public void Pull()

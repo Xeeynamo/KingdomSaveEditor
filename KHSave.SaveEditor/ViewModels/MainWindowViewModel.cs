@@ -61,7 +61,7 @@ namespace KHSave.SaveEditor.ViewModels
     public class MainWindowViewModel : BaseNotifyPropertyChanged
     {
         private readonly IFileDialogManager fileDialogManager;
-
+        private readonly IWindowManager windowManager;
         private SaveType saveType = SaveType.Unload;
         private object dataContext;
 
@@ -147,9 +147,12 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public bool IsItTimeForCheckingNewVersion => Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
 
-		public MainWindowViewModel(IFileDialogManager fileDialogManager)
+		public MainWindowViewModel(
+            IFileDialogManager fileDialogManager,
+            IWindowManager windowManager)
         {
             this.fileDialogManager = fileDialogManager;
+            this.windowManager = windowManager;
 
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
@@ -243,23 +246,14 @@ namespace KHSave.SaveEditor.ViewModels
 
         private bool Open(IArchive archive)
         {
-            var archiveManagerDialog = new ArchiveManagerView()
-            {
-                Archive = archive
-            };
+            var result = windowManager.Push<ArchiveManagerView>(
+                onSetup: window => window.Archive = archive,
+                onSuccess: window => Open(archive, window.SelectedEntry));
 
-            switch (archiveManagerDialog.ShowDialog())
-            {
-                case true:
-                    return Open(archive, archiveManagerDialog.SelectedEntry);
-                case false:
-                    SaveKind = SaveType.Unload;
-                    return true;
-                case null:
-                    return true;
-                default:
-                    return false;
-            }
+            if (result == false)
+                SaveKind = SaveType.Unload;
+
+            return true;
         }
 
         private bool Open(IArchive archive, IArchiveEntry archiveEntry)

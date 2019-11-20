@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace KHSave.SaveEditor.Interfaces
 {
@@ -8,8 +9,8 @@ namespace KHSave.SaveEditor.Interfaces
         Window RootWindow { get; set; }
         Window CurrentWindow { get; }
 
-        void Push<TWindow>() where TWindow : Window;
-        void Push(Window window);
+        bool? Push<TWindow>(Action<TWindow> onSetup = null, Func<TWindow, bool> onSuccess = null) where TWindow : Window;
+        bool? Push(Window window);
 
         void Pull();
     }
