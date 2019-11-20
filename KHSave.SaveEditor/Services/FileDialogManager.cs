@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using KHSave.SaveEditor.Interfaces;
 using Xe.Tools.Wpf.Dialogs;
@@ -7,7 +8,17 @@ namespace KHSave.SaveEditor.Services
 {
     public class FileDialogManager : IFileDialogManager
     {
-        (string, string) Filter = ("Kingdom Hearts 2/ReCom//0.2/III (PS2/PS4) Save", "bin;*.sav;*.dat;*");
+        private readonly IEnumerable<FileDialogFilter> Filters = FileDialogFilterComposer
+            .Compose()
+            .AddExtensions("All supported games", "bin;*.sav;*.dat;*")
+            .AddExtensions("Kingdom Hearts II: Final Mix (raw)", ";BISLPM*")
+            .AddExtensions("Kingdom Hearts II (PS4)", "DAT")
+            .AddExtensions("Kingdom Hearts Re: CoM (raw)", ";BISLPM*;BASLUS*")
+            .AddExtensions("Kingdom Hearts Re: CoM (PS4)", "DAT")
+            .AddExtensions("Kingdom Hearts 0.2", ";ue4savegame*.sav")
+            .AddExtensions("Kingdom Hearts III", ";__data__slot*.bin")
+            ;
+
         private readonly IWindowManager _windowManager;
 
         public bool IsFileOpen { get; private set; }
@@ -19,16 +30,12 @@ namespace KHSave.SaveEditor.Services
             _windowManager = windowManager;
         }
 
-        public void Open(Action<Stream> onSuccess)
-        {
-            var fd = FileDialog.Factory(_windowManager.CurrentWindow, FileDialog.Behavior.Open, Filter);
-
-            if (fd.ShowDialog() == true)
+        public void Open(Action<Stream> onSuccess) => FileDialog.OnOpen(fileName =>
             {
-                using (var stream = File.OpenRead(fd.FileName))
+                using (var stream = File.OpenRead(fileName))
                 {
                     IsFileOpen = true;
-                    CurrentFileName = fd.FileName;
+                    CurrentFileName = fileName;
                     try { onSuccess(stream); }
                     catch
                     {
@@ -36,8 +43,7 @@ namespace KHSave.SaveEditor.Services
                         throw;
                     }
                 }
-            }
-        }
+            }, Filters, parent: _windowManager.CurrentWindow);
 
         public void Save(Action<Stream> onSuccess)
         {
@@ -56,17 +62,14 @@ namespace KHSave.SaveEditor.Services
 
         public void SaveAs(Action<Stream> onSuccess)
         {
-            var fd = FileDialog.Factory(_windowManager.CurrentWindow, FileDialog.Behavior.Save, Filter);
-            fd.DefaultFileName = CurrentFileName;
-
-            if (fd.ShowDialog() == true)
+            FileDialog.OnSave(fileName =>
             {
-                using (var stream = File.Create(fd.FileName))
+                using (var stream = File.Create(fileName))
                 {
-                    CurrentFileName = fd.FileName;
+                    CurrentFileName = fileName;
                     onSuccess(stream);
                 }
-            }
+            }, Filters, defaultFileName: CurrentFileName, parent: _windowManager.CurrentWindow);
         }
     }
 }
