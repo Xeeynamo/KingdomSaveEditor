@@ -58,6 +58,7 @@ namespace KHSave.SaveEditor.ViewModels
     {
         private readonly IFileDialogManager fileDialogManager;
         private readonly IWindowManager windowManager;
+        private readonly IAlertMessage alertMessage;
         private readonly IUpdater updater;
         private SaveType saveType = SaveType.Unload;
         private object dataContext;
@@ -144,10 +145,12 @@ namespace KHSave.SaveEditor.ViewModels
 		public MainWindowViewModel(
             IFileDialogManager fileDialogManager,
             IWindowManager windowManager,
+            IAlertMessage alertMessage,
             IUpdater updater)
         {
             this.fileDialogManager = fileDialogManager;
             this.windowManager = windowManager;
+            this.alertMessage = alertMessage;
             this.updater = updater;
 
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
@@ -168,12 +171,7 @@ namespace KHSave.SaveEditor.ViewModels
 					if (found == false)
 					{
 						Application.Current.Dispatcher.Invoke(() =>
-						{
-							MessageBox.Show("No new versions has been found.",
-								"Check update",
-								MessageBoxButton.OK,
-								MessageBoxImage.Information);
-						});
+                            alertMessage.Info("You are up to date :)", "Check update"));
 					}
 				});
 			});
@@ -220,7 +218,7 @@ namespace KHSave.SaveEditor.ViewModels
             }
             catch (SaveNotSupportedException ex)
             {
-                MessageBox.Show(ex.Message, ex.Title, MessageBoxButton.OK, MessageBoxImage.Error);
+                alertMessage.Error(ex);
             }
         }
 

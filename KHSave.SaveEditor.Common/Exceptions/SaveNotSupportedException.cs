@@ -1,13 +1,9 @@
-﻿using System;
-
-namespace KHSave.SaveEditor.Common.Exceptions
+﻿namespace KHSave.SaveEditor.Common.Exceptions
 {
-    public class SaveNotSupportedException : Exception
+    public class SaveNotSupportedException : VisualException
     {
-        public SaveNotSupportedException(string message) : base(message)
-        {
-        }
-
-        public string Title => "Save not supported";
+        public SaveNotSupportedException(string message) :
+            base(message, "Save not supported")
+        { }
     }
 }
