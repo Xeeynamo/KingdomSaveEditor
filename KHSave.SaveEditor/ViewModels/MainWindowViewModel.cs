@@ -70,6 +70,7 @@ namespace KHSave.SaveEditor.ViewModels
         public string Title => fileDialogManager.IsFileOpen ?
             $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
 
+        public HomeViewModel HomeContext { get; }
         public RelayCommand OpenCommand { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand SaveAsCommand { get; }
@@ -142,17 +143,18 @@ namespace KHSave.SaveEditor.ViewModels
 			}
 		}
 
-		public MainWindowViewModel(
+        public MainWindowViewModel(
             IFileDialogManager fileDialogManager,
             IWindowManager windowManager,
             IAlertMessage alertMessage,
-            IUpdater updater)
+            IUpdater updater,
+            HomeViewModel homeContext)
         {
             this.fileDialogManager = fileDialogManager;
             this.windowManager = windowManager;
             this.alertMessage = alertMessage;
             this.updater = updater;
-
+            HomeContext = homeContext;
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
             SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),

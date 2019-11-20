@@ -70,22 +70,24 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Margin="0 0 5 0" Width="32"
-                        Source="/KHSave.SaveEditor;component/Images/Patreon.png"/>
+                Source="{StaticResource FundIcon}"/>
             <StackPanel Grid.Column="1">
                 <TextBlock Grid.Column="1" TextWrapping="Wrap"
-                        Text="Fund me on Patreon to be featured below and help me to improve the Save Editor!"/>
+                        Text="Fund me to be featured below and help me to improve all my projects!"/>
 
                 <TextBlock Foreground="{StaticResource textHyperlink}">
                     <Hyperlink
-                        NavigateUri="https://www.patreon.com/khsaveeditor"
+                        NavigateUri="{Binding FundLink}"
                         RequestNavigate="Hyperlink_RequestNavigate"
                         TextDecorations="{x:Null}">
-                        https://www.patreon.com/khsaveeditor
+                        Click to prepare to fund me today!
                     </Hyperlink>
                 </TextBlock>
             </StackPanel>
         </Grid>
-        <TextBlock Text="Patrons:"/>
-        <WrapPanel Name="patronList"/>
+        <StackPanel Margin="{StaticResource labelMargin}">
+            <TextBlock Text="Funders:"/>
+            <WrapPanel Name="patronList"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>

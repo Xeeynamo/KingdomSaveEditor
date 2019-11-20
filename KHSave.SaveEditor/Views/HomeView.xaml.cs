@@ -44,6 +44,7 @@ namespace KHSave.SaveEditor.Views
 
                 Application.Current.Dispatcher.Invoke(() =>
                 {
+                    (DataContext as HomeViewModel).FundLink = patreonInfo.PatreonUrl;
                     patronList.Children.Clear();
                     foreach (var patronView in patronViews)
                     {
