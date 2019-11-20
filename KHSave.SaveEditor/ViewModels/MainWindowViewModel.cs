@@ -16,22 +16,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
-using KHSave.SaveEditor.VersionCheck;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
-using Xe.VersionCheck;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Properties;
-using KHSave.SaveEditor.Views;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
 using KHSave.SaveEditor.Kh02.ViewModels;
@@ -62,6 +58,7 @@ namespace KHSave.SaveEditor.ViewModels
     {
         private readonly IFileDialogManager fileDialogManager;
         private readonly IWindowManager windowManager;
+        private readonly IUpdater updater;
         private SaveType saveType = SaveType.Unload;
         private object dataContext;
 
@@ -136,23 +133,22 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public bool IsUpdateCheckingEnabled
 		{
-			get => Settings.Default.IsUpdateCheckingEnabled;
+            get => updater.IsAutomaticUpdatesEnabled;
 			set
 			{
-				Settings.Default.IsUpdateCheckingEnabled = value;
-				Settings.Default.Save();
-				OnPropertyChanged();
+                updater.IsAutomaticUpdatesEnabled = value;
+                OnPropertyChanged();
 			}
 		}
 
-		public bool IsItTimeForCheckingNewVersion => Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
-
 		public MainWindowViewModel(
             IFileDialogManager fileDialogManager,
-            IWindowManager windowManager)
+            IWindowManager windowManager,
+            IUpdater updater)
         {
             this.fileDialogManager = fileDialogManager;
             this.windowManager = windowManager;
+            this.updater = updater;
 
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
@@ -168,7 +164,7 @@ namespace KHSave.SaveEditor.ViewModels
 			{
 				Task.Run(async () =>
 				{
-					var found = await CheckLastVersionAsync(true);
+                    var found = await updater.ForceCheckLastVersionAsync();
 					if (found == false)
 					{
 						Application.Current.Dispatcher.Invoke(() =>
@@ -338,38 +334,5 @@ namespace KHSave.SaveEditor.ViewModels
         }
 
         public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
-
-        public void UpdateLastTimeForCheckingNewVersion()
-		{
-			Settings.Default.LastUpdateCheck = DateTime.UtcNow;
-			Settings.Default.Save();
-		}
-
-		public async Task<bool> CheckLastVersionAsync(bool forceUpdateCheck = false)
-		{
-			if (forceUpdateCheck == false)
-			{
-				if (IsItTimeForCheckingNewVersion == false)
-					return false;
-			}
-
-			UpdateLastTimeForCheckingNewVersion();
-			var checkCurrentVersion = new DesktopCheckCurrentVersion();
-			var checkLastVersion = new GithubCheckLatestVersion("xeeynamo", "kh3saveeditor");
-			var releaseUpdater = new VersionChecker(checkCurrentVersion, checkLastVersion);
-
-			var lastVersion = await releaseUpdater.GetLatestVersionAsync();
-			if (lastVersion != null)
-			{
-				Application.Current.Dispatcher.Invoke(() =>
-				{
-					new UpdateWindow(lastVersion).ShowDialog();
-				});
-
-				return true;
-			}
-
-			return false;
-		}
 	}
 }

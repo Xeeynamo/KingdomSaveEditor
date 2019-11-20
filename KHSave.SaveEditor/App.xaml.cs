@@ -34,6 +34,7 @@ namespace KHSave.SaveEditor
                 .RegisterSingleton<IWindowManager, WindowManager>()
                 .RegisterSingleton<IFileDialogManager, FileDialogManager>()
                 .RegisterSingleton<IApplicationDebug, ApplicationDebug>()
+                .RegisterSingleton<IUpdater, UpdaterService>()
                 .RegisterType<MainWindowViewModel>()
                 ;
 

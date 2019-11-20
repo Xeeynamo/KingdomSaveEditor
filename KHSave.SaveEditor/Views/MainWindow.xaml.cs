@@ -12,10 +12,12 @@ namespace KHSave.SaveEditor.Views
 	public partial class MainWindow : Window
 	{
 		private readonly MainWindowViewModel context;
+        private readonly IUpdater updater;
 
-		public MainWindow(
+        public MainWindow(
             IWindowManager windowManager,
             IApplicationDebug applicationDebug,
+            IUpdater updater,
             MainWindowViewModel vm)
 		{
 			InitializeComponent();
@@ -24,17 +26,12 @@ namespace KHSave.SaveEditor.Views
 
             if (applicationDebug.IsDebugging)
                 context.TestOpen(applicationDebug.TestFileName);
+            this.updater = updater;
         }
 
         private void Window_Loaded(object sender, EventArgs e)
         {
-            Task.Run(async () =>
-            {
-                if (context.IsUpdateCheckingEnabled)
-                {
-                    await context.CheckLastVersionAsync();
-                }
-            });
+            Task.Run(() => updater.AutomaticallyCheckLastVersionAsync());
         }
     }
 }
