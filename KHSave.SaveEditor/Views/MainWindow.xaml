@@ -11,10 +11,6 @@
         xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
-    <Window.Resources>
-        <SolidColorBrush x:Key="textForeground" Color="#F1F1F1" />
-        <SolidColorBrush x:Key="textHyperlink" Color="#569CD6" />
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="87*"/>
@@ -53,88 +49,7 @@
         <Grid Grid.Row="1" Margin="6 0 6 0"
             IsEnabled="{Binding IsUnload}"
             Visibility="{Binding VisibilityUnload}" Grid.ColumnSpan="3">
-            <StackPanel>
-                <Label>No save is currently load.</Label>
-                <Label>Load the save from File\Open...</Label>
-                <Separator Margin="0 10 0 10"/>
-                <Label>Kingdom Hearts Save Editor currently supports the following games:</Label>
-                <StackPanel Margin="20 0 0 0">
-                    <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS4)</TextBlock>
-                    <TextBlock>Kingdom Hearts Re: Chain of Memories (PS2,PS4)</TextBlock>
-                    <TextBlock>Kingdom Hearts 0.2</TextBlock>
-                    <TextBlock>Kingdom Hearts III</TextBlock>
-                </StackPanel>
-                <Separator Margin="0 10 0 10"/>
-                <TextBlock Margin="10 3 0 3"
-                    Foreground="{DynamicResource textHyperlink}">
-                    <Hyperlink
-                        NavigateUri="https://discord.gg/qK8JYkw"
-                        RequestNavigate="Hyperlink_RequestNavigate"
-                        TextDecorations="{x:Null}">
-                        Join Save Editor Discord server
-                    </Hyperlink>
-                </TextBlock>
-                <TextBlock Margin="10 3 0 3"
-                    Foreground="{DynamicResource textHyperlink}">
-                    <Hyperlink
-                        NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
-                        RequestNavigate="Hyperlink_RequestNavigate"
-                        TextDecorations="{x:Null}">
-                        Kingdom Hearts Save Editor source code
-                    </Hyperlink>
-                </TextBlock>
-                <TextBlock Margin="10 3 0 3"
-                    Foreground="{DynamicResource textHyperlink}">
-                    <Hyperlink
-                        NavigateUri="https://github.com/xeeynamo/openkh"
-                        RequestNavigate="Hyperlink_RequestNavigate"
-                        TextDecorations="{x:Null}">
-                        OpenKh source code
-                    </Hyperlink>
-                </TextBlock>
-                <TextBlock Margin="10 3 0 3"
-                    Foreground="{DynamicResource textHyperlink}">
-                    <Hyperlink
-                        NavigateUri="https://xeeynamo.github.io/OpenKh"
-                        RequestNavigate="Hyperlink_RequestNavigate"
-                        TextDecorations="{x:Null}">
-                        OpenKh documentation
-                    </Hyperlink>
-                </TextBlock>
-                <TextBlock Margin="10 3 0 3"
-                    Foreground="{DynamicResource textHyperlink}">
-                    <Hyperlink
-                        NavigateUri="https://lucianociccariello.com/"
-                        RequestNavigate="Hyperlink_RequestNavigate"
-                        TextDecorations="{x:Null}">
-                        Author website (open to commissions)
-                    </Hyperlink>
-                </TextBlock>
-                <Separator Margin="0 10 0 10"/>
-                <Grid Margin="10 3 0 3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Margin="0 0 5 0" Width="32"
-                        Source="/KHSave.SaveEditor;component/Images/Patreon.png"/>
-                    <StackPanel Grid.Column="1">
-                        <TextBlock Grid.Column="1" TextWrapping="Wrap"
-                        Text="Fund me on Patreon to be featured below and help me to improve the Save Editor!"/>
-
-                        <TextBlock Foreground="{DynamicResource textHyperlink}">
-                            <Hyperlink
-                                NavigateUri="https://www.patreon.com/khsaveeditor"
-                                RequestNavigate="Hyperlink_RequestNavigate"
-                                TextDecorations="{x:Null}">
-                                https://www.patreon.com/khsaveeditor
-                            </Hyperlink>
-                        </TextBlock>
-                    </StackPanel>
-                </Grid>
-                <TextBlock Text="Patrons:"/>
-                <WrapPanel Name="patronList"/>
-            </StackPanel>
+            <local:HomeView/>
         </Grid>
         <Grid Grid.Row="1"
             IsEnabled="{Binding IsUnknown}"

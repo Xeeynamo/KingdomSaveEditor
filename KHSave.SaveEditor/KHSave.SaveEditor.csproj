@@ -27,6 +27,7 @@
   <ItemGroup>
     <None Remove="App.xaml" />
     <None Remove="Images\Patreon.png" />
+    <None Remove="Views\HomeView.xaml" />
     <None Remove="Views\MainWindow.xaml" />
     <None Remove="Views\PatronView.xaml" />
     <None Remove="Views\UpdateWindow.xaml" />
@@ -73,6 +74,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
