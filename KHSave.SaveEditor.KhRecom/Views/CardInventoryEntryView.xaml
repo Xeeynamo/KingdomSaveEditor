@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.KhRecom.Views.CardInventoryEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhRecom.Views"
+             xmlns:controls="clr-namespace:Xe.Tools.Wpf.Controls;assembly=Xe.Tools.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Thickness x:Key="LabelMargin" Left="0" Top="0" Right="5" Bottom="0" />
+        <Thickness x:Key="ValueMargin" Left="0" Top="0" Right="0" Bottom="3" />
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Height="36" Source="{Binding Icon}"/>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </Grid>
+
+        <GroupBox Header="Card count" Visibility="{Binding MultipleValueGroupVisibility}">
+            <controls:TwoColumnsPanel>
+                <TextBlock Text="Value 0" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue0, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 1" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue1, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 2" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue2, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 3" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue3, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 4" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue4, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 5" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue5, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 6" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue6, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 7" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue7, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 8" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue8, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Value 9" Margin="{StaticResource LabelMargin}"/>
+                <TextBox Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue9, UpdateSourceTrigger=PropertyChanged}"/>
+            </controls:TwoColumnsPanel>
+        </GroupBox>
+
+        <Grid Visibility="{Binding SingleValueVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Card count" Margin="{StaticResource LabelMargin}"/>
+            <TextBox Grid.Column="1" Margin="{StaticResource ValueMargin}"
+                        Text="{Binding CountValue0, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

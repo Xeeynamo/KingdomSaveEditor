@@ -16,25 +16,33 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Archives.Factories;
 using System.IO;
 
-namespace KHSave.Archives
+namespace KHSave.Archives.Factories
 {
-    public static class ArchiveFactories
+    public class Ps4KhRecomFactory : IArchiveFactory
     {
-        public static IArchiveFactory Ps4Kh1 = new Ps4Kh1Factory();
-        public static IArchiveFactory Ps4Kh2 = new Ps4Kh2Factory();
-        public static IArchiveFactory Ps4KhRecom = new Ps4KhRecomFactory();
+        private const int EntryCount = 100;
+        private const int Stride = 0x3a30;
+        private const int Size = 0x16e000;
 
-        public static bool TryGetFactory(Stream stream, out IArchiveFactory archiveFactory)
+        public string Name => "PS4 RECOM";
+
+        public string Description => "Kingdom Hearts Re: Chain of Memories (PS4)";
+
+        public IArchive Create() =>
+            new Ps4SaveArchive(EntryCount, Stride);
+
+        public IArchive Read(Stream stream)
         {
-            if (Ps4Kh1.IsValid(stream)) archiveFactory = Ps4Kh1;
-            else if (Ps4Kh2.IsValid(stream)) archiveFactory = Ps4Kh2;
-            else if (Ps4KhRecom.IsValid(stream)) archiveFactory = Ps4KhRecom;
-            else archiveFactory = null;
+            var archive = Ps4SaveArchive.Read(stream, EntryCount, Stride);
+            archive.Name = Description;
 
-            return archiveFactory != null;
+            return archive;
         }
+
+        public bool IsValid(Stream stream) => stream.Length == Size;
+
+        public IArchiveEntry CreateEntry() => new GenericEntry();
     }
 }

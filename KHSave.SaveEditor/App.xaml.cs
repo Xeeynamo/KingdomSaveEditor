@@ -25,7 +25,8 @@ namespace KHSave.SaveEditor
 #if DEBUG
             if (Debugger.IsAttached)
             {
-                return @"D:\Repository\KH3SaveEditor\KHSave.Tests\Saves\kh2fm.bin";
+                return "../../../../KHSave.Tests/Saves/BISLPM-66676COM-01";
+                return @"../../../../KHSave.Tests/Saves/kh2fm.bin";
             }
 #endif
             return null;

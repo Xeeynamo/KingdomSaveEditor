@@ -54,6 +54,20 @@ namespace KHSave.SaveEditor.Common.Models
 			["Report"] = "kh2-item-key",
 			["Summon"] = "kh2-item-key",
 			["Recipe"] = "KupoCoinIcon",
+			["Card"] = "card-generic",
+			["CardEnemy"] = "card-enemy",
+			["CardFriend"] = "card-friend",
+			["CardItem"] = "card-item",
+			["CardMagic"] = "card-magic",
+			["CardMap"] = "card-world",
+			["CardMapRed"] = "card-world",
+			["CardMapGreen"] = "card-world",
+			["CardMapBlue"] = "card-world",
+			["CardMapSpecial"] = "card-world",
+			["CardSpecial"] = "card-kingdom",
+			["CardSummon"] = "card-magic",
+			["CardWeapon"] = "card-weapon",
+			["CardWorld"] = "card-world",
 		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
 
 		public ImageSource Icon

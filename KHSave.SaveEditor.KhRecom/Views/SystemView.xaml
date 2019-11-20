@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.KhRecom.Views.SystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhRecom.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="450">
+    <Grid>
+        <common:TwoEqualColumnsStackPanel>
+            <TextBlock Text="Play mode"/>
+            <ComboBox
+                ItemsSource="{Binding PlayModeItems}"
+                SelectedValue="{Binding PlayMode}"
+                DisplayMemberPath="Name"
+                SelectedValuePath="Value"/>
+
+            <TextBlock Text="Difficulty"/>
+            <ComboBox
+                ItemsSource="{Binding DifficultyItems}"
+                SelectedValue="{Binding Difficulty}"
+                DisplayMemberPath="Name"
+                SelectedValuePath="Value"/>
+
+            <CheckBox
+                Content="Sora story clear"
+                IsChecked="{Binding SoraCleared}"/>
+            <CheckBox
+                Content="Riku story clear"
+                IsChecked="{Binding RikuCleared}"/>
+            <CheckBox
+                Content="Marluxia defeated"
+                IsChecked="{Binding MarluxiaKilled}"/>
+            <CheckBox
+                Content="Game clear"
+                IsChecked="{Binding GameCleared}"/>
+            <CheckBox
+                Content="KH2 clear"
+                IsChecked="{Binding Kh2Cleared}"/>
+            <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
+            <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
+        </common:TwoEqualColumnsStackPanel>
+    </Grid>
+</UserControl>
