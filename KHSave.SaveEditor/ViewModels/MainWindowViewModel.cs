@@ -43,6 +43,7 @@ using KHSave.SaveEditor.KhRecom.ViewModels;
 using KHSave.Archives;
 using KHSave.SaveEditor.Common.Views;
 using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Interfaces;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -59,7 +60,8 @@ namespace KHSave.SaveEditor.ViewModels
 
     public class MainWindowViewModel : BaseNotifyPropertyChanged
     {
-        private string fileName;
+        private readonly IFileDialogManager fileDialogManager;
+
         private SaveType saveType = SaveType.Unload;
         private object dataContext;
 
@@ -67,19 +69,8 @@ namespace KHSave.SaveEditor.ViewModels
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-        public string Title => string.IsNullOrEmpty(FileName) ? OriginalTitle : $"{Path.GetFileName(FileName)} | {OriginalTitle}";
-
-        public string FileName
-        {
-            get => fileName;
-            set
-            {
-                fileName = value;
-                OnPropertyChanged(nameof(Title));
-            }
-        }
-
-        public bool IsFileLoad { get; private set; }
+        public string Title => fileDialogManager.IsFileOpen ?
+            $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
 
         public RelayCommand OpenCommand { get; }
         public RelayCommand SaveCommand { get; }
@@ -156,54 +147,19 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public bool IsItTimeForCheckingNewVersion => Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
 
-		public MainWindowViewModel()
-		{
-			OpenCommand = new RelayCommand(o =>
-			{
-				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
-                {
-                    ("Kingdom Hearts 2/ReCom//0.2/III (PS2/PS4) Save", "bin;*.sav;*.dat;*"),
-                });
-				if (fd.ShowDialog() == true)
-				{
-					Open(fd.FileName);
-				}
-			}, x => true);
+		public MainWindowViewModel(IFileDialogManager fileDialogManager)
+        {
+            this.fileDialogManager = fileDialogManager;
 
-			SaveCommand = new RelayCommand(o =>
-			{
-				if (!string.IsNullOrEmpty(FileName))
-				{
-					using (var stream = File.Open(FileName, FileMode.Create))
-					{
-                        WriteToStream.WriteToStream(stream);
-                    }
-				}
-				else
-				{
-					SaveAsCommand.Execute(o);
-				}
-			}, x => true);
+            OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
-			SaveAsCommand = new RelayCommand(o =>
-			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts II/ReCom/0.2/3 Save", "*"));
-				fd.DefaultFileName = FileName;
+            SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),
+                x => fileDialogManager.IsFileOpen);
 
-				if (fd.ShowDialog() == true)
-				{
-					FileName = fd.FileName;
-					using (var stream = File.Open(fd.FileName, FileMode.Create))
-                    {
-                        WriteToStream.WriteToStream(stream);
-                    }
-				}
-			}, x => true);
+            SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
+                x => fileDialogManager.IsFileOpen);
 
-			ExitCommand = new RelayCommand(x =>
-			{
-				Window.Close();
-			}, x => true);
+            ExitCommand = new RelayCommand(x => Window.Close());
 
 			GetLatestVersionCommand = new RelayCommand(x =>
 			{
@@ -245,47 +201,42 @@ namespace KHSave.SaveEditor.ViewModels
 
 				aboutDialog.ShowDialog();
 			}, x => true);
-		}
+        }
 
-		public void Open(string fileName)
+        public void TestOpen(string fileName)
+        {
+            using (var stream = File.OpenRead(fileName))
+                Open(stream);
+        }
+
+        public void Open(Stream stream)
 		{
             try
             {
-                bool result;
-
-                using (var file = File.Open(fileName, FileMode.Open))
-                    result = Open(file);
-
-                if (SaveKind == SaveType.Unknown)
+                if (!TryOpen(stream))
                     throw new SaveNotSupportedException("The specified save game is not recognized.");
 
-                if (result == true)
-                    FileName = fileName;
-                else
-                    FileName = null;
-
                 InvokeRefreshUi();
+                OnPropertyChanged(nameof(Title));
             }
             catch (SaveNotSupportedException ex)
             {
                 MessageBox.Show(ex.Message, ex.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-		}
-
-        public bool Open(Stream stream)
-        {
-            bool isOpen =
-                TryOpenKh2(stream) ||
-                TryOpenKhRecom(stream) ||
-                TryOpenKh02(stream) ||
-                TryOpenKh3(stream) ||
-                TryOpenArchive(stream);
-
-            if (isOpen == false)
-                SaveKind = SaveType.Unknown;
-
-            return isOpen;
         }
+
+        private void Save(Stream stream)
+        {
+            WriteToStream.WriteToStream(stream);
+            OnPropertyChanged(nameof(Title));
+        }
+
+        public bool TryOpen(Stream stream) =>
+            TryOpenKh2(stream) ||
+            TryOpenKhRecom(stream) ||
+            TryOpenKh02(stream) ||
+            TryOpenKh3(stream) ||
+            TryOpenArchive(stream);
 
         private bool Open(IArchiveFactory archiveFactory, Stream stream) =>
             Open(archiveFactory.Read(stream));
@@ -316,7 +267,7 @@ namespace KHSave.SaveEditor.ViewModels
             bool result;
 
             using (var stream = new MemoryStream(archiveEntry.Data))
-                result = Open(stream);
+                result = TryOpen(stream);
 
             // archiveEntry.Name
             // archiveEntry.DateCreated
@@ -393,7 +344,6 @@ namespace KHSave.SaveEditor.ViewModels
         }
 
         public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
-
 
         public void UpdateLastTimeForCheckingNewVersion()
 		{

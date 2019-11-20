@@ -49,6 +49,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Unity.Container" Version="5.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />

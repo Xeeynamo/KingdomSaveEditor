@@ -1,10 +1,12 @@
-﻿using KHSave.SaveEditor.Services;
+﻿using KHSave.SaveEditor.Interfaces;
+using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Unity;
 
 namespace KHSave.SaveEditor.Views
 {
@@ -15,21 +17,17 @@ namespace KHSave.SaveEditor.Views
 	{
 		private readonly MainWindowViewModel context;
 
-        public MainWindow() :
-            this(null)
-        {
-
-        }
-
-		public MainWindow(string fileName)
+		public MainWindow(
+            IUnityContainer container,
+            IWindowManager windowManager,
+            IApplicationDebug applicationDebug)
 		{
 			InitializeComponent();
-			DataContext = context = new MainWindowViewModel();
+            windowManager.RootWindow = this;
+            DataContext = context = container.Resolve<MainWindowViewModel>();
 
-            if (!string.IsNullOrWhiteSpace(fileName))
-            {
-                context.Open(fileName);
-            }
+            if (applicationDebug.IsDebugging)
+                context.TestOpen(applicationDebug.TestFileName);
         }
 
         private void Window_Loaded(object sender, EventArgs e)
