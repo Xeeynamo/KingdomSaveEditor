@@ -18,13 +18,13 @@ namespace KHSave.SaveEditor.Views
 		private readonly MainWindowViewModel context;
 
 		public MainWindow(
-            IUnityContainer container,
             IWindowManager windowManager,
-            IApplicationDebug applicationDebug)
+            IApplicationDebug applicationDebug,
+            MainWindowViewModel vm)
 		{
 			InitializeComponent();
             windowManager.RootWindow = this;
-            DataContext = context = container.Resolve<MainWindowViewModel>();
+            DataContext = context = vm;
 
             if (applicationDebug.IsDebugging)
                 context.TestOpen(applicationDebug.TestFileName);

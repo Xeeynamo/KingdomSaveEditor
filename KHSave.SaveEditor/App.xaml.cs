@@ -34,6 +34,7 @@ namespace KHSave.SaveEditor
                 .RegisterSingleton<IWindowManager, WindowManager>()
                 .RegisterSingleton<IFileDialogManager, FileDialogManager>()
                 .RegisterSingleton<IApplicationDebug, ApplicationDebug>()
+                .RegisterType<MainWindowViewModel>()
                 ;
 
             container.Resolve<MainWindow>().Show();
