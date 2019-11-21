@@ -12,19 +12,11 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="87*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="195*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3">
-            <MenuItem Header="_File"></MenuItem>
-        </Menu>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3">
+        <Menu Grid.Row="0">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open..." Command="{Binding OpenCommand}"/>
                 <MenuItem Header="_Save" Command="{Binding SaveCommand}"/>
@@ -46,38 +38,6 @@
             </MenuItem>
         </Menu>
 
-        <Grid Grid.Row="1" Margin="6 0 6 0"
-            IsEnabled="{Binding IsUnload}"
-            Visibility="{Binding VisibilityUnload}" Grid.ColumnSpan="3">
-            <local:HomeView DataContext="{Binding HomeContext}"/>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsUnknown}"
-            Visibility="{Binding VisibilityUnknown, FallbackValue=Collapsed}" Grid.ColumnSpan="3">
-            <StackPanel>
-                <Label>The save loaded is not supported.</Label>
-                <Label>Be sure to have the last version or that the save is decrypted or supported.</Label>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKh2Save}"
-            Visibility="{Binding VisibilityKh2, FallbackValue=Collapsed}" Grid.ColumnSpan="3">
-            <kh2:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKhRecomSave}"
-            Visibility="{Binding VisibilityKhRecom, FallbackValue=Collapsed}">
-            <khRecom:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKh02Save}"
-            Visibility="{Binding VisibilityKh02, FallbackValue=Collapsed}" Grid.ColumnSpan="3">
-            <kh02:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKh3Save}"
-            Visibility="{Binding VisibilityKh3, FallbackValue=Collapsed}" Grid.ColumnSpan="3">
-            <kh3:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
+        <Grid x:Name="content" Grid.Row="1" DataContext="{Binding DataContext}"/>
     </Grid>
 </Window>

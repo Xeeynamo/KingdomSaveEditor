@@ -36,8 +36,6 @@ namespace KHSave.SaveEditor
                 .RegisterSingleton<IApplicationDebug, ApplicationDebug>()
                 .RegisterSingleton<IAlertMessage, AlertMessage>()
                 .RegisterSingleton<IUpdater, UpdaterService>()
-                .RegisterType<MainWindowViewModel>()
-                .RegisterType<HomeViewModel>()
                 ;
 
             container.Resolve<MainWindow>().Show();

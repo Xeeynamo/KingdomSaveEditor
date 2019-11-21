@@ -25,11 +25,27 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream
+    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        private readonly SaveKh2.SaveFinalMix save;
+        private SaveKh2.SaveFinalMix save;
 
-        public Kh2ViewModel(Stream stream)
+        public Kh2ViewModel()
+        {
+        }
+
+        public SystemViewModel System { get; private set; }
+        public PlayersViewModel Players { get; private set; }
+
+        public void RefreshUi()
+        {
+            System = new SystemViewModel(save);
+            Players = new PlayersViewModel(save);
+
+            OnPropertyChanged(nameof(System));
+            OnPropertyChanged(nameof(Players));
+        }
+
+        public void OpenStream(Stream stream)
         {
             switch (SaveKh2.GetGameVersion(stream))
             {
@@ -47,18 +63,6 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             }
 
             RefreshUi();
-        }
-
-        public SystemViewModel System { get; private set; }
-        public PlayersViewModel Players { get; private set; }
-
-        public void RefreshUi()
-        {
-            System = new SystemViewModel(save);
-            Players = new PlayersViewModel(save);
-
-            OnPropertyChanged(nameof(System));
-            OnPropertyChanged(nameof(Players));
         }
 
         public void WriteToStream(Stream stream)

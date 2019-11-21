@@ -25,42 +25,29 @@ using System.Windows;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
-using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
-using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
-using KHSave.SaveEditor.Kh02.ViewModels;
 using KHSave.Lib2;
 using KHSave.LibRecom;
-using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Common.Exceptions;
-using KHSave.SaveEditor.KhRecom.ViewModels;
 using KHSave.Archives;
 using KHSave.SaveEditor.Common.Views;
 using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Interfaces;
+using System;
+using KHSave.SaveEditor.Services;
+using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.ViewModels
 {
-    public enum SaveType
-    {
-        Unload,
-        Unknown,
-        Archive,
-        KingdomHearts2,
-        KingdomHeartsRecom,
-        KingdomHearts02,
-        KingdomHearts3
-    }
-
     public class MainWindowViewModel : BaseNotifyPropertyChanged
     {
         private readonly IFileDialogManager fileDialogManager;
         private readonly IWindowManager windowManager;
         private readonly IAlertMessage alertMessage;
         private readonly IUpdater updater;
-        private SaveType saveType = SaveType.Unload;
+        private readonly ContentFactory contentFactory;
         private object dataContext;
 
         private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
@@ -69,6 +56,11 @@ namespace KHSave.SaveEditor.ViewModels
 
         public string Title => fileDialogManager.IsFileOpen ?
             $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
+
+        public ContentType SaveKind
+        {
+            set => ChangeContent(value);
+        }
 
         public HomeViewModel HomeContext { get; }
         public RelayCommand OpenCommand { get; }
@@ -87,41 +79,11 @@ namespace KHSave.SaveEditor.ViewModels
                 OnPropertyChanged();
             }
         }
-        public IRefreshUi RefreshUi { get; private set; }
-        public IWriteToStream WriteToStream { get; private set; }
 
-        public SaveType SaveKind
-        {
-            get => saveType;
-            set
-            {
-                saveType = value;
-                OnPropertyChanged(nameof(IsUnload));
-                OnPropertyChanged(nameof(VisibilityUnload));
-                OnPropertyChanged(nameof(IsUnknown));
-                OnPropertyChanged(nameof(VisibilityUnknown));
-                OnPropertyChanged(nameof(IsKh2Save));
-                OnPropertyChanged(nameof(VisibilityKh2));
-                OnPropertyChanged(nameof(IsKhRecomSave));
-                OnPropertyChanged(nameof(VisibilityKhRecom));
-                OnPropertyChanged(nameof(IsKh02Save));
-                OnPropertyChanged(nameof(VisibilityKh02));
-                OnPropertyChanged(nameof(IsKh3Save));
-                OnPropertyChanged(nameof(VisibilityKh3));
-            }
-        }
-        public bool IsUnload => SaveKind == SaveType.Unload;
-        public Visibility VisibilityUnload => IsUnload ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsUnknown => SaveKind == SaveType.Unknown;
-        public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKh2Save => SaveKind == SaveType.KingdomHearts2;
-        public Visibility VisibilityKh2 => IsKh2Save ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKhRecomSave => SaveKind == SaveType.KingdomHeartsRecom;
-        public Visibility VisibilityKhRecom => IsKhRecomSave ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKh02Save => SaveKind == SaveType.KingdomHearts02;
-        public Visibility VisibilityKh02 => IsKh02Save ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
-        public Visibility VisibilityKh3 => IsKh3Save ? Visibility.Visible : Visibility.Collapsed;
+        public Action<UserControl> OnControlChanged { get; set; } 
+        public IRefreshUi RefreshUi { get; set; }
+        public IOpenStream OpenStream { get; set; }
+        public IWriteToStream WriteToStream { get; set; }
 
         public bool IsAdvancedMode
 		{
@@ -148,12 +110,14 @@ namespace KHSave.SaveEditor.ViewModels
             IWindowManager windowManager,
             IAlertMessage alertMessage,
             IUpdater updater,
+            ContentFactory contentFactory,
             HomeViewModel homeContext)
         {
             this.fileDialogManager = fileDialogManager;
             this.windowManager = windowManager;
             this.alertMessage = alertMessage;
             this.updater = updater;
+            this.contentFactory = contentFactory;
             HomeContext = homeContext;
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
@@ -213,7 +177,7 @@ namespace KHSave.SaveEditor.ViewModels
             try
             {
                 if (!TryOpen(stream))
-                    throw new SaveNotSupportedException("The specified save game is not recognized.");
+                    throw new SaveNotSupportedException("The specified save game is not recognized.\nBe sure to have the last version or that the save is decrypted or supported.");
 
                 InvokeRefreshUi();
                 OnPropertyChanged(nameof(Title));
@@ -247,7 +211,7 @@ namespace KHSave.SaveEditor.ViewModels
                 onSuccess: window => Open(archive, window.SelectedEntry));
 
             if (result == false)
-                SaveKind = SaveType.Unload;
+                ChangeContent(ContentType.Unload);
 
             return true;
         }
@@ -277,62 +241,33 @@ namespace KHSave.SaveEditor.ViewModels
             return Open(archiveFactory, stream);
         }
 
-        public bool TryOpenKh2(Stream stream)
+        public bool TryOpenKh2(Stream stream) => TryOpen(SaveKh2.IsValid,  stream, ContentType.KingdomHearts2);
+        public bool TryOpenKhRecom(Stream stream) => TryOpen(SaveKhRecom.IsValid, stream, ContentType.KingdomHeartsRecom);
+        public bool TryOpenKh02(Stream stream) => TryOpen(SaveKh02.IsValid, stream, ContentType.KingdomHearts02);
+        public bool TryOpenKh3(Stream stream) => TryOpen(SaveKh3.IsValid, stream, ContentType.KingdomHearts3);
+
+        public bool TryOpen(Func<Stream, bool> prediate, Stream stream, ContentType contentType)
         {
-            if (!SaveKh2.IsValid(stream))
+            if (!prediate(stream))
                 return false;
 
-            var saveViewModel = new Kh2ViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHearts2;
-
-            return true;
-        }
-
-        public bool TryOpenKhRecom(Stream stream)
-        {
-            if (!SaveKhRecom.IsValid(stream))
-                return false;
-
-            var saveViewModel = new KhRecomViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHeartsRecom;
-
-            return true;
-        }
-
-        public bool TryOpenKh02(Stream stream)
-        {
-            if (!SaveKh02.IsValid(stream))
-                return false;
-
-            var saveViewModel = new Kh02ViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHearts02;
-
-            return true;
-        }
-
-        public bool TryOpenKh3(Stream stream)
-        {
-            if (!SaveKh3.IsValid(stream))
-                return false;
-
-            var saveViewModel = new Kh3ViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHearts3;
-
+            ChangeContent(contentType, stream);
             return true;
         }
 
         public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
-	}
+
+        private void ChangeContent(ContentType contentType, Stream stream = null)
+        {
+            var contentResponse = contentFactory.Factory(contentType);
+
+            RefreshUi = contentResponse.RefreshUi;
+            WriteToStream = contentResponse.WriteToStream;
+
+            if (stream != null)
+                contentResponse.OpenStream.OpenStream(stream);
+
+            OnControlChanged?.Invoke(contentResponse.Control);
+        }
+    }
 }

@@ -25,11 +25,11 @@ using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh02.ViewModels
 {
-    public class Kh02ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream
+    public class Kh02ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
         private SlotViewModel selectedSlot;
 
-        public SaveKh02 Save { get; }
+        public SaveKh02 Save { get; private set; }
 
         public GlobalSystemViewModel GlobalSystem { get; set; }
 
@@ -48,10 +48,8 @@ namespace KHSave.SaveEditor.Kh02.ViewModels
 
         public bool IsSlotSelected => SelectedSlot != null;
 
-        public Kh02ViewModel(Stream stream)
+        public Kh02ViewModel()
         {
-            Save = SaveKh02.Read(stream);
-            Slots = new SlotListModel(Save);
         }
 
         public void RefreshUi()
@@ -64,6 +62,12 @@ namespace KHSave.SaveEditor.Kh02.ViewModels
             SelectedSlot = null;
             OnPropertyChanged(nameof(SelectedSlot));
             SelectedSlot = prevSlot;
+        }
+
+        public void OpenStream(Stream stream)
+        {
+            Save = SaveKh02.Read(stream);
+            Slots = new SlotListModel(Save);
         }
 
         public void WriteToStream(Stream stream) => Save.Write(stream);

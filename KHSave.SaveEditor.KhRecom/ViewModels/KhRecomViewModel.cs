@@ -10,10 +10,10 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
-    public class KhRecomViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream, ICardCountService
+    public class KhRecomViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream, ICardCountService
     {
         private const int MaxCardIndex = 10;
-        private readonly SaveKhRecom _save;
+        private SaveKhRecom _save;
         private DataRecom SaveData => _save.Data;
 
         public SystemViewModel KhSystem { get; private set; }
@@ -21,10 +21,8 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         public ProgressViewModel Progress { get; private set; }
         public SettingsViewModel Settings { get; private set; }
 
-        public KhRecomViewModel(Stream stream)
+        public KhRecomViewModel()
         {
-            _save = SaveKhRecom.Read(stream);
-            RefreshUi();
         }
 
         public void RefreshUi()
@@ -38,6 +36,12 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
             OnPropertyChanged(nameof(CardInventoryViewModel));
             OnPropertyChanged(nameof(ProgressViewModel));
             OnPropertyChanged(nameof(SettingsViewModel));
+        }
+
+        public void OpenStream(Stream stream)
+        {
+            _save = SaveKhRecom.Read(stream);
+            RefreshUi();
         }
 
         public void WriteToStream(Stream stream) => _save.Write(stream);

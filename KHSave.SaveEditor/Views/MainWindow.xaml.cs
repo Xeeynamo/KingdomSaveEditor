@@ -1,8 +1,10 @@
 ﻿using KHSave.SaveEditor.Interfaces;
+using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.ViewModels;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Views
 {
@@ -23,6 +25,13 @@ namespace KHSave.SaveEditor.Views
 			InitializeComponent();
             windowManager.RootWindow = this;
             DataContext = context = vm;
+
+            context.OnControlChanged = control =>
+            {
+                content.Children.Clear();
+                content.Children.Add(control);
+            };
+            context.SaveKind = ContentType.Unload;
 
             if (applicationDebug.IsDebugging)
                 context.TestOpen(applicationDebug.TestFileName);
