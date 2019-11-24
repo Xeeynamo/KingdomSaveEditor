@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
              mc:Ignorable="d" 
              d:DesignHeight="32" d:DesignWidth="80" Loaded="UserControl_Loaded">
-    <Grid Margin="3 3 6 3" Height="32">
+    <Grid Margin="3 3 6 3" Height="24">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>

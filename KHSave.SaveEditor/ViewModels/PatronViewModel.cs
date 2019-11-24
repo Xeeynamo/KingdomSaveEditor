@@ -13,8 +13,8 @@ namespace KHSave.SaveEditor.ViewModels
         {
             Brush = GetColor(patron.Color);
             Name = patron.Name;
-            ImageUrl = patron.PhotoUrl;
-            BadgeUrl = patron.BadgeUrl;
+            //ImageUrl = patron.PhotoUrl;
+            //BadgeUrl = patron.BadgeUrl;
             ProfileUrl = patron.ProfileUrl;
 
             if (!IsImageEmpty || !IsBadgeEmpty)
