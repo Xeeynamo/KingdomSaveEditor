@@ -6,11 +6,12 @@ This is the repository for a Windows application that allows to modify decrypted
 
 The project offers a code library to help to create complex editors of scripts of any kind and on any operating system, plus a "in-house" editor compatible with Windows 7 or above (the only minimum requirement is .Net Framework 4.7.2 Rumtime). Not all the games are supported by the library and not all the library implementations has their editor. Yet.
 
-| Game               | Support |
-|--------------------| --------|
-| Kingdom Hearts II  | editor  |
-| Kingdom Hearts 0.2 | editor  |
-| Kingdom Hearts III | editor  |
+| Game                   | Support |
+|------------------------| --------|
+| Kingdom Hearts Re: CoM | PS2/PS4 |
+| Kingdom Hearts II      | PS2/PS4 |
+| Kingdom Hearts 0.2     | PS4     |
+| Kingdom Hearts III     | PS4     |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
@@ -58,6 +59,8 @@ Here is a screenshot preview of how the editor in action looks like:
 
 * Shortcuts editor
 * Character editor
+    * Statistics
+    * Equipment
     
 # Features in Kingdom Hearts 0.2 editor
 
@@ -65,6 +68,13 @@ Here is a screenshot preview of how the editor in action looks like:
 * Change game difficulty
 * Exp editor and level up
 * Room mod
+    
+# Features in Kingdom Hearts Re: CoM
+
+* Difficulty and system flags
+* Card inventory
+* Story progress
+* Settings
 
 
 ## How to use it for PS4 games
