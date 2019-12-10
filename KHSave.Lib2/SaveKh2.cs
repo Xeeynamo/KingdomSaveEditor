@@ -55,6 +55,15 @@ namespace KHSave.Lib2
         public static void Write<TSaveKh2>(Stream stream, TSaveKh2 save)
             where TSaveKh2 : class, ISaveKh2
         {
+            uint checksum;
+            using (var tempStream = new MemoryStream())
+            {
+                BinaryMapping.WriteObject(tempStream, save);
+                var rawData = tempStream.SetPosition(0x10).ReadBytes();
+                checksum = CalculateChecksum(rawData, rawData.Length);
+            }
+
+            save.Checksum = checksum;
             BinaryMapping.WriteObject(stream.FromBegin(), save);
         }
 
