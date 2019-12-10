@@ -48,6 +48,16 @@ namespace KHSave.Lib2
             }
         }
 
+        public static TSaveKh2 Read<TSaveKh2>(Stream stream)
+            where TSaveKh2 : class, ISaveKh2 =>
+            BinaryMapping.ReadObject<TSaveKh2>(stream.SetPosition(0));
+
+        public static void Write<TSaveKh2>(Stream stream, TSaveKh2 save)
+            where TSaveKh2 : class, ISaveKh2
+        {
+            BinaryMapping.WriteObject(stream.FromBegin(), save);
+        }
+
         private const int CrcPolynomial = 0x04c11db7;
         private static uint[] crc_table = GetCrcTable(CrcPolynomial)
                 .Take(0x100)

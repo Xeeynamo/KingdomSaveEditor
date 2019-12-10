@@ -29,12 +29,18 @@ namespace KHSave.Tests
 
         public static void AssertStream(Stream expectedStream, Func<Stream, Stream> funcGenerateNewStream)
         {
-            var expectedData = ReadBytes(expectedStream);
+            var expectedData = expectedStream.ReadAllBytes();
             var actualStream = funcGenerateNewStream(new MemoryStream(expectedData));
-            var actualData = ReadBytes(actualStream);
+            var actualData = actualStream.ReadAllBytes();
 
             Assert.Equal(expectedData.Length, actualData.Length);
-            Assert.Equal(expectedData, actualData);
+
+            for (var i = 0; i < expectedData.Length; i++)
+            {
+                var ch1 = expectedData[i];
+                var ch2 = actualData[i];
+                Assert.True(ch1 == ch2, $"Expected {ch1:X02} but found {ch2:X02} at {i:X}");
+            }
         }
 
         public static byte[] ReadBytes(Stream stream)

@@ -93,5 +93,17 @@ namespace KHSave.Tests
             Assert.Equal(PlayableCharacterType.Goofy, save.CompanionCharacter2);
             Assert.Equal(PlayableCharacterType.Donald, save.CompanionCharacter3);
         }
+
+        [Fact]
+        public void TestWriteBackTheSameExactFile() =>
+        File.OpenRead(FilePath).Using(stream => Helpers.AssertStream(stream, inStream =>
+        {
+            var save = SaveKh2.Read<SaveKh2.SaveFinalMix>(inStream);
+
+            var outStream = new MemoryStream();
+            SaveKh2.Write(outStream, save);
+
+            return outStream;
+        }));
     }
 }
