@@ -59,8 +59,9 @@ namespace KHSave.Lib2
             using (var tempStream = new MemoryStream())
             {
                 BinaryMapping.WriteObject(tempStream, save);
-                var rawData = tempStream.SetPosition(0x10).ReadBytes();
-                checksum = CalculateChecksum(rawData, rawData.Length);
+                var rawData = tempStream.SetPosition(0xc).ReadBytes();
+                checksum = CalculateChecksum(tempStream.FromBegin().ReadBytes(8), 8, uint.MaxValue);
+                checksum = CalculateChecksum(rawData, rawData.Length, checksum ^ uint.MaxValue);
             }
 
             save.Checksum = checksum;
@@ -72,9 +73,8 @@ namespace KHSave.Lib2
                 .Take(0x100)
                 .ToArray();
 
-        public static uint CalculateChecksum(byte[] data, int offset)
+        public static uint CalculateChecksum(byte[] data, int offset, uint checksum)
         {
-            var checksum = uint.MaxValue;
             for (var i = 0; i < offset; i++)
                 checksum = crc_table[(checksum >> 24) ^ data[i]] ^ (checksum << 8);
 

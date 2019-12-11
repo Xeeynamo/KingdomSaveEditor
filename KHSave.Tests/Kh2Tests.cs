@@ -58,7 +58,7 @@ namespace KHSave.Tests
             var data = Enumerable.Range(0, 0x10000)
                 .Select(x => (byte)rand.Next())
                 .ToArray();
-            Assert.Equal(1527299405U, SaveKh2.CalculateChecksum(data, data.Length));
+            Assert.Equal(1527299405U, SaveKh2.CalculateChecksum(data, data.Length, uint.MaxValue));
         }
 
         [Fact]
