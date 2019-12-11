@@ -54,7 +54,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
                 case GameVersion.American:
                     throw new SaveNotSupportedException("American or European save file is not yet supported.");
                 case GameVersion.FinalMix:
-                    save = BinaryMapping.ReadObject<SaveKh2.SaveFinalMix>(stream);
+                    save = SaveKh2.Read<SaveKh2.SaveFinalMix>(stream);
                     break;
                 case null:
                     throw new SaveNotSupportedException("An invalid version has been specified.");
@@ -65,9 +65,6 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             RefreshUi();
         }
 
-        public void WriteToStream(Stream stream)
-        {
-            BinaryMapping.WriteObject(stream, save);
-        }
+        public void WriteToStream(Stream stream) => SaveKh2.Write(stream, save);
     }
 }
