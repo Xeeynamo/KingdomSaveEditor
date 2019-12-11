@@ -49,7 +49,7 @@ namespace KHSave.SaveEditor.Services
         {
             if (IsFileOpen)
             {
-                using (var stream = File.Open(CurrentFileName, FileMode.Create))
+                using (var stream = File.Create(CurrentFileName))
                 {
                     onSuccess(stream);
                 }
