@@ -94,6 +94,8 @@ namespace KHSave.Tests
             Assert.Equal(PlayableCharacterType.Donald, save.CompanionCharacter3);
 
             Assert.Equal(Difficulty.Critical, save.Difficulty);
+            Assert.Equal(2885291, save.Experience);
+            Assert.Equal(60, save.BonusLevel);
         }
 
         [Fact]

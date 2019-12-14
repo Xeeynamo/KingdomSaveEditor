@@ -104,6 +104,15 @@
                     SelectedValue="{Binding Difficulty.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
+
+                <TextBlock/>
+                <TextBlock/>
+
+                <TextBlock Text="Total experience"/>
+                <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <TextBlock Text="Bonus level"/>
+                <TextBox Text="{Binding BonusLevel, UpdateSourceTrigger=PropertyChanged}"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
     </StackPanel>
