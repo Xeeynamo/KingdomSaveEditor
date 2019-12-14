@@ -89,7 +89,7 @@ namespace KHSave.Tests
             Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[(int)CharacterType.Riku].Armors[0]);
 
             Assert.Equal(PlayableCharacterType.Sora, save.PlayableCharacter);
-            Assert.Equal(PlayableCharacterType.Riku, save.CompanionCharacter1);
+            Assert.Equal(PlayableCharacterType.WorldCharacter, save.CompanionCharacter1);
             Assert.Equal(PlayableCharacterType.Goofy, save.CompanionCharacter2);
             Assert.Equal(PlayableCharacterType.Donald, save.CompanionCharacter3);
         }
