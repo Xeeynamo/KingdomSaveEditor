@@ -16,6 +16,7 @@ namespace KHSave.Lib2
             [Data] public uint Checksum { get; set; }
 
             [Data(0x2494)] public int Timer { get; set; }
+            [Data(0x2498)] public Difficulty Difficulty { get; set; }
             [Data(0x24f0, Count = 13, Stride = 0x114)] public Character[] Characters { get; set; }
 
             [Data(0x32f4)] public short SoraValorKeyblade { get; set; }

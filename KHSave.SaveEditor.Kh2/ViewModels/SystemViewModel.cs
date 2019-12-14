@@ -34,6 +34,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Pc1 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter1, x => save.CompanionCharacter1 = x);
             Pc2 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter2, x => save.CompanionCharacter2 = x);
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
+            Difficulty = new KhEnumListModel<Difficulty>(() => save.Difficulty, x => save.Difficulty = x);
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
@@ -41,6 +42,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc1 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
+        public KhEnumListModel<Difficulty> Difficulty { get; }
 
         public int Timer { get => save.Timer; set => save.Timer = value; }
 

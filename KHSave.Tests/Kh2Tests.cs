@@ -92,6 +92,8 @@ namespace KHSave.Tests
             Assert.Equal(PlayableCharacterType.WorldCharacter, save.CompanionCharacter1);
             Assert.Equal(PlayableCharacterType.Goofy, save.CompanionCharacter2);
             Assert.Equal(PlayableCharacterType.Donald, save.CompanionCharacter3);
+
+            Assert.Equal(Difficulty.Critical, save.Difficulty);
         }
 
         [Fact]

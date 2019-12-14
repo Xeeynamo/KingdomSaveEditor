@@ -96,5 +96,15 @@
                     SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
+        <GroupBox Header="Misc">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Difficulty"/>
+                <ComboBox
+                    ItemsSource="{Binding Difficulty}"
+                    SelectedValue="{Binding Difficulty.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
     </StackPanel>
 </UserControl>
