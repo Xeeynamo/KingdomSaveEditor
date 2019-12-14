@@ -50,7 +50,7 @@ namespace KHSave.SaveEditor.Services
             if (lastVersion != null)
             {
                 Application.Current.Dispatcher.Invoke(() =>
-                    windowManager.Push<UpdateWindow>());
+                    windowManager.Push(new UpdateWindow(lastVersion)));
 
                 return true;
             }
