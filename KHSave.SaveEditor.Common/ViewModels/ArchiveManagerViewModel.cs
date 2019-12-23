@@ -1,6 +1,6 @@
 ﻿using KHSave.Archives;
 using KHSave.SaveEditor.Common.Models;
-using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -12,6 +12,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
 {
     public class ArchiveManagerViewModel : BaseNotifyPropertyChanged
     {
+        private static readonly List<FileDialogFilter> Filters = FileDialogFilterComposer.Compose().AddAllFiles("RAW save data");
         private ArchiveEntryViewModel _selectedValue;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
@@ -35,15 +36,9 @@ namespace KHSave.SaveEditor.Common.ViewModels
                 if (selectedEntry == null)
                     return;
 
-                var fileDialog = FileDialog.Factory(
-                    Window,
-                    FileDialog.Behavior.Open,
-                    ("RAW save data", "bin"));
-                fileDialog.DefaultFileName = $"{selectedEntry.Name}.bin";
-
-                if (fileDialog.ShowDialog() == true)
+                FileDialog.OnOpen(fileName =>
                 {
-                    using (var stream = File.OpenRead(fileDialog.FileName))
+                    using (var stream = File.OpenRead(fileName))
                     {
                         var data = new byte[stream.Length];
                         stream.Read(data, 0, data.Length);
@@ -51,7 +46,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
                     }
 
                     ShowInfoMessageBox("Save imported with success!");
-                }
+                }, Filters, parent: Window);
             }, o => IsSelected);
 
             ExportCommand = new RelayCommand(o =>
@@ -60,19 +55,13 @@ namespace KHSave.SaveEditor.Common.ViewModels
                 if (selectedEntry == null)
                     return;
 
-                var fileDialog = FileDialog.Factory(
-                    Window,
-                    FileDialog.Behavior.Save,
-                    ("RAW save data", "bin"));
-                fileDialog.DefaultFileName = $"{SelectedEntry?.Name ?? "empty save"}.bin";
-
-                if (fileDialog.ShowDialog() == true)
+                FileDialog.OnSave(fileName =>
                 {
-                    using (var stream = File.Create(fileDialog.FileName))
+                    using (var stream = File.Create(fileName))
                     {
                         stream.Write(selectedEntry.Data, 0, selectedEntry.Data.Length);
                     }
-                }
+                }, Filters, $"{SelectedEntry?.Name ?? "empty save"}.bin",  Window);
             }, o => !IsSelectedEmpty);
 
             CopyCommand = new RelayCommand(o =>

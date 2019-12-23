@@ -49,16 +49,13 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		{
 			ExportAllCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Folder);
-
-				if (fd.ShowDialog() == true)
+				FileDialog.OnFolder(folder =>
 				{
 					try
 					{
-						var path = fd.FileName;
 						foreach (var item in Items)
 						{
-							item.Export(Path.Combine(path, $"Kingdom Hearts III - Photo {item.Index}.jpg"));
+							item.Export(Path.Combine(folder, $"Kingdom Hearts III - Photo {item.Index}.jpg"));
 						}
 					}
 					catch (Exception e)
@@ -66,7 +63,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 						MessageBox.Show(Window, $"Unable to export all the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
 							MessageBoxImage.Error);
 					}
-				}
+				}, parent: Window);
 			}, x => true);
 
 			DeleteAllCommand = new RelayCommand(o =>
