@@ -193,7 +193,7 @@
                     SelectedValuePath="Value"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" TextWrapping="Wrap"
-                    Text="Playable charater (works only on some maps, like 'Computer Laboratory'). Some characters have no input controls and others trigger battles."/>
+                    Text="Playable character (works only on some maps, like 'Computer Laboratory'). Some characters have no input controls and others trigger battles."/>
                 <ComboBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"
                     ItemsSource="{Binding PlayableCharacters}"
                     SelectedValue="{Binding PlayerCharacter}"
