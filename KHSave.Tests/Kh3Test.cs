@@ -54,23 +54,23 @@ namespace KHSave.Tests
             Assert.Equal(1, save.MajorVersion);
             Assert.Equal(2, save.MinorVersion);
             Assert.Equal(DifficultyType.Proud, save.Difficulty);
-            Assert.Equal(WorldType.ToyBox, save.WorldLogo);
-			Assert.Equal(new TimeSpan(47, 0, 39), save.GameTime);
-			Assert.Equal(689472, save.TotalExp);
-			Assert.Equal(31886, save.Munny);
-			Assert.Equal(63, save.Level);
+            Assert.Equal(WorldType.ScalaAdCaelum, save.WorldLogo);
+			Assert.Equal(new TimeSpan(52, 54, 3), save.GameTime);
+			Assert.Equal(1413899, save.TotalExp);
+			Assert.Equal(223439, save.Munny);
+			Assert.Equal(94, save.Level);
 			Assert.Equal(DesireChoice.Vitality, save.DesireChoice);
 			Assert.Equal(PowerChoice.Warrior, save.PowerChoice);
-            Assert.Equal(PartyCharacter.SoraToyBox, save.Party[0]);
+            Assert.Equal(PartyCharacter.Sora, save.Party[0]);
             Assert.Equal(PartyCharacter.Donald, save.Party[1]);
             Assert.Equal(PartyCharacter.Goofy, save.Party[2]);
-            Assert.Equal(PartyCharacter.Woody, save.Party[3]);
-            Assert.Equal(PartyCharacter.Buzz, save.Party[4]);
+            Assert.Equal(PartyCharacter.Sora, save.Party[3]);
+            Assert.Equal(PartyCharacter.Sora, save.Party[4]);
             Assert.True(save.SaveClear);
 			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
 
 			Assert.Equal(WeaponType.UltimaWeapon, save.Pc[0].Weapons[0].WeaponId);
-			Assert.Equal(WeaponType.Starlight, save.Pc[0].Weapons[1].WeaponId);
+			Assert.Equal(WeaponType.GrandChef, save.Pc[0].Weapons[1].WeaponId);
 			Assert.Equal(WeaponType.HunnySpout, save.Pc[0].Weapons[2].WeaponId);
 			Assert.Equal(ArmorType.CosmicChain, save.Pc[1].Armors[0].ArmorId);
 			Assert.Equal(AccessoryType.FlanniversaryBadge, save.Pc[0].Accessories[1].AccessoryId);
@@ -79,32 +79,32 @@ namespace KHSave.Tests
 			Assert.Equal(AiCombatStyleType.StickBySora, save.Pc[1].Ai.CombatStyle);
 			Assert.Equal(AiAbilityType.GoWild, save.Pc[1].Ai.Abilitiy);
 			Assert.Equal(AiRecoveryType.UseInEmergencies, save.Pc[1].Ai.Recovery);
-			Assert.Equal(0b1111, save.Pc[1].Ai.RecoveryTargets);
+			Assert.Equal(0b11111, save.Pc[1].Ai.RecoveryTargets);
 
 			Assert.Equal(CommandType.Firaga, save.Magics[0]);
 
-			Assert.Equal(52, save.Inventory[(int)InventoryType.Potion].Count);
-			Assert.Equal(8, save.Inventory[(int)InventoryType.ApBoost].Count);
+			Assert.Equal(54, save.Inventory[(int)InventoryType.Potion].Count);
+			Assert.Equal(5, save.Inventory[(int)InventoryType.ApBoost].Count);
 
-            Assert.Equal(57, save.MaterialsCount[0]);
-            Assert.Equal(46, save.MaterialsCount[1]);
-            Assert.Equal(113, save.MaterialsCount[40]);
+            Assert.Equal(60, save.MaterialsCount[0]);
+            Assert.Equal(51, save.MaterialsCount[1]);
+            Assert.Equal(139, save.MaterialsCount[40]);
 
-			Assert.Equal(270, save.Pc[0].Hp);
-			Assert.Equal(135, save.Pc[0].Mp);
-			Assert.Equal(100, save.Pc[0].Focus);
-			Assert.Equal(180, save.Pc[1].Hp);
+			Assert.Equal(180, save.Pc[3].Hp);
+			Assert.Equal(100, save.Pc[3].Mp);
+			Assert.Equal(100, save.Pc[3].Focus);
+			Assert.Equal(175, save.Pc[4].Hp);
 
-			Assert.Equal(CommandType.Cure, save.Shortcuts[0].Circle);
+			Assert.Equal(CommandType.Curaga, save.Shortcuts[0].Circle);
 			Assert.Equal(CommandType.Thundaga, save.Shortcuts[0].Triangle);
 			Assert.Equal(CommandType.Waterga, save.Shortcuts[0].Square);
-			Assert.Equal(CommandType.Fira, save.Shortcuts[0].Cross);
+			Assert.Equal(CommandType.Firaga, save.Shortcuts[0].Cross);
 			Assert.Equal(3, save.Shortcuts.Count);
 
-			Assert.Equal("/Game/Levels/ts/ts_02/ts_02", save.MapPath);
-			Assert.Equal("ts_02_Lv_Save_01", save.MapSpawn);
-			Assert.Equal("/Script/TresGame.TresPlayerControllerSora", save.PlayerScript);
-			Assert.Equal("/Game/Blueprints/Player/p_ts001/p_ts001_Pawn.p_ts001_Pawn_C", save.PlayerCharacter);
+			Assert.Equal("/Game/Levels/ex/ex_26/ex_26", save.MapPath);
+			Assert.Equal("TresPlayerStart_Debug", save.MapSpawn);
+			Assert.Equal("/Script/TresGame.TresPlayerControllerLowerBase", save.PlayerScript);
+			Assert.Equal("Pawn path", save.PlayerCharacter);
 
             Assert.Equal(20722, save.Records.CherryFlan.HighScore);
             Assert.Equal(20722, save.Records.CherryFlan.HighScore2);
