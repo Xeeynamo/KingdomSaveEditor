@@ -16,12 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave;
 using KHSave.Attributes;
-using KHSave.Presets;
 using KHSave.SaveEditor.Common;
-using KHSave.Types;
-using System;
+using KHSave.Lib3.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -29,6 +26,8 @@ using Xe.Tools;
 using Xe.Tools.Models;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Models;
+using KHSave.Lib3;
+using KHSave.Lib3.Presets;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -282,7 +281,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			this.storyFlag = storyFlag;
 			this.index = index;
 
-			if (Presets.Presets.STORY.TryGetValue(index, out var preset))
+			if (Presets.STORY.TryGetValue(index, out var preset))
 			{
                 Preset = new StoryPresetModel(preset);
 			}

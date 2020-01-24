@@ -19,7 +19,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels

@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace KHSave.Types
+namespace KHSave.Lib3.Types
 {
 	public enum PlayableCharacterType
 	{

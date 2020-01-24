@@ -19,6 +19,7 @@
 using System.IO;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Contracts;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {

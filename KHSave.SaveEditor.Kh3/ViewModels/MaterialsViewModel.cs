@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Lib3;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Kh3.Models;

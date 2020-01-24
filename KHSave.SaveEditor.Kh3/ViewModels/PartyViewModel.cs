@@ -1,4 +1,5 @@
-﻿using KHSave.Lib3.Types;
+﻿using KHSave.Lib3;
+using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Common.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels

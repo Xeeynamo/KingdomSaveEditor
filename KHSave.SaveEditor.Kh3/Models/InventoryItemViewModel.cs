@@ -18,9 +18,9 @@
 
 using System;
 using KHSave.Attributes;
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using KHSave.SaveEditor.Common.Models;
-using KHSave.Types;
+using KHSave.Lib3.Types;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {

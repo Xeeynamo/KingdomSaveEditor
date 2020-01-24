@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
 using Xe.Tools.Wpf.Models;

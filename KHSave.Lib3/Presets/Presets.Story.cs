@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Types;
+using KHSave.Lib3.Types;
 using System.Collections.Generic;
 
-namespace KHSave.Presets
+namespace KHSave.Lib3.Presets
 {
 	public static partial class Presets
 	{

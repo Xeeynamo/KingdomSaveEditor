@@ -19,7 +19,7 @@
 using System.Collections.Generic;
 using Xe.BinaryMapper;
 
-namespace KHSave.Models
+namespace KHSave.Lib3.Models
 {
 	public class PlayableCharacter
 	{

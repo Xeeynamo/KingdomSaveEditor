@@ -38,6 +38,7 @@ using KHSave.SaveEditor.Interfaces;
 using System;
 using KHSave.SaveEditor.Services;
 using System.Windows.Controls;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.ViewModels
 {

@@ -23,7 +23,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using KHSave.SaveEditor.Common.Exceptions;
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;

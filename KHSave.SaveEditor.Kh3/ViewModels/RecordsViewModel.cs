@@ -19,8 +19,8 @@
 using System.Collections.Generic;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Kh3.Models;
-using KHSave.Types;
 using KHSave.Extensions;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {

@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Types;
+using KHSave.Lib3.Types;
 using Xe.BinaryMapper;
 
-namespace KHSave.Models
+namespace KHSave.Lib3.Models
 {
 	public class MagicGroup
 	{

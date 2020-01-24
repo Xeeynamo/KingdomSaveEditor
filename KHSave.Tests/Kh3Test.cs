@@ -18,8 +18,8 @@
 
 using System;
 using System.IO;
+using KHSave.Lib3;
 using KHSave.Lib3.Types;
-using KHSave.Types;
 using Xunit;
 
 namespace KHSave.Tests

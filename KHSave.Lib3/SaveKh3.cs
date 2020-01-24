@@ -21,14 +21,12 @@ using System.Collections.Generic;
 using System.IO;
 using KHSave.Lib3.Models;
 using KHSave.Lib3.Types;
-using KHSave.Models;
-using KHSave.Types;
 using Xe.BinaryMapper;
 
-namespace KHSave
+namespace KHSave.Lib3
 {
-	public class SaveKh3
-	{
+	public class SaveKh3 : ISaveKh3
+    {
         static SaveKh3()
         {
             BinaryMapping.SetMapping<TimeSpan>(new BinaryMapping.Mapping

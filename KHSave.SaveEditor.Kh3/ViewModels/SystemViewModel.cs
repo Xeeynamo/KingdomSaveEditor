@@ -18,13 +18,14 @@
 
 using System.Windows;
 using KHSave.Attributes;
-using KHSave.Types;
+using KHSave.Lib3.Types;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common;
 using System.Collections.Generic;
 using KHSave.SaveEditor.Kh3.Models;
 using System.Linq;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
