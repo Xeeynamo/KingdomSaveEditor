@@ -29,28 +29,47 @@ namespace KHSave.SaveEditor.Views
         {
             base.OnInitialized(e);
 
+            patronList.Children.Add(new Label()
+            {
+                Content = "Fetching the list of funders from the internet..."
+            });
+
             Task.Run(async () =>
             {
-                var patreonInfo = await new PatreonService(new DesktopAppIdentity()).GetPatreonInfo();
-                var patronViews = patreonInfo.Patrons
-                    .Select((patron, i) =>
-                    {
-                        return new PatronView((i + 1) / 32.0, patron.Glow)
-                        {
-                            DataContext = new PatronViewModel(patron)
-                        };
-                    })
-                    .Where(x => x != null);
-
-                Application.Current.Dispatcher.Invoke(() =>
+                try
                 {
-                    (DataContext as HomeViewModel).FundLink = patreonInfo.PatreonUrl;
-                    patronList.Children.Clear();
-                    foreach (var patronView in patronViews)
+                    var patreonInfo = await new PatreonService(new DesktopAppIdentity()).GetPatreonInfo();
+                    var patronViews = patreonInfo.Patrons
+                        .Select((patron, i) =>
+                        {
+                            return new PatronView((i + 1) / 32.0, patron.Glow)
+                            {
+                                DataContext = new PatronViewModel(patron)
+                            };
+                        })
+                        .Where(x => x != null);
+
+                    Application.Current.Dispatcher.Invoke(() =>
                     {
-                        patronList.Children.Add(patronView);
-                    }
-                });
+                        (DataContext as HomeViewModel).FundLink = patreonInfo.PatreonUrl;
+                        patronList.Children.Clear();
+                        foreach (var patronView in patronViews)
+                        {
+                            patronList.Children.Add(patronView);
+                        }
+                    });
+                }
+                catch
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        patronList.Children.Clear();
+                        patronList.Children.Add(new Label()
+                        {
+                            Content = "Unable to retrieve the list of funders form internet."
+                        });
+                    });
+                }
             });
         }
     }

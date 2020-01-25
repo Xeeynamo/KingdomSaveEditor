@@ -16,7 +16,7 @@ namespace KHSave.SaveEditor
         private class ApplicationDebug : IApplicationDebug
         {
 #if DEBUG
-            public bool IsDebugging => Debugger.IsAttached;
+            public bool IsDebugging => Debugger.IsAttached && false;
 #else
             public bool IsDebugging => false;
 #endif
