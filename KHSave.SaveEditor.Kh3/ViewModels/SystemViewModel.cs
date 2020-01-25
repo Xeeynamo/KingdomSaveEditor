@@ -167,6 +167,24 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			}
 		}
 
+		public string DlcMapPath
+		{
+			get => save.DlcMapPath;
+			set
+			{
+				save.DlcMapPath = value;
+			}
+		}
+
+		public string DlcMapSpawn
+		{
+			get => save.DlcSpawnPoint;
+			set
+			{
+				save.DlcSpawnPoint = value;
+			}
+		}
+
 		public string PlayerScript
 		{
 			get => save.PlayerScript;

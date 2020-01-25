@@ -64,6 +64,9 @@ namespace KHSave.Lib3.Types
 		[World("ew", "The Final World")]
 		FinalWorld = 22,
 
+		[World("rg", "Radiant Garden")]
+		RadiantGarden = 24,
+
 		[World("dp", "Land of Departure")]
 		LandOfDeparture = 25,
 
@@ -74,7 +77,7 @@ namespace KHSave.Lib3.Types
 		DestinyIsland = 0xF0,
 
 		[World("rg", "Radiant Garden")]
-		RadiantGarden = 0xF1,
+		RadiantGarden2 = 0xF1,
 
 		[World("gm", "Gummiship")]
 		Gummiship = 0xF2,

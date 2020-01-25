@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
+             d:DesignHeight="550" d:DesignWidth="400">
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -215,6 +215,9 @@
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0"
@@ -228,13 +231,23 @@
                     Text="{Binding MapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3"
-                    Text="Player script"/>
+                    Text="DLC Map path"/>
                 <TextBox Grid.Column="0" Grid.Row="4"
-                    Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
+                    Text="{Binding DlcMapPath, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Column="2" Grid.Row="3"
-                    Text="Pawn path"/>
+                    Text="DLC Spawn point"/>
                 <TextBox Grid.Column="2" Grid.Row="4"
+                    Text="{Binding DlcMapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="6"
+                    Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="7"
+                    Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="6"
+                    Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="7"
                     Text="{Binding PlayerCharacter, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </GroupBox>
