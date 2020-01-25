@@ -82,6 +82,8 @@ namespace KHSave.Lib3
 
         [Data(0x84770)] public int PhotoMaxCount { get; set; }
         [Data(0x84784, 90, 0x19004)] public List<PhotoEntry> Photos { get; set; }
+        public string DlcMapPath { get => string.Empty; set { } }
+        public string DlcSpawnPoint { get => string.Empty; set { } }
 
         internal static bool IsValidInternal(Stream stream)
         {

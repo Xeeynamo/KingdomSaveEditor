@@ -89,6 +89,26 @@ namespace KHSave.Tests
 			Assert.Equal(CommandType.SeaFire, save.Magics[0]);
 		}
 
+		[Fact]
+		public void IgnoreDlcFieldsFor100()
+		{
+			var save = File.OpenRead(FilePath).Using(stream => SaveKh3.Read(stream));
+			save.DlcMapPath = "DlcMapPath";
+			save.DlcSpawnPoint = "DlcSpawnPoint";
+
+			Assert.Equal(string.Empty, save.DlcMapPath);
+			Assert.Equal(string.Empty, save.DlcSpawnPoint);
+		}
+
+		[Fact]
+		public void ReadDlcFieldsFor109()
+		{
+			var save = File.OpenRead(File109Path).Using(stream => SaveKh3.Read(stream));
+
+			Assert.Equal("/Game/Levels/rg_DLC/rg_03/rg_03", save.DlcMapPath);
+			Assert.Equal("rg_03_Lv_Start_01", save.DlcSpawnPoint);
+		}
+
 		private static void AssertSaveGame(ISaveKh3 save)
 		{
 			Assert.Equal(0x45764053, save.MagicCode);

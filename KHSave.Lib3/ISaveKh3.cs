@@ -57,7 +57,7 @@ namespace KHSave.Lib3
         int CrabsCollected { get; set; }
         List<PlayableCharacter> Pc { get; set; }
         List<int> Storyflags { get; set; }
-         string MapPath { get; set; }
+        string MapPath { get; set; }
         string MapSpawn { get; set; }
         string PlayerScript { get; set; }
         string PlayerCharacter { get; set; }
@@ -71,6 +71,9 @@ namespace KHSave.Lib3
 
         int PhotoMaxCount { get; set; }
         List<PhotoEntry> Photos { get; set; }
+
+        string DlcMapPath { get; set; }
+        string DlcSpawnPoint { get; set; }
 
         void Write(Stream stream);
     }
