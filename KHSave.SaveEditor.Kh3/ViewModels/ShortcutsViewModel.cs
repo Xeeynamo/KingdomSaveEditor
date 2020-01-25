@@ -26,13 +26,13 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	{
 		public class ShortcutGroupViewModel
 		{
-			private readonly SaveKh3 _save;
+			private readonly ISaveKh3 _save;
 			public ItemComboBoxModel<CommandType> Circle { get; set; }
 			public ItemComboBoxModel<CommandType> Triangle { get; set; }
 			public ItemComboBoxModel<CommandType> Square { get; set; }
 			public ItemComboBoxModel<CommandType> Cross { get; set; }
 
-			public ShortcutGroupViewModel(SaveKh3 save, int groupIndex)
+			public ShortcutGroupViewModel(ISaveKh3 save, int groupIndex)
 			{
 				_save = save;
 
@@ -54,9 +54,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			}
 		}
 
-		private readonly SaveKh3 _save;
+		private readonly ISaveKh3 _save;
 
-		public ShortcutsViewModel(SaveKh3 save)
+		public ShortcutsViewModel(ISaveKh3 save)
 		{
 			_save = save;
 			Shortcut1 = new ShortcutGroupViewModel(_save, 0);

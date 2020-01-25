@@ -25,7 +25,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
 	public class Kh3ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        public SaveKh3 Save { get; private set; }
+        public ISaveKh3 Save { get; private set; }
 		
         public SystemViewModel KhSystem { get; set; }
 		public InventoryViewModel Inventory { get; set; }

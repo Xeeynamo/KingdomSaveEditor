@@ -6,7 +6,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public class PartyViewModel
     {
-        private readonly SaveKh3 _save;
+        private readonly ISaveKh3 _save;
 
         public KhEnumListModel<DesireChoice> DesireChoice { get; }
         public KhEnumListModel<PowerChoice> PowerChoice { get; }
@@ -18,7 +18,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         public PartyCharacter PartyMember4 { get => _save.Party[3]; set => _save.Party[3] = value; }
         public PartyCharacter PartyMember5 { get => _save.Party[4]; set => _save.Party[4] = value; }
 
-        public PartyViewModel(SaveKh3 save)
+        public PartyViewModel(ISaveKh3 save)
         {
             _save = save;
             DesireChoice = new KhEnumListModel<DesireChoice>(() => save.DesireChoice, x => save.DesireChoice = x);

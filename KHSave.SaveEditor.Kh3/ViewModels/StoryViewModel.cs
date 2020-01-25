@@ -33,7 +33,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
 	public class StoryViewModel
 	{
-		public StoryViewModel(SaveKh3 save)
+		public StoryViewModel(ISaveKh3 save)
 		{
 			Advanced = new StoryAdvancedViewModel(save.Storyflags);
 			Simple = new StorySimpleViewModel(save);
@@ -49,7 +49,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 	public class StorySimpleViewModel : BaseNotifyPropertyChanged
 	{
-		public StorySimpleViewModel(SaveKh3 save)
+		public StorySimpleViewModel(ISaveKh3 save)
 		{
 			Save = save;
 			NewGamePlusCommand = new StoryCommand(save, "New Game+ (simulated)", "/Game/Levels/ew/ew_01/ew_01", new Dictionary<StoryFlagType, int>()
@@ -110,7 +110,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			}), false);
 		}
 
-		public SaveKh3 Save { get; }
+		public ISaveKh3 Save { get; }
 
 		public StoryCommand NewGamePlusCommand { get; }
 		public StoryCommand NewGamePlusGlitchyCommand { get; }
@@ -200,7 +200,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	public class StoryCommand : RelayCommand
 	{
 		public StoryCommand(
-            SaveKh3 save,
+            ISaveKh3 save,
 			string name,
 			string map,
 			Dictionary<StoryFlagType, int> flags,

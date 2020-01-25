@@ -31,7 +31,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
 	public class SystemViewModel : BaseNotifyPropertyChanged
 	{
-		private readonly SaveKh3 save;
+		private readonly ISaveKh3 save;
 
 		public enum RoomSpawnType
 		{
@@ -40,7 +40,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			[Info("AutoSave")] AutoSave
 		}
 
-		public SystemViewModel(SaveKh3 save)
+		public SystemViewModel(ISaveKh3 save)
 		{
 			this.save = save;
 			Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);

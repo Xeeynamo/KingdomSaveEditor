@@ -27,7 +27,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public class MaterialsViewModel : GenericListModel<MaterialModel>
     {
-        public MaterialsViewModel(SaveKh3 save) :
+        public MaterialsViewModel(ISaveKh3 save) :
             base(save.MaterialsCount
                 .Where((_, i) => Global.CanDisplay((MaterialType)i))
                 .Select((_, i) => new MaterialModel(save, i)))
