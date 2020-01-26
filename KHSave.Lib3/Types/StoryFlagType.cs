@@ -18,7 +18,7 @@
 
 using KHSave.Attributes;
 
-namespace KHSave.Types
+namespace KHSave.Lib3.Types
 {
 	public enum StoryFlagType
 	{
@@ -81,8 +81,8 @@ namespace KHSave.Types
 		[Info("WM - Arendelle")] Story38,
 		[Info("WM - Caribbean")] Story39,
 		[Info("WM - San Fransokyo")] Story3A,
-		[Info("WM - ? (to investigate)")] Story3B,
-		[Info("WM - ? (to investigate)")] Story3C,
+		[Info("WM - Keyblade Graveyard")] Story3B,
+		[Info("WM - Final World")] Story3C,
 		[Info("World Map")] WorldMap,
 		[Info("The Mysterious Tower")] MysteriousTower,
 		[Info("")] Story3F

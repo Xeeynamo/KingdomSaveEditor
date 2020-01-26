@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="300">
-    <StackPanel Background="White">
+    <StackPanel>
         <TextBlock Text="Weapons"/>
         <local:EquipmentItemEntryView DataContext="{Binding Weapon1}"/>
         <local:EquipmentItemEntryView DataContext="{Binding Weapon2}"/>

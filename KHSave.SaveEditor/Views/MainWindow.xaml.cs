@@ -1,7 +1,10 @@
-﻿using KHSave.SaveEditor.ViewModels;
+﻿using KHSave.SaveEditor.Interfaces;
+using KHSave.SaveEditor.Services;
+using KHSave.SaveEditor.ViewModels;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Views
 {
@@ -11,33 +14,33 @@ namespace KHSave.SaveEditor.Views
 	public partial class MainWindow : Window
 	{
 		private readonly MainWindowViewModel context;
+        private readonly IUpdater updater;
 
-        public MainWindow() :
-            this(null)
-        {
-
-        }
-
-		public MainWindow(string fileName)
+        public MainWindow(
+            IWindowManager windowManager,
+            IApplicationDebug applicationDebug,
+            IUpdater updater,
+            MainWindowViewModel vm)
 		{
 			InitializeComponent();
-			DataContext = context = new MainWindowViewModel();
+            windowManager.RootWindow = this;
+            DataContext = context = vm;
 
-            if (!string.IsNullOrWhiteSpace(fileName))
+            context.OnControlChanged = control =>
             {
-                context.Open(fileName);
-            }
+                content.Children.Clear();
+                content.Children.Add(control);
+            };
+            context.SaveKind = ContentType.Unload;
+
+            if (applicationDebug.IsDebugging)
+                context.TestOpen(applicationDebug.TestFileName);
+            this.updater = updater;
         }
 
         private void Window_Loaded(object sender, EventArgs e)
-		{
-			Task.Run(async () =>
-			{
-				if (context.IsUpdateCheckingEnabled)
-				{
-					await context.CheckLastVersionAsync();
-				}
-			});
-		}
-	}
+        {
+            Task.Run(() => updater.AutomaticallyCheckLastVersionAsync());
+        }
+    }
 }

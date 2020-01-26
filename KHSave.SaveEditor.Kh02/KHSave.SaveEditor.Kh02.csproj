@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Windows\**" />
+    <EmbeddedResource Remove="Windows\**" />
+    <None Remove="Windows\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="MainView.xaml" />
     <None Remove="Views\SystemView.xaml" />
   </ItemGroup>
@@ -25,16 +31,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Compile Update="MainView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\SystemView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Windows\" />
+    <Compile Update="MainView.xaml.cs" />
+    <Compile Update="Views\SystemView.xaml.cs" />
   </ItemGroup>
   
   <ItemGroup>

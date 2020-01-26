@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.SystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh2.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="450">
+    <StackPanel>
+        <GroupBox Header="Shortcuts">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Circle"/>
+                <ComboBox
+                    ItemsSource="{Binding ShortcutItems}"
+                    SelectedValue="{Binding ShortcutCircle}"
+                    SelectedValuePath="Value">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Triangle"/>
+                <ComboBox
+                    ItemsSource="{Binding ShortcutItems}"
+                    SelectedValue="{Binding ShortcutTriangle}"
+                    SelectedValuePath="Value">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Square"/>
+                <ComboBox
+                    ItemsSource="{Binding ShortcutItems}"
+                    SelectedValue="{Binding ShortcutSquare}"
+                    SelectedValuePath="Value">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Cross"/>
+                <ComboBox
+                    ItemsSource="{Binding ShortcutItems}"
+                    SelectedValue="{Binding ShortcutCross}"
+                    SelectedValuePath="Value">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                                <TextBlock Text="{Binding Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
+        <GroupBox Header="Non/Playable characters">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Character 1"/>
+                <ComboBox
+                    ItemsSource="{Binding Pc0}"
+                    SelectedValue="{Binding Pc0.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Character 2"/>
+                <ComboBox
+                    ItemsSource="{Binding Pc1}"
+                    SelectedValue="{Binding Pc1.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Character 3"/>
+                <ComboBox
+                    ItemsSource="{Binding Pc2}"
+                    SelectedValue="{Binding Pc2.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Character 4"/>
+                <ComboBox
+                    ItemsSource="{Binding Pc3}"
+                    SelectedValue="{Binding Pc3.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+            </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
+        <GroupBox Header="Misc">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Difficulty"/>
+                <ComboBox
+                    ItemsSource="{Binding Difficulty}"
+                    SelectedValue="{Binding Difficulty.SelectedValue}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+
+                <TextBlock/>
+                <TextBlock/>
+
+                <TextBlock Text="Total experience"/>
+                <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <TextBlock Text="Bonus level"/>
+                <TextBox Text="{Binding BonusLevel, UpdateSourceTrigger=PropertyChanged}"/>
+            </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

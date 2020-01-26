@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
-    <StackPanel Background="White">
+    <StackPanel>
         <Button
             Margin="3"
             Command="{Binding NewGamePlusCommand}"

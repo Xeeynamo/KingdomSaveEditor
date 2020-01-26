@@ -23,15 +23,17 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using KHSave.SaveEditor.Common.Exceptions;
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
+using System.Collections.Generic;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
 	public class PhotoEntryViewModel : BaseNotifyPropertyChanged
 	{
+		private static readonly List<FileDialogFilter> Filters = FileDialogFilterComposer.Compose().AddExtensions("JPEG image", "jpg");
 		private readonly PhotoEntry _entry;
 
 		private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
@@ -55,33 +57,27 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 			ExportCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Jpeg image", "jpg"));
-				fd.DefaultFileName = $"Kingdom Hearts III - Photo {Index}.jpg";
-
-				if (fd.ShowDialog() == true)
+				FileDialog.OnSave(fileName =>
 				{
 					try
 					{
-						Export(fd.FileName);
+						Export(fileName);
 					}
 					catch (Exception e)
 					{
 						MessageBox.Show(Window, $"Unable to export the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
 							MessageBoxImage.Error);
 					}
-				}
+				}, Filters, $"Kingdom Hearts III - Photo {Index}.jpg", Window);
 			}, x => true);
 
 			ImportCommand = new RelayCommand(o =>
 			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Open, ("Jpeg image", "jpg"));
-				fd.DefaultFileName = $"Kingdom Hearts III - Photo {Index}.jpg";
-
-				if (fd.ShowDialog() == true)
+				FileDialog.OnOpen(fileName =>
 				{
 					try
 					{
-						Import(fd.FileName);
+						Import(fileName);
 					}
 					catch (ImageTooLargeException e)
 					{
@@ -93,7 +89,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 						MessageBox.Show(Window, $"Unable to import the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
 							MessageBoxImage.Error);
 					}
-				}
+				}, Filters, $"Kingdom Hearts III - Photo {Index}.jpg", Window);
 			}, x => true);
 		}
 

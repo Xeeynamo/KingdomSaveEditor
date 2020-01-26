@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Lib3;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Kh3.Models;
@@ -26,7 +27,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public class MaterialsViewModel : GenericListModel<MaterialModel>
     {
-        public MaterialsViewModel(SaveKh3 save) :
+        public MaterialsViewModel(ISaveKh3 save) :
             base(save.MaterialsCount
                 .Where((_, i) => Global.CanDisplay((MaterialType)i))
                 .Select((_, i) => new MaterialModel(save, i)))

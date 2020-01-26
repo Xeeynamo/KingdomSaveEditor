@@ -41,6 +41,9 @@
     <Page Include="Views\MaterialsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PartyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PhotosView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,9 +100,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MainView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Update="MainView.xaml.cs" />
     <Compile Update="Views\EquipmentItemEntryView.xaml.cs">
       <DependentUpon>EquipmentItemEntryView.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Update="Views\MaterialsView.xaml.cs">
       <DependentUpon>MaterialsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PartyView.xaml.cs">
+      <DependentUpon>PartyView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\PhotosView.xaml.cs">
       <DependentUpon>PhotosView.xaml</DependentUpon>

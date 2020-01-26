@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KHSave.SaveEditor.Views"
+        xmlns:kh2="clr-namespace:KHSave.SaveEditor.Kh2;assembly=KHSave.SaveEditor.Kh2"
+        xmlns:khRecom="clr-namespace:KHSave.SaveEditor.KhRecom;assembly=KHSave.SaveEditor.KhRecom"
         xmlns:kh02="clr-namespace:KHSave.SaveEditor.Kh02;assembly=KHSave.SaveEditor.Kh02"
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
+        xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
     <Grid>
@@ -13,9 +16,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
-            <MenuItem Header="_File"></MenuItem>
-        </Menu>
         <Menu Grid.Row="0">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open..." Command="{Binding OpenCommand}"/>
@@ -38,31 +38,6 @@
             </MenuItem>
         </Menu>
 
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsUnload}"
-            Visibility="{Binding VisibilityUnload}">
-            <StackPanel>
-                <Label>No save is currently load.</Label>
-                <Label>Load the save from File\Open...</Label>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsUnknown}"
-            Visibility="{Binding VisibilityUnknown}">
-            <StackPanel>
-                <Label>The save loaded is not supported.</Label>
-                <Label>Be sure to have the last version or that the save is decrypted or supported.</Label>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKh02Save}"
-            Visibility="{Binding VisibilityKh02}">
-            <kh02:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
-        <Grid Grid.Row="1"
-            IsEnabled="{Binding IsKh3Save}"
-            Visibility="{Binding VisibilityKh3}">
-            <kh3:MainView DataContext="{Binding DataContext}"/>
-        </Grid>
+        <Grid x:Name="content" Grid.Row="1" DataContext="{Binding DataContext}"/>
     </Grid>
 </Window>

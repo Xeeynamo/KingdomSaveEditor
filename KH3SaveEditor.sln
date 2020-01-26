@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Drawing", "XeEngine.Tool
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Tools", "XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj", "{2F15C257-7E50-42B5-ADB4-7534B88F466B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xe.Tools.Wpf", "XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj", "{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xe.Tools.Wpf", "XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj", "{F6E4E1DF-ACC6-4DDE-912F-C6465CB3D393}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{ABFEAC30-491D-4FDE-A90C-C8E6107F67D5}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,7 +38,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Kh3", "KH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Common", "KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj", "{916C5797-18A6-4191-8FAA-4CA0B89E0BA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.Kh02", "KHSave.SaveEditor.Kh02\KHSave.SaveEditor.Kh02.csproj", "{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Kh02", "KHSave.SaveEditor.Kh02\KHSave.SaveEditor.Kh02.csproj", "{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Lib2", "KHSave.Lib2\KHSave.Lib2.csproj", "{BD00CBCE-D6CB-495D-BE43-0C803E21CEAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Kh2", "KHSave.SaveEditor.Kh2\KHSave.SaveEditor.Kh2.csproj", "{D2D4FFF5-AFB2-4256-AC4D-2BDC57601A62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.Archives", "KHSave.Archives\KHSave.Archives.csproj", "{93FD8BB6-B750-4BD3-8143-043286DA1E22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.LibRecom", "KHSave.LibRecom\KHSave.LibRecom.csproj", "{E277131E-3A87-4087-821A-D1E54D3A4FA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.KhRecom", "KHSave.SaveEditor.KhRecom\KHSave.SaveEditor.KhRecom.csproj", "{947C9653-C8D7-4D95-BE62-8101A3C9D824}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +112,26 @@ Global
 		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13EEF3A1-A5EC-443E-B9D2-3F730D5BC52F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD00CBCE-D6CB-495D-BE43-0C803E21CEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD00CBCE-D6CB-495D-BE43-0C803E21CEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD00CBCE-D6CB-495D-BE43-0C803E21CEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD00CBCE-D6CB-495D-BE43-0C803E21CEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D4FFF5-AFB2-4256-AC4D-2BDC57601A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D4FFF5-AFB2-4256-AC4D-2BDC57601A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D4FFF5-AFB2-4256-AC4D-2BDC57601A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D4FFF5-AFB2-4256-AC4D-2BDC57601A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FD8BB6-B750-4BD3-8143-043286DA1E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FD8BB6-B750-4BD3-8143-043286DA1E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FD8BB6-B750-4BD3-8143-043286DA1E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FD8BB6-B750-4BD3-8143-043286DA1E22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E277131E-3A87-4087-821A-D1E54D3A4FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E277131E-3A87-4087-821A-D1E54D3A4FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E277131E-3A87-4087-821A-D1E54D3A4FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E277131E-3A87-4087-821A-D1E54D3A4FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947C9653-C8D7-4D95-BE62-8101A3C9D824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947C9653-C8D7-4D95-BE62-8101A3C9D824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947C9653-C8D7-4D95-BE62-8101A3C9D824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947C9653-C8D7-4D95-BE62-8101A3C9D824}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,14 +16,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KHSave.Attributes
 {
 	public class InfoAttribute : Attribute
 	{
-		public string Info { get; set; }
+        private static CacheService<string> cache = new CacheService<string>();
+
+        public string Info { get; set; }
 
 		public InfoAttribute()
 		{ }
@@ -33,39 +37,46 @@ namespace KHSave.Attributes
 			Info = info;
 		}
 
-		public static string GetInfo(object value)
+        public static string GetInfo(object value) => cache.Get(value, x =>
+            {
+                var memberValue = x.ToString();
+                var memberInfo = x.GetType().GetMember(memberValue).FirstOrDefault();
+
+                if (memberInfo != null)
+                {
+                    if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
+                            .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
+                    {
+                        return attribute.Info;
+                    }
+                }
+
+                return memberValue;
+            });
+
+        public static string[] GetItemTypes(object value)
 		{
 			var memberValue = value.ToString();
 			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
 
 			if (memberInfo != null)
-			{
-				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
-					    .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
-				{
-					return attribute.Info;
-				}
-			}
-
-			return memberValue;
-		}
-
-		public static string[] GetItemTypes(object value)
-		{
-			var memberValue = value.ToString();
-			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
-
-			if (memberInfo != null)
-			{
-				return memberInfo.CustomAttributes.Select(x =>
-				{
-					var name = x.AttributeType.Name;
-					var indexAttributeStr = name.IndexOf("Attribute");
-					return indexAttributeStr > 0 ? name.Substring(0, indexAttributeStr) : null;
-				}).Where(x => !string.IsNullOrEmpty(x)).ToArray();
-			}
+            {
+                return memberInfo.CustomAttributes
+                    .Select(x => GetTypeRecursive(x.AttributeType))
+                    .SelectMany(x => x)
+                    .Where(x => x != null)
+                    .Select(x =>
+                    {
+                        var name = x.Name;
+                        var indexAttributeStr = name.IndexOf("Attribute");
+                        return indexAttributeStr > 0 ? name.Substring(0, indexAttributeStr) : null;
+                    }).Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            }
 
 			return new string[0];
 		}
+
+        private static IEnumerable<Type> GetTypeRecursive(Type type) =>
+            new Type[] { type, }.Concat(type != null ? GetTypeRecursive(type.BaseType) : new Type[] { });
 	}
 }

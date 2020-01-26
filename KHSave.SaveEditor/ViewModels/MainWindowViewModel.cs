@@ -16,60 +16,54 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
-using KHSave.SaveEditor.VersionCheck;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Dialogs;
-using Xe.VersionCheck;
-using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.Common;
-using KHSave.SaveEditor.Common.Properties;
-using KHSave.SaveEditor.Views;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
-using KHSave.SaveEditor.Kh02.ViewModels;
+using KHSave.Lib2;
+using KHSave.LibRecom;
+using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.Archives;
+using KHSave.SaveEditor.Common.Views;
+using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Interfaces;
+using System;
+using KHSave.SaveEditor.Services;
+using System.Windows.Controls;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.ViewModels
 {
-    public enum SaveType
-    {
-        Unload,
-        Unknown,
-        KingdomHearts02,
-        KingdomHearts3
-    }
-
     public class MainWindowViewModel : BaseNotifyPropertyChanged
     {
-        private string fileName;
-        private SaveType saveType = SaveType.Unload;
+        private readonly IFileDialogManager fileDialogManager;
+        private readonly IWindowManager windowManager;
+        private readonly IAlertMessage alertMessage;
+        private readonly IUpdater updater;
+        private readonly ContentFactory contentFactory;
         private object dataContext;
 
         private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-        public string Title => string.IsNullOrEmpty(FileName) ? OriginalTitle : $"{Path.GetFileName(FileName)} | {OriginalTitle}";
+        public string Title => fileDialogManager.IsFileOpen ?
+            $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
 
-        public string FileName
+        public ContentType SaveKind
         {
-            get => fileName;
-            set
-            {
-                fileName = value;
-                OnPropertyChanged(nameof(Title));
-            }
+            set => ChangeContent(value);
         }
 
-        public bool IsFileLoad { get; private set; }
-
+        public HomeViewModel HomeContext { get; }
         public RelayCommand OpenCommand { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand SaveAsCommand { get; }
@@ -86,31 +80,11 @@ namespace KHSave.SaveEditor.ViewModels
                 OnPropertyChanged();
             }
         }
-        public IRefreshUi RefreshUi { get; private set; }
-        public IWriteToStream WriteToStream { get; private set; }
 
-        public SaveType SaveKind
-        {
-            get => saveType;
-            set
-            {
-                saveType = value;
-                OnPropertyChanged(nameof(IsUnload));
-                OnPropertyChanged(nameof(VisibilityUnload));
-                OnPropertyChanged(nameof(IsUnknown));
-                OnPropertyChanged(nameof(VisibilityUnknown));
-                OnPropertyChanged(nameof(IsKh3Save));
-                OnPropertyChanged(nameof(VisibilityKh3));
-            }
-        }
-        public bool IsUnload => SaveKind == SaveType.Unload;
-        public Visibility VisibilityUnload => IsUnload ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsUnknown => SaveKind == SaveType.Unknown;
-        public Visibility VisibilityUnknown => IsUnknown ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKh02Save => SaveKind == SaveType.KingdomHearts02;
-        public Visibility VisibilityKh02 => IsKh02Save ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsKh3Save => SaveKind == SaveType.KingdomHearts3;
-        public Visibility VisibilityKh3 => IsKh3Save ? Visibility.Visible : Visibility.Collapsed;
+        public Action<UserControl> OnControlChanged { get; set; } 
+        public IRefreshUi RefreshUi { get; set; }
+        public IOpenStream OpenStream { get; set; }
+        public IWriteToStream WriteToStream { get; set; }
 
         public bool IsAdvancedMode
 		{
@@ -124,82 +98,47 @@ namespace KHSave.SaveEditor.ViewModels
 
 		public bool IsUpdateCheckingEnabled
 		{
-			get => Settings.Default.IsUpdateCheckingEnabled;
+            get => updater.IsAutomaticUpdatesEnabled;
 			set
 			{
-				Settings.Default.IsUpdateCheckingEnabled = value;
-				Settings.Default.Save();
-				OnPropertyChanged();
+                updater.IsAutomaticUpdatesEnabled = value;
+                OnPropertyChanged();
 			}
 		}
 
-		public bool IsItTimeForCheckingNewVersion => Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+        public MainWindowViewModel(
+            IFileDialogManager fileDialogManager,
+            IWindowManager windowManager,
+            IAlertMessage alertMessage,
+            IUpdater updater,
+            ContentFactory contentFactory,
+            HomeViewModel homeContext)
+        {
+            this.fileDialogManager = fileDialogManager;
+            this.windowManager = windowManager;
+            this.alertMessage = alertMessage;
+            this.updater = updater;
+            this.contentFactory = contentFactory;
+            HomeContext = homeContext;
+            OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
-		public MainWindowViewModel()
-		{
-			OpenCommand = new RelayCommand(o =>
-			{
-				var fd = FileDialog.Factory(null, FileDialog.Behavior.Open, new[]
-                {
-                    ("Kingdom Hearts III Save", "bin"),
-                    ("Kingdom Hearts 0.2 Save", "sav"),
-                });
-				if (fd.ShowDialog() == true)
-				{
-					Open(fd.FileName);
-				}
-			}, x => true);
+            SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),
+                x => fileDialogManager.IsFileOpen);
 
-			SaveCommand = new RelayCommand(o =>
-			{
-				if (!string.IsNullOrEmpty(FileName))
-				{
-					using (var stream = File.Open(FileName, FileMode.Create))
-					{
-                        WriteToStream.WriteToStream(stream);
+            SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
+                x => fileDialogManager.IsFileOpen);
 
-                    }
-				}
-				else
-				{
-					SaveAsCommand.Execute(o);
-				}
-			}, x => true);
-
-			SaveAsCommand = new RelayCommand(o =>
-			{
-				var fd = FileDialog.Factory(Window, FileDialog.Behavior.Save, ("Kingdom Hearts III Save", "bin"));
-				fd.DefaultFileName = FileName;
-
-				if (fd.ShowDialog() == true)
-				{
-					FileName = fd.FileName;
-					using (var stream = File.Open(fd.FileName, FileMode.Create))
-                    {
-                        WriteToStream.WriteToStream(stream);
-                    }
-				}
-			}, x => true);
-
-			ExitCommand = new RelayCommand(x =>
-			{
-				Window.Close();
-			}, x => true);
+            ExitCommand = new RelayCommand(x => Window.Close());
 
 			GetLatestVersionCommand = new RelayCommand(x =>
 			{
 				Task.Run(async () =>
 				{
-					var found = await CheckLastVersionAsync(true);
+                    var found = await updater.ForceCheckLastVersionAsync();
 					if (found == false)
 					{
 						Application.Current.Dispatcher.Invoke(() =>
-						{
-							MessageBox.Show("No new versions has been found.",
-								"Check update",
-								MessageBoxButton.OK,
-								MessageBoxImage.Information);
-						});
+                            alertMessage.Info("You are up to date :)", "Check update"));
 					}
 				});
 			});
@@ -226,88 +165,110 @@ namespace KHSave.SaveEditor.ViewModels
 
 				aboutDialog.ShowDialog();
 			}, x => true);
-		}
+        }
 
-		public void Open(string fileName)
-		{
-			FileName = fileName;
-			using (var file = File.Open(fileName, FileMode.Open))
-			{
-                Open(file);
-			}
-
-            InvokeRefreshUi();
-		}
+        public void TestOpen(string fileName)
+        {
+            using (var stream = File.OpenRead(fileName))
+                Open(stream);
+        }
 
         public void Open(Stream stream)
-        {
-            bool isOpen = TryOpenKh02(stream) || TryOpenKh3(stream);
-            if (isOpen == false)
-                SaveKind = SaveType.Unknown;
+		{
+            try
+            {
+                if (!TryOpen(stream))
+                    throw new SaveNotSupportedException("The specified save game is not recognized.\nBe sure to have the last version or that the save is decrypted or supported.");
+
+                InvokeRefreshUi();
+                OnPropertyChanged(nameof(Title));
+            }
+            catch (SaveNotSupportedException ex)
+            {
+                alertMessage.Error(ex);
+            }
         }
 
-        public bool TryOpenKh02(Stream stream)
+        private void Save(Stream stream)
         {
-            if (!SaveKh02.IsValid(stream))
-                return false;
+            WriteToStream.WriteToStream(stream);
+            OnPropertyChanged(nameof(Title));
+        }
 
-            var saveViewModel = new Kh02ViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHearts02;
+        public bool TryOpen(Stream stream) =>
+            TryOpenKh2(stream) ||
+            TryOpenKhRecom(stream) ||
+            TryOpenKh02(stream) ||
+            TryOpenKh3(stream) ||
+            TryOpenArchive(stream);
+
+        private bool Open(IArchiveFactory archiveFactory, Stream stream) =>
+            Open(archiveFactory.Read(stream));
+
+        private bool Open(IArchive archive)
+        {
+            var result = windowManager.Push<ArchiveManagerView>(
+                onSetup: window => window.Archive = archive,
+                onSuccess: window => Open(archive, window.SelectedEntry));
+
+            if (result == false)
+                ChangeContent(ContentType.Unload);
 
             return true;
         }
 
-        public bool TryOpenKh3(Stream stream)
+        private bool Open(IArchive archive, IArchiveEntry archiveEntry)
         {
-            if (!SaveKh3.IsValid(stream))
+            bool result;
+
+            using (var stream = new MemoryStream(archiveEntry.Data))
+                result = TryOpen(stream);
+
+            // archiveEntry.Name
+            // archiveEntry.DateCreated
+            // archiveEntry.DateModified
+
+            WriteToStream = new ArchiveWriteToStream(WriteToStream, archive, archiveEntry);
+
+            return result;
+        }
+
+        public bool TryOpenArchive(Stream stream)
+        {
+            if (!ArchiveFactories.TryGetFactory(stream, out var archiveFactory))
                 return false;
 
-            var saveViewModel = new Kh3ViewModel(stream);
-            DataContext = saveViewModel;
-            RefreshUi = saveViewModel;
-            WriteToStream = saveViewModel;
-            SaveKind = SaveType.KingdomHearts3;
+            stream.Position = 0;
+            return Open(archiveFactory, stream);
+        }
 
+        public bool TryOpenKh2(Stream stream) => TryOpen(SaveKh2.IsValid,  stream, ContentType.KingdomHearts2);
+        public bool TryOpenKhRecom(Stream stream) => TryOpen(SaveKhRecom.IsValid, stream, ContentType.KingdomHeartsRecom);
+        public bool TryOpenKh02(Stream stream) => TryOpen(SaveKh02.IsValid, stream, ContentType.KingdomHearts02);
+        public bool TryOpenKh3(Stream stream) => TryOpen(SaveKh3.IsValid, stream, ContentType.KingdomHearts3);
+
+        public bool TryOpen(Func<Stream, bool> prediate, Stream stream, ContentType contentType)
+        {
+            if (!prediate(stream))
+                return false;
+
+            ChangeContent(contentType, stream);
             return true;
         }
 
-        public void InvokeRefreshUi() => RefreshUi.RefreshUi();
+        public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
 
+        private void ChangeContent(ContentType contentType, Stream stream = null)
+        {
+            var contentResponse = contentFactory.Factory(contentType);
 
-        public void UpdateLastTimeForCheckingNewVersion()
-		{
-			Settings.Default.LastUpdateCheck = DateTime.UtcNow;
-			Settings.Default.Save();
-		}
+            RefreshUi = contentResponse.RefreshUi;
+            WriteToStream = contentResponse.WriteToStream;
 
-		public async Task<bool> CheckLastVersionAsync(bool forceUpdateCheck = false)
-		{
-			if (forceUpdateCheck == false)
-			{
-				if (IsItTimeForCheckingNewVersion == false)
-					return false;
-			}
+            if (stream != null)
+                contentResponse.OpenStream.OpenStream(stream);
 
-			UpdateLastTimeForCheckingNewVersion();
-			var checkCurrentVersion = new DesktopCheckCurrentVersion();
-			var checkLastVersion = new GithubCheckLatestVersion("xeeynamo", "kh3saveeditor");
-			var releaseUpdater = new VersionChecker(checkCurrentVersion, checkLastVersion);
-
-			var lastVersion = await releaseUpdater.GetLatestVersionAsync();
-			if (lastVersion != null)
-			{
-				Application.Current.Dispatcher.Invoke(() =>
-				{
-					new UpdateWindow(lastVersion).ShowDialog();
-				});
-
-				return true;
-			}
-
-			return false;
-		}
-	}
+            OnControlChanged?.Invoke(contentResponse.Control);
+        }
+    }
 }

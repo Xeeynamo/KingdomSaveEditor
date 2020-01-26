@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh3.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
-    <StackPanel Background="White">
+             d:DesignHeight="550" d:DesignWidth="400">
+    <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -74,32 +74,6 @@
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Display level"/>
                 <TextBox Text="{Binding DisplayLevel, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
-        </Grid>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0">
-                <TextBlock Text="Desire choice"/>
-                <ComboBox
-                    ItemsSource="{Binding DesireChoice}"
-                    SelectedValue="{Binding DesireChoice.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="2">
-                <TextBlock Text="Power choice"/>
-                <ComboBox
-                    ItemsSource="{Binding PowerChoice}"
-                    SelectedValue="{Binding PowerChoice.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
             </StackPanel>
         </Grid>
 
@@ -197,6 +171,9 @@
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0"
@@ -208,24 +185,20 @@
                     SelectedValuePath="Value"/>
 
                 <TextBlock Grid.Column="2" Grid.Row="0"
-                    Text="Map Id"/>
-                <TextBox Grid.Column="2" Grid.Row="1"
-                    Text="{Binding RoomMapIndex, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Grid.Column="0" Grid.Row="3"
-                    Visibility="Collapsed"
-                    Text="Spawn type"/>
-                <ComboBox Grid.Column="0" Grid.Row="4"
-                    Visibility="Collapsed"
-                    SelectedValue="{Binding SpawnTypeValue}"
-                    DisplayMemberPath="Name"
+                    Text="Map"/>
+                <ComboBox Grid.Column="2" Grid.Row="1"
+                    ItemsSource="{Binding Maps}"
+                    SelectedValue="{Binding MapPath}"
+                    DisplayMemberPath="Description"
                     SelectedValuePath="Value"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="3"
-                    Visibility="Collapsed"
-                    Text="Spawn index"/>
-                <TextBox Grid.Column="2" Grid.Row="4"
-                    Visibility="Collapsed"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" TextWrapping="Wrap"
+                    Text="Playable character (works only on some maps, like 'Computer Laboratory'). Some characters have no input controls and others trigger battles."/>
+                <ComboBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"
+                    ItemsSource="{Binding PlayableCharacters}"
+                    SelectedValue="{Binding PlayerCharacter}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
             </Grid>
         </GroupBox>
 
@@ -242,6 +215,9 @@
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0"
@@ -252,17 +228,27 @@
                 <TextBlock Grid.Column="2" Grid.Row="0"
                     Text="Spawn point"/>
                 <TextBox Grid.Column="2" Grid.Row="1"
-                    Text="{Binding MapSpawn}"/>
+                    Text="{Binding MapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3"
-                    Text="Player script"/>
+                    Text="DLC Map path"/>
                 <TextBox Grid.Column="0" Grid.Row="4"
-                    Text="{Binding PlayerScript}"/>
+                    Text="{Binding DlcMapPath, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Column="2" Grid.Row="3"
-                    Text="Pawn path"/>
+                    Text="DLC Spawn point"/>
                 <TextBox Grid.Column="2" Grid.Row="4"
-                    Text="{Binding PlayerCharacter}"/>
+                    Text="{Binding DlcMapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="6"
+                    Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="7"
+                    Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="6"
+                    Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="7"
+                    Text="{Binding PlayerCharacter, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </GroupBox>
 

@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.KhRecom.Views.CardInventoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhRecom.Views"
+             xmlns:controls="clr-namespace:Xe.Tools.Wpf.Controls;assembly=Xe.Tools.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <ListBox
+                Grid.Row="0"
+                ItemsSource="{Binding}"
+                SelectedItem="{Binding SelectedItem}"
+                HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0 0 0 3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="24"/>
+                                <ColumnDefinition Width="3"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                                Source="{Binding Icon}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="2"
+                                Text="{Binding Name}" />
+                            <TextBlock Grid.Row="2" Grid.Column="2"
+                                Text="{Binding CountTotal}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="5">
+            <Grid
+                Visibility="{Binding CardEntryVisibility}"
+                IsEnabled="{Binding IsItemSelected}">
+                <local:CardInventoryEntryView DataContext="{Binding SelectedItem}"/>
+            </Grid>
+
+            <StackPanel Visibility="{Binding CardEntrySelectionMessageVisibility}">
+                <TextBlock Text="Please select a card to edit"/>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</UserControl>

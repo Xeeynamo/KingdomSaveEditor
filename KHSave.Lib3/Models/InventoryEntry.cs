@@ -18,7 +18,7 @@
 
 using Xe.BinaryMapper;
 
-namespace KHSave.Models
+namespace KHSave.Lib3.Models
 {
 	public class InventoryEntry
 	{

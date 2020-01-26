@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Models;
+using KHSave.Lib3.Models;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
-using KHSave.Types;
+using KHSave.Lib3.Types;
 using System;
 using System.Windows;
 using Xe.Tools;
@@ -95,32 +95,32 @@ namespace KHSave.SaveEditor.Kh3.Models
 		{
 			switch (itemType)
 			{
-				case KHSave.Types.ItemType.Consumable:
-				case KHSave.Types.ItemType.ConsumableMirrored:
+				case KHSave.Lib3.Types.ItemType.Consumable:
+				case KHSave.Lib3.Types.ItemType.ConsumableMirrored:
 					ValueSet = NewList<ConsumableType>();
 					break;
-				case KHSave.Types.ItemType.Tent:
+				case KHSave.Lib3.Types.ItemType.Tent:
 					ValueSet = NewList<TentType>();
 					break;
-				case KHSave.Types.ItemType.Weapon:
+				case KHSave.Lib3.Types.ItemType.Weapon:
 					ValueSet = NewList<WeaponType>();
 					break;
-				case KHSave.Types.ItemType.Armor:
+				case KHSave.Lib3.Types.ItemType.Armor:
 					ValueSet = NewList<ArmorType>();
 					break;
-				case KHSave.Types.ItemType.Accessory:
+				case KHSave.Lib3.Types.ItemType.Accessory:
 					ValueSet = NewList<AccessoryType>();
 					break;
-				case KHSave.Types.ItemType.Snack:
+				case KHSave.Lib3.Types.ItemType.Snack:
 					ValueSet = NewList<SnackType>();
 					break;
-				case KHSave.Types.ItemType.Synthesis:
+				case KHSave.Lib3.Types.ItemType.Synthesis:
 					ValueSet = NewList<SynthesisType>();
 					break;
-				case KHSave.Types.ItemType.Food:
+				case KHSave.Lib3.Types.ItemType.Food:
 					ValueSet = NewList<FoodType>();
 					break;
-				case KHSave.Types.ItemType.KeyItem:
+				case KHSave.Lib3.Types.ItemType.KeyItem:
 					ValueSet = NewList<KeyItemType>();
 					break;
 				default:

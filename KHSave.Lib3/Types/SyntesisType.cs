@@ -18,7 +18,7 @@
 
 using KHSave.Attributes;
 
-namespace KHSave.Types
+namespace KHSave.Lib3.Types
 {
 	public enum SynthesisType : byte
 	{

@@ -16,12 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave;
 using KHSave.Attributes;
-using KHSave.Presets;
 using KHSave.SaveEditor.Common;
-using KHSave.Types;
-using System;
+using KHSave.Lib3.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -29,12 +26,14 @@ using Xe.Tools;
 using Xe.Tools.Models;
 using Xe.Tools.Wpf.Commands;
 using Xe.Tools.Wpf.Models;
+using KHSave.Lib3;
+using KHSave.Lib3.Presets;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
 	public class StoryViewModel
 	{
-		public StoryViewModel(SaveKh3 save)
+		public StoryViewModel(ISaveKh3 save)
 		{
 			Advanced = new StoryAdvancedViewModel(save.Storyflags);
 			Simple = new StorySimpleViewModel(save);
@@ -50,7 +49,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 	public class StorySimpleViewModel : BaseNotifyPropertyChanged
 	{
-		public StorySimpleViewModel(SaveKh3 save)
+		public StorySimpleViewModel(ISaveKh3 save)
 		{
 			Save = save;
 			NewGamePlusCommand = new StoryCommand(save, "New Game+ (simulated)", "/Game/Levels/ew/ew_01/ew_01", new Dictionary<StoryFlagType, int>()
@@ -111,7 +110,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			}), false);
 		}
 
-		public SaveKh3 Save { get; }
+		public ISaveKh3 Save { get; }
 
 		public StoryCommand NewGamePlusCommand { get; }
 		public StoryCommand NewGamePlusGlitchyCommand { get; }
@@ -201,7 +200,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	public class StoryCommand : RelayCommand
 	{
 		public StoryCommand(
-            SaveKh3 save,
+            ISaveKh3 save,
 			string name,
 			string map,
 			Dictionary<StoryFlagType, int> flags,
@@ -282,9 +281,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			this.storyFlag = storyFlag;
 			this.index = index;
 
-			if (StoryPresets.KnownStoryFlags.TryGetValue(index, out var preset))
+			if (Presets.STORY.TryGetValue(index, out var preset))
 			{
-				Preset = new StoryPresetModel(preset);
+                Preset = new StoryPresetModel(preset);
 			}
 		}
 

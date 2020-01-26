@@ -17,13 +17,13 @@
 */
 
 using System.Windows;
-using KHSave.Models;
-using KHSave.Types;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Kh3.Models;
 using KHSave.SaveEditor.Kh3.ViewModels;
+using KHSave.Lib3.Types;
+using KHSave.Lib3.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {

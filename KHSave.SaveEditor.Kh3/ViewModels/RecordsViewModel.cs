@@ -19,14 +19,14 @@
 using System.Collections.Generic;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Kh3.Models;
-using KHSave.Types;
 using KHSave.Extensions;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public partial class RecordsViewModel
 	{
-		private readonly SaveKh3 save;
+		private readonly ISaveKh3 save;
 
 		public RecordShotlockListModel<RecordShotlockType> Shotlocks { get; }
 		public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
@@ -95,7 +95,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             set => save.Records.FrozenSliderMedals = save.Records.FrozenSliderMedals.SetFlag(9, value);
         }
 
-        public RecordsViewModel(SaveKh3 save)
+        public RecordsViewModel(ISaveKh3 save)
 		{
 			this.save = save;
 			Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
@@ -103,7 +103,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             Flantastics = GetFlantasticModels(save);
         }
 
-        private static IEnumerable<FlantasticModel> GetFlantasticModels(SaveKh3 save) =>
+        private static IEnumerable<FlantasticModel> GetFlantasticModels(ISaveKh3 save) =>
             new FlantasticModel[]
             {
                 new FlantasticModel("Cherry Flan", save.Records.CherryFlan),

@@ -1,17 +1,17 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using KHSave.SaveEditor.Services;
 using Xe.VersionCheck;
 
 namespace KHSave.SaveEditor.VersionCheck
 {
 	public class DesktopCheckCurrentVersion : ICheckCurrentVersion
 	{
-		public string GetCurrentVersion()
-		{
-			var assembly = Assembly.GetExecutingAssembly();
-			var fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+        private IAppIdentity _appIdentity;
 
-			return fvi.ProductVersion;
-		}
+        public DesktopCheckCurrentVersion()
+        {
+            _appIdentity = new DesktopAppIdentity();
+        }
+
+        public string GetCurrentVersion() => _appIdentity.Version;
 	}
 }

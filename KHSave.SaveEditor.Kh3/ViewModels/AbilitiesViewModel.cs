@@ -19,8 +19,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using KHSave.Attributes;
-using KHSave.Models;
-using KHSave.Types;
+using KHSave.Lib3.Models;
+using KHSave.Lib3.Types;
 using Xe.Tools.Wpf.Models;
 using KHSave.SaveEditor.Common.Models;
 using System.Windows;

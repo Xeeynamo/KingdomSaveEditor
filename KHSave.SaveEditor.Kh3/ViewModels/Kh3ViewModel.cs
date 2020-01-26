@@ -19,26 +19,26 @@
 using System.IO;
 using Xe.Tools;
 using KHSave.SaveEditor.Common.Contracts;
+using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class Kh3ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IWriteToStream
+	public class Kh3ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        public SaveKh3 Save { get; }
+        public ISaveKh3 Save { get; private set; }
 		
         public SystemViewModel KhSystem { get; set; }
 		public InventoryViewModel Inventory { get; set; }
         public MaterialsViewModel Materials { get; set; }
 		public PlayersViewModel Players { get; set; }
+		public PartyViewModel Party { get; set; }
 		public StoryViewModel Story { get; set; }
 		public ShortcutsViewModel Shortcuts { get; set; }
 		public RecordsViewModel Records { get; set; }
 		public PhotosViewModel Photos { get; set; }
 
-		public Kh3ViewModel(Stream stream)
+		public Kh3ViewModel()
 		{
-            Save = SaveKh3.Read(stream);
-            RefreshUi();
         }
 
 		public void RefreshUi()
@@ -47,6 +47,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			Inventory = new InventoryViewModel(Save.Inventory);
 			Materials = new MaterialsViewModel(Save);
 			Players = new PlayersViewModel(Save.Pc);
+            Party = new PartyViewModel(Save);
 			Story = new StoryViewModel(Save);
 			Shortcuts = new ShortcutsViewModel(Save);
 			Records = new RecordsViewModel(Save);
@@ -56,11 +57,18 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			OnPropertyChanged(nameof(Inventory));
 			OnPropertyChanged(nameof(Materials));
 			OnPropertyChanged(nameof(Players));
+			OnPropertyChanged(nameof(Party));
 			OnPropertyChanged(nameof(Story));
 			OnPropertyChanged(nameof(Shortcuts));
 			OnPropertyChanged(nameof(Records));
 			OnPropertyChanged(nameof(Photos));
-		}
+        }
+
+        public void OpenStream(Stream stream)
+        {
+            Save = SaveKh3.Read(stream);
+            RefreshUi();
+        }
 
         public void WriteToStream(Stream stream) => Save.Write(stream);
     }

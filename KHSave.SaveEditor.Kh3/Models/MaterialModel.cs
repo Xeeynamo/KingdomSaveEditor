@@ -17,6 +17,7 @@
 */
 
 using KHSave.Attributes;
+using KHSave.Lib3;
 using KHSave.Lib3.Types;
 using KHSave.SaveEditor.Common.Models;
 using System;
@@ -25,10 +26,10 @@ namespace KHSave.SaveEditor.Kh3.Models
 {
     public class MaterialModel : EnumIconTypeModel<MaterialType>
     {
-        private readonly SaveKh3 save;
+        private readonly ISaveKh3 save;
         private readonly int index;
 
-        public MaterialModel(SaveKh3 save, int index)
+        public MaterialModel(ISaveKh3 save, int index)
         {
             this.save = save;
             this.index = index;

@@ -16,30 +16,33 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Services;
 using System;
 using System.Linq;
 
 namespace KHSave.Attributes
 {
 	public class UnusedAttribute : Attribute
-	{
-		public static bool IsUnused(object value)
-		{
-			var memberValue = value.ToString();
-			var memberInfo = value
-				.GetType()
-				.GetMember(memberValue)
-				.FirstOrDefault();
+    {
+        private static CacheService<bool> cache = new CacheService<bool>();
 
-			if (memberInfo != null)
-			{
-				if (memberInfo.GetCustomAttributes(typeof(UnusedAttribute), false).Length > 0)
-					return true;
-				if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false).Length > 0)
-					return false;
-			}
+        public static bool IsUnused(object value) => cache.Get(value, x =>
+        {
+            var memberValue = value.ToString();
+            var memberInfo = value
+                .GetType()
+                .GetMember(memberValue)
+                .FirstOrDefault();
 
-			return true;
-		}
+            if (memberInfo != null)
+            {
+                if (memberInfo.GetCustomAttributes(typeof(UnusedAttribute), false).Length > 0)
+                    return true;
+                if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false).Length > 0)
+                    return false;
+            }
+
+            return true;
+        });
 	}
 }

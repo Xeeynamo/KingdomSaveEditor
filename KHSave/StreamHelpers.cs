@@ -24,6 +24,14 @@ namespace KHSave
 {
 	public static class StreamHelpers
 	{
+		public static T FromBegin<T>(this T stream) where T : Stream => stream.SetPosition(0);
+
+		public static T SetPosition<T>(this T stream, int position) where T : Stream
+        {
+            stream.Position = position;
+            return stream;
+        }
+
 		public static bool ReadFlag(this BinaryReader reader, int offset, int bit)
 		{
 			reader.BaseStream.Position = offset;
@@ -35,6 +43,23 @@ namespace KHSave
 			reader.BaseStream.Position = offset;
 			return reader.ReadInt32();
 		}
+
+		public static byte[] ReadBytes(this Stream stream) =>
+            stream.ReadBytes((int)(stream.Length - stream.Position));
+
+		public static byte[] ReadBytes(this Stream stream, int length)
+        {
+            var data = new byte[length];
+            stream.Read(data, 0, length);
+            return data;
+        }
+
+		public static byte[] ReadAllBytes(this Stream stream)
+        {
+            var data = stream.SetPosition(0).ReadBytes();
+            stream.Position = 0;
+            return data;
+        }
 
 		public static string ReadString(this BinaryReader reader, int length)
 		{
@@ -70,6 +95,18 @@ namespace KHSave
 			{
 				writer.Write(data, 0, length);
 			}
-		}
-	}
+        }
+
+        public static void Copy(this Stream source, Stream destination, int length, int bufferSize = 65536)
+        {
+            int read;
+            byte[] buffer = new byte[Math.Min(length, bufferSize)];
+
+            while ((read = source.Read(buffer, 0, Math.Min(length, bufferSize))) != 0)
+            {
+                destination.Write(buffer, 0, read);
+                length -= read;
+            }
+        }
+    }
 }

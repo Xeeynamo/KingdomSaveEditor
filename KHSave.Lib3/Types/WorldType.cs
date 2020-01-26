@@ -18,7 +18,7 @@
 
 using KHSave.Attributes;
 
-namespace KHSave.Types
+namespace KHSave.Lib3.Types
 {
 	public enum WorldType : byte
 	{
@@ -64,6 +64,9 @@ namespace KHSave.Types
 		[World("ew", "The Final World")]
 		FinalWorld = 22,
 
+		[World("rg", "Radiant Garden")]
+		RadiantGarden = 24,
+
 		[World("dp", "Land of Departure")]
 		LandOfDeparture = 25,
 
@@ -74,9 +77,15 @@ namespace KHSave.Types
 		DestinyIsland = 0xF0,
 
 		[World("rg", "Radiant Garden")]
-		RadiantGarden = 0xF1,
+		RadiantGarden2 = 0xF1,
 
 		[World("gm", "Gummiship")]
 		Gummiship = 0xF2,
-	}
+
+        [World("dc", "Disney Castle")]
+        DisneyCastle = 0xF3,
+
+        [World("sp", "SP world")]
+        Sp = 0xF4,
+    }
 }
