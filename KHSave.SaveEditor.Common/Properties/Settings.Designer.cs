@@ -51,7 +51,8 @@ namespace KHSave.SaveEditor.Common.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.DateTime LastUpdateCheck {
             get {
-                return ((global::System.DateTime)(this["LastUpdateCheck"]));
+                const string V = "LastUpdateCheck";
+                return ((global::System.DateTime)(this[V]));
             }
             set {
                 this["LastUpdateCheck"] = value;
