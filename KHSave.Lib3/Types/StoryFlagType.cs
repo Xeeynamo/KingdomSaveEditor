@@ -85,6 +85,6 @@ namespace KHSave.Lib3.Types
 		[Info("WM - Final World")] Story3C,
 		[Info("World Map")] WorldMap,
 		[Info("The Mysterious Tower")] MysteriousTower,
-		[Info("")] Story3F
+		[Info("Scala ad Caelum [ Re:Maid ]")] Story3F,
 	}
 }
