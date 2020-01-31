@@ -111,7 +111,7 @@ namespace KHSave.Lib3.Types
 		Weapon56,
 		Weapon57,
 		[Weapon("Kingdom Key (FAKE)")] FakeKingdomKey,
-		Weapon59,
+		[Weapon("Kingdom Key (FAKE)")] FakeKingdomKey2,
 		Weapon5a,
 		Weapon5b,
 		Weapon5c,
