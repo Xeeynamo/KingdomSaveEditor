@@ -134,7 +134,7 @@ namespace KHSave.Lib3.Types
         [Accessory("Star Medal")] StarMedal_6D,
         [Accessory("Star Medal")] StarMedal_6E,
 	[Accessory("Breakthrough")] Item6f,
-	[Accessory("Cristal Regalia+")] Item70,
+	[Accessory("Crystal Regalia+")] Item70,
 		Item71,
 		Item72,
 		Item73,
