@@ -175,6 +175,10 @@ namespace KHSave.Lib3.Types
 		[Armor("Mask Rosette")] MaskRosette,
 		[Armor("Snowman Rosette")] SnowmanRosette,
 		[Armor("Insulator Rosette")] InsulatorRosette,
+		[Armor("Item30")] Item30,
+		[Armor("Power Weight")] en,
+		[Armor("Magic Weight")] en2,
+		[Armor("Master Belt")] en3,
 
         [Accessory("Laughter Pin")] LaughterPin = 225,
         [Accessory("Forest Clasp")] ForestClasp,
@@ -286,6 +290,8 @@ namespace KHSave.Lib3.Types
         [Accessory("Star Medal")] StarMedal_6C,
         [Accessory("Star Medal")] StarMedal_6D,
         [Accessory("Star Medal")] StarMedal_6E,
+        [Accessory("Breakthrough")] Item6f,
+        [Accessory("Crystal Regalia+")] Item70,
 
         [Snack("Pumpkin Velouté")] PumpkinVeloute = 425,
         [Snack("Consomé")] Consome,
