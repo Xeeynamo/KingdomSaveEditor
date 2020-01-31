@@ -175,9 +175,10 @@ namespace KHSave.Lib3.Types
 		[Armor("Mask Rosette")] MaskRosette,
 		[Armor("Snowman Rosette")] SnowmanRosette,
 		[Armor("Insulator Rosette")] InsulatorRosette,
-		[Armor("Power Weight")] en,
-    [Armor("Magic Weight")] en2,
-    [Armor("Master Belt")] en3,
+        Item174,
+        [Armor("Power Weight")] en,
+        [Armor("Magic Weight")] en2,
+        [Armor("Master Belt")] en3,
 
         [Accessory("Laughter Pin")] LaughterPin = 225,
         [Accessory("Forest Clasp")] ForestClasp,
