@@ -1023,6 +1023,7 @@ namespace KHSave.Lib3.Presets
                 [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_06] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_04_BATTLE_03] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_07] = "",
+                [StoryLabelTypeKgDlc.KG_02_EVENT_E_END] = "Between Main story and DLC",
                 [StoryLabelTypeKgDlc.KG_DLC_06_EVENT_01] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_06_BATTLE_01] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_06_BATTLE_02] = "",
@@ -1031,7 +1032,6 @@ namespace KHSave.Lib3.Presets
                 [StoryLabelTypeKgDlc.KG_DLC_06_2_BATTLE_01] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_06_2_BATTLE_02] = "",
                 [StoryLabelTypeKgDlc.KG_DLC_05_3_EVENT_01] = "",
-                [StoryLabelTypeKgDlc.KG_02_EVENT_E_END] = "Story Done?",
                 [StoryLabelTypeKgDlc.KG_DLC_END] = "Story Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_DLC_13_A] = new Dictionary<StoryLabelTypeKgA, string>
