@@ -56,35 +56,35 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			{
 				[StoryFlagType.gameflow_EW] = 0,
 				[StoryFlagType.gameflow_WM_WORLD_HE] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_TT] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_RA] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_TS] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_MI] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_FZ] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_CA] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_BX] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_KG] = 0,
-                [StoryFlagType.global_GameBattleLV] = 0,
-            }, true);
+				[StoryFlagType.gameflow_WM_WORLD_TT] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_RA] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_TS] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_MI] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_FZ] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_CA] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_BX] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_KG] = 0,
+				[StoryFlagType.global_GameBattleLV] = 0,
+			}, true);
 			NewGamePlusGlitchyCommand = new StoryCommand(save, "New Game+ (but with story complete)", "/Game/Levels/ew/ew_01/ew_01", CompleteSave(new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.gameflow_EW] = 0,
-            }), false);
+			}), false);
 			CompleteGameCommand = new StoryCommand(save, "Complete game", "/Game/Levels/bt/bt_01/bt_01", CompleteSave(), false);
 			LandOfDepartureCommand = new StoryCommand(save, "Back to Land of Departure (before Vanitas fight)", "/Game/Levels/dp/dp_01/dp_01", new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.gameflow_DP] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_HE] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_TT] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_RA] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_TS] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_MI] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_FZ] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_CA] = 2000,
-                [StoryFlagType.gameflow_WM_WORLD_BX] = 0,
-                [StoryFlagType.gameflow_WM_WORLD_KG] = 0,
-                [StoryFlagType.global_GameBattleLV] = 0,
-            }, false);
+				[StoryFlagType.gameflow_WM_WORLD_HE] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_TT] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_RA] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_TS] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_MI] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_FZ] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_CA] = 2000,
+				[StoryFlagType.gameflow_WM_WORLD_BX] = 0,
+				[StoryFlagType.gameflow_WM_WORLD_KG] = 0,
+				[StoryFlagType.global_GameBattleLV] = 0,
+			}, false);
 			KgBattleGameCommand = new StoryCommand(save, "Keyblade Graveyard, before 1000 Heartless", "/Game/Levels/kg/kg_01/kg_01", CompleteSave(new Dictionary<StoryFlagType, int>()
 			{
 				[StoryFlagType.gameflow_BT] = 0,
@@ -122,42 +122,42 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		{
 			var complete = new Dictionary<StoryFlagType, int>()
 			{
-				[StoryFlagType.gameflow_BT] = 100,
-				[StoryFlagType.gameflow_BX] = 9999,
-				[StoryFlagType.gameflow_CA] = 9999,
-				[StoryFlagType.gameflow_CA_chart_last_access] = 100,
-				[StoryFlagType.gameflow_CA_ship_ride_type] = 100,
-				[StoryFlagType.gameflow_CA_Sub_Portroyal_Search] = 472,
-				[StoryFlagType.gameflow_CS] = 0,
-				[StoryFlagType.gameflow_DI] = 9999,
-				[StoryFlagType.gameflow_DP] = 9999,
-				[StoryFlagType.gameflow_DW] = 9999,
+				[StoryFlagType.gameflow_BT] = (int)StoryLabelTypeBt.BT_END,
+				[StoryFlagType.gameflow_BX] = (int)StoryLabelTypeBx.BX_END,
+				[StoryFlagType.gameflow_CA] = (int)StoryLabelTypeCa.CA_END,
+				[StoryFlagType.gameflow_CA_chart_last_access] = (int)StoryLabelTypeCaChartLastAccess.CA_chart_last_access_13,
+				[StoryFlagType.gameflow_CA_ship_ride_type] = (int)StoryLabelTypeCaShipRide.CA_ship_ride_type_02,
+				[StoryFlagType.gameflow_CA_Sub_Portroyal_Search] = (int)StoryLabelTypeCaPortroyalSearch.CA_Sub_Portroyal_Search_STEP_05,
+				[StoryFlagType.gameflow_CS] = (int)StoryLabelTypeCs.CS_END,
+				[StoryFlagType.gameflow_DI] = (int)StoryLabelTypeDi.DI_END,
+				[StoryFlagType.gameflow_DP] = (int)StoryLabelTypeDp.DP_END,
+				[StoryFlagType.gameflow_DW] = (int)StoryLabelTypeDw.DW_END,
 				[StoryFlagType.gameflow_DW_Sub_INT] = 0,
-				[StoryFlagType.gameflow_EW] = 9999,
-				[StoryFlagType.gameflow_EW_Sub_TESTB] = 0,
-				[StoryFlagType.gameflow_EW_MISSION] = 9999,
-				[StoryFlagType.gameflow_EW_MISSION_RA] = 9999,
-				[StoryFlagType.gameflow_EW_MISSION_MI] = 9999,
-				[StoryFlagType.gameflow_EW_MISSION_TS] = 9999,
-				[StoryFlagType.gameflow_EW_MISSION_CA] = 9999,
-				[StoryFlagType.gameflow_EW_MISSION_FZ] = 9999,
+				[StoryFlagType.gameflow_EW] = (int)StoryLabelTypeEw.EW_END,
+				[StoryFlagType.gameflow_EW_Sub_TESTB] = (int)StoryLabelTypeEwSub.EW_Sub_EVENT4,
+				[StoryFlagType.gameflow_EW_MISSION] = (int)StoryLabelTypeEwMission.EW_MISSION_END,
+				[StoryFlagType.gameflow_EW_MISSION_RA] = (int)StoryLabelTypeEwRa.EW_MISSION_RA_END,
+				[StoryFlagType.gameflow_EW_MISSION_MI] = (int)StoryLabelTypeEwMi.EW_MISSION_MI_END,
+				[StoryFlagType.gameflow_EW_MISSION_TS] = (int)StoryLabelTypeEwTs.EW_MISSION_TS_END,
+				[StoryFlagType.gameflow_EW_MISSION_CA] = (int)StoryLabelTypeEwCa.EW_MISSION_CA_END,
+				[StoryFlagType.gameflow_EW_MISSION_FZ] = (int)StoryLabelTypeEwFz.EW_MISSION_FZ_END,
 				[StoryFlagType.gameflow_EX] = 0,
-				[StoryFlagType.gameflow_FZ] = 8820,
-				[StoryFlagType.gameflow_FZ_Sub_SLIDEMISSION] = 2120,
-				[StoryFlagType.gameflow_GM] = 9999,
-				[StoryFlagType.gameflow_GM_01] = 0,
-				[StoryFlagType.gameflow_GM_02] = 0,
-				[StoryFlagType.gameflow_GM_03] = 200,
-				[StoryFlagType.gameflow_GM_03_SUB] = 9999,
-				[StoryFlagType.gameflow_GM_SYS] = 0,
-				[StoryFlagType.gameflow_GM_SYS_LEVELUP] = 0,
-				[StoryFlagType.gameflow_HE] = 9999,
-				[StoryFlagType.gameflow_HE_Sub_HeraculesBoy] = 600,
-				[StoryFlagType.gameflow_KG] = 99999,
-				[StoryFlagType.gameflow_KG_13_A] = 9999,
-				[StoryFlagType.gameflow_KG_13_B] = 9999,
-				[StoryFlagType.gameflow_KG_13_C] = 9999,
-				[StoryFlagType.gameflow_KG_13_D] = 9999,
+				[StoryFlagType.gameflow_FZ] = (int)StoryLabelTypeFz.FZ_END,
+				[StoryFlagType.gameflow_FZ_Sub_SLIDEMISSION] = (int)StoryLabelTypeFzMinigame.FZ_Sub_SLIDEMISSION_END,
+				[StoryFlagType.gameflow_GM] = (int)StoryLabelTypeGm.GM_END,
+				[StoryFlagType.gameflow_GM_01] = (int)StoryLabelTypeGm1.GM_01_END,
+				[StoryFlagType.gameflow_GM_02] = (int)StoryLabelTypeGm2.GM_02_END,
+				[StoryFlagType.gameflow_GM_03] = (int)StoryLabelTypeGm3.GM_03_END,
+				[StoryFlagType.gameflow_GM_03_SUB] = (int)StoryLabelTypeGm3sub.GM_03_SUB_END,
+				[StoryFlagType.gameflow_GM_SYS] = (int)StoryLabelTypeGmSys.GM_SYS_END,
+				[StoryFlagType.gameflow_GM_SYS_LEVELUP] = (int)StoryLabelTypeGmLevelUp.GM_SYS_LEVELUP_STEP_02,
+				[StoryFlagType.gameflow_HE] = (int)StoryLabelTypeHe.HE_END,
+				[StoryFlagType.gameflow_HE_Sub_HeraculesBoy] = (int)StoryLabelTypeHeSub.HE_Sub_HeraculesBoy_End,
+				[StoryFlagType.gameflow_KG] = (int)StoryLabelTypeKg.KG_END2,
+				[StoryFlagType.gameflow_KG_13_A] = (int)StoryLabelTypeKgA.KG_02_EVENT_A_END,
+				[StoryFlagType.gameflow_KG_13_B] = (int)StoryLabelTypeKgB.KG_02_EVENT_B_END,
+				[StoryFlagType.gameflow_KG_13_C] = (int)StoryLabelTypeKgC.KG_02_EVENT_C_END,
+				[StoryFlagType.gameflow_KG_13_D] = (int)StoryLabelTypeKgD.KG_02_EVENT_D_END,
 				[StoryFlagType.gameflow_MI] = 9999,
 				[StoryFlagType.gameflow_MI_Sub_INT] = 0,
 				[StoryFlagType.gameflow_PO] = 9999,
@@ -186,6 +186,22 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				[StoryFlagType.global_GameShopLV] = 6000,
 				[StoryFlagType.gameflow_YT] = 9999,
 				[StoryFlagType.gameflow_BT_DLC] = 0,
+				[StoryFlagType.gameflow_BT_DLC_07_BT_01] = 0,
+				[StoryFlagType.gim_BT_DLC_monument] = 0,
+				[StoryFlagType.gameflow_KG_DLC] = 0,
+				[StoryFlagType.gameflow_KG_DLC_13_A] = 0,
+				[StoryFlagType.gameflow_KG_DLC_13_B] = 0,
+				[StoryFlagType.gameflow_KG_DLC_13_C] = 0,
+				[StoryFlagType.gameflow_KG_DLC_13_D] = 0,
+				[StoryFlagType.gameflow_KG_DLC_05_AREA_A_CHARSEL] = 0,
+				[StoryFlagType.gameflow_KG_DLC_05_AREA_B_CHARSEL] = 0,
+				[StoryFlagType.gameflow_KG_DLC_05_AREA_C_CHARSEL] = 0,
+				[StoryFlagType.gameflow_KG_DLC_05_AREA_D_CHARSEL] = 0,
+				[StoryFlagType.gameflow_KG_DLC_06_LAST_CHARSEL] = 0,
+				[StoryFlagType.gameflow_RG_DLC] = 0,
+				[StoryFlagType.gameflow_SS_DLC] = 0,
+				[StoryFlagType.gameflow_SS_DLC_Sub_BadEnd] = 0,
+				[StoryFlagType.gameflow_SS_DLC_Sub_TrueEnd] = 0,
 			};
 
 			foreach (var patch in patches ?? new Dictionary<StoryFlagType, int>())
@@ -200,7 +216,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	public class StoryCommand : RelayCommand
 	{
 		public StoryCommand(
-            ISaveKh3 save,
+			ISaveKh3 save,
 			string name,
 			string map,
 			Dictionary<StoryFlagType, int> flags,
@@ -283,7 +299,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
 			if (Presets.STORY.TryGetValue((StoryFlagType)index, out var preset))
 			{
-                Preset = new StoryPresetModel(preset);
+				Preset = new StoryPresetModel(preset);
 			}
 		}
 
@@ -304,10 +320,10 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 	{
 		public StoryPresetModel(Dictionary<int, string> preset) :
 			base(preset.Select(x => new EnumItemModel<int>
-				{
-					Value = (int)x.Key,
-					Name = x.Value
-				}))
+			{
+				Value = (int)x.Key,
+				Name = x.Value
+			}))
 		{ }
 
 		protected override EnumItemModel<int> OnNewItem()
