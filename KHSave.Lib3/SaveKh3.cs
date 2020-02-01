@@ -57,7 +57,8 @@ namespace KHSave.Lib3
         [Data(0x54)] public LocationType LocationName { get; set; }
         [Data(0x58)] public int Unknown00058 { get; set; }
         [Data(0x5C)] public int Unknown0005C { get; set; }
-        [Data(0x60)] public CharacterIconType MySaveIcon { get; set; }
+        [Data(0x60)] public CharacterIconType BaseSaveIcon { get; set; }
+        public CharacterIconType DlcSaveIcon { get => default(CharacterIconType); set { } }
 
         [Data(0x68)] public int EnemiesDefeated { get; set; }
         [Data(0x5B0)] public short SavesCount { get; set; }

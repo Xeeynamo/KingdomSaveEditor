@@ -46,7 +46,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
 			WorldIcon = new KhEnumListModel<WorldType>(() => save.WorldLogo, x => save.WorldLogo = x);
 			Location = new KhEnumListModel<LocationType>(() => save.LocationName, x => save.LocationName = x);
-			CharacterIcon = new KhEnumListModel<CharacterIconType>(() => save.MySaveIcon, x => save.MySaveIcon = x);
+			CharacterIcon = new KhEnumListModel<CharacterIconType>(() => save.BaseSaveIcon, x => save.BaseSaveIcon = x);
 			RoomWorld = new KhEnumListModel<GenericEntryModel<string, string>, WorldType, string>(
 				() => RoomWorldId,
 				x => RoomWorldId = x,

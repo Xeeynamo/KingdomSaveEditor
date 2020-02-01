@@ -46,7 +46,8 @@ namespace KHSave.Lib3
         LocationType LocationName { get; set; }
         int Unknown00058 { get; set; } // Changes every time
         int Unknown0005C { get; set; } // Changes every time
-        CharacterIconType MySaveIcon { get; set; }
+        CharacterIconType BaseSaveIcon { get; set; }
+        CharacterIconType DlcSaveIcon { get; set; }
 
         int EnemiesDefeated { get; set; }
         short SavesCount { get; set; }

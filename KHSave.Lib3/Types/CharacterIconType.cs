@@ -45,6 +45,11 @@ namespace KHSave.Lib3.Types
 		[Info] Mike,
 		[Info] Empty20,
 		[Info] Marshmallow,
-		[Info] Baymax
+		[Info] Baymax,
+
+		[Info] Leon = 0x96,
+		[Info] Aerith = 0x97,
+		[Info] Yuffie = 0x98,
+		[Info] Cid = 0x99,
 	}
 }

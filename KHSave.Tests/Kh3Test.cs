@@ -127,7 +127,7 @@ namespace KHSave.Tests
 			Assert.Equal(PartyCharacter.Sora, save.Party[4]);
 			Assert.True(save.SaveClear);
 			Assert.Equal(LocationType.Location57, save.LocationName);
-			Assert.Equal(CharacterIconType.Sora, save.MySaveIcon);
+			Assert.Equal(CharacterIconType.Sora, save.BaseSaveIcon);
 			Assert.Equal(6485, save.EnemiesDefeated);
 			Assert.Equal(161, save.SavesCount);
 
