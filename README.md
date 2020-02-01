@@ -23,7 +23,8 @@ Here is a screenshot preview of how the editor in action looks like:
 
 ## Features in Kingdom Hearts III editor
 
-* Tested support for the version 1.05 of Kingdom Hearts III
+* Tested support for the version 1.09 of Kingdom Hearts III
+* Support for Re:Mind DLC
 * Change game difficulty (even Critical Mode in version 1.03 or below)
 * Make new saves compatible with older versions (advanced feature)
 * Info and decorations (eg. game timer, save icons)
