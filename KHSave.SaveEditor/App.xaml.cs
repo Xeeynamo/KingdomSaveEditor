@@ -16,14 +16,14 @@ namespace KHSave.SaveEditor
         private class ApplicationDebug : IApplicationDebug
         {
 #if DEBUG
-            public bool IsDebugging => Debugger.IsAttached && false;
+            public bool IsDebugging => Debugger.IsAttached;
 #else
             public bool IsDebugging => false;
 #endif
 
             public string TestFileName =>
                 //"../../../../KHSave.Tests/Saves/BISLPM-66676COM-01";
-                "../../../../KHSave.Tests/Saves/kh2fm.bin";
+                "../../../../KHSave.Tests/Saves/kh3_109.bin";
         }
 
         protected override void OnStartup(StartupEventArgs e)
