@@ -19,8 +19,6 @@
     <None Remove="Views\PlayerView.xaml" />
     <None Remove="Views\RecordsView.xaml" />
     <None Remove="Views\ShortcutsView.xaml" />
-    <None Remove="Views\StoryAdvancedView.xaml" />
-    <None Remove="Views\StoryBasicView.xaml" />
     <None Remove="Views\StoryView.xaml" />
     <None Remove="Views\SystemView.xaml" />
   </ItemGroup>
@@ -69,12 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortcutsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StoryAdvancedView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StoryBasicView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StoryView.xaml">
@@ -142,12 +134,6 @@
     </Compile>
     <Compile Update="Views\ShortcutsView.xaml.cs">
       <DependentUpon>ShortcutsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\StoryAdvancedView.xaml.cs">
-      <DependentUpon>StoryAdvancedView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\StoryBasicView.xaml.cs">
-      <DependentUpon>StoryBasicView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\StoryView.xaml.cs">
       <DependentUpon>StoryView.xaml</DependentUpon>

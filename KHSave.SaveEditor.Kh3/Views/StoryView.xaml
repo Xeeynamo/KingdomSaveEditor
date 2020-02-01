@@ -7,11 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400">
     <Grid>
-        <Grid Visibility="{Binding AdvancedVisibility}">
-            <local:StoryAdvancedView DataContext="{Binding Advanced}"/>
-        </Grid>
-        <Grid Visibility="{Binding SimpleVisibility}">
-            <local:StoryBasicView DataContext="{Binding Simple}"/>
-        </Grid>
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Name"
+                    Width="Auto"
+                    Binding="{Binding Name}"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Header="Value"
+                    Width="Auto"
+                    Binding="{Binding Value, Mode=TwoWay}" />
+                <DataGridTemplateColumn 
+                    Header="Use"
+                    Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding Preset.Items}"
+                                SelectedValue="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                                DisplayMemberPath="Name"
+                                SelectedValuePath="Value"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
