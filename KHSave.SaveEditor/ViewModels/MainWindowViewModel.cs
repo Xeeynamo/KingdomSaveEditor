@@ -150,7 +150,8 @@ namespace KHSave.SaveEditor.ViewModels
 					"Keytotruth, additional coding and offsets",
 					"Troopah, for providing the icons",
 					"Sonicshadowsilver2, for story flags and records offsets",
-                    "TALESIOFIFREAK, for the ability list",
+                    "13th Vessel for the complete story flag list",
+                    "TALESIOFIFREAK, for the ability list and DLC inventory",
                     "SilverCam , for the gummiship inventory items",
 				}).Select(name => $" - {name}")
 				.ToList());
