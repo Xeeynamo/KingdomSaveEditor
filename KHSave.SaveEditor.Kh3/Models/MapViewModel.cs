@@ -2,12 +2,12 @@
 {
     public class MapViewModel
     {
-        private readonly string id;
+        private readonly string mapPath;
         private readonly Lib3.Presets.Presets.Map map;
 
         public MapViewModel(string id, Lib3.Presets.Presets.Map map)
         {
-            this.id = id;
+            this.mapPath = id;
             this.map = map;
             if (string.IsNullOrEmpty(map.Name))
                 Description = id;
@@ -17,6 +17,6 @@
 
         public string Description { get; }
 
-        public string Value => $"/Game/Levels/{id.Substring(0, 2)}/{id}/{id}";
+        public string Value => mapPath;
     }
 }

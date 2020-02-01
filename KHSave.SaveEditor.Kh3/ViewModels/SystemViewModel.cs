@@ -46,11 +46,11 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
 			WorldIcon = new KhEnumListModel<WorldType>(() => save.WorldLogo, x => save.WorldLogo = x);
 			Location = new KhEnumListModel<LocationType>(() => save.LocationName, x => save.LocationName = x);
-			CharacterIcon = new KhEnumListModel<CharacterIconType>(() => save.BaseSaveIcon, x => save.BaseSaveIcon = x);
-			RoomWorld = new KhEnumListModel<GenericEntryModel<string, string>, WorldType, string>(
-				() => RoomWorldId,
-				x => RoomWorldId = x,
-				x => WorldAttribute.GetWorldId(x));
+			CharacterIcon = new KhEnumListModel<CharacterIconType>(() => save.BaseSaveIcon, x =>
+			{
+				save.BaseSaveIcon = x;
+				save.DlcSaveIcon = x;
+			});
             Maps = Lib3.Presets.Presets.MAPS.Select(x => new MapViewModel(x.Key, x.Value)).ToList();
 
             PlayableCharacters =
@@ -148,41 +148,25 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         public string MapPath
 		{
 			get => save.MapPath;
-			set
-			{
-				save.MapPath = value;
-				OnPropertyChanged(nameof(RoomWorldId));
-				OnPropertyChanged(nameof(RoomMapIndex));
-			}
+			set => save.MapPath = value;
 		}
 
 		public string MapSpawn
 		{
 			get => save.MapSpawn;
-			set
-			{
-				save.MapSpawn = value;
-				OnPropertyChanged(nameof(SpawnTypeValue));
-				OnPropertyChanged(nameof(SpawnIndex));
-			}
+			set => save.MapSpawn = value;
 		}
 
 		public string DlcMapPath
 		{
 			get => save.DlcMapPath;
-			set
-			{
-				save.DlcMapPath = value;
-			}
+			set => save.DlcMapPath = value;
 		}
 
 		public string DlcMapSpawn
 		{
 			get => save.DlcSpawnPoint;
-			set
-			{
-				save.DlcSpawnPoint = value;
-			}
+			set => save.DlcSpawnPoint = value;
 		}
 
 		public string PlayerScript
@@ -195,83 +179,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 		{
 			get => save.PlayerCharacter;
 			set => save.PlayerCharacter = value;
-		}
-
-		public string RoomWorldId
-		{
-			get => MapPath.Length > 5 ? MapPath.Substring(MapPath.Length - 5, 2) : "";
-			set
-			{
-				MapPath = $"/Game/Levels/{value}/{value}_{RoomMapIndex:D02}/{value}_{RoomMapIndex:D02}";
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(MapPath));
-				OnPropertyChanged(nameof(Maps));
-				OnPropertyChanged(nameof(MapPath));
-				ResetSpawnPoint(SpawnTypeValue, SpawnIndex);
-			}
-		}
-
-		public int RoomMapIndex
-		{
-			get
-			{
-				var index = 0;
-				if (MapPath.Length > 2)
-				{
-					int.TryParse(MapPath.Substring(MapPath.Length - 2), out index);
-				}
-
-				return index;
-			}
-		}
-
-		public string SpawnTypeValue
-		{
-			get
-			{
-				if (MapSpawn.Length > 7)
-				{
-					var lastPart = MapSpawn.Substring(6);
-					var spawnIndex = SpawnIndex;
-					if (spawnIndex > 0)
-					{
-						var separator = lastPart.LastIndexOf("_");
-						return separator > 0 ? lastPart.Substring(0, separator) : null;
-					}
-
-					return lastPart;
-				}
-
-				return MapSpawn;
-			}
-			set => ResetSpawnPoint(value, SpawnIndex);
-		}
-
-		public int SpawnIndex
-		{
-			get
-			{
-				var index = 0;
-				if (MapSpawn.Length > 2)
-				{
-					int.TryParse(MapSpawn.Substring(MapSpawn.Length - 2), out index);
-				}
-
-				return index;
-			}
-			set => ResetSpawnPoint(SpawnTypeValue, value);
-		}
-
-		private void ResetSpawnPoint(string spawnType, int spawnIndex)
-		{
-			var mapSpawn = $"{RoomWorldId}_{RoomMapIndex:D02}_{spawnType}";
-			// TODO kg_01_Lv_Start_ex38: the 'ex' part is missing
-			mapSpawn += spawnIndex == 0 ? "" : $"_{spawnIndex:D02}";
-
-			MapSpawn = mapSpawn;
-			OnPropertyChanged(nameof(MapSpawn));
-			OnPropertyChanged(nameof(SpawnTypeValue));
-			OnPropertyChanged(nameof(SpawnIndex));
 		}
 	}
 }

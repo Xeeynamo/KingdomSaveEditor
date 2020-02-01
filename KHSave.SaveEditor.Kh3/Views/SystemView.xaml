@@ -159,47 +159,31 @@
         </Grid>
 
         <GroupBox Header="Room mod" Visibility="{Binding SimpleVisibility}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="5"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="5"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Column="0" Grid.Row="0"
-                    Text="World"/>
-                <ComboBox Grid.Column="0" Grid.Row="1"
-                    ItemsSource="{Binding RoomWorld}"
-                    SelectedValue="{Binding RoomWorldId}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-
+            <StackPanel>
                 <TextBlock Grid.Column="2" Grid.Row="0"
-                    Text="Map"/>
+                    Text="Main game map"/>
                 <ComboBox Grid.Column="2" Grid.Row="1"
                     ItemsSource="{Binding Maps}"
                     SelectedValue="{Binding MapPath}"
                     DisplayMemberPath="Description"
                     SelectedValuePath="Value"/>
 
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                    Text="DLC game map"/>
+                <ComboBox Grid.Column="2" Grid.Row="1"
+                    ItemsSource="{Binding Maps}"
+                    SelectedValue="{Binding DlcMapPath}"
+                    DisplayMemberPath="Description"
+                    SelectedValuePath="Value"/>
+
                 <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" TextWrapping="Wrap"
-                    Text="Playable character (works only on some maps, like 'Computer Laboratory'). Some characters have no input controls and others trigger battles."/>
+                    Text="Playable character (works only on cutscene maps). Some characters have no input controls and others trigger battles."/>
                 <ComboBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"
                     ItemsSource="{Binding PlayableCharacters}"
                     SelectedValue="{Binding PlayerCharacter}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
-            </Grid>
+            </StackPanel>
         </GroupBox>
 
         <GroupBox Header="Room mod (advanced mode)" Visibility="{Binding AdvancedVisibility}">
