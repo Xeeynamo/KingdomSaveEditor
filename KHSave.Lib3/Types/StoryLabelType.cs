@@ -989,17 +989,38 @@ namespace KHSave.Lib3.Types
         KG_DLC_06_2_BATTLE_01 = 22200,
         KG_DLC_06_2_BATTLE_02 = 22250,
         KG_DLC_05_3_EVENT_01 = 22300,
+        KG_02_EVENT_E_END = 14700,
         KG_DLC_END = 99999,
     }
 
-    public enum StoryLabelTypeKgDlc5
+    public enum StoryLabelTypeKgDlc5c
     {
+        KG_02_EVENT_C_INIT = 0,
+        KG_02_EVENT_C_START = 1000,
         KG_DLC_05_BATTLE_C_PHASE_0a = 1050,
         KG_DLC_05_EVENT_C_PHASE_0a_END = 1060,
+        KG_02_BATTLE_C_PHASE_01 = 1100,
+        KG_02_EVENT_C_PHASE_01_END = 1200,
+        KG_02_BATTLE_C_PHASE_02 = 1300,
+        KG_02_EVENT_C_PHASE_02_END = 1400,
+        KG_02_EVENT_C_END = 9999,
+    }
+    public enum StoryLabelTypeKgDlc5d
+    {
+        KG_02_EVENT_D_INIT = 0,
+        KG_02_EVENT_D_START = 1000,
         KG_DLC_05_EVENT_D_EVENT_01 = 1050,
+        KG_02_BATTLE_D_PHASE1_01 = 1100,
+        KG_02_EVENT_D_PHASE_01_END = 1200,
         KG_DLC_05_EVENT_D_PHASE_01a_END = 1250,
         KG_DLC_05_BATTLE_D_PHASE_0a = 1260,
         KG_DLC_05_EVENT_D_PHASE_0a_END = 1270,
+        KG_02_BATTLE_D_PHASE1_02 = 1300,
+        KG_02_EVENT_D_PHASE_02_END = 1400,
+        KG_02_EVENT_D_END = 9999,
+    }
+    public enum StoryLabelTypeKgDlcCharSelect
+    {
         KG_DLC_05_AREA_A_CHARSEL_01 = 0,
         KG_DLC_05_AREA_A_CHARSEL_02 = 1,
         KG_DLC_05_AREA_B_CHARSEL_01 = 0,

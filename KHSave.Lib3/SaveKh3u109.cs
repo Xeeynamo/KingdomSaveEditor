@@ -67,7 +67,7 @@ namespace KHSave.Lib3
         [Data(0x165E, 100)] public List<short> MaterialsCount { get; set; }
         [Data(0x17EC)] public int CrabsCollected { get; set; }
         [Data(0x1880, 16, 0x9C0)] public List<PlayableCharacter> Pc { get; set; }
-        [Data(0xB4C4, 0x40, 4)] public List<int> Storyflags { get; set; }
+        [Data(0xB4C4, 0x50, 4)] public List<int> Storyflags { get; set; }
         [Data(0xBBA0, 0x100)] public string MapPath { get; set; }
         [Data(0xBCA0, 0x40)] public string MapSpawn { get; set; }
         [Data(0xBCE0, 0x100)] public string PlayerScript { get; set; }

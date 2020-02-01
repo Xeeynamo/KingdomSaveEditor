@@ -185,7 +185,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 				[StoryFlagType.global_GameBattleLV] = 3000,
 				[StoryFlagType.global_GameShopLV] = 6000,
 				[StoryFlagType.gameflow_YT] = 9999,
-				[StoryFlagType.Story3F] = 0,
+				[StoryFlagType.gameflow_BT_DLC] = 0,
 			};
 
 			foreach (var patch in patches ?? new Dictionary<StoryFlagType, int>())

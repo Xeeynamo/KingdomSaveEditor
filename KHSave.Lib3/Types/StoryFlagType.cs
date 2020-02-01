@@ -85,6 +85,22 @@ namespace KHSave.Lib3.Types
 		[Info("Game battle level")] global_GameBattleLV,
 		[Info("Game shop level")] global_GameShopLV,
 		[Info("The Mysterious Tower")] gameflow_YT,
-		[Info("")] Story3F
+		[Info("Scala ad Caelum (DLC) main map")] gameflow_BT_DLC,
+		[Info("Scala ad Caelum (DLC) second map")] gameflow_BT_DLC_07_BT_01,
+		[Info("Scala ad Caelum (DLC) Monument")] gim_BT_DLC_monument,
+		[Info("Keyblade Graveyard (DLC)")] gameflow_KG_DLC,
+		[Info("KG (DLC) - Dark Riku, Xigbar")] gameflow_KG_DLC_13_A,
+		[Info("KG (DLC) - Luxord, Marluxia, Larxene")] gameflow_KG_DLC_13_B,
+		[Info("KG (DLC) - Vanitas, Terra-Xehanort")] gameflow_KG_DLC_13_C,
+		[Info("KG (DLC) - Xion, Saix")] gameflow_KG_DLC_13_D,
+		[Info("KG (DLC) Character Select 1")] gameflow_KG_DLC_05_AREA_A_CHARSEL,
+		[Info("KG (DLC) Character Select 2")] gameflow_KG_DLC_05_AREA_B_CHARSEL,
+		[Info("KG (DLC) Character Select 3")] gameflow_KG_DLC_05_AREA_C_CHARSEL,
+		[Info("KG (DLC) Character Select 4")] gameflow_KG_DLC_05_AREA_D_CHARSEL,
+		[Info("Keyblade Graveyard (DLC) Last fight")] gameflow_KG_DLC_06_LAST_CHARSEL,
+		[Info("Radiant Garden (DLC)")] gameflow_RG_DLC,
+		[Info("Yozora Fight")] gameflow_SS_DLC,
+		[Info("Yozora Fight - Bad ending")] gameflow_SS_DLC_Sub_BadEnd,
+		[Info("Yozora Fight - True ending")] gameflow_SS_DLC_Sub_TrueEnd,
 	}
 }

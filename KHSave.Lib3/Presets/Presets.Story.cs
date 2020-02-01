@@ -83,7 +83,9 @@ using static KHSave.Lib3.Types.StoryLabelTypeBtDlc8;
 using static KHSave.Lib3.Types.StoryLabelTypeBtDlc7;
 using static KHSave.Lib3.Types.StoryLabelTypeBtDlc7Monument;
 using static KHSave.Lib3.Types.StoryLabelTypeKgDlc;
-using static KHSave.Lib3.Types.StoryLabelTypeKgDlc5;
+using static KHSave.Lib3.Types.StoryLabelTypeKgDlc5c;
+using static KHSave.Lib3.Types.StoryLabelTypeKgDlc5d;
+using static KHSave.Lib3.Types.StoryLabelTypeKgDlcCharSelect;
 using static KHSave.Lib3.Types.StoryLabelTypeRgDlc;
 using static KHSave.Lib3.Types.StoryLabelTypeSsDlc;
 using static KHSave.Lib3.Types.StoryLabelTypeSsDlcSub;
@@ -576,42 +578,42 @@ namespace KHSave.Lib3.Presets
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG] = new Dictionary<StoryLabelTypeKg, string>
             {
-                [KG_INTERVAL_00] = "Interval - Vexen's Return",
-                [KG_INTERVAL_01] = "Interval - The Organization's Origins",
-                [KG_INTERVAL_02] = "Interval - cutscene",
-                [KG_INIT] = "Beginning",
-                [KG_WORLD_VISIT] = "1 Million Heartless",
-                [KG_01_BATTLE1] = "KG01 Before The Final World",
-                [KG_01_CS_KG702] = "KG01 Light Expires",
-                [KG_END] = "Go Toward the Light (Part 1)",
-                [KG_01_CS_KG801] = "Go Toward the Light (Part 2)",
-                [KG_01_CS_KG802] = "Light in the Darkness",
-                [KG_01_CS_KG851] = "Thanks, Kairi",
-                [KG_01_CS_KG851b] = "Before Demon Tide II",
-                [KG_01_CS_KG852] = "Demon Tide II",
-                [KG_01_BATTLE2] = "The Light of the Past",
-                [KG_01_CS_KG852b] = "Demon Tide II (Union Cross)",
-                [KG_01_BATTLE3] = "A Corridor of Light",
-                [KG_01_CS_KG853] = "The X-Blade",
-                [KG_50_CS_KG854] = "Start of The Skein of Severance",
-                [KG_02_CS_KG855] = "Before 1st Set of Organization XIII Fights",
-                [KG_02_BATTLE_AB] = "Towards the end of the labyrinth",
-                [KG_02_LABYRINTH_END] = "Before 2nd Set of Organization XIII Fights",
-                [KG_02_RTEV_CD] = "",
-                [KG_02_BATTLE_CD] = "Before Young Master Xehanort, Ansem, & Xemnas",
-                [KG_02_EVENT_E_START] = "Xehanort Trio start battle",
-                [KG_02_BATTLE_E_PHASE_01] = "Xehanort Trio phase 1",
-                [KG_02_EVENT_E_PHASE_01_END] = "Xehanort Trio end phase 1",
-                [KG_02_BATTLE_E_PHASE_02] = "Xehanort Trio phase 2",
-                [KG_02_EVENT_E_PHASE_02_END] = "Xehanort Trio end phase 2",
-                [KG_02_BATTLE_E_PHASE_03] = "Xehanort Trio phase 3",
-                [KG_02_EVENT_E_PHASE_03_END] = "Xehanort Trio end phase 3",
-                [KG_02_EVENT_E_END] = "Xehanort Trio end battle",
-                [KG_END2] = "Story Done",
+                [StoryLabelTypeKg.KG_INTERVAL_00] = "Interval - Vexen's Return",
+                [StoryLabelTypeKg.KG_INTERVAL_01] = "Interval - The Organization's Origins",
+                [StoryLabelTypeKg.KG_INTERVAL_02] = "Interval - cutscene",
+                [StoryLabelTypeKg.KG_INIT] = "Beginning",
+                [StoryLabelTypeKg.KG_WORLD_VISIT] = "1 Million Heartless",
+                [StoryLabelTypeKg.KG_01_BATTLE1] = "KG01 Before The Final World",
+                [StoryLabelTypeKg.KG_01_CS_KG702] = "KG01 Light Expires",
+                [StoryLabelTypeKg.KG_END] = "Go Toward the Light (Part 1)",
+                [StoryLabelTypeKg.KG_01_CS_KG801] = "Go Toward the Light (Part 2)",
+                [StoryLabelTypeKg.KG_01_CS_KG802] = "Light in the Darkness",
+                [StoryLabelTypeKg.KG_01_CS_KG851] = "Thanks, Kairi",
+                [StoryLabelTypeKg.KG_01_CS_KG851b] = "Before Demon Tide II",
+                [StoryLabelTypeKg.KG_01_CS_KG852] = "Demon Tide II",
+                [StoryLabelTypeKg.KG_01_BATTLE2] = "The Light of the Past",
+                [StoryLabelTypeKg.KG_01_CS_KG852b] = "Demon Tide II (Union Cross)",
+                [StoryLabelTypeKg.KG_01_BATTLE3] = "A Corridor of Light",
+                [StoryLabelTypeKg.KG_01_CS_KG853] = "The X-Blade",
+                [StoryLabelTypeKg.KG_50_CS_KG854] = "Start of The Skein of Severance",
+                [StoryLabelTypeKg.KG_02_CS_KG855] = "Before 1st Set of Organization XIII Fights",
+                [StoryLabelTypeKg.KG_02_BATTLE_AB] = "Towards the end of the labyrinth",
+                [StoryLabelTypeKg.KG_02_LABYRINTH_END] = "Before 2nd Set of Organization XIII Fights",
+                [StoryLabelTypeKg.KG_02_RTEV_CD] = "",
+                [StoryLabelTypeKg.KG_02_BATTLE_CD] = "Before Young Master Xehanort, Ansem, & Xemnas",
+                [StoryLabelTypeKg.KG_02_EVENT_E_START] = "Xehanort Trio start battle",
+                [StoryLabelTypeKg.KG_02_BATTLE_E_PHASE_01] = "Xehanort Trio phase 1",
+                [StoryLabelTypeKg.KG_02_EVENT_E_PHASE_01_END] = "Xehanort Trio end phase 1",
+                [StoryLabelTypeKg.KG_02_BATTLE_E_PHASE_02] = "Xehanort Trio phase 2",
+                [StoryLabelTypeKg.KG_02_EVENT_E_PHASE_02_END] = "Xehanort Trio end phase 2",
+                [StoryLabelTypeKg.KG_02_BATTLE_E_PHASE_03] = "Xehanort Trio phase 3",
+                [StoryLabelTypeKg.KG_02_EVENT_E_PHASE_03_END] = "Xehanort Trio end phase 3",
+                [StoryLabelTypeKg.KG_02_EVENT_E_END] = "Xehanort Trio end battle",
+                [StoryLabelTypeKg.KG_END2] = "Story Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_13_A] = new Dictionary<StoryLabelTypeKgA, string>
             {
-                [KG_02_EVENT_A_INIT] = "",
+                [KG_02_EVENT_A_INIT] = "Beginning",
                 [KG_02_EVENT_A_START] = "",
                 [KG_02_BATTLE_A_PHASE_01] = "",
                 [KG_02_EVNET_A_PHASE_01_END] = "",
@@ -619,11 +621,11 @@ namespace KHSave.Lib3.Presets
                 [KG_02_EVNET_A_PHASE_02_END] = "",
                 [KG_02_BATTLE_A_PHASE_03] = "",
                 [KG_02_EVNET_A_PHASE_03_END] = "",
-                [KG_02_EVENT_A_END] = "",
+                [KG_02_EVENT_A_END] = "Fight Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_13_B] = new Dictionary<StoryLabelTypeKgB, string>
             {
-                [KG_02_EVENT_B_INIT] = "",
+                [KG_02_EVENT_B_INIT] = "Beginning",
                 [KG_02_EVENT_B_START] = "",
                 [KG_02_BATTLE_B_PHASE_01] = "",
                 [KG_02_EVENT_B_PHASE_01_END] = "",
@@ -633,27 +635,27 @@ namespace KHSave.Lib3.Presets
                 [KG_02_EVENT_B_PHASE_03_END] = "",
                 [KG_02_BATTLE_B_PHASE_04] = "",
                 [KG_02_EVENT_B_PHASE_04_END] = "",
-                [KG_02_EVENT_B_END] = "",
+                [KG_02_EVENT_B_END] = "Fight Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_13_C] = new Dictionary<StoryLabelTypeKgC, string>
             {
-                [KG_02_EVENT_C_INIT] = "",
-                [KG_02_EVENT_C_START] = "",
-                [KG_02_BATTLE_C_PHASE_01] = "",
-                [KG_02_EVENT_C_PHASE_01_END] = "",
-                [KG_02_BATTLE_C_PHASE_02] = "",
-                [KG_02_EVENT_C_PHASE_02_END] = "",
-                [KG_02_EVENT_C_END] = "",
+                [StoryLabelTypeKgC.KG_02_EVENT_C_INIT] = "Beginning",
+                [StoryLabelTypeKgC.KG_02_EVENT_C_START] = "",
+                [StoryLabelTypeKgC.KG_02_BATTLE_C_PHASE_01] = "",
+                [StoryLabelTypeKgC.KG_02_EVENT_C_PHASE_01_END] = "",
+                [StoryLabelTypeKgC.KG_02_BATTLE_C_PHASE_02] = "",
+                [StoryLabelTypeKgC.KG_02_EVENT_C_PHASE_02_END] = "",
+                [StoryLabelTypeKgC.KG_02_EVENT_C_END] = "Fight Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_13_D] = new Dictionary<StoryLabelTypeKgD, string>
             {
-                [KG_02_EVENT_D_INIT] = "",
-                [KG_02_EVENT_D_START] = "",
-                [KG_02_BATTLE_D_PHASE1_01] = "",
-                [KG_02_EVENT_D_PHASE_01_END] = "",
-                [KG_02_BATTLE_D_PHASE1_02] = "",
-                [KG_02_EVENT_D_PHASE_02_END] = "",
-                [KG_02_EVENT_D_END] = "",
+                [StoryLabelTypeKgD.KG_02_EVENT_D_INIT] = "Beginning",
+                [StoryLabelTypeKgD.KG_02_EVENT_D_START] = "",
+                [StoryLabelTypeKgD.KG_02_BATTLE_D_PHASE1_01] = "",
+                [StoryLabelTypeKgD.KG_02_EVENT_D_PHASE_01_END] = "",
+                [StoryLabelTypeKgD.KG_02_BATTLE_D_PHASE1_02] = "",
+                [StoryLabelTypeKgD.KG_02_EVENT_D_PHASE_02_END] = "",
+                [StoryLabelTypeKgD.KG_02_EVENT_D_END] = "Fight Done",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_MI] = new Dictionary<StoryLabelTypeMi, string>
             {
@@ -980,6 +982,163 @@ namespace KHSave.Lib3.Presets
                 [YT_EVENT4] = "Beneath the Same Stars",
                 [YT_EVENT5] = "Last cutscene",
                 [YT_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_BT_DLC] = new Dictionary<StoryLabelTypeBtDlc8, string>
+            {
+                [BT_DLC_INIT] = "Beginning",
+                [BT_DLC_08_EVENT_01] = "",
+                [BT_DLC_08_EVENT_02] = "",
+                [BT_DLC_08_BATTLE_01] = "",
+                [BT_DLC_07_MISSION_01] = "",
+                [BT_DLC_08_EVENT_03] = "",
+                [BT_DLC_08_BATTLE_02] = "",
+                [BT_DLC_08_EVENT_04] = "",
+                [BT_DLC_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_BT_DLC_07_BT_01] = new Dictionary<StoryLabelTypeBtDlc7, string>
+            {
+                [BT_DLC_07_BT_01_INIT] = "Beginning",
+                [BT_DLC_07_BT_01_EVENT_01] = "",
+                [BT_DLC_07_BT_01_EVENT_02] = "",
+                [BT_DLC_07_BT_01_BATTLE_01] = "",
+                [BT_DLC_07_BT_01_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gim_BT_DLC_monument] = new Dictionary<StoryLabelTypeBtDlc7Monument, string>
+            {
+                [BT_DLC_07_MONUMENT_START] = "Beginning",
+                [BT_DLC_07_MONUMENT_STEP01] = "Step 1",
+                [BT_DLC_07_MONUMENT_STEP02] = "Step 2",
+                [BT_DLC_07_MONUMENT_STEP03] = "Step 3",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC] = new Dictionary<StoryLabelTypeKgDlc, string>
+            {
+                [StoryLabelTypeKgDlc.KG_DLC_INIT] = "Beginning",
+                [StoryLabelTypeKgDlc.KG_DLC_WORLD_VISIT] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_BATTLE_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_02] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_BATTLE_02] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_03] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_05] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_06] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_BATTLE_03] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_04_EVENT_07] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_EVENT_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_BATTLE_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_BATTLE_02] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_07_BATTLE_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_2_EVENT_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_2_BATTLE_01] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_06_2_BATTLE_02] = "",
+                [StoryLabelTypeKgDlc.KG_DLC_05_3_EVENT_01] = "",
+                [StoryLabelTypeKgDlc.KG_02_EVENT_E_END] = "Story Done?",
+                [StoryLabelTypeKgDlc.KG_DLC_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_13_A] = new Dictionary<StoryLabelTypeKgA, string>
+            {
+                [KG_02_EVENT_A_INIT] = "Beginning",
+                [KG_02_EVENT_A_START] = "",
+                [KG_02_BATTLE_A_PHASE_01] = "",
+                [KG_02_EVNET_A_PHASE_01_END] = "",
+                [KG_02_BATTLE_A_PHASE_02] = "",
+                [KG_02_EVNET_A_PHASE_02_END] = "",
+                [KG_02_BATTLE_A_PHASE_03] = "",
+                [KG_02_EVNET_A_PHASE_03_END] = "",
+                [KG_02_EVENT_A_END] = "Fight Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_13_B] = new Dictionary<StoryLabelTypeKgB, string>
+            {
+                [KG_02_EVENT_B_INIT] = "Beginning",
+                [KG_02_EVENT_B_START] = "",
+                [KG_02_BATTLE_B_PHASE_01] = "",
+                [KG_02_EVENT_B_PHASE_01_END] = "",
+                [KG_02_BATTLE_B_PHASE_02] = "",
+                [KG_02_EVENT_B_PHASE_02_END] = "",
+                [KG_02_BATTLE_B_PHASE_03] = "",
+                [KG_02_EVENT_B_PHASE_03_END] = "",
+                [KG_02_BATTLE_B_PHASE_04] = "",
+                [KG_02_EVENT_B_PHASE_04_END] = "",
+                [KG_02_EVENT_B_END] = "Fight Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_13_C] = new Dictionary<StoryLabelTypeKgDlc5c, string>
+            {
+                [StoryLabelTypeKgDlc5c.KG_02_EVENT_C_INIT] = "Beginning",
+                [StoryLabelTypeKgDlc5c.KG_02_EVENT_C_START] = "",
+                [StoryLabelTypeKgDlc5c.KG_DLC_05_BATTLE_C_PHASE_0a] = "",
+                [StoryLabelTypeKgDlc5c.KG_DLC_05_EVENT_C_PHASE_0a_END] = "",
+                [StoryLabelTypeKgDlc5c.KG_02_BATTLE_C_PHASE_01] = "",
+                [StoryLabelTypeKgDlc5c.KG_02_EVENT_C_PHASE_01_END] = "",
+                [StoryLabelTypeKgDlc5c.KG_02_BATTLE_C_PHASE_02] = "",
+                [StoryLabelTypeKgDlc5c.KG_02_EVENT_C_PHASE_02_END] = "",
+                [StoryLabelTypeKgDlc5c.KG_02_EVENT_C_END] = "Fight Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_13_D] = new Dictionary<StoryLabelTypeKgDlc5d, string>
+            {
+                [StoryLabelTypeKgDlc5d.KG_02_EVENT_D_INIT] = "Beginning",
+                [StoryLabelTypeKgDlc5d.KG_02_EVENT_D_START] = "",
+                [StoryLabelTypeKgDlc5d.KG_DLC_05_EVENT_D_EVENT_01] = "",
+                [StoryLabelTypeKgDlc5d.KG_02_BATTLE_D_PHASE1_01] = "",
+                [StoryLabelTypeKgDlc5d.KG_02_EVENT_D_PHASE_01_END] = "",
+                [StoryLabelTypeKgDlc5d.KG_DLC_05_EVENT_D_PHASE_01a_END] = "",
+                [StoryLabelTypeKgDlc5d.KG_DLC_05_BATTLE_D_PHASE_0a] = "",
+                [StoryLabelTypeKgDlc5d.KG_DLC_05_EVENT_D_PHASE_0a_END] = "",
+                [StoryLabelTypeKgDlc5d.KG_02_BATTLE_D_PHASE1_02] = "",
+                [StoryLabelTypeKgDlc5d.KG_02_EVENT_D_PHASE_02_END] = "",
+                [StoryLabelTypeKgDlc5d.KG_02_EVENT_D_END] = "Fight Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_05_AREA_A_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
+            {
+                [KG_DLC_05_AREA_A_CHARSEL_01] = "Sora",
+                [KG_DLC_05_AREA_A_CHARSEL_02] = "Riku",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_05_AREA_B_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
+            {
+                [KG_DLC_05_AREA_B_CHARSEL_01] = "Sora",
+                [KG_DLC_05_AREA_B_CHARSEL_02] = "Kairi",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_05_AREA_C_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
+            {
+                [KG_DLC_05_AREA_C_CHARSEL_01] = "Sora",
+                [KG_DLC_05_AREA_C_CHARSEL_02] = "Aqua",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_05_AREA_D_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
+            {
+                [KG_DLC_05_AREA_D_CHARSEL_01] = "Sora",
+                [KG_DLC_05_AREA_D_CHARSEL_02] = "Roxas",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_KG_DLC_06_LAST_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
+            {
+                [KG_DLC_06_LAST_CHARSEL_01] = "Sora",
+                [KG_DLC_06_LAST_CHARSEL_02] = "Kairi",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_RG_DLC] = new Dictionary<StoryLabelTypeRgDlc, string>
+            {
+                [RG_DLC_INIT] = "Beginning",
+                [RG_DLC_EVENT_01] = "",
+                [RG_DLC_EVENT_02] = "",
+                [RG_DLC_MAR_EVENT_01] = "",
+                [RG_DLC_SHU_EVENT_01] = "",
+                [RG_DLC_SHU_EVENT_02] = "",
+                [RG_DLC_SHU_BATTLE_01] = "",
+                [RG_DLC_MAR2_EVENT_01] = "",
+                [RG_DLC_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_SS_DLC] = new Dictionary<StoryLabelTypeSsDlc, string>
+            {
+                [SS_DLC_INIT] = "Beginning",
+                [SS_DLC_EVENT_01] = "",
+                [SS_DLC_BATTLE_01] = "",
+                [SS_DLC_END] = "Story Done",
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_SS_DLC_Sub_BadEnd] = new Dictionary<StoryLabelTypeSsDlcSub, string>
+            {
+                [0] = "Not seen",
+                [SS_DLC_SUB_BADEND_END] = "Seen"
+            }.ToStoryLabel(),
+            [StoryFlagType.gameflow_SS_DLC_Sub_TrueEnd] = new Dictionary<StoryLabelTypeSsDlcSub, string>
+            {
+                [0] = "Not seen",
+                [SS_DLC_SUB_BADEND_END] = "Seen"
             }.ToStoryLabel(),
         };
     }
