@@ -165,6 +165,12 @@ namespace KHSave.Tests
 			Assert.Equal(100, save.Pc[3].Focus);
 			Assert.Equal(175, save.Pc[4].Hp);
 
+			Assert.Equal(44, save.BonusHp);
+			Assert.Equal(33, save.BonusMp);
+			Assert.Equal(2, save.BonusStrength);
+			Assert.Equal(2, save.BonusMagic);
+			Assert.Equal(2, save.BonusDefense);
+
 			Assert.Equal(100, save.Storyflags[0]);
 			Assert.Equal(382, save.Storyflags[5]);
 			Assert.Equal(2120, save.Storyflags[21]);

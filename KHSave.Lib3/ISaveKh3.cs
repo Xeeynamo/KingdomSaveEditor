@@ -57,6 +57,11 @@ namespace KHSave.Lib3
         List<short> MaterialsCount { get; set; }
         int CrabsCollected { get; set; }
         List<PlayableCharacter> Pc { get; set; }
+        int BonusHp { get; set; }
+        int BonusMp { get; set; }
+        int BonusStrength { get; set; }
+        int BonusMagic { get; set; }
+        int BonusDefense { get; set; }
         List<int> Storyflags { get; set; }
         string MapPath { get; set; }
         string MapSpawn { get; set; }

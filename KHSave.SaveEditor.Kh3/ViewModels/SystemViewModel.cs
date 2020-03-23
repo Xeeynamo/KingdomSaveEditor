@@ -143,9 +143,39 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         {
             get => save.MinorVersion;
             set => save.MinorVersion = value;
-        }
+		}
 
-        public string MapPath
+		public int BonusHp
+		{
+			get => save.BonusHp;
+			set => save.BonusHp = value;
+		}
+
+		public int BonusMp
+		{
+			get => save.BonusMp;
+			set => save.BonusMp = value;
+		}
+
+		public int BonusStrength
+		{
+			get => save.BonusStrength;
+			set => save.BonusStrength = value;
+		}
+
+		public int BonusMagic
+		{
+			get => save.BonusMagic;
+			set => save.BonusMagic = value;
+		}
+
+		public int BonusDefense
+		{
+			get => save.BonusDefense;
+			set => save.BonusDefense = value;
+		}
+
+		public string MapPath
 		{
 			get => save.MapPath;
 			set => save.MapPath = value;

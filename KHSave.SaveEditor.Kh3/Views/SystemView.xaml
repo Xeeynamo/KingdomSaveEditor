@@ -158,6 +158,37 @@
             </StackPanel>
         </Grid>
 
+        <GroupBox Header="Statistics bonus from food">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="HP"/>
+                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding BonusHp}" />
+                <TextBlock Grid.Column="2" Grid.Row="0" Text="MP"/>
+                <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding BonusMp}" />
+                <TextBlock Grid.Column="4" Grid.Row="0" Text="Strength"/>
+                <TextBox Grid.Column="4" Grid.Row="1" Text="{Binding BonusStrength}" />
+                <TextBlock Grid.Column="6" Grid.Row="0" Text="Magic"/>
+                <TextBox Grid.Column="6" Grid.Row="1" Text="{Binding BonusMagic}" />
+                <TextBlock Grid.Column="8" Grid.Row="0" Text="Defense"/>
+                <TextBox Grid.Column="8" Grid.Row="1" Text="{Binding BonusDefense}" />
+            </Grid>
+        </GroupBox>
+
         <GroupBox Header="Room mod" Visibility="{Binding SimpleVisibility}">
             <StackPanel>
                 <TextBlock Grid.Column="2" Grid.Row="0"
