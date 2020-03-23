@@ -1,0 +1,13 @@
+Title=Kingdom Save Editor
+Setup=KHSave.SaveEditor.exe
+TempMode
+Silent=1
+Overwrite=1
+License=MIT
+{
+LICENSE: https://github.com/Xeeynamo/KH3SaveEditor/blob/master/LICENSE
+}
+Text
+{
+You just discovered a flying dolphin.
+}

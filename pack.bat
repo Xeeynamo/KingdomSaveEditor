@@ -1,0 +1,2 @@
+rm KingdomSaveEditor.exe
+"%ProgramFiles%\WinRAR\WinRAR.exe" a -afrar -cfg- -ed -k -m5 -tl -s -zpack-settings.txt -iicon"KHSave.SaveEditor\Icon1.ico" "-sfx%ProgramFiles%\WinRAR\Default.sfx" -ep "KingdomSaveEditor.exe" "KHSave.SaveEditor\bin\Release\net472\*.exe" "KHSave.SaveEditor\bin\Release\net472\*.dll"
