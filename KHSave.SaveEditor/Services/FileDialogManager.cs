@@ -43,7 +43,7 @@ namespace KHSave.SaveEditor.Services
                         throw;
                     }
                 }
-            }, Filters, parent: _windowManager.CurrentWindow);
+            }, Filters);
 
         public void Save(Action<Stream> onSuccess)
         {
