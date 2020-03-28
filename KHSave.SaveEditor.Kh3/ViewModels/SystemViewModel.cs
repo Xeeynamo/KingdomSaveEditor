@@ -53,12 +53,17 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 			});
             Maps = Lib3.Presets.Presets.MAPS.Select(x => new MapViewModel(x.Key, x.Value)).ToList();
 
-            PlayableCharacters =
-                Lib3.Presets.Presets.PlayablePawns.Select(x => new SpawnModel
-                {
-                    Name = x.Value.Name,
-                    Value = string.Format(Lib3.Presets.Presets.PlayablePawnPath, x.Key)
-                })
+			PlayableCharacters =
+				Lib3.Presets.Presets.PlayablePawns.Select(x => new SpawnModel
+				{
+					Name = x.Value.Name,
+					Value = string.Format(Lib3.Presets.Presets.PlayablePawnPath, x.Key)
+				})
+				.Concat(Lib3.Presets.Presets.PlayableDlcPawns.Select(x => new SpawnModel
+				{
+					Name = x.Value.Name,
+					Value = x.Key
+				}))
                 .Concat(Lib3.Presets.Presets.NpcPawns.Select(x => new SpawnModel
                 {
                     Name = $"[NPC] {x.Value.Name}",

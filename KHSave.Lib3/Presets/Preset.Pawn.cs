@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace KHSave.Lib3.Presets
 {
@@ -32,6 +32,13 @@ namespace KHSave.Lib3.Presets
             ["p_po001"] = new Pawn { Name = "Sora (100 Acre Wood)" },
             ["p_re001"] = new Pawn { Name = "Sora (Remy)" },
             ["p_ts001"] = new Pawn { Name = "Sora (Toy Story)" },
+        };
+
+        public static readonly Dictionary<string, Pawn> PlayableDlcPawns = new Dictionary<string, Pawn>
+        {
+            ["/Game/Blueprints/ReMind/MiRx/p_ex008/p_ex008_MiRxPawn.p_ex008_MiRxPawn_C"] = new Pawn { Name = "Mickey (ReMind)" },
+            ["/Game/Blueprints/ReMind/SoKc/Player/p_ex001_SoKcPawn.p_001_SoKcPawn_C"] = new Pawn { Name = "Sora (Keyholes ver.)" },
+            ["/Game/Blueprints/ReMind/LgRx/p_ex004/p_ex004_LgRxPawn.p_ex004_LgRxPawn_C"] = new Pawn { Name = "Guardians of Light (ReMind)" },
         };
 
         public static readonly Dictionary<string, Pawn> NpcPawns = new Dictionary<string, Pawn>
