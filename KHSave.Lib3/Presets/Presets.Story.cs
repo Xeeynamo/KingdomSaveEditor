@@ -1094,7 +1094,7 @@ namespace KHSave.Lib3.Presets
             [StoryFlagType.gameflow_KG_DLC_05_AREA_B_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
             {
                 [KG_DLC_05_AREA_B_CHARSEL_01] = "Sora",
-                [KG_DLC_05_AREA_B_CHARSEL_02] = "Kairi",
+                [KG_DLC_05_AREA_B_CHARSEL_02] = "???",
             }.ToStoryLabel(),
             [StoryFlagType.gameflow_KG_DLC_05_AREA_C_CHARSEL] = new Dictionary<StoryLabelTypeKgDlcCharSelect, string>
             {
