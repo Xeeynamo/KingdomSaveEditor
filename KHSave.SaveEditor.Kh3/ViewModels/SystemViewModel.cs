@@ -64,16 +64,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 					Name = x.Value.Name,
 					Value = x.Key
 				}))
-                .Concat(Lib3.Presets.Presets.NpcPawns.Select(x => new SpawnModel
-                {
-                    Name = $"[NPC] {x.Value.Name}",
-                    Value = string.Format(Lib3.Presets.Presets.NpcPawnPath, x.Key)
-                }))
-                .Concat(Lib3.Presets.Presets.EnemyPawns.Select(x => new SpawnModel
-				{
-					Name = $"[ENEMY] {x.Value.Name}",
-					Value = string.Format(Lib3.Presets.Presets.EnemyPawnPath, x.Key)
-                }))
                 .ToArray();
         }
 
