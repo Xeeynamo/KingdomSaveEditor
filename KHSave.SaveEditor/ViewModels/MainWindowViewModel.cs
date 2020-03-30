@@ -179,7 +179,7 @@ namespace KHSave.SaveEditor.ViewModels
             try
             {
                 if (!TryOpen(stream))
-                    throw new SaveNotSupportedException("The specified save game is not recognized.\nBe sure to have the last version or that the save is decrypted or supported.");
+                    throw CreateUnsupportedSaveExceptiom();
 
                 InvokeRefreshUi();
                 OnPropertyChanged(nameof(Title));
@@ -213,7 +213,9 @@ namespace KHSave.SaveEditor.ViewModels
                 onSuccess: window => Open(archive, window.SelectedEntry));
 
             if (result == false)
+            {
                 ChangeContent(ContentType.Unload);
+            }
 
             return true;
         }
@@ -224,6 +226,9 @@ namespace KHSave.SaveEditor.ViewModels
 
             using (var stream = new MemoryStream(archiveEntry.Data))
                 result = TryOpen(stream);
+
+            if (!result)
+                throw CreateUnsupportedSaveExceptiom();
 
             // archiveEntry.Name
             // archiveEntry.DateCreated
@@ -256,6 +261,9 @@ namespace KHSave.SaveEditor.ViewModels
             ChangeContent(contentType, stream);
             return true;
         }
+
+        private static Exception CreateUnsupportedSaveExceptiom() =>
+            new SaveNotSupportedException("The specified save game is not recognized.\nBe sure to have the last version or that the save is decrypted or supported.");
 
         public void InvokeRefreshUi() => RefreshUi?.RefreshUi();
 
