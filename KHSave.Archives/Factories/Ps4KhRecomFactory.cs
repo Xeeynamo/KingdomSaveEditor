@@ -43,6 +43,6 @@ namespace KHSave.Archives.Factories
 
         public bool IsValid(Stream stream) => stream.Length == Size;
 
-        public IArchiveEntry CreateEntry() => new GenericEntry();
+        public IArchiveEntry CreateEntry() => new Ps4SaveArchive.Entry();
     }
 }

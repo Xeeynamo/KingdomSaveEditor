@@ -30,11 +30,21 @@ namespace KHSave.Archives
 
         public class Entry : IArchiveEntry
         {
+            private static readonly long UnixTimeBase = new DateTime(1970, 1, 1).Ticks;
+
             [Data(Count = 0x40)] public string Name { get; set; }
-            [Data(0x40)] public DateTime DateCreated { get; set; }
-            [Data(0x48)] public DateTime DateModified { get; set; }
-            [Data(0x50)] public long Length { get; set; }
+            [Data(0x40)] public long RawDateCreated { get; set; }
+            [Data(0x48)] public long RawDateModified { get; set; }
+            [Data(0x50)] public int Length { get; set; }
+            [Data(0x54)] public int SomeKindOfFlag { get; set; }
+
+            public DateTime DateCreated{ get => Map(RawDateCreated); set => RawDateCreated = Map(value); }
+            public DateTime DateModified { get => Map(RawDateModified); set => RawDateModified = Map(value); }
+
             public byte[] Data { get; set; }
+
+            private static DateTime Map(long ticks) => new DateTime(ticks * TimeSpan.TicksPerSecond + UnixTimeBase);
+            private static long Map(DateTime dateTime) => (dateTime.Ticks - UnixTimeBase) / TimeSpan.TicksPerSecond;
         }
 
         private readonly int _stride;

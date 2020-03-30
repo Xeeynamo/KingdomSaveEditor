@@ -9,9 +9,6 @@ namespace KHSave.Tests.Saves.Archives
 {
     public class Ps4SaveArchiveTests
     {
-        private static readonly string FilePathKh1 = "Saves/Archives/kh1fm_ps4.dat";
-        private static readonly string FilePathKh2 = "Saves/Archives/kh2fm_ps4.dat";
-
         private static readonly string ExpectedStrForFile1 = "Kingdom Hearts Save Editor, first file";
         private static readonly string ExpectedStrForFile2 = "Second file";
         private static readonly string ExpectedStrForFile3 = "Third one";
@@ -130,8 +127,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0;
             WriteString(stream, ExpectedStrForFile1);
             stream.Position = 0x40;
-            writer.Write(new DateTime(2002, 03, 28).ToBinary());
-            writer.Write(new DateTime(2013, 03, 14).ToBinary());
+            writer.Write((long)1017273600);
+            writer.Write((long)1363219200);
             writer.Write(0x111);
             stream.Position = 0x44c0;
             writer.Write(11);
@@ -139,8 +136,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0x58;
             WriteString(stream, ExpectedStrForFile2);
             stream.Position = 0x98;
-            writer.Write(new DateTime(2005, 12, 22).ToBinary());
-            writer.Write(new DateTime(2014, 10, 2).ToBinary());
+            writer.Write((long)1135209600);
+            writer.Write((long)1412208000);
             writer.Write(0x222);
             stream.Position = 0x1b100;
             writer.Write(22);
@@ -148,8 +145,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0xb0;
             WriteString(stream, ExpectedStrForFile3);
             stream.Position = 0xf0;
-            writer.Write(new DateTime(2019, 01, 25).ToBinary());
-            writer.Write(new DateTime(2019, 01, 25).ToBinary());
+            writer.Write((long)1548374400);
+            writer.Write((long)1548374400);
             writer.Write(0x333);
             stream.Position = 0x31D40;
             writer.Write(33);
@@ -169,8 +166,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0;
             WriteString(stream, ExpectedStrForFile1);
             stream.Position = 0x40;
-            writer.Write(new DateTime(2002, 03, 28).ToBinary());
-            writer.Write(new DateTime(2013, 03, 14).ToBinary());
+            writer.Write((long)1017273600);
+            writer.Write((long)1363219200);
             writer.Write(0x111);
             stream.Position = 0x2260;
             writer.Write(11);
@@ -178,8 +175,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0x58;
             WriteString(stream, ExpectedStrForFile2);
             stream.Position = 0x98;
-            writer.Write(new DateTime(2005, 12, 22).ToBinary());
-            writer.Write(new DateTime(2014, 10, 2).ToBinary());
+            writer.Write((long)1135209600);
+            writer.Write((long)1412208000);
             writer.Write(0x222);
             stream.Position = 0x13220;
             writer.Write(22);
@@ -187,8 +184,8 @@ namespace KHSave.Tests.Saves.Archives
             stream.Position = 0xb0;
             WriteString(stream, ExpectedStrForFile3);
             stream.Position = 0xf0;
-            writer.Write(new DateTime(2019, 01, 25).ToBinary());
-            writer.Write(new DateTime(2019, 01, 25).ToBinary());
+            writer.Write((long)1548374400);
+            writer.Write((long)1548374400);
             writer.Write(0x333);
             stream.Position = 0x241e0;
             writer.Write(33);
