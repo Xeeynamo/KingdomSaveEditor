@@ -13,11 +13,14 @@ namespace KHSave.SaveEditor.Common.ViewModels
 
         public IArchiveEntry ArchiveEntry { get; }
 
-        public string Name
+        public string FileName
         {
             get => IsEmpty ? "<empty>" : ArchiveEntry.Name;
             set => ArchiveEntry.Name = value;
         }
+
+        public string DisplayDate =>
+            IsEmpty ? string.Empty : ArchiveEntry.DateModified.ToString();
 
         public bool IsEmpty => string.IsNullOrEmpty(ArchiveEntry.Name);
 

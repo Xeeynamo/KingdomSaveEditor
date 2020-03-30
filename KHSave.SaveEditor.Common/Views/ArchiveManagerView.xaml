@@ -21,8 +21,21 @@
             Grid.Row="0"
             ItemsSource="{Binding Entries}"
             SelectedValue="{Binding Entries.SelectedValue}"
-            DisplayMemberPath="Name"
-            MouseDoubleClick="ListBox_MouseDoubleClick"/>
+            MouseDoubleClick="ListBox_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding DisplayDate}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding FileName}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <StackPanel
             Grid.Row="1"
