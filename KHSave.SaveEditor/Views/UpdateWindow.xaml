@@ -24,7 +24,7 @@
             Margin="10 0 0 0"
             Source="Images/icon-128.png"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
-            <Label Content="A new version of Kingdom Hearts III Save Editor has been released."/>
+            <Label Content="A new version of Kingdom Save Editor has been released."/>
             <Label Content="It is recommended to update it to enjoy the latest features and fixes."/>
             <Label>
                 <Hyperlink

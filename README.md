@@ -1,8 +1,8 @@
-![Kingdom Hearts III Save Editor](docs/banner.png)
+![Kingdom Save Editor](docs/banner.png)
 
 ---
 
-This is the repository for a Windows application that allows to modify decrypted saves of Kingdom Hearts series games.
+This is the repository for a Windows application that allows to modify decrypted saves of Kingdom Hearts series and other games.
 
 The project offers a code library to help to create complex editors of scripts of any kind and on any operating system, plus a "in-house" editor compatible with Windows 7 or above (the only minimum requirement is .Net Framework 4.7.2 Rumtime). Not all the games are supported by the library and not all the library implementations has their editor. Yet.
 
@@ -30,7 +30,9 @@ Here is a screenshot preview of how the editor in action looks like:
 * Info and decorations (eg. game timer, save icons)
 * Exp, Munny
 * Manage story progression!
-* Statistics (eg. save count)
+* Statistics (eg. save count, food enhancements)
+* More playable characters
+* Explore unaccessible or unused maps
 * Inventory editor
     * Set items count between 0 and 255
     * Set flags (unseen, shop, collected)

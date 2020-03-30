@@ -15,7 +15,7 @@
         <Label>No save is currently load.</Label>
         <Label>Load the save from File\Open...</Label>
         <Separator Margin="0 10 0 10"/>
-        <Label>Kingdom Hearts Save Editor currently supports the following games:</Label>
+        <Label>Kingdom Save Editor currently supports the following games:</Label>
         <StackPanel Margin="20 0 0 0">
             <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS3,PS4)</TextBlock>
             <TextBlock>Kingdom Hearts Re: Chain of Memories (PS2,PS4)</TextBlock>
@@ -28,7 +28,7 @@
                 NavigateUri="https://discord.gg/qK8JYkw"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
-                Join Save Editor Discord server
+                Join Kingdom Save Editor Discord server
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
@@ -36,7 +36,7 @@
                 NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
-                Kingdom Hearts Save Editor source code
+                Kingdom Save Editor source code
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
@@ -44,7 +44,7 @@
                 NavigateUri="https://github.com/xeeynamo/openkh"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
-                OpenKh source code
+                OpenKH source code
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
@@ -52,7 +52,7 @@
                 NavigateUri="https://xeeynamo.github.io/OpenKh"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
-                OpenKh documentation
+                OpenKH documentation
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
