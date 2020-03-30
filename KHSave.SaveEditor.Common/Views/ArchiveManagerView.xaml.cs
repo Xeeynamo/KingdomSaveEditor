@@ -24,7 +24,7 @@ namespace KHSave.SaveEditor.Common.Views
         public IArchive Archive
         {
             get => ViewModel?.Archive;
-            set => ViewModel = new ArchiveManagerViewModel(value);
+            set => ViewModel = new ArchiveManagerViewModel(this, value);
         }
 
         public IArchiveEntry SelectedEntry => ViewModel?.SelectedEntry;

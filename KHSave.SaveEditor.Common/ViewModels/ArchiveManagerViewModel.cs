@@ -15,10 +15,11 @@ namespace KHSave.SaveEditor.Common.ViewModels
         private static readonly List<FileDialogFilter> Filters = FileDialogFilterComposer.Compose().AddAllFiles("RAW save data");
         private ArchiveEntryViewModel _selectedValue;
 
-        private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
+        private Window Window { get; }
 
-        public ArchiveManagerViewModel(IArchive archive)
+        public ArchiveManagerViewModel(Window window, IArchive archive)
         {
+            Window = window;
             Archive = archive;
             Entries = new GenericListModel<ArchiveEntryViewModel, ArchiveEntryViewModel>(
                 archive.Entries.Select(x => new ArchiveEntryViewModel(x)),
