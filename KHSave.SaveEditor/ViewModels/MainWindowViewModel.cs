@@ -270,6 +270,7 @@ namespace KHSave.SaveEditor.ViewModels
             if (!prediate(stream))
                 return false;
 
+            _saveKind = contentType;
             ChangeContent(contentType, stream);
             return true;
         }
