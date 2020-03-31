@@ -33,8 +33,10 @@ namespace KHSave.Archives
             private static readonly long UnixTimeBase = new DateTime(1970, 1, 1).Ticks;
 
             [Data(Count = 0x40)] public string Name { get; set; }
-            [Data(0x40)] public long RawDateCreated { get; set; }
-            [Data(0x48)] public long RawDateModified { get; set; }
+            [Data(0x40)] public int RawDateCreated { get; set; }
+            [Data(0x44)] public int FlagCreated { get; set; }
+            [Data(0x48)] public int RawDateModified { get; set; }
+            [Data(0x4c)] public int FlagModified { get; set; }
             [Data(0x50)] public int Length { get; set; }
             [Data(0x54)] public int SomeKindOfFlag { get; set; }
 
@@ -43,8 +45,8 @@ namespace KHSave.Archives
 
             public byte[] Data { get; set; }
 
-            private static DateTime Map(long ticks) => new DateTime(ticks * TimeSpan.TicksPerSecond + UnixTimeBase);
-            private static long Map(DateTime dateTime) => (dateTime.Ticks - UnixTimeBase) / TimeSpan.TicksPerSecond;
+            private static DateTime Map(int ticks) => new DateTime(ticks * TimeSpan.TicksPerSecond + UnixTimeBase);
+            private static int Map(DateTime dateTime) => (int)((dateTime.Ticks - UnixTimeBase) / TimeSpan.TicksPerSecond);
         }
 
         private readonly int _stride;
@@ -88,7 +90,9 @@ namespace KHSave.Archives
                 {
                     Name = x.Name,
                     DateCreated = x.DateCreated,
+                    FlagCreated = x.FlagCreated,
                     DateModified = x.DateModified,
+                    FlagModified = x.FlagModified,
                     Length = x.Data.Length,
                     Data = x.Data
                 })

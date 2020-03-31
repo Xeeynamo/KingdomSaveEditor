@@ -24,7 +24,9 @@ namespace KHSave.Archives
     {
         string Name { get; set; }
         DateTime DateCreated { get; set; }
+        int FlagCreated { get; set; }
         DateTime DateModified { get; set; }
+        int FlagModified { get; set; }
         byte[] Data { get; set; }
     }
 }
