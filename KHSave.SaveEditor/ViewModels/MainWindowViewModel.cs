@@ -67,8 +67,7 @@ namespace KHSave.SaveEditor.ViewModels
             set
             {
                 _saveKind = value;
-                OnPropertyChanged(nameof(SaveCommand));
-                OnPropertyChanged(nameof(SaveAsCommand));
+                ChangeContent(_saveKind);
             }
         }
 
@@ -283,7 +282,6 @@ namespace KHSave.SaveEditor.ViewModels
         private void ChangeContent(ContentType contentType, Stream stream = null)
         {
             var contentResponse = contentFactory.Factory(contentType);
-            SaveKind = contentType;
 
             RefreshUi = contentResponse.RefreshUi;
             WriteToStream = contentResponse.WriteToStream;
@@ -291,6 +289,8 @@ namespace KHSave.SaveEditor.ViewModels
             if (stream != null)
                 contentResponse.OpenStream.OpenStream(stream);
 
+            OnPropertyChanged(nameof(SaveCommand));
+            OnPropertyChanged(nameof(SaveAsCommand));
             OnControlChanged?.Invoke(contentResponse.Control);
         }
     }
