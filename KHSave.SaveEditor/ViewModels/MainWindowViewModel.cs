@@ -203,13 +203,17 @@ namespace KHSave.SaveEditor.ViewModels
             TryOpenKh3(stream) ||
             TryOpenArchive(stream);
 
-        private bool Open(IArchiveFactory archiveFactory, Stream stream) =>
-            Open(archiveFactory.Read(stream));
+        private bool Open(IArchiveFactory archiveFactory, Stream stream)
+        {
+            var archive = archiveFactory.Read(stream);
+            stream.Close();
+            return Open(archive);
+        }
 
         private bool Open(IArchive archive)
         {
             var result = windowManager.Push<ArchiveManagerView>(
-                onSetup: window => window.Archive = archive,
+                onSetup: window => window.SetArchive(archive, fileDialogManager.CurrentFileName),
                 onSuccess: window => Open(archive, window.SelectedEntry));
 
             if (result == false)

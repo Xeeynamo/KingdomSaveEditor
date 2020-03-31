@@ -16,11 +16,13 @@ namespace KHSave.SaveEditor.Common.ViewModels
         private ArchiveEntryViewModel _selectedValue;
 
         private Window Window { get; }
+        private readonly string _archiveFileName;
 
-        public ArchiveManagerViewModel(Window window, IArchive archive)
+        public ArchiveManagerViewModel(Window window, IArchive archive, string archiveFileName)
         {
             Window = window;
             Archive = archive;
+            _archiveFileName = archiveFileName;
             Entries = new GenericListModel<ArchiveEntryViewModel, ArchiveEntryViewModel>(
                 archive.Entries.Select(x => new ArchiveEntryViewModel(x)),
                 Getter, Setter);
@@ -45,6 +47,9 @@ namespace KHSave.SaveEditor.Common.ViewModels
                         stream.Read(data, 0, data.Length);
                         selectedEntry.ImportData(data);
                     }
+
+                    using (var stream = File.Create(_archiveFileName))
+                        archive.Write(stream);
 
                     ShowInfoMessageBox("Save imported with success!");
                 }, Filters, parent: Window);

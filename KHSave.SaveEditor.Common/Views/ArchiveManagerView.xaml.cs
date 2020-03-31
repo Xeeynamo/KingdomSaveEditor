@@ -1,5 +1,6 @@
 ﻿using KHSave.Archives;
 using KHSave.SaveEditor.Common.ViewModels;
+using System.IO;
 using System.Windows;
 
 namespace KHSave.SaveEditor.Common.Views
@@ -20,12 +21,8 @@ namespace KHSave.SaveEditor.Common.Views
             set => DataContext = value;
         }
 
-
-        public IArchive Archive
-        {
-            get => ViewModel?.Archive;
-            set => ViewModel = new ArchiveManagerViewModel(this, value);
-        }
+        public void SetArchive(IArchive archive, string archvieFileName) =>
+            ViewModel = new ArchiveManagerViewModel(this, archive, archvieFileName);
 
         public IArchiveEntry SelectedEntry => ViewModel?.SelectedEntry;
 
