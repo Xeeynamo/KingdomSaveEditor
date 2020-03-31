@@ -63,7 +63,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 						MessageBox.Show(Window, $"Unable to export all the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
 							MessageBoxImage.Error);
 					}
-				}, parent: Window);
+				});
 			}, x => true);
 
 			DeleteAllCommand = new RelayCommand(o =>

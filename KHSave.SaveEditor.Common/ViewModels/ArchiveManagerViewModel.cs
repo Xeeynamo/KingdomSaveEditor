@@ -52,7 +52,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
                         archive.Write(stream);
 
                     ShowInfoMessageBox("Save imported with success!");
-                }, Filters, parent: Window);
+                }, Filters);
             }, o => IsSelected);
 
             ExportCommand = new RelayCommand(o =>

@@ -69,7 +69,7 @@ namespace KHSave.SaveEditor.Services
                     CurrentFileName = fileName;
                     onSuccess(stream);
                 }
-            }, Filters, defaultFileName: CurrentFileName, parent: _windowManager.CurrentWindow);
+            }, Filters, defaultFileName: CurrentFileName);
         }
     }
 }
