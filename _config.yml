@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
-title: Kingdom Hearts Save Editor
-description: Save editor for all Kingdom Hearts games
+title: Kingdom Save Editor
+description: General purpose videogame save editor
 logo: theme-logo.png
 show_downloads: false
 google_analytics: UA-56422469-2
