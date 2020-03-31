@@ -50,17 +50,26 @@ namespace KHSave.SaveEditor.ViewModels
         private readonly IUpdater updater;
         private readonly ContentFactory contentFactory;
         private object dataContext;
+        private ContentType _saveKind;
 
         private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-        public string Title => fileDialogManager.IsFileOpen ?
+        public string Title => IsFileOpen ?
             $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
+
+        public bool IsFileOpen => SaveKind != ContentType.Unload && fileDialogManager.IsFileOpen;
 
         public ContentType SaveKind
         {
-            set => ChangeContent(value);
+            get => _saveKind;
+            set
+            {
+                _saveKind = value;
+                OnPropertyChanged(nameof(SaveCommand));
+                OnPropertyChanged(nameof(SaveAsCommand));
+            }
         }
 
         public HomeViewModel HomeContext { get; }
@@ -123,10 +132,10 @@ namespace KHSave.SaveEditor.ViewModels
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
             SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),
-                x => fileDialogManager.IsFileOpen);
+                x => IsFileOpen);
 
             SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
-                x => fileDialogManager.IsFileOpen);
+                x => IsFileOpen);
 
             ExitCommand = new RelayCommand(x => Window.Close());
 
@@ -274,6 +283,7 @@ namespace KHSave.SaveEditor.ViewModels
         private void ChangeContent(ContentType contentType, Stream stream = null)
         {
             var contentResponse = contentFactory.Factory(contentType);
+            SaveKind = contentType;
 
             RefreshUi = contentResponse.RefreshUi;
             WriteToStream = contentResponse.WriteToStream;
