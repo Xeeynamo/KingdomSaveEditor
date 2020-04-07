@@ -28,19 +28,19 @@ namespace KHSave
 
 		public static T SetPosition<T>(this T stream, int position) where T : Stream
         {
-            stream.Position = position;
+            stream.Seek(position, SeekOrigin.Begin);
             return stream;
         }
 
 		public static bool ReadFlag(this BinaryReader reader, int offset, int bit)
 		{
-			reader.BaseStream.Position = offset;
+			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
 			return reader.ReadByte().HasFlag(bit);
 		}
 
 		public static int ReadInt32(this BinaryReader reader, int offset)
 		{
-			reader.BaseStream.Position = offset;
+			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
 			return reader.ReadInt32();
 		}
 
@@ -70,7 +70,7 @@ namespace KHSave
 
 		public static string ReadString(this BinaryReader reader, int offset, int length)
 		{
-			reader.BaseStream.Position = offset;
+			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
 			return reader.ReadString(length);
 		}
 
