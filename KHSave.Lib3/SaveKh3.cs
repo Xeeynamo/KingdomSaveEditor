@@ -27,13 +27,17 @@ namespace KHSave.Lib3
 {
     public class SaveKh3 : ISaveKh3
     {
+        internal static IBinaryMapping Mapper;
+
         static SaveKh3()
         {
-            BinaryMapping.SetMapping<TimeSpan>(new BinaryMapping.Mapping
-            {
-                Reader = x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
-                Writer = x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
-            });
+            Mapper = MappingConfiguration
+                .DefaultConfiguration()
+                .ForType<TimeSpan>(
+                    x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
+                    x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
+                )
+                .Build();
         }
 
         [Data(0, 0x94E8F0)] public byte[] Data { get; set; }
@@ -103,10 +107,10 @@ namespace KHSave.Lib3
         }
 
         public void Write(Stream stream) =>
-            BinaryMapping.WriteObject(new BinaryWriter(stream.SetPosition(0)), this);
+            Mapper.WriteObject(stream.SetPosition(0), this);
 
         internal static SaveKh3 ReadInternal(Stream stream) =>
-            BinaryMapping.ReadObject(new BinaryReader(stream), new SaveKh3()) as SaveKh3;
+            Mapper.ReadObject(stream, new SaveKh3()) as SaveKh3;
 
         public static bool IsValid(Stream stream) =>
             SaveKh3.IsValidInternal(stream) ||

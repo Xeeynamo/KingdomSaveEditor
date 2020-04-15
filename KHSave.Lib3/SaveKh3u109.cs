@@ -27,15 +27,6 @@ namespace KHSave.Lib3
 {
     public class SaveKh3u109 : ISaveKh3
     {
-        static SaveKh3u109()
-        {
-            BinaryMapping.SetMapping<TimeSpan>(new BinaryMapping.Mapping
-            {
-                Reader = x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
-                Writer = x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
-            });
-        }
-
         [Data(0, 0x94F308)] public byte[] Data { get; set; }
 
         [Data(0x0)] public int MagicCode { get; set; }
@@ -103,9 +94,9 @@ namespace KHSave.Lib3
         }
 
         public void Write(Stream stream) =>
-            BinaryMapping.WriteObject(new BinaryWriter(stream.SetPosition(0)), this);
+            SaveKh3.Mapper.WriteObject(stream.SetPosition(0), this);
 
         internal static SaveKh3u109 ReadInternal(Stream stream) =>
-            BinaryMapping.ReadObject(new BinaryReader(stream.SetPosition(0)), new SaveKh3u109()) as SaveKh3u109;
+            SaveKh3.Mapper.ReadObject(stream.SetPosition(0), new SaveKh3u109()) as SaveKh3u109;
     }
 }
