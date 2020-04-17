@@ -15,8 +15,8 @@
 
         <TextBlock Text="04"/>
         <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="08"/>
-        <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Type"/>
+        <TextBox Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="10"/>
         <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="14"/>

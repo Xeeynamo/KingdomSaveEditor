@@ -17,6 +17,7 @@
 */
 
 using KHSave.LibFf7Remake;
+using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,10 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     public class InventoryViewModel : GenericListModel<InventroyEntryModel>
     {
         private readonly SaveFf7Remake _save;
+        private string searchTerm;
 
         public InventoryViewModel(SaveFf7Remake save) :
-            this(save.Inventory.Select((x, i) => new InventroyEntryModel(save, i, x)))
+            this(save.Inventory.OrderBy(x => (uint)x.Type).Select((x, i) => new InventroyEntryModel(save, i, x)))
         {
             _save = save;
         }
@@ -41,6 +43,16 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
         public Visibility EntryNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+
+        public string SearchTerm
+        {
+            get => searchTerm;
+            set
+            {
+                searchTerm = value;
+                Filter(items => SearchEngine.Filter(searchTerm, items).OrderBy(x => (uint)x.Type));
+            }
+        }
 
         protected override void OnSelectedItem(InventroyEntryModel item)
         {

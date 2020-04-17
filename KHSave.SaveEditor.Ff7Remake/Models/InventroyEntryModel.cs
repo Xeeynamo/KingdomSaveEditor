@@ -16,31 +16,44 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
+using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common.Services;
+using System.Windows.Media;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
 {
-    public class InventroyEntryModel
+    public class InventroyEntryModel :
+        BaseNotifyPropertyChanged,
+        SearchEngine.IName,
+        SearchEngine.ICount
     {
         private readonly Inventory _inventory;
 
         public InventroyEntryModel(SaveFf7Remake save, int index, Inventory inventory)
         {
             _inventory = inventory;
-
-            if (Presets.InventoryItems.TryGetValue(_inventory.Id, out var itemName))
-                Name = itemName;
-            else
-                Name = $"{_inventory.Id:X08}";
         }
 
-        public string Name { get; }
+        public string Name => InfoAttribute.GetInfo(Type);
+        public ImageSource Icon => IconService.Icon(Type);
 
         public uint Id { get => _inventory.Id; set => _inventory.Id = value; }
         public int Unknown04 { get => _inventory.Unknown04; set => _inventory.Unknown04 = value; }
         public int Count { get => _inventory.Count; set => _inventory.Count = value; }
-        public int Unknown08 { get => _inventory.Unknown08; set => _inventory.Unknown08 = value; }
+        public InventoryType Type
+        {
+            get => (InventoryType)_inventory.Type;
+            set
+            {
+                _inventory.Type = (int)value;
+                OnPropertyChanged(nameof(Icon));
+                OnPropertyChanged(nameof(Name));
+            }
+        }
         public int Unknown10 { get => _inventory.Unknown10; set => _inventory.Unknown10 = value; }
         public int Unknown14 { get => _inventory.Unknown14; set => _inventory.Unknown14 = value; }
     }

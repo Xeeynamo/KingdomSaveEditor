@@ -8,18 +8,57 @@
              d:DesignHeight="450" d:DesignWidth="200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox
-            Grid.Column="0"
-            ItemsSource="{Binding Items}"
-            SelectedIndex="{Binding SelectedIndex}"
-            SelectedItem="{Binding SelectedItem}"
-            DisplayMemberPath="Name"
-            />
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListBox
+                Grid.Row="0"
+                ItemsSource="{Binding Items}"
+                SelectedIndex="{Binding SelectedIndex}"
+                SelectedItem="{Binding SelectedItem}"
+                HorizontalContentAlignment="Stretch">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Margin="0 0 3 0" Width="16" Height="16"
+                               Source="{Binding Icon}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                            <TextBlock Grid.Column="2" Margin="0 0 5 0" Text="{Binding Count, StringFormat=x{0:D02}}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Grid Grid.Row="1" Margin="0 5 0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{StaticResource Search_16x}"/>
+                <TextBox Grid.Column="2"
+                    Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </Grid>
+        
         <Grid
             Grid.Column="2" Margin="0 0 10 0" 
             Visibility="{Binding EntryNotVisible}">
