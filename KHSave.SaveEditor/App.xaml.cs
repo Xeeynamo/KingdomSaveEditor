@@ -23,7 +23,7 @@ namespace KHSave.SaveEditor
 
             public string TestFileName =>
                 //"../../../../KHSave.Tests/Saves/BISLPM-66676COM-01";
-                "../../../../KHSave.Tests/Saves/kh3_109.bin";
+                "../../../../KHSave.Tests/Saves/ff7remake007";
         }
 
         protected override void OnStartup(StartupEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using KHSave.SaveEditor.Common.Contracts;
+using KHSave.SaveEditor.Ff7Remake.ViewModels;
 using KHSave.SaveEditor.Kh02.ViewModels;
 using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Kh3.ViewModels;
@@ -18,7 +19,8 @@ namespace KHSave.SaveEditor.Services
         KingdomHearts2,
         KingdomHeartsRecom,
         KingdomHearts02,
-        KingdomHearts3
+        KingdomHearts3,
+        FinalFantasy7Remake,
     }
 
     public class ContentResponse
@@ -47,6 +49,7 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.KingdomHeartsRecom: return FactoryEditorView<KhRecom.MainView, KhRecomViewModel>();
                 case ContentType.KingdomHearts02: return FactoryEditorView<Kh02.MainView, Kh02ViewModel>();
                 case ContentType.KingdomHearts3: return FactoryEditorView<Kh3.MainView, Kh3ViewModel>();
+                case ContentType.FinalFantasy7Remake: return FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>();
                 default: throw new Exception($"Factory for {saveType} not yet implemented.");
             }
         }
