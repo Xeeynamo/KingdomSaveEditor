@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.InventoryEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <common:TwoEqualColumnsStackPanel>
+        <TextBlock Text="Item ID"/>
+        <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Count"/>
+        <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="04"/>
+        <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="08"/>
+        <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="10"/>
+        <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="14"/>
+        <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </common:TwoEqualColumnsStackPanel>
+</UserControl>
