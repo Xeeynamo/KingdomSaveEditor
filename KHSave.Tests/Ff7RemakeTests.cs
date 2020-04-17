@@ -37,6 +37,8 @@ namespace KHSave.Tests
 		private static void AssertSaveGame(SaveFf7Remake save)
 		{
 			Assert.Equal(36, save.Characters[SaveFf7Remake.Cloud].Level);
+			Assert.True(save.Characters[SaveFf7Remake.Cloud].IsUnlocked);
+			Assert.Equal(2, save.Characters[SaveFf7Remake.Cloud].AtbBarCount);
 			Assert.Equal(4078, save.Characters[SaveFf7Remake.Cloud].CurrentHp);
 			Assert.Equal(5882, save.Characters[SaveFf7Remake.Cloud].MaxHp);
 			Assert.Equal(112, save.Characters[SaveFf7Remake.Cloud].CurrentMp);

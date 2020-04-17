@@ -1,12 +1,13 @@
-﻿using Xe.BinaryMapper;
+﻿
+using Xe.BinaryMapper;
 
 namespace KHSave.LibFf7Remake.Models
 {
     public class Character
     {
         [Data] public byte Level { get; set; }
-        [Data] public byte Unknown01 { get; set; }
-        [Data] public byte Unknown02 { get; set; }
+        [Data] public bool IsUnlocked { get; set; }
+        [Data] public byte AtbBarCount { get; set; }
         [Data] public byte Unknown03 { get; set; }
         [Data] public int Unknown04 { get; set; }
         [Data] public int Unknown08 { get; set; }

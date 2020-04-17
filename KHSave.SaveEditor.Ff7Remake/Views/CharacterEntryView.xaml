@@ -32,13 +32,13 @@
         <TextBox Text="{Binding MagicDefense, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Luck"/>
         <TextBox Text="{Binding Luck, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="ATB bar count"/>
+        <TextBox Text="{Binding AtbBarCount, UpdateSourceTrigger=PropertyChanged}"/>
 
+        <TextBlock Text=""/>
+        <CheckBox Content="Is unlocked" IsChecked="{Binding IsUnlocked}"/>
         <TextBlock Text="14"/>
         <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="01"/>
-        <TextBox Text="{Binding Unknown01, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="02"/>
-        <TextBox Text="{Binding Unknown02, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="03"/>
         <TextBox Text="{Binding Unknown03, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="04"/>
