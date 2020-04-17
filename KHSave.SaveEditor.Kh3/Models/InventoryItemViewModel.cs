@@ -21,10 +21,13 @@ using KHSave.Attributes;
 using KHSave.Lib3.Models;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.Lib3.Types;
+using KHSave.SaveEditor.Common.Services;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {
-    public class InventoryItemViewModel : EnumIconTypeModel<InventoryType>
+    public class InventoryItemViewModel :
+        EnumIconTypeModel<InventoryType>,
+        SearchEngine.IName, SearchEngine.ICount
     {
         private readonly InventoryEntry inventoryEntry;
         private bool isSelected;
