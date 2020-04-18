@@ -53,8 +53,6 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
             private set => _chunk.Content.ChunkLength = value + Chunk.ContentHeaderLength;
         }
-        public int Unknown18 { get => _chunk.Content?.Unknown18 ?? -1; set => _chunk.Content.Unknown18 = value; }
-        public int Unknown1c { get => _chunk.Content?.Unknown1c ?? -1; set => _chunk.Content.Unknown1c = value; }
 
         private void Import(string fileName)
         {

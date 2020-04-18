@@ -49,10 +49,6 @@
                             <TextBox Margin="0 0 0 3" Text="{Binding Unknown10}"/>
                             <TextBlock Text="Data size"/>
                             <TextBox Margin="0 0 0 3" Text="{Binding DataSize, Mode=OneWay}" IsEnabled="False"/>
-                            <TextBlock Text="Unknown 18"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown18}"/>
-                            <TextBlock Text="Unknown 1c"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown1c}"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>

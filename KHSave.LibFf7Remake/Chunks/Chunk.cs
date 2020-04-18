@@ -19,8 +19,6 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(Count = 0x10)] public string MagicCode { get; set; }
         [Data] public int Unknown10 { get; set; }
         [Data] public int ChunkLength { get; set; }
-        [Data] public int Unknown18 { get; set; }
-        [Data] public int Unknown1c { get; set; }
         public byte[] RawData { get; set; }
     }
 
@@ -81,7 +79,7 @@ namespace KHSave.LibFf7Remake.Chunks
             if (IsEmpty)
                 return $"{h} EMPTY";
             if (!IsLastChunk)
-                return $"{h} C({Content.MagicCode}, {Content.Unknown10:X}, {Content.Unknown18:X}, {Content.Unknown1c:X}";
+                return $"{h} C({Content.MagicCode}, {Content.Unknown10:X}";
             else
                 return $"{h} END";
         }
