@@ -49,6 +49,12 @@ namespace KHSave.SaveEditor.Common.Services
 			["CardSummon"] = "card-magic",
 			["CardWeapon"] = "card-weapon",
 			["CardWorld"] = "card-world",
+			["Materia"] = "materia-magic",
+			["MagocMateria"] = "materia-magic",
+			["CommandMateria"] = "materia-command",
+			["SupportMateria"] = "materia-support",
+			["CompleteMateria"] = "materia-complete",
+			["SummonMateria"] = "materia-summon",
 		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
 
 		public static ImageSource Icon(object item)
