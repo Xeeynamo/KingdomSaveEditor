@@ -42,7 +42,7 @@ namespace KHSave.LibFf7Remake.Types
         [Consumable("Motolov Cocktail")] MotolovCocktail,
         [Consumable("Orb of Gravity")] OrbOfGravity,
         [Consumable("Smelling Salts")] SmellingSalts,
-        [MogItem("Gil")] Gil,
+        [Money("Gil")] Gil,
         [Consumable("Maiden's Kiss")] MaidensKiss,
         [Consumable("Mega-Potion")] MegaPotion,
 
@@ -59,7 +59,7 @@ namespace KHSave.LibFf7Remake.Types
         [KeyItem("Grappling Gun")] GrapplingGun = 115,
         [KeyItem("Grappling Gun")] GrapplingGun2,
         [KeyItem("Key to the Sewers")] KeySewers,
-        [MogItem("Moogle Medal")] MoogleMedal,
+        [Money("Moogle Medal")] MoogleMedal,
         [KeyItem("Sam’s Coin")] SamCoin,
         [KeyItem("Shinra Keycard (59th floor)")] ShinraKeycard59,
         [KeyItem("Hojo's Research Lab Keycard")] HojoResearchLabKeycard,

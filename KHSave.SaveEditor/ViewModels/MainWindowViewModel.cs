@@ -285,6 +285,7 @@ namespace KHSave.SaveEditor.ViewModels
 
         private void ChangeContent(ContentType contentType, Stream stream = null)
         {
+            contentFactory.LoadIconPack(contentType);
             var contentResponse = contentFactory.Factory(contentType);
 
             RefreshUi = contentResponse.RefreshUi;

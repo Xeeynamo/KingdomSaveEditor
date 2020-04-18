@@ -9,11 +9,15 @@ namespace KHSave.SaveEditor.Common.Services
 {
     public class IconService
 	{
-		public static readonly Dictionary<string, Uri> Icons = new Dictionary<string, string>()
+		public enum IconPack
 		{
-			["Consumable"] = "kh2-icon-item",
+			KingdomHearts2,
+			FF7Remake,
+		}
+
+		private static readonly Dictionary<string, string> IconsDefault = new Dictionary<string, string>()
+		{
 			["Tent"] = "kh2-icon-tent",
-			["KeyItem"] = "kh2-item-key",
 			["Food"] = "FoodIcon",
 			["Snack"] = "SnackIcon",
 			["Synthesis"] = "kh2-icon-synthesis",
@@ -23,9 +27,6 @@ namespace KHSave.SaveEditor.Common.Services
 			["Keyblade"] = "kh2-equip-keyblade",
 			["Staff"] = "kh2-equip-staff",
 			["Shield"] = "kh2-equip-shield",
-			["Weapon"] = "MiscWeaponIcon",
-			["Armor"] = "kh2-equip-armor",
-			["Accessory"] = "kh2-equip-accessory",
 			["Ability"] = "kh2-icon-ability",
 			["CombatStyle"] = "kh2-icon-style",
 			["Command"] = "kh2-icon-mickey",
@@ -35,6 +36,7 @@ namespace KHSave.SaveEditor.Common.Services
 			["Report"] = "kh2-item-key",
 			["Summon"] = "kh2-item-key",
 			["Recipe"] = "KupoCoinIcon",
+
 			["Card"] = "card-generic",
 			["CardEnemy"] = "card-enemy",
 			["CardFriend"] = "card-friend",
@@ -49,13 +51,56 @@ namespace KHSave.SaveEditor.Common.Services
 			["CardSummon"] = "card-magic",
 			["CardWeapon"] = "card-weapon",
 			["CardWorld"] = "card-world",
-			["Materia"] = "materia-magic",
-			["MagocMateria"] = "materia-magic",
+
+			["MagicMateria"] = "materia-magic",
 			["CommandMateria"] = "materia-command",
 			["SupportMateria"] = "materia-support",
 			["CompleteMateria"] = "materia-complete",
 			["SummonMateria"] = "materia-summon",
-		}.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
+		};
+
+		private static readonly Dictionary<IconPack, Dictionary<string, string>> IconPacks = new Dictionary<IconPack, Dictionary<string, string>>()
+		{
+			[IconPack.KingdomHearts2] = new Dictionary<string, string>()
+			{
+				["Consumable"] = "kh2-icon-consumable",
+				["KeyItem"] = "kh2-item-key",
+				["Money"] = "ff7r-item-gil", // TODO replace with munny
+				["Weapon"] = "kh2-icon-weapon",
+				["Armor"] = "kh2-equip-armor",
+				["Accessory"] = "kh2-equip-accessory",
+			},
+			[IconPack.FF7Remake] = new Dictionary<string, string>()
+			{
+				["Consumable"] = "ff7r-icon-consumable",
+				["KeyItem"] = "ff7r-icon-key",
+				["Money"] = "ff7r-icon-gil",
+				["Weapon"] = "ff7r-icon-weapon",
+				["Armor"] = "ff7r-icon-armor",
+				["Accessory"] = "ff7r-icon-accessory",
+
+				["WeaponCloud"] = "ff7r-icon-cloud",
+				["WeaponBarret"] = "ff7r-icon-barret",
+				["WeaponTifa"] = "ff7r-icon-tifa",
+				["WeaponAerith"] = "ff7r-icon-aerith",
+				["Manuscript"] = "ff7r-icon-manuscript",
+				["Materia"] = "ff7r-icon-materia",
+				["Track"] = "ff7r-icon-track",
+			},
+		};
+
+		private static Dictionary<string, Uri> Icons = new Dictionary<string, Uri>();
+
+		static IconService()
+		{
+			UseIconPack(IconPack.KingdomHearts2);
+		}
+
+		public static void UseIconPack(IconPack iconPack)
+		{
+			Icons = IconPacks[iconPack].Concat(IconsDefault)
+				.ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
+		}
 
 		public static ImageSource Icon(object item)
 		{

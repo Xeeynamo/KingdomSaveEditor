@@ -23,5 +23,33 @@ namespace KHSave.Attributes
 		public WeaponAttribute(string name = null) :
 			base(name)
 		{ }
-	}
+    }
+
+    public class WeaponCloudAttribute : WeaponAttribute
+    {
+        public WeaponCloudAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponBarretAttribute : WeaponAttribute
+    {
+        public WeaponBarretAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponTifaAttribute : WeaponAttribute
+    {
+        public WeaponTifaAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponAerithAttribute : WeaponAttribute
+    {
+        public WeaponAerithAttribute(string name = null) :
+            base(name)
+        { }
+    }
 }

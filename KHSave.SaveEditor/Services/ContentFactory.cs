@@ -1,4 +1,5 @@
 ﻿using KHSave.SaveEditor.Common.Contracts;
+using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.ViewModels;
 using KHSave.SaveEditor.Kh02.ViewModels;
 using KHSave.SaveEditor.Kh2.ViewModels;
@@ -52,6 +53,28 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.FinalFantasy7Remake: return FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>();
                 default: throw new Exception($"Factory for {saveType} not yet implemented.");
             }
+        }
+
+        public void LoadIconPack(ContentType saveType)
+        {
+            IconService.IconPack iconPack;
+            switch (saveType)
+            {
+                case ContentType.Unload:
+                    return;
+                case ContentType.KingdomHearts2:
+                case ContentType.KingdomHeartsRecom:
+                case ContentType.KingdomHearts02:
+                case ContentType.KingdomHearts3:
+                    iconPack = IconService.IconPack.KingdomHearts2;
+                    break;
+                case ContentType.FinalFantasy7Remake:
+                    iconPack = IconService.IconPack.FF7Remake;
+                    break;
+                default: throw new Exception($"IconPack for {saveType} not yet implemented.");
+            }
+
+            IconService.UseIconPack(iconPack);
         }
 
         private ContentResponse FactorySimpleView<TControl>()
