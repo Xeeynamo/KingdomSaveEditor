@@ -20,6 +20,7 @@ using KHSave.Extensions;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
 using System.Windows.Media;
 using Xe.Tools;
@@ -39,7 +40,13 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             this.save = save;
             _index = index;
             _materia = materia;
+
+            ItemType = new KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType>(() => Type, x => Type = x);
+            CharacterType = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
         }
+
+        public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> ItemType { get; }
+        public KhEnumListModel<CharacterType> CharacterType { get; }
 
         public string Name => Attributes.InfoAttribute.GetInfo(Type);
         public ImageSource Icon => IconService.Icon(Type);
@@ -55,14 +62,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             }
         }
 
-        public int Id { get => _materia.Id; set => _materia.Id = value; }
         public string Timestamp => _materia.UnixTimestamp.FromUnixEpoch().ToString();
         public int AbilityPoint { get => _materia.AbilityPoint; set => _materia.AbilityPoint = value; }
-        public byte Unknown00 { get => _materia.Unknown00; set => _materia.Unknown00 = value; }
-        public byte Unknown01 { get => _materia.Unknown01; set => _materia.Unknown01 = value; }
-        public byte Unknown02 { get => _materia.Unknown02; set => _materia.Unknown02 = value; }
-        public int Unknown0c { get => _materia.Unknown0c; set => _materia.Unknown0c = value; }
-        public int Unknown14 { get => _materia.Unknown14; set => _materia.Unknown14 = value; }
-        public int Unknown1c { get => _materia.Unknown1c; set => _materia.Unknown1c = value; }
+        public byte Level { get => _materia.Level; set => _materia.Level = value; }
+        public CharacterType Character { get => (CharacterType)_materia.Character; set => _materia.Character = (byte)value; }
     }
 }

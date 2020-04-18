@@ -7,26 +7,37 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
-    <common:TwoEqualColumnsStackPanel>
-        <TextBlock Text="Materia ID"/>
-        <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Obtained"/>
-        <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
+    <StackPanel>
+        <TextBlock Text="Materia type"/>
+        <ComboBox
+            Margin="0 0 0 5"
+            ItemsSource="{Binding ItemType, Mode=OneTime}"
+            SelectedValue="{Binding ItemType.SelectedValue}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        <TextBlock Text="Ability point (AP)"/>
-        <TextBox Text="{Binding AbilityPoint, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="00"/>
-        <TextBox Text="{Binding Unknown00, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="01"/>
-        <TextBox Text="{Binding Unknown01, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="02"/>
-        <TextBox Text="{Binding Unknown02, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="0c"/>
-        <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="14"/>
-        <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="1c"/>
-        <TextBox Text="{Binding Unknown1c, UpdateSourceTrigger=PropertyChanged}"/>
+        <common:TwoEqualColumnsStackPanel>
+            <TextBlock Text="Character equip"/>
+            <ComboBox
+                ItemsSource="{Binding CharacterType}"
+                SelectedValue="{Binding Character}"
+                SelectedValuePath="Value"/>
+            <TextBlock Text="Obtained"/>
+            <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
 
-    </common:TwoEqualColumnsStackPanel>
+            <TextBlock Text="Ability point (AP)"/>
+            <TextBox Text="{Binding AbilityPoint, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Level"/>
+            <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+        </common:TwoEqualColumnsStackPanel>
+    </StackPanel>
 </UserControl>

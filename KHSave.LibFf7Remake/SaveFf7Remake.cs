@@ -28,15 +28,12 @@ namespace KHSave.LibFf7Remake
 {
     public class SaveFf7Remake
     {
-        private static IBinaryMapping _mapping =
-            MappingConfiguration.DefaultConfiguration()
-            .Build();
-
         public const int Cloud = 0;
         public const int Barret = 1;
         public const int Tifa = 2;
         public const int Aerith = 3;
         public const int Red13 = 4;
+        public const int Unequipped = 9;
 
         private SaveFf7Remake(List<Chunk> chunks)
         {
@@ -46,11 +43,18 @@ namespace KHSave.LibFf7Remake
 
         public SaveFf7Remake Write(Stream stream)
         {
-            //for (var i = 0; i < Inventory.Length; i++)
-            //    InventoryMirror[i] = Inventory[i];
+            for (int i = 0, index = 0; i < Materia.Length; i++)
+            {
+                if (Materia[i].Type != Types.InventoryType.Empty)
+                {
+                    Materia[i].IsObtained = 1;
+                    Materia[i].Index = ++index;
+                }
+                else
+                    Materia[i].IsObtained = 0;
+            }
 
             WriteChunk(_chunkCommon, 0, 0);
-            //WriteChunk(_chunkMirror, 2, 0);
 
             foreach (var chunk in Chunks)
                 chunk.Write(stream);

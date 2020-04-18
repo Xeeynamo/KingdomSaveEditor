@@ -23,16 +23,16 @@ namespace KHSave.LibFf7Remake.Models
 {
     public class Materia
     {
-        [Data] public byte Unknown00 { get; set; }
-        [Data] public byte Unknown01 { get; set; }
-        [Data] public byte Unknown02 { get; set; }
+        [Data] public byte Level { get; set; }
+        [Data] public byte Character { get; set; }
+        [Data] public byte IsObtained { get; set; }
         [Data] public byte Unused03 { get; set; }
         [Data] public InventoryType Type { get; set; }
         [Data] public int AbilityPoint { get; set; }
         [Data] public int Unknown0c { get; set; }
         [Data] public uint UnixTimestamp { get; set; }
         [Data] public int Unknown14 { get; set; }
-        [Data] public int Id { get; set; }
+        [Data] public int Index { get; set; }
         [Data] public int Unknown1c { get; set; }
     }
 }
