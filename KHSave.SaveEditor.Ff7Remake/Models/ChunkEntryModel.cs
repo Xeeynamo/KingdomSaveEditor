@@ -1,5 +1,7 @@
-﻿using KHSave.LibFf7Remake.Chunks;
+﻿using KHSave.LibFf7Remake;
+using KHSave.LibFf7Remake.Chunks;
 using KHSave.LibFf7Remake.Models;
+using KHSave.SaveEditor.Common.Contracts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +14,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
     public class ChunkEntryModel
     {
         private const string MessageBoxTextDifferentSizeWarning = "You are importing a chunk that have a different size.\nThis will potentially lead to unexpected game behaviour.\n\nDo you want to continue?";
+        private readonly SaveFf7Remake _save;
+        private readonly IRefreshUi _refreshUi;
         private readonly Chunk _chunk;
         private readonly int _index;
         private readonly IEnumerable<FileDialogFilter> Filter = FileDialogFilterComposer
@@ -19,8 +23,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             .AddExtensions("Final Fantasy VII Remake CHUNK", "ff7rchunk")
             .AddAllFiles();
 
-        public ChunkEntryModel(Chunk chunk, int index)
+        public ChunkEntryModel(SaveFf7Remake save, IRefreshUi refreshUi, Chunk chunk, int index)
         {
+            _save = save;
+            _refreshUi = refreshUi;
             _chunk = chunk;
             _index = index;
             ImportCommand = new RelayCommand(_ => FileDialog.OnOpen(Import, Filter, $"chunk{_index}"));
@@ -42,10 +48,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             {
                 if (_chunk.Content == null)
                     return -1;
-                return Math.Max(0, _chunk.Content.ChunkLength - 0x20);
+                return Math.Max(0, _chunk.Content.ChunkLength - Chunk.ContentHeaderLength);
             }
 
-            private set => _chunk.Content.ChunkLength = value + 0x20;
+            private set => _chunk.Content.ChunkLength = value + Chunk.ContentHeaderLength;
         }
         public int Unknown18 { get => _chunk.Content?.Unknown18 ?? -1; set => _chunk.Content.Unknown18 = value; }
         public int Unknown1c { get => _chunk.Content?.Unknown1c ?? -1; set => _chunk.Content.Unknown1c = value; }
@@ -62,6 +68,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
                 _chunk.Content.RawData = stream.ReadAllBytes();
                 DataSize = _chunk.Content.RawData.Length;
+
+                _save.ReimportChunks();
+                _refreshUi.RefreshUi();
             }
         }
 

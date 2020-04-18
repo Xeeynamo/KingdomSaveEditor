@@ -26,6 +26,10 @@ namespace KHSave.LibFf7Remake.Chunks
 
     public class Chunk
     {
+        public const int HeaderLength = 0x10;
+        public const int ContentHeaderLength = 0x18;
+        public const int TotalHeaderLength = HeaderLength + ContentHeaderLength;
+
         public ChunkHeader Header { get; }
         public ChunkContent Content { get; }
 
@@ -46,8 +50,8 @@ namespace KHSave.LibFf7Remake.Chunks
             if (header.NextChunkOffset > 0)
             {
                 content = BinaryMapping.ReadObject<ChunkContent>(stream);
-                if (content.ChunkLength > 0x20)
-                    content.RawData = stream.ReadBytes(content.ChunkLength - 0x20);
+                if (content.ChunkLength > ContentHeaderLength)
+                    content.RawData = stream.ReadBytes(content.ChunkLength - ContentHeaderLength);
                 else
                     content.RawData = new byte[0];
             }

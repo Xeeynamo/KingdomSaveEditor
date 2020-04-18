@@ -41,24 +41,41 @@ namespace KHSave.LibFf7Remake
         private SaveFf7Remake(List<Chunk> chunks)
         {
             Chunks = chunks.ToArray();
-            _chunkCommon = ReadChunk<ChunkCommon>(0, 0);
-            _chunkMirror = ReadChunk<ChunkMirror>(2, 0);
+            ReimportChunks();
+        }
+
+        public SaveFf7Remake Write(Stream stream)
+        {
+            //for (var i = 0; i < Inventory.Length; i++)
+            //    InventoryMirror[i] = Inventory[i];
+
+            WriteChunk(_chunkCommon, 0, 0);
+            //WriteChunk(_chunkMirror, 2, 0);
+
+            foreach (var chunk in Chunks)
+                chunk.Write(stream);
+
+            return this;
         }
 
         private ChunkCommon _chunkCommon;
-        private ChunkMirror _chunkMirror;
+        //private ChunkCommon _chunkMirror;
 
         public Chunk[] Chunks { get; private set; }
-
 
         public Character[] Characters { get => _chunkCommon.Characters; set => _chunkCommon.Characters = value; }
         public Inventory[] Inventory { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
         public byte PlayableCharacter { get => _chunkCommon.PlayableCharacter; set => _chunkCommon.PlayableCharacter = value; }
         public byte CurrentChapter { get => _chunkCommon.CurrentChapter; set => _chunkCommon.CurrentChapter = value; }
-        public Inventory[] InventoryMirror { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
+        //public Inventory[] InventoryMirror { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
 
-        private T ReadChunk<T>(int type, int index)
-            where T : class
+        public void ReimportChunks()
+        {
+            _chunkCommon = ReadChunk<ChunkCommon>(0, 0);
+            //_chunkMirror = ReadChunk<ChunkCommon>(2, 0);
+        }
+
+        private Chunk GetChunk(int type, int index)
         {
             var chunk = Chunks.FirstOrDefault(x =>
                 x.Header.Unknown00 == type &&
@@ -69,8 +86,26 @@ namespace KHSave.LibFf7Remake
             if (chunk.Content == null)
                 throw new ArgumentException($"The chunk ({type}, {index}) does not contain any data.");
 
+            return chunk;
+        }
+
+        private T ReadChunk<T>(int type, int index)
+            where T : class
+        {
+            var chunk = GetChunk(type, index);
             using (var stream = new MemoryStream(chunk.Content.RawData))
                 return BinaryMapping.ReadObject<T>(stream);
+        }
+
+        private void WriteChunk<T>(T item, int type, int index)
+            where T : class
+        {
+            var chunk = GetChunk(type, index);
+            using (var stream = new MemoryStream())
+            {
+                BinaryMapping.WriteObject(stream, item);
+                chunk.Content.RawData = stream.GetBuffer();
+            }
         }
 
         public static bool IsValid(Stream stream)
@@ -100,14 +135,6 @@ namespace KHSave.LibFf7Remake
             }
 
             return new SaveFf7Remake(chunks);
-        }
-
-        public SaveFf7Remake Write(Stream stream)
-        {
-            foreach (var chunk in Chunks)
-                chunk.Write(stream);
-
-            return this;
         }
     }
 }

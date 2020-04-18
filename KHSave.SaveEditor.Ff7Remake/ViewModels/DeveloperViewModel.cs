@@ -1,4 +1,6 @@
 ﻿using KHSave.LibFf7Remake;
+using KHSave.LibFf7Remake.Chunks;
+using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System;
 using System.Globalization;
@@ -11,12 +13,14 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     public class DeveloperViewModel : GenericListModel<ChunkEntryModel>
     {
         private readonly SaveFf7Remake _save;
+        private readonly IRefreshUi _refreshUi;
         private int _absoluteOffset;
 
-        public DeveloperViewModel(SaveFf7Remake save) :
-            base(save.Chunks.Select((x, i) => new ChunkEntryModel(x, i)))
+        public DeveloperViewModel(SaveFf7Remake save, IRefreshUi refreshUi) :
+            base(save.Chunks.Select((x, i) => new ChunkEntryModel(save, refreshUi, x, i)))
         {
             _save = save;
+            _refreshUi = refreshUi;
         }
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
@@ -27,7 +31,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             get => $"0x{_absoluteOffset:X}";
             set
             {
-                const int HeaderLength = 0x30;
+                const int HeaderLength = Chunk.TotalHeaderLength;
                 bool isHex = value.Length > 2 && value[0] == '0' && value[1] == 'x';
                 bool successful;
                 if (isHex)
@@ -70,6 +74,6 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         }
 
         protected override ChunkEntryModel OnNewItem() =>
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
     }
 }
