@@ -49,8 +49,7 @@ namespace KHSave.Tests
 			Assert.Equal(3265, save.Characters[SaveFf7Remake.Aerith].MaxHp);
 			Assert.Equal(3770, save.Characters[SaveFf7Remake.Red13].MaxHp);
 
-			//Assert.Equal(0x45764053, save.MagicCode);
-			//Assert.Equal(DifficultyType.Proud, save.Difficulty);
+			Assert.Equal(18, save.CurrentChapter);
 		}
 	}
 }

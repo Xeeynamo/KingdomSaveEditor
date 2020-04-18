@@ -13,5 +13,8 @@
         <TabItem Header="Inventory">
             <local:InventoryView DataContext="{Binding Inventory}"/>
         </TabItem>
+        <TabItem Header="Developer">
+            <local:DeveloperView DataContext="{Binding Developer}"/>
+        </TabItem>
     </TabControl>
 </UserControl>

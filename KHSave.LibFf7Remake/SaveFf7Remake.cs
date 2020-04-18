@@ -16,8 +16,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.LibFf7Remake.Chunks;
 using KHSave.LibFf7Remake.Models;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibFf7Remake
@@ -34,12 +38,40 @@ namespace KHSave.LibFf7Remake
         public const int Aerith = 3;
         public const int Red13 = 4;
 
-        [Data(0, Count = 0x8ff680)] public byte[] Data { get; set; }
-        [Data(0x30, Count = 5, Stride = 0x40)] public Character[] Characters { get; set; }
-        [Data(0x34DD0, Count = 0x800, Stride = 0x18)] public Inventory[] Inventory { get; set; }
-        [Data(0x42f84)] public byte PlayableCharacter { get; set; }
-        [Data(0x42f85)] public byte CurrentChapter { get; set; }
-        [Data(0x7b2100, Count = 0x800, Stride = 0x18)] public Inventory[] InventoryCopy { get; set; }
+        private SaveFf7Remake(List<Chunk> chunks)
+        {
+            Chunks = chunks.ToArray();
+            _chunkCommon = ReadChunk<ChunkCommon>(0, 0);
+            _chunkMirror = ReadChunk<ChunkMirror>(2, 0);
+        }
+
+        private ChunkCommon _chunkCommon;
+        private ChunkMirror _chunkMirror;
+
+        public Chunk[] Chunks { get; private set; }
+
+
+        public Character[] Characters { get => _chunkCommon.Characters; set => _chunkCommon.Characters = value; }
+        public Inventory[] Inventory { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
+        public byte PlayableCharacter { get => _chunkCommon.PlayableCharacter; set => _chunkCommon.PlayableCharacter = value; }
+        public byte CurrentChapter { get => _chunkCommon.CurrentChapter; set => _chunkCommon.CurrentChapter = value; }
+        public Inventory[] InventoryMirror { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
+
+        private T ReadChunk<T>(int type, int index)
+            where T : class
+        {
+            var chunk = Chunks.FirstOrDefault(x =>
+                x.Header.Unknown00 == type &&
+                x.Header.Unknown01 == index);
+            if (chunk == null)
+                throw new ArgumentException($"Unable to find the chunk ({type}, {index}).");
+
+            if (chunk.Content == null)
+                throw new ArgumentException($"The chunk ({type}, {index}) does not contain any data.");
+
+            using (var stream = new MemoryStream(chunk.Content.RawData))
+                return BinaryMapping.ReadObject<T>(stream);
+        }
 
         public static bool IsValid(Stream stream)
         {
@@ -54,14 +86,28 @@ namespace KHSave.LibFf7Remake
                 stream.ReadByte() == 0x53 && stream.ReadByte() == 0x44;
         }
 
-        public static SaveFf7Remake Read(Stream stream) => _mapping.ReadObject<SaveFf7Remake>(stream);
+        public static SaveFf7Remake Read(Stream stream)
+        {
+            var chunks = new List<Chunk>();
+            stream.SetPosition(0);
+
+            while (true)
+            {
+                var chunk = Chunk.Read(stream);
+                chunks.Add(chunk);
+                if (chunk.IsLastChunk)
+                    break;
+            }
+
+            return new SaveFf7Remake(chunks);
+        }
 
         public SaveFf7Remake Write(Stream stream)
         {
-            for (int i = 0; i < Inventory.Length; i++)
-                InventoryCopy[i] = Inventory[i];
-            
-            return _mapping.WriteObject(stream, this);
+            foreach (var chunk in Chunks)
+                chunk.Write(stream);
+
+            return this;
         }
     }
 }

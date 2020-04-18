@@ -29,14 +29,17 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public CharactersViewModel Characters { get; set; }
         public InventoryViewModel Inventory { get; set; }
+        public DeveloperViewModel Developer { get; set; }
 
         public void RefreshUi()
         {
             Characters = new CharactersViewModel(Save);
             Inventory = new InventoryViewModel(Save);
+            Developer = new DeveloperViewModel(Save);
 
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(Inventory));
+            OnPropertyChanged(nameof(Developer));
         }
 
         public void OpenStream(Stream stream)

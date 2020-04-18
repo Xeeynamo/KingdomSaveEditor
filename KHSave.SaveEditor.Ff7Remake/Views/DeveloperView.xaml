@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.DeveloperView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Row="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"
+            SelectedItem="{Binding SelectedItem}"
+            HorizontalContentAlignment="Stretch"/>
+
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryNotVisible}">
+            <Label Content="Select an item to view or edit"/>
+        </Grid>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryVisible}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <GroupBox Header="Header" DataContext="{Binding SelectedItem}">
+                        <StackPanel>
+                            <TextBlock Text="Chunk type"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding ChunkType}"/>
+                            <TextBlock Text="Chapter ID (valid only for type 1)"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding ChapterId}"/>
+                            <TextBlock Text="Unknown"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown}"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Content" DataContext="{Binding SelectedItem}">
+                        <StackPanel>
+                            <TextBlock Text="Magic code?"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding MagicCode}"/>
+                            <TextBlock Text="Unknown 10"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown10}"/>
+                            <TextBlock Text="Data size"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding DataSize, Mode=OneWay}" IsEnabled="False"/>
+                            <TextBlock Text="Unknown 18"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown18}"/>
+                            <TextBlock Text="Unknown 1c"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown1c}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="Import" Command="{Binding ImportCommand}"/>
+                                <Button Grid.Column="2" Content="Export" Command="{Binding ExportCommand}"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Tools">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Absolute offset"/>
+                            <TextBox Grid.Column="2" Grid.Row="0"
+                                Text="{Binding AbsoluteOffset, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="2" Text="Chunk ID"/>
+                            <TextBox Grid.Column="2" Grid.Row="2" IsReadOnly="True"
+                                Text="{Binding ChunkId, Mode=OneWay}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="3" Text="Chunk offset"/>
+                            <TextBox Grid.Column="2" Grid.Row="3" IsReadOnly="True"
+                                Text="{Binding ChunkOffset, StringFormat=0x{0:X}, Mode=OneWay}"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
