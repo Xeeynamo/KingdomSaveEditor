@@ -29,16 +29,19 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public CharactersViewModel Characters { get; set; }
         public InventoryViewModel Inventory { get; set; }
+        public MateriaViewModel Materia { get; set; }
         public DeveloperViewModel Developer { get; set; }
 
         public void RefreshUi()
         {
             Characters = new CharactersViewModel(Save);
             Inventory = new InventoryViewModel(Save);
+            Materia = new MateriaViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
 
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(Inventory));
+            OnPropertyChanged(nameof(Materia));
             OnPropertyChanged(nameof(Developer));
         }
 

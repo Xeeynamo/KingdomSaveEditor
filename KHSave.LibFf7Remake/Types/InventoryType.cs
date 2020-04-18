@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Hearts Save Editor
     Copyright (C) 2019 Luciano Ciccariello
 
@@ -140,5 +140,62 @@ namespace KHSave.LibFf7Remake.Types
         [Accessory("Tarot Cards")] TarotCards,
         [Accessory("Otherworldly Crystal")] OtherworldlyCrystal,
         [Accessory("Salvation Badge")] SalvationBadge,
+        
+        [MagicMateria("Healing")] Healing = 10001,
+        [MagicMateria("Cleansing")] Cleansing,
+        [MagicMateria("Revival")] Revival,
+        [MagicMateria("Fire")] Fire,
+        [MagicMateria("Ice")] Ice,
+        [MagicMateria("Lightning")] Lightning,
+        [MagicMateria("Wind")] Wind,
+        [MagicMateria("Poison")] Poison,
+        [MagicMateria("Binding")] Binding,
+        [MagicMateria("Time")] Time,
+        [MagicMateria("Barrier")] Barrier,
+        [MagicMateria("Subversion")] Subversion,
+
+        [SupportMateria("Magnify")] Magnify = 11001,
+        [SupportMateria("Elemental Materia")] Elemental,
+        [SupportMateria("Warding Materia")] Warding,
+        [SupportMateria("HP Absorption Materia")] HPAbsorption,
+        [SupportMateria("MP Absorption Materia")] MPAbsorption,
+        [SupportMateria("Synergy Materia")] Synergy,
+        [SupportMateria("AP Up Materia")] APUp,
+
+        [CommandMateria("Steal Materia")] Steal = 12001,
+        [CommandMateria("Assess Materia")] Assess,
+        [CommandMateria("Enemy Skill Materia")] EnemySkill,
+        [CommandMateria("Chakra Materia")] Chakra,
+        [CommandMateria("Prayer Materia")] Prayer,
+        [CommandMateria("ATB Boost Materia")] ATBBoost,
+
+        [CompleteMateria("HP Up Materia")] HPUp = 13001,
+        [CompleteMateria("MP Up Materia")] MPUp,
+        [CompleteMateria("Magic Up Materia")] MagicUp,
+        [CompleteMateria("Luck Up Materia")] LuckUp,
+        [CompleteMateria("Gil Up Materia")] GilUp,
+        [CompleteMateria("EXP Up Materia")] EXPUp,
+        [CompleteMateria("Item Master Materia")] ItemMaster,
+        [CompleteMateria("ATB Stagger Materia")] ATBStagger,
+        [CompleteMateria("First Strike Materia")] FirstStrike,
+        [CompleteMateria("Steadfast Block Materia")] SteadfastBlock,
+        [CompleteMateria("Skill Master Materia")] SkillMaster,
+        [CompleteMateria("Deadly Dodge Materia")] DeadlyDodge,
+        [CompleteMateria("Parry Materia")] Parry,
+        [CompleteMateria("ATB Assist Materia")] ATBAssist,
+        [CompleteMateria("Auto-Cure  Materia")] AutoCure,
+        [CompleteMateria("Provoke Materia")] Provoke,
+        [CompleteMateria("Pedometer Materia")] Pedometer,
+        [CompleteMateria("Refocus Materia")] Refocus,
+
+        [SummonMateria("Chocobo & Moogle Materia")] ChocoboAndMoogle = 14001,
+        [SummonMateria("Shiva Materia")] Shiva,
+        [SummonMateria("Ifrit Materia")] Ifrit,
+        [SummonMateria("Leviathan Materia")] Leviathan,
+        [SummonMateria("Bahamut Materia")] Bahamut,
+        [SummonMateria("Fat Chocobo Materia")] FatChocobo,
+        [SummonMateria("Carbuncle Materia")] Carbuncle,
+        [SummonMateria("Cactuar Materia")] Cactuar,
+        [SummonMateria("Chocobo Chick Materia")] ChocoboChick,
     }
 }
