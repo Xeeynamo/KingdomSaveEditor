@@ -6,12 +6,13 @@ This is the repository for a Windows application that allows to modify decrypted
 
 The project offers a code library to help to create complex editors of scripts of any kind and on any operating system, plus a "in-house" editor compatible with Windows 7 or above (the only minimum requirement is .Net Framework 4.7.2 Rumtime). Not all the games are supported by the library and not all the library implementations has their editor. Yet.
 
-| Game                   | Support     |
-|------------------------| ------------|
-| Kingdom Hearts Re: CoM | PS2/PS4     |
-| Kingdom Hearts II      | PS2/PS3/PS4 |
-| Kingdom Hearts 0.2     | PS4         |
-| Kingdom Hearts III     | PS4         |
+| Game                     | Support     |
+|--------------------------| ------------|
+| Kingdom Hearts Re: CoM   | PS2/PS4     |
+| Kingdom Hearts II        | PS2/PS3/PS4 |
+| Kingdom Hearts 0.2       | PS4         |
+| Kingdom Hearts III       | PS4         |
+| Final Fantasy VII Remake | PS4         |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
