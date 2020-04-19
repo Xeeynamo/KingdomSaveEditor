@@ -25,8 +25,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <common:TwoEqualColumnsStackPanel>
-            <TextBlock Text="Character equip"/>
+        <common:TwoEqualColumnsStackPanel Margin="0 0 0 5">
+            <TextBlock Text="Equipped by"/>
             <ComboBox
                 ItemsSource="{Binding CharacterType}"
                 SelectedValue="{Binding Character}"
@@ -39,5 +39,7 @@
             <TextBlock Text="Level"/>
             <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
         </common:TwoEqualColumnsStackPanel>
+
+        <TextBlock Text="{Binding Index, StringFormat=Materia index: {0}}"/>
     </StackPanel>
 </UserControl>

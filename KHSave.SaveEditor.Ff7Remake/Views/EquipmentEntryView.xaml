@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.EquipmentEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="250">
+    <StackPanel>
+        <TextBlock Text="Character"/>
+        <ComboBox
+            Margin="0 0 0 5"
+            ItemsSource="{Binding CharacterType, Mode=OneTime}"
+            SelectedValue="{Binding Character}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <TextBlock Text="Item type"/>
+        <ComboBox
+            Margin="0 0 0 5"
+            ItemsSource="{Binding EquipmentType, Mode=OneTime}"
+            SelectedValue="{Binding Type}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Text="Materia equipped"/>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot1}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot2}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot3}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot4}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot5}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot6}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot7}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox
+            ItemsSource="{Binding Materia}"
+            SelectedValue="{Binding MateriaSlot8}"
+            SelectedValuePath="Index">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

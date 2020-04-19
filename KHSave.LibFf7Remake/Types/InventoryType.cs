@@ -22,6 +22,7 @@ namespace KHSave.LibFf7Remake.Types
 {
     public enum InventoryType
     {
+        [Info("Disabled")] Disabled = -1,
         [Info("Emtpy")] Empty = 0,
         [Consumable("Potion")] Potion = 1,
         [Consumable("Hi-Potion")] HiPotion,
@@ -104,6 +105,36 @@ namespace KHSave.LibFf7Remake.Types
         [KeyItem("Fake Calling Card")] FakeCallingCard,
         [KeyItem("Corneo Vault Note")] CorneoVaultNote,
 
+        [WeaponCloud("Buster Sword")] BusterSword = 1001,
+        [WeaponCloud("Iron Blade")] IronBlade,
+        [WeaponCloud("Hardedge")] Hardedge,
+        [WeaponCloud("Mythril Saber")] MythrilSaber,
+        [WeaponCloud("Twin Stinger")] TwinStinger,
+        [WeaponCloud("Nail Bat")] NailBat,
+
+        [WeaponBarret("Gatilg Gun")] GatilgGun = 2001,
+        [WeaponBarret("Light Machine Gun")] LightMachineGun,
+        [WeaponBarret("Steel Pincers")] SteelPincers,
+        [WeaponBarret] BarretWeapon2004,
+        [WeaponBarret("EKG Cannon")] EkgCannon,
+        [WeaponBarret] BarretWeapon2006,
+        // TODO: Big Bertha, Wrecking Ball
+
+        [WeaponTifa("Leather Gloves")] LeatherGloves = 3001,
+        [WeaponTifa("Metal Knuckles")] MetalKnuckles,
+        [WeaponTifa("Feathered Gloves")] FeatheredGloves,
+        [WeaponTifa("Mythril Claws")] MythrilClaws,
+        [WeaponTifa("Purple Pain")] PurplePain,
+        [WeaponTifa("Sonic Strikers")] SonicStrikers,
+
+        [WeaponAerith("Guard Stick")] GuardStick = 4001,
+        [WeaponAerith("Silver Staff")] SilverStaff,
+        [WeaponAerith("Bladed Staff")] BladedStaff,
+        [WeaponAerith("Mythril Rod")] MythrilRod,
+        [WeaponAerith("Reinforced Staff")] ReinforcedStaff,
+        [WeaponAerith("Arcane Scepter")] ArcaneScepter,
+
+        [Weapon("Mythril Clip")] MythrilClip = 5001,
 
         [Armor("Bronze Bangle")] BronzeBangle = 9001,
         [Armor("Iron Bangle")] IronBangle,

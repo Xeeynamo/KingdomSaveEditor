@@ -56,5 +56,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public int MagicDefense { get => _character.MagicDefense; set => _character.MagicDefense = value; }
         public int Luck { get => _character.Luck; set => _character.Luck = value; }
         public int Unknown3c { get => _character.Unknown3c; set => _character.Unknown3c = value; }
+
+
     }
 }

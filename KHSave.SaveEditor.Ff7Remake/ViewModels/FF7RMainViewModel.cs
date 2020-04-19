@@ -30,6 +30,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public CharactersViewModel Characters { get; set; }
         public InventoryViewModel Inventory { get; set; }
         public MateriaViewModel Materia { get; set; }
+        public EquipmentsViewModel Equipments { get; set; }
         public ChaptersViewModel Chapters { get; set; }
         public DeveloperViewModel Developer { get; set; }
 
@@ -38,6 +39,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             Characters = new CharactersViewModel(Save);
             Inventory = new InventoryViewModel(Save);
             Materia = new MateriaViewModel(Save);
+            Equipments = new EquipmentsViewModel(Save, Materia);
             Chapters = new ChaptersViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
 
