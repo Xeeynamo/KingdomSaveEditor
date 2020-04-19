@@ -16,6 +16,9 @@
         <TabItem Header="Materia">
             <local:MateriaView DataContext="{Binding Materia}"/>
         </TabItem>
+        <TabItem Header="Chapters">
+            <local:ChaptersView DataContext="{Binding Chapters}"/>
+        </TabItem>
         <TabItem Header="Developer">
             <local:DeveloperView DataContext="{Binding Developer}"/>
         </TabItem>

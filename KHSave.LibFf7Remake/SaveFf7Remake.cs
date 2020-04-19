@@ -28,6 +28,7 @@ namespace KHSave.LibFf7Remake
 {
     public class SaveFf7Remake
     {
+        public const int ChapterCount = 18;
         public const int Cloud = 0;
         public const int Barret = 1;
         public const int Tifa = 2;
@@ -38,6 +39,7 @@ namespace KHSave.LibFf7Remake
         private SaveFf7Remake(List<Chunk> chunks)
         {
             Chunks = chunks.ToArray();
+            Chapters = new ChunkChapter[ChapterCount];
             ReimportChunks();
         }
 
@@ -55,6 +57,8 @@ namespace KHSave.LibFf7Remake
             }
 
             WriteChunk(_chunkCommon, 0, 0);
+            for (var i = 0; i < ChapterCount; i++)
+                WriteChunk(Chapters[i], 1, i);
 
             foreach (var chunk in Chunks)
                 chunk.Write(stream);
@@ -63,7 +67,6 @@ namespace KHSave.LibFf7Remake
         }
 
         private ChunkCommon _chunkCommon;
-        //private ChunkCommon _chunkMirror;
 
         public Chunk[] Chunks { get; private set; }
 
@@ -72,12 +75,19 @@ namespace KHSave.LibFf7Remake
         public Inventory[] Inventory { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
         public byte PlayableCharacter { get => _chunkCommon.PlayableCharacter; set => _chunkCommon.PlayableCharacter = value; }
         public byte CurrentChapter { get => _chunkCommon.CurrentChapter; set => _chunkCommon.CurrentChapter = value; }
-        //public Inventory[] InventoryMirror { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
+        public ChunkChapter[] Chapters { get; set; }
 
         public void ReimportChunks()
         {
             _chunkCommon = ReadChunk<ChunkCommon>(0, 0);
-            //_chunkMirror = ReadChunk<ChunkCommon>(2, 0);
+            for (var i = 0; i < ChapterCount; i++)
+            {
+                var chapter = ReadChunk<ChunkChapter>(1, i);
+                if (chapter == null)
+                    chapter = new ChunkChapter();
+
+                Chapters[i] = chapter;
+            }
         }
 
         private Chunk GetChunk(int type, int index)
@@ -98,6 +108,9 @@ namespace KHSave.LibFf7Remake
             where T : class
         {
             var chunk = GetChunk(type, index);
+            if (chunk.Content.RawData.Length == 0)
+                return default(T);
+
             using (var stream = new MemoryStream(chunk.Content.RawData))
                 return BinaryMapping.ReadObject<T>(stream);
         }
