@@ -8,8 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
     <common:TwoEqualColumnsStackPanel>
-        <TextBlock Text="Item ID"/>
-        <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Obtained"/>
+        <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
         <TextBlock Text="Count"/>
         <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
 

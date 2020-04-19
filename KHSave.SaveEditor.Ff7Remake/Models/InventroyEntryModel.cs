@@ -17,6 +17,7 @@
 */
 
 using KHSave.Attributes;
+using KHSave.Extensions;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
@@ -41,7 +42,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public string Name => InfoAttribute.GetInfo(Type);
         public ImageSource Icon => IconService.Icon(Type);
 
-        public uint Id { get => _inventory.UnixTimestamp; set => _inventory.UnixTimestamp = value; }
+        public string Timestamp => _inventory.UnixTimestamp.FromUnixEpoch().ToString();
         public int Unknown04 { get => _inventory.Unknown04; set => _inventory.Unknown04 = value; }
         public int Count { get => _inventory.Count; set => _inventory.Count = value; }
         public InventoryType Type
