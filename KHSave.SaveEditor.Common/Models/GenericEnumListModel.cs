@@ -1,6 +1,6 @@
 ﻿/*
-    Kingdom Hearts Save Editor
-    Copyright (C) 2019 Luciano Ciccariello
+    Kingdom Save Editor
+    Copyright (C) 2020 Luciano Ciccariello
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

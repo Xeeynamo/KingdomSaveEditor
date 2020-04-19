@@ -9,7 +9,7 @@ namespace KHSave.Tests.Saves.Archives
 {
     public class Ps4SaveArchiveTests
     {
-        private static readonly string ExpectedStrForFile1 = "Kingdom Hearts Save Editor, first file";
+        private static readonly string ExpectedStrForFile1 = "Kingdom Save Editor, first file";
         private static readonly string ExpectedStrForFile2 = "Second file";
         private static readonly string ExpectedStrForFile3 = "Third one";
 
