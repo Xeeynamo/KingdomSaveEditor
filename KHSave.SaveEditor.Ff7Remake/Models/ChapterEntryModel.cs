@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Chunks;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common.Models;
@@ -42,7 +43,16 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public Visibility ChapterVisibility => IsChapterEnabled ? Visibility.Visible : Visibility.Collapsed;
         public Visibility ChapterDisabledVisibility => !IsChapterEnabled ? Visibility.Visible : Visibility.Collapsed;
 
-        public string Name => $"Chapter {_index + 1}";
+        public string Name
+        {
+            get
+            {
+                if (_index == SaveFf7Remake.ChapterCount)
+                    return "Current?";
+
+                return $"Chapter {_index + 1}";
+            }
+        }
 
         public bool IsChapterInPlay { get => _chapter.IsChapterInPlay != 0; set => _chapter.IsChapterInPlay = (byte)(value ? 1 : 0); }
         public byte ChapterId { get => (byte)(_chapter.ChapterId + 1); set => _chapter.ChapterId = (byte)(value - 1); }

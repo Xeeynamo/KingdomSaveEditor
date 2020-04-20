@@ -39,7 +39,7 @@ namespace KHSave.LibFf7Remake
         private SaveFf7Remake(List<Chunk> chunks)
         {
             Chunks = chunks.ToArray();
-            Chapters = new ChunkChapter[ChapterCount];
+            Chapters = new ChunkChapter[ChapterCount + 1];
             ReimportChunks();
         }
 
@@ -59,6 +59,7 @@ namespace KHSave.LibFf7Remake
             WriteChunk(_chunkCommon, 0, 0);
             for (var i = 0; i < ChapterCount; i++)
                 WriteChunk(Chapters[i], 1, i);
+            WriteChunk(Chapters[ChapterCount], 3);
 
             foreach (var chunk in Chunks)
                 chunk.Write(stream);
@@ -89,13 +90,15 @@ namespace KHSave.LibFf7Remake
 
                 Chapters[i] = chapter;
             }
+
+            Chapters[ChapterCount] = ReadChunk<ChunkChapter>(3);
         }
 
-        private Chunk GetChunk(int type, int index)
+        private Chunk GetChunk(int type, int index = -1)
         {
             var chunk = Chunks.FirstOrDefault(x =>
                 x.Header.Unknown00 == type &&
-                x.Header.Unknown01 == index);
+                (index == -1 || x.Header.Unknown01 == index));
             if (chunk == null)
                 throw new ArgumentException($"Unable to find the chunk ({type}, {index}).");
 
@@ -105,7 +108,7 @@ namespace KHSave.LibFf7Remake
             return chunk;
         }
 
-        private T ReadChunk<T>(int type, int index)
+        private T ReadChunk<T>(int type, int index = -1)
             where T : class
         {
             var chunk = GetChunk(type, index);
@@ -116,7 +119,7 @@ namespace KHSave.LibFf7Remake
                 return BinaryMapping.ReadObject<T>(stream);
         }
 
-        private void WriteChunk<T>(T item, int type, int index)
+        private void WriteChunk<T>(T item, int type, int index = -1)
             where T : class
         {
             var chunk = GetChunk(type, index);
