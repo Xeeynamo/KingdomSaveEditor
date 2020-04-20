@@ -17,6 +17,7 @@
 */
 
 using KHSave.LibFf7Remake.Models;
+using KHSave.LibFf7Remake.Types;
 using System.Linq;
 using Xe.BinaryMapper;
 
@@ -26,13 +27,16 @@ namespace KHSave.LibFf7Remake.Chunks
     {
         [Data(Count = 0x660E8)] public byte[] Data { get; set; }
 
-        [Data(0, Count = 8)] public byte[] Characters { get; set; }
+        [Data(0)] public byte IsChapterInPlay { get; set; }
+        [Data(1)] public byte ChapterId { get; set; }
+        [Data(4, Count = 8)] public CharacterStatusType[] CharacterStatus { get; set; }
         [Data(0xC, Count = 0x10)] public Position[] Positions { get; set; }
+        [Data(0x1A2)] public ushort Bgm { get; set; }
 
         public ChunkChapter()
         {
             Data = new byte[0x660E8];
-            Characters = new byte[8];
+            CharacterStatus = new CharacterStatusType[8];
             Positions = Enumerable.Range(0, 0x10).Select(x => new Position()).ToArray();
         }
     }
