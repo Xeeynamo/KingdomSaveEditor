@@ -7,24 +7,49 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
-    <common:TwoEqualColumnsStackPanel>
-        <TextBlock Text="Obtained"/>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="22"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Item kind"/>
+            <ComboBox
+                Grid.Row="1" Grid.Column="0"
+                ItemsSource="{Binding ItemTypes}"
+                SelectedValue="{Binding Type}"
+                SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0 0 3 0" Width="16" Height="16"
+                                Source="{Binding Icon}"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Count"/>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <TextBlock Text="Date obtained"/>
         <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
-        <TextBlock Text="Count"/>
-        <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Text="04"/>
-        <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Type"/>
-        <ComboBox
-            ItemsSource="{Binding ItemTypes}"
-            SelectedValue="{Binding Type}"
-            DisplayMemberPath="Name"
-            SelectedValuePath="Value"/>
-        <TextBlock Text="10"/>
-        <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="14"/>
-        <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
-
-    </common:TwoEqualColumnsStackPanel>
+        <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
+            <TextBlock Text="Unknown 04"/>
+            <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 10"/>
+            <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 14"/>
+            <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
+        </common:TwoEqualColumnsStackPanel>
+    </StackPanel>
 </UserControl>

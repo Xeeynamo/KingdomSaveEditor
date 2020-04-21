@@ -50,6 +50,10 @@ namespace KHSave.SaveEditor.Common.Models
 			Func<TModel, bool> filter = null) :
 			base(valueGetter, valueSetter, x => x, enumNameGetter, filter)
 		{ }
+
+		public KhEnumListModel() :
+			this(() => default(TEnum), x => { })
+		{ }
 	}
 
 	public class KhEnumListModel<TEnum> : KhEnumListModel<GenericEntryModel<string, TEnum>, TEnum>

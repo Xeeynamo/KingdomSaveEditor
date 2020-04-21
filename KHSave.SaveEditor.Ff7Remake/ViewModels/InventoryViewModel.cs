@@ -28,13 +28,11 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 {
     public class InventoryViewModel : GenericListModel<InventroyEntryModel>
     {
-        private readonly SaveFf7Remake _save;
         private string searchTerm;
 
         public InventoryViewModel(SaveFf7Remake save) :
-            this(save.Inventory.OrderBy(x => (uint)x.Type).Select((x, i) => new InventroyEntryModel(save, i, x)))
+            this(save.Inventory.OrderBy(x => (uint)x.Type).Select(x => new InventroyEntryModel(x)))
         {
-            _save = save;
         }
 
         private InventoryViewModel(IEnumerable<InventroyEntryModel> list) :
