@@ -18,8 +18,8 @@
 
 using KHSave.LibFf7Remake;
 using KHSave.SaveEditor.Ff7Remake.Models;
+using System;
 using System.Linq;
-using System.Security.Policy;
 using System.Windows;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
@@ -29,20 +29,20 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     public class TeleportViewModel : BaseNotifyPropertyChanged
     {
         private readonly ChapterCharacterEntryModel _entry;
+        private int _selectedIndex;
 
-        public Url AddLocationRequestUrl => new Url(
+        public Uri AddLocationRequestUrl => new Uri(
             $"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-location&template=request-teleport-coordinates.md&title=FF7+Remake+new+location+request+" +
             $"({_entry.PosX},{_entry.PosY},{_entry.PosZ})");
 
-        public Url SourceCodeUrl = new Url("https://github.com/Xeeynamo/KH3SaveEditor/blob/master/KHSave.LibFf7Remake/Presets.cs");
-        private int _selectedIndex;
+        public Uri SourceCodeUrl => new Uri("https://github.com/Xeeynamo/KH3SaveEditor/blob/master/KHSave.LibFf7Remake/Presets.cs");
 
         public TeleportViewModel(ChapterCharacterEntryModel entry)
         {
             _entry = entry;
             OkCommand = new RelayCommand(_ =>
             {
-                if (SelectedIndex < 0 || Presets.TeleportLocations.Count >= 0)
+                if (SelectedIndex < 0 || SelectedIndex >= Presets.TeleportLocations.Count)
                     return;
 
                 var location = Presets.TeleportLocations[SelectedIndex];

@@ -25,14 +25,14 @@
             <TextBlock TextWrapping="Wrap">
                 You can 
                 <Hyperlink Foreground="{StaticResource textHyperlink}"
-                    NavigateUri="{Binding AddLocationRequestUrl}"
+                    NavigateUri="{Binding AddLocationRequestUrl, Mode=OneWay}"
                     RequestNavigate="Hyperlink_RequestNavigate"
                     TextDecorations="{x:Null}">
                     request to add your location location
                 </Hyperlink>
                   by specifying chapter location and coodinates, or you can 
                 <Hyperlink Foreground="{StaticResource textHyperlink}"
-                    NavigateUri="{Binding SourceCodeUrl}"
+                    NavigateUri="{Binding SourceCodeUrl, Mode=OneWay}"
                     RequestNavigate="Hyperlink_RequestNavigate"
                     TextDecorations="{x:Null}">
                     add them manually
