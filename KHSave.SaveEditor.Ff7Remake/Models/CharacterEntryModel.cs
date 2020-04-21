@@ -20,6 +20,9 @@ using KHSave.Attributes;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common;
+using System;
+using System.Windows;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
 {
@@ -27,12 +30,17 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
     {
         private readonly CharacterType _characterType;
         private readonly Character _character;
+        private readonly CharacterStats _characterStats;
 
         public CharacterEntryModel(SaveFf7Remake save, int index)
         {
             _characterType = (CharacterType)index;
             _character = save.Characters[index];
+            _characterStats = save.CharactersStats[index];
         }
+
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public string Name => InfoAttribute.GetInfo(_characterType);
         public bool IsUnused => _characterType >= CharacterType.Unused5;
@@ -41,7 +49,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public bool IsUnlocked { get => _character.IsUnlocked; set => _character.IsUnlocked = value; }
         public byte AtbBarCount { get => _character.AtbBarCount; set => _character.AtbBarCount = value; }
         public byte Speed { get => _character.Speed; set => _character.Speed = value; }
-        public int Unknown04 { get => _character.Unknown04; set => _character.Unknown04 = value; }
+        public int Limit { get => _character.Limit; set => _character.Limit = Math.Max(0, Math.Min(1000, value)); }
         public int Unknown08 { get => _character.Unknown08; set => _character.Unknown08 = value; }
         public int Unknown0c { get => _character.Unknown0c; set => _character.Unknown0c = value; }
         public int CurrentHp { get => _character.CurrentHp; set => _character.CurrentHp = value; }
@@ -57,6 +65,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public int Luck { get => _character.Luck; set => _character.Luck = value; }
         public int Unknown3c { get => _character.Unknown3c; set => _character.Unknown3c = value; }
 
-
+        public int Strength { get => _characterStats.Strength; set => _characterStats.Strength = value; }
+        public int Magic { get => _characterStats.Magic; set => _characterStats.Magic = value; }
+        public int Vitality { get => _characterStats.Vitality; set => _characterStats.Vitality = value; }
+        public int Spirit { get => _characterStats.Spirit; set => _characterStats.Spirit = value; }
     }
 }

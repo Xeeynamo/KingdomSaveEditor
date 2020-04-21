@@ -26,6 +26,7 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(Count = 0x00050008)] public byte[] Data { get; set; }
 
         [Data(8, Count = SaveFf7Remake.CharacterCount, Stride = 0x40)] public Character[] Characters { get; set; }
+        [Data(0x208, Count = SaveFf7Remake.CharacterCount, Stride = 0x10)] public CharacterStats[] CharactersStats { get; set; }
         [Data(0x1818, Count = 1000, Stride = 0x20)] public Materia[] Materia { get; set; }
         [Data(0x34DA8, Count = 0x800, Stride = 0x18)] public Inventory[] Inventory { get; set; }
         [Data(0x40DA8, Count = 0x80, Stride = 0x30)] public Equipment[] Equipments { get; set; }

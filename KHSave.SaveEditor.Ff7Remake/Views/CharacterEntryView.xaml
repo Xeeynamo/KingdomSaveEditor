@@ -6,49 +6,67 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
-    <common:TwoEqualColumnsStackPanel>
-        <TextBlock Text="Level"/>
-        <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Experience"/>
-        <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Current HP"/>
-        <TextBox Text="{Binding CurrentHp, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Maximum HP"/>
-        <TextBox Text="{Binding MaxHp, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Current MP"/>
-        <TextBox Text="{Binding CurrentMp, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Maximum MP"/>
-        <TextBox Text="{Binding MaxMp, UpdateSourceTrigger=PropertyChanged}"/>
+        <common:TwoEqualColumnsStackPanel Grid.Column="0">
+            <CheckBox Content="Enabled" IsChecked="{Binding IsUnlocked}"/>
+            <TextBox Text="" Visibility="Hidden"/>
+            <TextBlock Text=""/>
+            <TextBox Text="" Visibility="Hidden"/>
+            <TextBlock Text="Current HP"/>
+            <TextBox Text="{Binding CurrentHp, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Maximum HP"/>
+            <TextBox Text="{Binding MaxHp, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Attack"/>
+            <TextBox Text="{Binding Attack, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Magic attack"/>
+            <TextBox Text="{Binding MagicAttack, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Strength"/>
+            <TextBox Text="{Binding Strength, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Magic"/>
+            <TextBox Text="{Binding Magic, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Luck"/>
+            <TextBox Text="{Binding Luck, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Speed"/>
+            <TextBox Text="{Binding Speed, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Text="Attack"/>
-        <TextBox Text="{Binding Attack, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Magic attack"/>
-        <TextBox Text="{Binding MagicAttack, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Defense"/>
-        <TextBox Text="{Binding Defense, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Magic defense"/>
-        <TextBox Text="{Binding MagicDefense, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Luck"/>
-        <TextBox Text="{Binding Luck, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="ATB bar count"/>
-        <TextBox Text="{Binding AtbBarCount, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 08" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBlock Text="Unknown 0C" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding AdvancedVisibility}"/>
+        </common:TwoEqualColumnsStackPanel>
+        <common:TwoEqualColumnsStackPanel Grid.Column="2">
+            <TextBlock Grid.Row="0" Grid.Column="4" Text="Level"/>
+            <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="6" Text="Experience"/>
+            <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Current MP"/>
+            <TextBox Text="{Binding CurrentMp, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Maximum MP"/>
+            <TextBox Text="{Binding MaxMp, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Defense"/>
+            <TextBox Text="{Binding Defense, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Magic defense"/>
+            <TextBox Text="{Binding MagicDefense, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Vitality"/>
+            <TextBox Text="{Binding Vitality, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Spirit"/>
+            <TextBox Text="{Binding Spirit, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="ATB bar count"/>
+            <TextBox Text="{Binding AtbBarCount, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Limit bar"/>
+            <TextBox Text="{Binding Limit, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Text=""/>
-        <CheckBox Content="Is unlocked" IsChecked="{Binding IsUnlocked}"/>
-        <TextBlock Text="Speed"/>
-        <TextBox Text="{Binding Speed, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="14"/>
-        <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="04"/>
-        <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock Text="08"/>
-        <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="0c"/>
-        <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="3c"/>
-        <TextBox Text="{Binding Unknown3c, UpdateSourceTrigger=PropertyChanged}"/>
-    </common:TwoEqualColumnsStackPanel>
+            <TextBlock Text="Unknown 14" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBlock Text="Unknown 3C" Visibility="{Binding AdvancedVisibility}"/>
+            <TextBox Text="{Binding Unknown3c, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding AdvancedVisibility}"/>
+        </common:TwoEqualColumnsStackPanel>
+    </Grid>
 </UserControl>
