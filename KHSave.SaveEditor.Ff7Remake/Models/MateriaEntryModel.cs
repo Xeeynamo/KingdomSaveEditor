@@ -22,6 +22,7 @@ using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
+using System;
 using System.Windows.Media;
 using Xe.Tools;
 
@@ -56,9 +57,23 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             get => _materia.Type;
             set
             {
+                if (Type == InventoryType.Disabled ||
+                    Type == InventoryType.Empty)
+                {
+                    _materia.UnixTimestamp = DateTime.Now.ToUnixEpoch();
+                    OnPropertyChanged(nameof(Timestamp));
+                }
+
                 _materia.Type = value;
                 OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(Name));
+
+                if (Type == InventoryType.Disabled ||
+                    Type == InventoryType.Empty)
+                {
+                    _materia.UnixTimestamp = 0;
+                    OnPropertyChanged(nameof(Timestamp));
+                }
             }
         }
 
