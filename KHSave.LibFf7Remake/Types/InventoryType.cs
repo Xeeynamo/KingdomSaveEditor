@@ -115,10 +115,9 @@ namespace KHSave.LibFf7Remake.Types
         [WeaponBarret("Gatilg Gun")] GatilgGun = 2001,
         [WeaponBarret("Light Machine Gun")] LightMachineGun,
         [WeaponBarret("Steel Pincers")] SteelPincers,
-        [WeaponBarret] BarretWeapon2004,
+        [WeaponBarret("Big Bertha")] BigBertha,
         [WeaponBarret("EKG Cannon")] EkgCannon,
-        [WeaponBarret] BarretWeapon2006,
-        // TODO: Big Bertha, Wrecking Ball
+        [WeaponBarret("Wrecking Ball")] WreckingBall,
 
         [WeaponTifa("Leather Gloves")] LeatherGloves = 3001,
         [WeaponTifa("Metal Knuckles")] MetalKnuckles,
