@@ -29,23 +29,27 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 {
     public class CharacterEntryModel
     {
+        private readonly SaveFf7Remake _save;
         private readonly CharacterType _characterType;
         private readonly Character _character;
         private readonly CharacterStats _characterStats;
         private readonly CharacterEquipment _characterEquipment;
 
-        public CharacterEntryModel(SaveFf7Remake save, int index, EquipmentsViewModel weapons)
+        public CharacterEntryModel(SaveFf7Remake save, int index, EquipmentsViewModel weapons, MateriaViewModel materia)
         {
+            _save = save;
             _characterType = (CharacterType)index;
             _character = save.Characters[index];
             _characterStats = save.CharactersStats[index];
             _characterEquipment = save.CharactersEquipment[index];
             Weapons = weapons;
+            Materia = materia;
         }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public EquipmentsViewModel Weapons { get; }
+        public MateriaViewModel Materia { get; }
 
         public string Name => InfoAttribute.GetInfo(_characterType);
         public bool IsUnused => _characterType >= CharacterType.Unused5;
@@ -78,5 +82,6 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public int EquippedWeapon { get => _characterEquipment.Weapon; set => _characterEquipment.Weapon = value; }
         public int EquippedArmor { get => _characterEquipment.Armor; set => _characterEquipment.Armor = value; }
         public int EquippedAccessory { get => _characterEquipment.Accessory; set => _characterEquipment.Accessory = value; }
+        public int SummonMateria { get => _save.SummonMateria[(int)_characterType] + 1; set => _save.SummonMateria[(int)_characterType] = value - 1; }
     }
 }

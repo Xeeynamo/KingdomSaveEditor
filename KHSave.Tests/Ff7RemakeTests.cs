@@ -75,6 +75,8 @@ namespace KHSave.Tests
 			Assert.Equal(InventoryType.TwinStinger, (InventoryType)save.WeaponMateria[23].ItemId);
 			Assert.Equal(7, save.WeaponMateria[23].MateriaIndex[0]);
 
+			Assert.Equal(51, save.SummonMateria[SaveFf7Remake.Cloud]);
+
 			Assert.Equal(18, save.CurrentChapter);
 		}
 	}

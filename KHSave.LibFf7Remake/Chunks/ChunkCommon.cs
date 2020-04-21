@@ -34,5 +34,6 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(0x40F28, Count = 0x78, Stride = 0x30)] public MateriaEquipment[] WeaponMateria { get; set; }
         [Data(0x42F5C)] public byte PlayableCharacter { get; set; }
         [Data(0x42F5D)] public byte CurrentChapter { get; set; }
+        [Data(0x44EAC, Count = SaveFf7Remake.CharacterCount)] public int[] SummonMateria { get; set; }
     }
 }

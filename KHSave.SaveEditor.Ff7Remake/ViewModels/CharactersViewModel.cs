@@ -30,8 +30,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     {
         private readonly SaveFf7Remake _save;
 
-        public CharactersViewModel(SaveFf7Remake save, EquipmentsViewModel weapons) :
-            this(save.Characters.Select((_, i) => new CharacterEntryModel(save, i, weapons)))
+        public CharactersViewModel(SaveFf7Remake save, EquipmentsViewModel weapons, MateriaViewModel materia) :
+            this(save.Characters.Select((_, i) => new CharacterEntryModel(save, i, weapons, materia)))
         {
             _save = save;
         }

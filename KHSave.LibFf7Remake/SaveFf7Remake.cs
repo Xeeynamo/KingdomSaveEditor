@@ -86,6 +86,7 @@ namespace KHSave.LibFf7Remake
         public MateriaEquipment[] WeaponMateria { get => _chunkCommon.WeaponMateria; set => _chunkCommon.WeaponMateria = value; }
         public byte PlayableCharacter { get => _chunkCommon.PlayableCharacter; set => _chunkCommon.PlayableCharacter = value; }
         public byte CurrentChapter { get => _chunkCommon.CurrentChapter; set => _chunkCommon.CurrentChapter = value; }
+        public int[] SummonMateria { get => _chunkCommon.SummonMateria; set => _chunkCommon.SummonMateria = value; }
         public ChunkChapter[] Chapters { get; set; }
 
         public void ReimportChunks()
