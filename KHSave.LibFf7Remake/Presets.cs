@@ -22,9 +22,42 @@ namespace KHSave.LibFf7Remake
 {
     public class Presets
     {
-        public static Dictionary<uint, string> InventoryItems = new Dictionary<uint, string>
+        public class TeleportLocation
         {
-            [0x5E9214B2] = "Hi-Potion",
+            public int Chapter { get; }
+            public string Name { get; }
+            public float PositionX { get; }
+            public float PositionY { get; }
+            public float PositionZ { get; }
+
+            public TeleportLocation(int chapter, string name, float x, float y, float z)
+            {
+                Chapter = chapter;
+                Name = name;
+                PositionX = x;
+                PositionY = y;
+                PositionZ = z;
+            }
+            public TeleportLocation(int chapter, string name, double x, double y, double z)
+            {
+                Chapter = chapter;
+                Name = name;
+                PositionX = (float)x;
+                PositionY = (float)y;
+                PositionZ = (float)z;
+            }
+        }
+
+        public static List<TeleportLocation> TeleportLocations = new List<TeleportLocation>
+        {
+            new TeleportLocation(1, "Inside the train station", 5483.766, -8462.45, 6662.088),
+            new TeleportLocation(1, "End of Chapter 1", 14145, -10470, 5290),
+            new TeleportLocation(2, "Beginning of Chapter 2", -24580.36, -12204.58, -228.8734),
+            new TeleportLocation(2, "Nibhelim flashback pt.1", -21708.71, -1268.751, -80),
+            new TeleportLocation(2, "Nibhelim flashback pt.2", -18852.58, -3145.46, -39.16602),
+            new TeleportLocation(2, "Before meeting Aerith", -14485.03, -898.4921, -69.99866),
+            new TeleportLocation(2, "Before battling The Huntsman", 19275.55, 3117.768, -579.7065),
+            new TeleportLocation(2, "In the train", 8.310989, -10064.3, -5000),
         };
     }
 }

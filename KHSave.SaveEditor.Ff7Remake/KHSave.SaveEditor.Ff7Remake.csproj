@@ -11,4 +11,8 @@
     <ProjectReference Include="..\KHSave\KHSave.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>

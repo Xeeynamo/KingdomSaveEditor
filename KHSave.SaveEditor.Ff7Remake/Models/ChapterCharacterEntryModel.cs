@@ -41,8 +41,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             StatusTypes = new KhEnumListModel<CharacterStatusType>(() => default, x => { });
             TeleportCommand = new RelayCommand(_ =>
             {
-                MessageBox.Show("This feature has not been implemented yet",
-                    "Not implemented", MessageBoxButton.OK, MessageBoxImage.Warning);
+                new Views.TeleportWindow(this).ShowDialog();
             });
         }
 
@@ -59,11 +58,11 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public CharacterStatusType Status
         { get => _chapter.CharacterStatus[_characterIndex]; set => _chapter.CharacterStatus[_characterIndex] = value; }
 
-        public float PosX { get => Position.X; set { Position.X = value; OnPropertyChanged(nameof(TextCoordinates)); } }
-        public float PosY { get => Position.Y; set { Position.Y = value; OnPropertyChanged(nameof(TextCoordinates)); } }
-        public float PosZ { get => Position.Z; set { Position.Z = value; OnPropertyChanged(nameof(TextCoordinates)); } }
-        public float RotX { get => Rotation.X; set { Rotation.X = value; OnPropertyChanged(nameof(TextCoordinates)); } }
-        public float RotY { get => Rotation.Y; set { Rotation.Y = value; OnPropertyChanged(nameof(TextCoordinates)); } }
-        public float RotZ { get => Rotation.Z; set { Rotation.Z = value; OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float PosX { get => Position.X; set { Position.X = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float PosY { get => Position.Y; set { Position.Y = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float PosZ { get => Position.Z; set { Position.Z = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float RotX { get => Rotation.X; set { Rotation.X = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float RotY { get => Rotation.Y; set { Rotation.Y = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
+        public float RotZ { get => Rotation.Z; set { Rotation.Z = value; OnPropertyChanged(); OnPropertyChanged(nameof(TextCoordinates)); } }
     }
 }
