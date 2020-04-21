@@ -17,6 +17,7 @@
 */
 
 using KHSave.LibFf7Remake;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +31,13 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         private readonly SaveFf7Remake _save;
 
         public CharactersViewModel(SaveFf7Remake save) :
-            this(save.Characters.Select((x, i) => new CharacterEntryModel(save, i, x)))
+            this(save.Characters.Select((_, i) => new CharacterEntryModel(save, i)))
         {
             _save = save;
         }
 
         private CharactersViewModel(IEnumerable<CharacterEntryModel> list) :
-            base(list)
+            base(list.Where(x => Global.IsAdvancedMode || !x.IsUnused))
         { }
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;

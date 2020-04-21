@@ -25,7 +25,7 @@ namespace KHSave.LibFf7Remake.Models
         [Data] public byte Level { get; set; }
         [Data] public bool IsUnlocked { get; set; }
         [Data] public byte AtbBarCount { get; set; }
-        [Data] public byte Unknown03 { get; set; }
+        [Data] public byte Speed { get; set; }
         [Data] public int Unknown04 { get; set; }
         [Data] public int Unknown08 { get; set; }
         [Data] public int Unknown0c { get; set; }

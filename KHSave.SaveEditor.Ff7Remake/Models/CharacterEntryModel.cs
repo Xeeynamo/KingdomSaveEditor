@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
@@ -24,23 +25,22 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 {
     public class CharacterEntryModel
     {
-        private readonly SaveFf7Remake _save;
         private readonly CharacterType _characterType;
         private readonly Character _character;
 
-        public CharacterEntryModel(SaveFf7Remake save, int index, Character character)
+        public CharacterEntryModel(SaveFf7Remake save, int index)
         {
-            _save = save;
             _characterType = (CharacterType)index;
-            _character = character;
+            _character = save.Characters[index];
         }
 
-        public string Name => _characterType.ToString();
+        public string Name => InfoAttribute.GetInfo(_characterType);
+        public bool IsUnused => _characterType >= CharacterType.Unused5;
 
         public byte Level { get => _character.Level; set => _character.Level = value; }
         public bool IsUnlocked { get => _character.IsUnlocked; set => _character.IsUnlocked = value; }
         public byte AtbBarCount { get => _character.AtbBarCount; set => _character.AtbBarCount = value; }
-        public byte Unknown03 { get => _character.Unknown03; set => _character.Unknown03 = value; }
+        public byte Speed { get => _character.Speed; set => _character.Speed = value; }
         public int Unknown04 { get => _character.Unknown04; set => _character.Unknown04 = value; }
         public int Unknown08 { get => _character.Unknown08; set => _character.Unknown08 = value; }
         public int Unknown0c { get => _character.Unknown0c; set => _character.Unknown0c = value; }
