@@ -28,7 +28,9 @@ namespace KHSave.LibFf7Remake
 {
     public class SaveFf7Remake
     {
+        public const bool _EnableLastChapter = false;
         public const int ChapterCount = 18;
+        public const int CharacterCount = 8;
         public const int Cloud = 0;
         public const int Barret = 1;
         public const int Tifa = 2;
@@ -39,7 +41,10 @@ namespace KHSave.LibFf7Remake
         private SaveFf7Remake(List<Chunk> chunks)
         {
             Chunks = chunks.ToArray();
-            Chapters = new ChunkChapter[ChapterCount + 1];
+            if (_EnableLastChapter)
+                Chapters = new ChunkChapter[ChapterCount + 1];
+            else
+                Chapters = new ChunkChapter[ChapterCount];
             ReimportChunks();
         }
 
@@ -59,7 +64,8 @@ namespace KHSave.LibFf7Remake
             WriteChunk(_chunkCommon, 0, 0);
             for (var i = 0; i < ChapterCount; i++)
                 WriteChunk(Chapters[i], 1, i);
-            WriteChunk(Chapters[ChapterCount], 3);
+            if (_EnableLastChapter)
+                WriteChunk(Chapters[ChapterCount], 3);
 
             foreach (var chunk in Chunks)
                 chunk.Write(stream);
@@ -91,7 +97,8 @@ namespace KHSave.LibFf7Remake
                 Chapters[i] = chapter;
             }
 
-            Chapters[ChapterCount] = ReadChunk<ChunkChapter>(3);
+            if (_EnableLastChapter)
+                Chapters[ChapterCount] = ReadChunk<ChunkChapter>(3);
         }
 
         private Chunk GetChunk(int type, int index = -1)

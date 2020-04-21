@@ -19,6 +19,7 @@
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Chunks;
 using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using System.Linq;
 using System.Windows;
@@ -37,6 +38,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             CharacterStatusTypes = new KhEnumListModel<CharacterStatusType>(() => default, x => { });
         }
 
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public KhEnumListModel<CharacterStatusType> CharacterStatusTypes { get; }
 
         public bool IsChapterEnabled => !(_chapter.CharacterStatus?.All(x => x == 0) ?? true);
@@ -58,26 +61,17 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public byte ChapterId { get => (byte)(_chapter.ChapterId + 1); set => _chapter.ChapterId = (byte)(value - 1); }
         public ushort Bgm { get => _chapter.Bgm; set => _chapter.Bgm = value; }
 
-        public CharacterStatusType PartyMember0 { get => _chapter.CharacterStatus[0]; set => _chapter.CharacterStatus[0] = value; }
-        public CharacterStatusType PartyMember1 { get => _chapter.CharacterStatus[1]; set => _chapter.CharacterStatus[1] = value; }
-        public CharacterStatusType PartyMember2 { get => _chapter.CharacterStatus[2]; set => _chapter.CharacterStatus[2] = value; }
-        public CharacterStatusType PartyMember3 { get => _chapter.CharacterStatus[3]; set => _chapter.CharacterStatus[3] = value; }
-        public CharacterStatusType PartyMember4 { get => _chapter.CharacterStatus[4]; set => _chapter.CharacterStatus[4] = value; }
-        public CharacterStatusType PartyMember5 { get => _chapter.CharacterStatus[5]; set => _chapter.CharacterStatus[5] = value; }
-        public CharacterStatusType PartyMember6 { get => _chapter.CharacterStatus[6]; set => _chapter.CharacterStatus[6] = value; }
-        public CharacterStatusType PartyMember7 { get => _chapter.CharacterStatus[7]; set => _chapter.CharacterStatus[7] = value; }
-
-        public PositionModel Entity0 => new PositionModel(_chapter.Positions[0]);
-        public PositionModel Entity1 => new PositionModel(_chapter.Positions[1]);
-        public PositionModel Entity2 => new PositionModel(_chapter.Positions[2]);
-        public PositionModel Entity3 => new PositionModel(_chapter.Positions[3]);
-        public PositionModel Entity4 => new PositionModel(_chapter.Positions[4]);
-        public PositionModel Entity5 => new PositionModel(_chapter.Positions[5]);
-        public PositionModel Entity6 => new PositionModel(_chapter.Positions[6]);
-        public PositionModel Entity7 => new PositionModel(_chapter.Positions[7]);
-        public PositionModel Entity8 => new PositionModel(_chapter.Positions[8]);
-        public PositionModel Entity9 => new PositionModel(_chapter.Positions[9]);
-        public PositionModel Entity10 => new PositionModel(_chapter.Positions[10]);
-        public PositionModel Entity11 => new PositionModel(_chapter.Positions[11]);
+        public ChapterCharacterEntryModel Entity0 => new ChapterCharacterEntryModel(_chapter, 0);
+        public ChapterCharacterEntryModel Entity1 => new ChapterCharacterEntryModel(_chapter, 1);
+        public ChapterCharacterEntryModel Entity2 => new ChapterCharacterEntryModel(_chapter, 2);
+        public ChapterCharacterEntryModel Entity3 => new ChapterCharacterEntryModel(_chapter, 3);
+        public ChapterCharacterEntryModel Entity4 => new ChapterCharacterEntryModel(_chapter, 4);
+        public ChapterCharacterEntryModel Entity5 => new ChapterCharacterEntryModel(_chapter, 5);
+        public ChapterCharacterEntryModel Entity6 => new ChapterCharacterEntryModel(_chapter, 6);
+        public ChapterCharacterEntryModel Entity7 => new ChapterCharacterEntryModel(_chapter, 7);
+        public ChapterCharacterEntryModel Entity8 => new ChapterCharacterEntryModel(_chapter, 8);
+        public ChapterCharacterEntryModel Entity9 => new ChapterCharacterEntryModel(_chapter, 9);
+        public ChapterCharacterEntryModel Entity10 => new ChapterCharacterEntryModel(_chapter, 10);
+        public ChapterCharacterEntryModel Entity11 => new ChapterCharacterEntryModel(_chapter, 11);
     }
 }

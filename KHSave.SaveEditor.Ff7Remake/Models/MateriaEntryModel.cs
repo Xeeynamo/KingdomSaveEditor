@@ -63,7 +63,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         }
 
         public string Timestamp => _materia.UnixTimestamp.FromUnixEpoch().ToString();
-        public int AbilityPoint { get => _materia.AbilityPoint; set => _materia.AbilityPoint = value; }
+        public int AbilityPoint { get => _materia.AbilityPoint; set { _materia.AbilityPoint = value; OnPropertyChanged(); } }
         public byte Level { get => _materia.Level; set => _materia.Level = value; }
         public CharacterType Character { get => (CharacterType)_materia.Character; set => _materia.Character = (byte)value; }
         public int Index { get => _materia.Index; set => _materia.Index = value; }

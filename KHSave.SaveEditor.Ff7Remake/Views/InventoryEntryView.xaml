@@ -16,7 +16,11 @@
         <TextBlock Text="04"/>
         <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Type"/>
-        <TextBox Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox
+            ItemsSource="{Binding ItemTypes}"
+            SelectedValue="{Binding Type}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Value"/>
         <TextBlock Text="10"/>
         <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="14"/>

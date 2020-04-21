@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="300">
+             d:DesignHeight="900" d:DesignWidth="300">
     <StackPanel>
         <TextBlock
             Visibility="{Binding ChapterDisabledVisibility}"
@@ -22,66 +22,15 @@
                 <TextBox Text="{Binding Bgm, UpdateSourceTrigger=PropertyChanged}" Width="60" Margin="0 0 10 0"/>
             </StackPanel>
 
-            <TextBlock Text="Party modifier"/>
-            <Grid Margin="0 0 0 5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="3"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Cloud"/>
-                <ComboBox Grid.Row="1" Grid.Column="0"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember0}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Barret"/>
-                <ComboBox Grid.Row="1" Grid.Column="2"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember1}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="0" Grid.Column="4" Text="Tifa"/>
-                <ComboBox Grid.Row="1" Grid.Column="4"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember2}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="0" Grid.Column="6" Text="Aerith"/>
-                <ComboBox Grid.Row="1" Grid.Column="6"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember3}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Red XIII"/>
-                <ComboBox Grid.Row="4" Grid.Column="0"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember4}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="Unused"/>
-                <ComboBox Grid.Row="4" Grid.Column="2"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember5}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="3" Grid.Column="4" Text="Unused"/>
-                <ComboBox Grid.Row="4" Grid.Column="4"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember6}" SelectedValuePath="Value"/>
-                <TextBlock Grid.Row="3" Grid.Column="6" Text="Unused"/>
-                <ComboBox Grid.Row="4" Grid.Column="6"
-                    ItemsSource="{Binding CharacterStatusTypes}" SelectedValue="{Binding PartyMember7}" SelectedValuePath="Value"/>
-            </Grid>
-
-            <StackPanel Margin="0 0 0 5">
-                <TextBlock Text="Character position modifier"/>
-                <local:PositionView DataContext="{Binding Entity0}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity1}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity2}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity3}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity4}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity5}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity6}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity7}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity8}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity9}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity10}" Margin="0 0 0 5"/>
-                <local:PositionView DataContext="{Binding Entity11}" Margin="0 0 0 5"/>
-            </StackPanel>
+            <TextBlock Text="Character position modifier"/>
+            <local:PositionView DataContext="{Binding Entity0}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity1}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity2}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity3}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity4}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity5}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
+            <local:PositionView DataContext="{Binding Entity6}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
+            <local:PositionView DataContext="{Binding Entity7}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

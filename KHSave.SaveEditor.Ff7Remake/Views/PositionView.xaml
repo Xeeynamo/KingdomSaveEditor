@@ -5,24 +5,78 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="22" d:DesignWidth="300">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
+             d:DesignHeight="90" d:DesignWidth="300">
+    <StackPanel>
+        <Grid Visibility="{Binding SimpleVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="2*"/>
+                
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="2*"/>
+                
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="22"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="0 1 0 0 "/>
+            <ComboBox Grid.Column="2" ItemsSource="{Binding StatusTypes}"
+                SelectedValue="{Binding Status}" SelectedValuePath="Value"/>
+            <TextBlock Grid.Column="4" Text="{Binding TextCoordinates}"/>
+            <Button Grid.Column="6" Content="..." Command="{Binding TeleportCommand}"/>
+        </Grid>
+        <Grid Margin="0 0 0 3" Visibility="{Binding AdvancedVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="22"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="0 1 0 0 "/>
+            <ComboBox Grid.Column="2" ItemsSource="{Binding StatusTypes}"
+                SelectedValue="{Binding Status}" SelectedValuePath="Value"/>
+            <Button Grid.Column="4" Content="..." Command="{Binding TeleportCommand}"/>
+        </Grid>
+        <Grid Visibility="{Binding AdvancedVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+                
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
 
-        <TextBlock Grid.Column="0" Text="X" Margin="0 0 3 0"/>
-        <TextBlock Grid.Column="3" Text="Y" Margin="0 0 3 0"/>
-        <TextBlock Grid.Column="6" Text="Z" Margin="0 0 3 0"/>
-        <TextBox Grid.Column="1" Text="{Binding X}"/>
-        <TextBox Grid.Column="4" Text="{Binding Y}"/>
-        <TextBox Grid.Column="7" Text="{Binding Z}"/>
-    </Grid>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Position" Margin="0 0 3 0"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Rotation" Margin="0 0 3 0"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="X" Margin="0 0 3 0"/>
+            <TextBlock Grid.Row="0" Grid.Column="5" Text="Y" Margin="0 0 3 0"/>
+            <TextBlock Grid.Row="0" Grid.Column="8" Text="Z" Margin="0 0 3 0"/>
+            <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding PosX}"/>
+            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding PosY}"/>
+            <TextBox Grid.Row="0" Grid.Column="9" Text="{Binding PosZ}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="X" Margin="0 0 3 0"/>
+            <TextBlock Grid.Row="2" Grid.Column="5" Text="Y" Margin="0 0 3 0"/>
+            <TextBlock Grid.Row="2" Grid.Column="8" Text="Z" Margin="0 0 3 0"/>
+            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding RotX}"/>
+            <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding RotY}"/>
+            <TextBox Grid.Row="2" Grid.Column="9" Text="{Binding RotZ}"/>
+        </Grid>
+    </StackPanel>
 </UserControl>

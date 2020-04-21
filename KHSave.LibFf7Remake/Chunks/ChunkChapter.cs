@@ -25,19 +25,24 @@ namespace KHSave.LibFf7Remake.Chunks
 {
     public class ChunkChapter
     {
-        [Data(Count = 0x660E8)] public byte[] Data { get; set; }
+        private const int Length = 0x660E8;
+
+        [Data(Count = Length)] public byte[] Data { get; set; }
 
         [Data(0)] public byte IsChapterInPlay { get; set; }
         [Data(1)] public byte ChapterId { get; set; }
-        [Data(4, Count = 8)] public CharacterStatusType[] CharacterStatus { get; set; }
-        [Data(0xC, Count = 0x10)] public Position[] Positions { get; set; }
+        [Data(3)] public byte PlayableCharacter { get; set; }
+        [Data(4, Count = SaveFf7Remake.CharacterCount)] public CharacterStatusType[] CharacterStatus { get; set; }
+        [Data(0xC, Count = SaveFf7Remake.CharacterCount)] public Vector3f[] Positions { get; set; }
+        [Data(0x6C, Count = SaveFf7Remake.CharacterCount)] public Vector3f[] Rotations { get; set; }
         [Data(0x1A2)] public ushort Bgm { get; set; }
 
         public ChunkChapter()
         {
-            Data = new byte[0x660E8];
-            CharacterStatus = new CharacterStatusType[8];
-            Positions = Enumerable.Range(0, 0x10).Select(x => new Position()).ToArray();
+            Data = new byte[Length];
+            CharacterStatus = new CharacterStatusType[SaveFf7Remake.CharacterCount];
+            Positions = Enumerable.Range(0, SaveFf7Remake.CharacterCount).Select(x => new Vector3f()).ToArray();
+            Rotations = Enumerable.Range(0, SaveFf7Remake.CharacterCount).Select(x => new Vector3f()).ToArray();
         }
     }
 }

@@ -20,7 +20,7 @@ using Xe.BinaryMapper;
 
 namespace KHSave.LibFf7Remake.Models
 {
-    public class Position
+    public class Vector3f
     {
         [Data] public float X { get; set; }
         [Data] public float Y { get; set; }

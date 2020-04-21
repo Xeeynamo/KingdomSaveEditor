@@ -62,5 +62,9 @@ namespace KHSave.SaveEditor.Common.Models
 			Func<GenericEntryModel<string, TEnum>, bool> filter = null) :
 			base(valueGetter, valueSetter, enumNameGetter, filter)
 		{ }
+
+		public KhEnumListModel() :
+			this(() => default(TEnum), x => { })
+		{ }
 	}
 }

@@ -21,6 +21,7 @@ using KHSave.Extensions;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
 using System.Windows.Media;
 using Xe.Tools;
@@ -37,7 +38,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public InventroyEntryModel(SaveFf7Remake save, int index, Inventory inventory)
         {
             _inventory = inventory;
+            ItemTypes = new KhEnumListModel<InventoryType>();
         }
+
+        public KhEnumListModel<InventoryType> ItemTypes { get; }
 
         public string Name => InfoAttribute.GetInfo(Type);
         public ImageSource Icon => IconService.Icon(Type);
