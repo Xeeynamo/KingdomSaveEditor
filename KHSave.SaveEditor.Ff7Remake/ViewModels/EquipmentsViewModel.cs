@@ -17,7 +17,10 @@
 */
 
 using KHSave.LibFf7Remake;
+using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -28,19 +31,38 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     public class EquipmentsViewModel : GenericListModel<EquipmentEntryModel>
     {
         private readonly SaveFf7Remake _save;
+        private string searchTerm;
 
         public EquipmentsViewModel(SaveFf7Remake save, MateriaViewModel materiaVm) :
-            this(save.Equipments.Select((x, i) => new EquipmentEntryModel(save, x, materiaVm)))
+            this(save.Equipments.Select(x => new EquipmentEntryModel(x, materiaVm)))
         {
             _save = save;
         }
 
         private EquipmentsViewModel(IEnumerable<EquipmentEntryModel> list) :
-            base(list)
+            base(list.Where(x => Global.IsAdvancedMode || x.IsVisibleInSimpleMode))
         { }
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
         public Visibility EntryNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+
+        public string SearchTerm
+        {
+            get => searchTerm;
+            set
+            {
+                searchTerm = value;
+                Filter(items => SearchEngine.Filter(searchTerm, items, AdditionalFilter));
+            }
+        }
+
+        private bool AdditionalFilter(string searchTerm, EquipmentEntryModel obj)
+        {
+            if (obj.Name.IndexOf(searchTerm) >= 0)
+                return true;
+
+            return false;
+        }
 
         protected override void OnSelectedItem(EquipmentEntryModel item)
         {

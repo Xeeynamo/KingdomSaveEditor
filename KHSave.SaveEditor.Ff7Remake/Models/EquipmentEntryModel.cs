@@ -20,31 +20,35 @@ using KHSave.Attributes;
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.ViewModels;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Media;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
 {
-    public class EquipmentEntryModel : BaseNotifyPropertyChanged
+    public class EquipmentEntryModel : BaseNotifyPropertyChanged, SearchEngine.IName
     {
         private readonly Equipment _equipment;
         private readonly MateriaViewModel _materiaVm;
 
-        public EquipmentEntryModel(SaveFf7Remake save, Equipment equipment, MateriaViewModel vm)
+        public EquipmentEntryModel(Equipment equipment, MateriaViewModel vm)
         {
             _equipment = equipment;
             _materiaVm = vm;
             EquipmentType = new KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType>(() => Type, x => Type = x);
-            CharacterType = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
+            CharacterTypes = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
         }
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> EquipmentType { get; }
-        public KhEnumListModel<CharacterType> CharacterType { get; }
+        public KhEnumListModel<CharacterType> CharacterTypes { get; }
         public ObservableCollection<MateriaEntryModel> Materia => _materiaVm.Items;
 
         public string Name
@@ -72,6 +76,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 return IconService.Icon(Type);
             }
         }
+
+        public bool IsVisibleInSimpleMode => _equipment.Unknown00 == (int)CharacterType.Unequip;
 
         public ImageSource MateriaIcon1 => GetMateriaIcon(0);
         public ImageSource MateriaIcon2 => GetMateriaIcon(1);

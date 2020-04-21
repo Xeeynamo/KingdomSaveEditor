@@ -10,7 +10,8 @@
         <TextBlock Text="Character"/>
         <ComboBox
             Margin="0 0 0 5"
-            ItemsSource="{Binding CharacterType, Mode=OneTime}"
+            Visibility="{Binding AdvancedVisibility}"
+            ItemsSource="{Binding CharacterTypes, Mode=OneTime}"
             SelectedValue="{Binding Character}"
             SelectedValuePath="Value">
             <ComboBox.ItemTemplate>
@@ -121,6 +122,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <ComboBox
+            Visibility="{Binding AdvancedVisibility}"
             ItemsSource="{Binding Materia}"
             SelectedValue="{Binding MateriaSlot7}"
             SelectedValuePath="Index">
@@ -134,6 +136,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <ComboBox
+            Visibility="{Binding AdvancedVisibility}"
             ItemsSource="{Binding Materia}"
             SelectedValue="{Binding MateriaSlot8}"
             SelectedValuePath="Index">

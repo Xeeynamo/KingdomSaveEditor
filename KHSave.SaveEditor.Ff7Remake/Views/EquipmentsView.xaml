@@ -25,11 +25,6 @@
                 SelectedIndex="{Binding SelectedIndex}"
                 SelectedItem="{Binding SelectedItem}"
                 HorizontalContentAlignment="Stretch">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="IsSelected" Value="{Binding IsSelected}" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

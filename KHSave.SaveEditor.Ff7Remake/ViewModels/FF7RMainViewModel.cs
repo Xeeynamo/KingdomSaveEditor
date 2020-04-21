@@ -46,6 +46,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Materia));
+            OnPropertyChanged(nameof(Equipments));
             OnPropertyChanged(nameof(Chapters));
             OnPropertyChanged(nameof(Developer));
         }
