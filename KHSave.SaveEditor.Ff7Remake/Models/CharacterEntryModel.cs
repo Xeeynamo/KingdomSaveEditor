@@ -21,6 +21,7 @@ using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Ff7Remake.ViewModels;
 using System;
 using System.Windows;
 
@@ -31,16 +32,20 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         private readonly CharacterType _characterType;
         private readonly Character _character;
         private readonly CharacterStats _characterStats;
+        private readonly CharacterEquipment _characterEquipment;
 
-        public CharacterEntryModel(SaveFf7Remake save, int index)
+        public CharacterEntryModel(SaveFf7Remake save, int index, EquipmentsViewModel weapons)
         {
             _characterType = (CharacterType)index;
             _character = save.Characters[index];
             _characterStats = save.CharactersStats[index];
+            _characterEquipment = save.CharactersEquipment[index];
+            Weapons = weapons;
         }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public EquipmentsViewModel Weapons { get; }
 
         public string Name => InfoAttribute.GetInfo(_characterType);
         public bool IsUnused => _characterType >= CharacterType.Unused5;
@@ -69,5 +74,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public int Magic { get => _characterStats.Magic; set => _characterStats.Magic = value; }
         public int Vitality { get => _characterStats.Vitality; set => _characterStats.Vitality = value; }
         public int Spirit { get => _characterStats.Spirit; set => _characterStats.Spirit = value; }
+
+        public int EquippedWeapon { get => _characterEquipment.Weapon; set => _characterEquipment.Weapon = value; }
+        public int EquippedArmor { get => _characterEquipment.Armor; set => _characterEquipment.Armor = value; }
+        public int EquippedAccessory { get => _characterEquipment.Accessory; set => _characterEquipment.Accessory = value; }
     }
 }

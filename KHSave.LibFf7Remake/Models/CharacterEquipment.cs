@@ -16,18 +16,19 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.LibFf7Remake.Types;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibFf7Remake.Models
 {
-    public class Inventory
+    public class CharacterEquipment
     {
-        [Data] public uint UnixTimestamp { get; set; }
-        [Data] public int Unknown04 { get; set; }
-        [Data] public InventoryType Type { get; set; }
-        [Data] public int Count { get; set; }
-        [Data] public int Unknown10 { get; set; }
-        [Data] public int Unknown14 { get; set; }
+        [Data] public int Weapon { get; set; }
+        [Data] public int Armor { get; set; }
+        [Data] public int Accessory { get; set; }
+        [Data] public int Unused0c { get; set; }
+        [Data] public int Unused10 { get; set; }
+        [Data] public int Unused14 { get; set; }
+        [Data] public int Unused18 { get; set; }
+        [Data] public int Unused1c { get; set; }
     }
 }

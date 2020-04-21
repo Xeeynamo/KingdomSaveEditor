@@ -34,10 +34,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 {
     public class EquipmentEntryModel : BaseNotifyPropertyChanged, SearchEngine.IName
     {
-        private readonly Equipment _equipment;
+        private readonly MateriaEquipment _equipment;
         private readonly MateriaViewModel _materiaVm;
 
-        public EquipmentEntryModel(Equipment equipment, MateriaViewModel vm)
+        public EquipmentEntryModel(MateriaEquipment equipment, MateriaViewModel vm)
         {
             _equipment = equipment;
             _materiaVm = vm;
@@ -77,8 +77,6 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             }
         }
 
-        public bool IsVisibleInSimpleMode => _equipment.Unknown00 == (int)CharacterType.Unequip;
-
         public ImageSource MateriaIcon1 => GetMateriaIcon(0);
         public ImageSource MateriaIcon2 => GetMateriaIcon(1);
         public ImageSource MateriaIcon3 => GetMateriaIcon(2);
@@ -90,10 +88,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
         public CharacterType Character
         {
-            get => (CharacterType)_equipment.Unknown00;
+            get => (CharacterType)_equipment.Character;
             set
             {
-                _equipment.Unknown00 = (byte)value;
+                _equipment.Character = (byte)value;
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(Icon));
             }

@@ -55,7 +55,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public int Count { get => _inventory.Count; set => _inventory.Count = value; }
         public InventoryType Type
         {
-            get => (InventoryType)_inventory.Type;
+            get => _inventory.Type;
             set
             {
                 if (Type == InventoryType.Disabled ||
@@ -65,7 +65,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                     OnPropertyChanged(nameof(Timestamp));
                 }
 
-                _inventory.Type = (int)value;
+                _inventory.Type = value;
                 OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(Name));
 

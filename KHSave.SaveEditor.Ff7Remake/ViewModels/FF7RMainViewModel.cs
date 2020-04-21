@@ -36,10 +36,10 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public void RefreshUi()
         {
-            Characters = new CharactersViewModel(Save);
+            Equipments = new EquipmentsViewModel(Save, Materia);
+            Characters = new CharactersViewModel(Save, Equipments);
             Inventory = new InventoryViewModel(Save);
             Materia = new MateriaViewModel(Save);
-            Equipments = new EquipmentsViewModel(Save, Materia);
             Chapters = new ChaptersViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
 

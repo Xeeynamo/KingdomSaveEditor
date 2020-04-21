@@ -1,4 +1,5 @@
 ﻿using KHSave.LibFf7Remake;
+using KHSave.LibFf7Remake.Types;
 using System.IO;
 using Xunit;
 
@@ -48,6 +49,31 @@ namespace KHSave.Tests
 			Assert.Equal(5230, save.Characters[SaveFf7Remake.Tifa].MaxHp);
 			Assert.Equal(3265, save.Characters[SaveFf7Remake.Aerith].MaxHp);
 			Assert.Equal(3770, save.Characters[SaveFf7Remake.Red13].MaxHp);
+
+			Assert.Equal(51, save.CharactersStats[SaveFf7Remake.Cloud].Vitality);
+			Assert.Equal(68, save.CharactersStats[SaveFf7Remake.Barret].Magic);
+
+			Assert.Equal(23, save.CharactersEquipment[SaveFf7Remake.Cloud].Weapon);
+			Assert.Equal(4, save.CharactersEquipment[SaveFf7Remake.Red13].Weapon);
+			Assert.Equal(0, save.CharactersEquipment[SaveFf7Remake.Red13].Armor);
+			Assert.Equal(-1, save.CharactersEquipment[SaveFf7Remake.Red13].Accessory);
+
+			Assert.Equal(1200, save.Materia[0].AbilityPoint);
+			Assert.Equal(3, save.Materia[0].Level);
+			Assert.Equal(1, save.Materia[0].Index);
+			Assert.Equal(CharacterType.Cloud, (CharacterType)save.Materia[0].Character);
+			Assert.Equal(InventoryType.Fire, save.Materia[0].Type);
+
+			Assert.Equal(InventoryType.BronzeBangle, save.Inventory[0].Type);
+			Assert.Equal(3, save.Inventory[0].Count);
+
+			Assert.Equal(CharacterType.Cloud, (CharacterType)save.CharacterMateria[0].Character);
+			Assert.Equal(22, save.CharacterMateria[0].MateriaIndex[0]);
+
+			Assert.Equal(InventoryType.BusterSword, (InventoryType)save.WeaponMateria[0].ItemId);
+			Assert.Equal(-1, save.WeaponMateria[0].MateriaIndex[0]);
+			Assert.Equal(InventoryType.TwinStinger, (InventoryType)save.WeaponMateria[23].ItemId);
+			Assert.Equal(7, save.WeaponMateria[23].MateriaIndex[0]);
 
 			Assert.Equal(18, save.CurrentChapter);
 		}

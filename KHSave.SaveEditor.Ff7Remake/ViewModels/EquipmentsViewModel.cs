@@ -20,7 +20,6 @@ using KHSave.LibFf7Remake;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -34,13 +33,13 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         private string searchTerm;
 
         public EquipmentsViewModel(SaveFf7Remake save, MateriaViewModel materiaVm) :
-            this(save.Equipments.Select(x => new EquipmentEntryModel(x, materiaVm)))
+            this(save.WeaponMateria.Select(x => new EquipmentEntryModel(x, materiaVm)))
         {
             _save = save;
         }
 
         private EquipmentsViewModel(IEnumerable<EquipmentEntryModel> list) :
-            base(list.Where(x => Global.IsAdvancedMode || x.IsVisibleInSimpleMode))
+            base(list)
         { }
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;

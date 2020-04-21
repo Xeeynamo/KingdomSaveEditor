@@ -20,12 +20,9 @@ using Xe.BinaryMapper;
 
 namespace KHSave.LibFf7Remake.Models
 {
-    public class Equipment
+    public class MateriaEquipment
     {
-        [Data] public byte Unknown00 { get; set; }
-        [Data] public byte Unknown01 { get; set; }
-        [Data] public byte Unknown02 { get; set; }
-        [Data] public byte Unknown03 { get; set; }
+        [Data] public int Character { get; set; }
         [Data] public int ItemId { get; set; }
         [Data] public int Unknown08 { get; set; }
         [Data] public int Unknown0c { get; set; }
