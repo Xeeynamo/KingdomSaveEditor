@@ -7,6 +7,11 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="textForeground" Color="#F1F1F1" />
+        <SolidColorBrush x:Key="textHyperlink" Color="#569CD6" />
+        <Thickness x:Key="labelMargin" Left="10" Top="0" Right="0" Bottom="3" />
+    </UserControl.Resources>
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -36,14 +41,16 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="Count"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Amount"/>
             <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
         <TextBlock Text="Date obtained"/>
         <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
 
-        <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
+        <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}" Margin="0 0 0 10">
+            <TextBlock Text="Item kind ID"/>
+            <TextBox Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Unknown 04"/>
             <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Unknown 10"/>
@@ -51,5 +58,24 @@
             <TextBlock Text="Unknown 14"/>
             <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
         </common:TwoEqualColumnsStackPanel>
+
+        <StackPanel Visibility="{Binding NameRequestVisibility}">
+            <TextBlock TextWrapping="Wrap">
+                This item have "Item kind" selection is empty and it is represented by a number.
+                It means that the save editor do not know yet what item is it. If you can prove
+                its name, you can
+                <Hyperlink Foreground="{StaticResource textHyperlink}"
+                    NavigateUri="{Binding AddItemRequestUrl, Mode=OneWay}"
+                    RequestNavigate="Hyperlink_RequestNavigate"
+                    TextDecorations="{x:Null}">
+                request to add the item
+                </Hyperlink>.
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap">
+                To prove the item name, you can set a specific amount and see if in-game the value is
+                there, or you set the amount of all your inventory to 0 but this item. The in-game
+                inventory should be empty and the only item is the one you were searching for.
+            </TextBlock>
+        </StackPanel>
     </StackPanel>
 </UserControl>

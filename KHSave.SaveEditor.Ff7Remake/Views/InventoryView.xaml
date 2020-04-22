@@ -5,13 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
+             d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -67,7 +66,7 @@
         <Grid
             Grid.Column="2" Margin="0 0 10 0" 
             Visibility="{Binding EntryVisible}">
-            <ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <local:InventoryEntryView DataContext="{Binding SelectedItem}"/>
             </ScrollViewer>
         </Grid>

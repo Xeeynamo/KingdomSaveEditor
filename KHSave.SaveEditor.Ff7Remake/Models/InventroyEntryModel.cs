@@ -18,13 +18,13 @@
 
 using KHSave.Attributes;
 using KHSave.Extensions;
-using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using Xe.Tools;
@@ -46,10 +46,15 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Uri AddItemRequestUrl =>
+            new Uri($"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-item&template=ff7r-missing-item-name-request.md&title=FF7R+Missing+item+name+request+(Item%20ID%20{ItemId})");
         public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> ItemTypes { get; }
 
         public string Name => InfoAttribute.GetInfo(Type);
         public ImageSource Icon => IconService.Icon(Type);
+
+        public bool IsNameImplemented => !(Name?.All(x => char.IsNumber(x)) ?? true);
+        public Visibility NameRequestVisibility => IsNameImplemented ? Visibility.Collapsed : Visibility.Visible;
 
         public string Timestamp => _inventory.UnixTimestamp.FromUnixEpoch().ToString();
         public int Count { get => _inventory.Count; set { _inventory.Count = value; OnPropertyChanged(); } }
@@ -75,8 +80,11 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                     _inventory.UnixTimestamp = 0;
                     OnPropertyChanged(nameof(Timestamp));
                 }
+
+                OnPropertyChanged(nameof(Type));
             }
         }
+        public int ItemId { get => (int)Type; set => Type = (InventoryType)value; }
 
         public int Unknown04 { get => _inventory.Unknown04; set => _inventory.Unknown04 = value; }
         public int Unknown10 { get => _inventory.Unknown10; set => _inventory.Unknown10 = value; }
