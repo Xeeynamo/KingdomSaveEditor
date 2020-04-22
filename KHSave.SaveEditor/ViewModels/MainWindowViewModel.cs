@@ -161,7 +161,8 @@ namespace KHSave.SaveEditor.ViewModels
 					"Sonicshadowsilver2, for story flags and records offsets",
                     "13th Vessel for the complete story flag list",
                     "TALESIOFIFREAK, for the ability list and DLC inventory",
-                    "SilverCam , for the gummiship inventory items",
+                    "SilverCam, for the gummiship inventory items",
+                    "Luseu, to have provided the majority of FF7R offsets",
 				}).Select(name => $" - {name}")
 				.ToList());
 
