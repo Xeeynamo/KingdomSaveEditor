@@ -7,17 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <TabControl>
-        <TabItem Header="Characters">
-            <local:CharactersView DataContext="{Binding Characters}"/>
+        <TabItem Header="Materia">
+            <local:MateriaView DataContext="{Binding Materia}"/>
         </TabItem>
         <TabItem Header="Inventory">
             <local:InventoryView DataContext="{Binding Inventory}"/>
         </TabItem>
-        <TabItem Header="Materia">
-            <local:MateriaView DataContext="{Binding Materia}"/>
-        </TabItem>
         <TabItem Header="Equipments">
             <local:EquipmentsView DataContext="{Binding Equipments}"/>
+        </TabItem>
+        <TabItem Header="Characters">
+            <local:CharactersView DataContext="{Binding Characters}"/>
         </TabItem>
         <TabItem Header="Chapters">
             <local:ChaptersView DataContext="{Binding Chapters}"/>
