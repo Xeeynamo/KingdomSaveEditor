@@ -1,7 +1,7 @@
 ---
-name: Request teleport coordinates
+name: FF7 Remake new location request
 about: Used when a user wants to add a specific location with coordinates
-title: FF7 Remake new location request
+title: Request teleport coordinates
 labels: ff7r-location
 assignees: Xeeynamo
 
