@@ -52,7 +52,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public ImageSource Icon => IconService.Icon(Type);
 
         public string Timestamp => _inventory.UnixTimestamp.FromUnixEpoch().ToString();
-        public int Count { get => _inventory.Count; set => _inventory.Count = value; }
+        public int Count { get => _inventory.Count; set { _inventory.Count = value; OnPropertyChanged(); } }
         public InventoryType Type
         {
             get => _inventory.Type;
