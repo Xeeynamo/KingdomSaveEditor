@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.Unknown2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Column="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"/>
+
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryNotVisible}">
+            <Label Content="Select an entry to view or edit"/>
+        </Grid>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryVisible}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <common:TwoEqualColumnsStackPanel>
+                    <TextBlock Text="Unknown 00"/>
+                    <TextBox Text="{Binding Unknown00}"/>
+
+                    <TextBlock Text="Unknown 01"/>
+                    <TextBox Text="{Binding Unknown01}"/>
+
+                    <TextBlock Text="Unknown 02"/>
+                    <TextBox Text="{Binding Unknown02}"/>
+
+                    <TextBlock Text="Unknown 03"/>
+                    <TextBox Text="{Binding Unknown03}"/>
+
+                    <TextBlock Text="Item"/>
+                    <ComboBox ItemsSource="{Binding ItemTypes}" SelectedValue="{Binding Item}" SelectedValuePath="Value"/>
+
+                    <TextBlock Text="Item ID (when Item is blank)"/>
+                    <TextBox Text="{Binding ItemId}"/>
+
+                    <TextBlock Text="Unknown 08"/>
+                    <TextBox Text="{Binding Unknown08}"/>
+
+                    <TextBlock Text="Unknown 0c"/>
+                    <TextBox Text="{Binding Unknown0c}"/>
+
+                    <TextBlock Text="Unknown 10"/>
+                    <TextBox Text="{Binding Unknown10}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

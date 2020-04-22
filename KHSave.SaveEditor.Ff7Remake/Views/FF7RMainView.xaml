@@ -25,6 +25,12 @@
         <TabItem Header="Developer" Visibility="{Binding AdvancedVisibility}">
             <local:DeveloperView DataContext="{Binding Developer}"/>
         </TabItem>
+        <TabItem Header="Unk1" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown1View DataContext="{Binding Unk1}"/>
+        </TabItem>
+        <TabItem Header="Unk2" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown2View DataContext="{Binding Unk2}"/>
+        </TabItem>
         <TabItem Header="Unk3" Visibility="{Binding AdvancedVisibility}">
             <local:Unknown3View DataContext="{Binding Unk3}"/>
         </TabItem>

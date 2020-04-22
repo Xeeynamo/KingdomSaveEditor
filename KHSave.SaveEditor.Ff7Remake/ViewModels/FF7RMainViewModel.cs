@@ -35,6 +35,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public EquipmentsViewModel Equipments { get; set; }
         public ChaptersViewModel Chapters { get; set; }
         public DeveloperViewModel Developer { get; set; }
+        public Unknown1ViewModel Unk1 { get; set; }
+        public Unknown2ViewModel Unk2 { get; set; }
         public Unknown3ViewModel Unk3 { get; set; }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
@@ -48,6 +50,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             Inventory = new InventoryViewModel(Save);
             Chapters = new ChaptersViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
+            Unk1 = new Unknown1ViewModel(Save);
+            Unk2 = new Unknown2ViewModel(Save);
             Unk3 = new Unknown3ViewModel(Save);
 
             OnPropertyChanged(nameof(SimpleVisibility));
@@ -58,6 +62,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             OnPropertyChanged(nameof(Equipments));
             OnPropertyChanged(nameof(Chapters));
             OnPropertyChanged(nameof(Developer));
+            OnPropertyChanged(nameof(Unk1));
+            OnPropertyChanged(nameof(Unk2));
             OnPropertyChanged(nameof(Unk3));
         }
 
