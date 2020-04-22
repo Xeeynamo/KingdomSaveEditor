@@ -10,7 +10,8 @@
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
         xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded">
+        Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded"
+        Drop="Window_Drop" AllowDrop="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

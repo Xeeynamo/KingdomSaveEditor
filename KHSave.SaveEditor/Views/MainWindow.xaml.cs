@@ -43,5 +43,17 @@ namespace KHSave.SaveEditor.Views
         {
             Task.Run(() => updater.AutomaticallyCheckLastVersionAsync());
         }
+
+        private void Window_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                var files = e.Data.GetData(DataFormats.FileDrop) as string[];
+                if (files?.Length > 0)
+                {
+                    context.Open(files[0]);
+                }
+            }
+        }
     }
 }
