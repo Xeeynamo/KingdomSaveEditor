@@ -1,6 +1,6 @@
 ﻿/*
-    Kingdom Hearts Save Editor
-    Copyright (C) 2019 Luciano Ciccariello
+    Kingdom Save Editor
+    Copyright (C) 2020 Luciano Ciccariello
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -50,6 +50,10 @@ namespace KHSave.SaveEditor.Common.Models
 			Func<TModel, bool> filter = null) :
 			base(valueGetter, valueSetter, x => x, enumNameGetter, filter)
 		{ }
+
+		public KhEnumListModel() :
+			this(() => default(TEnum), x => { })
+		{ }
 	}
 
 	public class KhEnumListModel<TEnum> : KhEnumListModel<GenericEntryModel<string, TEnum>, TEnum>
@@ -61,6 +65,10 @@ namespace KHSave.SaveEditor.Common.Models
 			Func<TEnum, string> enumNameGetter = null,
 			Func<GenericEntryModel<string, TEnum>, bool> filter = null) :
 			base(valueGetter, valueSetter, enumNameGetter, filter)
+		{ }
+
+		public KhEnumListModel() :
+			this(() => default(TEnum), x => { })
 		{ }
 	}
 }

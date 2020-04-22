@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.FF7RMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="300">
+    <TabControl>
+        <TabItem Header="Characters">
+            <local:CharactersView DataContext="{Binding Characters}"/>
+        </TabItem>
+        <TabItem Header="Inventory">
+            <local:InventoryView DataContext="{Binding Inventory}"/>
+        </TabItem>
+        <TabItem Header="Materia">
+            <local:MateriaView DataContext="{Binding Materia}"/>
+        </TabItem>
+        <TabItem Header="Equipments">
+            <local:EquipmentsView DataContext="{Binding Equipments}"/>
+        </TabItem>
+        <TabItem Header="Chapters">
+            <local:ChaptersView DataContext="{Binding Chapters}"/>
+        </TabItem>
+        <TabItem Header="Developer" Visibility="{Binding AdvancedVisibility}">
+            <local:DeveloperView DataContext="{Binding Developer}"/>
+        </TabItem>
+        <TabItem Header="Unk1" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown1View DataContext="{Binding Unk1}"/>
+        </TabItem>
+        <TabItem Header="Unk2" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown2View DataContext="{Binding Unk2}"/>
+        </TabItem>
+        <TabItem Header="Unk3" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown3View DataContext="{Binding Unk3}"/>
+        </TabItem>
+    </TabControl>
+</UserControl>

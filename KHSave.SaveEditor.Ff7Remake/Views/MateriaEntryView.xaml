@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.MateriaEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <StackPanel>
+        <TextBlock Text="Materia type"/>
+        <ComboBox
+            Margin="0 0 0 5"
+            ItemsSource="{Binding ItemType, Mode=OneTime}"
+            SelectedValue="{Binding ItemType.SelectedValue}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <common:TwoEqualColumnsStackPanel Margin="0 0 0 5">
+            <TextBlock Text="Equipped by"/>
+            <ComboBox
+                ItemsSource="{Binding CharacterType}"
+                SelectedValue="{Binding Character}"
+                SelectedValuePath="Value"/>
+            <TextBlock Text="Obtained"/>
+            <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
+
+            <TextBlock Text="Ability point (AP)"/>
+            <TextBox Text="{Binding AbilityPoint, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Level"/>
+            <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+        </common:TwoEqualColumnsStackPanel>
+
+        <TextBlock Text="{Binding Index, StringFormat=Materia index: {0}}"/>
+    </StackPanel>
+</UserControl>

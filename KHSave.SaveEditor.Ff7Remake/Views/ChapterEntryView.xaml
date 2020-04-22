@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.ChapterEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="300">
+    <StackPanel>
+        <TextBlock
+            Visibility="{Binding ChapterDisabledVisibility}"
+            Text="This chapter does not contain any data"/>
+        <StackPanel Visibility="{Binding ChapterVisibility}">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <CheckBox Content="Enabled" IsChecked="{Binding IsChapterInPlay}" Margin="0 0 10 0"/>
+                
+                <TextBlock Text="Chapter "/>
+                <TextBox Text="{Binding ChapterId, UpdateSourceTrigger=PropertyChanged}" Width="60" Margin="0 0 10 0"/>
+
+                <TextBlock Text="BGM "/>
+                <TextBox Text="{Binding Bgm, UpdateSourceTrigger=PropertyChanged}" Width="60" Margin="0 0 10 0"/>
+            </StackPanel>
+
+            <TextBlock Text="Character position modifier"/>
+            <local:PositionView DataContext="{Binding Entity0}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity1}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity2}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity3}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity4}" Margin="0 0 0 5"/>
+            <local:PositionView DataContext="{Binding Entity5}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
+            <local:PositionView DataContext="{Binding Entity6}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
+            <local:PositionView DataContext="{Binding Entity7}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

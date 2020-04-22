@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.InventoryEntryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="textForeground" Color="#F1F1F1" />
+        <SolidColorBrush x:Key="textHyperlink" Color="#569CD6" />
+        <Thickness x:Key="labelMargin" Left="10" Top="0" Right="0" Bottom="3" />
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="22"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Item kind"/>
+            <ComboBox
+                Grid.Row="1" Grid.Column="0"
+                ItemsSource="{Binding ItemTypes}"
+                SelectedValue="{Binding Type}"
+                SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0 0 3 0" Width="16" Height="16"
+                                Source="{Binding Icon}"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Amount"/>
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <TextBlock Text="Date obtained"/>
+        <TextBox Text="{Binding Timestamp, Mode=OneWay}" IsReadOnly="True"/>
+
+        <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}" Margin="0 0 0 10">
+            <TextBlock Text="Item kind ID"/>
+            <TextBox Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 04"/>
+            <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 10"/>
+            <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 14"/>
+            <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
+        </common:TwoEqualColumnsStackPanel>
+
+        <StackPanel Visibility="{Binding NameRequestVisibility}">
+            <TextBlock TextWrapping="Wrap">
+                This item have "Item kind" selection is empty and it is represented by a number.
+                It means that the save editor do not know yet what item is it. If you can prove
+                its name, you can
+                <Hyperlink Foreground="{StaticResource textHyperlink}"
+                    NavigateUri="{Binding AddItemRequestUrl, Mode=OneWay}"
+                    RequestNavigate="Hyperlink_RequestNavigate"
+                    TextDecorations="{x:Null}">
+                request to add the item
+                </Hyperlink>.
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap">
+                To prove the item name, you can set a specific amount and see if in-game the value is
+                there, or you set the amount of all your inventory to 0 but this item. The in-game
+                inventory should be empty and the only item is the one you were searching for.
+            </TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

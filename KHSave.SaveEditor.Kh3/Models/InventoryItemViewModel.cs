@@ -1,6 +1,6 @@
 /*
-    Kingdom Hearts Save Editor
-    Copyright (C) 2019 Luciano Ciccariello
+    Kingdom Save Editor
+    Copyright (C) 2020 Luciano Ciccariello
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,10 +21,13 @@ using KHSave.Attributes;
 using KHSave.Lib3.Models;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.Lib3.Types;
+using KHSave.SaveEditor.Common.Services;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {
-    public class InventoryItemViewModel : EnumIconTypeModel<InventoryType>
+    public class InventoryItemViewModel :
+        EnumIconTypeModel<InventoryType>,
+        SearchEngine.IName, SearchEngine.ICount
     {
         private readonly InventoryEntry inventoryEntry;
         private bool isSelected;

@@ -1,6 +1,6 @@
 ﻿/*
-    Kingdom Hearts Save Editor
-    Copyright (C) 2019 Luciano Ciccariello
+    Kingdom Save Editor
+    Copyright (C) 2020 Luciano Ciccariello
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ using Xe.Tools.Wpf.Models;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Kh3.Models;
 using System;
-using System.Collections.ObjectModel;
+using KHSave.SaveEditor.Common.Services;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
@@ -49,10 +49,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
             set
             {
                 searchTerm = value;
-                if (string.IsNullOrWhiteSpace(searchTerm))
-                    Filter();
-                else
-                    Filter(x => FilterInventoryAdvanced(value.Trim(), x));
+                Filter(items => SearchEngine.Filter(searchTerm, items, FilterByFlag));
             }
         }
 
@@ -197,62 +194,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         {
             foreach (var item in items)
                 setter(item, value);
-        }
-
-        private static bool FilterInventoryAdvanced(string value, InventoryItemViewModel x) =>
-            value
-            .Split(new char[] { ',', ';' })
-            .Any(subString => FilterInventory(subString, x));
-
-        private static bool FilterInventory(string value, InventoryItemViewModel x) =>
-            FilterByName(value, x) ||
-            FilterByCountWithOperator(value, x) ||
-            FilterByFlag(value, x);
-
-        private static bool FilterByName(string value, InventoryItemViewModel x)
-        {
-            return x.Name.IndexOf(value, StringComparison.InvariantCultureIgnoreCase) >= 0;
-        }
-
-        private static bool FilterByCountWithOperator(string value, InventoryItemViewModel x)
-        {
-            if (value.Length < 2)
-                return false;
-
-            var op = value[0];
-            string subValue = value.Substring(1).Trim();
-            if (op == '>')
-                return value.Length < 2 || FilterByCountGreater(subValue, x);
-            else if (op == '<')
-                return value.Length < 2 || FilterByCountLess(subValue, x);
-            else if (op == '=')
-                return value.Length < 2 || FilterByCount(subValue, x);
-
-            return false;
-        }
-
-        private static bool FilterByCount(string value, InventoryItemViewModel x)
-        {
-            if (!int.TryParse(value, out var count))
-                return false;
-
-            return x.Count == count;
-        }
-
-        private static bool FilterByCountGreater(string value, InventoryItemViewModel x)
-        {
-            if (!int.TryParse(value, out var count))
-                return false;
-
-            return x.Count > count;
-        }
-
-        private static bool FilterByCountLess(string value, InventoryItemViewModel x)
-        {
-            if (!int.TryParse(value, out var count))
-                return false;
-
-            return x.Count < count;
         }
 
         private static bool FilterByFlag(string value, InventoryItemViewModel x)

@@ -1,6 +1,6 @@
 ﻿/*
-    Kingdom Hearts Save Editor
-    Copyright (C) 2019 Luciano Ciccariello
+    Kingdom Save Editor
+    Copyright (C) 2020 Luciano Ciccariello
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,5 +23,33 @@ namespace KHSave.Attributes
 		public WeaponAttribute(string name = null) :
 			base(name)
 		{ }
-	}
+    }
+
+    public class WeaponCloudAttribute : WeaponAttribute
+    {
+        public WeaponCloudAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponBarretAttribute : WeaponAttribute
+    {
+        public WeaponBarretAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponTifaAttribute : WeaponAttribute
+    {
+        public WeaponTifaAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponAerithAttribute : WeaponAttribute
+    {
+        public WeaponAerithAttribute(string name = null) :
+            base(name)
+        { }
+    }
 }
