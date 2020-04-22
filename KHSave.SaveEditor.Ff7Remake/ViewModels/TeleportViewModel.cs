@@ -32,7 +32,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         private int _selectedIndex;
 
         public Uri AddLocationRequestUrl => new Uri(
-            $"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-location&template=request-teleport-coordinates.md&title=FF7+Remake+new+location+request+" +
+            $"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-location&template=ff7r-teleport-coordinates-request.md&title=FF7+Remake+new+location+request+" +
             $"({_entry.PosX},{_entry.PosY},{_entry.PosZ})");
 
         public Uri SourceCodeUrl => new Uri("https://github.com/Xeeynamo/KH3SaveEditor/blob/master/KHSave.LibFf7Remake/Presets.cs");
