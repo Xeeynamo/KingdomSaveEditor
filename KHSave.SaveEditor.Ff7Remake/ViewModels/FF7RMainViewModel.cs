@@ -17,8 +17,10 @@
 */
 
 using KHSave.LibFf7Remake;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Contracts;
 using System.IO;
+using System.Windows;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Ff7Remake.ViewModels
@@ -34,6 +36,9 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public ChaptersViewModel Chapters { get; set; }
         public DeveloperViewModel Developer { get; set; }
 
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+
         public void RefreshUi()
         {
             Equipments = new EquipmentsViewModel(Save, Materia);
@@ -43,6 +48,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             Chapters = new ChaptersViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
 
+            OnPropertyChanged(nameof(SimpleVisibility));
+            OnPropertyChanged(nameof(AdvancedVisibility));
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Materia));

@@ -22,7 +22,7 @@
         <TabItem Header="Chapters">
             <local:ChaptersView DataContext="{Binding Chapters}"/>
         </TabItem>
-        <TabItem Header="Developer">
+        <TabItem Header="Developer" Visibility="{Binding AdvancedVisibility}">
             <local:DeveloperView DataContext="{Binding Developer}"/>
         </TabItem>
     </TabControl>
