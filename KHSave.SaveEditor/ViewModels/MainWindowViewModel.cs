@@ -177,10 +177,9 @@ namespace KHSave.SaveEditor.ViewModels
 			}, x => true);
         }
 
-        public void TestOpen(string fileName)
+        public void Open(string fileName)
         {
-            using (var stream = File.OpenRead(fileName))
-                Open(stream);
+            fileDialogManager.InjectFileName(fileName, Open);
         }
 
         public void Open(Stream stream)

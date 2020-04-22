@@ -1,8 +1,8 @@
 ﻿namespace KHSave.SaveEditor.Interfaces
 {
-    public interface IApplicationDebug
+    public interface IApplicationStartup
     {
         bool IsDebugging { get; }
-        string TestFileName { get; }
+        string StartupFileName { get; }
     }
 }

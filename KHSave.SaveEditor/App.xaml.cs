@@ -1,8 +1,8 @@
 ﻿using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.Services;
-using KHSave.SaveEditor.ViewModels;
 using KHSave.SaveEditor.Views;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using Unity;
 
@@ -13,18 +13,25 @@ namespace KHSave.SaveEditor
 	/// </summary>
 	public partial class App : Application
 	{
-        private class ApplicationDebug : IApplicationDebug
+        private class ApplicationStartup : IApplicationStartup
         {
+            public ApplicationStartup(string[] args)
+            {
+                StartupFileName = args.FirstOrDefault();
+#if DEBUG
+                StartupFileName = StartupFileName ?? "../../../../KHSave.Tests/Saves/ff7remake007";
+#endif
+            }
+
 #if DEBUG
             public bool IsDebugging => Debugger.IsAttached;
 #else
             public bool IsDebugging => false;
 #endif
 
-            public string TestFileName =>
-                //"../../../../KHSave.Tests/Saves/BISLPM-66676COM-01";
-                "../../../../KHSave.Tests/Saves/ff7remake007";
+            public string StartupFileName { get; }
         }
+
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -33,7 +40,7 @@ namespace KHSave.SaveEditor
             IUnityContainer container = new UnityContainer()
                 .RegisterSingleton<IWindowManager, WindowManager>()
                 .RegisterSingleton<IFileDialogManager, FileDialogManager>()
-                .RegisterSingleton<IApplicationDebug, ApplicationDebug>()
+                .RegisterInstance<IApplicationStartup>(new ApplicationStartup(e.Args))
                 .RegisterSingleton<IAlertMessage, AlertMessage>()
                 .RegisterSingleton<IUpdater, UpdaterService>()
                 ;

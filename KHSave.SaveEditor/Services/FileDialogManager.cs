@@ -30,20 +30,23 @@ namespace KHSave.SaveEditor.Services
             _windowManager = windowManager;
         }
 
-        public void Open(Action<Stream> onSuccess) => FileDialog.OnOpen(fileName =>
+        public void InjectFileName(string fileName, Action<Stream> onSuccess)
+        {
+            IsFileOpen = true;
+            CurrentFileName = fileName;
+            using (var stream = File.OpenRead(fileName))
             {
-                using (var stream = File.OpenRead(fileName))
+                try { onSuccess(stream); }
+                catch
                 {
-                    IsFileOpen = true;
-                    CurrentFileName = fileName;
-                    try { onSuccess(stream); }
-                    catch
-                    {
-                        IsFileOpen = false;
-                        throw;
-                    }
+                    IsFileOpen = false;
+                    throw;
                 }
-            }, Filters);
+            }
+        }
+
+        public void Open(Action<Stream> onSuccess) =>
+            FileDialog.OnOpen(fileName => InjectFileName(fileName, onSuccess), Filters);
 
         public void Save(Action<Stream> onSuccess)
         {

@@ -18,7 +18,7 @@ namespace KHSave.SaveEditor.Views
 
         public MainWindow(
             IWindowManager windowManager,
-            IApplicationDebug applicationDebug,
+            IApplicationStartup applicationDebug,
             IUpdater updater,
             MainWindowViewModel vm)
 		{
@@ -33,8 +33,9 @@ namespace KHSave.SaveEditor.Views
             };
             context.SaveKind = ContentType.Unload;
 
-            if (applicationDebug.IsDebugging)
-                context.TestOpen(applicationDebug.TestFileName);
+            if (!string.IsNullOrEmpty(applicationDebug.StartupFileName))
+                context.Open(applicationDebug.StartupFileName);
+
             this.updater = updater;
         }
 
