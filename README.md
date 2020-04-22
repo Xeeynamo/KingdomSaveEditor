@@ -22,6 +22,15 @@ Here is a screenshot preview of how the editor in action looks like:
 
 ![demo](docs/demo1.png)
 
+## Features in Final Fantasy VII Remake editor
+
+* Add, modify or remove Materia
+* Add, modify or remove Inventory items
+* Add, change or remove materia installed into weapons
+* Character teleportation to different locations or Out of Bounds
+* Play as Red XIII
+* Advanced features to research un-discovered content in the save
+
 ## Features in Kingdom Hearts III editor
 
 * Tested support for the version 1.09 of Kingdom Hearts III
