@@ -25,5 +25,8 @@
         <TabItem Header="Developer" Visibility="{Binding AdvancedVisibility}">
             <local:DeveloperView DataContext="{Binding Developer}"/>
         </TabItem>
+        <TabItem Header="Unk3" Visibility="{Binding AdvancedVisibility}">
+            <local:Unknown3View DataContext="{Binding Unk3}"/>
+        </TabItem>
     </TabControl>
 </UserControl>

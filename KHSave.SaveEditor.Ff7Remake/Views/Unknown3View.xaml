@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.Unknown3View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Column="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"/>
+
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryNotVisible}">
+            <Label Content="Select an entry to view or edit"/>
+        </Grid>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryVisible}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <common:TwoEqualColumnsStackPanel>
+                    <TextBlock Text="Character I guess...?"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character}" SelectedValuePath="Value"/>
+
+                    <TextBlock Text="Unknown 01"/>
+                    <TextBox Text="{Binding Unknown01}"/>
+
+                    <TextBlock Text="Unknown 02"/>
+                    <TextBox Text="{Binding Unknown02}"/>
+
+                    <TextBlock Text="Unknown 03 (always 0?)"/>
+                    <TextBox Text="{Binding Unknown03}"/>
+
+                    <TextBlock Text="Unknown 04"/>
+                    <TextBox Text="{Binding Unknown04}"/>
+
+                    <TextBlock Text="Unknown 08"/>
+                    <TextBox Text="{Binding Unknown08}"/>
+
+                    <TextBlock Text="Unknown 0c"/>
+                    <TextBox Text="{Binding Unknown0c}"/>
+
+                    <TextBlock Text="Unknown 10"/>
+                    <TextBox Text="{Binding Unknown10}"/>
+
+                    <TextBlock Text="Character 1"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character1}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 2"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character2}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 3"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character3}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 4"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character4}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 5"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character5}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 6"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character6}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 7"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character7}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 8"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character8}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 9"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character9}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 10"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character10}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 11"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character11}" SelectedValuePath="Value"/>
+                    <TextBlock Text="Character 12"/>
+                    <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character12}" SelectedValuePath="Value"/>
+
+                    <TextBlock Text="Unknown 20 (always 0?)"/>
+                    <TextBox Text="{Binding Unknown20}"/>
+
+                    <TextBlock Text="Unknown 24 (always 0?)"/>
+                    <TextBox Text="{Binding Unknown24}"/>
+
+                    <TextBlock Text="Unknown 28 (always 0?)"/>
+                    <TextBox Text="{Binding Unknown28}"/>
+
+                    <TextBlock Text="Unknown 2c (always 0?)"/>
+                    <TextBox Text="{Binding Unknown2c}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

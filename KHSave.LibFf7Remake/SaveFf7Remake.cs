@@ -61,7 +61,7 @@ namespace KHSave.LibFf7Remake
                     Materia[i].IsObtained = 0;
             }
 
-            WriteChunk(_chunkCommon, 0, 0);
+            WriteChunk(ChunkCommon, 0, 0);
             for (var i = 0; i < ChapterCount; i++)
                 WriteChunk(Chapters[i], 1, i);
             if (_EnableLastChapter)
@@ -73,25 +73,25 @@ namespace KHSave.LibFf7Remake
             return this;
         }
 
-        private ChunkCommon _chunkCommon;
+        public ChunkCommon ChunkCommon { get; private set; }
 
         public Chunk[] Chunks { get; private set; }
 
-        public Character[] Characters { get => _chunkCommon.Characters; set => _chunkCommon.Characters = value; }
-        public CharacterStats[] CharactersStats { get => _chunkCommon.CharactersStats; set => _chunkCommon.CharactersStats = value; }
-        public CharacterEquipment[] CharactersEquipment { get => _chunkCommon.CharactersEquipment; set => _chunkCommon.CharactersEquipment = value; }
-        public Materia[] Materia { get => _chunkCommon.Materia; set => _chunkCommon.Materia = value; }
-        public Inventory[] Inventory { get => _chunkCommon.Inventory; set => _chunkCommon.Inventory = value; }
-        public MateriaEquipment[] CharacterMateria { get => _chunkCommon.CharacterMateria; set => _chunkCommon.CharacterMateria = value; }
-        public MateriaEquipment[] WeaponMateria { get => _chunkCommon.WeaponMateria; set => _chunkCommon.WeaponMateria = value; }
-        public byte PlayableCharacter { get => _chunkCommon.PlayableCharacter; set => _chunkCommon.PlayableCharacter = value; }
-        public byte CurrentChapter { get => _chunkCommon.CurrentChapter; set => _chunkCommon.CurrentChapter = value; }
-        public int[] SummonMateria { get => _chunkCommon.SummonMateria; set => _chunkCommon.SummonMateria = value; }
+        public Character[] Characters { get => ChunkCommon.Characters; set => ChunkCommon.Characters = value; }
+        public CharacterStats[] CharactersStats { get => ChunkCommon.CharactersStats; set => ChunkCommon.CharactersStats = value; }
+        public CharacterEquipment[] CharactersEquipment { get => ChunkCommon.CharactersEquipment; set => ChunkCommon.CharactersEquipment = value; }
+        public Materia[] Materia { get => ChunkCommon.Materia; set => ChunkCommon.Materia = value; }
+        public Inventory[] Inventory { get => ChunkCommon.Inventory; set => ChunkCommon.Inventory = value; }
+        public MateriaEquipment[] CharacterMateria { get => ChunkCommon.CharacterMateria; set => ChunkCommon.CharacterMateria = value; }
+        public MateriaEquipment[] WeaponMateria { get => ChunkCommon.WeaponMateria; set => ChunkCommon.WeaponMateria = value; }
+        public byte PlayableCharacter { get => ChunkCommon.PlayableCharacter; set => ChunkCommon.PlayableCharacter = value; }
+        public byte CurrentChapter { get => ChunkCommon.CurrentChapter; set => ChunkCommon.CurrentChapter = value; }
+        public int[] SummonMateria { get => ChunkCommon.SummonMateria; set => ChunkCommon.SummonMateria = value; }
         public ChunkChapter[] Chapters { get; set; }
 
         public void ReimportChunks()
         {
-            _chunkCommon = ReadChunk<ChunkCommon>(0, 0);
+            ChunkCommon = ReadChunk<ChunkCommon>(0, 0);
             for (var i = 0; i < ChapterCount; i++)
             {
                 var chapter = ReadChunk<ChunkChapter>(1, i);
