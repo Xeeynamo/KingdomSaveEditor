@@ -142,5 +142,15 @@
             </ComboBox>
         </Grid>
 
+        <StackPanel>
+            <TextBlock TextWrapping="Wrap">
+                NOTE:
+                Most of the values in this Tab can be re-calculated by the game,
+                nullifying your changes. There are some reports on people that were
+                able to stick those changes for a while, but I was not able to
+                personally confirm it.
+            </TextBlock>
+        </StackPanel>
+
     </StackPanel>
 </UserControl>
