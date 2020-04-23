@@ -31,25 +31,25 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <common:TwoEqualColumnsStackPanel>
                     <TextBlock Text="Unknown 00"/>
-                    <TextBox Text="{Binding Unknown00}"/>
+                    <TextBox Text="{Binding Unknown00, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 01"/>
-                    <TextBox Text="{Binding Unknown01}"/>
+                    <TextBox Text="{Binding Unknown01, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 02"/>
-                    <TextBox Text="{Binding Unknown02}"/>
+                    <TextBox Text="{Binding Unknown02, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 03"/>
-                    <TextBox Text="{Binding Unknown03}"/>
+                    <TextBox Text="{Binding Unknown03, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 04"/>
-                    <TextBox Text="{Binding Unknown04}"/>
+                    <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 08"/>
-                    <TextBox Text="{Binding Unknown08}"/>
+                    <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 0c"/>
-                    <TextBox Text="{Binding Unknown0c}"/>
+                    <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
                 </common:TwoEqualColumnsStackPanel>
             </ScrollViewer>
         </Grid>

@@ -59,15 +59,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0" Source="{StaticResource Search_16x}"/>
-                <TextBox Grid.Column="2"
-                    Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="2" Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Grid>
 
         <StackPanel Grid.Column="2" IsEnabled="{Binding IsItemSelected}">
             <TextBlock Text="Item count"/>
-            <TextBox Margin="0 0 0 5"
-                Text="{Binding SelectedItemCount, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Margin="0 0 0 5" Text="{Binding SelectedItemCount, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Text="Flags"/>
             <CheckBox Content="Obtained" IsChecked="{Binding SelectedItemFlagObtained}"/>

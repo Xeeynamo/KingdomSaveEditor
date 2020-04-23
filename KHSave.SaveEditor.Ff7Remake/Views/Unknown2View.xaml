@@ -31,31 +31,31 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <common:TwoEqualColumnsStackPanel>
                     <TextBlock Text="Unknown 00"/>
-                    <TextBox Text="{Binding Unknown00}"/>
+                    <TextBox Text="{Binding Unknown00, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 01"/>
-                    <TextBox Text="{Binding Unknown01}"/>
+                    <TextBox Text="{Binding Unknown01, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 02"/>
-                    <TextBox Text="{Binding Unknown02}"/>
+                    <TextBox Text="{Binding Unknown02, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 03"/>
-                    <TextBox Text="{Binding Unknown03}"/>
+                    <TextBox Text="{Binding Unknown03, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Item"/>
                     <ComboBox ItemsSource="{Binding ItemTypes}" SelectedValue="{Binding Item}" SelectedValuePath="Value"/>
 
                     <TextBlock Text="Item ID (when Item is blank)"/>
-                    <TextBox Text="{Binding ItemId}"/>
+                    <TextBox Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 08"/>
-                    <TextBox Text="{Binding Unknown08}"/>
+                    <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 0c"/>
-                    <TextBox Text="{Binding Unknown0c}"/>
+                    <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 10"/>
-                    <TextBox Text="{Binding Unknown10}"/>
+                    <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
                 </common:TwoEqualColumnsStackPanel>
             </ScrollViewer>
         </Grid>

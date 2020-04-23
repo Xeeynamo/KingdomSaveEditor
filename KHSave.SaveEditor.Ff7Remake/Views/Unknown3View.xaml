@@ -34,25 +34,25 @@
                     <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character}" SelectedValuePath="Value"/>
 
                     <TextBlock Text="Unknown 01"/>
-                    <TextBox Text="{Binding Unknown01}"/>
+                    <TextBox Text="{Binding Unknown01, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 02"/>
-                    <TextBox Text="{Binding Unknown02}"/>
+                    <TextBox Text="{Binding Unknown02, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 03 (always 0?)"/>
-                    <TextBox Text="{Binding Unknown03}"/>
+                    <TextBox Text="{Binding Unknown03, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 04"/>
-                    <TextBox Text="{Binding Unknown04}"/>
+                    <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 08"/>
-                    <TextBox Text="{Binding Unknown08}"/>
+                    <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 0c"/>
-                    <TextBox Text="{Binding Unknown0c}"/>
+                    <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 10"/>
-                    <TextBox Text="{Binding Unknown10}"/>
+                    <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Character 1"/>
                     <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character1}" SelectedValuePath="Value"/>
@@ -80,16 +80,16 @@
                     <ComboBox ItemsSource="{Binding CharacterTypes}" SelectedValue="{Binding Character12}" SelectedValuePath="Value"/>
 
                     <TextBlock Text="Unknown 20 (always 0?)"/>
-                    <TextBox Text="{Binding Unknown20}"/>
+                    <TextBox Text="{Binding Unknown20, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 24 (always 0?)"/>
-                    <TextBox Text="{Binding Unknown24}"/>
+                    <TextBox Text="{Binding Unknown24, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 28 (always 0?)"/>
-                    <TextBox Text="{Binding Unknown28}"/>
+                    <TextBox Text="{Binding Unknown28, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Unknown 2c (always 0?)"/>
-                    <TextBox Text="{Binding Unknown2c}"/>
+                    <TextBox Text="{Binding Unknown2c, UpdateSourceTrigger=PropertyChanged}"/>
                 </common:TwoEqualColumnsStackPanel>
             </ScrollViewer>
         </Grid>

@@ -103,10 +103,10 @@
             </ComboBox>
 
             <TextBlock Grid.Row="0" Grid.Column="2" Text="Armor"/>
-            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding EquippedArmor}"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding EquippedArmor, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="0" Grid.Column="4" Text="Accessory"/>
-            <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding EquippedAccessory}"/>
+            <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding EquippedAccessory, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
         <Grid Margin="0 0 0 5">

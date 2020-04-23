@@ -92,25 +92,17 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0"
-                    Text="Map path"/>
-                <TextBox Grid.Column="0" Grid.Row="1"
-                    Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Map path"/>
+                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="0"
-                    Text="Spawn point"/>
-                <TextBox Grid.Column="2" Grid.Row="1"
-                    Text="{Binding MapSpawn}"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" Text="Spawn point"/>
+                <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding MapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="0" Grid.Row="3"
-                    Text="Player script"/>
-                <TextBox Grid.Column="0" Grid.Row="4"
-                    Text="{Binding PlayerScript}"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="4" Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="3"
-                    Text="Pawn path"/>
-                <TextBox Grid.Column="2" Grid.Row="4"
-                    Text="{Binding PlayerCharacter}"/>
+                <TextBlock Grid.Column="2" Grid.Row="3" Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="4" Text="{Binding PlayerCharacter, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </GroupBox>
     </StackPanel>

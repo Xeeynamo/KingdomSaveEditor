@@ -67,16 +67,16 @@
             <TextBlock Grid.Row="0" Grid.Column="2" Text="X" Margin="0 0 3 0"/>
             <TextBlock Grid.Row="0" Grid.Column="5" Text="Y" Margin="0 0 3 0"/>
             <TextBlock Grid.Row="0" Grid.Column="8" Text="Z" Margin="0 0 3 0"/>
-            <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding PosX}"/>
-            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding PosY}"/>
-            <TextBox Grid.Row="0" Grid.Column="9" Text="{Binding PosZ}"/>
+            <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding PosX, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding PosY, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="0" Grid.Column="9" Text="{Binding PosZ, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="2" Grid.Column="2" Text="X" Margin="0 0 3 0"/>
             <TextBlock Grid.Row="2" Grid.Column="5" Text="Y" Margin="0 0 3 0"/>
             <TextBlock Grid.Row="2" Grid.Column="8" Text="Z" Margin="0 0 3 0"/>
-            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding RotX}"/>
-            <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding RotY}"/>
-            <TextBox Grid.Row="2" Grid.Column="9" Text="{Binding RotZ}"/>
+            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding RotX, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding RotY, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="2" Grid.Column="9" Text="{Binding RotZ, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </StackPanel>
 </UserControl>

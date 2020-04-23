@@ -14,8 +14,7 @@
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Amount"/>
-            <TextBox Margin="0 5 0 0"
-                Text="{Binding SelectedItem.Count, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Margin="0 5 0 0" Text="{Binding SelectedItem.Count, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
         <ListBox

@@ -17,16 +17,12 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="HP"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding Hp}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding Hp, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
                 <TextBlock Text="MP"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding Mp}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding Mp, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
 
@@ -39,9 +35,7 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Focus"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding Focus}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding Focus, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
@@ -57,16 +51,12 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Attack boost"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding AtkBoost}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding AtkBoost, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Magic boost"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding MagBoost}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding MagBoost, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
 
@@ -79,16 +69,12 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Defense boost"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding DefBoost}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding DefBoost, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
                 <TextBlock Text="AP boost"/>
-                <TextBox
-                    Grid.Column="0" Margin="0 0 0 5"
-                    Text="{Binding ApBoost}"/>
+                <TextBox Grid.Column="0" Margin="0 0 0 5" Text="{Binding ApBoost, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
 
@@ -105,19 +91,19 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Combat style"/>
                 <controls:ItemComboBox
-                    DataContext="{Binding AiCombatStyle}"/>
+                    DataContext="{Binding AiCombatStyle, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">
                 <TextBlock Text="Ability usage"/>
                 <controls:ItemComboBox
-                    DataContext="{Binding AiAbility}"/>
+                    DataContext="{Binding AiAbility, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="4">
                 <TextBlock Text="Recovery"/>
                 <controls:ItemComboBox
-                    DataContext="{Binding AiRecovery}"/>
+                    DataContext="{Binding AiRecovery, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
     </StackPanel>

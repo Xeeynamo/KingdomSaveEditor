@@ -34,19 +34,19 @@
                     <GroupBox Header="Header" DataContext="{Binding SelectedItem}">
                         <StackPanel>
                             <TextBlock Text="Chunk type"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding ChunkType}"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding ChunkType, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Chapter ID (valid only for type 1)"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding ChapterId}"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding ChapterId, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Unknown"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown}"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Content" DataContext="{Binding SelectedItem}">
                         <StackPanel>
                             <TextBlock Text="Magic code?"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding MagicCode}"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding MagicCode, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Unknown 10"/>
-                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown10}"/>
+                            <TextBox Margin="0 0 0 3" Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text="Data size"/>
                             <TextBox Margin="0 0 0 3" Text="{Binding DataSize, Mode=OneWay}" IsEnabled="False"/>
                             <Grid>

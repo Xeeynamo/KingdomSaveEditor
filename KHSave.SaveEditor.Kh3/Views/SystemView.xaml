@@ -177,15 +177,15 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0" Text="HP"/>
-                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding BonusHp}" />
+                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding BonusHp, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Grid.Column="2" Grid.Row="0" Text="MP"/>
-                <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding BonusMp}" />
+                <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding BonusMp, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Grid.Column="4" Grid.Row="0" Text="Strength"/>
-                <TextBox Grid.Column="4" Grid.Row="1" Text="{Binding BonusStrength}" />
+                <TextBox Grid.Column="4" Grid.Row="1" Text="{Binding BonusStrength, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Grid.Column="6" Grid.Row="0" Text="Magic"/>
-                <TextBox Grid.Column="6" Grid.Row="1" Text="{Binding BonusMagic}" />
+                <TextBox Grid.Column="6" Grid.Row="1" Text="{Binding BonusMagic, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Grid.Column="8" Grid.Row="0" Text="Defense"/>
-                <TextBox Grid.Column="8" Grid.Row="1" Text="{Binding BonusDefense}" />
+                <TextBox Grid.Column="8" Grid.Row="1" Text="{Binding BonusDefense, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </GroupBox>
 
@@ -235,35 +235,23 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0"
-                    Text="Map path"/>
-                <TextBox Grid.Column="0" Grid.Row="1"
-                    Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Map path"/>
+                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding MapPath, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="0"
-                    Text="Spawn point"/>
-                <TextBox Grid.Column="2" Grid.Row="1"
-                    Text="{Binding MapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="2" Grid.Row="0"  Text="Spawn point"/>
+                <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding MapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="0" Grid.Row="3"
-                    Text="DLC Map path"/>
-                <TextBox Grid.Column="0" Grid.Row="4"
-                    Text="{Binding DlcMapPath, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="DLC Map path"/>
+                <TextBox Grid.Column="0" Grid.Row="4" Text="{Binding DlcMapPath, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="3"
-                    Text="DLC Spawn point"/>
-                <TextBox Grid.Column="2" Grid.Row="4"
-                    Text="{Binding DlcMapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="2" Grid.Row="3" Text="DLC Spawn point"/>
+                <TextBox Grid.Column="2" Grid.Row="4" Text="{Binding DlcMapSpawn, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="0" Grid.Row="6"
-                    Text="Player script"/>
-                <TextBox Grid.Column="0" Grid.Row="7"
-                    Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="Player script"/>
+                <TextBox Grid.Column="0" Grid.Row="7" Text="{Binding PlayerScript, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="6"
-                    Text="Pawn path"/>
-                <TextBox Grid.Column="2" Grid.Row="7"
-                    Text="{Binding PlayerCharacter, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="2" Grid.Row="6" Text="Pawn path"/>
+                <TextBox Grid.Column="2" Grid.Row="7" Text="{Binding PlayerCharacter, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </GroupBox>
 
