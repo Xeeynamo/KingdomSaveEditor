@@ -1,9 +1,8 @@
 name: Final Fantasy VII Remake
 locations:
-    -
-    chapter: 4
-    oob: true
-    description: Past invisible wall by Jessie's House
-    x: -58993.77
-    y: 14327.95
-    z: 4.136047
+- chapter: 4
+  oob: true
+  description: Past invisible wall by Jessie's House
+  x: -58993.77
+  y: 14327.95
+  z: 4.136047
