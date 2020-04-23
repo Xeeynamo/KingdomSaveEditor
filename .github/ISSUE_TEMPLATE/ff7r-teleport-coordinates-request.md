@@ -7,10 +7,15 @@ assignees: Xeeynamo
 
 ---
 
-**Chapter**: `1-18`
+Chapter: `1-18`
 
-**Coordinates**: `0, 0, 0`
+Coordinates: `0, 0, 0`
 
-**Short description**: Please describe here
+Out of bounds: `yes|no`
+
+Short description: Please describe here
+
+
+PLEAE REMOVE THE FOLLOWING TEXT BEFORE SUBMITTING THE ISSUE:
 
 Please also attach a screenshot, if possible, of the location you decided to request. You can find the coordinates to paste here on the Teleport window.
