@@ -6,9 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\KHSave.LibFf7Remake\KHSave.LibFf7Remake.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
     <ProjectReference Include="..\KHSave\KHSave.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
 </Project>

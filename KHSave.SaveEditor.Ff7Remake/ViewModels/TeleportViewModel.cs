@@ -17,9 +17,12 @@
 */
 
 using KHSave.LibFf7Remake;
+using KHSave.SaveEditor.Ff7Remake.Data;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
@@ -30,6 +33,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     {
         private readonly ChapterCharacterEntryModel _entry;
         private int _selectedIndex;
+        private List<Location> _locations;
 
         public Uri AddLocationRequestUrl => new Uri(
             $"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-location&template=ff7r-teleport-coordinates-request.md&title=FF7+Remake+new+location+request+" +
@@ -40,12 +44,42 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public TeleportViewModel(ChapterCharacterEntryModel entry)
         {
             _entry = entry;
+            _locations = LocationPresets.GetLocationsOffline();
+            FetchStatusText = "Fetching updated list of locations from internet...";
+
+            Task.Run(async () =>
+            {
+                List<Location> locations = null;
+                string fetchStatusText = "<this is a bug>";
+                try
+                {
+                    locations = await LocationPresets.FetchLocations();
+                    fetchStatusText = "Got most up-to-date list from internet.";
+                }
+                catch
+                {
+                    fetchStatusText = "There was an error while retrieving the updated location list.";
+                }
+
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (locations != null)
+                    {
+                        _locations = locations;
+                        OnPropertyChanged(nameof(Locations));
+                    }
+
+                    FetchStatusText = fetchStatusText;
+                    OnPropertyChanged(nameof(FetchStatusText));
+                });
+            });
+
             OkCommand = new RelayCommand(_ =>
             {
-                if (SelectedIndex < 0 || SelectedIndex >= Presets.TeleportLocations.Count)
+                if (SelectedIndex < 0 || SelectedIndex >= _locations.Count)
                     return;
 
-                var location = Presets.TeleportLocations[SelectedIndex];
+                var location = _locations[SelectedIndex];
                 _entry.PosX = location.PositionX;
                 _entry.PosY = location.PositionY;
                 _entry.PosZ = location.PositionZ;
@@ -56,12 +90,14 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public RelayCommand OkCommand { get; }
 
-        public object Locations => Presets.TeleportLocations.Select(x => new
+        public object Locations => _locations.Select(x => new
         {
             x.Chapter,
-            Description = x.Name,
+            x.Description,
             Coordinates = $"{x.PositionX:F0}, {x.PositionY:F0}, {x.PositionZ:F0}"
         });
+
+        public string FetchStatusText { get; private set; }
 
         public int SelectedIndex
         {

@@ -16,6 +16,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="5"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="22"/>
         </Grid.RowDefinitions>
@@ -40,7 +42,8 @@
                 to be integrated in the next version of the editor!
             </TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+        <TextBlock Grid.Row="4" Text="{Binding FetchStatusText}"/>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="_Cancel" Width="75" Margin="0,0,10,0" IsCancel="True"/>
             <Button Content="_Ok" Width="75" IsDefault="True" Command="{Binding OkCommand}" />
         </StackPanel>
@@ -49,7 +52,7 @@
             Grid.Row="2"
             AutoGenerateColumns="False"
             Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
-            ItemsSource="{Binding Locations, Mode=OneTime}"
+            ItemsSource="{Binding Locations}"
             SelectedIndex="{Binding SelectedIndex}"
             IsReadOnly="True">
             <DataGrid.RowStyle>
