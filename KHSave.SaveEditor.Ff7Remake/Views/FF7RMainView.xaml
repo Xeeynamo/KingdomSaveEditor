@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
-    <TabControl>
+    <TabControl SelectedValue="{Binding CurrentTabId, Mode=TwoWay}" SelectedValuePath="Header">
         <TabItem Header="Materia">
             <local:MateriaView DataContext="{Binding Materia}"/>
         </TabItem>

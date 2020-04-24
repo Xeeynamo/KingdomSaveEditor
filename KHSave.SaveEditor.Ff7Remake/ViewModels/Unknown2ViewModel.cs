@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,8 +18,6 @@
 
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
-using KHSave.LibFf7Remake.Types;
-using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System.Collections.Generic;
 using System.Linq;
