@@ -11,7 +11,6 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -60,10 +59,10 @@
             <Label Content="Select a materia to view or edit"/>
         </Grid>
         <Grid
-            Grid.Column="2" Margin="0 0 10 0" 
+            Grid.Column="2"
             Visibility="{Binding EntryVisible}">
-            <ScrollViewer>
-                <local:MateriaEntryView DataContext="{Binding SelectedItem}"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <local:MateriaEntryView Margin="0 0 10 0"  DataContext="{Binding SelectedItem}"/>
             </ScrollViewer>
         </Grid>
     </Grid>

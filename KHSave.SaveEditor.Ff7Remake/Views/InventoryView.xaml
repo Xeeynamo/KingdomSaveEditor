@@ -64,10 +64,10 @@
             <Label Content="Select an item to view or edit"/>
         </Grid>
         <Grid
-            Grid.Column="2" Margin="0 0 10 0" 
+            Grid.Column="2"
             Visibility="{Binding EntryVisible}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <local:InventoryEntryView DataContext="{Binding SelectedItem}"/>
+                <local:InventoryEntryView Margin="0 0 10 0"  DataContext="{Binding SelectedItem}"/>
             </ScrollViewer>
         </Grid>
     </Grid>

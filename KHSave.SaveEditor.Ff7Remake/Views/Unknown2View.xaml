@@ -12,7 +12,6 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <ListBox
@@ -26,10 +25,10 @@
             <Label Content="Select an entry to view or edit"/>
         </Grid>
         <Grid
-            Grid.Column="2" Margin="0 0 10 0" 
+            Grid.Column="2" 
             Visibility="{Binding EntryVisible}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <common:TwoEqualColumnsStackPanel>
+                <common:TwoEqualColumnsStackPanel Margin="0 0 10 0">
                     <TextBlock Text="Unknown 00"/>
                     <TextBox Text="{Binding Unknown00, UpdateSourceTrigger=PropertyChanged}"/>
 
