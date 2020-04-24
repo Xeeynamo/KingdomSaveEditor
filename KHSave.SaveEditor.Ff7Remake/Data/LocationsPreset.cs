@@ -45,7 +45,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Data
         }
     }
 
-    public static class LocationPresets
+    public static class LocationsPreset
     {
         public class LocationsResource
         {

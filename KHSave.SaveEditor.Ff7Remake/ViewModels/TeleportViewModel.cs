@@ -44,7 +44,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public TeleportViewModel(ChapterCharacterEntryModel entry)
         {
             _entry = entry;
-            _locations = LocationPresets.GetLocationsOffline();
+            _locations = LocationsPreset.GetLocationsOffline();
             FetchStatusText = "Fetching updated list of locations from internet...";
 
             Task.Run(async () =>
@@ -53,7 +53,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
                 string fetchStatusText = "<this is a bug>";
                 try
                 {
-                    locations = await LocationPresets.FetchLocations();
+                    locations = await LocationsPreset.FetchLocations();
                     fetchStatusText = "Got most up-to-date list from internet.";
                 }
                 catch
