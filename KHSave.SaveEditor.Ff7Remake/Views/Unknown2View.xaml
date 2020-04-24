@@ -43,7 +43,11 @@
                     <TextBox Text="{Binding Unknown03, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="Item"/>
-                    <ComboBox ItemsSource="{Binding ItemTypes}" SelectedValue="{Binding Item}" SelectedValuePath="Value"/>
+                    <ComboBox
+                        ItemsSource="{Binding ItemTypes}"
+                        SelectedValue="{Binding ItemId}"
+                        SelectedValuePath="Id"
+                        DisplayMemberPath="Name"/>
 
                     <TextBlock Text="Item ID (when Item is blank)"/>
                     <TextBox Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>

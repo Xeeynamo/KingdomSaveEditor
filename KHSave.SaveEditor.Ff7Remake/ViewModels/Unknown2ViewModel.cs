@@ -20,6 +20,7 @@ using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Ff7Remake.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -35,10 +36,10 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public Unknown2ViewModel(SaveFf7Remake save)
         {
             _save = save;
-            ItemTypes = new KhEnumListModel<InventoryType>();
+            ItemTypes = ItemModel.GetItemModels();
         }
 
-        public KhEnumListModel<InventoryType> ItemTypes { get; }
+        public IEnumerable<ItemModel> ItemTypes { get; }
 
         public IEnumerable<int> Items => _save.ChunkCommon.UnknownStructure2.Select((_, i) => i);
         public bool IsItemSelected => SelectedIndex >= 0;
@@ -56,7 +57,6 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
                 OnPropertyChanged(nameof(Unknown01));
                 OnPropertyChanged(nameof(Unknown02));
                 OnPropertyChanged(nameof(Unknown03));
-                OnPropertyChanged(nameof(Item));
                 OnPropertyChanged(nameof(ItemId));
                 OnPropertyChanged(nameof(Unknown08));
                 OnPropertyChanged(nameof(Unknown0c));
@@ -69,8 +69,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public byte Unknown01 { get => SelectedValue.Unknown01; set => SelectedValue.Unknown01 = value; }
         public byte Unknown02 { get => SelectedValue.Unknown02; set => SelectedValue.Unknown02 = value; }
         public byte Unknown03 { get => SelectedValue.Unknown03; set => SelectedValue.Unknown03 = value; }
-        public InventoryType Item { get => (InventoryType)SelectedValue.ItemId; set { SelectedValue.ItemId = (int)value; OnPropertyChanged(nameof(ItemId)); } }
-        public int ItemId { get => SelectedValue.ItemId; set { SelectedValue.ItemId = value; OnPropertyChanged(nameof(Item)); } }
+        public int ItemId { get => SelectedValue.ItemId; set { SelectedValue.ItemId = value; OnPropertyChanged(); } }
         public int Unknown08 { get => SelectedValue.Unknown08; set => SelectedValue.Unknown08 = value; }
         public int Unknown0c { get => SelectedValue.Unknown0c; set => SelectedValue.Unknown0c = value; }
     }
