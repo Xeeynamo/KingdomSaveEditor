@@ -73,6 +73,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 }
 
                 _inventory.Type = value;
+                OnPropertyChanged(nameof(ItemId));
                 OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(Name));
 
@@ -86,7 +87,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 OnPropertyChanged(nameof(Type));
             }
         }
-        public int ItemId { get => (int)Type; set => Type = (InventoryType)value; }
+        public int ItemId { get => (int)Type; set { Type = (InventoryType)value; OnPropertyChanged(nameof(Type)); } }
 
         public int Unknown04 { get => _inventory.Unknown04; set => _inventory.Unknown04 = value; }
         public int Unknown10 { get => _inventory.Unknown10; set => _inventory.Unknown10 = value; }
