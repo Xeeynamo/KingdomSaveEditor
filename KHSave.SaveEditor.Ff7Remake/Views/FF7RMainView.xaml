@@ -14,7 +14,14 @@
             <local:InventoryView DataContext="{Binding Inventory}"/>
         </TabItem>
         <TabItem Header="Equipments">
-            <local:EquipmentsView DataContext="{Binding Equipments}"/>
+            <TabControl>
+                <TabItem Header="Characters (armor)">
+                    <local:EquipmentsView DataContext="{Binding CharacterEquipments}"/>
+                </TabItem>
+                <TabItem Header="Weapons">
+                    <local:EquipmentsView DataContext="{Binding WeaponEquipments}"/>
+                </TabItem>
+            </TabControl>
         </TabItem>
         <TabItem Header="Characters">
             <local:CharactersView DataContext="{Binding Characters}"/>

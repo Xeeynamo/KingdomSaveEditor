@@ -16,7 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.LibFf7Remake;
+using KHSave.LibFf7Remake.Models;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Models;
 using System.Collections.Generic;
@@ -28,17 +29,15 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 {
     public class EquipmentsViewModel : GenericListModel<EquipmentEntryModel>
     {
-        private readonly SaveFf7Remake _save;
         private string searchTerm;
 
-        public EquipmentsViewModel(SaveFf7Remake save, MateriaViewModel materiaVm) :
-            this(save.WeaponMateria.Select(x => new EquipmentEntryModel(x, materiaVm)))
+        public EquipmentsViewModel(IEnumerable<MateriaEquipment> equipments, MateriaViewModel materiaVm) :
+            this(equipments.Select(x => new EquipmentEntryModel(x, materiaVm)))
         {
-            _save = save;
         }
 
         private EquipmentsViewModel(IEnumerable<EquipmentEntryModel> list) :
-            base(list)
+            base(list.Where(x => Global.IsAdvancedMode || x.IsVisible))
         { }
 
         public Visibility EntryVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;

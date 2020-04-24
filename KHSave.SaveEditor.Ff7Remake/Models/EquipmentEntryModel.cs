@@ -47,6 +47,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         }
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility ItemTypeVisibility => Global.IsAdvancedMode || Character == CharacterType.Unequip ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsVisible => Global.IsAdvancedMode || Character <= CharacterType.Red13 || Character == CharacterType.Unequip;
 
         public IEnumerable<ItemModel> EquipmentType { get; }
         public KhEnumListModel<CharacterType> CharacterTypes { get; }
@@ -70,11 +72,36 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         {
             get
             {
-                var type = ItemId;
-                if (type < 0)
-                    return null;
+                string iconName;
+                switch (Character)
+                {
+                    case CharacterType.Cloud:
+                        iconName = "WeaponCloud";
+                        break;
+                    case CharacterType.Barret:
+                        iconName = "WeaponBarret";
+                        break;
+                    case CharacterType.Tifa:
+                        iconName = "WeaponTifa";
+                        break;
+                    case CharacterType.Aerith:
+                        iconName = "WeaponAerith";
+                        break;
+                    case CharacterType.Red13:
+                        iconName = "Weapon";
+                        break;
+                    case CharacterType.Unequip:
+                        if (ItemId > 0)
+                            iconName = ItemsPreset.Get(ItemId)?.Icon;
+                        else
+                            iconName = null;
+                        break;
+                    default:
+                        iconName = null;
+                        break;
+                }
 
-                return IconService.Icon(ItemsPreset.Get(ItemId)?.Icon);
+                return IconService.Icon(iconName);
             }
         }
 

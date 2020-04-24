@@ -32,7 +32,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public CharactersViewModel Characters { get; set; }
         public InventoryViewModel Inventory { get; set; }
         public MateriaViewModel Materia { get; set; }
-        public EquipmentsViewModel Equipments { get; set; }
+        public EquipmentsViewModel CharacterEquipments { get; set; }
+        public EquipmentsViewModel WeaponEquipments { get; set; }
         public ChaptersViewModel Chapters { get; set; }
         public DeveloperViewModel Developer { get; set; }
         public Unknown1ViewModel Unk1 { get; set; }
@@ -44,9 +45,10 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public void RefreshUi()
         {
-            Equipments = new EquipmentsViewModel(Save, Materia);
+            CharacterEquipments = new EquipmentsViewModel(Save.CharacterMateria, Materia);
+            WeaponEquipments = new EquipmentsViewModel(Save.WeaponMateria, Materia);
             Materia = new MateriaViewModel(Save);
-            Characters = new CharactersViewModel(Save, Equipments, Materia);
+            Characters = new CharactersViewModel(Save, WeaponEquipments, Materia);
             Inventory = new InventoryViewModel(Save);
             Chapters = new ChaptersViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
@@ -59,7 +61,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Materia));
-            OnPropertyChanged(nameof(Equipments));
+            OnPropertyChanged(nameof(CharacterEquipments));
+            OnPropertyChanged(nameof(WeaponEquipments));
             OnPropertyChanged(nameof(Chapters));
             OnPropertyChanged(nameof(Developer));
             OnPropertyChanged(nameof(Unk1));
