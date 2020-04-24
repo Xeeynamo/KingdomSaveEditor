@@ -17,6 +17,7 @@
             Grid.Column="0"
             ItemsSource="{Binding Items}"
             SelectedItem="{Binding SelectedItem}"
+            SelectedIndex="{Binding CurrentChapterId, Mode=OneWay}"
             DisplayMemberPath="Name"/>
 
         <Grid
