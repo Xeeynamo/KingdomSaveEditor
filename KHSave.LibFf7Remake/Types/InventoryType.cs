@@ -23,7 +23,7 @@ namespace KHSave.LibFf7Remake.Types
     public enum InventoryType
     {
         [Info("Disabled")] Disabled = -1,
-        [Info("Emtpy")] Empty = 0,
+        [Info("Empty")] Empty = 0,
         [Consumable("Potion")] Potion = 1,
         [Consumable("Hi-Potion")] HiPotion,
         [Consumable] Ether,
