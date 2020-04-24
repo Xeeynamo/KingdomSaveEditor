@@ -24,10 +24,10 @@ using System.Linq;
 namespace KHSave.Attributes
 {
 	public class InfoAttribute : Attribute
-	{
+    {
         private static CacheService<string> cache = new CacheService<string>();
 
-        public string Info { get; set; }
+        public string Info { get; }
 
 		public InfoAttribute()
 		{ }
