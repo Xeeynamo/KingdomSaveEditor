@@ -68,6 +68,23 @@ namespace KHSave.SaveEditor.Ff7Remake.Data
             new Location(2, false, "Before meeting Aerith", -14485.03, -898.4921, -69.99866),
             new Location(2, false, "Before battling The Huntsman", 19275.55, 3117.768, -579.7065),
             new Location(2, false, "In the train", 8.310989, -10064.3, -5000),
+            new Location(3, false, "Sector 7 Slums: Train Station", 1999.344, -14238.85, 126.1621),
+            new Location(4, false, "Sector 7 Plate: After bike mini-game", -87719.63, 15676.29, -1538.711),
+            new Location(5, false, "Train to Sector 4", 292.2432, 15003.34, 14178.34),
+            new Location(6, false, "Sector 4 Plate: Section F-01", -12493.72, 15620.63, 342.5763),
+            new Location(7, false, "Mako Reactor 5: Beginning", 6020.055, 2282.69, 2345.815),
+            new Location(8, false, "Sector 5 Slums: Church", -69892.78, 37427, 192.523),
+            new Location(8, false, "Sector 5 Slums: Aerith's house roof", 2282.001, 23048.63, 1634.191),
+            new Location(8, false, "Sector 5 Slums: Aerith's garden", 1094.311, 25737.78, 1080.449),
+            new Location(8, false, "Sector 6 Slums: Gate", 67969.91, -35484.38, 127.1474),
+            new Location(10, false, "Sewers: Beginning", -275.946, 26.4429, -50),
+            new Location(11, false, "Train Graveyard: Beginning", -50452.12, 41068.95, 16.79639),
+            new Location(15, false, "Sector 7 Plate: Beginning", -189.5129, 3905.749, -30.82977),
+            new Location(16, false, "Sector 0: Electric power tower", 35556.4, -12843.36, -23791.25),
+            new Location(16, false, "Sector 0: Close to the bridge", 21762.28, -14453.08, -29488.62),
+            new Location(17, false, "Shinra: Aerith's room", 7314.688, 3183.011, 5026.195),
+            new Location(18, false, "End of the road", 31915.78, 27313.2, -0.9995728),
+            new Location(18, false, "Destiny's crossroads", 31739.57, 46240.6, 558.6942),
         };
 
         private static List<Location> _onlineData;
