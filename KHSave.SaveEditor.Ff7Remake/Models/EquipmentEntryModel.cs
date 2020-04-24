@@ -47,8 +47,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         }
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility ItemTypeVisibility => Global.IsAdvancedMode || Character == CharacterType.Unequip ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsVisible => Global.IsAdvancedMode || Character <= CharacterType.Red13 || Character == CharacterType.Unequip;
+        public Visibility ItemTypeVisibility => Global.IsAdvancedMode || Character == CharacterType.None ? Visibility.Visible : Visibility.Collapsed;
+        public bool IsVisible => Global.IsAdvancedMode || Character <= CharacterType.Red13 || Character == CharacterType.None;
 
         public IEnumerable<ItemModel> EquipmentType { get; }
         public KhEnumListModel<CharacterType> CharacterTypes { get; }
@@ -58,7 +58,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         {
             get
             {
-                if (Character != CharacterType.Unequip)
+                if (Character != CharacterType.None)
                     return InfoAttribute.GetInfo(Character);
 
                 var type = ItemId;
@@ -90,7 +90,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                     case CharacterType.Red13:
                         iconName = "Weapon";
                         break;
-                    case CharacterType.Unequip:
+                    case CharacterType.None:
                         if (ItemId > 0)
                             iconName = ItemsPreset.Get(ItemId)?.Icon;
                         else

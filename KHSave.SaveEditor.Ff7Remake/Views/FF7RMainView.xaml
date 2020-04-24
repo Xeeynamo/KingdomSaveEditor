@@ -29,6 +29,9 @@
         <TabItem Header="Chapters">
             <local:ChaptersView DataContext="{Binding Chapters}"/>
         </TabItem>
+        <TabItem Header="Global">
+            <local:GlobalView DataContext="{Binding Global}"/>
+        </TabItem>
         <TabItem Header="Developer" Visibility="{Binding AdvancedVisibility}">
             <local:DeveloperView DataContext="{Binding Developer}"/>
         </TabItem>

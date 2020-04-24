@@ -16,21 +16,25 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Attributes;
+using KHSave.LibFf7Remake;
+using KHSave.LibFf7Remake.Types;
+using KHSave.SaveEditor.Common.Models;
 
-namespace KHSave.LibFf7Remake.Types
+namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 {
-    public enum CharacterType
+    public class GlobalViewModel
     {
-        [Info("Cloud")] Cloud = SaveFf7Remake.Cloud,
-        [Info("Barret")] Barret = SaveFf7Remake.Barret,
-        [Info("Tifa")] Tifa = SaveFf7Remake.Tifa,
-        [Info("Aerith")] Aerith = SaveFf7Remake.Aerith,
-        [Info("Red XIII")] Red13 = SaveFf7Remake.Red13,
-        [Info("5")] Unused5, // Cait Sith
-        [Info("6")] Unused6, // Cid
-        [Info("7")] Unused7, // Yuffie
-        [Info("8")] Unused8, // Vincent
-        [Info("None")] None = SaveFf7Remake.Unequipped,
+        private readonly SaveFf7Remake _save;
+
+        public GlobalViewModel(SaveFf7Remake save)
+        {
+            _save = save;
+            CharacterType = new KhEnumListModel<CharacterType>();
+        }
+
+        public KhEnumListModel<CharacterType> CharacterType { get; }
+
+        public CharacterType PlayableCharacter { get => (CharacterType)_save.PlayableCharacter; set => _save.PlayableCharacter = (byte)value; }
+        public byte CurrentChapterId { get => _save.CurrentChapterId; set => _save.CurrentChapterId = value; }
     }
 }

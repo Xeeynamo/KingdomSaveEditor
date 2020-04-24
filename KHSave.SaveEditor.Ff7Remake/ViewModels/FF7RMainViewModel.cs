@@ -17,7 +17,6 @@
 */
 
 using KHSave.LibFf7Remake;
-using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Contracts;
 using System.IO;
 using System.Windows;
@@ -35,13 +34,14 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public EquipmentsViewModel CharacterEquipments { get; set; }
         public EquipmentsViewModel WeaponEquipments { get; set; }
         public ChaptersViewModel Chapters { get; set; }
+        public GlobalViewModel Global { get; set; }
         public DeveloperViewModel Developer { get; set; }
         public Unknown1ViewModel Unk1 { get; set; }
         public Unknown2ViewModel Unk2 { get; set; }
         public Unknown3ViewModel Unk3 { get; set; }
 
-        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
-        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility SimpleVisibility => Common.Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Common.Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public void RefreshUi()
         {
@@ -51,6 +51,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             Characters = new CharactersViewModel(Save, WeaponEquipments, Materia);
             Inventory = new InventoryViewModel(Save);
             Chapters = new ChaptersViewModel(Save);
+            Global = new GlobalViewModel(Save);
             Developer = new DeveloperViewModel(Save, this);
             Unk1 = new Unknown1ViewModel(Save);
             Unk2 = new Unknown2ViewModel(Save);
@@ -64,6 +65,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
             OnPropertyChanged(nameof(CharacterEquipments));
             OnPropertyChanged(nameof(WeaponEquipments));
             OnPropertyChanged(nameof(Chapters));
+            OnPropertyChanged(nameof(Global));
             OnPropertyChanged(nameof(Developer));
             OnPropertyChanged(nameof(Unk1));
             OnPropertyChanged(nameof(Unk2));

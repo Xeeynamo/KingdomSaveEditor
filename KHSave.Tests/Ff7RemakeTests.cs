@@ -77,7 +77,7 @@ namespace KHSave.Tests
 
 			Assert.Equal(51, save.SummonMateria[SaveFf7Remake.Cloud]);
 
-			Assert.Equal(18, save.CurrentChapter);
+			Assert.Equal(18, save.CurrentChapterId);
 		}
 	}
 }
