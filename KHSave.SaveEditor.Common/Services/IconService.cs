@@ -113,5 +113,9 @@ namespace KHSave.SaveEditor.Common.Services
 
 			return null;
 		}
+
+		public static ImageSource Icon(string iconName) =>
+			iconName == null ? null :
+			Icons.TryGetValue(iconName, out var uri) ? new BitmapImage(uri) : null;
 	}
 }

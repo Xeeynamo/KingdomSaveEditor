@@ -22,7 +22,9 @@ using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Ff7Remake.Data;
 using System;
+using System.Collections.Generic;
 using System.Windows.Media;
 using Xe.Tools;
 
@@ -32,44 +34,40 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         BaseNotifyPropertyChanged,
         SearchEngine.IName
     {
-        private SaveFf7Remake save;
-        private int _index;
         private Materia _materia;
 
-        public MateriaEntryModel(SaveFf7Remake save, int index, Materia materia)
+        public MateriaEntryModel(Materia materia)
         {
-            this.save = save;
-            _index = index;
             _materia = materia;
 
-            ItemType = new KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType>(() => Type, x => Type = x);
+            ItemType = ItemModel.GetItemModels();
             CharacterType = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
         }
 
-        public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> ItemType { get; }
+        public IEnumerable<ItemModel> ItemType { get; }
         public KhEnumListModel<CharacterType> CharacterType { get; }
 
-        public string Name => Attributes.InfoAttribute.GetInfo(Type);
-        public ImageSource Icon => IconService.Icon(Type);
+        public string Name => ItemsPreset.Get(ItemId)?.Name;
+        public ImageSource Icon => IconService.Icon(ItemsPreset.Get(ItemId)?.Icon);
 
-        public InventoryType Type
+        public int ItemId
         {
-            get => _materia.Type;
+            get => _materia.ItemId;
             set
             {
-                if (Type == InventoryType.Disabled ||
-                    Type == InventoryType.Empty)
+                if (ItemId == (int)InventoryType.Disabled ||
+                    ItemId == (int)InventoryType.Empty)
                 {
                     _materia.UnixTimestamp = DateTime.Now.ToUnixEpoch();
                     OnPropertyChanged(nameof(Timestamp));
                 }
 
-                _materia.Type = value;
+                _materia.ItemId = value;
                 OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(Name));
 
-                if (Type == InventoryType.Disabled ||
-                    Type == InventoryType.Empty)
+                if (ItemId == (int)InventoryType.Disabled ||
+                    ItemId == (int)InventoryType.Empty)
                 {
                     _materia.UnixTimestamp = 0;
                     OnPropertyChanged(nameof(Timestamp));

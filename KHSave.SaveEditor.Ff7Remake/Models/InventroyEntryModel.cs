@@ -23,7 +23,9 @@ using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Ff7Remake.Data;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -41,17 +43,17 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public InventroyEntryModel(Inventory inventory)
         {
             _inventory = inventory;
-            ItemTypes = new KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType>();
+            ItemTypes = ItemModel.GetItemModels();
         }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public Uri AddItemRequestUrl =>
             new Uri($"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-item&template=ff7r-missing-item-name-request.md&title=FF7R+Missing+item+name+request+(Item%20ID%20{ItemId})");
-        public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> ItemTypes { get; }
+        public IEnumerable<ItemModel> ItemTypes { get; }
 
-        public string Name => InfoAttribute.GetInfo(Type);
-        public ImageSource Icon => IconService.Icon(Type);
+        public string Name => ItemsPreset.Get(Type)?.Name;
+        public ImageSource Icon => IconService.Icon(ItemsPreset.Get(Type)?.Icon);
 
         public bool IsNameImplemented => !(Name?.All(x => char.IsNumber(x)) ?? true);
         public Visibility NameRequestVisibility => IsNameImplemented ? Visibility.Collapsed : Visibility.Visible;

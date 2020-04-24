@@ -52,7 +52,7 @@ namespace KHSave.LibFf7Remake
         {
             for (int i = 0, index = 0; i < Materia.Length; i++)
             {
-                if (Materia[i].Type != Types.InventoryType.Empty)
+                if (Materia[i].ItemId != (int)Types.InventoryType.Empty)
                 {
                     Materia[i].IsObtained = 1;
                     Materia[i].Index = ++index;

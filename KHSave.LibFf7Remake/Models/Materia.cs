@@ -27,7 +27,7 @@ namespace KHSave.LibFf7Remake.Models
         [Data] public byte Character { get; set; }
         [Data] public byte IsObtained { get; set; }
         [Data] public byte Unused03 { get; set; }
-        [Data] public InventoryType Type { get; set; }
+        [Data] public int ItemId { get; set; }
         [Data] public int AbilityPoint { get; set; }
         [Data] public int Unknown0c { get; set; }
         [Data] public uint UnixTimestamp { get; set; }

@@ -28,8 +28,8 @@
             <ComboBox
                 Grid.Row="1" Grid.Column="0"
                 ItemsSource="{Binding ItemTypes}"
-                SelectedValue="{Binding Type}"
-                SelectedValuePath="Value">
+                SelectedValue="{Binding ItemId}"
+                SelectedValuePath="Id">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

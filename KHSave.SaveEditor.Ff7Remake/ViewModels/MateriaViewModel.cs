@@ -32,7 +32,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         private string searchTerm;
 
         public MateriaViewModel(SaveFf7Remake save) :
-            this(save.Materia.Select((x, i) => new MateriaEntryModel(save, i, x)))
+            this(save.Materia.Select((x, i) => new MateriaEntryModel(x)))
         {
             _save = save;
         }
@@ -56,9 +56,9 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         private static int Order(MateriaEntryModel materia)
         {
-            if (materia.Type <= 0)
+            if (materia.ItemId <= 0)
                 return int.MaxValue;
-            return (int)materia.Type;
+            return (int)materia.ItemId;
         }
 
         protected override void OnSelectedItem(MateriaEntryModel item)

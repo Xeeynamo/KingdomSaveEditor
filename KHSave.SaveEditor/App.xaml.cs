@@ -1,4 +1,5 @@
-﻿using KHSave.SaveEditor.Interfaces;
+﻿using KHSave.SaveEditor.Ff7Remake.Data;
+using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.Views;
 using System.Diagnostics;
@@ -36,6 +37,8 @@ namespace KHSave.SaveEditor
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            ItemsPreset.LazyInitialize();
 
             IUnityContainer container = new UnityContainer()
                 .RegisterSingleton<IWindowManager, WindowManager>()

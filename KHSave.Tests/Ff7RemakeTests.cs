@@ -62,7 +62,7 @@ namespace KHSave.Tests
 			Assert.Equal(3, save.Materia[0].Level);
 			Assert.Equal(1, save.Materia[0].Index);
 			Assert.Equal(CharacterType.Cloud, (CharacterType)save.Materia[0].Character);
-			Assert.Equal(InventoryType.Fire, save.Materia[0].Type);
+			Assert.Equal(InventoryType.Fire, (InventoryType)save.Materia[0].ItemId);
 
 			Assert.Equal(InventoryType.BronzeBangle, save.Inventory[0].Type);
 			Assert.Equal(3, save.Inventory[0].Count);

@@ -29,8 +29,8 @@
         <ComboBox
             Margin="0 0 0 5"
             ItemsSource="{Binding EquipmentType, Mode=OneTime}"
-            SelectedValue="{Binding Type}"
-            SelectedValuePath="Value">
+            SelectedValue="{Binding ItemId}"
+            SelectedValuePath="Id">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

@@ -17,13 +17,14 @@
 */
 
 using KHSave.Attributes;
-using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Ff7Remake.Data;
 using KHSave.SaveEditor.Ff7Remake.ViewModels;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -41,13 +42,13 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         {
             _equipment = equipment;
             _materiaVm = vm;
-            EquipmentType = new KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType>(() => Type, x => Type = x);
+            EquipmentType = ItemModel.GetItemModels();
             CharacterTypes = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
         }
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-        public KhEnumListModel<EnumIconTypeModel<InventoryType>, InventoryType> EquipmentType { get; }
+        public IEnumerable<ItemModel> EquipmentType { get; }
         public KhEnumListModel<CharacterType> CharacterTypes { get; }
         public ObservableCollection<MateriaEntryModel> Materia => _materiaVm.Items;
 
@@ -55,25 +56,25 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         {
             get
             {
-                if (Character != KHSave.LibFf7Remake.Types.CharacterType.Unequip)
+                if (Character != CharacterType.Unequip)
                     return InfoAttribute.GetInfo(Character);
 
-                var type = Type;
+                var type = ItemId;
                 if (type < 0)
                     return "<no equipment>";
 
-                return InfoAttribute.GetInfo(type);
+                return ItemsPreset.Get(ItemId)?.Name;
             }
         }
         public ImageSource Icon
         {
             get
             {
-                var type = Type;
+                var type = ItemId;
                 if (type < 0)
                     return null;
 
-                return IconService.Icon(Type);
+                return IconService.Icon(ItemsPreset.Get(ItemId)?.Icon);
             }
         }
 
@@ -97,12 +98,12 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             }
         }
 
-        public InventoryType Type
+        public int ItemId
         {
-            get => (InventoryType)_equipment.ItemId;
+            get => _equipment.ItemId;
             set
             {
-                _equipment.ItemId = (int)value;
+                _equipment.ItemId = value;
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(Icon));
             }
