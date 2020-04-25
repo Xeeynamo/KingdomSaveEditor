@@ -78,5 +78,6 @@
             <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding RotY, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Grid.Row="2" Grid.Column="9" Text="{Binding RotZ, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
+        <Separator Visibility="{Binding AdvancedVisibility}"/>
     </StackPanel>
 </UserControl>

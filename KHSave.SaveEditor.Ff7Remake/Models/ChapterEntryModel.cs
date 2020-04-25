@@ -21,12 +21,15 @@ using KHSave.LibFf7Remake.Chunks;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Ff7Remake.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
 {
-    public class ChapterEntryModel
+    public class ChapterEntryModel : BaseNotifyPropertyChanged
     {
         private readonly ChunkChapter _chapter;
         private readonly int _index;
@@ -78,9 +81,10 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             }
         }
 
+        public IEnumerable<BgmModel> BgmList => BgmPreset.Get();
         public bool IsChapterInPlay { get => _chapter.IsChapterInPlay != 0; set => _chapter.IsChapterInPlay = (byte)(value ? 1 : 0); }
         public byte ChapterId { get => _chapter.ChapterId; set => _chapter.ChapterId = value; }
-        public ushort Bgm { get => _chapter.Bgm; set => _chapter.Bgm = value; }
+        public int Bgm { get => _chapter.Bgm; set { _chapter.Bgm = (ushort)value; OnPropertyChanged(); } }
 
         public ChapterCharacterEntryModel Entity0 => new ChapterCharacterEntryModel(_chapter, 0);
         public ChapterCharacterEntryModel Entity1 => new ChapterCharacterEntryModel(_chapter, 1);

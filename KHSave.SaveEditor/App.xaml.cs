@@ -39,6 +39,7 @@ namespace KHSave.SaveEditor
             base.OnStartup(e);
 
             ItemsPreset.LazyInitialize();
+            BgmPreset.LazyInitialize();
 
             IUnityContainer container = new UnityContainer()
                 .RegisterSingleton<IWindowManager, WindowManager>()
