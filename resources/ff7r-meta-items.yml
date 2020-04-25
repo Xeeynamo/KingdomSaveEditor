@@ -1,6 +1,8 @@
 name: Final Fantasy VII Remake
 items:
--
-    id: 9060
-    name: Gotterdammerung
-    icon: Accessory
+- id: 9006
+  name: Chain Bangle
+  icon: Accessory
+- id: 9060
+  name: Gotterdammerung
+  icon: Accessory
