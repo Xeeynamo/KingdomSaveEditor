@@ -12,6 +12,11 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded"
         Drop="Window_Drop" AllowDrop="True">
+    <Window.InputBindings>
+        <KeyBinding Key="O" Modifiers="Control" Command="{Binding OpenCommand}"/>
+        <KeyBinding Key="S" Modifiers="Control" Command="{Binding SaveCommand}"/>
+        <KeyBinding Key="S" Modifiers="Control+Shift" Command="{Binding SaveAsCommand}"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
