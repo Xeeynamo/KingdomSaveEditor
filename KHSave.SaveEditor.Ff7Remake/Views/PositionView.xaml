@@ -24,7 +24,9 @@
             <ComboBox Grid.Column="2" ItemsSource="{Binding StatusTypes}"
                 SelectedValue="{Binding Status}" SelectedValuePath="Value"/>
             <TextBlock Grid.Column="4" Text="{Binding TextCoordinates}"/>
-            <Button Grid.Column="6" Content="..." Command="{Binding TeleportCommand}"/>
+            <Button Grid.Column="6" Command="{Binding TeleportCommand}">
+                <Image Source="{StaticResource EditWindow_16x}"/>
+            </Button>
         </Grid>
         <Grid Margin="0 0 0 3" Visibility="{Binding AdvancedVisibility}">
             <Grid.ColumnDefinitions>
@@ -37,7 +39,9 @@
             <TextBlock Grid.Column="0" Text="{Binding Name}" Margin="0 1 0 0 "/>
             <ComboBox Grid.Column="2" ItemsSource="{Binding StatusTypes}"
                 SelectedValue="{Binding Status}" SelectedValuePath="Value"/>
-            <Button Grid.Column="4" Content="..." Command="{Binding TeleportCommand}"/>
+            <Button Grid.Column="6" Command="{Binding TeleportCommand}">
+                <Image Source="{StaticResource EditWindow_16x}"/>
+            </Button>
         </Grid>
         <Grid Visibility="{Binding AdvancedVisibility}">
             <Grid.ColumnDefinitions>

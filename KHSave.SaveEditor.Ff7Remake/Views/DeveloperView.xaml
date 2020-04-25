@@ -55,8 +55,18 @@
                                     <ColumnDefinition Width="10"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" Content="Import" Command="{Binding ImportCommand}"/>
-                                <Button Grid.Column="2" Content="Export" Command="{Binding ExportCommand}"/>
+                                <Button Grid.Column="0" Command="{Binding ImportCommand}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource Import_16x}"/>
+                                        <TextBlock Text="Import"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Column="2" Command="{Binding ExportCommand}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{StaticResource Export_16x}"/>
+                                        <TextBlock Text="Export"/>
+                                    </StackPanel>
+                                </Button>
                             </Grid>
                         </StackPanel>
                     </GroupBox>

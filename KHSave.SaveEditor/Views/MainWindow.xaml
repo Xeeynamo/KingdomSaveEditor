@@ -19,9 +19,21 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="_File">
-                <MenuItem Header="_Open..." Command="{Binding OpenCommand}"/>
-                <MenuItem Header="_Save" Command="{Binding SaveCommand}"/>
-                <MenuItem Header="Save _as..." Command="{Binding SaveAsCommand}"/>
+                <MenuItem Header="_Open..." Command="{Binding OpenCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource FolderOpen_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Save" Command="{Binding SaveCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource Save_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save _as..." Command="{Binding SaveAsCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource SaveAs_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator/>
                 <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
             </MenuItem>
@@ -34,8 +46,16 @@
                     IsChecked="{Binding IsUpdateCheckingEnabled}"/>
             </MenuItem>
             <MenuItem Header="_Info">
-                <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}"/>
-                <MenuItem Header="_About" Command="{Binding AboutCommand}"/>
+                <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource Download_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_About" Command="{Binding AboutCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource UIAbout_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
