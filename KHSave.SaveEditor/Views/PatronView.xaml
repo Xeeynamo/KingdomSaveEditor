@@ -48,7 +48,7 @@
             Visibility="{Binding BorderVisibility}"
             Width="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualHeight}" Stroke="{Binding BorderColor}">
             <Ellipse.Effect>
-                <DropShadowEffect x:Name="glowEffect" ShadowDepth="0" Color="{Binding Brush}" Opacity="0" BlurRadius="3"/>
+                <DropShadowEffect x:Name="glowEffect" ShadowDepth="0" Color="Black" Opacity="0" BlurRadius="3"/>
             </Ellipse.Effect>
         </Ellipse>
 

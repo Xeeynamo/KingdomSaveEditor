@@ -56,9 +56,6 @@
 
                     <TextBlock Text="Unknown 0c"/>
                     <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <TextBlock Text="Unknown 10"/>
-                    <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
                 </common:TwoEqualColumnsStackPanel>
             </ScrollViewer>
         </Grid>
