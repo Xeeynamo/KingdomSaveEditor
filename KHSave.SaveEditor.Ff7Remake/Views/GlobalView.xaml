@@ -14,7 +14,23 @@
                 SelectedValue="{Binding PlayableCharacter}"
                 SelectedValuePath="Value"
                 DisplayMemberPath="Name"/>
-        <TextBlock Text="Current Chapter ID in play"/>
-        <TextBox Text="{Binding CurrentChapterId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="👀"/>
+        <TextBlock Text="PLACEHOLDER" Visibility="Collapsed"/>
+
+        <TextBlock Text="Current Chapter in play"/>
+        <TextBox Text="{Binding CurrentChapter, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter ID"/>
+        <TextBox Visibility="{Binding AdvancedVisibility}"
+                 Text="{Binding CurrentChapterId, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID"/>
+        <TextBox Visibility="{Binding AdvancedVisibility}"
+                 Text="{Binding CurrentChapterChunk, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID (duplicate?)"/>
+        <TextBox Visibility="{Binding AdvancedVisibility}"
+                 Text="{Binding CurrentChapterChunk2, UpdateSourceTrigger=PropertyChanged}"/>
     </common:TwoEqualColumnsStackPanel>
 </UserControl>

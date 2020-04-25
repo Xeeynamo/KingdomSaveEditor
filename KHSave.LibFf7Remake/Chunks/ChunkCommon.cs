@@ -25,6 +25,9 @@ namespace KHSave.LibFf7Remake.Chunks
     {
         [Data(Count = 0x00050008)] public byte[] Data { get; set; }
 
+        [Data(0)] public byte CurrentChapterChunk { get; set; }
+        [Data(6)] public byte CurrentChapterId { get; set; }
+        [Data(7)] public byte CurrentChapterChunk2 { get; set; }
         [Data(8, Count = SaveFf7Remake.CharacterCount, Stride = 0x40)] public Character[] Characters { get; set; }
         [Data(0x208, Count = SaveFf7Remake.CharacterCount, Stride = 0x10)] public CharacterStats[] CharactersStats { get; set; }
         [Data(0x698, Count = SaveFf7Remake.CharacterCount, Stride = 0x10)] public UnknownStructure[] CharactersUnknown { get; set; }

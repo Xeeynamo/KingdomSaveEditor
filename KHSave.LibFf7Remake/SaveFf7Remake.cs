@@ -77,6 +77,9 @@ namespace KHSave.LibFf7Remake
 
         public Chunk[] Chunks { get; private set; }
 
+        public byte CurrentChapterChunk { get => ChunkCommon.CurrentChapterChunk; set => ChunkCommon.CurrentChapterChunk = value; }
+        public byte CurrentChapterId { get => ChunkCommon.CurrentChapterId; set => ChunkCommon.CurrentChapterId = value; }
+        public byte CurrentChapterChunk2 { get => ChunkCommon.CurrentChapterChunk2; set => ChunkCommon.CurrentChapterChunk2 = value; }
         public Character[] Characters { get => ChunkCommon.Characters; set => ChunkCommon.Characters = value; }
         public CharacterStats[] CharactersStats { get => ChunkCommon.CharactersStats; set => ChunkCommon.CharactersStats = value; }
         public CharacterEquipment[] CharactersEquipment { get => ChunkCommon.CharactersEquipment; set => ChunkCommon.CharactersEquipment = value; }
@@ -85,7 +88,7 @@ namespace KHSave.LibFf7Remake
         public MateriaEquipment[] CharacterMateria { get => ChunkCommon.CharacterMateria; set => ChunkCommon.CharacterMateria = value; }
         public MateriaEquipment[] WeaponMateria { get => ChunkCommon.WeaponMateria; set => ChunkCommon.WeaponMateria = value; }
         public byte PlayableCharacter { get => ChunkCommon.PlayableCharacter; set => ChunkCommon.PlayableCharacter = value; }
-        public byte CurrentChapterId { get => ChunkCommon.CurrentChapter; set => ChunkCommon.CurrentChapter = value; }
+        public byte CurrentChapter { get => ChunkCommon.CurrentChapter; set => ChunkCommon.CurrentChapter = value; }
         public int[] SummonMateria { get => ChunkCommon.SummonMateria; set => ChunkCommon.SummonMateria = value; }
         public ChunkChapter[] Chapters { get; set; }
 
