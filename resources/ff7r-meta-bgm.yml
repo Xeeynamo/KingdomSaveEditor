@@ -1,6 +1,412 @@
 name: Final Fantasy VII Remake
 bgm:
-- id: 6272
-  name: Opening Mission
 - id: 51275
-  name: Mark of a Traitor (Barret Theme)
+  name: "Mark of a Traitor (Barret Theme)"
+- id: 25140
+  name: "Unused (from Advent Children)"
+- id: 36234
+  name: "Unused (from Advent Children)"
+- id: 45357
+  name: "Unused (from Advent Children)"
+- id: 26287
+  name: "Unused (from Advent Children)"
+- id: 50425
+  name: "Unused (from Advent Children)"
+- id: 22391
+  name: "Unused (from Advent Children)"
+- id: 38670
+  name: "Unused (from Advent Children)"
+- id: 6272
+  name: "Bombing Mission"
+- id: 15716
+  name: "Bombing Mission?"
+- id: 32287
+  name: "Bombing Mission"
+- id: 26218
+  name: "Bombing Mission"
+- id: 16387
+  name: "Anxiety (just the opening)"
+- id: 31677
+  name: "Mako Reactor"
+- id: 13159
+  name: "Mako Reactor (Battle)"
+- id: 56796
+  name: "Cloud's headache scene during the first bombing"
+- id: 55979
+  name: "Scorpion Sentinel"
+- id: 11196
+  name: "Scorpion Sentinel"
+- id: 5496
+  name: "Getaway"
+- id: 29180
+  name: "Getaway (End Cutscene)"
+- id: 54418
+  name: "Electric Guitar version of the Shinra Theme?"
+- id: 38114
+  name: "Bombing Mission (Alternative Mix)"
+- id: 36029
+  name: "Bombing Mission"
+- id: 3973
+  name: "Mako Reactor (Battle)"
+- id: 1091
+  name: "Mako Reactor"
+- id: 20620
+  name: "Mako Reactor (Battle)"
+- id: 44459
+  name: "Mako Reactor (Battle)"
+- id: 1512
+  name: "Shinra's Theme"
+- id: 32177
+  name: "Mako Reactor (Alternative Mix)"
+- id: 11360
+  name: "*A somewhat somber, but eerie song."
+- id: 33887
+  name: "*A somewhat somber, but eerie song. More Instrumentation"
+- id: 63288
+  name: "Meeting Aerith (Suddenly, Sephiroth)"
+- id: 20893
+  name: "Aerith's Theme"
+- id: 24237
+  name: "Suddenly, Harry Potter ghosts"
+- id: 56626
+  name: "Let the Battles Begin"
+- id: 12749
+  name: "Let the Battles Begin (Less Intrumentation)"
+- id: 9507
+  name: "Let the Battles Begin 3"
+- id: 46470
+  name: "Let the Battles Begin 4"
+- id: 10627
+  name: "Let the Battles Begin 5"
+- id: 52467
+  name: "Let the Battles Begin 6"
+- id: 49580
+  name: "Let the Battles Begin 7 (bit of Bombing Mission)"
+- id: 63773
+  name: "Let the Battles Begin 8"
+- id: 35612
+  name: "Let the Battles Begin 9"
+- id: 41004
+  name: "Let the Battles Begin 10 (With Bombing Mission & Shinra Theme)"
+- id: 37161
+  name: "Let the Battles Begin 11"
+- id: 50339
+  name: "Let the Battles Begin End?"
+- id: 9627
+  name: "Bombing Mission, but when Cloud jumps into the train"
+- id: 53723
+  name: "Anxiety"
+- id: 61591
+  name: "World Map (Sector 7 Slums)"
+- id: 13272
+  name: "*short sudden BWAM"
+- id: 36551
+  name: "Tifa's Theme (Piano)"
+- id: 10120
+  name: "Tifa's Theme"
+- id: 9828
+  name: "Trail of Blood"
+- id: 14647
+  name: "*Spooky, intimidating song,which goes onto a calmer section (Cutscene)"
+- id: 31359
+  name: "Main theme of FFVII - Sector 7"
+- id: 18007
+  name: "Avalanche's Theme"
+- id: 55636
+  name: "Scrap Boulevard Cleanup Crew"
+- id: 13601
+  name: "Steal the Tiny Bronco! (Placeholder FF7 Rip)"
+- id: 45500
+  name: "Let the Battles Begin 12 (doesn't loop properly)"
+- id: 35045
+  name: "Johnny's Theme"
+- id: 58355
+  name: "Let the Battles Begin 13 (A Merc's Job)"
+- id: 61102
+  name: "On Our Way (Tifa's Theme)"
+- id: 37934
+  name: "The Star of Seventh Heaven"
+- id: 38929
+  name: "Lurking in the Darkness - Suspicious Man"
+- id: 14766
+  name: "Let the Battles Begin 14"
+- id: 27426
+  name: "Just Another Job"
+- id: 23161
+  name: "Let the Battles Begin 15"
+- id: 47085
+  name: "Invisible Enemy - Sudden Attack"
+- id: 60414
+  name: "Invisible Enemy - Sudden Attack"
+- id: 8287
+  name: "Invisible Enemy - Sudden Attack"
+- id: 15210
+  name: "A New Operation"
+- id: 11279
+  name: "Let the Battles Begin 16"
+- id: 27951
+  name: "Main Theme of FFVII - Nightfall in the Undercity"
+- id: 11689
+  name: "Let the Battles Begin! - The Hideout"
+- id: 39153
+  name: "Let the Battles Begin 17"
+- id: 13619
+  name: "Avalanche's Theme"
+- id: 17687
+  name: "Lay Down Some Rubber - Let's Ride"
+- id: 40117
+  name: "Lay Down Some Rubber - Let's Ride"
+- id: 9512
+  name: "Lay Down Some Rubber - Let's Ride"
+- id: 37750
+  name: "Midnight Spiral"
+- id: 61112
+  name: "Speed Demon"
+- id: 38110
+  name: "The Red Zone"
+- id: 38879
+  name: "Jesse's Theme"
+- id: 17813
+  name: "Moonlight Thievery"
+- id: 10008
+  name: "Jesse's Theme"
+- id: 17069
+  name: "Jesse's Theme"
+- id: 55341
+  name: "Jesse's Theme (Alternative Mix?)"
+- id: 35283
+  name: "*I would guess used for a cutscene? Has a slow start up."
+- id: 6629
+  name: "*Final Fantasy 7 Main Theme (Calm version)"
+- id: 34567
+  name: "S7-6 Annex Diversion"
+- id: 7883
+  name: "S7-6 Annex Diversion 2"
+- id: 52021
+  name: "S7-6 Annex Diversion 3"
+- id: 24823
+  name: "S7-6 Annex Diversion 4"
+- id: 47700
+  name: "Ignition Flame"
+- id: 58915
+  name: "Ignition Flame (Alt)"
+- id: 17112
+  name: "Flying High"
+- id: 51448
+  name: "*A high-tempo up-beat techno song with lyrics."
+- id: 56334
+  name: "*A instrumental version of the song above"
+- id: 9555
+  name: "Target: Mako Reactor 5"
+- id: 14449
+  name: "Hurry!"
+- id: 15908
+  name: "Hurry! (Alt) or Dogged Pursuit"
+- id: 9271
+  name: "Born Survivors - Section C"
+- id: 46421
+  name: "Born Survivors - Section E"
+- id: 23961
+  name: "Born Survivors - Section E (?)"
+- id: 4247
+  name: "*Not entierly sure..."
+- id: 50412
+  name: "*Not entirely sure once again, could have missed or forgotten it)"
+- id: 26683
+  name: "Born Survivors - Section C"
+- id: 35208
+  name: "Born Survivors - Section E"
+- id: 49982
+  name: "Born Survivors - Section C"
+- id: 4682
+  name: "Born Survivors - Section C (?)"
+- id: 64645
+  name: "Crab Warden"
+- id: 36010
+  name: "Crab Warden 2"
+- id: 32032
+  name: "Crab Warden 3"
+- id: 2582
+  name: "Crab Warden (end?)"
+- id: 35581
+  name: "Crab Warden 4?"
+- id: 28912
+  name: "Crab Warden? (5)"
+- id: 6501
+  name: "Crab Warden? (6)"
+- id: 2937
+  name: "Undercity Suns"
+- id: 22297
+  name: "Undercity Suns (Battle)"
+- id: 5422
+  name: "Tightrope"
+- id: 15553
+  name: "Maze of Scrap Metal"
+- id: 42116
+  name: "Maze of Scrap Metal (Battle)"
+- id: 19686
+  name: "The Rendezvous Point"
+- id: 7595
+  name: "Mako Reactor"
+- id: 33513
+  name: "Mako Reactor"
+- id: 60049
+  name: "Mako Reactor"
+- id: 53948
+  name: "Mako Reactor (Battle)"
+- id: 4130
+  name: "Anxiety (alternative mix) (cutscene)"
+- id: 31491
+  name: "*Cutscene song which starts with strings, before building up to something."
+- id: 35043
+  name: "Let the Battles Begin"
+- id: 20099
+  name: "Those who fight further (I think?)"
+- id: 22498
+  name: "Those who fight further? (I think?)"
+- id: 45875
+  name: "Cutscene Song of some kind. Starts off with a drum."
+- id: 24093
+  name: "A very calm version of Let the Battles Begin"
+- id: 29868
+  name: "A slightly less calm version of et the Battles Begin"
+- id: 57207
+  name: "Let the Battles Begin"
+- id: 41001
+  name: "Let the Battles Begin?"
+- id: 38319
+  name: "The song that plays when dissambling the AirBuster."
+- id: 33704
+  name: "AF 95 (Battle Theme)"
+- id: 7401
+  name: "AF 95 (Battle Theme)"
+- id: 11712
+  name: "The AirBuster"
+- id: 23063
+  name: "The AirBuster (Phase 2)"
+- id: 61445
+  name: "The AirBuster (Phase 3)"
+- id: 59705
+  name: "The AirBuster (4)"
+- id: 16162
+  name: "The AirBuster (End)"
+- id: 56245
+  name: "Cutscene (Cloud falls)"
+- id: 54137
+  name: "Who Am I?"
+- id: 37164
+  name: "Aerith's Theme"
+- id: 47841
+  name: "The Turks' Theme"
+- id: 40148
+  name: "The Turks: Reno"
+- id: 60003
+  name: "The Turks: Reno?"
+- id: 62660
+  name: "The Turks: Reno (4)"
+- id: 15303
+  name: "*Not entirely sure. My guess would be escaping the church"
+- id: 54467
+  name: "*Custcene. Very short Shinra Theme."
+- id: 56135
+  name: "Flowers Blooming in the Church"
+- id: 25427
+  name: "Flowers Blooming in the Church? (2)"
+- id: 2398
+  name: "Flowers Blooming in the Church? (3)"
+- id: 34119
+  name: "*Cutscene. Slow, short version of Aerith's theme"
+- id: 8929
+  name: "Underneath the Rotting Pizza"
+- id: 12959
+  name: "Underneath the Rotting Pizza (Battle)"
+- id: 3198
+  name: "Underneath the Rotting Pizza (Less Instrumentation)"
+- id: 36599
+  name: "(SILENCE)"
+- id: 8535
+  name: "*Cutscene. Eerie version of the Shinra Theme"
+- id: 3593
+  name: "Underneath the Rotting Pizza"
+- id: 31514
+  name: "Underneath the Rotting Pizza (Battle)"
+- id: 42532
+  name: "Underneath the Rotting Pizza (Less Instrumentation)"
+- id: 21164
+  name: "Anxiety"
+- id: 48026
+  name: "Anxiety?"
+- id: 4307
+  name: "Aerith's Theme (Clarify ver.)"
+- id: 59859
+  name: "Aerith's Theme (Clarify ver.)"
+- id: 61063
+  name: "Aerith's Theme (Clarify ver.)"
+- id: 39196
+  name: "Aerith's Theme (Clarify ver.)"
+- id: 38252
+  name: "Hollow Skies"
+- id: 28907
+  name: "Let the Battles Begin (field version)"
+- id: 23702
+  name: "Aerith's Theme (Cutscene)"
+- id: 42349
+  name: "*A cutscene song that incorporates Those Chosen by the Planet"
+- id: 33771
+  name: "Hollow Skies"
+- id: 47035
+  name: "The Turks' Theme (Theme ver.)"
+- id: 62198
+  name: "A battle theme. If I had to guess, it's when you fight Rude"
+- id: 35352
+  name: "A calmer song that goes into the Turk' Theme before ending."
+- id: 35655
+  name: "Aerith's Theme (Clarify ver.)"
+- id: 42292
+  name: "Aerith's Theme - Home Again (cutscene ver.)"
+- id: 57616
+  name: "*A piano piece that I think incorporates the FFVII main theme?"
+- id: 52077
+  name: "Opening Theme (but only the beginning part) (cutscene)"
+- id: 34198
+  name: "Midnight Rendezvous"
+- id: 7054
+  name: "Oppressed People"
+- id: 49407
+  name: "Oppressed People"
+- id: 21456
+  name: "*A continous single note string"
+- id: 35829
+  name: "*A very slow version of Aerith's Theme. Possibly the Park scene"
+- id: 24078
+  name: "*Aerith's Theme"
+- id: 48868
+  name: "*Cutscene where you see Tifa before Wall Market "
+- id: 46121
+  name: "The Oppressed - Beck's Badasses"
+- id: 19354
+  name: "Due Recompense"
+- id: 29037
+  name: "Cinco de Chocobo"
+- id: 3561
+  name: "Cinco de Chocobo?"
+- id: 57980
+  name: "Stand Up"
+- id: 19280
+  name: "Cloud Dance Training"
+- id: 10489
+  name: "Stand Up - Reprise"
+- id: 9056
+  name: "Funk with Me"
+- id: 45368
+  name: "Sync or Swim"
+- id: 42026
+  name: "Vibe Valentino"
+- id: 24392
+  name: "Wall Market - Chocobo Sam"
+- id: 7432
+  name: "Wall Market - Madam M"
+- id: 53750
+  name: "Honeybee Inn"
+- id: 44384
+  name: "Don Corneo 1 (Entrance)"

@@ -42,6 +42,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Data
                         Id = x.Id,
                         Name = x.Name
                     })
+                    .OrderBy(x => x.Id)
                     .ToList();
                 });
             }
