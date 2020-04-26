@@ -82,23 +82,32 @@
                     SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
-        <GroupBox Header="Misc">
+        <GroupBox Header="Shared Abilities">
             <common:TwoEqualColumnsStackPanel>
-                <!--<TextBlock Text="Difficulty"/>
+                <TextBlock Text="Ability 1"/>
                 <ComboBox
-                    ItemsSource="{Binding Difficulty}"
-                    SelectedValue="{Binding Difficulty.SelectedValue}"
+                    ItemsSource="{Binding Abilities}"
+                    SelectedValue="{Binding SharedAbility1}"
                     DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>-->
-
-                <TextBlock/>
-                <TextBlock/>
-
-                <!--<TextBlock Text="Total experience"/>
-                <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Text="Bonus level"/>
-                <TextBox Text="{Binding BonusLevel, UpdateSourceTrigger=PropertyChanged}"/>-->
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Ability 2"/>
+                <ComboBox
+                    ItemsSource="{Binding Abilities}"
+                    SelectedValue="{Binding SharedAbility2}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Ability 3"/>
+                <ComboBox
+                    ItemsSource="{Binding Abilities}"
+                    SelectedValue="{Binding SharedAbility3}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBlock Text="Ability 4"/>
+                <ComboBox
+                    ItemsSource="{Binding Abilities}"
+                    SelectedValue="{Binding SharedAbility4}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
     </StackPanel>

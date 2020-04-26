@@ -16,6 +16,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             Pc1 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter1, x => save.CompanionCharacter1 = x);
             Pc2 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter2, x => save.CompanionCharacter2 = x);
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
+            Abilities = new KhEnumListModel<AbilityType>();
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
@@ -23,6 +24,12 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc1 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
+        public KhEnumListModel<AbilityType> Abilities { get; }
+
+        public AbilityType SharedAbility1 { get => save.SharedAbility1; set => save.SharedAbility1 = value; }
+        public AbilityType SharedAbility2 { get => save.SharedAbility2; set => save.SharedAbility2 = value; }
+        public AbilityType SharedAbility3 { get => save.SharedAbility3; set => save.SharedAbility3 = value; }
+        public AbilityType SharedAbility4 { get => save.SharedAbility4; set => save.SharedAbility4 = value; }
 
         public CommandType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
         public CommandType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }
