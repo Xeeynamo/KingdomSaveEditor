@@ -13,7 +13,7 @@ namespace KHSave.Lib1.Types
         [Info] Ariel,
         [Info] Jack,
         [Info("Peter Pan")] PeterPan,
-        [Info] Biest,
+        [Info] Beast,
         [Info] Empty = 0xFF
     }
 }
