@@ -40,7 +40,7 @@ namespace KHSave.Tests
             Assert.Equal(100, save.Characters[characterIndex].Level);
 
             Assert.Equal(PlayableCharacterType.Empty, save.CompanionCharacter3);
-            Assert.Equal(45359, save.Money);
+            Assert.Equal(45359, save.Munny);
         }
 
         [Fact]

@@ -34,5 +34,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public CommandType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
         public CommandType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }
         public CommandType ShortcutSquare { get => save.ShortcutSquare; set => save.ShortcutSquare = value; }
+
+        public uint Munny { get => save.Munny; set => save.Munny = value; }
     }
 }
