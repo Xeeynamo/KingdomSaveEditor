@@ -15,12 +15,25 @@ namespace KHSave.Lib1
 
             switch (magicCode)
             {
-                case 4:
-                case 5:
+                case Constants.MagicCodeFm:
+                case Constants.MagicCodeEverythingElse:
                     return true;
                 default:
                     return false;
             }
+        }
+
+        public static uint GetGameVersion(Stream stream)
+        {
+            if (!IsValid(stream))
+                return 0;
+
+            var prevPosition = stream.Position;
+            stream.Position = 0;
+            var version = new BinaryReader(stream).ReadUInt32();
+            stream.Position = prevPosition;
+
+            return version;
         }
 
         public static TSaveKh1 Read<TSaveKh1>(Stream stream)
