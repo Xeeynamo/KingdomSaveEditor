@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="MainView.xaml" />
+    <None Remove="Views\PlayerEquipmentView.xaml" />
     <None Remove="Views\PlayersView.xaml" />
     <None Remove="Views\PlayerView.xaml" />
     <None Remove="Views\SystemView.xaml" />
@@ -15,6 +16,9 @@
 
   <ItemGroup>
     <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerEquipmentView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlayersView.xaml">
