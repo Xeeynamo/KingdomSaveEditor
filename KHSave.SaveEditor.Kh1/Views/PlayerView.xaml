@@ -40,7 +40,7 @@
                 <TextBlock Text="Unk0e"/>
                 <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
             </common:TwoEqualColumnsStackPanel>-->
-            <GroupBox Header="Accessories" DataContext="{Binding Accessories}">
+            <!--<GroupBox Header="Accessories" DataContext="{Binding Accessories}">
                 <common:TwoEqualColumnsStackPanel>
                     <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
                     <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
@@ -63,7 +63,7 @@
                     <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
                     <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
                 </common:TwoEqualColumnsStackPanel>
-            </GroupBox>
+            </GroupBox>-->
         </StackPanel>
     </ScrollViewer>
 </UserControl>

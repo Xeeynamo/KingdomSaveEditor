@@ -5,4 +5,40 @@
     <LangVersion>7</LangVersion>
     <UseWpf>true</UseWpf>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MainView.xaml" />
+    <None Remove="Views\PlayersView.xaml" />
+    <None Remove="Views\PlayerView.xaml" />
+    <None Remove="Views\SystemView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KHSave.Lib1\KHSave.Lib1.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
+    <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />
+    <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj" />
+  </ItemGroup>
 </Project>
