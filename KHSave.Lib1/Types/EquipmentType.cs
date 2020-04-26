@@ -10,7 +10,7 @@ namespace KHSave.Lib1.Types
         [Consumable("Hi-Potion")] HiPotion,
         [Consumable("Ether")] Ether,
         [Consumable("Elixir")] Elixir,
-        [Unused] Unused5,
+        [Unused] BO5,
         [Consumable("Mega-Potion")] MegaPotion,
         [Consumable("Mega-Ether")] MegaEther,
         [Consumable("Megalixir")] Megalixir,
