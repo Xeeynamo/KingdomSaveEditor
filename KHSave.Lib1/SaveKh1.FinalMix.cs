@@ -36,6 +36,7 @@ namespace KHSave.Lib1
             [Data(0x16414)] public int Sound { get; set; }
 
             [Data(0x1641C)] public uint Munny { get; set; }
+            [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
         }
     }
 }

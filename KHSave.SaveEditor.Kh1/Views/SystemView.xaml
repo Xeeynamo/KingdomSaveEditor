@@ -114,6 +114,13 @@
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Munny"/>
                 <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Difficulty"/>
+                <ComboBox
+                    ItemsSource="{Binding DifficultiesFm}"
+                    SelectedValue="{Binding Difficulty}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
     </StackPanel>
