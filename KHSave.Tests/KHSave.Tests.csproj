@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave.Lib02\KHSave.Lib02.csproj" />
+    <ProjectReference Include="..\KHSave.Lib1\KHSave.Lib1.csproj" />
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
     <ProjectReference Include="..\KHSave.LibFf7Remake\KHSave.LibFf7Remake.csproj" />
@@ -30,6 +31,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\BISLPM-66676COM-01">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Saves\BISLPS-25198-05">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\ff7remake007">
