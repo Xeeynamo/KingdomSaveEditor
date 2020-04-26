@@ -3,6 +3,7 @@ using KHSave.Lib1.Models;
 using KHSave.Lib1.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh1.Service;
 using System.Windows;
 
 namespace KHSave.SaveEditor.Kh1.ViewModels
@@ -18,12 +19,16 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             this.index = index;
 
             Weapon = new ItemComboBoxModel<EquipmentType>(() => character.Weapon, x => character.Weapon = x);
+            Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character));
+            Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character));
         }
 
         public string Name => InfoAttribute.GetInfo((PlayableCharacterType)index);
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public ItemComboBoxModel<EquipmentType> Weapon { get; }
+        public EquipmentItemsViewModel Accessories { get; }
+        public EquipmentItemsViewModel Consumables { get; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }
         public byte MpCur { get => character.MpCur; set => character.MpCur = value; }
