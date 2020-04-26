@@ -8,7 +8,7 @@ namespace KHSave.Lib1.Types
         [Info] Donald,
         [Info] Goofy,
         [Info] Tarzan,
-        [Unused] NotWorking,
+        [Info("Riku ?")] Riku,
         [Info] Aladdin,
         [Info] Arielle,
         [Info] Jack,
