@@ -52,7 +52,7 @@ namespace KHSave.Lib1.Types
         [Accessory("Atlas Armlet")] AtlasArmlet,
         [Accessory("Heartguard")] Heartguard,
         [Accessory("Ribbon")] Ribbon,
-        [Synthesis("Crystal Crown")] CrystalCrown,
+        [Accessory("Crystal Crown")] CrystalCrown,
         [Accessory("Brave Warrior")] BraveWarrior,
         [Accessory("Ifrit's Horn")] IfritsHorn,
         [Accessory("Inferno Band")] InfernoBand,
