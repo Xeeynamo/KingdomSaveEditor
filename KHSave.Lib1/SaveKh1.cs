@@ -26,5 +26,9 @@ namespace KHSave.Lib1
         public static TSaveKh1 Read<TSaveKh1>(Stream stream)
             where TSaveKh1 : class, ISaveKh1 =>
             BinaryMapping.ReadObject<TSaveKh1>(stream.SetPosition(0));
+
+        public static void Write<TSaveKh1>(Stream stream, TSaveKh1 save)
+            where TSaveKh1 : class, ISaveKh1 =>
+            BinaryMapping.WriteObject(stream.FromBegin(), save);
     }
 }
