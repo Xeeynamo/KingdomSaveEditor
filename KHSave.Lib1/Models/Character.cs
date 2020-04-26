@@ -11,8 +11,8 @@ namespace KHSave.Lib1.Models
         [Data] public byte MpCur { get; set; }
         [Data] public byte MpMax { get; set; }
         [Data] public byte ApMax { get; set; }
-        [Data] public byte Unk06 { get; set; }
-        [Data] public byte Unk07 { get; set; }
+        [Data] public byte Strength { get; set; }
+        [Data] public byte Defense { get; set; }
         [Data(Count = 16)] public byte[] Unk08 { get; set; }
         [Data] public byte AccessoryCount { get; set; }
         [Data(Count = 8)] public byte[] Accessories { get; set; }

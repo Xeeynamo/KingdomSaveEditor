@@ -36,6 +36,8 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public byte ApMax { get => character.ApMax; set => character.ApMax = value; }
         public byte Level { get => character.Level; set => character.Level = value; }
         public int Experience { get => character.Experience; set => character.Experience = value; }
+        public byte Strength { get => character.Strength; set => character.Strength = value; }
+        public byte Defense { get => character.Defense; set => character.Defense = value; }
         public byte AccessoryCount { get => character.AccessoryCount; set => character.AccessoryCount = value; }
         public byte ItemCount { get => character.ItemCount; set => character.ItemCount = value; }
     }
