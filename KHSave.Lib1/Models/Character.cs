@@ -6,11 +6,11 @@ namespace KHSave.Lib1.Models
     public class Character
     {
         [Data] public byte Level { get; set; }
-        [Data] public byte CurHp { get; set; }
-        [Data] public byte MaxHp { get; set; }
-        [Data] public byte CurMp { get; set; }
-        [Data] public byte MaxMp { get; set; }
-        [Data] public byte MaxAp { get; set; }
+        [Data] public byte HpCur { get; set; }
+        [Data] public byte HpMax { get; set; }
+        [Data] public byte MpCur { get; set; }
+        [Data] public byte MpMax { get; set; }
+        [Data] public byte ApMax { get; set; }
         [Data] public byte Unk06 { get; set; }
         [Data] public byte Unk07 { get; set; }
         [Data(Count = 16)] public byte[] Unk08 { get; set; }

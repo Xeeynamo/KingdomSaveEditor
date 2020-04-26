@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh1.Views.PlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh1.Views" 
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer>
+        <StackPanel>
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Level"/>
+                <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Weapon"/>
+                <common:ItemComboBox DataContext="{Binding Weapon}"/>
+
+                <TextBlock Text="HP current"/>
+                <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="HP max"/>
+                <TextBox Text="{Binding HpMax, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="MP current"/>
+                <TextBox Text="{Binding MpCur, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="MP max"/>
+                <TextBox Text="{Binding MpMax, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="AP max"/>
+                <TextBox Text="{Binding ApMax, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Total experience"/>
+                <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+            </common:TwoEqualColumnsStackPanel>
+            <!--<common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
+                <TextBlock Text="Unk02"/>
+                <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Unk0c"/>
+                <TextBox Text="{Binding Unk0c, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Unk0d"/>
+                <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Unk0e"/>
+                <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
+            </common:TwoEqualColumnsStackPanel>-->
+            <GroupBox Header="Accessories" DataContext="{Binding Accessories}">
+                <common:TwoEqualColumnsStackPanel>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </GroupBox>
+            <GroupBox Header="Consumable items" DataContext="{Binding Consumables}">
+                <common:TwoEqualColumnsStackPanel>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
+                    <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
