@@ -110,5 +110,11 @@
                     SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
+        <GroupBox Header="Misc">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Munny"/>
+                <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
+            </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
     </StackPanel>
 </UserControl>

@@ -35,7 +35,7 @@ namespace KHSave.Lib1
             [Data(0x16410)] public int Vibration { get; set; }
             [Data(0x16414)] public int Sound { get; set; }
 
-            [Data(0x1641C)] public int Money { get; set; }
+            [Data(0x1641C)] public uint Munny { get; set; }
         }
     }
 }
