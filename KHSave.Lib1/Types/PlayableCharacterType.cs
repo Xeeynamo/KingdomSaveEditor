@@ -8,7 +8,7 @@ namespace KHSave.Lib1.Types
         [Info] Donald,
         [Info] Goofy,
         [Info] Tarzan,
-        [Info("Pooh (not playable")] Pooh,
+        [Info("Pooh (not playable)")] Pooh,
         [Info] Aladdin,
         [Info] Ariel,
         [Info] Jack,
