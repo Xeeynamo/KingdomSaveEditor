@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -114,7 +114,7 @@ namespace KHSave.LibFf7Remake
                 x.Header.Unknown00 == type &&
                 (index == -1 || x.Header.Unknown01 == index));
             if (chunk == null)
-                throw new ArgumentException($"Unable to find the chunk ({type}, {index}).");
+                return null;//throw new ArgumentException($"Unable to find the chunk ({type}, {index}).");
 
             if (chunk.Content == null)
                 throw new ArgumentException($"The chunk ({type}, {index}) does not contain any data.");
@@ -126,7 +126,7 @@ namespace KHSave.LibFf7Remake
             where T : class
         {
             var chunk = GetChunk(type, index);
-            if (chunk.Content.RawData.Length == 0)
+            if ((chunk?.Content?.RawData?.Length ?? 0) == 0)
                 return default(T);
 
             using (var stream = new MemoryStream(chunk.Content.RawData))
