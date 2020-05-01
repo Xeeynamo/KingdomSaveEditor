@@ -1,14 +1,60 @@
 name: Final Fantasy VII Remake
 locations:
 - chapter: 4
+  oob: false
+  description: "Jessie's House (Cloud, you dumb)"
+  x: 2388.093
+  y: 11517.67
+  z: -5.506325
+- chapter: 4
   oob: true
   description: "Past invisible wall by Jessie's House"
   x: -58993.77
   y: 14327.95
   z: 4.136047
+- chapter: 4
+  oob: false
+  description: "Inside Jessie's Mother House"
+  x: -68213.29
+  y: 15510.76
+  z: -8.146446
+  z: 4.136047
+- chapter: 4
+  oob: true
+  description: "Shinra's Warehouse"
+  x: -68213.29
+  y: 15510.76
+  z: 308.146
+- chapter: 4
+  oob: true
+  description: "Shinra's Warehouse (#2)"
+  x: -38475.54
+  y: 19965.76
+  z: 554.642
+  z: 308.146
+- chapter: 7
+  oob: true
+  description: "Television Set"
+  x: 0
+  y: -10000
+  z: 0
+  z: 308.146
+- chapter: 9
+  oob: true
+  description: "Colliseum Box & Steps"
+  x: 44326.51
+  y: 4669.091
+  z: -4716.46
+  z: 308.146
+- chapter: 14
+  oob: true
+  description: "Human Experiments Room"
+  x: 5277.522
+  y: 1469.409
+  z: -1733
 - chapter: 16
   oob: true
-  description: "In front of Shinra HQ front door (OOB)"
+  description: "Shinra Building Entrance"
   x: 27308.03
   y: -114.6156
   z: -29949.7
