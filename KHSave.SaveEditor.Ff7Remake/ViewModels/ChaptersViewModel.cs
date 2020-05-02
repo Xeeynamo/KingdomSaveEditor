@@ -30,7 +30,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public ChaptersViewModel(SaveFf7Remake save) :
             this(save.Chapters.Select((x, i) => new ChapterEntryModel(x, i)))
         {
-            CurrentChapterId = GetChapterIdFromChapterNumber(save.CurrentChapterId);
+            CurrentChapterId = GetChapterIdFromChapterNumber(save.CurrentChapter);
         }
 
         private ChaptersViewModel(IEnumerable<ChapterEntryModel> list) :
