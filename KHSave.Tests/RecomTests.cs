@@ -108,6 +108,12 @@ namespace KHSave.Tests
         });
 
         [Fact]
+        public void CheckExpAmount() => OnSaveData(save =>
+        {
+            Assert.Equal(15, save.McWork.Experience);
+        });
+
+        [Fact]
         public void CheckTables() => OnSave2(save =>
         {
             Assert.Equal(0xCCCCCC00, (uint)save.Data.Table0.Unknown00);

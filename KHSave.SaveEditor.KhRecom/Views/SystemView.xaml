@@ -38,8 +38,13 @@
             <CheckBox
                 Content="KH2 clear"
                 IsChecked="{Binding Kh2Cleared}"/>
+
             <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
             <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
+            <TextBlock Visibility="Hidden">IGNORE ME</TextBlock>
+            
+            <TextBlock Text="EXP amount"/>
+            <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
         </common:TwoEqualColumnsStackPanel>
     </Grid>
 </UserControl>

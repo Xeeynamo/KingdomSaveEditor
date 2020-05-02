@@ -7,11 +7,13 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
 {
     public class SystemViewModel
     {
+        private readonly DataRecom _save;
         private readonly DataRecomTable1 _saveSets;
         private readonly DataRecomTable2 _saveFlags;
 
         public SystemViewModel(DataRecom save)
         {
+            _save = save;
             _saveSets = save.Table1;
             _saveFlags = save.Table2;
             PlayModeItems = new EnumModel<PlayMode>();
@@ -61,6 +63,12 @@ namespace KHSave.SaveEditor.KhRecom.ViewModels
         {
             get => _saveFlags.Kh2Cleared;
             set => _saveFlags.Kh2Cleared = value;
+        }
+
+        public int Experience
+        {
+            get => _save.McWork.Experience;
+            set => _save.McWork.Experience = value;
         }
     }
 }
