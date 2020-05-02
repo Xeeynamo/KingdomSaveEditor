@@ -44,6 +44,11 @@ namespace KHSave
 			return reader.ReadInt32();
 		}
 
+		public static int ReadInt32(this Stream stream) => new BinaryReader(stream).ReadInt32();
+		public static uint ReadUInt32(this Stream stream) => new BinaryReader(stream).ReadUInt32();
+		public static long ReadInt64(this Stream stream) => new BinaryReader(stream).ReadInt64();
+
+
 		public static byte[] ReadBytes(this Stream stream) =>
             stream.ReadBytes((int)(stream.Length - stream.Position));
 

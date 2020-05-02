@@ -1,4 +1,4 @@
-/*
+﻿/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -37,6 +37,14 @@ namespace KHSave.LibFf7Remake
         public const int Aerith = 3;
         public const int Red13 = 4;
         public const int Unequipped = 9;
+
+        private static readonly ChunkHeader FirstChunkHeader = new ChunkHeader
+        {
+            Unknown00 = 0,
+            Unknown01 = 0,
+            Unknown02 = 1,
+            NextChunkOffset = 0x50010,
+        };
 
         private SaveFf7Remake(List<Chunk> chunks)
         {
@@ -137,10 +145,13 @@ namespace KHSave.LibFf7Remake
             where T : class
         {
             var chunk = GetChunk(type, index);
-            using (var stream = new MemoryStream())
+            if (chunk != null)
             {
-                BinaryMapping.WriteObject(stream, item);
-                chunk.Content.RawData = stream.GetBuffer();
+                using (var stream = new MemoryStream())
+                {
+                    BinaryMapping.WriteObject(stream, item);
+                    chunk.Content.RawData = stream.GetBuffer();
+                }
             }
         }
 
@@ -171,6 +182,68 @@ namespace KHSave.LibFf7Remake
             }
 
             return new SaveFf7Remake(chunks);
+        }
+
+        public static bool IsUexp(Stream stream) =>
+            stream.SetPosition((int)stream.Length - 4).ReadUInt32() == 0x9E2A83C1;
+
+        public static SaveFf7Remake ReadFromUexp(Stream stream)
+        {
+            const int ContentHeaderLength = 0x18;
+            const int RESD = 0x44534552;
+            const int LOSD = 0x44534F4C;
+
+            stream.SetPosition(0);
+            var flags = stream.ReadInt64();
+            var nameOffset = stream.ReadInt64(); // I think...?
+            var nameLength = stream.ReadInt64();
+            stream.ReadByte();
+
+            var name = stream.ReadBytes((int)nameLength);
+
+            // mega hack mwehehehhe
+            if (flags == 0xb) stream.Position += 0x5a;
+            else if (flags == 0xa) stream.Position += 0x5a;
+            else if (flags == 0x8) stream.Position += 0x25;
+            else throw new NotImplementedException($"FLAG {flags:X02} not implemented");
+
+            var chunkList = new List<Chunk>();
+
+            var content = BinaryMapping.ReadObject<ChunkContent>(stream);
+            if (content.ChunkLength > ContentHeaderLength)
+                content.RawData = stream.ReadBytes(content.ChunkLength - ContentHeaderLength);
+
+            stream.Position += 0x10;
+            chunkList.Add(new Chunk(FirstChunkHeader, content));
+
+            if (flags == 0xa || flags == 0xb)
+            {
+                stream.Position += 0x4a;
+                content = BinaryMapping.ReadObject<ChunkContent>(stream);
+                if (content.ChunkLength > ContentHeaderLength)
+                    content.RawData = stream.ReadBytes(content.ChunkLength - ContentHeaderLength);
+                chunkList.Add(new Chunk(new ChunkHeader
+                {
+                    Unknown00 = 1,
+                    Unknown01 = 0,
+                    Unknown02 = 1,
+                    NextChunkOffset = 0xB6120,
+                }, content));
+
+                stream.Position += 0x25;
+                content = BinaryMapping.ReadObject<ChunkContent>(stream);
+                if (content.ChunkLength > ContentHeaderLength)
+                    content.RawData = stream.ReadBytes(content.ChunkLength - ContentHeaderLength);
+                chunkList.Add(new Chunk(new ChunkHeader
+                {
+                    Unknown00 = 1,
+                    Unknown01 = 1,
+                    Unknown02 = 1,
+                    NextChunkOffset = 0x11C230,
+                }, content));
+            }
+
+            return new SaveFf7Remake(chunkList);
         }
     }
 }

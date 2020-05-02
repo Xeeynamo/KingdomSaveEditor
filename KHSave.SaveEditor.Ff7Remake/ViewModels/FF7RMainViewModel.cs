@@ -86,7 +86,11 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public void OpenStream(Stream stream)
         {
-            Save = SaveFf7Remake.Read(stream);
+            if (SaveFf7Remake.IsUexp(stream))
+                Save = SaveFf7Remake.ReadFromUexp(stream);
+            else
+                Save = SaveFf7Remake.Read(stream);
+
             RefreshUi();
         }
 

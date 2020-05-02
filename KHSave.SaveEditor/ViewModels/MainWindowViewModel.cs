@@ -269,7 +269,8 @@ namespace KHSave.SaveEditor.ViewModels
         public bool TryOpenKhRecom(Stream stream) => TryOpen(SaveKhRecom.IsValid, stream, ContentType.KingdomHeartsRecom);
         public bool TryOpenKh02(Stream stream) => TryOpen(SaveKh02.IsValid, stream, ContentType.KingdomHearts02);
         public bool TryOpenKh3(Stream stream) => TryOpen(SaveKh3.IsValid, stream, ContentType.KingdomHearts3);
-        public bool TryOpenFF7Remake(Stream stream) => TryOpen(SaveFf7Remake.IsValid, stream, ContentType.FinalFantasy7Remake);
+        public bool TryOpenFF7Remake(Stream stream) => TryOpen(
+            s => SaveFf7Remake.IsValid(s) || SaveFf7Remake.IsUexp(s), stream, ContentType.FinalFantasy7Remake);
 
         public bool TryOpen(Func<Stream, bool> prediate, Stream stream, ContentType contentType)
         {
