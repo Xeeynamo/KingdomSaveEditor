@@ -28,9 +28,7 @@
         <Grid
             Grid.Column="2"
             Visibility="{Binding EntryVisible}">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <local:ChapterEntryView Margin="0 0 10 0" DataContext="{Binding SelectedItem}"/>
-            </ScrollViewer>
+            <local:ChapterEntryView DataContext="{Binding SelectedItem}"/>
         </Grid>
     </Grid>
 </UserControl>

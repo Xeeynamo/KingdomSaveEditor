@@ -26,6 +26,7 @@ namespace KHSave.LibFf7Remake.Chunks
     public class ChunkChapter
     {
         private const int Length = 0x660E8;
+        private const int MaxObjectCount = 0x800;
 
         [Data(Count = Length)] public byte[] Data { get; set; }
 
@@ -36,6 +37,7 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(0xC, Count = SaveFf7Remake.CharacterCount)] public Vector3f[] Positions { get; set; }
         [Data(0x6C, Count = SaveFf7Remake.CharacterCount)] public Vector3f[] Rotations { get; set; }
         [Data(0x1A2)] public ushort Bgm { get; set; }
+        [Data(0xCBD8, Count = MaxObjectCount, Stride = 0x20)] public ChapterObject[] Objects { get; set; }
 
         public ChunkChapter()
         {
@@ -43,6 +45,7 @@ namespace KHSave.LibFf7Remake.Chunks
             CharacterStatus = new CharacterStatusType[SaveFf7Remake.CharacterCount];
             Positions = Enumerable.Range(0, SaveFf7Remake.CharacterCount).Select(x => new Vector3f()).ToArray();
             Rotations = Enumerable.Range(0, SaveFf7Remake.CharacterCount).Select(x => new Vector3f()).ToArray();
+            Objects = Enumerable.Range(0, MaxObjectCount).Select(x => new ChapterObject()).ToArray();
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Ff7Remake.Views.ChapterObjectsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:controls="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox
+            Grid.Row="0"
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding SelectedItem}"
+            DisplayMemberPath="Name"/>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <controls:TwoEqualColumnsStackPanel Grid.Column="2" DataContext="{Binding SelectedItem}">
+                <TextBlock Text="Index"/>
+                <TextBlock Text="{Binding Index}"/>
+
+                <TextBlock Text="Unknown 04"/>
+                <TextBox Text="{Binding Unknown04}"/>
+
+                <TextBlock Text="Unknown 08"/>
+                <TextBox Text="{Binding Unknown08}"/>
+
+                <TextBlock Text="Unknown 0c"/>
+                <TextBox Text="{Binding Unknown0c}"/>
+
+                <TextBlock Text="Position X"/>
+                <TextBox Text="{Binding PositionX}"/>
+
+                <TextBlock Text="Position Y"/>
+                <TextBox Text="{Binding PositionY}"/>
+
+                <TextBlock Text="Position Z"/>
+                <TextBox Text="{Binding PositionZ}"/>
+
+                <TextBlock Text="Facing angle (rotation Z)"/>
+                <TextBox Text="{Binding Rotation}"/>
+            </controls:TwoEqualColumnsStackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

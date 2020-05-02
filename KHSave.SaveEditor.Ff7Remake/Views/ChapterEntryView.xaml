@@ -7,52 +7,30 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="300">
-    <StackPanel>
+    <Grid>
         <TextBlock
             Visibility="{Binding ChapterDisabledVisibility}"
             Text="This chapter does not contain any data"/>
-        <StackPanel Visibility="{Binding ChapterVisibility}">
-            <Grid Margin="0 0 0 5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="3"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <CheckBox Grid.Column="0" Content="Is chapter enabled" IsChecked="{Binding IsChapterInPlay}"/>
-                <TextBlock Grid.Column="2" Text="Chapter ID "/>
-                <TextBox Grid.Column="4" Text="{Binding ChapterId, UpdateSourceTrigger=PropertyChanged}"/>
-            </Grid>
-            <Grid Margin="0 0 0 10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="0" Text="BGM modifier"/>
-                <TextBox Grid.Column="2" Text="{Binding Bgm, UpdateSourceTrigger=PropertyChanged}"/>
-                <ComboBox
-                    Grid.Column="4"
-                    ItemsSource="{Binding BgmList}"
-                    SelectedValue="{Binding Bgm}"
-                    SelectedValuePath="Id"
-                    DisplayMemberPath="Name"/>
-            </Grid>
-
-            <TextBlock Text="Character position modifier:" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity0}" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity1}" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity2}" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity3}" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity4}" Margin="0 0 0 5"/>
-            <local:PositionView DataContext="{Binding Entity5}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
-            <local:PositionView DataContext="{Binding Entity6}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
-            <local:PositionView DataContext="{Binding Entity7}" Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}"/>
-        </StackPanel>
-    </StackPanel>
+        <Grid Visibility="{Binding ChapterVisibility}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Visibility="{Binding SimpleVisibility}">
+                    <local:ChapterMainView DataContext="{Binding}"/>
+                    <local:ChapterPlayableView DataContext="{Binding}"/>
+                </StackPanel>
+            </ScrollViewer>
+            <TabControl Visibility="{Binding AdvancedVisibility}">
+                <TabItem Header="Main">
+                    <local:ChapterMainView DataContext="{Binding}"/>
+                </TabItem>
+                <TabItem Header="Playable">
+                    <StackPanel>
+                        <local:ChapterPlayableView DataContext="{Binding}"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Objects">
+                    <local:ChapterObjectsView DataContext="{Binding Objects}"/>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
 </UserControl>

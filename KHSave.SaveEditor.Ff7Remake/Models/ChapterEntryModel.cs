@@ -39,6 +39,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             _chapter = chapter;
             _index = index;
             CharacterStatusTypes = new KhEnumListModel<CharacterStatusType>(() => default, x => { });
+            Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
+                chapter.Objects.Select(x => new ChapterObjectEntry(x)));
         }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
@@ -98,5 +100,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public ChapterCharacterEntryModel Entity9 => new ChapterCharacterEntryModel(_chapter, 9);
         public ChapterCharacterEntryModel Entity10 => new ChapterCharacterEntryModel(_chapter, 10);
         public ChapterCharacterEntryModel Entity11 => new ChapterCharacterEntryModel(_chapter, 11);
+
+        public Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry> Objects { get; }
     }
 }
