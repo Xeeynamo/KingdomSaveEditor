@@ -40,12 +40,22 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             _index = index;
             CharacterStatusTypes = new KhEnumListModel<CharacterStatusType>(() => default, x => { });
 
-            Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                chapter.Objects.Select(x => new ChapterObjectEntry(x)));
-            Objects2 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                chapter.Objects2.Select(x => new ChapterObjectEntry(x)));
-            Objects3 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                chapter.Objects3.Select(x => new ChapterObjectEntry(x)));
+            if (Global.IsAdvancedMode)
+            {
+                Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
+                    chapter.Objects.Select(x => new ChapterObjectEntry(x)));
+                Objects2 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
+                    chapter.Objects2.Select(x => new ChapterObjectEntry(x)));
+                Objects3 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
+                    chapter.Objects3.Select(x => new ChapterObjectEntry(x)));
+            }
+            else
+            {
+                // Speed up loading times on basic mode
+                Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(new ChapterObjectEntry[0]);
+                Objects2 = Objects;
+                Objects3 = Objects;
+            }
         }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
