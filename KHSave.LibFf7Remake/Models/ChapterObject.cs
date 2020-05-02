@@ -23,7 +23,7 @@ namespace KHSave.LibFf7Remake.Models
     public class ChapterObject
     {
         [Data] public int Index { get; set; }
-        [Data] public int Unknown04 { get; set; }
+        [Data] public uint Unknown04 { get; set; }
         [Data] public int Unknown08 { get; set; }
         [Data] public float Unknown0c { get; set; }
         [Data] public float PositionX { get; set; }

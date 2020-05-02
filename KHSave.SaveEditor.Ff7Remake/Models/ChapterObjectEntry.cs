@@ -17,6 +17,8 @@
 */
 
 using KHSave.LibFf7Remake.Models;
+using System;
+using System.Globalization;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
@@ -32,14 +34,27 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
         public string Name => ToString();
 
-        public int Index { get => _chapterObject.Index; set => _chapterObject.Index = value; }
-        public int Unknown04 { get => _chapterObject.Unknown04; set => _chapterObject.Unknown04 = value; }
-        public int Unknown08 { get => _chapterObject.Unknown08; set => _chapterObject.Unknown08 = value; }
-        public float Unknown0c { get => _chapterObject.Unknown0c; set => _chapterObject.Unknown0c = value; }
-        public float PositionX { get => _chapterObject.PositionX; set => _chapterObject.PositionX = value; }
-        public float PositionY { get => _chapterObject.PositionY; set => _chapterObject.PositionY = value; }
-        public float PositionZ { get => _chapterObject.PositionZ; set => _chapterObject.PositionZ = value; }
-        public float Rotation { get => _chapterObject.Rotation; set => _chapterObject.Rotation = value; }
+        public int Index { get => _chapterObject.Index; set { _chapterObject.Index = value; OnPropertyChanged(nameof(Name)); } }
+        
+        public string Unknown04
+        {
+            get => _chapterObject.Unknown04.ToString("X08");
+            set
+            {
+                if (!uint.TryParse(value, NumberStyles.HexNumber, null, out var actualValue))
+                    throw new FormatException("Not a valid hexadecimal digit");
+
+                _chapterObject.Unknown04 = actualValue;
+                OnPropertyChanged((nameof(Name)));
+            }
+        }
+
+        public int Unknown08 { get => _chapterObject.Unknown08; set { _chapterObject.Unknown08 = value; OnPropertyChanged((nameof(Name))); } }
+        public float Unknown0c { get => _chapterObject.Unknown0c; set { _chapterObject.Unknown0c = value; OnPropertyChanged((nameof(Name))); } }
+        public float PositionX { get => _chapterObject.PositionX; set { _chapterObject.PositionX = value; OnPropertyChanged((nameof(Name))); } }
+        public float PositionY { get => _chapterObject.PositionY; set { _chapterObject.PositionY = value; OnPropertyChanged((nameof(Name))); } }
+        public float PositionZ { get => _chapterObject.PositionZ; set { _chapterObject.PositionZ = value; OnPropertyChanged((nameof(Name))); } }
+        public float Rotation { get => _chapterObject.Rotation; set { _chapterObject.Rotation = value; OnPropertyChanged((nameof(Name))); } }
 
         public override string ToString() => _chapterObject.ToString();
     }

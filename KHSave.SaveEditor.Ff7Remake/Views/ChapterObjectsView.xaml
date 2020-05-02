@@ -25,25 +25,25 @@
                 <TextBlock Text="{Binding Index}"/>
 
                 <TextBlock Text="Unknown 04"/>
-                <TextBox Text="{Binding Unknown04}"/>
+                <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Unknown 08"/>
-                <TextBox Text="{Binding Unknown08}"/>
+                <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Unknown 0c"/>
-                <TextBox Text="{Binding Unknown0c}"/>
+                <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Position X"/>
-                <TextBox Text="{Binding PositionX}"/>
+                <TextBox Text="{Binding PositionX, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Position Y"/>
-                <TextBox Text="{Binding PositionY}"/>
+                <TextBox Text="{Binding PositionY, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Position Z"/>
                 <TextBox Text="{Binding PositionZ}"/>
 
                 <TextBlock Text="Facing angle (rotation Z)"/>
-                <TextBox Text="{Binding Rotation}"/>
+                <TextBox Text="{Binding Rotation, UpdateSourceTrigger=PropertyChanged}"/>
             </controls:TwoEqualColumnsStackPanel>
         </ScrollViewer>
     </Grid>

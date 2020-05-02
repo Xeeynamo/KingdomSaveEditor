@@ -27,8 +27,14 @@
                         <local:ChapterPlayableView DataContext="{Binding}"/>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Objects">
+                <TabItem Header="Objects 1">
                     <local:ChapterObjectsView DataContext="{Binding Objects}"/>
+                </TabItem>
+                <TabItem Header="Objects 2">
+                    <local:ChapterObjectsView DataContext="{Binding Objects2}"/>
+                </TabItem>
+                <TabItem Header="Objects 3">
+                    <local:ChapterObjectsView DataContext="{Binding Objects3}"/>
                 </TabItem>
             </TabControl>
         </Grid>
