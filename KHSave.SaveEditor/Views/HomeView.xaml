@@ -26,7 +26,15 @@
         <Separator Margin="0 10 0 10"/>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
             <Hyperlink
-                NavigateUri="https://discord.gg/qK8JYkw"
+                NavigateUri="https://kingdomsaveeditor.xee.dev"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                TextDecorations="{x:Null}">
+                Kingdom Save Editor home page
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
+            <Hyperlink
+                NavigateUri="https://kse-discord.xee.dev"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
                 Join Kingdom Save Editor Discord server
@@ -38,22 +46,6 @@
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
                 Kingdom Save Editor source code
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://github.com/xeeynamo/openkh"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                OpenKH source code
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://xeeynamo.github.io/OpenKh"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                OpenKH documentation
             </Hyperlink>
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
