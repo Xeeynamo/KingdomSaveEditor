@@ -63,6 +63,7 @@
             </DataGrid.RowStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Chapter" Width="Auto" Binding="{Binding Chapter}"/>
+                <DataGridCheckBoxColumn Header="OOB" Width="Auto" Binding="{Binding IsOutOfBounds, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Coordinates" Width="Auto" Binding="{Binding Coordinates}"/>
             </DataGrid.Columns>

@@ -93,6 +93,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public object Locations => _locations.Select(x => new
         {
             x.Chapter,
+            IsOutOfBounds = x.OutOfBounds,
             x.Description,
             Coordinates = $"{x.PositionX:F0}, {x.PositionY:F0}, {x.PositionZ:F0}"
         });
