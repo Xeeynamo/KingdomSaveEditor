@@ -32,6 +32,6 @@ namespace KHSave.LibFf7Remake.Models
         [Data] public float Rotation { get; set; }
 
         public override string ToString() =>
-            $"{Index} {Unknown04:X08} {Unknown08:X08} {Unknown0c:N0} POS({PositionX:N0},{PositionY:N0},{PositionZ:N0} A({Rotation:N0})";
+            $"{Index} {Unknown04:X08} {Unknown08:X08} {Unknown0c:F0} POS({PositionX:F0}, {PositionY:F0}, {PositionZ:F0} A({Rotation:F0})";
     }
 }
