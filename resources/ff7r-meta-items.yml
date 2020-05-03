@@ -3,6 +3,21 @@ items:
 - id: 9006
   name: Chain Bangle
   icon: Armor
+- id: 9055
+  name: Midgar Bangle
+  icon: Armor
+- id: 9056
+  name: Shinra Bangle
+  icon: Armor
+- id: 9057
+  name: Corneo Armlet
+  icon: Armor
+- id: 9058
+  name: Superstar Belt
+  icon: Accessory
+- id: 9059
+  name: Mako Crystal
+  icon: Accessory
 - id: 9060
   name: Gotterdammerung
   icon: Accessory
