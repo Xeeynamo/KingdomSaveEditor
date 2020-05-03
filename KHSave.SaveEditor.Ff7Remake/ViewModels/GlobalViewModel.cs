@@ -130,5 +130,15 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public byte CurrentChapterId { get => _save.CurrentChapterId; set => _save.CurrentChapterId = value; }
         public byte CurrentChapterChunk { get => _save.CurrentChapterChunk; set => _save.CurrentChapterChunk = value; }
         public byte CurrentChapterChunk2 { get => _save.CurrentChapterChunk2; set => _save.CurrentChapterChunk2 = value; }
+
+        public byte Unk01 { get => _save.ChunkCommon.Unk01; set => _save.ChunkCommon.Unk01 = value; }
+        public byte Unk02 { get => _save.ChunkCommon.Unk02; set => _save.ChunkCommon.Unk02 = value; }
+        public byte Unk03 { get => _save.ChunkCommon.Unk03; set => _save.ChunkCommon.Unk03 = value; }
+        public byte Unk04 { get => _save.ChunkCommon.Unk04; set => _save.ChunkCommon.Unk04 = value; }
+        public byte Unk05 { get => _save.ChunkCommon.Unk05; set => _save.ChunkCommon.Unk05 = value; }
+        public int Unk288 { get => _save.ChunkCommon.Unk288; set => _save.ChunkCommon.Unk288 = value; }
+        public int Unk28c { get => _save.ChunkCommon.Unk28c; set => _save.ChunkCommon.Unk28c = value; }
+        public float Unk290 { get => _save.ChunkCommon.Unk290; set => _save.ChunkCommon.Unk290 = value; }
+        public int Unk294 { get => _save.ChunkCommon.Unk294; set => _save.ChunkCommon.Unk294 = value; }
     }
 }

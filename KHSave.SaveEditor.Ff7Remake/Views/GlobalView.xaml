@@ -7,30 +7,53 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="400">
-    <common:TwoEqualColumnsStackPanel Margin="0 0 0 5">
-        <TextBlock Text="Playable character"/>
-        <ComboBox
+    <StackPanel>
+        <common:TwoEqualColumnsStackPanel Margin="0 0 0 5">
+            <TextBlock Text="Playable character"/>
+            <ComboBox
                 ItemsSource="{Binding CharacterType}"
                 SelectedValue="{Binding PlayableCharacter}"
                 SelectedValuePath="Value"
                 DisplayMemberPath="Name"/>
 
-        <TextBlock Text="👀"/>
-        <TextBlock Text="PLACEHOLDER" Visibility="Collapsed"/>
+            <TextBlock Text="👀"/>
+            <TextBlock Text="PLACEHOLDER" Visibility="Collapsed"/>
 
-        <TextBlock Text="Current Chapter in play"/>
-        <TextBox Text="{Binding CurrentChapter, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Current Chapter in play"/>
+            <TextBox Text="{Binding CurrentChapter, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter ID"/>
-        <TextBox Visibility="{Binding AdvancedVisibility}"
+            <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter ID"/>
+            <TextBox Visibility="{Binding AdvancedVisibility}"
                  Text="{Binding CurrentChapterId, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID"/>
-        <TextBox Visibility="{Binding AdvancedVisibility}"
+            <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID"/>
+            <TextBox Visibility="{Binding AdvancedVisibility}"
                  Text="{Binding CurrentChapterChunk, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID (duplicate?)"/>
-        <TextBox Visibility="{Binding AdvancedVisibility}"
+            <TextBlock Visibility="{Binding AdvancedVisibility}" Text="Chapter Chunk ID (duplicate?)"/>
+            <TextBox Visibility="{Binding AdvancedVisibility}"
                  Text="{Binding CurrentChapterChunk2, UpdateSourceTrigger=PropertyChanged}"/>
-    </common:TwoEqualColumnsStackPanel>
+        </common:TwoEqualColumnsStackPanel>
+        <common:TwoEqualColumnsStackPanel Margin="0 0 0 5" Visibility="{Binding AdvancedVisibility}">
+            <TextBlock Text="Unknown 01"/>
+            <TextBox Text="{Binding Unk01, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 02"/>
+            <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 03"/>
+            <TextBox Text="{Binding Unk03, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 04"/>
+            <TextBox Text="{Binding Unk04, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 05"/>
+            <TextBox Text="{Binding Unk05, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Unknown 288"/>
+            <TextBox Text="{Binding Unk288, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 28c"/>
+            <TextBox Text="{Binding Unk28c, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unknown 290"/>
+            <TextBox Text="{Binding Unk290, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"/>
+            <TextBlock Text="Unknown 294"/>
+            <TextBox Text="{Binding Unk294, UpdateSourceTrigger=PropertyChanged}"/>
+        </common:TwoEqualColumnsStackPanel>
+    </StackPanel>
 </UserControl>
