@@ -1,7 +1,34 @@
 name: Final Fantasy VII Remake
 items:
+- id: 9005
+  name: Gothic Bangle
+  icon: Armor
 - id: 9006
   name: Chain Bangle
+  icon: Armor
+- id: 9011
+  name: Supreme Bracer
+  icon: Armor
+- id: 9016
+  name: Rune Armlet
+  icon: Armor
+- id: 9040
+  name: Salvation Badge
+  icon: Accessory
+- id: 9041
+  name: Star Bracelet
+  icon: Armor
+- id: 9042
+  name: Caliginous Bracelet
+  icon: Armor
+- id: 9043
+  name: Magician's Bracelet
+  icon: Armor
+- id: 9044
+  name: Geometric Bracelet
+  icon: Armor
+- id: 9045
+  name: Force Bracelet
   icon: Armor
 - id: 9055
   name: Midgar Bangle
