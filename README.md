@@ -22,7 +22,7 @@ Here is a screenshot preview of how the editor in action looks like:
 
 ![demo](docs/demo1.png)
 
-### Donations
+## Donations
 
 My GitHub is opened to the [sponsor program](https://github.com/sponsors/Xeeynamo). If you feel that the editor helped you in some way or you would like to support it, please consider to [donate me](https://github.com/sponsors/Xeeynamo).
 
