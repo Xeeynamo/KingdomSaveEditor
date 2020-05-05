@@ -32,7 +32,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         private string searchTerm;
 
         public MateriaViewModel(SaveFf7Remake save) :
-            this(save.Materia.Select((x, i) => new MateriaEntryModel(x)))
+            this(save.Materia.Select((x, i) => new MateriaEntryModel(save, x)))
         {
             _save = save;
         }

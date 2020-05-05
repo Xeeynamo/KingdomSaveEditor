@@ -25,6 +25,7 @@ using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Media;
 using Xe.Tools;
 
@@ -34,10 +35,12 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         BaseNotifyPropertyChanged,
         SearchEngine.IName
     {
+        private SaveFf7Remake _save;
         private Materia _materia;
 
-        public MateriaEntryModel(Materia materia)
+        public MateriaEntryModel(SaveFf7Remake save, Materia materia)
         {
+            _save = save;
             _materia = materia;
 
             ItemType = ItemModel.GetItemModels();
@@ -58,7 +61,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 if (ItemId == (int)InventoryType.Disabled ||
                     ItemId == (int)InventoryType.Empty)
                 {
+                    _materia.Index = GetFirstEmptyIndexSlot();
                     _materia.UnixTimestamp = DateTime.Now.ToUnixEpoch();
+                    OnPropertyChanged(nameof(Index));
                     OnPropertyChanged(nameof(Timestamp));
                 }
 
@@ -69,7 +74,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 if (ItemId == (int)InventoryType.Disabled ||
                     ItemId == (int)InventoryType.Empty)
                 {
+                    _materia.Index = 0;
                     _materia.UnixTimestamp = 0;
+                    OnPropertyChanged(nameof(Index));
                     OnPropertyChanged(nameof(Timestamp));
                 }
             }
@@ -80,5 +87,22 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public byte Level { get => _materia.Level; set => _materia.Level = value; }
         public CharacterType Character { get => (CharacterType)_materia.Character; set => _materia.Character = (byte)value; }
         public int Index { get => _materia.Index; set => _materia.Index = value; }
+
+        private int GetFirstEmptyIndexSlot()
+        {
+            var lastIndex = 1;
+
+            foreach (var materia in _save.Materia
+                .Where(x => x.Index > 0)
+                .OrderBy(x => x.Index))
+            {
+                if (materia.Index == lastIndex)
+                    lastIndex = materia.Index + 1;
+                else
+                    return lastIndex;
+            }
+
+            return lastIndex;
+        }
     }
 }
