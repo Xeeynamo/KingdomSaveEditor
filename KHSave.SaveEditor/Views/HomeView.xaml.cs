@@ -34,7 +34,14 @@ namespace KHSave.SaveEditor.Views
                 Content = "Fetching the list of funders from the internet..."
             });
 
-            Task.Run(async () =>
+#if !DEBUG
+            Task.Run(FetchAndPopulateSponsors());
+#endif
+        }
+
+        private Func<Task> FetchAndPopulateSponsors()
+        {
+            return async () =>
             {
                 try
                 {
@@ -70,7 +77,7 @@ namespace KHSave.SaveEditor.Views
                         });
                     });
                 }
-            });
+            };
         }
     }
 }
