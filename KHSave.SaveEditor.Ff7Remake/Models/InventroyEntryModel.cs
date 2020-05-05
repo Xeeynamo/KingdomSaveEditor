@@ -50,6 +50,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public Uri AddItemRequestUrl =>
             new Uri($"https://github.com/Xeeynamo/KH3SaveEditor/issues/new?assignees=Xeeynamo&labels=ff7r-item&template=ff7r-missing-item-name-request.md&title=FF7R+Missing+item+name+request+(Item%20ID%20{ItemId})");
+        public KhEnumListModel<ItemCategory> Categories => new KhEnumListModel<ItemCategory>();
         public IEnumerable<ItemModel> ItemTypes { get; }
 
         public string Name => ItemsPreset.Get(Type)?.Name;
@@ -77,6 +78,9 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(Name));
 
+                Category = ItemsPreset.GetItemCategory(value);
+                OnPropertyChanged(nameof(Category));
+
                 if (Type == InventoryType.Disabled ||
                     Type == InventoryType.Empty)
                 {
@@ -89,8 +93,8 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         }
         public int ItemId { get => (int)Type; set { Type = (InventoryType)value; OnPropertyChanged(nameof(Type)); } }
 
-        public int Unknown04 { get => _inventory.Unknown04; set => _inventory.Unknown04 = value; }
-        public int Unknown10 { get => _inventory.Unknown10; set => _inventory.Unknown10 = value; }
-        public int Unknown14 { get => _inventory.Unknown14; set => _inventory.Unknown14 = value; }
+        public int Unused04 { get => _inventory.Unused04; set => _inventory.Unused04 = value; }
+        public ItemCategory Category { get => (ItemCategory)_inventory.Unknown10; set => _inventory.Unknown10 = (int)value; }
+        public int Unused14 { get => _inventory.Unused14; set => _inventory.Unused14 = value; }
     }
 }

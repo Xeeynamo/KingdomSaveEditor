@@ -51,12 +51,16 @@
         <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}" Margin="0 0 0 10">
             <TextBlock Text="Item kind ID"/>
             <TextBox Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unknown 04"/>
-            <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unknown 10"/>
-            <TextBox Text="{Binding Unknown10, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Unknown 14"/>
-            <TextBox Text="{Binding Unknown14, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Category"/>
+            <ComboBox
+                ItemsSource="{Binding Categories}"
+                SelectedValue="{Binding Category}"
+                DisplayMemberPath="Name"
+                SelectedValuePath="Value"/>
+            <TextBlock Text="Unused 04"/>
+            <TextBox Text="{Binding Unused04, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Unused 14"/>
+            <TextBox Text="{Binding Unused14, UpdateSourceTrigger=PropertyChanged}"/>
         </common:TwoEqualColumnsStackPanel>
 
         <StackPanel Visibility="{Binding NameRequestVisibility}">

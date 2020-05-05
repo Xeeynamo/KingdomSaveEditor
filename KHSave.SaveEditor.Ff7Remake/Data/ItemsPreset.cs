@@ -72,6 +72,32 @@ namespace KHSave.SaveEditor.Ff7Remake.Data
             }
         }
 
+        public static ItemCategory GetItemCategory(InventoryType inventoryType)
+        {
+            if (inventoryType == InventoryType.AiProgrammingCore ||
+                inventoryType == InventoryType.Gil)
+                return ItemCategory.Gil;
+            else if ((int)inventoryType < 100)
+                return ItemCategory.Consumable;
+            else if ((int)inventoryType >= 0x100 && (int)inventoryType < 0x130)
+                return ItemCategory.Track;
+            else if ((int)inventoryType < 1000)
+                return ItemCategory.Key;
+            else if ((int)inventoryType >= 9000 && (int)inventoryType < 9017)
+                return ItemCategory.Armor;
+            else if ((int)inventoryType >= 9017 && (int)inventoryType < 9041)
+                return ItemCategory.Accessory;
+            else if ((int)inventoryType >= 9041 && (int)inventoryType < 9050)
+                return ItemCategory.Armor;
+            else if ((int)inventoryType >= 9050 && (int)inventoryType < 9055)
+                return ItemCategory.Accessory;
+            else if ((int)inventoryType >= 9055 && (int)inventoryType < 9058)
+                return ItemCategory.Armor;
+            else if ((int)inventoryType >= 9058 && (int)inventoryType < 9061)
+                return ItemCategory.Accessory;
+            return (ItemCategory)(-1);
+        }
+
         public static ItemProperty Get(InventoryType type) => Get((int)type) ?? new ItemProperty
         {
             Id = (int)type,
