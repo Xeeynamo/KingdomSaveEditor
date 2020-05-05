@@ -47,8 +47,8 @@
                     <TextBlock Text="Unknown 08"/>
                     <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Unknown 0c"/>
-                    <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Kill count"/>
+                    <TextBox Text="{Binding KillCount, UpdateSourceTrigger=PropertyChanged}"/>
                 </common:TwoEqualColumnsStackPanel>
             </ScrollViewer>
         </Grid>

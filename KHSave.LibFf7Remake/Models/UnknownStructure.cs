@@ -28,6 +28,6 @@ namespace KHSave.LibFf7Remake.Models
         [Data] public byte Unknown03 { get; set; }
         [Data] public int Unknown04 { get; set; }
         [Data] public int Unknown08 { get; set; }
-        [Data] public int Unknown0c { get; set; }
+        [Data] public int KillCount { get; set; }
     }
 }

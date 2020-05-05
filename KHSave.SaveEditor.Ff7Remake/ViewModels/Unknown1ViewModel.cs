@@ -56,7 +56,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
                 OnPropertyChanged(nameof(Unknown03));
                 OnPropertyChanged(nameof(Unknown04));
                 OnPropertyChanged(nameof(Unknown08));
-                OnPropertyChanged(nameof(Unknown0c));
+                OnPropertyChanged(nameof(KillCount));
             }
         }
 
@@ -68,6 +68,6 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public byte Unknown03 { get => SelectedValue.Unknown03; set => SelectedValue.Unknown03 = value; }
         public int Unknown04 { get => SelectedValue.Unknown04; set => SelectedValue.Unknown04 = value; }
         public int Unknown08 { get => SelectedValue.Unknown08; set => SelectedValue.Unknown08 = value; }
-        public int Unknown0c { get => SelectedValue.Unknown0c; set => SelectedValue.Unknown0c = value; }
+        public int KillCount { get => SelectedValue.KillCount; set => SelectedValue.KillCount = value; }
     }
 }
