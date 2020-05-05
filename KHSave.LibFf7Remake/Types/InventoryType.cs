@@ -67,8 +67,8 @@ namespace KHSave.LibFf7Remake.Types
         [KeyItem("Combat Analyzer")] CombatAnalyzer,
         [KeyItem("Watch Security Key")] WatchSecurityKey,
         [KeyItem("Handmade Necklace")] HandmadeNecklace,
-        [KeyItem("Behemoth Horn")] BehemothHorn,
-        [KeyItem("Medicinal Flowers")] MedicinalFlowers,
+        [KeyItem("Behemoth Horn")] BehemothHorn = 126,
+        [KeyItem("Medicinal Flowers")] MedicinalFlowers = 127,
         [KeyItem("Sam's Delivery Lifetime Pass")] SamDeliveryLifetimePass = 132,
 
         [KeyItem("Madam M’s Requests")] MadamMRequest = 139,
