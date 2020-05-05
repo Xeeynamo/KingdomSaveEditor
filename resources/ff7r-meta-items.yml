@@ -1,5 +1,251 @@
 name: Final Fantasy VII Remake
 items:
+- id: 50
+  name: Fire damage (general)
+  icon: Consumable
+- id: 51
+  name: Ice damage (fixed)
+  icon: Consumable
+- id: 52
+  name: Lightning damage (STR)
+  icon: Consumable
+- id: 53
+  name: Wind damage (Owner max HP percentage)
+  icon: Consumable
+- id: 54
+  name: Earth damage (HP percentage)
+  icon: Consumable
+- id: 55
+  name: Holy damage
+  icon: Consumable
+- id: 56
+  name: Dark damage
+  icon: Consumable
+- id: 57
+  name: Non-elemental damage
+  icon: Consumable
+- id: 58
+  name: Fire damage (physical)
+  icon: Consumable
+- id: 59
+  name: Ice damage (physical)
+  icon: Consumable
+- id: 60
+  name: Lightning damage (physical)
+  icon: Consumable
+- id: 61
+  name: Wind damage (physical)
+  icon: Consumable
+- id: 62
+  name: Earth damage (physical)
+  icon: Consumable
+- id: 63
+  name: Holy damage (physical)
+  icon: Consumable
+- id: 64
+  name: Dark damage (physical)
+  icon: Consumable
+- id: 65
+  name: Non-elemental damage (physical)
+  icon: Consumable
+- id: 66
+  name: 0 damage spell (general)
+  icon: Consumable
+- id: 67
+  name: 0 damage physical attack (fixed)
+  icon: Consumable
+- id: 68
+  name: Reflect
+  icon: Consumable
+- id: 69
+  name: Shield
+  icon: Consumable
+- id: 70
+  name: Pierce Reflect
+  icon: Consumable
+- id: 71
+  name: Nullify Reflect
+  icon: Consumable
+- id: 72
+  name: Pierce Shield
+  icon: Consumable
+- id: 73
+  name: Nullify Shield
+  icon: Consumable
+- id: 74
+  name: Toad
+  icon: Consumable
+- id: 75
+  name: Toad (All)
+  icon: Consumable
+- id: 76
+  name: Maiden's Kiss (All)
+  icon: Consumable
+- id: 126
+  name: Behemoth Horn
+  icon: Consumable
+- id: 127
+  name: Medicinal Flowers
+  icon: Consumable
+- id: 256
+  name: 1. The Prelude (#2?)
+  icon: Track
+- id: 257
+  name: 1. The Prelude
+  icon: Track
+- id: 258
+  name: 4. Barret's Theme
+  icon: Track
+- id: 260
+  name: 27. Hip Hop de Chocobo
+  icon: Track
+- id: 261
+  name: 5. Lurking in the Darkness
+  icon: Track
+- id: 262
+  name: 28. Stamp
+  icon: Track
+- id: 264
+  name: 18. Electric de Chocobo
+  icon: Track
+- id: 265
+  name: 2. Bombing Mission
+  icon: Track
+- id: 266
+  name: 21. Cait Sith's Theme
+  icon: Track
+- id: 267
+  name: 23. Descendant of Shinobi
+  icon: Track
+- id: 268
+  name: 20. Gold Saucer
+  icon: Track
+- id: 270
+  name: 19. Costa del Sol
+  icon: Track
+- id: 272
+  name: 10. Honeybee Inn
+  icon: Track
+- id: 273
+  name: 17. Farm Boy
+  icon: Track
+- id: 274
+  name: 12. Fight On!
+  icon: Track
+- id: 275
+  name: 11. Don of the Slums
+  icon: Track
+- id: 276
+  name: 9. The Oppressed
+  icon: Track
+- id: 278
+  name: 6. Let the Battles Begin!
+  icon: Track
+- id: 282
+  name: 15. On Our Way
+  icon: Track
+- id: 283
+  name: 14. Main Theme of FFVII
+  icon: Track
+- id: 284
+  name: 30. Stand Up
+  icon: Track
+- id: 285
+  name: 16. Good Night, Until Tomorrow
+  icon: Track
+- id: 286
+  name: 24. Wutai
+  icon: Track
+- id: 287
+  name: 7. Turks' Theme
+  icon: Track
+- id: 288
+  name: 13. The Chase
+  icon: Track
+- id: 289
+  name: 22. Cosmo Canyon
+  icon: Track
+- id: 292
+  name: 29. The Midgar Blues
+  icon: Track
+- id: 295
+  name: 26. Let the Battles Begin! -REMAKE-
+  icon: Track
+- id: 300
+  name: 3. Tifa's Theme
+  icon: Track
+- id: 301
+  name: 25. Tango of Tears
+  icon: Track
+- id: 302
+  name: 8. Under the Rotting Pizza
+  icon: Track
+- id: 303
+  name: 31. Scarlet's Theme
+  icon: Track
+- id: 316
+  name: The Art of Swordplay Vol. I
+  icon: Recipe
+- id: 317
+  name: The Art of Swordplay Vol. II
+  icon: Recipe
+- id: 318
+  name: The Art of Swordplay Vol. III
+  icon: Recipe
+- id: 319
+  name: The Art of Swordplay Vol. IV
+  icon: Recipe
+- id: 320
+  name: The Art of Swordplay Vol. V
+  icon: Recipe
+- id: 321
+  name: The Art of Swordplay Vol. VI
+  icon: Recipe
+- id: 322
+  name: The Art of Swordplay Vol. VII
+  icon: Recipe
+- id: 323
+  name: The Art of Swordplay Vol. VIII
+  icon: Recipe
+- id: 324
+  name: The Art of Swordplay Vol. IX
+  icon: Recipe
+- id: 325
+  name: The Art of Swordplay Vol. X
+  icon: Recipe
+- id: 326
+  name: The Art of Swordplay Vol. XI
+  icon: Recipe
+- id: 327
+  name: The Art of Swordplay Vol. XII
+  icon: Recipe
+- id: 328
+  name: The Art of Swordplay Vol. XIII
+  icon: Recipe
+- id: 329
+  name: The Art of Swordplay Vol. XIV
+  icon: Recipe
+- id: 331
+  name: Sharpshooter's Companion Vol. I
+  icon: Recipe
+- id: 346
+  name: Way of the Fist Vol. I
+  icon: Recipe
+- id: 361
+  name: Telluric Scriptures Vol. I
+  icon: Recipe
+- id: 380
+  name: "Legacy: Ascension"
+  icon: Recipe
+- id: 381
+  name: "Legacy: Catastrophe"
+  icon: Recipe
+- id: 382
+  name: "Legacy: Dolphin Flurry"
+  icon: Recipe
+- id: 383
+  name: "Legacy: Planet's Protection"
+  icon: Recipe
 - id: 9005
   name: Gothic Bangle
   icon: Armor
@@ -30,6 +276,21 @@ items:
 - id: 9045
   name: Force Bracelet
   icon: Armor
+- id: 9050
+  name: Enchanted Ring
+  icon: Accessory
+- id: 9051
+  name: Supernatural Wristguard
+  icon: Accessory
+- id: 9052
+  name: Survival Vest
+  icon: Accessory
+- id: 9053
+  name: Platinum Earrings
+  icon: Accessory
+- id: 9054
+  name: Timeworn Talisman
+  icon: Accessory
 - id: 9055
   name: Midgar Bangle
   icon: Armor
