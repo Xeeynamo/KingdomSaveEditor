@@ -2,11 +2,11 @@
 
 ---
 
-This is the repository for a Windows application that allows to modify decrypted saves of Kingdom Hearts series and other games.
+This is the repository for a Windows application that allows to modify decrypted saves of commercial video games.
 
-The project offers a code library to help to create complex editors of scripts of any kind and on any operating system, plus a "in-house" editor compatible with Windows 7 or above (the only minimum requirement is .Net Framework 4.7.2 Rumtime). Not all the games are supported by the library and not all the library implementations has their editor. Yet.
+If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer) to make it work.
 
-| Game                     | Support     |
+| Game                     | Console     |
 |--------------------------| ------------|
 | Kingdom Hearts Re: CoM   | PS2/PS4     |
 | Kingdom Hearts II        | PS2/PS3/PS4 |
@@ -17,14 +17,9 @@ The project offers a code library to help to create complex editors of scripts o
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
 
-
-Here is a screenshot preview of how the editor in action looks like:
-
-![demo](docs/demo1.png)
-
 ## Donations
 
-My GitHub is opened to the [sponsor program](https://github.com/sponsors/Xeeynamo). If you feel that the editor helped you in some way or you would like to support it, please consider to [donate me](https://github.com/sponsors/Xeeynamo).
+My GitHub is opened to the [sponsor program](https://github.com/sponsors/Xeeynamo). If you feel that the editor helped you in some way or you would like to support it, you can consider to [donate me](https://github.com/sponsors/Xeeynamo).
 
 ## Features and supported games
 
