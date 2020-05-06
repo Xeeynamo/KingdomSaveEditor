@@ -87,6 +87,7 @@ namespace KHSave.LibFf7Remake
         public Inventory[] Inventory { get => ChunkCommon.Inventory; set => ChunkCommon.Inventory = value; }
         public MateriaEquipment[] CharacterMateria { get => ChunkCommon.CharacterMateria; set => ChunkCommon.CharacterMateria = value; }
         public MateriaEquipment[] WeaponMateria { get => ChunkCommon.WeaponMateria; set => ChunkCommon.WeaponMateria = value; }
+        public WeaponFound[] WeaponFound { get => ChunkCommon.WeaponFound; set => ChunkCommon.WeaponFound = value; }
         public byte PlayableCharacter { get => ChunkCommon.PlayableCharacter; set => ChunkCommon.PlayableCharacter = value; }
         public byte CurrentChapter { get => ChunkCommon.CurrentChapter; set => ChunkCommon.CurrentChapter = value; }
         public int[] SummonMateria { get => ChunkCommon.SummonMateria; set => ChunkCommon.SummonMateria = value; }

@@ -57,8 +57,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
 
         public void RefreshUi()
         {
-            CharacterEquipments = new EquipmentsViewModel(Save.CharacterMateria, Materia);
-            WeaponEquipments = new EquipmentsViewModel(Save.WeaponMateria, Materia);
+            CharacterEquipments = new EquipmentsViewModel(Save.WeaponFound, Save.CharacterMateria, Materia);
+            WeaponEquipments = new EquipmentsViewModel(Save.WeaponFound, Save.WeaponMateria, Materia);
             Materia = new MateriaViewModel(Save);
             Characters = new CharactersViewModel(Save, WeaponEquipments, Materia);
             Inventory = new InventoryViewModel(Save);

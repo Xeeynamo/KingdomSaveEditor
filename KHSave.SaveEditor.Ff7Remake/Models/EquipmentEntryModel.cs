@@ -35,18 +35,26 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 {
     public class EquipmentEntryModel : BaseNotifyPropertyChanged, SearchEngine.IName
     {
+        private readonly int _arrayIndex;
+        private readonly WeaponFound[] _weaponFound;
         private readonly MateriaEquipment _equipment;
         private readonly MateriaViewModel _materiaVm;
 
-        public EquipmentEntryModel(MateriaEquipment equipment, MateriaViewModel vm)
+        public EquipmentEntryModel(int index, WeaponFound[] weaponFound, MateriaEquipment equipment, MateriaViewModel vm)
         {
+            _arrayIndex = index;
+            _weaponFound = weaponFound;
             _equipment = equipment;
             _materiaVm = vm;
             EquipmentType = ItemModel.GetItemModels();
             CharacterTypes = new KhEnumListModel<CharacterType>(() => Character, x => Character = x);
         }
+
+        private bool IsWeapon => _arrayIndex >= 0; // 8
+
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility AsWeaponVisibility => IsWeapon ? Visibility.Visible : Visibility.Collapsed;
         public Visibility ItemTypeVisibility => Global.IsAdvancedMode || Character == CharacterType.None ? Visibility.Visible : Visibility.Collapsed;
         public bool IsVisible => Global.IsAdvancedMode || Character <= CharacterType.Red13 || Character == CharacterType.None;
 
@@ -68,6 +76,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
                 return ItemsPreset.Get(ItemId)?.Name;
             }
         }
+
         public ImageSource Icon
         {
             get
@@ -105,6 +114,18 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             }
         }
 
+        private WeaponFound WeaponFound => _weaponFound[_arrayIndex];
+
+        public int Index
+        {
+            get => IsWeapon ? WeaponFound.Index : -1;
+            set
+            {
+                WeaponFound.Index = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ImageSource MateriaIcon1 => GetMateriaIcon(0);
         public ImageSource MateriaIcon2 => GetMateriaIcon(1);
         public ImageSource MateriaIcon3 => GetMateriaIcon(2);
@@ -130,7 +151,13 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             get => _equipment.ItemId;
             set
             {
+                if (value <= 0)
+                    Index = -1;
+                else if (value > 0 && Index == -1)
+                    Index = GetFirstEmptyIndexSlot();
+
                 _equipment.ItemId = value;
+                WeaponFound.ItemId = value;
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(Icon));
             }
@@ -153,6 +180,23 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
             var materia = Materia.FirstOrDefault(x => x.Index - 1 == materiaId);
             return materia?.Icon;
+        }
+
+        private int GetFirstEmptyIndexSlot()
+        {
+            var lastIndex = 8;
+
+            foreach (var weapon in _weaponFound
+                .Where(x => x.Index >= lastIndex)
+                .OrderBy(x => x.Index))
+            {
+                if (weapon.Index == lastIndex)
+                    lastIndex = weapon.Index + 1;
+                else
+                    return lastIndex;
+            }
+
+            return lastIndex;
         }
     }
 }

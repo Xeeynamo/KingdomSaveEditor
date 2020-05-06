@@ -31,8 +31,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     {
         private string searchTerm;
 
-        public EquipmentsViewModel(IEnumerable<MateriaEquipment> equipments, MateriaViewModel materiaVm) :
-            this(equipments.Select(x => new EquipmentEntryModel(x, materiaVm)))
+        public EquipmentsViewModel(WeaponFound[] weaponFound, IEnumerable<MateriaEquipment> equipments, MateriaViewModel materiaVm) :
+            this(equipments.Select((x, i) => new EquipmentEntryModel(i, weaponFound, x, materiaVm)))
         {
         }
 

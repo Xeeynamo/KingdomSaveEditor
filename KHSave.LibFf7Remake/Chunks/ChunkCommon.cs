@@ -44,7 +44,7 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(0x358, Count = 0x340)] public byte[] Unk358 { get; set; }
         [Data(0x698, Count = SaveFf7Remake.CharacterCount, Stride = 0x10)] public UnknownStructure[] CharactersUnknown { get; set; }
         [Data(0x718, Count = 0x80, Stride = 0x10)] public UnknownStructure2[] UnknownStructure2 { get; set; }
-        [Data(0xf18, Count = 0x80, Stride = 0x10)] public UnknownStructure4[] UnknownStructure4 { get; set; }
+        [Data(0xf18, Count = 0x80, Stride = 0x10)] public WeaponFound[] WeaponFound { get; set; }
         [Data(0x1718, Count = SaveFf7Remake.CharacterCount, Stride = 0x20)] public CharacterEquipment[] CharactersEquipment { get; set; }
         [Data(0x1818, Count = 1000, Stride = 0x20)] public Materia[] Materia { get; set; }
         // [...]
@@ -52,6 +52,9 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data(0x40DA8, Count = SaveFf7Remake.CharacterCount, Stride = 0x30)] public MateriaEquipment[] CharacterMateria { get; set; }
         [Data(0x40F28, Count = 0x78, Stride = 0x30)] public MateriaEquipment[] WeaponMateria { get; set; }
         // [425A8...]
+
+        // 0x42862 Cloud Dress
+
         [Data(0x42F5C)] public byte PlayableCharacter { get; set; }
         [Data(0x42F5D)] public byte CurrentChapter { get; set; }
         [Data(0x44EAC, Count = SaveFf7Remake.CharacterCount)] public int[] SummonMateria { get; set; }

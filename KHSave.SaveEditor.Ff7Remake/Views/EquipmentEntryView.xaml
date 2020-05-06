@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="250">
     <StackPanel>
+        <TextBlock
+            Visibility="{Binding AsWeaponVisibility}"
+            Text="{Binding Index, StringFormat=Equipment index index: {0}}"/>
+        
         <TextBlock Text="Character" Visibility="{Binding AdvancedVisibility}"/>
         <ComboBox
             Margin="0 0 0 5"

@@ -78,6 +78,17 @@ namespace KHSave.Tests
 			Assert.Equal(51, save.SummonMateria[SaveFf7Remake.Cloud]);
 
 			Assert.Equal(18, save.CurrentChapter);
+
+			for (var i = 0; i < save.ChunkCommon.WeaponMateria.Length; i++)
+			{
+				if (save.ChunkCommon.WeaponMateria[i].ItemId >= 0)
+					Assert.Equal(save.ChunkCommon.WeaponMateria[i].ItemId, save.ChunkCommon.WeaponFound[i].ItemId);
+				else
+				{
+					Assert.Equal(-1, save.ChunkCommon.WeaponMateria[i].ItemId);
+					Assert.Equal(0, save.ChunkCommon.WeaponFound[i].ItemId);
+				}
+			}
 		}
 	}
 }
