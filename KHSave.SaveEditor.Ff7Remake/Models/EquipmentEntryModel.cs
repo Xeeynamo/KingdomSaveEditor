@@ -158,6 +158,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
                 _equipment.ItemId = value;
                 WeaponFound.ItemId = value;
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(Name));
                 OnPropertyChanged(nameof(Icon));
             }

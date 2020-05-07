@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Ff7Remake.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="250">
     <StackPanel>
@@ -31,22 +32,31 @@
         </ComboBox>
 
         <TextBlock Text="Item type" Visibility="{Binding ItemTypeVisibility}"/>
-        <ComboBox
-            Margin="0 0 0 5"
-            Visibility="{Binding ItemTypeVisibility}"
-            ItemsSource="{Binding EquipmentType, Mode=OneTime}"
-            SelectedValue="{Binding ItemId}"
-            SelectedValuePath="Id">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="0 0 3 0" Width="16" Height="16"
+        <Grid Margin="0 0 0 5" Visibility="{Binding ItemTypeVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox
+                Grid.Column="0"
+                ItemsSource="{Binding EquipmentType, Mode=OneTime}"
+                SelectedValue="{Binding ItemId}"
+                SelectedValuePath="Id">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0 0 3 0" Width="16" Height="16"
                             Source="{Binding Icon}"/>
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox Grid.Column="1" Margin="5 0 0 0" Width="70"
+                Visibility="{Binding AdvancedVisibility}"
+                Text="{Binding ItemId, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
 
         <TextBlock Text="Materia equipped"/>
         <ComboBox
