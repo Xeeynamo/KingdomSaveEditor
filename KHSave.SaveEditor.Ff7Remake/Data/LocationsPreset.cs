@@ -98,6 +98,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Data
                 var onlineData = await InternalFetchLocations();
                 _onlineData = _offlineData.Concat(onlineData)
                     .Distinct(_locationEqualityComparer)
+                    .OrderBy(x => x.Chapter)
                     .ToList();
             }
 
