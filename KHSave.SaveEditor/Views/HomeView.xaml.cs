@@ -77,6 +77,9 @@ namespace KHSave.SaveEditor.Views
 
         private void SetSponsorList(HomeViewModel vm, IEnumerable<Models.PatronModel> sponsors)
         {
+            if (sponsors == null)
+                return;
+
             var patronViews = sponsors
                 .Select((patron, i) =>
                 {
@@ -94,6 +97,9 @@ namespace KHSave.SaveEditor.Views
 
         private void SetSponsorshipInfo(HomeViewModel vm, Models.SponsorshipInfo info)
         {
+            if (info == null)
+                return;
+
             vm.SponsorHeaderInfo = info.Title;
             vm.SponsorGoalDetails = info.Description;
             vm.SponsorStartGoal = info.StartGoal;
@@ -103,6 +109,9 @@ namespace KHSave.SaveEditor.Views
         
         private void SetMessageList(HomeViewModel vm, IEnumerable<Models.ServiceMessage> messages)
         {
+            if (messages == null)
+                return;
+
             messageList.Children.Clear();
             foreach (var message in messages)
             {

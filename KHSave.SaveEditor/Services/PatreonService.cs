@@ -122,7 +122,7 @@ namespace KHSave.SaveEditor.Services
                     EndGoal = response.SponsorshipInfo?.EndGoal ?? 1,
                     Count = response.Patrons?.Count() ?? 0
                 },
-                Messages = response.HeaderInfo.Messages.Select(x => new ServiceMessage
+                Messages = response.HeaderInfo?.Messages?.Select(x => new ServiceMessage
                 {
                     Text = x.Text,
                     Title = x.Title,
