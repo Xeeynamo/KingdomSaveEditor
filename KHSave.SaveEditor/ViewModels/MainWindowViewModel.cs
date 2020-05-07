@@ -161,6 +161,7 @@ namespace KHSave.SaveEditor.ViewModels
 				var contributors = string.Join("\n", (new string[]
 				{
 					"Keytotruth, additional coding and offsets",
+					"Rikux3, Kingdom Hearts 1 Final Mix support",
 					"Troopah, for providing the icons",
 					"Sonicshadowsilver2, for story flags and records offsets",
                     "13th Vessel for the complete story flag list",
