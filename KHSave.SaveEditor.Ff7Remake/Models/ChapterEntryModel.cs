@@ -43,11 +43,11 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             if (Global.IsAdvancedMode)
             {
                 Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Objects.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Npc.Select(x => new ChapterObjectEntry(x)));
                 Objects2 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Objects2.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Objects.Select(x => new ChapterObjectEntry(x)));
                 Objects3 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Objects3.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Enemies.Select(x => new ChapterObjectEntry(x)));
             }
             else
             {

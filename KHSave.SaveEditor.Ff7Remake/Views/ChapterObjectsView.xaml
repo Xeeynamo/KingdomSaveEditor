@@ -21,8 +21,8 @@
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <controls:TwoEqualColumnsStackPanel Grid.Column="2" DataContext="{Binding SelectedItem}">
-                <TextBlock Text="Index"/>
-                <TextBlock Text="{Binding Index}"/>
+                <TextBlock Text="Object ID"/>
+                <TextBox Text="{Binding Index, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Unknown 04"/>
                 <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
