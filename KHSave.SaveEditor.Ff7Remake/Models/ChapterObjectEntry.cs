@@ -36,19 +36,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
         public int Index { get => _chapterObject.Index; set { _chapterObject.Index = value; OnPropertyChanged(nameof(Name)); } }
         
-        public string Unknown04
-        {
-            get => _chapterObject.Unknown04.ToString("X08");
-            set
-            {
-                if (!uint.TryParse(value, NumberStyles.HexNumber, null, out var actualValue))
-                    throw new FormatException("Not a valid hexadecimal digit");
-
-                _chapterObject.Unknown04 = actualValue;
-                OnPropertyChanged((nameof(Name)));
-            }
-        }
-
+        public float Unknown04 { get => _chapterObject.Unknown04; set { _chapterObject.Unknown04 = value; OnPropertyChanged((nameof(Name))); } }
         public int Unknown08 { get => _chapterObject.Unknown08; set { _chapterObject.Unknown08 = value; OnPropertyChanged((nameof(Name))); } }
         public float Unknown0c { get => _chapterObject.Unknown0c; set { _chapterObject.Unknown0c = value; OnPropertyChanged((nameof(Name))); } }
         public float PositionX { get => _chapterObject.PositionX; set { _chapterObject.PositionX = value; OnPropertyChanged((nameof(Name))); } }

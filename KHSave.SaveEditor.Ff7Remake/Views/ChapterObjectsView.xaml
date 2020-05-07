@@ -21,17 +21,11 @@
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <controls:TwoEqualColumnsStackPanel Grid.Column="2" DataContext="{Binding SelectedItem}">
-                <TextBlock Text="Object ID"/>
+                <TextBlock Text="Object ID (relative to map)"/>
                 <TextBox Text="{Binding Index, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Unknown 04"/>
-                <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Text="Unknown 08"/>
+                <TextBlock Text="Unknown 08 (can only be 1 or 0?)"/>
                 <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Text="Unknown 0c"/>
-                <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Position X"/>
                 <TextBox Text="{Binding PositionX, UpdateSourceTrigger=PropertyChanged}"/>
@@ -42,7 +36,13 @@
                 <TextBlock Text="Position Z"/>
                 <TextBox Text="{Binding PositionZ}"/>
 
-                <TextBlock Text="Facing angle (rotation Z)"/>
+                <TextBlock Text="Unknown 0c"/>
+                <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Angle rotation? (-180..180)"/>
+                <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Facing angle? (-180..180)"/>
                 <TextBox Text="{Binding Rotation, UpdateSourceTrigger=PropertyChanged}"/>
             </controls:TwoEqualColumnsStackPanel>
         </ScrollViewer>

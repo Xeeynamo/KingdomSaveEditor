@@ -23,7 +23,7 @@ namespace KHSave.LibFf7Remake.Models
     public class ChapterObject
     {
         [Data] public int Index { get; set; }
-        [Data] public uint Unknown04 { get; set; }
+        [Data] public float Unknown04 { get; set; }
         [Data] public int Unknown08 { get; set; }
         [Data] public float Unknown0c { get; set; }
         [Data] public float PositionX { get; set; }
@@ -32,6 +32,6 @@ namespace KHSave.LibFf7Remake.Models
         [Data] public float Rotation { get; set; }
 
         public override string ToString() =>
-            $"{Index} {Unknown04:X08} {Unknown08:X08} {Unknown0c:F0} POS({PositionX:F0}, {PositionY:F0}, {PositionZ:F0} A({Rotation:F0})";
+            $"{Index} {Unknown08} POS({PositionX:F0}, {PositionY:F0}, {PositionZ:F0} {Unknown0c:F0} A({Unknown04:F0}, {Rotation:F0})";
     }
 }
