@@ -74,5 +74,20 @@
             <TextBlock Text="Funders:"/>
             <WrapPanel Name="patronList"/>
         </StackPanel>
+        <StackPanel Margin="5">
+            <TextBlock
+                Margin="{StaticResource labelMargin}"
+                TextWrapping="Wrap"
+                Text="{Binding SponsorHeaderInfo}"/>
+            <ProgressBar
+                Height="10"
+                Minimum="{Binding SponsorStartGoal}"
+                Maximum="{Binding SponsorEndGoal}"
+                Value="{Binding SponsorCount}"/>
+            <TextBlock
+                Margin="{StaticResource labelMargin}"
+                TextWrapping="Wrap"
+                Text="{Binding SponsorGoalDetails}"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>

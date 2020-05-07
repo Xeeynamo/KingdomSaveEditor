@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Models;
+using KHSave.SaveEditor.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,50 @@ namespace KHSave.SaveEditor.Services
 
             [JsonProperty("patrons")]
             public IEnumerable<PatronDto> Patrons { get; set; }
+
+            [JsonProperty("sponsorshipInfo")]
+            public SponsorshipInfo SponsorshipInfo { get; set; }
+
+            [JsonProperty("headerInfo")]
+            public HeaderInfo HeaderInfo { get; set; }
         }
+
+        public class SponsorshipInfo
+        {
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            [JsonProperty("startGoal")]
+            public int StartGoal { get; set; }
+
+            [JsonProperty("endGoal")]
+            public int EndGoal { get; set; }
+        }
+
+        public class HeaderInfo
+        {
+            [JsonProperty("messages")]
+            public HeaderMessage[] Messages { get; set; }
+        }
+
+        public class HeaderMessage
+        {
+            [JsonProperty("text")]
+            public string Text { get; set; }
+
+            [JsonProperty("url")]
+            public string Url { get; set; }
+
+            [JsonProperty("isBold")]
+            public bool IsBold { get; set; }
+
+            [JsonProperty("isItalic")]
+            public bool IsItalic { get; set; }
+        }
+
         private class PatronDto
         {
             [JsonProperty("name")]
@@ -64,7 +107,15 @@ namespace KHSave.SaveEditor.Services
                     PhotoUrl = patron.PhotoUrl,
                     BadgeUrl = patron.BadgeUrl,
                     Glow = patron.Glow
-                })
+                }),
+                SponsorshipInfo = new Models.SponsorshipInfo
+                {
+                    Title = response.SponsorshipInfo?.Title,
+                    Description = response.SponsorshipInfo?.Description,
+                    StartGoal = response.SponsorshipInfo?.StartGoal ?? 0,
+                    EndGoal = response.SponsorshipInfo?.EndGoal ?? 1,
+                    Count = response.Patrons?.Count() ?? 0
+                }
             };
         }
 

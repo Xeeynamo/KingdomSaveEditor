@@ -7,5 +7,7 @@ namespace KHSave.SaveEditor.Models
         public string PatreonUrl { get; set; }
 
         public IEnumerable<PatronModel> Patrons { get; set; }
+
+        public SponsorshipInfo SponsorshipInfo { get; set; }
     }
 }

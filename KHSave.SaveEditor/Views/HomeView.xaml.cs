@@ -1,6 +1,7 @@
-﻿using KHSave.SaveEditor.Services;
+using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,25 +47,7 @@ namespace KHSave.SaveEditor.Views
                 try
                 {
                     var patreonInfo = await new PatreonService(new DesktopAppIdentity()).GetPatreonInfo();
-                    var patronViews = patreonInfo.Patrons
-                        .Select((patron, i) =>
-                        {
-                            return new PatronView((i + 1) / 32.0, patron.Glow)
-                            {
-                                DataContext = new PatronViewModel(patron)
-                            };
-                        })
-                        .Where(x => x != null);
-
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        (DataContext as HomeViewModel).FundLink = patreonInfo.PatreonUrl;
-                        patronList.Children.Clear();
-                        foreach (var patronView in patronViews)
-                        {
-                            patronList.Children.Add(patronView);
-                        }
-                    });
+                    Application.Current.Dispatcher.Invoke(() => SetServerResponse(patreonInfo));
                 }
                 catch
                 {
@@ -78,6 +61,43 @@ namespace KHSave.SaveEditor.Views
                     });
                 }
             };
+        }
+
+        private void SetServerResponse(Models.PatreonInfo patreonInfo)
+        {
+            var vm = DataContext as HomeViewModel;
+            SetFundLink(vm, patreonInfo.PatreonUrl);
+            SetSponsorList(vm, patreonInfo.Patrons);
+            SetSponsorshipInfo(vm, patreonInfo.SponsorshipInfo);
+        }
+
+        private void SetFundLink(HomeViewModel vm, string fundUrl) =>
+            vm.FundLink = fundUrl;
+
+        private void SetSponsorList(HomeViewModel vm, IEnumerable<Models.PatronModel> sponsors)
+        {
+            var patronViews = sponsors
+                .Select((patron, i) =>
+                {
+                    return new PatronView((i + 1) / 32.0, patron.Glow)
+                    {
+                        DataContext = new PatronViewModel(patron)
+                    };
+                })
+                .Where(x => x != null);
+
+            patronList.Children.Clear();
+            foreach (var patronView in patronViews)
+                patronList.Children.Add(patronView);
+        }
+
+        private void SetSponsorshipInfo(HomeViewModel vm, Models.SponsorshipInfo info)
+        {
+            vm.SponsorHeaderInfo = info.Title;
+            vm.SponsorGoalDetails = info.Description;
+            vm.SponsorStartGoal = info.StartGoal;
+            vm.SponsorEndGoal = info.EndGoal;
+            vm.SponsorCount = info.Count;
         }
     }
 }
