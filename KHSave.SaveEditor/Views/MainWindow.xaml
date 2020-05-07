@@ -56,6 +56,32 @@
                         <Image Source="{StaticResource Download_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem Header="Go to Home Page" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://kingdomsaveeditor.xee.dev">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Get the Source Code" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://github.com/xeeynamo/kh3saveeditor">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Report bug or missing features" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://github.com/xeeynamo/kh3saveeditor/issues">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Join Discord server" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://kse-discord.xee.dev">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
                 <MenuItem Header="_About" Command="{Binding AboutCommand}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource UIAbout_16x}"/>

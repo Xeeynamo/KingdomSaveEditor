@@ -12,7 +12,7 @@
         <Thickness x:Key="labelMargin" Left="10" Top="0" Right="0" Bottom="3" />
     </UserControl.Resources>
     <StackPanel>
-        <Label>No save is currently load.</Label>
+        <Label>No save game is currently load.</Label>
         <StackPanel Name="messageList"/>
         <Separator Margin="5"/>
         <Label>Kingdom Save Editor currently supports the following games:</Label>
@@ -23,39 +23,6 @@
             <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
             <TextBlock>Final Fantasy VII Remake</TextBlock>
         </StackPanel>
-        <Separator Margin="5"/>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://kingdomsaveeditor.xee.dev"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                Kingdom Save Editor home page
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                Kingdom Save Editor source code
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://github.com/xeeynamo/kh3saveeditor/issues"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                Report a bug or request a missing feature
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
-                NavigateUri="https://kse-discord.xee.dev"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                Join Kingdom Save Editor Discord server
-            </Hyperlink>
-        </TextBlock>
         <Separator Margin="5"/>
         <Grid Margin="{StaticResource labelMargin}">
             <Grid.ColumnDefinitions>

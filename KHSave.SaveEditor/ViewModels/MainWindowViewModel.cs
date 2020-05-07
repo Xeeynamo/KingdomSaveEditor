@@ -79,6 +79,7 @@ namespace KHSave.SaveEditor.ViewModels
         public RelayCommand SaveAsCommand { get; }
         public RelayCommand ExitCommand { get; }
         public RelayCommand GetLatestVersionCommand { get; }
+        public RelayCommand OpenLinkCommand { get; }
         public RelayCommand AboutCommand { get; }
 
         public object DataContext
@@ -152,6 +153,8 @@ namespace KHSave.SaveEditor.ViewModels
 					}
 				});
 			});
+
+            OpenLinkCommand = new RelayCommand(url => Process.Start(new ProcessStartInfo(url as string)));
 
             AboutCommand = new RelayCommand(x =>
 			{
