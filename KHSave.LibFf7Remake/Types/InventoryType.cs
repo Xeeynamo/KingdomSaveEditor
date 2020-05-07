@@ -133,7 +133,7 @@ namespace KHSave.LibFf7Remake.Types
         [WeaponAerith("Reinforced Staff")] ReinforcedStaff,
         [WeaponAerith("Arcane Scepter")] ArcaneScepter,
 
-        [Weapon("Mythril Clip")] MythrilClip = 5001,
+        [Weapon("Mythril Collar")] MythrilCollar = 5001,
 
         [Armor("Bronze Bangle")] BronzeBangle = 9001,
         [Armor("Iron Bangle")] IronBangle,
