@@ -34,14 +34,6 @@
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
             <Hyperlink
-                NavigateUri="https://kse-discord.xee.dev"
-                RequestNavigate="Hyperlink_RequestNavigate"
-                TextDecorations="{x:Null}">
-                Join Kingdom Save Editor Discord server
-            </Hyperlink>
-        </TextBlock>
-        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
-            <Hyperlink
                 NavigateUri="https://github.com/xeeynamo/kh3saveeditor"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
@@ -50,10 +42,10 @@
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
             <Hyperlink
-                NavigateUri="https://lucianociccariello.com/"
+                NavigateUri="https://kse-discord.xee.dev"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
-                Author website
+                Join Kingdom Save Editor Discord server
             </Hyperlink>
         </TextBlock>
         <Separator Margin="0 10 0 10"/>
