@@ -13,8 +13,20 @@ namespace KHSave.SaveEditor.Services
     {
         private readonly IWindowManager windowManager;
 
-        private bool IsItTimeForCheckingNewVersion =>
-            Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+        private bool IsItTimeForCheckingNewVersion
+        {
+            get
+            {
+                try
+                {
+                    return Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+                }
+                catch
+                {
+                    return true;
+                }
+            }
+        }
 
         public bool IsAutomaticUpdatesEnabled
         {
