@@ -50,17 +50,6 @@ namespace KHSave.LibFf7Remake
 
         public SaveFf7Remake Write(Stream stream)
         {
-            for (int i = 0, index = 0; i < Materia.Length; i++)
-            {
-                if (Materia[i].ItemId != (int)Types.InventoryType.Empty)
-                {
-                    Materia[i].IsObtained = 1;
-                    Materia[i].Index = ++index;
-                }
-                else
-                    Materia[i].IsObtained = 0;
-            }
-
             WriteChunk(ChunkCommon, 0, 0);
             for (var i = 0; i < ChapterCount; i++)
                 WriteChunk(Chapters[i], 1, i);
