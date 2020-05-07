@@ -13,8 +13,8 @@
     </UserControl.Resources>
     <StackPanel>
         <Label>No save is currently load.</Label>
-        <Label>Load the save from File\Open...</Label>
-        <Separator Margin="0 10 0 10"/>
+        <StackPanel Name="messageList"/>
+        <Separator Margin="5"/>
         <Label>Kingdom Save Editor currently supports the following games:</Label>
         <StackPanel Margin="20 0 0 0">
             <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS3,PS4)</TextBlock>
@@ -23,7 +23,7 @@
             <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
             <TextBlock>Final Fantasy VII Remake</TextBlock>
         </StackPanel>
-        <Separator Margin="0 10 0 10"/>
+        <Separator Margin="5"/>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
             <Hyperlink
                 NavigateUri="https://kingdomsaveeditor.xee.dev"
@@ -42,13 +42,21 @@
         </TextBlock>
         <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
             <Hyperlink
+                NavigateUri="https://github.com/xeeynamo/kh3saveeditor/issues"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                TextDecorations="{x:Null}">
+                Report a bug or request a missing feature
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="{StaticResource labelMargin}" Foreground="{StaticResource textHyperlink}">
+            <Hyperlink
                 NavigateUri="https://kse-discord.xee.dev"
                 RequestNavigate="Hyperlink_RequestNavigate"
                 TextDecorations="{x:Null}">
                 Join Kingdom Save Editor Discord server
             </Hyperlink>
         </TextBlock>
-        <Separator Margin="0 10 0 10"/>
+        <Separator Margin="5"/>
         <Grid Margin="{StaticResource labelMargin}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -80,6 +88,7 @@
                 TextWrapping="Wrap"
                 Text="{Binding SponsorHeaderInfo}"/>
             <ProgressBar
+                Margin="0 0 0 3"
                 Height="10"
                 Minimum="{Binding SponsorStartGoal}"
                 Maximum="{Binding SponsorEndGoal}"

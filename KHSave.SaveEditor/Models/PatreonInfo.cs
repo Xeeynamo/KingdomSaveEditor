@@ -9,5 +9,7 @@ namespace KHSave.SaveEditor.Models
         public IEnumerable<PatronModel> Patrons { get; set; }
 
         public SponsorshipInfo SponsorshipInfo { get; set; }
+
+        public IEnumerable<ServiceMessage> Messages { get; set; }
     }
 }

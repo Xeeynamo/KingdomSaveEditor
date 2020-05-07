@@ -69,6 +69,7 @@ namespace KHSave.SaveEditor.Views
             SetFundLink(vm, patreonInfo.PatreonUrl);
             SetSponsorList(vm, patreonInfo.Patrons);
             SetSponsorshipInfo(vm, patreonInfo.SponsorshipInfo);
+            SetMessageList(vm, patreonInfo.Messages);
         }
 
         private void SetFundLink(HomeViewModel vm, string fundUrl) =>
@@ -98,6 +99,29 @@ namespace KHSave.SaveEditor.Views
             vm.SponsorStartGoal = info.StartGoal;
             vm.SponsorEndGoal = info.EndGoal;
             vm.SponsorCount = info.Count;
+        }
+        
+        private void SetMessageList(HomeViewModel vm, IEnumerable<Models.ServiceMessage> messages)
+        {
+            messageList.Children.Clear();
+            foreach (var message in messages)
+            {
+                messageList.Children.Add(new Separator
+                {
+                    Margin = new Thickness(5)
+                });
+
+                messageList.Children.Add(new ServiceMessageView
+                {
+                    Margin = new Thickness(10, 0, 10, 0),
+                    Text = message.Text,
+                    Title = message.Title,
+                    Url = string.IsNullOrEmpty(message.Url) ? "" : message.Url,
+                    MyFontSize = message.FontSize <= 0 ? 12 : message.FontSize,
+                    IsBold = message.IsBold,
+                    IsItalic = message.IsItalic,
+                });
+            }
         }
     }
 }

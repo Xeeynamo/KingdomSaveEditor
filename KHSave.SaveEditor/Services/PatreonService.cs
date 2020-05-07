@@ -50,9 +50,15 @@ namespace KHSave.SaveEditor.Services
         {
             [JsonProperty("text")]
             public string Text { get; set; }
+            
+            [JsonProperty("title")]
+            public string Title { get; set; }
 
             [JsonProperty("url")]
             public string Url { get; set; }
+
+            [JsonProperty("fontSize")]
+            public double FontSize { get; set; }
 
             [JsonProperty("isBold")]
             public bool IsBold { get; set; }
@@ -115,7 +121,16 @@ namespace KHSave.SaveEditor.Services
                     StartGoal = response.SponsorshipInfo?.StartGoal ?? 0,
                     EndGoal = response.SponsorshipInfo?.EndGoal ?? 1,
                     Count = response.Patrons?.Count() ?? 0
-                }
+                },
+                Messages = response.HeaderInfo.Messages.Select(x => new ServiceMessage
+                {
+                    Text = x.Text,
+                    Title = x.Title,
+                    Url = x.Url,
+                    FontSize = x.FontSize,
+                    IsBold = x.IsBold,
+                    IsItalic = x.IsItalic,
+                }),
             };
         }
 
