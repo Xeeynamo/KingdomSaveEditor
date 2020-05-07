@@ -28,7 +28,7 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
     public class ChaptersViewModel : GenericListModel<ChapterEntryModel>
     {
         public ChaptersViewModel(SaveFf7Remake save) :
-            this(save.Chapters.Select((x, i) => new ChapterEntryModel(x, i)))
+            this(save.Chapters.Select((x, i) => new ChapterEntryModel(x, i, x.Positions[0])))
         {
             CurrentChapterId = GetChapterIdFromChapterNumber(save.CurrentChapter);
         }

@@ -17,9 +17,9 @@
 */
 
 using KHSave.LibFf7Remake.Models;
-using System;
-using System.Globalization;
+using System.Collections.Generic;
 using Xe.Tools;
+using Xe.Tools.Wpf.Commands;
 
 namespace KHSave.SaveEditor.Ff7Remake.Models
 {
@@ -27,10 +27,41 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
     {
         private readonly ChapterObject _chapterObject;
 
-        public ChapterObjectEntry(ChapterObject chapterObject)
+        public ChapterObjectEntry(ChapterObject chapterObject, IEnumerable<ChapterObject> siblingObjects, Vector3f cloudPosition)
         {
             _chapterObject = chapterObject;
+
+            DebugTeleportToCloudCommand = new RelayCommand(_ =>
+            {
+                chapterObject.PositionX = cloudPosition.X;
+                chapterObject.PositionY = cloudPosition.Y;
+                chapterObject.PositionZ = cloudPosition.Z;
+                OnAllPropertiesChanged();
+            });
+            DebugTeleportToObjectCommand = new RelayCommand(_ =>
+            {
+                foreach (var obj in siblingObjects)
+                {
+                    obj.PositionX = chapterObject.PositionX;
+                    obj.PositionY = chapterObject.PositionY;
+                    obj.PositionZ = chapterObject.PositionZ;
+                    OnAllPropertiesChanged();
+                }
+            });
+            DebugIdRandomnessCommand = new RelayCommand(_ =>
+            {
+                foreach (var obj in siblingObjects)
+                {
+                    obj.Index = chapterObject.Index;
+                    OnAllPropertiesChanged();
+                }
+            });
         }
+
+        public RelayCommand DebugTeleportToCloudCommand { get; }
+        public RelayCommand DebugCloudToObjectCommand { get; }
+        public RelayCommand DebugTeleportToObjectCommand { get; }
+        public RelayCommand DebugIdRandomnessCommand { get; }
 
         public string Name => ToString();
 

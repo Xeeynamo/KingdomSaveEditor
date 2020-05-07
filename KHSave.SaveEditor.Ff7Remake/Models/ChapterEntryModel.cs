@@ -18,6 +18,7 @@
 
 using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Chunks;
+using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
@@ -34,7 +35,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         private readonly ChunkChapter _chapter;
         private readonly int _index;
 
-        public ChapterEntryModel(ChunkChapter chapter, int index)
+        public ChapterEntryModel(ChunkChapter chapter, int index, Vector3f cloudPosition)
         {
             _chapter = chapter;
             _index = index;
@@ -43,11 +44,11 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
             if (Global.IsAdvancedMode)
             {
                 Objects = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Npc.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Npc.Select(x => new ChapterObjectEntry(x, chapter.Npc, cloudPosition)));
                 Objects2 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Objects.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Objects.Select(x => new ChapterObjectEntry(x, chapter.Objects, cloudPosition)));
                 Objects3 = new Xe.Tools.Wpf.Models.GenericListModel<ChapterObjectEntry>(
-                    chapter.Enemies.Select(x => new ChapterObjectEntry(x)));
+                    chapter.Enemies.Select(x => new ChapterObjectEntry(x, chapter.Enemies, cloudPosition)));
             }
             else
             {

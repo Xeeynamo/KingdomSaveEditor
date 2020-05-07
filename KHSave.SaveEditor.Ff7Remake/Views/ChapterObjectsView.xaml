@@ -20,31 +20,49 @@
             DisplayMemberPath="Name"/>
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-            <controls:TwoEqualColumnsStackPanel Grid.Column="2" DataContext="{Binding SelectedItem}">
-                <TextBlock Text="Object ID (relative to map)"/>
-                <TextBox Text="{Binding Index, UpdateSourceTrigger=PropertyChanged}"/>
+            <StackPanel DataContext="{Binding SelectedItem}">
+                <controls:TwoEqualColumnsStackPanel Grid.Column="2">
+                    <TextBlock Text="Object ID (relative to map)"/>
+                    <TextBox Text="{Binding Index, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Unknown 08 (can only be 1 or 0?)"/>
-                <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Unknown 08 (can only be 1 or 0?)"/>
+                    <TextBox Text="{Binding Unknown08, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Position X"/>
-                <TextBox Text="{Binding PositionX, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Position X"/>
+                    <TextBox Text="{Binding PositionX, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Position Y"/>
-                <TextBox Text="{Binding PositionY, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Position Y"/>
+                    <TextBox Text="{Binding PositionY, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Position Z"/>
-                <TextBox Text="{Binding PositionZ}"/>
+                    <TextBlock Text="Position Z"/>
+                    <TextBox Text="{Binding PositionZ}"/>
 
-                <TextBlock Text="Unknown 0c"/>
-                <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Unknown 0c"/>
+                    <TextBox Text="{Binding Unknown0c, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Angle rotation? (-180..180)"/>
-                <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Angle rotation? (-180..180)"/>
+                    <TextBox Text="{Binding Unknown04, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Facing angle? (-180..180)"/>
-                <TextBox Text="{Binding Rotation, UpdateSourceTrigger=PropertyChanged}"/>
-            </controls:TwoEqualColumnsStackPanel>
+                    <TextBlock Text="Facing angle? (-180..180)"/>
+                    <TextBox Text="{Binding Rotation, UpdateSourceTrigger=PropertyChanged}"/>
+                </controls:TwoEqualColumnsStackPanel>
+
+                <Separator Margin="3 10 3 10"/>
+                <TextBlock Text="Tooling for debug and research:"/>
+                <Button Margin="3" Command="{Binding DebugTeleportToCloudCommand}"
+                        Content="Teleport this object to Cloud location"/>
+                <Button Margin="3" Command="{Binding DebugCloudToObjectCommand}"
+                        Content="Teleport Cloud to this object"/>
+                <Button Margin="3" Command="{Binding DebugTeleportToObjectCommand}"
+                        Content="Teleport all the object to this object"/>
+                <Button Margin="3" Command="{Binding DebugIdRandomnessCommand}"
+                        Content="Assign all the Object IDs to the current Object ID"/>
+                <TextBlock TextWrapping="Wrap">
+                    Those tooling buttons are for experimental usage;
+                    therefore I did not tweaked the UI to update properly
+                    when you click on them.
+                </TextBlock>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </UserControl>
