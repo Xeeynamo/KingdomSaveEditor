@@ -11,59 +11,61 @@
         <SolidColorBrush x:Key="textHyperlink" Color="#569CD6" />
         <Thickness x:Key="labelMargin" Left="10" Top="0" Right="0" Bottom="3" />
     </UserControl.Resources>
-    <StackPanel>
-        <Label>No save game is currently load.</Label>
-        <StackPanel Name="messageList"/>
-        <Separator Margin="5"/>
-        <Label>Kingdom Save Editor currently supports the following games:</Label>
-        <StackPanel Margin="20 0 0 0">
-            <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS3,PS4)</TextBlock>
-            <TextBlock>Kingdom Hearts Re: Chain of Memories (PS2,PS4)</TextBlock>
-            <TextBlock>Kingdom Hearts 0.2</TextBlock>
-            <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
-            <TextBlock>Final Fantasy VII Remake</TextBlock>
-        </StackPanel>
-        <Separator Margin="5"/>
-        <Grid Margin="{StaticResource labelMargin}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="0 0 5 0" Width="32"
-                Source="{StaticResource FundIcon}"/>
-            <StackPanel Grid.Column="1">
-                <TextBlock Grid.Column="1" TextWrapping="Wrap"
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Label>No save game is currently load.</Label>
+            <StackPanel Name="messageList"/>
+            <Separator Margin="5"/>
+            <Label>Kingdom Save Editor currently supports the following games:</Label>
+            <StackPanel Margin="20 0 0 0">
+                <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS3,PS4)</TextBlock>
+                <TextBlock>Kingdom Hearts Re: Chain of Memories (PS2,PS4)</TextBlock>
+                <TextBlock>Kingdom Hearts 0.2</TextBlock>
+                <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
+                <TextBlock>Final Fantasy VII Remake</TextBlock>
+            </StackPanel>
+            <Separator Margin="5"/>
+            <Grid Margin="{StaticResource labelMargin}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Margin="0 0 5 0" Width="32"
+                    Source="{StaticResource FundIcon}"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Grid.Column="1" TextWrapping="Wrap"
                         Text="Fund me to be featured below and help me to improve all my projects!"/>
 
-                <TextBlock Foreground="{StaticResource textHyperlink}">
+                    <TextBlock Foreground="{StaticResource textHyperlink}">
                     <Hyperlink
                         NavigateUri="{Binding FundLink}"
                         RequestNavigate="Hyperlink_RequestNavigate"
                         TextDecorations="{x:Null}">
                         Click to prepare to fund me today!
                     </Hyperlink>
-                </TextBlock>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+            <StackPanel Margin="{StaticResource labelMargin}">
+                <TextBlock Text="Funders:"/>
+                <WrapPanel Name="patronList"/>
             </StackPanel>
-        </Grid>
-        <StackPanel Margin="{StaticResource labelMargin}">
-            <TextBlock Text="Funders:"/>
-            <WrapPanel Name="patronList"/>
+            <StackPanel Margin="5">
+                <TextBlock
+                    Margin="{StaticResource labelMargin}"
+                    TextWrapping="Wrap"
+                    Text="{Binding SponsorHeaderInfo}"/>
+                <ProgressBar
+                    Margin="0 0 0 3"
+                    Height="10"
+                    Minimum="{Binding SponsorStartGoal}"
+                    Maximum="{Binding SponsorEndGoal}"
+                    Value="{Binding SponsorCount}"/>
+                <TextBlock
+                    Margin="{StaticResource labelMargin}"
+                    TextWrapping="Wrap"
+                    Text="{Binding SponsorGoalDetails}"/>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Margin="5">
-            <TextBlock
-                Margin="{StaticResource labelMargin}"
-                TextWrapping="Wrap"
-                Text="{Binding SponsorHeaderInfo}"/>
-            <ProgressBar
-                Margin="0 0 0 3"
-                Height="10"
-                Minimum="{Binding SponsorStartGoal}"
-                Maximum="{Binding SponsorEndGoal}"
-                Value="{Binding SponsorCount}"/>
-            <TextBlock
-                Margin="{StaticResource labelMargin}"
-                TextWrapping="Wrap"
-                Text="{Binding SponsorGoalDetails}"/>
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>
