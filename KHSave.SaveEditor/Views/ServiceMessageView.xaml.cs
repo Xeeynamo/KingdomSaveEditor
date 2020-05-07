@@ -24,7 +24,7 @@ namespace KHSave.SaveEditor.Views
 
         public Visibility UrlVisibility => string.IsNullOrEmpty(Url) ? Visibility.Collapsed : Visibility.Visible;
         public FontWeight MyFontWeight => IsBold ? FontWeights.Bold : FontWeights.Normal;
-        public FontStyle MyFontStyle => IsItalic ? FontStyles.Italic : FontStyles.Italic;
+        public FontStyle MyFontStyle => IsItalic ? FontStyles.Italic : FontStyles.Normal;
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
