@@ -25,18 +25,22 @@ namespace KHSave.Lib1
             [Data(0x59B)] public AbilityType SharedAbility3 { get; set; }
             [Data(0x59C)] public AbilityType SharedAbility4 { get; set; }
 
-            [Data(0x844)] public CommandType ShortcutCircle { get; set; }
-            [Data(0x845)] public CommandType ShortcutTriangle { get; set; }
-            [Data(0x846)] public CommandType ShortcutSquare { get; set; }
+            //doesn't work yet
+            [Data(0xE5D)] public CommandType ShortcutCircle { get; set; }
+            [Data(0xE5C)] public CommandType ShortcutTriangle { get; set; }
+            [Data(0xE5E)] public CommandType ShortcutSquare { get; set; }
 
-            [Data(0x16400)] public int AutoLock { get; set; }
-            [Data(0x16404)] public int TargetLock { get; set; }
-            [Data(0x16408)] public int Camera { get; set; }
-            [Data(0x16410)] public int Vibration { get; set; }
-            [Data(0x16414)] public int Sound { get; set; }
+            //Needs testing
+            [Data(0x16A30)] public int AutoLock { get; set; }
+            [Data(0x16A34)] public int TargetLock { get; set; }
+            [Data(0x16A38)] public int Camera { get; set; }
+            [Data(0x16A40)] public int Vibration { get; set; }
+            [Data(0x16A44)] public int Sound { get; set; }
+
+            
+            [Data(0x16418)] public DifficultyFm Difficulty { get; set; }
 
             [Data(0x1641C)] public uint Munny { get; set; }
-            [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
 
 
             public void Write(Stream stream) =>
