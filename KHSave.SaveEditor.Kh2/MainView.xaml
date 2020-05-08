@@ -14,8 +14,8 @@
         <TabItem Header="Inventory">
             <views:InventoryView DataContext="{Binding Inventory}"/>
         </TabItem>
-        <TabItem Header="Players">
-            <views:PlayersView DataContext="{Binding Players}"/>
+        <TabItem Header="Characters">
+            <views:PlayersView DataContext="{Binding Characters}"/>
         </TabItem>
     </TabControl>
 </UserControl>

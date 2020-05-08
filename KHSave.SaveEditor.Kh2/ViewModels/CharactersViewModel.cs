@@ -25,23 +25,23 @@ using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class PlayersViewModel : GenericListModel<PlayerViewModel>
+    public class CharactersViewModel : GenericListModel<CharacterViewModel>
     {
         private readonly SaveKh2.SaveFinalMix save;
 
-        public PlayersViewModel(SaveKh2.SaveFinalMix save) :
+        public CharactersViewModel(SaveKh2.SaveFinalMix save) :
             this(save.Characters)
         {
             this.save = save;
         }
 
-        public PlayersViewModel(IEnumerable<Character> list) :
-            this(list.Select((pc, index) => new PlayerViewModel(pc, index)))
+        public CharactersViewModel(IEnumerable<Character> list) :
+            this(list.Select((pc, index) => new CharacterViewModel(pc, index)))
         {
 
         }
 
-        public PlayersViewModel(IEnumerable<PlayerViewModel> list) :
+        public CharactersViewModel(IEnumerable<CharacterViewModel> list) :
             base(list)
         {
 
@@ -50,14 +50,14 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public Visibility PlayerVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
         public Visibility PlayerNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
 
-        protected override void OnSelectedItem(PlayerViewModel item)
+        protected override void OnSelectedItem(CharacterViewModel item)
         {
             base.OnSelectedItem(item);
             OnPropertyChanged(nameof(PlayerVisible));
             OnPropertyChanged(nameof(PlayerNotVisible));
         }
 
-        protected override PlayerViewModel OnNewItem()
+        protected override CharacterViewModel OnNewItem()
         {
             throw new System.NotImplementedException();
         }

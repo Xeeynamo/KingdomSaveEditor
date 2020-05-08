@@ -30,7 +30,7 @@ using System.Windows;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class PlayerViewModel
+    public class CharacterViewModel
     {
         private static readonly KeyValuePair<EquipmentType, string>[] _abilityTypes =
             new KeyValuePair<EquipmentType, string>[]
@@ -47,7 +47,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         private readonly Character character;
         private readonly int index;
 
-        public PlayerViewModel(Character character, int index)
+        public CharacterViewModel(Character character, int index)
         {
             this.character = character;
             this.index = index;
