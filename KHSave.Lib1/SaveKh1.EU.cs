@@ -7,11 +7,9 @@ namespace KHSave.Lib1
 {
     public partial class SaveKh1
     {
-        public class SaveFinalMix : ISaveKh1
+        public class SaveEU : ISaveKh1
         {
-
             [Data(0, 0x16C00)] public byte[] Data { get; set; }
-
             [Data(0)] public uint MagicCode { get; set; }
             [Data(Count = 10, Stride = 0x74)] public Character[] Characters { get; set; }
 
@@ -40,11 +38,13 @@ namespace KHSave.Lib1
             [Data(0x1641C)] public uint Munny { get; set; }
             [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
 
+
             public void Write(Stream stream) =>
                 Mapper.WriteObject(stream.SetPosition(0), this);
 
-            internal static SaveFinalMix ReadInternal(Stream stream) =>
-                Mapper.ReadObject(stream, new SaveFinalMix()) as SaveFinalMix;
+            internal static SaveEU ReadInternal(Stream stream) =>
+                Mapper.ReadObject(stream, new SaveEU()) as SaveEU;
         }
     }
 }
+

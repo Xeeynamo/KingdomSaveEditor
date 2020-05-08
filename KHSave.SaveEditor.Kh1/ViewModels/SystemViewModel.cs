@@ -6,9 +6,9 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 {
     public class SystemViewModel
     {
-        private readonly SaveKh1.SaveFinalMix save;
+        private readonly ISaveKh1 save;
 
-        public SystemViewModel(SaveKh1.SaveFinalMix save)
+        public SystemViewModel(ISaveKh1 save)
         {
             this.save = save;
             ShortcutItems = new KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType>(() => default(CommandType), x => { });
