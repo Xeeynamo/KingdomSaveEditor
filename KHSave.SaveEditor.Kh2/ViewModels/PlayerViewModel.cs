@@ -21,13 +21,29 @@ using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Models;
 using KHSave.SaveEditor.Kh2.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class PlayerViewModel
     {
+        private static readonly KeyValuePair<EquipmentType, string>[] _abilityTypes =
+            new KeyValuePair<EquipmentType, string>[]
+            {
+                new KeyValuePair<EquipmentType, string>(EquipmentType.Empty, "Empty")
+            }
+            .Concat(
+                Enum.GetValues(typeof(EquipmentType))
+                    .Cast<EquipmentType>()
+                    .Where(x => InfoAttribute.GetItemTypes(x).Any(v => v == "Ability"))
+                    .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
+            ).ToArray();
+
         private readonly Character character;
         private readonly int index;
 
@@ -40,7 +56,9 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Armors = new EquipmentItemsViewModel(EquipmentManagerFactory.ForArmor(character));
             Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character));
             Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character));
+            Abilities = character.Abilities.Select((_, i) => new AbilityModel(i, character.Abilities)).ToList();
         }
+        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _abilityTypes;
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
 
@@ -50,6 +68,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public EquipmentItemsViewModel Armors { get; }
         public EquipmentItemsViewModel Accessories { get; }
         public EquipmentItemsViewModel Consumables { get; }
+        public List<AbilityModel> Abilities { get; set; }
         public short Unk02  { get => character.Unk02; set => character.Unk02 = value; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }

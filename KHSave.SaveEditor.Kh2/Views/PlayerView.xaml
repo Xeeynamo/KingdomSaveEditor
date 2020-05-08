@@ -8,79 +8,118 @@
              xmlns:xe="clr-namespace:Xe.Tools.Wpf.Controls;assembly=Xe.Tools.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
-    <ScrollViewer>
-        <StackPanel>
-            <common:TwoEqualColumnsStackPanel>
-                <TextBlock Text="Level"/>
-                <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="AbilityTypes" Source="{Binding AbilityTypes}"/>
+    </UserControl.Resources>
+    <TabControl>
+        <TabItem Header="Stats">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <common:TwoEqualColumnsStackPanel>
+                        <TextBlock Text="Level"/>
+                        <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="Weapon"/>
-                <common:ItemComboBox DataContext="{Binding Weapon}"/>
+                        <TextBlock Text="Weapon"/>
+                        <common:ItemComboBox DataContext="{Binding Weapon}"/>
 
-                <TextBlock Text="HP current"/>
-                <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="HP max"/>
-                <TextBox Text="{Binding HpMax, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="MP current"/>
-                <TextBox Text="{Binding MpCur, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="MP max"/>
-                <TextBox Text="{Binding MpMax, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="HP current"/>
+                        <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="HP max"/>
+                        <TextBox Text="{Binding HpMax, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="MP current"/>
+                        <TextBox Text="{Binding MpCur, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="MP max"/>
+                        <TextBox Text="{Binding MpMax, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Text="AP boost"/>
-                <TextBox Text="{Binding ApBoost, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Strength boost"/>
-                <TextBox Text="{Binding StrengthBoost, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Magic boost"/>
-                <TextBox Text="{Binding MagicBoost, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Defense boost"/>
-                <TextBox Text="{Binding DefenseBoost, UpdateSourceTrigger=PropertyChanged}"/>
-            </common:TwoEqualColumnsStackPanel>
-            <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
-                <TextBlock Text="Unk02"/>
-                <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Unk0c"/>
-                <TextBox Text="{Binding Unk0c, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Unk0d"/>
-                <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Unk0e"/>
-                <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
-            </common:TwoEqualColumnsStackPanel>
-            <GroupBox Header="Armors" DataContext="{Binding Armors}">
-                <common:TwoEqualColumnsStackPanel>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
-                </common:TwoEqualColumnsStackPanel>
-            </GroupBox>
-            <GroupBox Header="Accessories" DataContext="{Binding Accessories}">
-                <common:TwoEqualColumnsStackPanel>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
-                </common:TwoEqualColumnsStackPanel>
-            </GroupBox>
-            <GroupBox Header="Consumable items" DataContext="{Binding Consumables}">
-                <common:TwoEqualColumnsStackPanel>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
-                    <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
-                </common:TwoEqualColumnsStackPanel>
-            </GroupBox>
-        </StackPanel>
-    </ScrollViewer>
+                        <TextBlock Text="AP boost"/>
+                        <TextBox Text="{Binding ApBoost, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Strength boost"/>
+                        <TextBox Text="{Binding StrengthBoost, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Magic boost"/>
+                        <TextBox Text="{Binding MagicBoost, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Defense boost"/>
+                        <TextBox Text="{Binding DefenseBoost, UpdateSourceTrigger=PropertyChanged}"/>
+                    </common:TwoEqualColumnsStackPanel>
+                    <common:TwoEqualColumnsStackPanel Visibility="{Binding AdvancedVisibility}">
+                        <TextBlock Text="Unk02"/>
+                        <TextBox Text="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Unk0c"/>
+                        <TextBox Text="{Binding Unk0c, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Unk0d"/>
+                        <TextBox Text="{Binding Unk0d, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Unk0e"/>
+                        <TextBox Text="{Binding Unk0e, UpdateSourceTrigger=PropertyChanged}"/>
+                    </common:TwoEqualColumnsStackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Equipment">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <GroupBox Header="Armors" DataContext="{Binding Armors}">
+                        <common:TwoEqualColumnsStackPanel>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
+                        </common:TwoEqualColumnsStackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Accessories" DataContext="{Binding Accessories}">
+                        <common:TwoEqualColumnsStackPanel>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
+                        </common:TwoEqualColumnsStackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Consumable items" DataContext="{Binding Consumables}">
+                        <common:TwoEqualColumnsStackPanel>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment1}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment3}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment2}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment4}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment5}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment7}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment6}"/>
+                            <local:PlayerEquipmentView DataContext="{Binding Equipment8}"/>
+                        </common:TwoEqualColumnsStackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Abilities">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DataGrid
+                    Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+                    AutoGenerateColumns="False"
+                    ItemsSource="{Binding Abilities}">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="24" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn
+                            Header="Active" Width="Auto"
+                            Binding="{Binding Active}"/>
+                        <DataGridComboBoxColumn
+                            Header="Ability" Width="*"
+                            ItemsSource="{Binding Source={StaticResource AbilityTypes}}"
+                            SelectedValueBinding="{Binding AbilityType}"
+                            SelectedValuePath="Key"
+                            DisplayMemberPath="Value"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
 </UserControl>
