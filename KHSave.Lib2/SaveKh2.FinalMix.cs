@@ -8,12 +8,15 @@ namespace KHSave.Lib2
     {
         public class SaveFinalMix : ISaveKh2
         {
-
-		    [Data(0, 69568)] public byte[] Data { get; set; }
+		    [Data(0, 0x10FC0)] public byte[] Data { get; set; }
 
             [Data(0)] public uint MagicCode { get; set; }
             [Data] public int Version { get; set; }
             [Data] public uint Checksum { get; set; }
+            [Data] public WorldType WorldId { get; set; }
+            [Data] public byte RoomId { get; set; }
+            [Data] public byte SpawnId { get; set; }
+            [Data] public byte Unused0f { get; set; }
 
             [Data(0x2440)] public int MunnyAmount { get; set; }
             [Data(0x2494)] public int Timer { get; set; }

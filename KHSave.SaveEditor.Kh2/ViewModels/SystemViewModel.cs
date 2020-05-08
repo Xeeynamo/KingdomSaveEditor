@@ -35,6 +35,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Pc2 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter2, x => save.CompanionCharacter2 = x);
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
             Difficulty = new KhEnumListModel<Difficulty>(() => save.Difficulty, x => save.Difficulty = x);
+            Worlds = new KhEnumListModel<WorldType>();
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
@@ -43,11 +44,16 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
         public KhEnumListModel<Difficulty> Difficulty { get; }
+        public KhEnumListModel<WorldType> Worlds { get; }
 
         public int Timer { get => save.Timer; set => save.Timer = value; }
         public int Munny { get => save.MunnyAmount; set => save.MunnyAmount = value; }
         public int Experience { get => save.Experience; set => save.Experience = value; }
         public int BonusLevel { get => save.BonusLevel; set => save.BonusLevel = value; }
+
+        public WorldType WorldId { get => save.WorldId; set => save.WorldId = value; }
+        public byte RoomId { get => save.RoomId; set => save.RoomId = value; }
+        public byte SpawnId { get => save.SpawnId; set => save.SpawnId = value; }
 
         public CommandType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
         public CommandType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }

@@ -110,10 +110,39 @@
 
                 <TextBlock Text="Total experience"/>
                 <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
-                
+
                 <TextBlock Text="Bonus level"/>
                 <TextBox Text="{Binding BonusLevel, UpdateSourceTrigger=PropertyChanged}"/>
             </common:TwoEqualColumnsStackPanel>
+        </GroupBox>
+        <GroupBox Header="Room modifier">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="World"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Room"/>
+                <TextBlock Grid.Row="0" Grid.Column="4" Text="Spawn location"/>
+
+                <ComboBox Grid.Row="1" Grid.Column="0"
+                    ItemsSource="{Binding Worlds}"
+                    SelectedValue="{Binding WorldId}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
+                <TextBox Grid.Row="1" Grid.Column="2"
+                    Text="{Binding RoomId, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="4"
+                    Text="{Binding SpawnId, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
         </GroupBox>
     </StackPanel>
 </UserControl>
