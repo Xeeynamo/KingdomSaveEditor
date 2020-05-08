@@ -9,7 +9,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 {
     public class Kh1ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        private SaveKh1.SaveFinalMix save;
+        public ISaveKh1 Save { get; private set; }
 
         public Kh1ViewModel()
         {
@@ -20,8 +20,8 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 
         public void RefreshUi()
         {
-            System = new SystemViewModel(save);
-            Players = new PlayersViewModel(save);
+            System = new SystemViewModel(Save);
+            Players = new PlayersViewModel(Save);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Players));
@@ -32,7 +32,10 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             switch(SaveKh1.GetGameVersion(stream))
             {
                 case Constants.MagicCodeFm:
-                    save = SaveKh1.Read<SaveKh1.SaveFinalMix>(stream);
+                    Save = SaveKh1.Read<SaveKh1.SaveFinalMix>(stream);
+                    break;
+                case Constants.MagicCodeEverythingElse:
+                    Save = SaveKh1.Read<SaveKh1.SaveEU>(stream);
                     break;
                 default:
                     throw new SaveNotSupportedException("The version is not supported.");
@@ -40,6 +43,6 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             RefreshUi();
         }
 
-        public void WriteToStream(Stream stream) => SaveKh1.Write(stream, save);
+        public void WriteToStream(Stream stream) => Save.Write(stream);
     }
 }

@@ -1,10 +1,25 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib1
 {
     public partial class SaveKh1
     {
+
+        internal static IBinaryMapping Mapper;
+
+        static SaveKh1()
+        {
+            Mapper = MappingConfiguration
+                .DefaultConfiguration()
+                .ForType<TimeSpan>(
+                    x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
+                    x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
+                )
+                .Build();
+        }
+
         [Data] public uint MagicCode { get; set; }
 
         public static bool IsValid(Stream stream)
@@ -43,5 +58,18 @@ namespace KHSave.Lib1
         public static void Write<TSaveKh1>(Stream stream, TSaveKh1 save)
             where TSaveKh1 : class, ISaveKh1 =>
             BinaryMapping.WriteObject(stream.FromBegin(), save);
+
+        public static ISaveKh1 Read(Stream stream)
+        {
+            switch (SaveKh1.GetGameVersion(stream))
+            {
+                case Constants.MagicCodeFm:
+                    return SaveKh1.SaveFinalMix.ReadInternal(stream);
+                case Constants.MagicCodeEverythingElse:
+                    return SaveKh1.SaveEU.ReadInternal(stream);
+                default:
+                    throw new InvalidDataException("Input not recognized as a valid or supported Kingdom Hearts I save game.");
+            }  
+        }
     }
 }

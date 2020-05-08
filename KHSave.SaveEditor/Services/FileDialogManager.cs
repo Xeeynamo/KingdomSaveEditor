@@ -11,6 +11,7 @@ namespace KHSave.SaveEditor.Services
         private readonly IEnumerable<FileDialogFilter> Filters = FileDialogFilterComposer
             .Compose()
             .AddExtensions("All supported games", "bin;*.sav;*.dat;*")
+            .AddExtensions("Kingdom Hearts I (EU) (raw)", "BESCES*")
             .AddExtensions("Kingdom Hearts Final Mix (raw)", "BISLPS*")
             .AddExtensions("Kingdom Hearts II: Final Mix (raw)", ";BISLPM*")
             .AddExtensions("Kingdom Hearts II (PS4)", "DAT")

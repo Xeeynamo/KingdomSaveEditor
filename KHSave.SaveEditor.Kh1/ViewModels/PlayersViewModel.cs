@@ -9,9 +9,9 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 {
     public class PlayersViewModel : GenericListModel<PlayerViewModel>
     {
-        private readonly SaveKh1.SaveFinalMix save;
+        private readonly ISaveKh1 save;
 
-        public PlayersViewModel(SaveKh1.SaveFinalMix save) :
+        public PlayersViewModel(ISaveKh1 save) :
             this(save.Characters)
         {
             this.save = save;
