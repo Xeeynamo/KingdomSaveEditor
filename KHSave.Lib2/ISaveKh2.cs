@@ -6,6 +6,7 @@ namespace KHSave.Lib2
         int Version { get; set; }
         uint Checksum { get; set; }
 
+        int MunnyAmount { get; }
         byte[] InventoryCount { get; }
     }
 }

@@ -105,8 +105,8 @@
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
 
-                <TextBlock/>
-                <TextBlock/>
+                <TextBlock Text="Munnies"/>
+                <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Total experience"/>
                 <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>

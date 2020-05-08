@@ -45,6 +45,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<Difficulty> Difficulty { get; }
 
         public int Timer { get => save.Timer; set => save.Timer = value; }
+        public int Munny { get => save.MunnyAmount; set => save.MunnyAmount = value; }
         public int Experience { get => save.Experience; set => save.Experience = value; }
         public int BonusLevel { get => save.BonusLevel; set => save.BonusLevel = value; }
 

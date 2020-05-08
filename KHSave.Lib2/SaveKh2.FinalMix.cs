@@ -15,6 +15,7 @@ namespace KHSave.Lib2
             [Data] public int Version { get; set; }
             [Data] public uint Checksum { get; set; }
 
+            [Data(0x2440)] public int MunnyAmount { get; set; }
             [Data(0x2494)] public int Timer { get; set; }
             [Data(0x2498)] public Difficulty Difficulty { get; set; }
             [Data(0x24f0, Count = 13, Stride = 0x114)] public Character[] Characters { get; set; }
