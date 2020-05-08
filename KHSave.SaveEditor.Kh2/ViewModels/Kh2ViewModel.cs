@@ -34,14 +34,17 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         }
 
         public SystemViewModel System { get; private set; }
+        public InventoryViewModel Inventory { get; private set; }
         public PlayersViewModel Players { get; private set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
+            Inventory = new InventoryViewModel(save);
             Players = new PlayersViewModel(save);
 
             OnPropertyChanged(nameof(System));
+            OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Players));
         }
 

@@ -11,6 +11,9 @@
         <TabItem Header="System">
             <views:SystemView DataContext="{Binding System}"/>
         </TabItem>
+        <TabItem Header="Inventory">
+            <views:InventoryView DataContext="{Binding Inventory}"/>
+        </TabItem>
         <TabItem Header="Players">
             <views:PlayersView DataContext="{Binding Players}"/>
         </TabItem>

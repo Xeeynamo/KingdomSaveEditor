@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2.Models;
+using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using Xe.BinaryMapper;
 
@@ -27,6 +27,7 @@ namespace KHSave.Lib2
             [Data(0x357d)] public PlayableCharacterType CompanionCharacter1 { get; set; }
             [Data(0x357e)] public PlayableCharacterType CompanionCharacter2 { get; set; }
             [Data(0x357f)] public PlayableCharacterType CompanionCharacter3 { get; set; }
+            [Data(0x3580, Count = 320)] public byte[] InventoryCount { get; set; }
 
             [Data(0x36E0)] public int Experience { get; set; }
             [Data(0x36f8)] public CommandType ShortcutCircle { get; set; }
