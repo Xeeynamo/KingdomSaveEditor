@@ -252,11 +252,17 @@ items:
 - id: 9006
   name: Chain Bangle
   icon: Armor
-- id: 9011
+- id: 9010
   name: Supreme Bracer
   icon: Armor
-- id: 9016
+- id: 9011
+  name: Iron Maiden
+  icon: Armor
+- id: 9015
   name: Rune Armlet
+  icon: Armor
+- id: 9016
+  name: Astral Cuff
   icon: Armor
 - id: 9040
   name: Salvation Badge
