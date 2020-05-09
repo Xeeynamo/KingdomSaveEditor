@@ -30,6 +30,10 @@ namespace KHSave.Lib1
             [Data(0xE5C)] public CommandType ShortcutTriangle { get; set; }
             [Data(0xE5E)] public CommandType ShortcutSquare { get; set; }
 
+            
+            //Gummiships
+            [Data(Count = 10, Stride = 0x241C)] public Gummiship[] Gummiships { get; set; }
+            
             //Needs testing
             [Data(0x16A30)] public int AutoLock { get; set; }
             [Data(0x16A34)] public int TargetLock { get; set; }
