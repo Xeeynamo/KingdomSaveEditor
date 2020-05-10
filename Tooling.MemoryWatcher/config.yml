@@ -1,0 +1,46 @@
+﻿- name: "Kingdom Hearts I (US, SLUS-20370)"
+  process: pcsx2
+  offset: 0x203F1C90
+  length: 0x16c00
+  labels:
+    - comment: "Sora accessory 1"
+      offset: 0x1d
+    - comment: "Sora accessory 2"
+      offset: 0x1e
+    - comment: "Sora equipped keyblade"
+      offset: 0x36
+    - comment: "Sora abilities"
+      offset: 0x44
+      length: 0x30
+      hidden: true
+- name: "Kingdom Hearts II (FM, Crazycat00 eng patch)"
+  process: pcsx2
+  offset: 0x2032BB30
+  length: 0x10fc0
+  labels:
+    - comment: "World ID"
+      offset: 0xc
+    - comment: "Room ID"
+      offset: 0xd
+    - comment: "Spawn ID"
+      offset: 0xe
+    - comment: "ZZ world timer"
+      offset: 0x2440
+      length: 4
+      hidden: true
+    - comment: "ES world timer"
+      offset: 0x2444
+      length: 4
+      hidden: true
+    - comment: "TT world timer"
+      offset: 0x2448
+      length: 4
+      hidden: true
+    - comment: "?? world timer"
+      offset: 0x2450
+      length: 4
+      hidden: true
+    - comment: "Potion count"
+      offset: 0x3580
+    - comment: "Hi-Potion count"
+      offset: 0x3582
