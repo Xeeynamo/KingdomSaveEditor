@@ -228,11 +228,56 @@ items:
 - id: 331
   name: Sharpshooter's Companion Vol. I
   icon: Recipe
+- id: 332
+  name: Sharpshooter's Companion Vol. II
+  icon: Recipe
+- id: 333
+  name: Sharpshooter's Companion Vol. III
+  icon: Recipe
+- id: 334
+  name: Sharpshooter's Companion Vol. IV
+  icon: Recipe
+- id: 335
+  name: Sharpshooter's Companion Vol. V
+  icon: Recipe
+- id: 336
+  name: Sharpshooter's Companion Vol. VI
+  icon: Recipe
+- id: 337
+  name: Sharpshooter's Companion Vol. VII
+  icon: Recipe
+- id: 338
+  name: Sharpshooter's Companion Vol. VIII
+  icon: Recipe
+- id: 339
+  name: Sharpshooter's Companion Vol. IX
+  icon: Recipe
+- id: 340
+  name: Sharpshooter's Companion Vol. X
+  icon: Recipe
+- id: 341
+  name: Sharpshooter's Companion Vol. XI
+  icon: Recipe
+- id: 342
+  name: Sharpshooter's Companion Vol. XII
+  icon: Recipe
+- id: 343
+  name: Sharpshooter's Companion Vol. XIII
+  icon: Recipe
+- id: 344
+  name: Sharpshooter's Companion Vol. XIV
+  icon: Recipe
 - id: 346
   name: Way of the Fist Vol. I
   icon: Recipe
+- id: 359
+  name: Way of the Fist Vol. XIV
+  icon: Recipe
 - id: 361
   name: Telluric Scriptures Vol. I
+  icon: Recipe
+- id: 378
+  name: Telluric Scriptures Vol. XIV
   icon: Recipe
 - id: 380
   name: "Legacy: Ascension"
