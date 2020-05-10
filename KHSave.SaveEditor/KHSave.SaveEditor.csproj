@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -25,29 +25,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.xaml" />
-    <None Remove="Images\Patreon.png" />
-    <None Remove="Views\HomeView.xaml" />
-    <None Remove="Views\MainWindow.xaml" />
-    <None Remove="Views\PatronView.xaml" />
-    <None Remove="Views\ServiceMessageView.xaml" />
-    <None Remove="Views\UpdateWindow.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <Compile Update="Settings.Designer.cs" AutoGen="True" DependentUpon="Settings.settings" />
     <None Update="Settings.settings" LastGenOutput="Settings.Designer.cs" Generator="SettingsSingleFileGenerator" />
 
-    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" Exclude="App.xaml" />
-    <Compile Update="**\*.xaml.cs" SubType="Designer" DependentUpon="%(Filename)" />
-
     <Resource Include="Images\*.*" />
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
   </ItemGroup>
 
   <ItemGroup>
@@ -74,17 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Views\HomeView.xaml.cs">
-      <DependentUpon>HomeView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 
 </Project>
