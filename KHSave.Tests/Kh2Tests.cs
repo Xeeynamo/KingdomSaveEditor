@@ -74,8 +74,7 @@ namespace KHSave.Tests
             Assert.Equal(4, save.Characters[(int)CharacterType.Sora].ArmorCount);
             Assert.Equal(8, save.Characters[(int)CharacterType.Sora].ItemCount);
             Assert.Equal(0, save.Characters[(int)CharacterType.Sora].UnknownCount);
-            Assert.Equal(137, save.Characters[(int)CharacterType.Sora].Abilities[0]);
-            Assert.Equal(0x81, save.Characters[(int)CharacterType.Sora].Abilities[0x8d]);
+            Assert.Equal((int)EquipmentType.FinishingPlus | 0x8000, save.Characters[(int)CharacterType.Sora].Abilities[0]);
 
             Assert.Equal(EquipmentType.SaveTheQueen, save.Characters[(int)CharacterType.Donald].Weapon);
             Assert.Equal(BattleStyleType.SoraAttack, save.Characters[(int)CharacterType.Donald].BattleStyle);
