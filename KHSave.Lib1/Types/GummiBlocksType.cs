@@ -27,7 +27,7 @@ namespace KHSave.Lib1.Types
         [GummiBlock("Shell-G (Cylinder)")] ShellGCylinder,
         [GummiBlock("Shell-G (Half-Cylinder)")] ShellGHalfCylinder,
         [GummiBlock("Shell-G (Quarter-Sphere)")] ShellGQuarterSphere,
-        [GummiBlock("Shell-G (Unproportional Cylinder)")] ShellG1UnproportionalCylinder
+        [GummiBlock("Shell-G (Unproportional Cylinder)")] ShellG1UnproportionalCylinder,
         [GummiBlock("Shell-G (Half-Sphere)")] ShellGHalfSphere,
         [GummiBlock("Dispel-G (Cube)")] DispelGCube,
         [GummiBlock("Dispel-G (Triangular Prism)")] DispelGTriangularPrism,
