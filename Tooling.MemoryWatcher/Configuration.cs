@@ -10,7 +10,7 @@ namespace Tooling.MemoryWatcher
         public string Comment { get; set; }
 
         [YamlMember(Alias = "offset")]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         [YamlMember(Alias = "length")]
         public uint Length { get; set; }

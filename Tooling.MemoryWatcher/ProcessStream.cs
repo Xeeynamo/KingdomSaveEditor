@@ -29,7 +29,7 @@ namespace Tooling.MemoryWatcher
 		private IntPtr _hProcess;
 		private long position;
 
-		public ProcessStream(Process process, uint baseAddress, uint length)
+		public ProcessStream(Process process, long baseAddress, uint length)
 		{
 			BaseAddress = baseAddress;
 			Length = length;
@@ -38,7 +38,7 @@ namespace Tooling.MemoryWatcher
 		}
 
 
-		public uint BaseAddress { get; }
+		public long BaseAddress { get; }
 		public override bool CanRead => true;
 
 		public override bool CanSeek => true;
