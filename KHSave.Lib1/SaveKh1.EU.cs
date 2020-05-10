@@ -25,10 +25,9 @@ namespace KHSave.Lib1
             [Data(0x59B)] public AbilityType SharedAbility3 { get; set; }
             [Data(0x59C)] public AbilityType SharedAbility4 { get; set; }
 
-            //doesn't work yet
-            [Data(0xE5D)] public CommandType ShortcutCircle { get; set; }
-            [Data(0xE5C)] public CommandType ShortcutTriangle { get; set; }
-            [Data(0xE5E)] public CommandType ShortcutSquare { get; set; }
+            [Data(0x82C)] public CommandType ShortcutTriangle { get; set; }
+            [Data(0x82D)] public CommandType ShortcutCircle { get; set; }
+            [Data(0x82E)] public CommandType ShortcutSquare { get; set; }
 
             
             //Gummiships
