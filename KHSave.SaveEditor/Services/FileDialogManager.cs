@@ -10,15 +10,14 @@ namespace KHSave.SaveEditor.Services
     {
         private readonly IEnumerable<FileDialogFilter> Filters = FileDialogFilterComposer
             .Compose()
-            .AddExtensions("All supported games", "bin;*.sav;*.dat;*")
-            .AddExtensions("Kingdom Hearts I (EU) (raw)", "BESCES*")
-            .AddExtensions("Kingdom Hearts Final Mix (raw)", "BISLPS*")
-            .AddExtensions("Kingdom Hearts II: Final Mix (raw)", ";BISLPM*")
-            .AddExtensions("Kingdom Hearts II (PS4)", "DAT")
-            .AddExtensions("Kingdom Hearts Re: CoM (raw)", ";BISLPM*;BASLUS*")
-            .AddExtensions("Kingdom Hearts Re: CoM (PS4)", "DAT")
-            .AddExtensions("Kingdom Hearts 0.2", ";ue4savegame*.sav")
-            .AddExtensions("Kingdom Hearts III", ";__data__slot*.bin")
+            .AddExtensions("All supported games", "bin", "sav", "dat;*")
+            .AddPatterns("Kingdom Hearts I (PS2)", ";BESCES*", ";BASLUS-20370*", ";BISLPM-66233-*")
+            .AddPatterns("Kingdom Hearts II (PS2)", ";BISLPM-66675FM-**")
+            .AddPatterns("Kingdom Hearts Re: CoM (raw)", ";BISLUS-21799COM-*", ";BASLUS-21799COM-*")
+            .AddExtensions("Kingdom Hearts 1.5/2.5 ReMIX", "DAT")
+            .AddPatterns("Kingdom Hearts 0.2", ";ue4savegame*.sav")
+            .AddPatterns("Kingdom Hearts III", ";__data__slot*.bin")
+            .AddPatterns("Final Fantasy VII REMAKE", ";ff7remake*")
             ;
 
         private readonly IWindowManager _windowManager;
