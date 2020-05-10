@@ -1,4 +1,5 @@
 ﻿using KHSave.Lib1.Types;
+using System.Threading;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib1.Models
@@ -9,7 +10,8 @@ namespace KHSave.Lib1.Models
         //probably the other statistics
         [Data(Count = 75)] public byte[] Unk01 { get; set; }
         [Data(Count = 10)] public byte[] ShipName { get; set; }
-        //contains block ID, rotations, color?
-        [Data(Count = 3866)] public byte[] Unk02 { get; set; }
+        [Data(Count = 22)] public byte[] Unk02 { get; set; }
+        [Data(Count = 200)] public GummiBlock[] GummiBlocks { get; set; }
+        [Data(Count = 1466)] public byte[] Unk03 { get; set; }
     }
 }
