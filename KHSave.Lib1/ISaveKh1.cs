@@ -20,6 +20,7 @@ namespace KHSave.Lib1
         PlayableCharacterType CompanionCharacter1 { get; set; }
         PlayableCharacterType CompanionCharacter2 { get; set; }
         PlayableCharacterType CompanionCharacter3 { get; set; }
+        byte[] InventoryCount { get; set; }
         Character[] Characters { get; set; }
 
         void Write(Stream stream);

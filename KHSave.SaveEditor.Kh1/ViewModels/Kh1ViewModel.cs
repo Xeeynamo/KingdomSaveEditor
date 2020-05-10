@@ -1,7 +1,6 @@
 ﻿using KHSave.Lib1;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
-using System;
 using System.IO;
 using Xe.Tools;
 
@@ -16,14 +15,17 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         }
 
         public SystemViewModel System { get; private set; }
+        public InventoryViewModel Inventory { get; private set; }
         public PlayersViewModel Players { get; private set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(Save);
+            Inventory = new InventoryViewModel(Save);
             Players = new PlayersViewModel(Save);
 
             OnPropertyChanged(nameof(System));
+            OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Players));
         }
 

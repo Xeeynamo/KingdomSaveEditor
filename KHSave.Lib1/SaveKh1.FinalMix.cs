@@ -20,7 +20,7 @@ namespace KHSave.Lib1
             [Data(0x490)] public PlayableCharacterType CompanionCharacter2 { get; set; }
             [Data(0x491)] public PlayableCharacterType CompanionCharacter3 { get; set; }
 
-            [Data(0x499, Count = 0x100)] public byte[] Inventory { get; set; }
+            [Data(0x499, Count = 0x100)] public byte[] InventoryCount { get; set; }
 
             [Data(0x599)] public AbilityType SharedAbility1 { get; set; }
             [Data(0x59A)] public AbilityType SharedAbility2 { get; set; }
