@@ -5,6 +5,8 @@
         public const uint MagicCodeJp = 0x4a32484b;
         public const uint MagicCodeUs = 0x5532484b;
         public const uint MagicCodeEu = 0x4532484b;
+
+        public const int WorldCount = 19;
     }
 
     public enum GameVersion

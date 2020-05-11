@@ -36,16 +36,19 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public SystemViewModel System { get; private set; }
         public InventoryViewModel Inventory { get; private set; }
         public CharactersViewModel Characters { get; private set; }
+        public RoomVisitedViewModel RoomVisited { get; private set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
             Inventory = new InventoryViewModel(save);
             Characters = new CharactersViewModel(save);
+            RoomVisited = new RoomVisitedViewModel(save);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Characters));
+            OnPropertyChanged(nameof(RoomVisited));
         }
 
         public void OpenStream(Stream stream)

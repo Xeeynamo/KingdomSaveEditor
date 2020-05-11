@@ -18,6 +18,7 @@ namespace KHSave.Lib2
             [Data] public byte SpawnId { get; set; }
             [Data] public byte Unused0f { get; set; }
 
+            [Data(0x22f8, Count = 8 * Constants.WorldCount)] public byte[] RoomVisitedFlag { get; set; } // There might be a chance that it starts from 0x2300
             [Data(0x2440)] public int MunnyAmount { get; set; }
             [Data(0x2494)] public int Timer { get; set; }
             [Data(0x2498)] public Difficulty Difficulty { get; set; }

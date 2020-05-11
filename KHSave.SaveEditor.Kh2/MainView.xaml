@@ -17,5 +17,8 @@
         <TabItem Header="Characters">
             <views:PlayersView DataContext="{Binding Characters}"/>
         </TabItem>
+        <TabItem Header="Room visited">
+            <views:RoomVisitedView DataContext="{Binding RoomVisited}"/>
+        </TabItem>
     </TabControl>
 </UserControl>
