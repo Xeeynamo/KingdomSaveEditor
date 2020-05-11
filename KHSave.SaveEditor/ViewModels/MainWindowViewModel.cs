@@ -41,6 +41,7 @@ using System.Windows.Controls;
 using KHSave.Lib3;
 using KHSave.LibFf7Remake;
 using KHSave.Lib1;
+using KHSave.SaveEditor.Views;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -75,6 +76,7 @@ namespace KHSave.SaveEditor.ViewModels
 
         public HomeViewModel HomeContext { get; }
         public RelayCommand OpenCommand { get; }
+        public RelayCommand OpenPcsx2Command { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand SaveAsCommand { get; }
         public RelayCommand ExitCommand { get; }
@@ -131,14 +133,13 @@ namespace KHSave.SaveEditor.ViewModels
             this.updater = updater;
             this.contentFactory = contentFactory;
             HomeContext = homeContext;
-            OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
 
+            OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
+            OpenPcsx2Command = new RelayCommand(o => OpenPcsx2(Open));
             SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),
                 x => IsFileOpen);
-
             SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
                 x => IsFileOpen);
-
             ExitCommand = new RelayCommand(x => Window.Close());
 
 			GetLatestVersionCommand = new RelayCommand(x =>
@@ -186,6 +187,17 @@ namespace KHSave.SaveEditor.ViewModels
         public void Open(string fileName)
         {
             fileDialogManager.InjectFileName(fileName, Open);
+        }
+
+        public void OpenPcsx2(Action<Stream> openStream)
+        {
+            var process = new AttachToProcessWindow("pcsx2").WaitForProcess();
+            if (process != null)
+            {
+                var stream = new AttachToPcsx2GameWindow().WaitForGame(process);
+                if (stream != null)
+                    openStream(stream);
+            }
         }
 
         public void Open(Stream stream)
