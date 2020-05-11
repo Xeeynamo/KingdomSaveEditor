@@ -55,12 +55,24 @@ namespace KHSave.SaveEditor.ViewModels
         private object dataContext;
         private ContentType _saveKind;
 
+        private bool _isProcess;
+        private string _processTitleName;
+        private ProcessStream _processStream;
+
         private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-        public string Title => IsFileOpen ?
-            $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
+        public string Title
+        {
+            get
+            {
+                if (_isProcess)
+                    return $"[P] {_processTitleName} | {OriginalTitle}";
+
+                return IsFileOpen ? $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
+            }
+        }
 
         public bool IsFileOpen => SaveKind != ContentType.Unload && fileDialogManager.IsFileOpen;
 
@@ -134,12 +146,18 @@ namespace KHSave.SaveEditor.ViewModels
             this.contentFactory = contentFactory;
             HomeContext = homeContext;
 
-            OpenCommand = new RelayCommand(o => fileDialogManager.Open(Open));
-            OpenPcsx2Command = new RelayCommand(o => OpenPcsx2(Open));
-            SaveCommand = new RelayCommand(o => fileDialogManager.Save(Save),
-                x => IsFileOpen);
+            OpenCommand = new RelayCommand(o => fileDialogManager.Open(stream => Open(stream)));
+            OpenPcsx2Command = new RelayCommand(o => OpenPcsx2(stream => Open(stream)));
+            SaveCommand = new RelayCommand(o =>
+            {
+                if (_isProcess)
+                    Save(_processStream);
+                else
+                    fileDialogManager.Save(Save);
+            },
+                x => IsFileOpen || _isProcess);
             SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
-                x => IsFileOpen);
+                x => IsFileOpen || _isProcess);
             ExitCommand = new RelayCommand(x => Window.Close());
 
 			GetLatestVersionCommand = new RelayCommand(x =>
@@ -186,22 +204,24 @@ namespace KHSave.SaveEditor.ViewModels
 
         public void Open(string fileName)
         {
-            fileDialogManager.InjectFileName(fileName, Open);
+            fileDialogManager.InjectFileName(fileName, stream => Open(stream));
         }
 
-        public void OpenPcsx2(Action<Stream> openStream)
+        public void OpenPcsx2(Func<Stream, bool> openStream)
         {
             var process = new AttachToProcessWindow("pcsx2").WaitForProcess();
             if (process != null)
             {
                 var stream = new AttachToPcsx2GameWindow().WaitForGame(process);
                 if (stream != null)
-                    openStream(stream);
+                    OpenProcessStream(stream, openStream);
             }
         }
 
-        public void Open(Stream stream)
+        public bool Open(Stream stream)
 		{
+            CloseProcessStream();
+
             try
             {
                 if (!TryOpen(stream))
@@ -209,11 +229,14 @@ namespace KHSave.SaveEditor.ViewModels
 
                 InvokeRefreshUi();
                 OnPropertyChanged(nameof(Title));
+                return true;
             }
             catch (SaveNotSupportedException ex)
             {
                 alertMessage.Error(ex);
             }
+
+            return false;
         }
 
         private void Save(Stream stream)
@@ -295,6 +318,31 @@ namespace KHSave.SaveEditor.ViewModels
             _saveKind = contentType;
             ChangeContent(contentType, stream);
             return true;
+        }
+
+        private void OpenProcessStream(ProcessStream processStream, Func<Stream, bool> openStream)
+        {
+            if (openStream(processStream))
+            {
+                _isProcess = true;
+                _processStream = processStream;
+                _processTitleName = $"PCSX2@{processStream.BaseAddress:X08}";
+
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
+        private void CloseProcessStream()
+        {
+            if (!_isProcess)
+                return;
+
+            _isProcess = false;
+            _processTitleName = string.Empty;
+            _processStream?.Dispose();
+            _processStream = null;
+
+            OnPropertyChanged(nameof(Title));
         }
 
         private static Exception CreateUnsupportedSaveExceptiom() =>

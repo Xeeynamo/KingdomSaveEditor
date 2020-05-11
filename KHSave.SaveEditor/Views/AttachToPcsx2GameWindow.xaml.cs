@@ -1,4 +1,5 @@
-﻿using KHSave.SaveEditor.Services;
+﻿using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Services;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -12,14 +13,14 @@ namespace KHSave.SaveEditor.Views
     /// </summary>
     public partial class AttachToPcsx2GameWindow : Window
     {
-        private Stream _foundStream;
+        private ProcessStream _foundStream;
 
         public AttachToPcsx2GameWindow()
         {
             InitializeComponent();
         }
 
-        public Stream WaitForGame(Process process)
+        public ProcessStream WaitForGame(Process process)
         {
             using (var cancellationTokenSource = new CancellationTokenSource())
             {

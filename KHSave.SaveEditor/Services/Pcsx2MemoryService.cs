@@ -35,7 +35,7 @@ namespace KHSave.SaveEditor.Services
             new GameEntry("SLPM_666.75;1", 0x2032BB30, 0x10fc0), // Kingdom Hearts II: Final Mix (Crazycat00 eng patch)
         };
 
-        public static async Task<Stream> CreateStreamFromPcsx2Process(Process process, CancellationToken cancellationToken)
+        public static async Task<ProcessStream> CreateStreamFromPcsx2Process(Process process, CancellationToken cancellationToken)
         {
             var data = new byte[BootFileMaximumStringLength];
             using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + PlayStation2BootFile, 0x20))
