@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -104,6 +105,7 @@ namespace Tooling.MemoryWatcher
                 var length = game.Length;
                 var buffer = new byte[length];
                 var current = new byte[length];
+                var sb = new StringBuilder(0x1000);
 
                 stream.Position = 0;
                 stream.Read(buffer, 0, (int)length);
@@ -111,8 +113,6 @@ namespace Tooling.MemoryWatcher
                 while (!isSupposedToExit)
                 {
                     await Task.Delay(1);
-                    if (!isWatchRunning)
-                        continue;
 
                     lock (stream)
                     {
@@ -120,10 +120,19 @@ namespace Tooling.MemoryWatcher
                         stream.Read(current);
                     }
 
-                    for (var i = 0U; i < length; i++)
+                    if (isWatchRunning)
                     {
-                        if (buffer[i] != current[i])
-                            LogDifference(i, buffer[i], current[i], game.Labels);
+                        for (var i = 0U; i < length; i++)
+                        {
+                            if (buffer[i] != current[i])
+                                sb.Append(LogDifference(i, buffer[i], current[i], game.Labels));
+                        }
+                    }
+
+                    if (sb.Length > 0)
+                    {
+                        Console.Write(sb);
+                        sb.Clear();
                     }
 
                     var tmp = buffer; // flip buffer for performance reasons
@@ -142,7 +151,7 @@ namespace Tooling.MemoryWatcher
             };
             fsWatcher.Changed += (object sender, FileSystemEventArgs e) =>
             {
-                Console.WriteLine($"The configuration file {e.Name} has been changed and it will be reloaded.");
+                //Console.WriteLine($"The configuration file {e.Name} has been changed and it will be reloaded.");
                 Thread.Sleep(50);
 
                 try
@@ -176,12 +185,13 @@ namespace Tooling.MemoryWatcher
             Console.WriteLine($"Dumped to {fileName}");
         }
 
-        private static void LogDifference(uint offset, byte previous, byte current, List<GameLabelConfiguration> labels)
+        private static string LogDifference(uint offset, byte previous, byte current, List<GameLabelConfiguration> labels)
         {
             var label = GetLabel(labels, offset);
             if (!(label?.Hidden == true))
-                Console.WriteLine($"0x{offset:X06} {previous:X02} > {current:X02}  {label?.Comment}");
+                return $"0x{offset:X06} {previous:X02} > {current:X02}  {label?.Comment}\n";
 
+            return string.Empty;
         }
 
         private static GameLabelConfiguration GetLabel(List<GameLabelConfiguration> labels, uint offset)
@@ -191,7 +201,7 @@ namespace Tooling.MemoryWatcher
 
             foreach (var label in labels)
             {
-                if (offset >= label.Offset && offset <= label.Offset + label.Length)
+                if (offset >= label.Offset && offset < label.Offset + label.Length)
                     return label;
             }
 
