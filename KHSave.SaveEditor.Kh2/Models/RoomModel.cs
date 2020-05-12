@@ -1,5 +1,6 @@
 ﻿using KHSave.Attributes;
 using KHSave.Lib2.Types;
+using System.Text;
 
 namespace KHSave.SaveEditor.Kh2.Models
 {
@@ -21,10 +22,14 @@ namespace KHSave.SaveEditor.Kh2.Models
 
         public override string ToString()
         {
-            if (!string.IsNullOrEmpty(Description))
-                return Description;
+            var sb = new StringBuilder();
+            sb.Append($"{WorldAttribute.GetWorldId(World)}_{RoomIndex:D02}");
+            sb.Append($" | {WorldAttribute.GetInfo(World)}");
 
-            return $"{WorldAttribute.GetWorldId(World)}_{RoomIndex:D02}";
+            if (!string.IsNullOrEmpty(Description))
+                sb.Append($" - {Description}");
+
+            return sb.ToString();
         }
     }
 }
