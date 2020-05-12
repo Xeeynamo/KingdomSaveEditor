@@ -22,7 +22,23 @@ namespace KHSave.Tests
         {
             Assert.Equal(999999U, save.Character.Money);
             Assert.Equal(DifficultyType.Critical, save.Difficulty);
+
+            //Deck 1
             Assert.Equal(CommandType.TimeSplicer, save.CommandList[save.Decks[0].BattleCommands[0].Id].Id);
+            Assert.Equal(CommandType.ArsArcanum, save.CommandList[save.Decks[0].BattleCommands[2].Id].Id);
+            Assert.Equal(CommandType.Curaga, save.CommandList[save.Decks[0].BattleCommands[6].Id].Id);
+
+            //Deck 2
+            Assert.Equal(CommandType.Blitz, save.CommandList[save.Decks[1].BattleCommands[0].Id].Id);
+            Assert.Equal(CommandType.SonicBlade, save.CommandList[save.Decks[1].BattleCommands[1].Id].Id);
+            Assert.Equal(CommandType.Curaga, save.CommandList[save.Decks[1].BattleCommands[6].Id].Id);
+            Assert.Equal(CommandType.Thundara, save.CommandList[save.Decks[1].BattleCommands[7].Id].Id);
+            
+            Assert.Equal(CommandType.Jump, save.CommandList[save.Decks[1].ActionCommands[0].Id].Id);
+            Assert.Equal(CommandType.FlameSalvo, save.CommandList[save.Decks[1].Shotlock.Id].Id);
+
+            //Deck 3
+            Assert.Equal(CommandType.FireDash, save.CommandList[save.Decks[2].BattleCommands[7].Id].Id);
         }
 
         [Fact]
