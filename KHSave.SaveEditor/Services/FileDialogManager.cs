@@ -14,6 +14,7 @@ namespace KHSave.SaveEditor.Services
             .AddExtensions("Kingdom Hearts Final Mix (raw)", "BISLPS*")
             .AddExtensions("Kingdom Hearts II: Final Mix (raw)", ";BISLPM*")
             .AddExtensions("Kingdom Hearts II (PS4)", "DAT")
+            .AddExtensions("Kingdom Hearts Birth By Sleep", "DAT")
             .AddExtensions("Kingdom Hearts Re: CoM (raw)", ";BISLPM*;BASLUS*")
             .AddExtensions("Kingdom Hearts Re: CoM (PS4)", "DAT")
             .AddExtensions("Kingdom Hearts 0.2", ";ue4savegame*.sav")

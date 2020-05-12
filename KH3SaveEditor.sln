@@ -58,7 +58,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Kh1", "KH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.Lib1", "KHSave.Lib1\KHSave.Lib1.csproj", "{34CAFA86-2B8D-41D0-8218-5FEC87170E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.LibBbs", "KHSave.LibBbs\KHSave.LibBbs.csproj", "{1A3285D7-5DC5-4135-9F38-503D6DB6469A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.LibBbs", "KHSave.LibBbs\KHSave.LibBbs.csproj", "{1A3285D7-5DC5-4135-9F38-503D6DB6469A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.SaveEditor.KhBbs", "KHSave.SaveEditor.KhBbs\KHSave.SaveEditor.KhBbs.csproj", "{EDD82FFB-2811-4364-AE3F-FD3EA0C54312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +164,10 @@ Global
 		{1A3285D7-5DC5-4135-9F38-503D6DB6469A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A3285D7-5DC5-4135-9F38-503D6DB6469A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A3285D7-5DC5-4135-9F38-503D6DB6469A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD82FFB-2811-4364-AE3F-FD3EA0C54312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD82FFB-2811-4364-AE3F-FD3EA0C54312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD82FFB-2811-4364-AE3F-FD3EA0C54312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD82FFB-2811-4364-AE3F-FD3EA0C54312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

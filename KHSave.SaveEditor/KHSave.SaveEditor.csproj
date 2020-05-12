@@ -67,6 +67,7 @@
     <ProjectReference Include="..\KHSave.SaveEditor.Kh1\KHSave.SaveEditor.Kh1.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh2\KHSave.SaveEditor.Kh2.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Kh3\KHSave.SaveEditor.Kh3.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.KhBbs\KHSave.SaveEditor.KhBbs.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.KhRecom\KHSave.SaveEditor.KhRecom.csproj" />
     <ProjectReference Include="..\Xe.ReleaseUpdater\Xe.VersionCheck\Xe.VersionCheck.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />
