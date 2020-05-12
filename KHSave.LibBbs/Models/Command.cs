@@ -8,7 +8,7 @@ namespace KHSave.LibBbs.Models
         [Data] public CommandType Id { get; set; }
         [Data] public ushort Level { get; set; }
         [Data] public ushort Experience { get; set; }
-        [Data] public ushort Ability { get; set; }
+        [Data] public AbilityType Ability { get; set; }
         [Data] public ushort Flags { get; set; }
     }
 }
