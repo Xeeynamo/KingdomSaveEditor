@@ -19,12 +19,13 @@ namespace KHSave.LibBbs
             [Data] public byte Dummy1 { get; set; }
             [Data] public byte Dummy2 { get; set; }
             [Data] public byte Dummy3 { get; set; }
-            [Data] public byte World { get; set; }
+            [Data] public WorldType World { get; set; }
             [Data] public byte Room { get; set; }
             [Data] public byte Location { get; set; }
             [Data] public byte CharacterIndex { get; set; }
 
             [Data(0x3498, Count = 0x200)] public Command[] CommandList { get; set; }
+            [Data(0x4D64, Count = 0x1E)] public Ability[] Abilities { get; set; }
             [Data(0x5644, Count = 0xF)] public Finisher[] Finishers { get; set; }
             [Data(0x5746, Count = 0xC)] public Dlink[] Dlinks { get; set; }
             [Data(0x59D0)] public Character Character { get; set; }
