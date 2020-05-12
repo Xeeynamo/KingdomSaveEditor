@@ -1,6 +1,7 @@
 ﻿using KHSave.LibBbs;
 using KHSave.LibBbs.Types;
 using System.IO;
+using System.Resources;
 using Xe.BinaryMapper;
 using Xunit;
 
@@ -22,6 +23,9 @@ namespace KHSave.Tests
         {
             Assert.Equal(999999U, save.Character.Money);
             Assert.Equal(DifficultyType.Critical, save.Difficulty);
+            Assert.Equal(WeaponType.RoyalRadianceVentus, save.Character.Weapon);
+            Assert.Equal(1014U, save.Character.Medals);
+            Assert.Equal(16728670U, save.Character.Experience);
 
             //Deck 1
             Assert.Equal(CommandType.TimeSplicer, save.CommandList[save.Decks[0].BattleCommands[0].Id].Id);
