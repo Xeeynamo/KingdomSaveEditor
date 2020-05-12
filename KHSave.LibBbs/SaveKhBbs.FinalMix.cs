@@ -23,6 +23,7 @@ namespace KHSave.LibBbs
             [Data] public byte Room { get; set; }
             [Data] public byte Location { get; set; }
             [Data] public byte CharacterIndex { get; set; }
+            [Data] public int Timer { get; set; }
 
             [Data(0x3498, Count = 0x200)] public Command[] CommandList { get; set; }
             [Data(0x4D64, Count = 0x1E)] public Ability[] Abilities { get; set; }
