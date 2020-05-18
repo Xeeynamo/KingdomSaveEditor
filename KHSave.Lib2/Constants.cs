@@ -1,16 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using KHSave.Attributes;
+using KHSave.Lib2.Types;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KHSave.Lib2
 {
-    internal class Constants
+    public class Constants
     {
         public const uint MagicCodeJp = 0x4a32484b;
         public const uint MagicCodeUs = 0x5532484b;
         public const uint MagicCodeEu = 0x4532484b;
 
         public const int WorldCount = 19;
+        public static readonly string[] WorldNames = Enum
+            .GetValues(typeof(WorldType))
+            .Cast<WorldType>()
+            .Select(x => InfoAttribute.GetInfo(x))
+            .ToArray();
 
-        public static readonly Dictionary<short, string> Progress = new Dictionary<short, string>()
+        public static readonly Dictionary<int, string> Progress = new Dictionary<int, string>()
         {
             [0x0000] = "ZZ_START",
             [0x0001] = "ZZ_E_003_A17_IN",

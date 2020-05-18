@@ -37,6 +37,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public InventoryViewModel Inventory { get; private set; }
         public CharactersViewModel Characters { get; private set; }
         public RoomVisitedViewModel RoomVisited { get; private set; }
+        public ProgressViewModel Progress { get; private set; }
 
         public void RefreshUi()
         {
@@ -44,11 +45,13 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Inventory = new InventoryViewModel(save);
             Characters = new CharactersViewModel(save);
             RoomVisited = new RoomVisitedViewModel(save);
+            Progress = new ProgressViewModel(save.StoryProgress);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Characters));
             OnPropertyChanged(nameof(RoomVisited));
+            OnPropertyChanged(nameof(Progress));
         }
 
         public void OpenStream(Stream stream)

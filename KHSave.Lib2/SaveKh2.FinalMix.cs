@@ -18,7 +18,7 @@ namespace KHSave.Lib2
             [Data] public byte SpawnId { get; set; }
             [Data] public byte Unused0f { get; set; }
 
-            [Data(0x1c90, Count = 20, Stride = 0x20)] public byte StoryProgress { get; set; }
+            [Data(0x1c90, Count = 20, Stride = 0x20)] public Progress[] StoryProgress { get; set; }
             // 3e8 of what?
             [Data(0x22f8, Count = 8 * Constants.WorldCount)] public byte[] RoomVisitedFlag { get; set; } // There might be a chance that it starts from 0x2300
             [Data(0x2440)] public int MunnyAmount { get; set; }

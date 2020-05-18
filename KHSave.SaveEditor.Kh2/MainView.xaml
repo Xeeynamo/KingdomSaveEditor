@@ -20,5 +20,8 @@
         <TabItem Header="Room visited">
             <views:RoomVisitedView DataContext="{Binding RoomVisited}"/>
         </TabItem>
+        <TabItem Header="Story">
+            <views:ProgressView DataContext="{Binding Progress}"/>
+        </TabItem>
     </TabControl>
 </UserControl>

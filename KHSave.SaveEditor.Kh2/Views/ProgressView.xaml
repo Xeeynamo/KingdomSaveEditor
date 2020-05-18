@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.ProgressView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid
+            Grid.Row="0"
+            ItemsSource="{Binding Items}"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="World" Width="Auto"
+                    Binding="{Binding World}"/>
+                <DataGridCheckBoxColumn
+                    Header="Done" Width="Auto"
+                    Binding="{Binding Done}"/>
+                <DataGridTextColumn
+                    Header="Label" Width="*"
+                    Binding="{Binding Label}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{StaticResource Search_16x}"/>
+            <TextBox Grid.Column="2" Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Column="4" Content="Set all" Command="{Binding SetAllCommand}"/>
+            <Button Grid.Column="6" Content="Reset all" Command="{Binding ResetAllCommand}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>
