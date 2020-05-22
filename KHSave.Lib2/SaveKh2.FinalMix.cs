@@ -1,5 +1,6 @@
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
+using System.IO;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib2
@@ -87,6 +88,9 @@ namespace KHSave.Lib2
             [Data(0x4274)] public bool NewStatusSummonGenie { get; set; }
             [Data(0x4274)] public bool NewStatusSummonPeterPan { get; set; }
             [Data(0x4275)] public bool NewStatusSummonChickenLittle { get; set; }
+
+            public void Write(Stream stream) =>
+                BinaryMapping.WriteObject(stream.FromBegin(), this);
         }
     }
 }

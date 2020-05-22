@@ -19,6 +19,7 @@
 using KHSave.Lib2;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
+using System;
 using System.IO;
 using Xe.BinaryMapper;
 using Xe.Tools;
@@ -56,22 +57,15 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 
         public void OpenStream(Stream stream)
         {
-            switch (SaveKh2.GetGameVersion(stream))
+            try
             {
-                case GameVersion.Japanese:
-                    throw new SaveNotSupportedException("Japanese save file is not yet supported.");
-                case GameVersion.American:
-                    throw new SaveNotSupportedException("American or European save file is not yet supported.");
-                case GameVersion.FinalMix:
-                    save = SaveKh2.Read<SaveKh2.SaveFinalMix>(stream);
-                    break;
-                case null:
-                    throw new SaveNotSupportedException("An invalid version has been specified.");
-                default:
-                    throw new SaveNotSupportedException("The version has been recognized but it is not supported.");
+                save = SaveKh2.Read(stream) as SaveKh2.SaveFinalMix;
+                RefreshUi();
             }
-
-            RefreshUi();
+            catch (NotImplementedException ex)
+            {
+                throw new SaveNotSupportedException(ex.Message);
+            }
         }
 
         public void WriteToStream(Stream stream) => SaveKh2.Write(stream, save);

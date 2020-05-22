@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 ﻿using System.IO;
 using System.Linq;
 using Xe.BinaryMapper;
@@ -7,8 +8,18 @@ namespace KHSave.Lib2
 {
     public partial class SaveKh2
     {
-        [Data] public uint MagicCode { get; set; }
-        [Data] public int Version { get; set; }
+        internal static IBinaryMapping Mapper;
+
+        static SaveKh2()
+        {
+            Mapper = MappingConfiguration
+                .DefaultConfiguration()
+                .ForType<TimeSpan>(
+                    x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
+                    x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
+                )
+                .Build();
+        }
 
         public static bool IsValid(Stream stream)
         {
@@ -48,9 +59,26 @@ namespace KHSave.Lib2
             }
         }
 
-        public static TSaveKh2 Read<TSaveKh2>(Stream stream)
+        private static TSaveKh2 Read<TSaveKh2>(Stream stream)
             where TSaveKh2 : class, ISaveKh2 =>
-            BinaryMapping.ReadObject<TSaveKh2>(stream.SetPosition(0));
+            BinaryMapping.ReadObject<TSaveKh2>(stream.FromBegin());
+
+        public static ISaveKh2 Read(Stream stream)
+        {
+            switch (GetGameVersion(stream))
+            {
+                case GameVersion.Japanese:
+                    throw new NotImplementedException("Japanese save file is not yet supported.");
+                case GameVersion.American:
+                    throw new NotImplementedException("American or European save file is not yet supported.");
+                case GameVersion.FinalMix:
+                    return Read<SaveFinalMix>(stream);
+                case null:
+                    throw new NotImplementedException("An invalid version has been specified.");
+                default:
+                    throw new NotImplementedException("The version has been recognized but it is not supported.");
+            }
+        }
 
         public static void Write<TSaveKh2>(Stream stream, TSaveKh2 save)
             where TSaveKh2 : class, ISaveKh2
