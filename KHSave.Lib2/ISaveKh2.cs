@@ -1,4 +1,5 @@
 using KHSave.Lib2.Types;
+using System.IO;
 
 namespace KHSave.Lib2
 {
@@ -14,5 +15,7 @@ namespace KHSave.Lib2
 
         int MunnyAmount { get; }
         byte[] InventoryCount { get; }
+
+        void Write(Stream stream);
     }
 }

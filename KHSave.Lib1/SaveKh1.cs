@@ -20,8 +20,6 @@ namespace KHSave.Lib1
                 .Build();
         }
 
-        [Data] public uint MagicCode { get; set; }
-
         public static bool IsValid(Stream stream)
         {
             var prevPosition = stream.Position;
@@ -51,25 +49,21 @@ namespace KHSave.Lib1
             return version;
         }
 
-        public static TSaveKh1 Read<TSaveKh1>(Stream stream)
+        private static TSaveKh1 Read<TSaveKh1>(Stream stream)
             where TSaveKh1 : class, ISaveKh1 =>
             BinaryMapping.ReadObject<TSaveKh1>(stream.SetPosition(0));
 
-        public static void Write<TSaveKh1>(Stream stream, TSaveKh1 save)
-            where TSaveKh1 : class, ISaveKh1 =>
-            BinaryMapping.WriteObject(stream.FromBegin(), save);
-
         public static ISaveKh1 Read(Stream stream)
         {
-            switch (SaveKh1.GetGameVersion(stream))
+            switch (GetGameVersion(stream))
             {
                 case Constants.MagicCodeFm:
-                    return SaveKh1.SaveFinalMix.ReadInternal(stream);
+                    return Read<SaveFinalMix>(stream);
                 case Constants.MagicCodeEverythingElse:
-                    return SaveKh1.SaveEU.ReadInternal(stream);
+                    return Read<SaveEU>(stream);
                 default:
-                    throw new InvalidDataException("Input not recognized as a valid or supported Kingdom Hearts I save game.");
-            }  
+                    throw new NotSupportedException("The version is not supported.");
+            }
         }
     }
 }

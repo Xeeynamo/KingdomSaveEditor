@@ -47,10 +47,8 @@ namespace KHSave.Tests
         public void TestWriteBackTheSameExactFile() =>
         File.OpenRead(FilePath).Using(stream => Helpers.AssertStream(stream, inStream =>
         {
-            var save = SaveKh1.Read<SaveKh1.SaveFinalMix>(inStream);
-
             var outStream = new MemoryStream();
-            SaveKh1.Write(outStream, save);
+            SaveKh1.Read(inStream).Write(outStream);
 
             return outStream;
         }));

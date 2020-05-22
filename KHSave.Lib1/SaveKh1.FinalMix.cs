@@ -41,10 +41,7 @@ namespace KHSave.Lib1
             [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
 
             public void Write(Stream stream) =>
-                Mapper.WriteObject(stream.SetPosition(0), this);
-
-            internal static SaveFinalMix ReadInternal(Stream stream) =>
-                Mapper.ReadObject(stream, new SaveFinalMix()) as SaveFinalMix;
+                BinaryMapping.WriteObject(stream.FromBegin(), this);
         }
     }
 }

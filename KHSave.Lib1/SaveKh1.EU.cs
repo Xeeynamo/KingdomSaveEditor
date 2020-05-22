@@ -45,12 +45,8 @@ namespace KHSave.Lib1
 
             [Data(0x1641C)] public uint Munny { get; set; }
 
-
             public void Write(Stream stream) =>
-                Mapper.WriteObject(stream.SetPosition(0), this);
-
-            internal static SaveEU ReadInternal(Stream stream) =>
-                Mapper.ReadObject(stream, new SaveEU()) as SaveEU;
+                BinaryMapping.WriteObject(stream.FromBegin(), this);
         }
     }
 }

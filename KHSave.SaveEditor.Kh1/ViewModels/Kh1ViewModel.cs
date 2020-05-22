@@ -1,6 +1,7 @@
 ﻿using KHSave.Lib1;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
+using System;
 using System.IO;
 using Xe.Tools;
 
@@ -31,17 +32,15 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 
         public void OpenStream(Stream stream)
         {
-            switch(SaveKh1.GetGameVersion(stream))
+            try
             {
-                case Constants.MagicCodeFm:
-                    Save = SaveKh1.Read<SaveKh1.SaveFinalMix>(stream);
-                    break;
-                case Constants.MagicCodeEverythingElse:
-                    Save = SaveKh1.Read<SaveKh1.SaveEU>(stream);
-                    break;
-                default:
-                    throw new SaveNotSupportedException("The version is not supported.");
+                Save = SaveKh1.Read(stream);
             }
+            catch (NotSupportedException ex)
+            {
+                throw new SaveNotSupportedException(ex.Message);
+            }
+
             RefreshUi();
         }
 
