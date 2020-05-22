@@ -1,21 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>net472</TargetFramework>
     <ApplicationIcon>Icon1.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
     <StartupObject />
     <UseWpf>true</UseWpf>
-    <Version>1.11.0</Version>
+    <Version>1.12.0</Version>
     <RepositoryUrl>https://github.com/xeeynamo/kh3saveeditor</RepositoryUrl>
     <PackageProjectUrl>https://xeeynamo.github.io/kh3saveeditor</PackageProjectUrl>
-    <AssemblyVersion>1.11.0</AssemblyVersion>
+    <AssemblyVersion>1.12.0</AssemblyVersion>
     <Description>https://xeeynamo.github.io/kh3saveeditor</Description>
     <Copyright>Copyright (C) 2020 Luciano Ciccariello</Copyright>
     <RepositoryType></RepositoryType>
     <PackageTags></PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <FileVersion>1.11.0</FileVersion>
+    <FileVersion>1.12.0</FileVersion>
     <PackageId>KHSave.SaveEditor</PackageId>
     <Authors>Luciano (Xeeynamo) Ciccariello</Authors>
     <Product>Kingdom Save Editor</Product>
@@ -23,6 +23,7 @@
     <LangVersion>7</LangVersion>
     <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
+  <Target Name="_CheckForGenerateAppxPackageOnBuild" />
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
