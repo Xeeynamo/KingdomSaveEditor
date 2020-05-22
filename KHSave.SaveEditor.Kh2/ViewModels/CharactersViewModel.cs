@@ -27,9 +27,9 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class CharactersViewModel : GenericListModel<CharacterViewModel>
     {
-        private readonly SaveKh2.SaveFinalMix save;
+        private readonly ISaveKh2 save;
 
-        public CharactersViewModel(SaveKh2.SaveFinalMix save) :
+        public CharactersViewModel(ISaveKh2 save) :
             this(save.Characters)
         {
             this.save = save;

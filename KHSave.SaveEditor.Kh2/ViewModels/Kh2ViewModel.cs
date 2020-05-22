@@ -21,14 +21,13 @@ using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
 using System;
 using System.IO;
-using Xe.BinaryMapper;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        private SaveKh2.SaveFinalMix save;
+        private ISaveKh2 save;
 
         public Kh2ViewModel()
         {
@@ -59,7 +58,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         {
             try
             {
-                save = SaveKh2.Read(stream) as SaveKh2.SaveFinalMix;
+                save = SaveKh2.Read(stream);
                 RefreshUi();
             }
             catch (NotImplementedException ex)

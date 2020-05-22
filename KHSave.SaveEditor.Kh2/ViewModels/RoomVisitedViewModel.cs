@@ -39,7 +39,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         
         private byte[] _roomVisited;
 
-        public RoomVisitedViewModel(SaveKh2.SaveFinalMix save)
+        public RoomVisitedViewModel(ISaveKh2 save)
         {
             _roomVisited = save.RoomVisitedFlag;
             Entries = Enumerable.Range(0, save.RoomVisitedFlag.Length * 8)
