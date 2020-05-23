@@ -8,45 +8,24 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.KhBbs.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Thickness x:Key="LabelMargin" Left="0" Top="0" Right="5" Bottom="0" />
+    </UserControl.Resources>
     <controls:TwoColumnsPanel RowSpacing="3">
-        
-        <TextBlock Text="Id" />
-        <common:ItemComboBox DataContext="{Binding Id2}"/>
-        <!--<ComboBox ItemsSource="{Binding Commands}"
-                  SelectedValue="{Binding Id}"
-                  SelectedValuePath="Value">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>-->
 
-        <TextBlock Text="Level" />
+        <TextBlock Text="Id" Margin="{StaticResource LabelMargin}" />
+        <common:ItemComboBox DataContext="{Binding Id2}"/>
+
+        <TextBlock Text="Level" Margin="{StaticResource LabelMargin}" />
         <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBlock Text="Experience" />
+        <TextBlock Text="Experience" Margin="{StaticResource LabelMargin}" />
         <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBlock Text="Ability" />
-        <!--<ComboBox ItemsSource="{Binding Abilities}"
-                  SelectedValue="{Binding Ability}"
-                  SelectedValuePath="Value">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>-->
+        <TextBlock Text="Ability" Margin="{StaticResource LabelMargin}" />
         <common:ItemComboBox DataContext="{Binding Ability2}"/>
 
-        <TextBlock Text="Flags" />
+        <TextBlock Text="Flags" Margin="{StaticResource LabelMargin}" />
         <TextBox Text="{Binding Flags, UpdateSourceTrigger=PropertyChanged}" />
 
     </controls:TwoColumnsPanel>

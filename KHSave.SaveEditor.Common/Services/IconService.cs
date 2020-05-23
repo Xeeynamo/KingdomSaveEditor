@@ -84,6 +84,10 @@ namespace KHSave.SaveEditor.Common.Services
 				["Reprisal"] = "khbbs-icon-reprisal",
 				["Shotlock"] = "khbbs-icon-shotlock",
 				["Dlink"] = "khbbs-icon-dlink",
+				["Friendship"] = "khbbs-icon-friendship",
+				["CommandStyleLevel1"] = "khbbs-icon-commandstyle-lvl1",
+				["CommandStyleLevel2"] = "khbbs-icon-commandstyle-lvl2",
+				["CommandStyleOther"] = "khbbs-icon-commandstyle-other",
 			},
 			[IconPack.FF7Remake] = new Dictionary<string, string>()
 			{

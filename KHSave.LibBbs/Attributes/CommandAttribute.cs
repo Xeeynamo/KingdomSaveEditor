@@ -29,4 +29,11 @@ namespace KHSave.LibBbs.Attributes
         {
         }
     }
+
+    public class FriendshipAttribute : InfoAttribute
+    {
+        public FriendshipAttribute(string name = null) : base(name)
+        {
+        }
+    }
 }

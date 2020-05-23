@@ -2,6 +2,8 @@
 using KHSave.LibBbs.Models;
 using KHSave.LibBbs.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Common.Services;
+using System.Windows.Media;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.KhBbs.ViewModels
@@ -20,6 +22,8 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
             Id2 = new ItemComboBoxModel<CommandType>(() => command.Id, x => command.Id = x);
             Ability2 = new ItemComboBoxModel<AbilityType>(() => command.Ability, x => command.Ability = x);
         }
+
+        public ImageSource Icon => IconService.Icon(command.Id);
 
         public string Name => InfoAttribute.GetInfo(command.Id);
         public KhEnumListModel<CommandType> Commands { get; set; }
