@@ -14,7 +14,7 @@
     <controls:TwoColumnsPanel RowSpacing="3">
 
         <TextBlock Text="Id" Margin="{StaticResource LabelMargin}" />
-        <common:ItemComboBox DataContext="{Binding Id2}"/>
+        <common:ItemComboBox DataContext="{Binding Id}"/>
 
         <TextBlock Text="Level" Margin="{StaticResource LabelMargin}" />
         <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" />
@@ -23,7 +23,7 @@
         <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock Text="Ability" Margin="{StaticResource LabelMargin}" />
-        <common:ItemComboBox DataContext="{Binding Ability2}"/>
+        <common:ItemComboBox DataContext="{Binding Ability}"/>
 
         <TextBlock Text="Flags" Margin="{StaticResource LabelMargin}" />
         <TextBox Text="{Binding Flags, UpdateSourceTrigger=PropertyChanged}" />
