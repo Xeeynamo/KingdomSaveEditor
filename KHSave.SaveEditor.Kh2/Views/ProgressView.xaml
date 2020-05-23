@@ -20,12 +20,17 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="World" Width="Auto"
+                    IsReadOnly="True"
+                    CanUserSort="False"
                     Binding="{Binding World}"/>
                 <DataGridCheckBoxColumn
                     Header="Done" Width="Auto"
+                    CanUserSort="False"
                     Binding="{Binding Done}"/>
                 <DataGridTextColumn
                     Header="Label" Width="*"
+                    IsReadOnly="True"
+                    CanUserSort="False"
                     Binding="{Binding Label}"/>
             </DataGrid.Columns>
         </DataGrid>
