@@ -11,10 +11,10 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
     {
         private Deck deck;
 
-        public DeckViewModel(Deck deck, Command[] commandList)
+        public DeckViewModel(Deck deck, IEnumerable<CommandListModel> commandList)
         {
             this.deck = deck;
-            CommandList = commandList.Select((_, i) => new CommandListModel(i, commandList)).ToList();
+            CommandList = commandList;
         }
 
         public string Name => Encoding.GetEncoding(932).GetString(deck.Name); //shift-jis, does this also apply to other versions?
@@ -41,6 +41,6 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
 
         public ushort Shotlock { get => deck.Shotlock.Id; set => deck.Shotlock.Id = value; }
 
-        public List<CommandListModel> CommandList { get; set; }
+        public IEnumerable<CommandListModel> CommandList { get; set; }
     }
 }
