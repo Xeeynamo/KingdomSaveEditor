@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 
@@ -10,9 +8,9 @@ namespace KHSave.SaveEditor.Kh2.Service
     {
         private class ArmorEquipmentManager : IEquipmentManager
         {
-            private readonly Character character;
+            private readonly ICharacter character;
 
-            internal ArmorEquipmentManager(Character character)
+            internal ArmorEquipmentManager(ICharacter character)
             {
                 this.character = character;
             }
@@ -25,9 +23,9 @@ namespace KHSave.SaveEditor.Kh2.Service
 
         private class AccessoryEquipmentManager : IEquipmentManager
         {
-            private readonly Character character;
+            private readonly ICharacter character;
 
-            internal AccessoryEquipmentManager(Character character)
+            internal AccessoryEquipmentManager(ICharacter character)
             {
                 this.character = character;
             }
@@ -40,9 +38,9 @@ namespace KHSave.SaveEditor.Kh2.Service
 
         private class ConsumableEquipmentManager : IEquipmentManager
         {
-            private readonly Character character;
+            private readonly ICharacter character;
 
-            internal ConsumableEquipmentManager(Character character)
+            internal ConsumableEquipmentManager(ICharacter character)
             {
                 this.character = character;
             }
@@ -53,8 +51,8 @@ namespace KHSave.SaveEditor.Kh2.Service
             public void SetEquipment(uint index, EquipmentType equipment) => character.Items[index] = (short)equipment;
         }
 
-        public static IEquipmentManager ForArmor(Character character) => new ArmorEquipmentManager(character);
-        public static IEquipmentManager ForAccessory(Character character) => new AccessoryEquipmentManager(character);
-        public static IEquipmentManager ForConsumable(Character character) => new ConsumableEquipmentManager(character);
+        public static IEquipmentManager ForArmor(ICharacter character) => new ArmorEquipmentManager(character);
+        public static IEquipmentManager ForAccessory(ICharacter character) => new AccessoryEquipmentManager(character);
+        public static IEquipmentManager ForConsumable(ICharacter character) => new ConsumableEquipmentManager(character);
     }
 }

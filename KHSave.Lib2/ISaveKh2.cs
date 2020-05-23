@@ -20,8 +20,8 @@ namespace KHSave.Lib2
         int MunnyAmount { get; set; }
         int Timer { get; set; }
         Difficulty Difficulty { get; set; }
-        byte PuzzlePieceFlags { get; set; }
-        Character[] Characters { get; set; }
+        byte[] PuzzlePieceFlags { get; set; }
+        ICharacter[] Characters { get; }
 
         short SoraValorKeyblade { get; set; }
         short SoraTrinityKeyblade { get; set; }

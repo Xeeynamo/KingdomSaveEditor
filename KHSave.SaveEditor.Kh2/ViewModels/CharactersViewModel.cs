@@ -35,7 +35,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             this.save = save;
         }
 
-        public CharactersViewModel(IEnumerable<Character> list) :
+        public CharactersViewModel(IEnumerable<ICharacter> list) :
             this(list.Select((pc, index) => new CharacterViewModel(pc, index)))
         {
 

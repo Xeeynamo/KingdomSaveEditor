@@ -70,7 +70,7 @@ namespace KHSave.Lib2
                 case GameVersion.Japanese:
                     throw new NotImplementedException("Japanese save file is not yet supported.");
                 case GameVersion.American:
-                    throw new NotImplementedException("American or European save file is not yet supported.");
+                    return Read<SaveEuropean>(stream);
                 case GameVersion.FinalMix:
                     return Read<SaveFinalMix>(stream);
                 case null:

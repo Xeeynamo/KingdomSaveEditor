@@ -1,6 +1,5 @@
 ﻿using KHSave.SaveEditor.Common;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,7 +10,7 @@ namespace KHSave.SaveEditor.Services
     public static class Pcsx2MemoryService
     {
         private const int Pcsx2EmulationBaseAddress = 0x20000000;
-        private const int Pcsx2EmulationMemoryLenght = 0x2000000;
+        private const int Pcsx2EmulationMemoryLength = 0x2000000;
         private const int PlayStation2BootFile = 0x155D0;
         private const int BootFileMaximumStringLength = 0x20;
 
@@ -32,6 +31,7 @@ namespace KHSave.SaveEditor.Services
         private static GameEntry[] Games => new GameEntry[]
         {
             new GameEntry("SLUS_203.70;1", 0x203F1C90, 0x16c00), // Kingdom Hearts I (US)
+            new GameEntry("SLES_542.34;1", 0x2033ED60, 0xb4e0), // Kingdom Hearts II (IT)
             new GameEntry("SLPM_666.75;1", 0x2032BB30, 0x10fc0), // Kingdom Hearts II: Final Mix (Crazycat00 eng patch)
         };
 

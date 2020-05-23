@@ -1,5 +1,6 @@
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
+using System;
 using System.IO;
 using Xe.BinaryMapper;
 
@@ -25,8 +26,8 @@ namespace KHSave.Lib2
             [Data(0x2440)] public int MunnyAmount { get; set; }
             [Data(0x2444, Count = Constants.WorldCount + 2)] public int Timer { get; set; }
             [Data(0x2498)] public Difficulty Difficulty { get; set; }
-            [Data(0x24a0, Count = 0x30)] public byte PuzzlePieceFlags { get; set; }
-            [Data(0x24f0, Count = 13, Stride = 0x114)] public Character[] Characters { get; set; }
+            [Data(0x24a0, Count = 0x30)] public byte[] PuzzlePieceFlags { get; set; }
+            [Data(0x24f0, Count = 13, Stride = 0x114)] public CharacterFinalMix[] Characters { get; set; }
 
             [Data(0x32f4)] public short SoraValorKeyblade { get; set; }
             [Data(0x339c)] public short SoraTrinityKeyblade { get; set; }
@@ -88,6 +89,8 @@ namespace KHSave.Lib2
             [Data(0x4274)] public bool NewStatusSummonGenie { get; set; }
             [Data(0x4274)] public bool NewStatusSummonPeterPan { get; set; }
             [Data(0x4275)] public bool NewStatusSummonChickenLittle { get; set; }
+
+            ICharacter[] ISaveKh2.Characters => Array.ConvertAll(Characters, x => (ICharacter)x);
 
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);
