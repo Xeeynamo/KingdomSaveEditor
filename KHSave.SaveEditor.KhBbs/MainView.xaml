@@ -18,7 +18,7 @@
             <views:CommandListView DataContext="{Binding CommandList}" />
         </TabItem>
         <TabItem Header="Decks">
-            
+            <views:DecksView DataContext="{Binding Decks}" />
         </TabItem>
     </TabControl>
 </UserControl>

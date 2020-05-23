@@ -13,12 +13,14 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
         public SystemViewModel System { get; set; }
         public CharacterViewModel Character { get; set; }
         public CommandListViewModel CommandList { get; set; }
+        public DecksViewModel Decks { get; set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
             Character = new CharacterViewModel(save.Character);
             CommandList = new CommandListViewModel(save.CommandList);
+            Decks = new DecksViewModel(save);
         }
 
         public void OpenStream(Stream stream)
