@@ -6,9 +6,9 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
 {
     public class SystemViewModel
     {
-        private readonly SaveKhBbs.SaveFinalMix save;
+        private readonly ISaveKhBbs save;
 
-        public SystemViewModel(SaveKhBbs.SaveFinalMix save)
+        public SystemViewModel(ISaveKhBbs save)
         {
             this.save = save;
             Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);

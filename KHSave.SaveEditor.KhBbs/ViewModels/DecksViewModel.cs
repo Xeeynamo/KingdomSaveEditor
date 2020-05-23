@@ -6,7 +6,7 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
 {
     public class DecksViewModel : GenericListModel<DeckViewModel>
     {
-        public DecksViewModel(SaveKhBbs.SaveFinalMix save) :
+        public DecksViewModel(ISaveKhBbs save) :
             base(save.Decks.Select(x => new DeckViewModel(x, save.CommandList)))
         {
         }

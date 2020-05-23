@@ -8,7 +8,7 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
 {
     public class KhBbsViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        private SaveKhBbs.SaveFinalMix save;
+        private ISaveKhBbs save;
 
         public SystemViewModel System { get; set; }
         public CharacterViewModel Character { get; set; }
