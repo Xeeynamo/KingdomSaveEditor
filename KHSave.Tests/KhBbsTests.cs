@@ -48,7 +48,7 @@ namespace KHSave.Tests
         [Fact]
         public void TestChecksum()
         {
-            File.OpenRead(FilePath).Using(stream => Assert.Equal(0x681DA0C8U, SaveKhBbs.CalculateChecksum(stream)));
+            File.OpenRead(FilePath).Using(stream => Assert.Equal(0x1EF59183U, SaveKhBbs.CalculateChecksum(stream)));
         }
 
         [Fact]
