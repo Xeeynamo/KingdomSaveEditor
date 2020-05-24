@@ -3,8 +3,10 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib2.Models
 {
-    public class Character
+    public class CharacterVanilla : ICharacter
     {
+        [Data(0, 0xf4)] public byte[] Data { get; set; }
+
         [Data] public EquipmentType Weapon { get; set; }
         [Data] public short Unk02 { get; set; }
         [Data] public byte HpCur { get; set; }
@@ -28,10 +30,10 @@ namespace KHSave.Lib2.Models
         [Data(Count = 8)] public short[] Items { get; set; }
         [Data(Count = 8)] public short[] ItemAutoReload { get; set; }
 
-        [Data(0x54, Count = 0x48)] public ushort[] Abilities { get; set; }
+        [Data(0x54, Count = 0x28)] public ushort[] Abilities { get; set; }
 
-        [Data(0xf4)] public BattleStyleType BattleStyle { get; set; }
-        [Data(0xfc)] public AbilityStyleType AbilityStyle1 { get; set; }
+        [Data(0xd4)] public BattleStyleType BattleStyle { get; set; }
+        [Data(0xdc)] public AbilityStyleType AbilityStyle1 { get; set; }
         [Data] public AbilityStyleType AbilityStyle2 { get; set; }
         [Data] public AbilityStyleType AbilityStyle3 { get; set; }
         [Data] public AbilityStyleType AbilityStyle4 { get; set; }

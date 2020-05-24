@@ -1,5 +1,6 @@
 ﻿using KHSave.Lib1.Models;
 using KHSave.Lib1.Types;
+using System.IO;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib1
@@ -8,6 +9,7 @@ namespace KHSave.Lib1
     {
         public class SaveFinalMix : ISaveKh1
         {
+
             [Data(0, 0x16C00)] public byte[] Data { get; set; }
 
             [Data(0)] public uint MagicCode { get; set; }
@@ -18,7 +20,7 @@ namespace KHSave.Lib1
             [Data(0x490)] public PlayableCharacterType CompanionCharacter2 { get; set; }
             [Data(0x491)] public PlayableCharacterType CompanionCharacter3 { get; set; }
 
-            [Data(0x499, Count = 0x100)] public byte[] Inventory { get; set; }
+            [Data(0x499, Count = 0x100)] public byte[] InventoryCount { get; set; }
 
             [Data(0x599)] public AbilityType SharedAbility1 { get; set; }
             [Data(0x59A)] public AbilityType SharedAbility2 { get; set; }
@@ -37,6 +39,9 @@ namespace KHSave.Lib1
 
             [Data(0x1641C)] public uint Munny { get; set; }
             [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
+
+            public void Write(Stream stream) =>
+                BinaryMapping.WriteObject(stream.FromBegin(), this);
         }
     }
 }

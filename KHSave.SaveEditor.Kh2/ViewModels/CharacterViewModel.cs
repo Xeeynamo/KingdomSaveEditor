@@ -44,10 +44,10 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
                     .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
             ).ToArray();
 
-        private readonly Character character;
+        private readonly ICharacter character;
         private readonly int index;
 
-        public CharacterViewModel(Character character, int index)
+        public CharacterViewModel(ICharacter character, int index)
         {
             this.character = character;
             this.index = index;

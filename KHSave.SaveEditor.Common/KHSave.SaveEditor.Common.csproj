@@ -1,62 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
     <LangVersion>7</LangVersion>
     <UseWpf>true</UseWpf>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Controls\ItemComboBox.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="Controls\ItemComboBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KHSave.Archives\KHSave.Archives.csproj" />
     <ProjectReference Include="..\KHSave\KHSave.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools\Xe.Tools.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs" AutoGen="True" DependentUpon="Settings.settings">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Properties\Settings.settings" LastGenOutput="Settings.Designer.cs" Generator="SettingsSingleFileGenerator" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Controls\ItemComboBox.xaml.cs">
-      <DependentUpon>ItemComboBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ArchiveManagerView.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="Views\ArchiveManagerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 
   <ItemGroup>

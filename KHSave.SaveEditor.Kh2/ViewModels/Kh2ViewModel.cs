@@ -19,15 +19,15 @@
 using KHSave.Lib2;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
+using System;
 using System.IO;
-using Xe.BinaryMapper;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
-        private SaveKh2.SaveFinalMix save;
+        private ISaveKh2 save;
 
         public Kh2ViewModel()
         {
@@ -36,36 +36,35 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public SystemViewModel System { get; private set; }
         public InventoryViewModel Inventory { get; private set; }
         public CharactersViewModel Characters { get; private set; }
+        public RoomVisitedViewModel RoomVisited { get; private set; }
+        public ProgressViewModel Progress { get; private set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
             Inventory = new InventoryViewModel(save);
             Characters = new CharactersViewModel(save);
+            RoomVisited = new RoomVisitedViewModel(save);
+            Progress = new ProgressViewModel(save.StoryProgress);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Characters));
+            OnPropertyChanged(nameof(RoomVisited));
+            OnPropertyChanged(nameof(Progress));
         }
 
         public void OpenStream(Stream stream)
         {
-            switch (SaveKh2.GetGameVersion(stream))
+            try
             {
-                case GameVersion.Japanese:
-                    throw new SaveNotSupportedException("Japanese save file is not yet supported.");
-                case GameVersion.American:
-                    throw new SaveNotSupportedException("American or European save file is not yet supported.");
-                case GameVersion.FinalMix:
-                    save = SaveKh2.Read<SaveKh2.SaveFinalMix>(stream);
-                    break;
-                case null:
-                    throw new SaveNotSupportedException("An invalid version has been specified.");
-                default:
-                    throw new SaveNotSupportedException("The version has been recognized but it is not supported.");
+                save = SaveKh2.Read(stream);
+                RefreshUi();
             }
-
-            RefreshUi();
+            catch (NotImplementedException ex)
+            {
+                throw new SaveNotSupportedException(ex.Message);
+            }
         }
 
         public void WriteToStream(Stream stream) => SaveKh2.Write(stream, save);

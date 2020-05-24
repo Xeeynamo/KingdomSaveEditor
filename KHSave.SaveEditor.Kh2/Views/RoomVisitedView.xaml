@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.RoomVisitedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Margin="5">
+            When a map is visited, the game will show its name rather than a '???'.
+        </TextBlock>
+        
+        <DataGrid
+            Grid.Row="0"
+            ItemsSource="{Binding Entries}"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}"
+                    Header="Map name" Width="*" CanUserReorder="False"/>
+                <DataGridCheckBoxColumn Binding="{Binding Visited}"
+                    Header="Visited" Width="60" CanUserReorder="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

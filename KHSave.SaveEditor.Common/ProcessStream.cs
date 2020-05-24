@@ -1,166 +1,154 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace KHSave.SaveEditor.Common
 {
-    public class ProcessStream : Stream
-    {
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+	public class ProcessStream : Stream
+	{
+		[DllImport("kernel32.dll")]
+		private static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
-        [DllImport("kernel32.dll")]
-        private static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, out int BytesRead);
+		[DllImport("kernel32.dll")]
+		private static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, out int BytesRead);
 
-        [DllImport("kernel32.dll")]
-        static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, out int lpNumberOfBytesWritten);
+		[DllImport("kernel32.dll")]
+		static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, out int lpNumberOfBytesWritten);
+
+		[DllImport("advapi32.dll", SetLastError = true)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		static extern bool OpenProcessToken(IntPtr ProcessHandle, UInt32 DesiredAccess, out IntPtr TokenHandle);
 
 
-        [DllImport("kernel32.dll")]
-        static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+		private Process _process;
+		private IntPtr _hProcess;
+		private long position;
 
-        private const int DefaultSearchProcessTimeout = 10000;
-        private const int TimeBreakBetweenProcessSearch = 100;
+		public ProcessStream(Process process, long baseAddress, uint length)
+		{
+			BaseAddress = baseAddress;
+			Length = length;
 
-        Process process;
-        IntPtr hProcess;
-        private long position;
+			OpenProcess(process);
+		}
 
-        public ProcessStream(Process process, long offset, long length)
-        {
-            this.process = process;
-            Length = length;
-            Offset = offset;
 
-            OpenProcess(process);
-        }
+		public long BaseAddress { get; }
+		public override bool CanRead => true;
 
-        public string Name => process.ProcessName;
-        public long Offset { get; }
+		public override bool CanSeek => true;
 
-        public override bool CanRead => true;
+		public override bool CanWrite => true;
 
-        public override bool CanSeek => true;
+		public override long Length { get; }
 
-        public override bool CanWrite => true;
+		public override long Position
+		{
+			get => position;
+			set => position = value;
+		}
 
-        public override long Length { get; }
+		public override void Flush()
+		{
+		}
 
-        public override long Position
-        {
-            get => position;
-            set => position = value;
-        }
+		public override int Read(byte[] buffer, int offset, int count)
+		{
+			int read;
+			var actualCount = (int)Math.Min(count, Math.Max(0, Length - Position));
+			var pos = (IntPtr)(BaseAddress + Position);
 
-        public override void Flush()
-        {
-        }
+			if (offset == 0)
+			{
+				ReadProcessMemory(_hProcess, pos, buffer, actualCount, out read);
+			}
+			else
+			{
+				byte[] data = new byte[actualCount];
+				ReadProcessMemory(_hProcess, pos, buffer, actualCount, out read);
+				Array.Copy(data, 0, buffer, offset, read);
+			}
 
-        public override int Read(byte[] buffer, int offset, int count)
-        {
-            int read;
-            var pos = (IntPtr)(Offset + Position);
+			Position += read;
 
-            count = Math.Max(Math.Min(count, (int)(Length - Position)), 0);
-            if (count <= 0)
-                return 0;
+			return read;
+		}
 
-            if (offset == 0)
-            {
-                ReadProcessMemory(hProcess, pos, buffer, count, out read);
-            }
-            else
-            {
-                byte[] data = new byte[count];
-                ReadProcessMemory(hProcess, pos, buffer, count, out read);
-                Array.Copy(data, 0, buffer, offset, read);
-            }
+		public override long Seek(long offset, SeekOrigin origin)
+		{
+			switch (origin)
+			{
+				case SeekOrigin.Begin:
+					return Position = offset;
+				case SeekOrigin.Current:
+					return Position += offset;
+				case SeekOrigin.End:
+					return Position = Length + offset;
+				default:
+					return Position;
+			}
+		}
 
-            Position += read;
+		public override void SetLength(long value)
+		{
+		}
 
-            return read;
-        }
+		public override void Write(byte[] buffer, int offset, int count)
+		{
+			var actualCount = (int)Math.Min(count, Math.Max(0, Length - Position));
+			var pos = (IntPtr)(BaseAddress + Position);
 
-        public override long Seek(long offset, SeekOrigin origin)
-        {
-            switch (origin)
-            {
-                case SeekOrigin.Begin:
-                    return Position = offset;
-                case SeekOrigin.Current:
-                    return Position += offset;
-                case SeekOrigin.End:
-                    return Position = Length + offset;
-                default:
-                    return Position;
-            }
-        }
+			int written;
+			if (offset == 0)
+			{
+				WriteProcessMemory(_hProcess, pos, buffer, actualCount, out written);
+			}
+			else
+			{
+				var data = new byte[count];
+				Array.Copy(buffer, offset, data, 0, count);
+				WriteProcessMemory(_hProcess, pos, data, actualCount, out written);
+			}
 
-        public override void SetLength(long value)
-        {
-            if (value > Length)
-                throw new ArgumentException("Unable to set the length above the pre-defined length.");
-        }
+			Position += written;
+		}
 
-        public override void Write(byte[] buffer, int offset, int count)
-        {
-            var pos = (IntPtr)(Offset + Position);
+		private void OpenProcess(Process process)
+		{
+			const int TOKEN_QUERY = 8;
+			const int PROCESS_ALL_ACCESS = 0x000F0000 | 0x00100000 | 0xFFF;
+			_hProcess = OpenProcess(PROCESS_ALL_ACCESS, false, process.Id);
+			_process = process;
 
-            int written;
-            if (offset == 0)
-            {
-                WriteProcessMemory(hProcess, pos, buffer, count, out written);
-            }
-            else
-            {
-                var data = new byte[count];
-                Array.Copy(buffer, offset, data, 0, count);
-                WriteProcessMemory(hProcess, pos, data, count, out written);
-            }
+			var isSuccess = OpenProcessToken(_hProcess, TOKEN_QUERY, out var tokenHandle);
+		}
 
-            Position += written;
-        }
+		public static IEnumerable<Process> GetProcesses() =>
+			Process.GetProcesses();
 
-        private void OpenProcess(Process process)
-        {
-            var permissions = 0x001FFFFF;
-            hProcess = OpenProcess(permissions, true, process.Id);
+		public static Process TryGetProcess(Func<Process, bool> predicate, int timeout = 10000, int sleep = 100)
+		{
+			var stopwatch = new Stopwatch();
+			stopwatch.Start();
 
-            var pos = (IntPtr)(Offset + Position);
-            if (VirtualProtectEx(hProcess, pos, (UIntPtr)Length, 0xFF, out _) == false)
-                throw new Exception($"Failed to obtain page permissions for {Name}.");
-        }
+			do
+			{
+				var process = GetProcesses().FirstOrDefault(predicate);
+				if (process != null)
+					return process;
 
-        public static ProcessStream SearchProcess(string processName, long offset, long length, long timeout = DefaultSearchProcessTimeout)
-        {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+				Thread.Sleep(sleep);
+			} while (stopwatch.ElapsedMilliseconds < timeout);
 
-            while (stopwatch.ElapsedMilliseconds < timeout)
-            {
-                foreach (var process in Process.GetProcesses())
-                {
-                    if (process.ProcessName.Contains(processName))
-                    {
-                        return new ProcessStream(process, offset, length);
-                    }
-                }
+			return null;
+		}
 
-                Thread.Sleep(TimeBreakBetweenProcessSearch);
-            }
-
-            throw new TimeoutException($"Unable to find the process {processName} within {timeout / 1000} seconds.");
-        }
-
-        public static async Task<ProcessStream> SearchProcessAsync(string processName, long offset, long length, long timeout = DefaultSearchProcessTimeout)
-        {
-            return await Task.Run(() =>
-            {
-                return SearchProcess(processName, offset, length, timeout);
-            });
-        }
-    }
+		public static Task<Process> TryGetProcessAsync(Func<Process, bool> predicate, int timeout = 10000, int sleep = 100) =>
+			Task.Run(() => TryGetProcess(predicate, timeout, sleep));
+	}
 }
