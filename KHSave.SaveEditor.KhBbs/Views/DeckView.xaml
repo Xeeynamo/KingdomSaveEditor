@@ -19,28 +19,28 @@
         <StackPanel>
             <GroupBox Header="Battle Commands">
                 <common:TwoEqualColumnsStackPanel>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc1}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc2}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc3}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc4}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc5}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc6}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc7}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Bc8}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand1}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand2}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand3}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand4}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand5}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand6}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand7}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand8}" ItemTemplate="{StaticResource DescWithIcon}"/>
                 </common:TwoEqualColumnsStackPanel>
             </GroupBox>
             <GroupBox Header="Action Commands">
                 <common:TwoEqualColumnsStackPanel>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac1}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac2}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac3}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac4}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac5}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac6}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac7}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac8}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac9}" ItemTemplate="{StaticResource DescWithIcon}"/>
-                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Ac10}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand1}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand2}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand3}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand4}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand5}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand6}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand7}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand8}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand9}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand10}" ItemTemplate="{StaticResource DescWithIcon}"/>
                 </common:TwoEqualColumnsStackPanel>
             </GroupBox>
             <common:TwoEqualColumnsStackPanel>
