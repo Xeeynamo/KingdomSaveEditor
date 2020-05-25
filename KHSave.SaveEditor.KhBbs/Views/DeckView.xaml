@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.KhBbs.Views.DeckView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhBbs.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="DescWithIcon">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="0 0 3 0" Width="16" Height="16" Source="{Binding Icon}"/>
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <StackPanel>
+            <GroupBox Header="Battle Commands">
+                <common:TwoEqualColumnsStackPanel>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand1}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand2}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand3}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand4}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand5}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand6}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand7}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding BattleCommand8}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </GroupBox>
+            <GroupBox Header="Action Commands">
+                <common:TwoEqualColumnsStackPanel>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand1}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand2}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand3}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand4}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand5}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand6}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand7}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand8}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand9}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                    <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding ActionCommand10}" ItemTemplate="{StaticResource DescWithIcon}"/>
+                </common:TwoEqualColumnsStackPanel>
+            </GroupBox>
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Shotlock" />
+                <ComboBox ItemsSource="{Binding CommandList}" SelectedIndex="{Binding Shotlock}" ItemTemplate="{StaticResource DescWithIcon}"/>
+            </common:TwoEqualColumnsStackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -41,6 +41,7 @@ using System.Windows.Controls;
 using KHSave.Lib3;
 using KHSave.LibFf7Remake;
 using KHSave.Lib1;
+using KHSave.LibBbs;
 using KHSave.SaveEditor.Views;
 
 namespace KHSave.SaveEditor.ViewModels
@@ -248,6 +249,7 @@ namespace KHSave.SaveEditor.ViewModels
         public bool TryOpen(Stream stream) =>
             TryOpenKh1(stream) ||
             TryOpenKh2(stream) ||
+            TryOpenKhBbs(stream) ||
             TryOpenKhRecom(stream) ||
             TryOpenKh02(stream) ||
             TryOpenKh3(stream) ||
@@ -305,6 +307,7 @@ namespace KHSave.SaveEditor.ViewModels
 
         public bool TryOpenKh1(Stream stream) => TryOpen(SaveKh1.IsValid, stream, ContentType.KingdomHearts);
         public bool TryOpenKh2(Stream stream) => TryOpen(SaveKh2.IsValid,  stream, ContentType.KingdomHearts2);
+        public bool TryOpenKhBbs(Stream stream) => TryOpen(SaveKhBbs.IsValid, stream, ContentType.KingdomHeartsBbs);
         public bool TryOpenKhRecom(Stream stream) => TryOpen(SaveKhRecom.IsValid, stream, ContentType.KingdomHeartsRecom);
         public bool TryOpenKh02(Stream stream) => TryOpen(SaveKh02.IsValid, stream, ContentType.KingdomHearts02);
         public bool TryOpenKh3(Stream stream) => TryOpen(SaveKh3.IsValid, stream, ContentType.KingdomHearts3);

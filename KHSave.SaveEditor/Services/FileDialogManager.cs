@@ -11,9 +11,10 @@ namespace KHSave.SaveEditor.Services
         private readonly IEnumerable<FileDialogFilter> Filters = FileDialogFilterComposer
             .Compose()
             .AddExtensions("All supported games", "bin", "sav", "dat;*")
-            .AddPatterns("Kingdom Hearts I (PS2)", ";BESCES*", ";BASLUS-20370*", ";BISLPM-66233-*")
-            .AddPatterns("Kingdom Hearts II (PS2)", ";BISLPM-66675FM-**")
-            .AddPatterns("Kingdom Hearts Re: CoM (raw)", ";BISLUS-21799COM-*", ";BASLUS-21799COM-*")
+            .AddPatterns("Kingdom Hearts I", ";BESCES*", ";BASLUS-20370*", ";BISLPM-66233-*")
+            .AddPatterns("Kingdom Hearts II", ";BISLPM-66675FM-**")
+            .AddExtensions("Kingdom Hearts Birth By Sleep", "DAT")
+            .AddPatterns("Kingdom Hearts Re: CoM", ";BISLUS-21799COM-*", ";BASLUS-21799COM-*")
             .AddExtensions("Kingdom Hearts 1.5/2.5 ReMIX", "DAT")
             .AddPatterns("Kingdom Hearts 0.2", ";ue4savegame*.sav")
             .AddPatterns("Kingdom Hearts III", ";__data__slot*.bin")

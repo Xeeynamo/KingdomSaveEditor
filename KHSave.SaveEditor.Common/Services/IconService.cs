@@ -12,6 +12,7 @@ namespace KHSave.SaveEditor.Common.Services
 		public enum IconPack
 		{
 			KingdomHearts2,
+			KingdomHeartsBbs,
 			FF7Remake,
 		}
 
@@ -69,6 +70,24 @@ namespace KHSave.SaveEditor.Common.Services
 				["Weapon"] = "kh2-icon-weapon",
 				["Armor"] = "kh2-equip-armor",
 				["Accessory"] = "kh2-equip-accessory",
+			},
+			[IconPack.KingdomHeartsBbs] = new Dictionary<string, string>()
+			{
+				["Attack"] = "kh2-equip-keyblade",
+				["Consumable"] = "kh2-icon-consumable",
+				["AbilityPrice"] = "khbbs-icon-ability-price",
+				["AbilityStatus"] = "khbbs-icon-ability-status",
+				["AbilitySupport"] = "khbbs-icon-ability-support",
+				["Defense"] = "khbbs-icon-defense",
+				["Finisher"] = "khbbs-icon-finisher",
+				["Movement"] = "khbbs-icon-movement",
+				["Reprisal"] = "khbbs-icon-reprisal",
+				["Shotlock"] = "khbbs-icon-shotlock",
+				["Dlink"] = "khbbs-icon-dlink",
+				["Friendship"] = "khbbs-icon-friendship",
+				["CommandStyleLevel1"] = "khbbs-icon-commandstyle-lvl1",
+				["CommandStyleLevel2"] = "khbbs-icon-commandstyle-lvl2",
+				["CommandStyleOther"] = "khbbs-icon-commandstyle-other",
 			},
 			[IconPack.FF7Remake] = new Dictionary<string, string>()
 			{
