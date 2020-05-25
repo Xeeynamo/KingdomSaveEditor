@@ -5,9 +5,9 @@ namespace KHSave.Lib2.Models
 {
     public class CharacterFinalMix : ICharacter
     {
-        [Data(0, 0x114)] public byte[] Data { get; set; }
+        [Data(Count = 0x114)] public byte[] Data { get; set; }
 
-        [Data] public EquipmentType Weapon { get; set; }
+        [Data(0)] public EquipmentType Weapon { get; set; }
         [Data] public short Unk02 { get; set; }
         [Data] public byte HpCur { get; set; }
         [Data] public byte HpMax { get; set; }
