@@ -1,4 +1,5 @@
 ﻿using KHSave.LibBbs;
+using KHSave.LibBbs.Models;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
 using System.IO;
@@ -21,6 +22,11 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
             Character = new CharacterViewModel(save.Character);
             CommandList = new CommandListViewModel(save.CommandList);
             Decks = new DecksViewModel(save);
+
+            OnPropertyChanged(nameof(System));
+            OnPropertyChanged(nameof(Character));
+            OnPropertyChanged(nameof(CommandList));
+            OnPropertyChanged(nameof(Decks));
         }
 
         public void OpenStream(Stream stream)

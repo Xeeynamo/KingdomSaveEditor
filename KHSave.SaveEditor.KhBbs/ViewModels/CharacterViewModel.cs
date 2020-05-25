@@ -1,6 +1,8 @@
 ﻿using KHSave.LibBbs.Models;
 using KHSave.LibBbs.Types;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using System.Windows;
 
 namespace KHSave.SaveEditor.KhBbs.ViewModels
 {
@@ -13,6 +15,9 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
             this.character = character;
             Weapon = new ItemComboBoxModel<WeaponType>(() => character.Weapon, x => character.Weapon = x);
         }
+
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public ItemComboBoxModel<WeaponType> Weapon { get; set; }
 
