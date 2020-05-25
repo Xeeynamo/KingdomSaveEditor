@@ -22,6 +22,7 @@ namespace KHSave.Tests
             [Fact]
             public void TestRead()
             {
+                Assert.Equal(CharacterType.Ventus, save.PlayableCharacter);
                 Assert.Equal(999999U, save.Character.Money);
                 Assert.Equal(DifficultyType.Critical, save.Difficulty);
                 Assert.Equal(WeaponType.RoyalRadianceVentus, save.Character.Weapon);
@@ -64,6 +65,7 @@ namespace KHSave.Tests
                 return outStream;
             }));
         }
+
         public class EuTests
         {
             private static readonly string FilePath = "Saves/khbbs_ventus_eu.DAT";
@@ -79,6 +81,12 @@ namespace KHSave.Tests
             public void TestChecksum()
             {
                 File.OpenRead(FilePath).Using(stream => Assert.Equal(0x9D18AC6FU, SaveKhBbs.CalculateChecksum(stream)));
+            }
+
+            [Fact]
+            public void TestRead()
+            {
+                Assert.Equal(CharacterType.Ventus, save.PlayableCharacter);
             }
 
             [Fact]

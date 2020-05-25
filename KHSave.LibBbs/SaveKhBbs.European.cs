@@ -22,7 +22,7 @@ namespace KHSave.LibBbs
             [Data] public WorldType World { get; set; }
             [Data] public byte Room { get; set; }
             [Data] public byte Location { get; set; }
-            [Data] public byte CharacterIndex { get; set; }
+            [Data] public CharacterType PlayableCharacter { get; set; }
             [Data] public int Timer { get; set; }
 
             [Data(0x3488, Count = 0x200)] public Command[] CommandList { get; set; }

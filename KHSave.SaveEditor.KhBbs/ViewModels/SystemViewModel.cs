@@ -12,10 +12,12 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
         {
             this.save = save;
             Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
+            Character = new KhEnumListModel<CharacterType>(() => save.PlayableCharacter, x => save.PlayableCharacter = x);
             Worlds = new KhEnumListModel<WorldType>();
         }
 
         public KhEnumListModel<DifficultyType> Difficulty { get; set; }
+        public KhEnumListModel<CharacterType> Character { get; set; }
         public KhEnumListModel<WorldType> Worlds { get; set; }
 
         public WorldType WorldId { get => save.World; set => save.World = value; }
