@@ -16,7 +16,7 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
         {
             this.command = command;
 
-            Id = new ItemComboBoxModel<CommandType>(() => command.Id, x => { command.Id = x; OnPropertyChanged(nameof(Name)); OnPropertyChanged(nameof(Id)); });
+            Id = new ItemComboBoxModel<CommandType>(() => command.Id, x => { command.Id = x; OnPropertyChanged(nameof(Name)); OnPropertyChanged(nameof(Icon)); });
             Ability = new ItemComboBoxModel<AbilityType>(() => command.Ability, x => command.Ability = x);
         }
 
