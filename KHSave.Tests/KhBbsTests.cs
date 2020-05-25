@@ -76,17 +76,6 @@ namespace KHSave.Tests
             }
 
             [Fact]
-            public void TestRead()
-            {
-                Assert.Equal(45U, save.Character.Money);
-                Assert.Equal(DifficultyType.Critical, save.Difficulty);
-                Assert.Equal(WeaponType.WaywardWind, save.Character.Weapon);
-
-                //Deck 1
-                Assert.Equal(CommandType.FlameSalvo, save.CommandList[save.Decks[0].Shotlock.Id].Id); // commandtypes seem to be shifted in FM
-            }
-
-            [Fact]
             public void TestChecksum()
             {
                 File.OpenRead(FilePath).Using(stream => Assert.Equal(0x9D18AC6FU, SaveKhBbs.CalculateChecksum(stream)));
@@ -96,7 +85,7 @@ namespace KHSave.Tests
             public void TestWriteBackTheSameExactFile() =>
             File.OpenRead(FilePath).Using(stream => Helpers.AssertStream(stream, inStream =>
             {
-                var save = SaveKhBbs.Read<SaveKhBbs.SaveFinalMix>(inStream);
+                var save = SaveKhBbs.Read<SaveKhBbs.SaveEuropean>(inStream);
 
                 var outStream = new MemoryStream();
                 SaveKhBbs.Write(outStream, save);
