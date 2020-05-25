@@ -1,6 +1,4 @@
 ﻿using KHSave.LibBbs.Models;
-using KHSave.SaveEditor.KhBbs.Models;
-using System.Collections.Generic;
 using System.Text;
 using Xe.Tools;
 
@@ -10,11 +8,13 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
     {
         private Deck deck;
 
-        public DeckViewModel(Deck deck, IEnumerable<CommandListModel> commandList)
+        public DeckViewModel(Deck deck, CommandListViewModel commandList)
         {
             this.deck = deck;
             CommandList = commandList;
         }
+
+        public CommandListViewModel CommandList { get; set; }
 
         public string Name => Encoding.GetEncoding(932).GetString(deck.Name); //shift-jis, seems to work in european saves as well
 
@@ -39,8 +39,6 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
         public short ActionCommand10 { get => GetValue(deck.ActionCommands[9].Id); set => deck.ActionCommands[9].Id = (ushort)value; }
 
         public short Shotlock { get => GetValue(deck.Shotlock.Id); set => deck.Shotlock.Id = (ushort)value; }
-
-        public IEnumerable<CommandListModel> CommandList { get; set; }
 
         private short GetValue(ushort value)
         {

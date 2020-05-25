@@ -1,5 +1,4 @@
 ﻿using KHSave.LibBbs;
-using KHSave.LibBbs.Models;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
 using System.IO;
@@ -21,7 +20,7 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
             System = new SystemViewModel(save);
             Character = new CharacterViewModel(save.Character);
             CommandList = new CommandListViewModel(save.CommandList);
-            Decks = new DecksViewModel(save);
+            Decks = new DecksViewModel(save.Decks, CommandList);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Character));
