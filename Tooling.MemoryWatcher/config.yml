@@ -34,27 +34,89 @@
   labels:
     - comment: "World ID"
       offset: 0xc
+      hidden: true
     - comment: "Room ID"
       offset: 0xd
+      hidden: true
     - comment: "Spawn ID"
       offset: 0xe
-    - comment: "ZZ world timer"
-      offset: 0x2440
-      length: 4
       hidden: true
-    - comment: "ES world timer"
+    - comment: "Story progression: Very beginning"
+      offset: 0x1CD2
+      length: 1
+    - comment: "Story progression: TT 1st Day"
+      offset: 0x1CD3
+      length: 3
+    - comment: "Story progression: TT 2st Day"
+      offset: 0x1CD6
+      length: 2
+    - comment: "Story progression: TT 3st Day"
+      offset: 0x1CD8
+      length: 1
+    - comment: "Story progression: Sora"
+      offset: 0x1CEA
+      length: 1
+    - comment: "Story progression chunk"
+      offset: 0x1CE2
+      length: 0x206
+    - comment: "MSG ID that blocks a side of the map #1"
+      offset: 0x20dc
+      length: 0x2a
+      hidden: true
+    - comment: "Map discovery"
+      offset: 0x22f8
+      length: 0x98
+      hidden: true
+    - comment: "Game timers"
       offset: 0x2444
+      length: 0x54
+      hidden: true
+    - comment: "Game difficulty"
+      offset: 0x2498
       length: 4
       hidden: true
-    - comment: "TT world timer"
-      offset: 0x2448
+    - comment: "Puzzle pieces"
+      offset: 0x24a0
+      length: 0x30
+      hidden: true
+    - comment: "Sora: Weapon"
+      offset: 0x24F0
+      length: 2
+      hidden: true
+    - comment: "Sora: HP"
+      offset: 0x24F4
+      length: 2
+      hidden: true
+    - comment: "Sora: MP"
+      offset: 0x24F6
+      length: 2
+      hidden: true
+    - comment: "Sora: Parameters boost"
+      offset: 0x24F8
       length: 4
       hidden: true
-    - comment: "?? world timer"
-      offset: 0x2450
-      length: 4
+    - comment: "Party members"
+      offset: 0x357c
+      length: 0x4
       hidden: true
-    - comment: "Potion count"
+    - comment: "Inventory section"
       offset: 0x3580
-    - comment: "Hi-Potion count"
-      offset: 0x3582
+      length: 0x140
+      hidden: true
+    - comment: "Nobodies kill count: Dusk"
+      offset: 0x38c8
+      length: 4
+      hidden: true
+    - comment: "Nobodies kill count: Creeper"
+      offset: 0x38dc
+      length: 4
+      length: 4
+      hidden: true
+    - comment: "Nobodies kill count: Dragoon"
+      offset: 0x38e0
+      length: 4
+      hidden: true
+    - comment: "Game configuration"
+      offset: 0x41A4
+      length: 2
+      hidden: true
