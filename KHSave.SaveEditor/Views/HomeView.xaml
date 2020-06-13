@@ -95,9 +95,10 @@
             <Separator Margin="5"/>
             <Label>Kingdom Save Editor currently supports the following games:</Label>
             <StackPanel Margin="20 0 0 0">
-                <TextBlock>Kingdom Hearts: Final Mix (PS2,PS4)</TextBlock>
-                <TextBlock>Kingdom Hearts II: Final Mix (PS2,PS3,PS4)</TextBlock>
+                <TextBlock>Kingdom Hearts: EU, US and Final Mix (PS2,PS4)</TextBlock>
+                <TextBlock>Kingdom Hearts II: EU, US and Final Mix (PS2,PS3,PS4)</TextBlock>
                 <TextBlock>Kingdom Hearts Re: Chain of Memories (PS2,PS4)</TextBlock>
+                <TextBlock>Kingdom Hearts: Birth By Sleep Final Mix (PS2,PS3,PS4)</TextBlock>
                 <TextBlock>Kingdom Hearts 0.2</TextBlock>
                 <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
                 <TextBlock>Final Fantasy VII Remake</TextBlock>
