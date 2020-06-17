@@ -17,5 +17,8 @@
         <TabItem Header="Players">
             <views:PlayersView DataContext="{Binding Players}"/>
         </TabItem>
+        <TabItem Header="Gummi Ship">
+            <views:GummiShipsView DataContext="{Binding GummiShips}"/>
+        </TabItem>
     </TabControl>
 </UserControl>

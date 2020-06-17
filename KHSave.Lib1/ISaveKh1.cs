@@ -24,6 +24,7 @@ namespace KHSave.Lib1
         WorldType World { get; set; }
         uint Room { get; set; }
         uint SpawnLocation { get; set; }
+        Gummiship[] Gummiships { get; set; }
 
         void Write(Stream stream);
     }
