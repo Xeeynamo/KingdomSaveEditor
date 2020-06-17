@@ -55,8 +55,11 @@ namespace KHSave.SaveEditor.Services
         {
             int byteReadCount;
             var data = new byte[BootFileMaximumStringLength];
+            int tryCount = 0;
             while (!cancellationToken.IsCancellationRequested)
             {
+                tryCount++;
+
                 using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + PlayStation2BootFile, 0x20))
                 {
                     byteReadCount = searchStream.Read(data, 0, data.Length);
@@ -100,7 +103,11 @@ namespace KHSave.SaveEditor.Services
 
                 // 5. A supported game is booted.
                 //    Returns a valid Stream.
-                Thread.Sleep(3000); // Wait few seconds to give time for the game to boot.
+                // Wait few seconds to give time for the game to boot if PCSX2 was
+                // just opened.
+                if (tryCount > 2)
+                    Thread.Sleep(3000);
+
                 return new ProcessStream(process, game.Offset, (uint)game.Length);
             }
 
