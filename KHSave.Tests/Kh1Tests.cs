@@ -41,6 +41,10 @@ namespace KHSave.Tests
 
             Assert.Equal(PlayableCharacterType.Empty, save.CompanionCharacter3);
             Assert.Equal((uint)45359, save.Munny);
+
+            Assert.Equal(WorldType.Endoftheworld, save.World);
+            Assert.Equal((uint)0x1D, save.Room);
+            Assert.Equal((uint)0x48, save.SpawnLocation);
         }
 
         [Fact]

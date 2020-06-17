@@ -31,6 +31,10 @@ namespace KHSave.Lib1
             [Data(0x845)] public CommandType ShortcutTriangle { get; set; }
             [Data(0x846)] public CommandType ShortcutSquare { get; set; }
 
+            [Data(0x2040)] public WorldType World { get; set; }
+            [Data(0x2044)] public uint Room { get; set; }
+            [Data(0x2048)] public uint SpawnLocation { get; set; }
+
             [Data(0x16400)] public int AutoLock { get; set; }
             [Data(0x16404)] public int TargetLock { get; set; }
             [Data(0x16408)] public int Camera { get; set; }
