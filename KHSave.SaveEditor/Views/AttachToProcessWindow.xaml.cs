@@ -29,7 +29,10 @@ namespace KHSave.SaveEditor.Views
             // to create the window for that.
             var process = GetFirstProcessOrDefault(ProcessName);
             if (process != null)
+            {
+                Close();
                 return process;
+            }
 
             // If not found, create a waiting dialog to give some feedback to the user.
             using (var cancellationTokenSource = new CancellationTokenSource())
