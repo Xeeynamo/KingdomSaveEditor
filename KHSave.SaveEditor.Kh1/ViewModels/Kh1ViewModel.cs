@@ -27,6 +27,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public InventoryViewModel Inventory { get; private set; }
         public PlayersViewModel Players { get; private set; }
         public KhEnumListModel<AbilityType> Abilities { get; }
+        public GummiShipsViewModel GummiShips { get; private set; }
 
         public void RefreshUi()
         {
