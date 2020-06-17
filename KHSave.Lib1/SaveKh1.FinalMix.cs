@@ -31,6 +31,8 @@ namespace KHSave.Lib1
             [Data(0x845)] public CommandType ShortcutTriangle { get; set; }
             [Data(0x846)] public CommandType ShortcutSquare { get; set; }
 
+            [Data( 0x241C, Count = 10)] public Gummiship[] Gummiships { get; set; }
+
             [Data(0x16400)] public int AutoLock { get; set; }
             [Data(0x16404)] public int TargetLock { get; set; }
             [Data(0x16408)] public int Camera { get; set; }

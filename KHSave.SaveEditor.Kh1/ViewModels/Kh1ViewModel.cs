@@ -18,6 +18,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public SystemViewModel System { get; private set; }
         public InventoryViewModel Inventory { get; private set; }
         public PlayersViewModel Players { get; private set; }
+        public GummiShipsViewModel GummiShips { get; private set; }
 
         public void RefreshUi()
         {
