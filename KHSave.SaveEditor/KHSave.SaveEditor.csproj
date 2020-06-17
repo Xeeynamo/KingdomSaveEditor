@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -8,9 +8,9 @@
     <UseWpf>true</UseWpf>
     <Version>1.12.0</Version>
     <RepositoryUrl>https://github.com/xeeynamo/kh3saveeditor</RepositoryUrl>
-    <PackageProjectUrl>https://xeeynamo.github.io/kh3saveeditor</PackageProjectUrl>
+    <PackageProjectUrl>http://kingdomsaveeditor.xee.dev/</PackageProjectUrl>
     <AssemblyVersion>1.12.0</AssemblyVersion>
-    <Description>https://xeeynamo.github.io/kh3saveeditor</Description>
+    <Description>http://kingdomsaveeditor.xee.dev/</Description>
     <Copyright>Copyright (C) 2020 Luciano Ciccariello</Copyright>
     <RepositoryType></RepositoryType>
     <PackageTags></PackageTags>
