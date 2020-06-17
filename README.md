@@ -6,14 +6,15 @@ This is the repository for a Windows application that allows to modify decrypted
 
 If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer) to make it work.
 
-| Game                     | Console     | Region |
-|--------------------------| ------------|--------|
-| Kingdom Hearts I         | PS2/PS4     | FM     |
-| Kingdom Hearts Re: CoM   | PS2/PS4     | US/FM  |
-| Kingdom Hearts II        | PS2/PS3/PS4 | FM     |
-| Kingdom Hearts 0.2       | PS4         | All    |
-| Kingdom Hearts III       | PS4         | All    |
-| Final Fantasy VII Remake | PS4         | All    |
+| Game                           | Console      | Region |
+|--------------------------------| -------------|--------|
+| Kingdom Hearts I               | PS2/PS3//PS4 | All    |
+| Kingdom Hearts Re: CoM         | PS2/PS4      | US/EU/FM |
+| Kingdom Hearts II              | PS2/PS3/PS4  | FM     |
+| Kingdom Hearts: Birth By Sleep | PS2/PS3/PS4  | FM     |
+| Kingdom Hearts 0.2             | PS4          | All    |
+| Kingdom Hearts III             | PS4          | All    |
+| Final Fantasy VII Remake       | PS4          | All    |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
@@ -21,78 +22,6 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 ## Donations
 
 My GitHub is opened to the [sponsor program](https://github.com/sponsors/Xeeynamo). If you feel that the editor helped you in some way or you would like to support it, you can consider to [donate me](https://github.com/sponsors/Xeeynamo).
-
-## Features and supported games
-
-### Features in Final Fantasy VII Remake editor
-
-* Add, modify or remove Materia
-* Add, modify or remove Inventory items
-* Add, change or remove materia installed into weapons
-* Character teleportation to different locations or Out of Bounds
-* Play as Red XIII
-* Advanced features to research un-discovered content in the save
-
-### Features in Kingdom Hearts III editor
-
-* Tested support for the version 1.09 of Kingdom Hearts III
-* Support for Re:Mind DLC
-* Change game difficulty (even Critical Mode in version 1.03 or below)
-* Make new saves compatible with older versions (advanced feature)
-* Info and decorations (eg. game timer, save icons)
-* Exp, Munny
-* Manage story progression!
-* Statistics (eg. save count, food enhancements)
-* More playable characters
-* Explore unaccessible or unused maps
-* Inventory editor
-    * Set items count between 0 and 255
-    * Set flags (unseen, shop, collected)
-    * Group editing
-    * Search filter
-        * Filter by name
-        * Filter by quantity (eg `=0`, `>50`, `<99`)
-        * Filter by unobtained (`obtained`, `!obtained`)
-        * Filter by shop availability (`shop`, `!shop`)
-* Sora and partners editor:
-    * HP, MP, Focus, parameter boosts
-    * Weapons equipped
-    * Armors equipped
-    * Accessories equipped
-	* Ability support
-* Records
-    * Minigames
-    * Flantastics
-    * Shotlocks
-* Photo gallery management
-    * View the existing photos
-    * Export one or all the photos
-    * Import custom photo in the game
-    * Delete all the photos
-    
-### Features in Kingdom Hearts II editor
-
-* Shortcuts editor
-* Character editor
-    * Statistics
-    * Equipment
-* Character mod
-* Experience and bonus level
-* Difficulty
-    
-### Features in Kingdom Hearts 0.2 editor
-
-* Multiple slot editing
-* Change game difficulty
-* Exp editor and level up
-* Room mod
-    
-### Features in Kingdom Hearts Re: CoM
-
-* Difficulty and system flags
-* Card inventory
-* Story progress
-* Settings
 
 ## User guide
 
@@ -122,7 +51,6 @@ This software is open-source, and every contribution is more than welcome!
 
 If you want to add missing names, improve it or add new offsets, just clone the repository, do your change, test if it does work and create a pull request: we will review your change (no needs to be scared here) and we will merge it to this repo! Do not be shy on contribute, even for the smallest thing :)
 
-
 ### Issues or feature requestes
 
 For every issue or feature request, please refer to [the issue page on GitHub](https://github.com/Xeeynamo/KH3SaveEditor/issues). Be as detailed as possible when creating an issue as it will help me to dig into the problem.
@@ -141,5 +69,5 @@ The code itself, the interface and the codes inside it are protected by GPL 3.0 
 
 If you have more doubts about the GPL license, have a read to the following links:
 
-https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
-https://simple.wikipedia.org/wiki/GNU_General_Public_License
+[LICENSE info](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3))
+[LICENSE Wikipedia](https://simple.wikipedia.org/wiki/GNU_General_Public_License)
