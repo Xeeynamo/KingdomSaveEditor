@@ -22,6 +22,9 @@ namespace KHSave.Lib1
         PlayableCharacterType CompanionCharacter3 { get; set; }
         byte[] InventoryCount { get; set; }
         Character[] Characters { get; set; }
+        WorldType World { get; set; }
+        uint Room { get; set; }
+        uint SpawnLocation { get; set; }
 
         void Write(Stream stream);
     }

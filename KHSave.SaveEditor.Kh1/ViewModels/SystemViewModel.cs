@@ -18,6 +18,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
             Abilities = new KhEnumListModel<AbilityType>();
             DifficultiesFm = new KhEnumListModel<DifficultyFm>(() => save.Difficulty, x => save.Difficulty = x);
+            Worlds = new KhEnumListModel<WorldType>();
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
@@ -27,6 +28,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
         public KhEnumListModel<AbilityType> Abilities { get; }
         public KhEnumListModel<DifficultyFm> DifficultiesFm { get; }
+        public KhEnumListModel<WorldType> Worlds { get; }
 
         public AbilityType SharedAbility1 { get => save.SharedAbility1; set => save.SharedAbility1 = value; }
         public AbilityType SharedAbility2 { get => save.SharedAbility2; set => save.SharedAbility2 = value; }
@@ -39,5 +41,9 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 
         public uint Munny { get => save.Munny; set => save.Munny = value; }
         public DifficultyFm Difficulty { get => save.Difficulty; set => save.Difficulty = value; }
+
+        public WorldType World { get => save.World; set => save.World = value; }
+        public uint Room { get => save.Room; set => save.Room = value; }
+        public uint SpawnLocation { get => save.SpawnLocation; set => save.SpawnLocation = value; }
     }
 }

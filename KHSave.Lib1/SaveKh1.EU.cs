@@ -29,9 +29,13 @@ namespace KHSave.Lib1
             [Data(0x82D)] public CommandType ShortcutCircle { get; set; }
             [Data(0x82E)] public CommandType ShortcutSquare { get; set; }
 
-            
+            [Data(0x2040)] public WorldType World { get; set; }
+            [Data(0x2044)] public uint Room { get; set; }
+            [Data(0x2048)] public uint SpawnLocation { get; set; }
+
+
             //Gummiships
-            [Data(Count = 10, Stride = 0x241C)] public Gummiship[] Gummiships { get; set; }
+            [Data(0x241C, Count = 10)] public Gummiship[] Gummiships { get; set; }
             
             //Needs testing
             [Data(0x16A30)] public int AutoLock { get; set; }

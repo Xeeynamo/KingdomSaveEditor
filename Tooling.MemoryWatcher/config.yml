@@ -13,7 +13,21 @@
       offset: 0x44
       length: 0x30
       hidden: true
-- name: "Kingdom Hearts II (FM, Crazycat00 eng patch)"
+- name: "Kingdom Hearts I (FM, SLPS-25198)"
+  process: pcsx2
+  offset: 0x203f8380
+  length: 0x16C00
+  labels:
+  - comment: "World ID"
+    offset: 0x2040
+    length: 0x4
+  - comment: "Room ID"
+    offset: 0x2044
+    length: 0x4
+  - comment: "Spawn ID"
+    offset: 0x2048
+    length: 0x4
+- name: "Kingdom Hearts II (FM, Crazycatz00 eng patch)"
   process: pcsx2
   offset: 0x2032BB30
   length: 0x10fc0
