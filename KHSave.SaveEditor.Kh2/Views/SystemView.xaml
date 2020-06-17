@@ -118,9 +118,9 @@
         <GroupBox Header="Room modifier">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
@@ -138,8 +138,11 @@
                     SelectedValue="{Binding WorldId}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
-                <TextBox Grid.Row="1" Grid.Column="2"
-                    Text="{Binding RoomId, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Grid.Row="1" Grid.Column="2"
+                    ItemsSource="{Binding Rooms}"
+                    SelectedValue="{Binding RoomId}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Value"/>
                 <TextBox Grid.Row="1" Grid.Column="4"
                     Text="{Binding SpawnId, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>

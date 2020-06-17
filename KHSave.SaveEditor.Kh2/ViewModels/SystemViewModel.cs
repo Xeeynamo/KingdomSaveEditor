@@ -19,10 +19,14 @@
 using KHSave.Lib2;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class SystemViewModel
+    public class SystemViewModel : BaseNotifyPropertyChanged
     {
         private readonly ISaveKh2 save;
 
@@ -45,13 +49,22 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
         public KhEnumListModel<Difficulty> Difficulty { get; }
         public KhEnumListModel<WorldType> Worlds { get; }
+        public IEnumerable<RoomViewModel> Rooms => Data.Rooms.Where(x => x.World == WorldId).Select(x => new RoomViewModel(x));
 
         public int Timer { get => save.Timer; set => save.Timer = value; }
         public int Munny { get => save.MunnyAmount; set => save.MunnyAmount = value; }
         public int Experience { get => save.Experience; set => save.Experience = value; }
         public int BonusLevel { get => save.BonusLevel; set => save.BonusLevel = value; }
 
-        public WorldType WorldId { get => save.WorldId; set => save.WorldId = value; }
+        public WorldType WorldId
+        {
+            get => save.WorldId;
+            set
+            {
+                save.WorldId = value;
+                OnPropertyChanged(nameof(Rooms));
+            }
+        }
         public byte RoomId { get => save.RoomId; set => save.RoomId = value; }
         public byte SpawnId { get => save.SpawnId; set => save.SpawnId = value; }
 
