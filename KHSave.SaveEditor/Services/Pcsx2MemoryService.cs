@@ -53,56 +53,58 @@ namespace KHSave.SaveEditor.Services
 
         public static async Task<ProcessStream> CreateStreamFromPcsx2Process(Process process, CancellationToken cancellationToken)
         {
+            int byteReadCount;
             var data = new byte[BootFileMaximumStringLength];
-            using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + PlayStation2BootFile, 0x20))
+            while (!cancellationToken.IsCancellationRequested)
             {
-                while (!cancellationToken.IsCancellationRequested)
+                using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + PlayStation2BootFile, 0x20))
                 {
-                    var byteReadCount = searchStream.Read(data, 0, data.Length);
-
-                    var bootFile = Encoding.ASCII.GetString(data.TakeWhile(b => !b.Equals(0)).ToArray());
-
-                    // Here the situation becomes weird. We can have 5 possible different scenario:
-                    // 1. The emulator is not booted. so the selected portion of memory will be undefined.
-                    //    The task can wait for the user to load the game.
-                    //    We can impose a quite long sleep, since it takes time from user's interaction.
-                    if (byteReadCount == 0)
-                    {
-                        await Task.Delay(1000);
-                        continue;
-                    }
-
-                    // 2. The emulator is booted to the bios, which will return "SYS"
-                    //    The task can wait for the BIOS to boot the game.
-                    //    The boot can happen at any time... or not happen at all.
-                    if (bootFile == "SYS")
-                    {
-                        await Task.Delay(200);
-                        continue;
-                    }
-
-                    // 3. The game is booting, so the length of bootFile will be 0.
-                    //    The task can wait for the game to be booted.
-                    //    This operation is usually quite fast.
-                    if (bootFile.Length == 0)
-                    {
-                        await Task.Delay(10);
-                        continue;
-                    }
-
-                    // 4. A non-supported game is booted. It will always start with "SL".
-                    //    The task should return null, as the game is not supported.
-                    var game = Games.FirstOrDefault(x => x.BootFile == bootFile);
-                    if (game == null)
-                        return null;
-
-                    // 5. A supported game is booted.
-                    //    Returns a valid Stream.
-                    return new ProcessStream(process, game.Offset, (uint)game.Length);
+                    byteReadCount = searchStream.Read(data, 0, data.Length);
                 }
 
-                return null;
+                var bootFile = Encoding.ASCII.GetString(data.TakeWhile(b => !b.Equals(0)).ToArray());
+
+                // Here the situation becomes weird. We can have 5 possible different scenario:
+                // 1. The emulator is not booted. so the selected portion of memory will be undefined.
+                //    The task can wait for the user to load the game.
+                //    We can impose a quite long sleep, since it takes time from user's interaction.
+                if (byteReadCount == 0)
+                {
+                    await Task.Delay(1000);
+                    continue;
+                }
+
+                // 2. The emulator is booted to the bios, which will return "SYS"
+                //    The task can wait for the BIOS to boot the game.
+                //    The boot can happen at any time... or not happen at all.
+                if (bootFile == "SYS")
+                {
+                    await Task.Delay(200);
+                    continue;
+                }
+
+                // 3. The game is booting, so the length of bootFile will be 0.
+                //    The task can wait for the game to be booted.
+                //    This operation is usually quite fast.
+                if (bootFile.Length == 0)
+                {
+                    await Task.Delay(10);
+                    continue;
+                }
+
+                // 4. A non-supported game is booted. It will always start with "SL".
+                //    The task should return null, as the game is not supported.
+                var game = Games.FirstOrDefault(x => x.BootFile == bootFile);
+                if (game == null)
+                    return null;
+
+                // 5. A supported game is booted.
+                //    Returns a valid Stream.
+                Thread.Sleep(3000); // Wait few seconds to give time for the game to boot.
+                return new ProcessStream(process, game.Offset, (uint)game.Length);
             }
+
+            return null;
         }
     }
 }
