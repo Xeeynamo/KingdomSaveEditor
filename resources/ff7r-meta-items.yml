@@ -270,13 +270,85 @@ items:
 - id: 346
   name: Way of the Fist Vol. I
   icon: Recipe
+- id: 347
+  name: Way of the Fist Vol. II
+  icon: Recipe
+- id: 348
+  name: Way of the Fist Vol. III
+  icon: Recipe
+- id: 349
+  name: Way of the Fist Vol. IV
+  icon: Recipe
+- id: 350
+  name: Way of the Fist Vol. V
+  icon: Recipe
+- id: 351
+  name: Way of the Fist Vol. VI
+  icon: Recipe
+- id: 352
+  name: Way of the Fist Vol. VII
+  icon: Recipe
+- id: 353
+  name: Way of the Fist Vol. VIII
+  icon: Recipe
+- id: 354
+  name: Way of the Fist Vol. IX
+  icon: Recipe
+- id: 355
+  name: Way of the Fist Vol. X
+  icon: Recipe
+- id: 356
+  name: Way of the Fist Vol. XI
+  icon: Recipe
+- id: 357
+  name: Way of the Fist Vol. XII
+  icon: Recipe
+- id: 358
+  name: Way of the Fist Vol. XIII
+  icon: Recipe
 - id: 359
   name: Way of the Fist Vol. XIV
   icon: Recipe
 - id: 361
   name: Telluric Scriptures Vol. I
   icon: Recipe
-- id: 378
+- id: 362
+  name: Telluric Scriptures Vol. II
+  icon: Recipe
+- id: 363
+  name: Telluric Scriptures Vol. III
+  icon: Recipe
+- id: 364
+  name: Telluric Scriptures Vol. IV
+  icon: Recipe
+- id: 365
+  name: Telluric Scriptures Vol. V
+  icon: Recipe
+- id: 366
+  name: Telluric Scriptures Vol. VI
+  icon: Recipe
+- id: 367
+  name: Telluric Scriptures Vol. VII
+  icon: Recipe
+- id: 368
+  name: Telluric Scriptures Vol. VIII
+  icon: Recipe
+- id: 369
+  name: Telluric Scriptures Vol. IX
+  icon: Recipe
+- id: 370
+  name: Telluric Scriptures Vol. X
+  icon: Recipe
+- id: 371
+  name: Telluric Scriptures Vol. XI
+  icon: Recipe
+- id: 372
+  name: Telluric Scriptures Vol. XII
+  icon: Recipe
+- id: 373
+  name: Telluric Scriptures Vol. XIII
+  icon: Recipe
+- id: 374
   name: Telluric Scriptures Vol. XIV
   icon: Recipe
 - id: 380
