@@ -29,9 +29,9 @@ My GitHub is open to a [sponsor program](https://github.com/sponsors/Xeeynamo). 
 
 You need first to get a decrypted save. There are two ways to achieve it:
 
-1) Playstation 4 Save Mounter: If you have a PS4 with a HEN or Custom Firmware, you may want to use this free and fast tool: https://github.com/ChendoChap/Playstation-4-Save-Mounter
+1) [Playstation 4 Save Mounter](https://github.com/ChendoChap/Playstation-4-Save-Mounter): If you have a PS4 with a HEN or Custom Firmware, you may want to use [this free and fast tool](https://github.com/ChendoChap/Playstation-4-Save-Mounter)
 
-2) Save Wizard: If you do not have a custom firmware, you can obtain a copy of a decrypted save and re-encrypt it using the following paid software: https://www.savewizard.net/
+2) [Save Wizard](https://www.savewizard.net/): If you do not have a custom firmware, you can obtain a copy of a decrypted save and re-encrypt it using [the following paid software](https://www.savewizard.net/)
 
 Once you get your save, just open it using the KH3SaveEditor from File\Open, then save it with File\Save. If you want to transfer back the file on your Playstation 4, just follow the guide lines of the tool that you used for decryption
 
@@ -63,9 +63,9 @@ When you clone this repository, remember to launch the script `setup.bat` if you
 
 The script `pack.bat` uses WinRAR's self-extracting archive to create a single executable file ready to be distributed.
 
-## Privacy Policy
+## Privacy policy
 
-The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest which changes you will find in a new release. 
+The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest which changes you will find in a new release.
 
 It is important to state that it does not collect any information if not asked for the explicit authorization of it. The source code can be found on GitHub, so you can have an idea on which data the application have access to.
 
