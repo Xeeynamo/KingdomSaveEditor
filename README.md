@@ -63,6 +63,12 @@ When you clone this repository, remember to launch the script `setup.bat` if you
 
 The script `pack.bat` uses WinRAR's self-extracting archive to create a single executable file ready to be distributed.
 
+## Privacy Policy
+
+The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest which changes you will find in a new release. 
+
+It is important to state that it does not collect any information if not asked for the explicit authorization of it. The source code can be found on GitHub, so you can have an idea on which data the application have access to.
+
 ## To conclude
 
 The code itself, the interface and the codes inside it are protected by GPL 3.0 license. In short, that means that for every change you made or code that you take from here, you need to make it open source somewhere, adding the original copyright statement and specify where the original code has been taken.
