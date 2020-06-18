@@ -63,7 +63,7 @@ When you clone this repository, remember to launch the script `setup.bat` if you
 
 The script `pack.bat` uses WinRAR's self-extracting archive to create a single executable file ready to be distributed.
 
-## Privacy policy
+### Privacy policy
 
 The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest which changes you will find in a new release.
 
