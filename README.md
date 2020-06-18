@@ -8,9 +8,9 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 
 | Game                           | Console      | Region |
 |--------------------------------| -------------|--------|
-| Kingdom Hearts I               | PS2/PS3/PS4 | All     |
-| Kingdom Hearts Re: CoM         | PS2/PS4      | US/EU/FM |
-| Kingdom Hearts II              | PS2/PS3/PS4  | FM     |
+| Kingdom Hearts I               | PS2/PS3/PS4  | All    |
+| Kingdom Hearts Re: CoM         | PS2/PS4      | All    |
+| Kingdom Hearts II              | PS2/PS3/PS4  | US/EU/FM |
 | Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4  | FM     |
 | Kingdom Hearts 0.2             | PS4          | All    |
 | Kingdom Hearts III             | PS4          | All    |
