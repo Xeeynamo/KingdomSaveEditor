@@ -10,8 +10,9 @@ using Xe.BinaryMapper;
 
 namespace KHSave.LibDDD
 {
-    public class SaveKhDDD : ISaveKhDDD
+    public partial class SaveKhDDD : ISaveKhDDD
     {
+        [Data(0, 0x163FF)] public byte[] Data { get; set; }
         [Data(0x20)] public DifficultyType Difficulty { get; set; }
         [Data(0x94)] public WorldType WorldId { get; set; }
         [Data] public byte RoomId { get; set; }
