@@ -66,6 +66,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tooling.MemoryWatcher", "To
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WindowsStoreSubmission", "WindowsStoreSubmission\WindowsStoreSubmission.wapproj", "{080A374C-D430-4FCB-96B8-889FDEBF58F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHSave.LibDDD", "KHSave.LibDDD\KHSave.LibDDD.csproj", "{BABA96A7-BEF2-450E-8502-11D36163B691}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -582,6 +584,26 @@ Global
 		{080A374C-D430-4FCB-96B8-889FDEBF58F2}.Release|x86.ActiveCfg = Release|x86
 		{080A374C-D430-4FCB-96B8-889FDEBF58F2}.Release|x86.Build.0 = Release|x86
 		{080A374C-D430-4FCB-96B8-889FDEBF58F2}.Release|x86.Deploy.0 = Release|x86
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|x64.Build.0 = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Debug|x86.Build.0 = Debug|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|ARM.Build.0 = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|ARM64.Build.0 = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|x64.ActiveCfg = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|x64.Build.0 = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|x86.ActiveCfg = Release|Any CPU
+		{BABA96A7-BEF2-450E-8502-11D36163B691}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
