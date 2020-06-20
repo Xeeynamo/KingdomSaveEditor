@@ -7,6 +7,7 @@ using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.KhBbs.ViewModels;
 using KHSave.SaveEditor.KhRecom.ViewModels;
+using KHSave.SaveEditor.KhDDD.ViewModels;
 using KHSave.SaveEditor.ViewModels;
 using KHSave.SaveEditor.Views;
 using System;
@@ -22,6 +23,7 @@ namespace KHSave.SaveEditor.Services
         KingdomHearts,
         KingdomHearts2,
         KingdomHeartsBbs,
+        KingdomHeartsDDD,
         KingdomHeartsRecom,
         KingdomHearts02,
         KingdomHearts3,
@@ -53,6 +55,7 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.KingdomHearts: return FactoryEditorView<Kh1.MainView, Kh1ViewModel>();
                 case ContentType.KingdomHearts2: return FactoryEditorView<Kh2.MainView, Kh2ViewModel>();
                 case ContentType.KingdomHeartsBbs: return FactoryEditorView<KhBbs.MainView, KhBbsViewModel>();
+                case ContentType.KingdomHeartsDDD: return FactoryEditorView<KhDDD.MainView, KhDDDViewModel>();
                 case ContentType.KingdomHeartsRecom: return FactoryEditorView<KhRecom.MainView, KhRecomViewModel>();
                 case ContentType.KingdomHearts02: return FactoryEditorView<Kh02.MainView, Kh02ViewModel>();
                 case ContentType.KingdomHearts3: return FactoryEditorView<Kh3.MainView, Kh3ViewModel>();
