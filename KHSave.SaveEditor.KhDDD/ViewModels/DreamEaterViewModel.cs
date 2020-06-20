@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
-    class DreamEaterViewModel
+    public class DreamEaterViewModel
     {
         private readonly DreamEater[] dreamEater;
 
