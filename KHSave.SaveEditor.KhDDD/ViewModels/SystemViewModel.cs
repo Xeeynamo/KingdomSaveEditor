@@ -4,7 +4,7 @@ using KHSave.SaveEditor.Common.Models;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
-    class SystemViewModel
+    public class SystemViewModel
     {
         private readonly ISaveKhDDD save;
 

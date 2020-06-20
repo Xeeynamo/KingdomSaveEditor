@@ -7,7 +7,7 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
-    class KhDDDViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
+    public class KhDDDViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
         private ISaveKhDDD save;
 

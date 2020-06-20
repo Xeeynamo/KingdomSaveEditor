@@ -10,7 +10,7 @@ namespace KHSave.LibDDD.Model
     {
         [Data] public DreamEaterType DreamEaterType { get; set; }
         [Data(Count = 5)] public byte[] Unk01 { get; set; }
-        [Data(Count = 22)] public string Name { get; set; }
+        [Data(Count = 22)] public byte[] Name { get; set; }
         [Data(Count = 33)] public byte[] Unk02 { get; set; }
         [Data] public byte[] Attack { get; set; }
         [Data] public byte[] Magic { get; set; }
