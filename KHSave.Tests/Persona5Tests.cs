@@ -53,11 +53,11 @@ namespace KHSave.Tests
             Assert.Equal(566, save.Characters[0].Experience);
             Assert.Equal(125, save.Characters[1].CurrentHp);
             Assert.Equal(21, save.Characters[1].CurrentMp);
-            Assert.Equal(498, save.Characters[1].Experience2);
+            Assert.Equal(498, save.Characters[1].Persona[0].Experience);
             Assert.Equal(117, save.Characters[2].CurrentHp);
             Assert.Equal(18, save.Characters[2].CurrentMp);
-            Assert.Equal(543, save.Characters[2].Experience2);
-            Assert.Equal(463, save.Characters[3].Experience2);
+            Assert.Equal(543, save.Characters[2].Persona[0].Experience);
+            Assert.Equal(463, save.Characters[3].Persona[0].Experience);
         }
 
         [Theory]
