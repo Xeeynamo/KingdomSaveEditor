@@ -7,6 +7,7 @@ namespace KHSave.LibPersona5
 {
     public interface ISavePersona5
     {
+        int Money { get; set; }
     }
 
     public class SavePersona5

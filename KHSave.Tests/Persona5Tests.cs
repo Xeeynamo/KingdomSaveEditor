@@ -27,18 +27,21 @@ namespace KHSave.Tests
         public void ReadPersona5FromPs3()
         {
             var save = File.OpenRead("Saves/p5_ps3.DAT").Using(SavePersona5.Read);
+            Assert.Equal(1002943, save.Money);
         }
 
         [Fact]
         public void ReadPersona5FromPs4()
         {
             var save = File.OpenRead("Saves/p5_ps4.DAT").Using(SavePersona5.Read);
+            Assert.Equal(505184, save.Money);
         }
 
         [Fact]
         public void ReadPersona5Royal()
         {
             var save = File.OpenRead("Saves/p5r.DAT").Using(SavePersona5.Read);
+            Assert.Equal(49735, save.Money);
         }
 
         [Theory]
