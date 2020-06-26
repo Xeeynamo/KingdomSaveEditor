@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KHSave.LibPersona5.Models;
+using System;
 using System.IO;
 using System.Text;
 using Xe.BinaryMapper;

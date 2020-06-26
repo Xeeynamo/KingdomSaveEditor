@@ -1,6 +1,7 @@
-﻿using Xe.BinaryMapper;
+﻿using KHSave.LibPersona5.Types;
+using Xe.BinaryMapper;
 
-namespace KHSave.LibPersona5
+namespace KHSave.LibPersona5.Models
 {
     public class Persona
     {
@@ -11,7 +12,12 @@ namespace KHSave.LibPersona5
         [Data] public short Level { get; set; }
         [Data] public short Unknown06 { get; set; }
         [Data] public int Experience { get; set; }
-
+        [Data(Count = 8)] public Skill[] Skills{ get; set; }
+        [Data] public byte Strength { get; set; }
+        [Data] public byte Magic { get; set; }
+        [Data] public byte Endurance { get; set; }
+        [Data] public byte Agility { get; set; }
+        [Data] public byte Luck { get; set; }
     }
 
     public class Character
