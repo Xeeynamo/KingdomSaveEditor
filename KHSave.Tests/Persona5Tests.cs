@@ -28,6 +28,10 @@ namespace KHSave.Tests
         {
             var save = File.OpenRead("Saves/p5_ps3.DAT").Using(SavePersona5.Read);
             Assert.Equal(1002943, save.Money);
+            Assert.Equal(9, save.Characters.Length);
+            Assert.Equal(103, save.Characters[0].CurrentHp);
+            Assert.Equal(38, save.Characters[0].CurrentMp);
+            Assert.Equal(77, save.Characters[0].Experience);
         }
 
         [Fact]
@@ -35,6 +39,7 @@ namespace KHSave.Tests
         {
             var save = File.OpenRead("Saves/p5_ps4.DAT").Using(SavePersona5.Read);
             Assert.Equal(505184, save.Money);
+            Assert.Equal(9, save.Characters.Length);
         }
 
         [Fact]
@@ -42,6 +47,17 @@ namespace KHSave.Tests
         {
             var save = File.OpenRead("Saves/p5r.DAT").Using(SavePersona5.Read);
             Assert.Equal(49735, save.Money);
+            Assert.Equal(10, save.Characters.Length);
+            Assert.Equal(136, save.Characters[0].CurrentHp);
+            Assert.Equal(2, save.Characters[0].CurrentMp);
+            Assert.Equal(566, save.Characters[0].Experience);
+            Assert.Equal(125, save.Characters[1].CurrentHp);
+            Assert.Equal(21, save.Characters[1].CurrentMp);
+            Assert.Equal(498, save.Characters[1].Experience2);
+            Assert.Equal(117, save.Characters[2].CurrentHp);
+            Assert.Equal(18, save.Characters[2].CurrentMp);
+            Assert.Equal(543, save.Characters[2].Experience2);
+            Assert.Equal(463, save.Characters[3].Experience2);
         }
 
         [Theory]
