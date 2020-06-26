@@ -24,6 +24,7 @@
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
     <ProjectReference Include="..\KHSave.LibBbs\KHSave.LibBbs.csproj" />
     <ProjectReference Include="..\KHSave.LibFf7Remake\KHSave.LibFf7Remake.csproj" />
+    <ProjectReference Include="..\KHSave.LibPersona5\KHSave.LibPersona5.csproj" />
     <ProjectReference Include="..\KHSave.LibRecom\KHSave.LibRecom.csproj" />
   </ItemGroup>
 
@@ -65,6 +66,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\khbbs_ventus_eu.DAT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Saves\p5_ps3.DAT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Saves\p5_ps4.DAT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Saves\p5r.DAT">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\slot1.bin">
