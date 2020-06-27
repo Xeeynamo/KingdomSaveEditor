@@ -14,6 +14,10 @@ namespace KHSave.LibPersona5.Types
     {
         public ThunderSkillAttribute(string name) : base(name) { }
     }
+    public class HolySkillAttribute : SkillAttribute
+    {
+        public HolySkillAttribute(string name) : base(name) { }
+    }
     public class DeathSkillAttribute : SkillAttribute
     {
         public DeathSkillAttribute(string name) : base(name) { }
@@ -30,9 +34,12 @@ namespace KHSave.LibPersona5.Types
     public enum Skill : short
     {
         [ThunderSkill("Zionga")] Zionga = 41,
+        [ThunderSkill("Mahamaon")] Mahamaon = 53,
+        [ThunderSkill("Makougaon")] Makougaon = 59,
         [ThunderSkill("Eiha")] Eiha = 64,
         [HitSkill("Cleave")] Cleave = 210,
         [HitSkill("Giant Slice")] GiantSlice,
+        [HitSkill("Sword Dance")] SwordDance = 213,
         [HitSkill("Cross Slash")] CrossSlash = 705,
         [SupportSkill("Tarukaja")] Tarukaja = 335,
         [PoisonSkill("Pulinpa")] Pulinpa = 82,
