@@ -15,7 +15,7 @@
             
         </TabItem>
         <TabItem Header="Dream Eaters">
-            
+            <views:DreamEaters DataContext="{Binding DreamEaters}"/>
         </TabItem>
     </TabControl>
 </UserControl>
