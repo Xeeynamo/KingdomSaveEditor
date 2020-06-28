@@ -13,13 +13,13 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
 
         public SystemViewModel System { get; set; }
         //public CharacterViewModel Character { get; set; }
-        public DreamEaterViewModel DreamEater { get; set; }
+        public DreamEatersViewModel DreamEaters { get; set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
             //Character = new CharacterViewModel(save.Character);
-            DreamEater = new DreamEaterViewModel(save.DreamEaters);
+            DreamEaters = new DreamEatersViewModel(save.DreamEaters);
 
             OnPropertyChanged(nameof(System));
             //OnPropertyChanged(nameof(Character));

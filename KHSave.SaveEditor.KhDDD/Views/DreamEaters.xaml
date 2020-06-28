@@ -7,11 +7,18 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <StackPanel>
             <common:TwoEqualColumnsStackPanel>
-                
+                <TextBlock Text="Dream Eater ID"/>
+                <TextBox Grid.Row="0" DataContext="{Binding DreamEaterID}"/>
             </common:TwoEqualColumnsStackPanel>
         </StackPanel>
-    </ScrollViewer>
+        <local:DreamEater DataContext="{Binding SelectedItem}" Grid.RowSpan="2" Margin="0,56,0,-56"/>
+
+    </Grid>
 </UserControl>

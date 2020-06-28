@@ -1,20 +1,29 @@
 ﻿using KHSave.LibDDD;
 using KHSave.LibDDD.Model;
+using KHSave.LibDDD.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
-    public class DreamEaterViewModel
+    public class DreamEaterViewModel : BaseNotifyPropertyChanged
     {
-        private readonly DreamEater[] dreamEater;
+        private readonly DreamEater dreamEater;
 
-        public DreamEaterViewModel(DreamEater[] dreamEater)
+        public DreamEaterViewModel(DreamEater dreamEater)
         {
             this.dreamEater = dreamEater;
         }
+        public DreamEaterType DreamEaterType { get => dreamEater.DreamEaterType; set => dreamEater.DreamEaterType = value; }
+
+        public string Name => Encoding.GetEncoding(932).GetString(dreamEater.Name); //shift-jis, is the same for EU save
+
+        public byte Attack { get => dreamEater.Attack; set => dreamEater.Attack = value; }
+        public byte Magic { get => dreamEater.Magic; set => dreamEater.Magic = value; }
+        public byte Defence { get => dreamEater.Defence; set => dreamEater.Defence = value; }
     }
 }
