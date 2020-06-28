@@ -20,7 +20,7 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
         }
         public DreamEaterType DreamEaterType { get => dreamEater.DreamEaterType; set => dreamEater.DreamEaterType = value; }
 
-        public string Name => Encoding.GetEncoding(932).GetString(dreamEater.Name); //shift-jis, is the same for EU save
+        public string Name { get => Encoding.GetEncoding(932).GetString(dreamEater.Name); set => dreamEater.Name = Encoding.GetEncoding(932).GetBytes(value); } //shift-jis, is the same for EU save
 
         public byte Attack { get => dreamEater.Attack; set => dreamEater.Attack = value; }
         public byte Magic { get => dreamEater.Magic; set => dreamEater.Magic = value; }
