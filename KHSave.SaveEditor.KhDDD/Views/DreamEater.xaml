@@ -23,8 +23,8 @@
                 <TextBox Text="{Binding Defence, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Dream Eater Type" />
-                <ComboBox ItemsSource="{Binding DreamEaterType}"
-                          SelectedValue="{Binding DreamEaterId}"
+                <ComboBox ItemsSource="{Binding DreamEaterTypes}"
+                          SelectedValue="{Binding DreamEaterType}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
