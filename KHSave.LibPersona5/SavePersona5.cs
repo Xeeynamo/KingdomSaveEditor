@@ -42,7 +42,7 @@ namespace KHSave.LibPersona5
 
         public static ISavePersona5 Read(Stream stream)
         {
-            switch (GetGameIdentifier(stream))
+            switch (GetGameIdentifier(stream.SetPosition(0)))
             {
                 case Persona5Identifier:
                     return Mapper.ReadObject<Persona5Vanilla>(stream.SetPosition(0));
