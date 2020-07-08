@@ -43,6 +43,7 @@ using KHSave.LibFf7Remake;
 using KHSave.Lib1;
 using KHSave.LibBbs;
 using KHSave.SaveEditor.Views;
+using KHSave.LibPersona5;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -254,6 +255,7 @@ namespace KHSave.SaveEditor.ViewModels
             TryOpenKh02(stream) ||
             TryOpenKh3(stream) ||
             TryOpenFF7Remake(stream) ||
+            TryOpenPersona5(stream) ||
             TryOpenArchive(stream);
 
         private bool Open(IArchiveFactory archiveFactory, Stream stream)
@@ -312,6 +314,7 @@ namespace KHSave.SaveEditor.ViewModels
         public bool TryOpenKh02(Stream stream) => TryOpen(SaveKh02.IsValid, stream, ContentType.KingdomHearts02);
         public bool TryOpenKh3(Stream stream) => TryOpen(SaveKh3.IsValid, stream, ContentType.KingdomHearts3);
         public bool TryOpenFF7Remake(Stream stream) => TryOpen(SaveFf7Remake.IsValid, stream, ContentType.FinalFantasy7Remake);
+        public bool TryOpenPersona5(Stream stream) => TryOpen(SavePersona5.IsValid, stream, ContentType.Persona5);
 
         public bool TryOpen(Func<Stream, bool> prediate, Stream stream, ContentType contentType)
         {

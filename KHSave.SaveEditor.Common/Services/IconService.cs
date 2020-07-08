@@ -14,6 +14,7 @@ namespace KHSave.SaveEditor.Common.Services
 			KingdomHearts2,
 			KingdomHeartsBbs,
 			FF7Remake,
+			Persona5,
 		}
 
 		private static readonly Dictionary<string, string> IconsDefault = new Dictionary<string, string>()
@@ -105,6 +106,9 @@ namespace KHSave.SaveEditor.Common.Services
 				["Manuscript"] = "ff7r-icon-manuscript",
 				["Materia"] = "ff7r-icon-materia",
 				["Track"] = "ff7r-icon-track",
+			},
+			[IconPack.Persona5] = new Dictionary<string, string>()
+			{
 			},
 		};
 

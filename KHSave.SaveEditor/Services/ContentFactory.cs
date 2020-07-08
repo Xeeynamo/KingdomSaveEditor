@@ -7,6 +7,7 @@ using KHSave.SaveEditor.Kh2.ViewModels;
 using KHSave.SaveEditor.Kh3.ViewModels;
 using KHSave.SaveEditor.KhBbs.ViewModels;
 using KHSave.SaveEditor.KhRecom.ViewModels;
+using KHSave.SaveEditor.Persona5.ViewModels;
 using KHSave.SaveEditor.ViewModels;
 using KHSave.SaveEditor.Views;
 using System;
@@ -26,6 +27,7 @@ namespace KHSave.SaveEditor.Services
         KingdomHearts02,
         KingdomHearts3,
         FinalFantasy7Remake,
+        Persona5,
     }
 
     public class ContentResponse
@@ -57,6 +59,7 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.KingdomHearts02: return FactoryEditorView<Kh02.MainView, Kh02ViewModel>();
                 case ContentType.KingdomHearts3: return FactoryEditorView<Kh3.MainView, Kh3ViewModel>();
                 case ContentType.FinalFantasy7Remake: return FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>();
+                case ContentType.Persona5: return FactoryEditorView<Persona5.Views.Persona5MainView, Persona5MainViewModel>();
                 default: throw new Exception($"Factory for {saveType} not yet implemented.");
             }
         }
@@ -80,6 +83,9 @@ namespace KHSave.SaveEditor.Services
                     break;
                 case ContentType.FinalFantasy7Remake:
                     iconPack = IconService.IconPack.FF7Remake;
+                    break;
+                case ContentType.Persona5:
+                    iconPack = IconService.IconPack.Persona5;
                     break;
                 default: throw new Exception($"IconPack for {saveType} not yet implemented.");
             }

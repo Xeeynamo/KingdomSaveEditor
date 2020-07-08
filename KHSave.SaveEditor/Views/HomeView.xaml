@@ -102,6 +102,7 @@
                 <TextBlock>Kingdom Hearts 0.2</TextBlock>
                 <TextBlock>Kingdom Hearts III + Re:Mind</TextBlock>
                 <TextBlock>Final Fantasy VII Remake</TextBlock>
+                <TextBlock>Persona 5 and Persona 5 Royal</TextBlock>
             </StackPanel>
             <Separator Margin="5"/>
             <Grid Margin="{StaticResource labelMargin}">
