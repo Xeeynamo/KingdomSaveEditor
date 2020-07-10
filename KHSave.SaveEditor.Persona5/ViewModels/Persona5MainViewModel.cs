@@ -1,13 +1,18 @@
 ﻿using KHSave.LibPersona5;
+using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Contracts;
+using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Properties;
+using KHSave.SaveEditor.Persona5.Interfaces;
 using System.IO;
 using System.Windows;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Persona5.ViewModels
 {
-    public class Persona5MainViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
+    public class Persona5MainViewModel : BaseNotifyPropertyChanged,
+        IRefreshUi, IOpenStream, IWriteToStream,
+        IPersonaList
     {
         private const string DefaultTab = "Characters";
 
@@ -28,9 +33,11 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             }
         }
 
+        public KhEnumListModel<Demon> PersonaList { get; } = new KhEnumListModel<Demon>();
+
         public void RefreshUi()
         {
-            Characters = new CharactersViewModel(Save);
+            Characters = new CharactersViewModel(Save, this);
             Inventory = new InventoryViewModel(Save);
 
             OnPropertyChanged(nameof(SimpleVisibility));

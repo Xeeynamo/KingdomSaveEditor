@@ -93,6 +93,7 @@ namespace KHSave.LibPersona5.Types
 
     public enum Demon
     {
+        [Demon] None,
         [Justice] Metatron = 1,
         [Devil] Belzebub,
         [Star("Cu Chulainn")] CuChulainn,
@@ -293,7 +294,7 @@ namespace KHSave.LibPersona5.Types
         [Moon("Tsukiyomi Picaro")] TsukiyomiPicaro,
         [Fool("Satanel")] Satanel,
         [Fool("???")] Demon200,
-        [Fool("Arsene (untested)")] Arsene,
+        [Fool("Arsene")] Arsene,
         [Chariot("Capitain Kidd")] CapitainKidd,
         [Magician] Zorro,
         [Lovers] Carmen,

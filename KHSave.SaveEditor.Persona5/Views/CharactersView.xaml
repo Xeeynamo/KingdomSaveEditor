@@ -7,6 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Column="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"
+            SelectedItem="{Binding SelectedItem}"
+            DisplayMemberPath="Name"
+            />
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryNotVisible}">
+            <Label Content="Select a character to view or edit"/>
+        </Grid>
+        <Grid
+            Grid.Column="2" Margin="0 0 10 0" 
+            Visibility="{Binding EntryVisible}">
+            <local:CharacterView DataContext="{Binding SelectedItem}"/>
+        </Grid>
     </Grid>
 </UserControl>
