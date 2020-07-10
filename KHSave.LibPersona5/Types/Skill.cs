@@ -36,7 +36,7 @@ namespace KHSave.LibPersona5.Types
         [ThunderSkill("Zionga")] Zionga = 41,
         [ThunderSkill("Mahamaon")] Mahamaon = 53,
         [ThunderSkill("Makougaon")] Makougaon = 59,
-        [ThunderSkill("Eiha")] Eiha = 64,
+        [DeathSkill("Eiha")] Eiha = 64,
         [HitSkill("Cleave")] Cleave = 210,
         [HitSkill("Giant Slice")] GiantSlice,
         [HitSkill("Sword Dance")] SwordDance = 213,

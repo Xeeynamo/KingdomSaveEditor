@@ -109,6 +109,14 @@ namespace KHSave.SaveEditor.Common.Services
 			},
 			[IconPack.Persona5] = new Dictionary<string, string>()
 			{
+				["HitSkill"] = "p5-skill-hit",
+				["GunSkill"] = "p5-skill-gun",
+				["FireSkill"] = "p5-skill-fire",
+				["IceSkill"] = "p5-skill-ice",
+				["ThunderSkill"] = "p5-skill-thunder",
+				["DeathSkill"] = "p5-skill-death",
+				["SupportSkill"] = "p5-skill-support",
+				["PoisonSkill"] = "p5-skill-poison",
 			},
 		};
 

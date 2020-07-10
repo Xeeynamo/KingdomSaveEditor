@@ -6,6 +6,19 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Persona5.Views" xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
+    <UserControl.Resources>
+        <DataTemplate x:Key="SkillTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Margin="0 0 3 0" Width="61" Height="20" Source="{Binding Icon}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <TextBlock Text="Persona"/>
@@ -38,14 +51,14 @@
             <TextBlock>Skills</TextBlock>
             <Separator/>
             <common:TwoEqualColumnsStackPanel Margin="0 0 0 15">
-                <TextBox Text="{Binding Skill0}"/>
-                <TextBox Text="{Binding Skill1}"/>
-                <TextBox Text="{Binding Skill2}"/>
-                <TextBox Text="{Binding Skill3}"/>
-                <TextBox Text="{Binding Skill4}"/>
-                <TextBox Text="{Binding Skill5}"/>
-                <TextBox Text="{Binding Skill6}"/>
-                <TextBox Text="{Binding Skill7}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill0}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill1}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill2}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill3}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill4}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill5}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill6}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
+                <ComboBox ItemsSource="{Binding SkillList}" SelectedValue="{Binding Skill7}" SelectedValuePath="Value" ItemTemplate="{StaticResource SkillTemplate}"/>
             </common:TwoEqualColumnsStackPanel>
         </StackPanel>
     </ScrollViewer>

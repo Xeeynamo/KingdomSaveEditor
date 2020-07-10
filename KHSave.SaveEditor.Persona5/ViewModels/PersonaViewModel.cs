@@ -10,17 +10,20 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
     {
         private readonly Persona _persona;
         private readonly IPersonaList _personaList;
+        private readonly ISkillList _skillList;
 
-        public PersonaViewModel(Persona persona, IPersonaList personaList)
+        public PersonaViewModel(Persona persona, IPersonaList personaList, ISkillList skillList)
         {
             _persona = persona;
             _personaList = personaList;
+            _skillList = skillList;
         }
 
         public KhEnumListModel<Demon> PersonaList => _personaList.PersonaList;
+        public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList => _skillList.SkillList;
 
-        public string Name => InfoAttribute.GetInfo((Demon)PersonaId);
-        public string Arcana => DemonAttribute.GetInfo((Demon)PersonaId);
+        public string Name => InfoAttribute.GetInfo(PersonaId);
+        public string Arcana => DemonAttribute.GetInfo(PersonaId);
 
         public bool IsEnabled
         {

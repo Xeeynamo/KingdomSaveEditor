@@ -13,8 +13,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         private readonly Characters _id;
         private readonly Character _character;
 
-        public CharacterEntryViewModel(Character character, int index, IPersonaList personaList) :
-            base(character.Persona.Select(x => new PersonaViewModel(x, personaList)))
+        public CharacterEntryViewModel(Character character, int index, IPersonaList personaList, ISkillList skillList) :
+            base(character.Persona.Select(x => new PersonaViewModel(x, personaList, skillList)))
         {
             _id = (Characters)index;
             _character = character;
