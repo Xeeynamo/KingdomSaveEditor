@@ -30,6 +30,8 @@ namespace KHSave.LibDDD
             [Data(0xd2c6)] public EquipmentType RikuKeyblade { get; set; }
 
             //Munny d2c8-d2ca big endian max value 999999
+            [Data(0xd2f0, Count = 3)] public Deck[] SoraDecks { get; set; }
+            [Data(0xd5fc, Count = 3)] public Deck[] RikuDecks { get; set; }
 
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);
