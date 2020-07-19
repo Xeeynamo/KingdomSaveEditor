@@ -389,7 +389,7 @@ namespace KHSave.LibPersona5.Types
         [SupportSkill("Power Up Enemy (2)")] PowerUpEnemy2,
         [SupportSkill("Steal Info")] StealInfo,
         [AutoSkill("Sup Matarukaja")] SupMatarukaja,
-        [AutoSkill("Sup Marakukaja")] SupMarakukaja,
+        [AutoSkill("Sup Marakukaja")] SupMarakukaja, // 432
 
         [HitSkill("Cross Slash")] CrossSlash = 705,
     }
