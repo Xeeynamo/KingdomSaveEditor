@@ -12,10 +12,13 @@
             <views:SystemView DataContext="{Binding System}"/>
         </TabItem>
         <TabItem Header="Character">
-            
+            <views:Character DataContext="{Binding Character}"/>
         </TabItem>
         <TabItem Header="Dream Eaters">
             <views:DreamEaters DataContext="{Binding DreamEaters}"/>
+        </TabItem>
+        <TabItem Header="Decks">
+            
         </TabItem>
     </TabControl>
 </UserControl>

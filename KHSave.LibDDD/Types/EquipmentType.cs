@@ -6,6 +6,16 @@ namespace KHSave.LibDDD.Types
 {
     public enum EquipmentType : short
     {
+        // xx00 - Command Deck Action (not Combat) Commands
+        [Info("Jump")] Jump = 0x0100,
+        [Info("High Jump")] HighJump = 0x0200,
+        [Info("Dodge Roll")] DodgeRoll = 0x0300,
+        [Info("Shield Roll")] ShieldRoll = 0x0400,
+        [Info("Dark Roll")] DarkRoll = 0x0500,
+        [Info("Air Slide")] AirSlide = 0x0600,
+        [Info("Sonic Impact")] SonicImpact = 0x0700,
+        [Info("Double Impact")] DoubleImpact = 0x0800,
+        [Info("Glide")] Glide = 0x0900,
         // xx02 - keyblades
         [Keyblade("Kingdom Key")] KingdomKey = 0x0002,
         [Keyblade("Skull Noise (Sora)")] SkullNoiseS = 0x0102,
