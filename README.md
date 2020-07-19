@@ -38,6 +38,7 @@ Once you get your save, just open it using the KH3SaveEditor from File\Open, the
 ## How to use it for PS3 games
 
 Decrypt your PS3 save game using the software `BruteForce Savedata` and modify the save from the KH3SaveEditor. Once you completed your changes, you need to save and encrypt the save back. It would be ideal to implement an encrypt/decrypt feature in the editor and it will come at some point.
+If you use an emulator such as `RPCS3` you can skip this step as `RPCS3` does not encrypt save data
 
 ### How to use it for PS2 games
 
