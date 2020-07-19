@@ -11,8 +11,8 @@ namespace KHSave.LibPersona5.Types
         [Info] Fox,
         [Info] Queen,
         [Info] Oracle,
-        [Info] Noir,
         [Info] Crow,
+        [Info] Noir,
         [Info] Violet,
     }
 }
