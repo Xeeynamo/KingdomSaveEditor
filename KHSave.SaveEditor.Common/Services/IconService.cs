@@ -119,8 +119,11 @@ namespace KHSave.SaveEditor.Common.Services
 				["DeathSkill"] = "p5-skill-death",
 				["AlmightySkill"] = "p5-skill-almighty",
 				["NuclearSkill"] = "p5-skill-nuclear",
+				["PsychoSkill"] = "p5-skill-psycho",
 				["SupportSkill"] = "p5-skill-support",
 				["PoisonSkill"] = "p5-skill-poison",
+				["HealSkill"] = "p5-skill-heal",
+				["AutoSkill"] = "p5-skill-auto",
 			},
 		};
 
