@@ -28,7 +28,12 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         {
             _save = save;
 
-            Rooms = Presets.Fields.Select(x => new RoomViewModel(x)).ToList();
+            Rooms = Presets.Fields
+                .Where(x => IsMapPresent(x, save.IsRoyal))
+                .Select(x => new RoomViewModel(x)).ToList();
         }
+
+        private bool IsMapPresent(Presets.Field field, bool isRoyal) =>
+            isRoyal ? field.Royal : field.Vanilla;
     }
 }

@@ -5,6 +5,8 @@ namespace KHSave.LibPersona5
 {
     internal class Persona5Vanilla : ISavePersona5
     {
+        public bool IsRoyal => false;
+
         [Data(Count = 192 * 1024)] public byte[] Data { get; set; }
 
         [Data(0x14, Count = 12)] public string ProtagonistLastName { get; set; }
