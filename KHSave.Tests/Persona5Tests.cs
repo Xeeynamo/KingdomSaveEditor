@@ -34,6 +34,19 @@ namespace KHSave.Tests
             Assert.Equal(103, save.Characters[0].CurrentHp);
             Assert.Equal(38, save.Characters[0].CurrentMp);
             Assert.Equal(77, save.Characters[0].Experience);
+            Assert.False(save.PartyModifierRyuji);
+            Assert.False(save.PartyModifierMorgana);
+            Assert.False(save.PartyModifierAnn);
+            Assert.False(save.PartyModifierYusuke);
+            Assert.False(save.PartyModifierMakoto);
+            Assert.False(save.PartyModifierHaru);
+            Assert.False(save.PartyModifierFutaba);
+            Assert.False(save.PartyModifierAkechi);
+            Assert.Equal(-1525, save.PositionX, 0);
+            Assert.Equal(360, save.PositionY, 0);
+            Assert.Equal(-2922, save.PositionZ, 0);
+            Assert.Equal(123, save.RoomCategory);
+            Assert.Equal(101, save.RoomMap);
         }
 
         [Fact]
@@ -44,6 +57,19 @@ namespace KHSave.Tests
             Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
             Assert.Equal(505184, save.Money);
             Assert.Equal(9, save.Characters.Length);
+            Assert.True(save.PartyModifierRyuji);
+            Assert.True(save.PartyModifierMorgana);
+            Assert.True(save.PartyModifierAnn);
+            Assert.True(save.PartyModifierYusuke);
+            Assert.True(save.PartyModifierMakoto);
+            Assert.True(save.PartyModifierHaru);
+            Assert.True(save.PartyModifierFutaba);
+            Assert.False(save.PartyModifierAkechi);
+            Assert.Equal(-78, save.PositionX, 0);
+            Assert.Equal(0, save.PositionY, 0);
+            Assert.Equal(575, save.PositionZ, 0);
+            Assert.Equal(3, save.RoomCategory);
+            Assert.Equal(2, save.RoomMap);
         }
 
         [Fact]

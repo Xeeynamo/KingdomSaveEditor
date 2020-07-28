@@ -11,6 +11,19 @@ namespace KHSave.LibPersona5
         string ProtagonistLastName { get; set; }
         string ProtagonistFirstName { get; set; }
         int Money { get; set; }
+        bool PartyModifierRyuji { get; set; }
+        bool PartyModifierMorgana { get; set; }
+        bool PartyModifierAnn { get; set; }
+        bool PartyModifierYusuke { get; set; }
+        bool PartyModifierMakoto { get; set; }
+        bool PartyModifierHaru { get; set; }
+        bool PartyModifierFutaba { get; set; }
+        bool PartyModifierAkechi { get; set; }
+        float PositionX { get; set; }
+        float PositionY { get; set; }
+        float PositionZ { get; set; }
+        short RoomCategory { get; set; }
+        short RoomMap { get; set; }
         Character[] Characters { get; set; }
     }
 
@@ -25,6 +38,7 @@ namespace KHSave.LibPersona5
             Mapper = MappingConfiguration
                 .DefaultConfiguration(Encoding.UTF8, true)
                 .ForType<string>(ReadString, WriteString)
+                .ForType<float>(ReadFloat, WriteFloat)
                 .Build();
         }
 
@@ -113,6 +127,25 @@ namespace KHSave.LibPersona5
             {
                 arg.Writer.Write((short)0);
             }
+        }
+
+        private unsafe static object ReadFloat(MappingReadArgs arg)
+        {
+            var data = (arg.Reader.ReadByte() << 24) |
+                (arg.Reader.ReadByte() << 16) |
+                (arg.Reader.ReadByte() << 8) |
+                arg.Reader.ReadByte();
+            return *(float*)&data;
+        }
+
+        private unsafe static void WriteFloat(MappingWriteArgs arg)
+        {
+            var value = (float)arg.Item;
+            var data = *(int*)&value;
+            arg.Writer.Write((byte)((data >> 24) & 0xff));
+            arg.Writer.Write((byte)((data >> 16) & 0xff));
+            arg.Writer.Write((byte)((data >> 8) & 0xff));
+            arg.Writer.Write((byte)(data & 0xff));
         }
     }
 }

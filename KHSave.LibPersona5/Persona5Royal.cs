@@ -12,5 +12,18 @@ namespace KHSave.LibPersona5
 
         [Data(0x48, Count = 10, Stride = 0x2a8)] public Character[] Characters { get; set; }
         [Data(0x357c)] public int Money { get; set; }
+        public bool PartyModifierRyuji { get; set; }   // TODO maybe 3B4C
+        public bool PartyModifierMorgana { get; set; } // TODO
+        public bool PartyModifierAnn { get; set; }     // TODO
+        public bool PartyModifierYusuke { get; set; }  // TODO
+        public bool PartyModifierMakoto { get; set; }  // TODO
+        public bool PartyModifierHaru { get; set; }    // TODO
+        public bool PartyModifierFutaba { get; set; }  // TODO
+        public bool PartyModifierAkechi { get; set; }  // TODO
+        public short RoomCategory { get; set; } // TODO
+        public short RoomMap { get; set; } // TODO
+        public float PositionX { get; set; } // TODO
+        public float PositionY { get; set; } // TODO
+        public float PositionZ { get; set; } // TODO
     }
 }
