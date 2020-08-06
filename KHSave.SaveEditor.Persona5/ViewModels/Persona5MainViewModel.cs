@@ -12,7 +12,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 {
     public class Persona5MainViewModel : BaseNotifyPropertyChanged,
         IRefreshUi, IOpenStream, IWriteToStream,
-        IPersonaList, ISkillList
+        IPersonaList, ISkillList, IEquipmentList
     {
         private const string DefaultTab = "Characters";
 
@@ -36,10 +36,11 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public KhEnumListModel<Demon> PersonaList { get; } = new KhEnumListModel<Demon>();
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
+        public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
 
         public void RefreshUi()
         {
-            Characters = new CharactersViewModel(Save, this, this);
+            Characters = new CharactersViewModel(Save, this, this, this);
             Inventory = new InventoryViewModel(Save);
             System = new SystemViewModel(Save);
 

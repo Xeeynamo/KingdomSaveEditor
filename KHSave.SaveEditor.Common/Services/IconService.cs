@@ -124,6 +124,17 @@ namespace KHSave.SaveEditor.Common.Services
 				["PoisonSkill"] = "p5-skill-poison",
 				["HealSkill"] = "p5-skill-heal",
 				["AutoSkill"] = "p5-skill-auto",
+				["AutoSkill"] = "p5-skill-auto",
+				["Equipment"] = "p5-equip-dagger",
+				["Dagger"] = "p5-equip-dagger",
+				["RangeJoker"] = "p5-equip-range-joker",
+				["Protector"] = "p5-equip-protector",
+				["ProtectorMale"] = "p5-equip-protector-male",
+				["ProtectorFemale"] = "p5-equip-protector-female",
+				["ProtectorUnisex"] = "p5-equip-protector-unisex",
+				["ProtectorCat"] = "p5-equip-protector-definitively_not_a_cat",
+				["Accessory"] = "p5-equip-accessory",
+				["Outfit"] = "p5-equip-outfit",
 			},
 		};
 

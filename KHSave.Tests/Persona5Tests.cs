@@ -34,6 +34,8 @@ namespace KHSave.Tests
             Assert.Equal(103, save.Characters[0].CurrentHp);
             Assert.Equal(38, save.Characters[0].CurrentMp);
             Assert.Equal(77, save.Characters[0].Experience);
+            Assert.Equal(0x0002, (ushort)save.Characters[0].MeleeWeapon);
+            Assert.Equal(0x1002, (ushort)save.Characters[0].Protector);
             Assert.False(save.PartyModifierRyuji);
             Assert.False(save.PartyModifierMorgana);
             Assert.False(save.PartyModifierAnn);
@@ -57,6 +59,8 @@ namespace KHSave.Tests
             Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
             Assert.Equal(505184, save.Money);
             Assert.Equal(9, save.Characters.Length);
+            Assert.Equal(0x0016, (ushort)save.Characters[0].MeleeWeapon);
+            Assert.Equal(0x108c, (ushort)save.Characters[0].Protector);
             Assert.True(save.PartyModifierRyuji);
             Assert.True(save.PartyModifierMorgana);
             Assert.True(save.PartyModifierAnn);
