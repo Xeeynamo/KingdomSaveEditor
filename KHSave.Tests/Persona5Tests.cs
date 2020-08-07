@@ -44,6 +44,7 @@ namespace KHSave.Tests
             Assert.False(save.PartyModifierHaru);
             Assert.False(save.PartyModifierFutaba);
             Assert.False(save.PartyModifierAkechi);
+            Assert.Equal(10, save.CalendarDay);
             Assert.Equal(-1525, save.PositionX, 0);
             Assert.Equal(360, save.PositionY, 0);
             Assert.Equal(-2922, save.PositionZ, 0);
@@ -69,6 +70,7 @@ namespace KHSave.Tests
             Assert.True(save.PartyModifierHaru);
             Assert.True(save.PartyModifierFutaba);
             Assert.False(save.PartyModifierAkechi);
+            Assert.Equal(256, save.CalendarDay);
             Assert.Equal(-78, save.PositionX, 0);
             Assert.Equal(0, save.PositionY, 0);
             Assert.Equal(575, save.PositionZ, 0);

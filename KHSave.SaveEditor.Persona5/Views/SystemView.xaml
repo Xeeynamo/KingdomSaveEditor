@@ -13,5 +13,13 @@
             SelectedValue="{Binding Room}"
             SelectedValuePath="Id"
             DisplayMemberPath="Description"/>
+        
+        <TextBlock Text="Current day"/>
+        <DatePicker
+            SelectedDate="{Binding CalendarDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            DisplayDateStart="2011/04/01"
+            DisplayDateEnd="2012/04/01"
+            IsTodayHighlighted="True"
+            />
     </StackPanel>
 </UserControl>

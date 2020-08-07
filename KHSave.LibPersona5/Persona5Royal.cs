@@ -22,6 +22,7 @@ namespace KHSave.LibPersona5
         public bool PartyModifierHaru { get; set; }    // TODO
         public bool PartyModifierFutaba { get; set; }  // TODO
         public bool PartyModifierAkechi { get; set; }  // TODO
+        public short CalendarDay { get; set; }  // TODO
         public short RoomCategory { get; set; } // TODO
         public short RoomMap { get; set; } // TODO
         public float PositionX { get; set; } // TODO

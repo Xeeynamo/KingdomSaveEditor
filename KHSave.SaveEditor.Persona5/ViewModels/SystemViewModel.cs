@@ -1,4 +1,5 @@
 ﻿using KHSave.LibPersona5;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 {
     public class SystemViewModel
     {
+        private static readonly DateTime BaseDate = new DateTime(2011, 4, 1);
         private readonly ISavePersona5 _save;
 
         public List<RoomViewModel> Rooms { get; set; }
@@ -22,6 +24,12 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
                 _save.RoomCategory = short.Parse(room[0]);
                 _save.RoomMap = short.Parse(room[1]);
             }
+        }
+
+        public DateTime CalendarDate
+        {
+            get => BaseDate.AddDays(_save.CalendarDay);
+            set => _save.CalendarDay = (short)(value.Subtract(BaseDate).TotalDays);
         }
 
         public SystemViewModel(ISavePersona5 save)

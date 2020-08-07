@@ -20,6 +20,7 @@ namespace KHSave.LibPersona5
         bool PartyModifierHaru { get; set; }
         bool PartyModifierFutaba { get; set; }
         bool PartyModifierAkechi { get; set; }
+        short CalendarDay { get; set; }
         float PositionX { get; set; }
         float PositionY { get; set; }
         float PositionZ { get; set; }
