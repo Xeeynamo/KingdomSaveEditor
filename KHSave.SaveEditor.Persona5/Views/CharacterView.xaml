@@ -24,6 +24,7 @@
         <TabItem Header="Stats">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel>
+                    <CheckBox Content="Unlocked" IsChecked="{Binding IsUnlocked}"/>
                     <common:TwoEqualColumnsStackPanel>
                         <TextBlock Text="Current HP"/>
                         <TextBox Text="{Binding CurrentHp, UpdateSourceTrigger=PropertyChanged}"/>

@@ -1,4 +1,5 @@
 ﻿using KHSave.Attributes;
+using KHSave.LibPersona5;
 using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Models;
@@ -11,13 +12,15 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 {
     public class CharacterEntryViewModel : GenericListModel<PersonaViewModel>
     {
+        private readonly ISavePersona5 _save;
         private readonly Characters _id;
         private readonly Character _character;
         private readonly IEquipmentList _equipmentList;
 
-        public CharacterEntryViewModel(Character character, int index, IPersonaList personaList, ISkillList skillList, IEquipmentList equipmentList) :
+        public CharacterEntryViewModel(ISavePersona5 save, Character character, int index, IPersonaList personaList, ISkillList skillList, IEquipmentList equipmentList) :
             base(character.Persona.Select(x => new PersonaViewModel(x, personaList, skillList)))
         {
+            _save = save;
             _id = (Characters)index;
             _character = character;
             _equipmentList = equipmentList;
@@ -30,6 +33,41 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList =>
             _equipmentList.EquipmentList;
+
+        public bool IsUnlocked
+        {
+            get
+            {
+                switch (_id)
+                {
+                    case Characters.Joker: return true;
+                    case Characters.Skull: return _save.PartyModifierRyuji;
+                    case Characters.Mona: return _save.PartyModifierMorgana;
+                    case Characters.Panther: return _save.PartyModifierAnn;
+                    case Characters.Fox: return _save.PartyModifierYusuke;
+                    case Characters.Queen: return _save.PartyModifierMakoto;
+                    case Characters.Noir: return _save.PartyModifierHaru;
+                    case Characters.Oracle: return _save.PartyModifierFutaba;
+                    case Characters.Crow: return _save.PartyModifierAkechi;
+                    case Characters.Violet: return false;
+                    default: return false;
+                }
+            }
+            set
+            {
+                switch (_id)
+                {
+                    case Characters.Skull: _save.PartyModifierRyuji = value; break;
+                    case Characters.Mona: _save.PartyModifierMorgana = value; break;
+                    case Characters.Panther: _save.PartyModifierAnn = value; break;
+                    case Characters.Fox: _save.PartyModifierYusuke = value; break;
+                    case Characters.Queen: _save.PartyModifierMakoto = value; break;
+                    case Characters.Noir: _save.PartyModifierHaru = value; break;
+                    case Characters.Oracle: _save.PartyModifierFutaba = value; break;
+                    case Characters.Crow: _save.PartyModifierAkechi = value; break;
+                }
+            }
+        }
 
         public int Experience
         {
