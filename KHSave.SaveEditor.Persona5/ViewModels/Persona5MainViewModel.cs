@@ -20,6 +20,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public CharactersViewModel Characters { get; set; }
         public InventoryViewModel Inventory { get; set; }
+        public CompendiumViewModel Compendium { get; set; }
         public SystemViewModel System { get; set; }
 
         public Visibility SimpleVisibility => Common.Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
@@ -42,6 +43,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         {
             Characters = new CharactersViewModel(Save, this, this, this);
             Inventory = new InventoryViewModel(Save);
+            Compendium = new CompendiumViewModel(Save, this, this);
             System = new SystemViewModel(Save);
 
             OnPropertyChanged(nameof(SimpleVisibility));

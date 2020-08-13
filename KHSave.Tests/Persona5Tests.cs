@@ -1,4 +1,5 @@
 ﻿using KHSave.LibPersona5;
+using KHSave.LibPersona5.Types;
 using System.IO;
 using Xunit;
 
@@ -76,6 +77,10 @@ namespace KHSave.Tests
             Assert.Equal(575, save.PositionZ, 0);
             Assert.Equal(3, save.RoomCategory);
             Assert.Equal(2, save.RoomMap);
+
+            Assert.Equal(Demon.JackFrost, (Demon)save.Compendium[(int)Demon.JackFrost].Id);
+            Assert.Equal(Skill.Bufu, save.Compendium[(int)Demon.JackFrost].Skills[0]);
+            Assert.Equal(Skill.IceBreak, save.Compendium[(int)Demon.JackFrost].Skills[1]);
         }
 
         [Fact]

@@ -27,8 +27,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public bool IsEnabled
         {
-            get => _persona.IsEnabled != 0;
-            set => _persona.IsEnabled = (short)(value ? 1 : 0);
+            get => _persona.Flags != 0;
+            set => _persona.Flags = (short)(value ? 1 : 0);
         }
 
         public Demon PersonaId

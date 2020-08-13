@@ -22,6 +22,7 @@ namespace KHSave.LibPersona5
         [Data] public bool PartyModifierHaru { get; set; }
         [Data] public bool PartyModifierFutaba { get; set; }
         [Data] public bool PartyModifierAkechi { get; set; }
+        [Data(0x35d6, Count = 0x1D0, Stride = 0x30)] public Persona[] Compendium { get; set; }
         [Data(0x92be)] public short CalendarDay { get; set; }
         [Data(0x12512)] public short SocialStatKnowledge { get; set; }
         [Data] public short SocialStatCharm { get; set; }
