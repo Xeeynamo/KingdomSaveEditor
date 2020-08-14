@@ -31,7 +31,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             get => BaseDate.AddDays(_save.CalendarDay1);
             set
             {
-                short calendarValue = (short)value.Subtract(BaseDate).TotalDays;
+                var calendarValue = (short)value.Subtract(BaseDate).TotalDays;
                 _save.CalendarDay1 = calendarValue;
                 _save.CalendarDay2 = calendarValue;
                 _save.CalendarDay3 = calendarValue;
