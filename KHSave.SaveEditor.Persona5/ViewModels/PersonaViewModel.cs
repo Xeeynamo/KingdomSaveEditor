@@ -3,6 +3,7 @@ using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
+using System.Collections.Generic;
 
 namespace KHSave.SaveEditor.Persona5.ViewModels
 {
@@ -19,11 +20,21 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             _skillList = skillList;
         }
 
-        public KhEnumListModel<Demon> PersonaList => _personaList.PersonaList;
+        public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList => _skillList.SkillList;
 
-        public string Name => InfoAttribute.GetInfo(PersonaId);
-        public string Arcana => DemonAttribute.GetInfo(PersonaId);
+        public string Name
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Arcana))
+                    return DemonName;
+                return $"{Arcana} | {DemonName}";
+            }
+        }
+
+        public string DemonName => InfoAttribute.GetInfo(PersonaId);
+        public string Arcana => DemonAttribute.GetArcana(PersonaId);
 
         public bool IsEnabled
         {

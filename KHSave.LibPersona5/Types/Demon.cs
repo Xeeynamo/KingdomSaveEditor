@@ -1,94 +1,103 @@
 ﻿using KHSave.Attributes;
+using KHSave.Extensions;
 
 namespace KHSave.LibPersona5.Types
 {
     public class DemonAttribute : InfoAttribute
     {
-        public DemonAttribute(string name = null) : base(name) { }
+        public string Arcana { get; }
+
+        public DemonAttribute(string name = null, string tarot = null) : base(name)
+        {
+            Arcana = tarot ?? string.Empty;
+        }
+
+        public static string GetArcana(object obj) =>
+            obj.GetAttribute<DemonAttribute>()?.Arcana;
     }
     public class MagicianAttribute : DemonAttribute
     {
-        public MagicianAttribute(string name = null) : base(name) { }
+        public MagicianAttribute(string name = null) : base(name, "Magician") { }
     }
     public class JusticeAttribute : DemonAttribute
     {
-        public JusticeAttribute(string name = null) : base(name) { }
+        public JusticeAttribute(string name = null) : base(name, "Justice") { }
     }
     public class DevilAttribute : DemonAttribute
     {
-        public DevilAttribute(string name = null) : base(name) { }
+        public DevilAttribute(string name = null) : base(name, "Devil") { }
     }
     public class StarAttribute : DemonAttribute
     {
-        public StarAttribute(string name = null) : base(name) { }
+        public StarAttribute(string name = null) : base(name, "Star") { }
     }
     public class LoversAttribute : DemonAttribute
     {
-        public LoversAttribute(string name = null) : base(name) { }
+        public LoversAttribute(string name = null) : base(name, "Lovers") { }
     }
     public class ChariotAttribute : DemonAttribute
     {
-        public ChariotAttribute(string name = null) : base(name) { }
+        public ChariotAttribute(string name = null) : base(name, "Chariot") { }
     }
     public class EmperorAttribute : DemonAttribute
     {
-        public EmperorAttribute(string name = null) : base(name) { }
+        public EmperorAttribute(string name = null) : base(name, "Emperor") { }
     }
     public class HangedAttribute : DemonAttribute
     {
-        public HangedAttribute(string name = null) : base(name) { }
+        public HangedAttribute(string name = null) : base(name, "Hanged") { }
     }
     public class FoolAttribute : DemonAttribute
     {
-        public FoolAttribute(string name = null) : base(name) { }
+        public FoolAttribute(string name = null) : base(name, "Fool") { }
     }
     public class TowerAttribute : DemonAttribute
     {
-        public TowerAttribute(string name = null) : base(name) { }
+        public TowerAttribute(string name = null) : base(name, "Tower") { }
     }
     public class HierophantAttribute : DemonAttribute
     {
-        public HierophantAttribute(string name = null) : base(name) { }
+        public HierophantAttribute(string name = null) : base(name, "Hierophant") { }
     }
     public class PriestessAttribute : DemonAttribute
     {
-        public PriestessAttribute(string name = null) : base(name) { }
+        public PriestessAttribute(string name = null) : base(name, "Priestess") { }
     }
     public class StrengthAttribute : DemonAttribute
     {
-        public StrengthAttribute(string name = null) : base(name) { }
+        public StrengthAttribute(string name = null) : base(name, "Strength") { }
     }
     public class EmpressAttribute : DemonAttribute
     {
-        public EmpressAttribute(string name = null) : base(name) { }
+        public EmpressAttribute(string name = null) : base(name, "Empress") { }
     }
     public class SunAttribute : DemonAttribute
     {
-        public SunAttribute(string name = null) : base(name) { }
+        public SunAttribute(string name = null) : base(name, "Sun") { }
     }
     public class MoonAttribute : DemonAttribute
     {
-        public MoonAttribute(string name = null) : base(name) { }
+        public MoonAttribute(string name = null) : base(name, "Moon") { }
     }
     public class JudgementAttribute : DemonAttribute
     {
-        public JudgementAttribute(string name = null) : base(name) { }
+        public JudgementAttribute(string name = null) : base(name, "Judgement") { }
     }
     public class DeathAttribute : DemonAttribute
     {
-        public DeathAttribute(string name = null) : base(name) { }
+        public DeathAttribute(string name = null) : base(name, "Death") { }
     }
     public class TemperAttribute : DemonAttribute
     {
-        public TemperAttribute(string name = null) : base(name) { }
+        public TemperAttribute(string name = null) : base(name, "Temper") { }
     }
     public class HermitAttribute : DemonAttribute
     {
-        public HermitAttribute(string name = null) : base(name) { }
+        public HermitAttribute(string name = null) : base(name, "Hermit") { }
     }
     public class FortuneAttribute : DemonAttribute
     {
-        public FortuneAttribute(string name = null) : base(name) { }
+        public FortuneAttribute(string name = null) : base(name, "Fortune") { }
     }
 
     public enum Demon

@@ -4,7 +4,9 @@ using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Persona5.Interfaces;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using Xe.Tools;
 
@@ -35,7 +37,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             }
         }
 
-        public KhEnumListModel<Demon> PersonaList { get; } = new KhEnumListModel<Demon>();
+        public IEnumerable<PersonaEntryViewModel> PersonaList { get; } = PersonaEntryViewModel.GetAll().ToList();
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
 
