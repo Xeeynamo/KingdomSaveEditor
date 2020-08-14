@@ -34,5 +34,8 @@ namespace KHSave.LibPersona5
         [Data(0x1252c)] public float PositionX { get; set; }
         [Data(0x12530)] public float PositionY { get; set; }
         [Data(0x12534)] public float PositionZ { get; set; }
+
+        // Royal exclusive content
+        public bool PartyModifierKasumi { get => false; set { } }
     }
 }

@@ -49,7 +49,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
                     case Characters.Noir: return _save.PartyModifierHaru;
                     case Characters.Oracle: return _save.PartyModifierFutaba;
                     case Characters.Crow: return _save.PartyModifierAkechi;
-                    case Characters.Violet: return false;
+                    case Characters.Violet: return _save.PartyModifierKasumi;
                     default: return false;
                 }
             }
