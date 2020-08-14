@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Extensions;
 using KHSave.Services;
 using System;
 using System.Collections.Generic;
@@ -38,21 +39,7 @@ namespace KHSave.Attributes
 		}
 
         public static string GetInfo(object value) => cache.Get(value, x =>
-            {
-                var memberValue = x.ToString();
-                var memberInfo = x.GetType().GetMember(memberValue).FirstOrDefault();
-
-                if (memberInfo != null)
-                {
-                    if (memberInfo.GetCustomAttributes(typeof(InfoAttribute), false)
-                            .FirstOrDefault() is InfoAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
-                    {
-                        return attribute.Info;
-                    }
-                }
-
-                return memberValue;
-            });
+            value.GetAttribute<InfoAttribute>()?.Info ?? x?.ToString() ?? "<null>");
 
         public static string[] GetItemTypes(object value)
 		{

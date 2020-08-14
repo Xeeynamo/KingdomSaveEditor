@@ -16,8 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Linq;
+using KHSave.Extensions;
 
 namespace KHSave.Attributes
 {
@@ -31,21 +30,7 @@ namespace KHSave.Attributes
 			Id = id;
 		}
 
-		public static string GetWorldId(object value)
-		{
-			var memberValue = value.ToString();
-			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
-
-			if (memberInfo != null)
-			{
-				if (memberInfo.GetCustomAttributes(typeof(WorldAttribute), false)
-					    .FirstOrDefault() is WorldAttribute attribute && !string.IsNullOrEmpty(attribute.Info))
-				{
-					return attribute.Id;
-				}
-			}
-
-			return null;
-		}
-	}
+		public static string GetWorldId(object value) =>
+            value.GetAttribute<WorldAttribute>()?.Id;
+    }
 }
