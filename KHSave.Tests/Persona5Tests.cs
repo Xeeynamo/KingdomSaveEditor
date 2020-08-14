@@ -30,6 +30,10 @@ namespace KHSave.Tests
             var save = File.OpenRead("Saves/p5_ps3.DAT").Using(SavePersona5.Read);
             Assert.Equal("Pandan", save.ProtagonistLastName);
             Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            Assert.Equal(10, save.CalendarDay1);
+            Assert.Equal(10, save.CalendarDay2);
+            Assert.Equal(10, save.CalendarDay3);
+
             Assert.Equal(1002943, save.Money);
             Assert.Equal(9, save.Characters.Length);
             Assert.Equal(103, save.Characters[0].CurrentHp);
@@ -45,7 +49,6 @@ namespace KHSave.Tests
             Assert.False(save.PartyModifierHaru);
             Assert.False(save.PartyModifierFutaba);
             Assert.False(save.PartyModifierAkechi);
-            Assert.Equal(10, save.CalendarDay);
             Assert.Equal(-1525, save.PositionX, 0);
             Assert.Equal(360, save.PositionY, 0);
             Assert.Equal(-2922, save.PositionZ, 0);
@@ -59,6 +62,10 @@ namespace KHSave.Tests
             var save = File.OpenRead("Saves/p5_ps4.DAT").Using(SavePersona5.Read);
             Assert.Equal("Luciano", save.ProtagonistLastName);
             Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            Assert.Equal(256, save.CalendarDay1);
+            Assert.Equal(256, save.CalendarDay2);
+            Assert.Equal(256, save.CalendarDay3);
+
             Assert.Equal(505184, save.Money);
             Assert.Equal(9, save.Characters.Length);
             Assert.Equal(0x0016, (ushort)save.Characters[0].MeleeWeapon);
@@ -71,7 +78,6 @@ namespace KHSave.Tests
             Assert.True(save.PartyModifierHaru);
             Assert.True(save.PartyModifierFutaba);
             Assert.False(save.PartyModifierAkechi);
-            Assert.Equal(256, save.CalendarDay);
             Assert.Equal(-78, save.PositionX, 0);
             Assert.Equal(0, save.PositionY, 0);
             Assert.Equal(575, save.PositionZ, 0);
@@ -89,6 +95,10 @@ namespace KHSave.Tests
             var save = File.OpenRead("Saves/p5r.DAT").Using(SavePersona5.Read);
             Assert.Equal("Retsu", save.ProtagonistLastName);
             Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            Assert.Equal(20, save.CalendarDay1);
+            Assert.Equal(20, save.CalendarDay2);
+            Assert.Equal(20, save.CalendarDay3);
+
             Assert.Equal(49735, save.Money);
             Assert.Equal(10, save.Characters.Length);
             Assert.Equal(136, save.Characters[0].CurrentHp);

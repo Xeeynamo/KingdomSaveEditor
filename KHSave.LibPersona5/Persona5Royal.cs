@@ -27,10 +27,10 @@ namespace KHSave.LibPersona5
         [Data(0x41d8, Count = 0x1D0, Stride = 0x30)] public Persona[] Compendium { get; set; }
         [Data(0xA5F4)] public short CalendarDay2 { get; set; }
         [Data(0xA5F8)] public short CalendarDay3 { get; set; }
-        public short RoomCategory { get; set; } // TODO
-        public short RoomMap { get; set; } // TODO
-        public float PositionX { get; set; } // TODO
-        public float PositionY { get; set; } // TODO
-        public float PositionZ { get; set; } // TODO
+        [Data(0x138aa)] public short RoomCategory { get; set; }
+        [Data(0x138ac)] public short RoomMap { get; set; }
+        [Data(0x1252c)] public float PositionX { get; set; }
+        [Data(0x12530)] public float PositionY { get; set; }
+        [Data(0x12534)] public float PositionZ { get; set; }
     }
 }
