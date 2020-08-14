@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Force.Crc32;
 using KHSave.Lib3.Models;
 using KHSave.Lib3.Types;
 using Xe.BinaryMapper;
@@ -46,7 +47,7 @@ namespace KHSave.Lib3
         [Data] public int FileSize { get; set; }
         [Data] public short MajorVersion { get; set; }
         [Data] public short MinorVersion { get; set; }
-        [Data(0xC)] public int Unknown0000C { get; set; }
+        [Data(0xC)] public uint Checksum { get; set; }
         [Data(0x14)] public DifficultyType Difficulty { get; set; }
         [Data(0x18)] public WorldType WorldLogo { get; set; }
 
@@ -106,8 +107,16 @@ namespace KHSave.Lib3
             return magicCode == 0x45764053 && length == 0x94E8E0;
         }
 
-        public void Write(Stream stream) =>
+        public void Write(Stream stream)
+        {
+            using (var tempStream = new MemoryStream())
+            {
+                BinaryMapping.WriteObject(tempStream, this);
+                Checksum = CalculateChecksum(tempStream);
+            }
+
             Mapper.WriteObject(stream.SetPosition(0), this);
+        }
 
         internal static SaveKh3 ReadInternal(Stream stream) =>
             Mapper.ReadObject(stream, new SaveKh3()) as SaveKh3;
@@ -124,6 +133,13 @@ namespace KHSave.Lib3
                 return SaveKh3u109.ReadInternal(stream);
 
             throw new InvalidDataException("Input not recognized as a valid or supported Kingdom Hearts III save game.");
+        }
+
+        public static uint CalculateChecksum(Stream stream)
+        {
+            stream.Position = 0x10;
+            var buffer = stream.ReadBytes((int)(stream.Length - stream.Position));
+            return Crc32Algorithm.Compute(buffer);
         }
     }
 }

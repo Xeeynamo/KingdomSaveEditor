@@ -27,11 +27,11 @@ namespace KHSave.Lib3
     public interface ISaveKh3
     {
 
-        int MagicCode { get; set; } // Identify the save
+        int MagicCode { get; set; }
         int FileSize { get; set; }
         short MajorVersion { get; set; }
         short MinorVersion { get; set; }
-        int Unknown0000C { get; set; } // Changes every time
+        uint Checksum { get; set; }
         DifficultyType Difficulty { get; set; }
         WorldType WorldLogo { get; set; }
 

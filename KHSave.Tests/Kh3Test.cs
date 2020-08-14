@@ -109,6 +109,12 @@ namespace KHSave.Tests
 			Assert.Equal("rg_03_Lv_Start_01", save.DlcSpawnPoint);
 		}
 
+		[Fact]
+		public void TestChecksum()
+		{
+			File.OpenRead(FilePath).Using(stream => Assert.Equal(0xE5783B63, SaveKh3.CalculateChecksum(stream)));
+		}
+
 		private static void AssertSaveGame(ISaveKh3 save)
 		{
 			Assert.Equal(0x45764053, save.MagicCode);
