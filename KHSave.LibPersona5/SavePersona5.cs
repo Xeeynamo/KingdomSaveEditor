@@ -21,7 +21,9 @@ namespace KHSave.LibPersona5
         bool PartyModifierFutaba { get; set; }
         bool PartyModifierAkechi { get; set; }
         bool PartyModifierKasumi { get; set; }
-        short CalendarDay { get; set; }
+        short CalendarDay1 { get; set; }
+        short CalendarDay2 { get; set; }
+        short CalendarDay3 { get; set; }
         float PositionX { get; set; }
         float PositionY { get; set; }
         float PositionZ { get; set; }

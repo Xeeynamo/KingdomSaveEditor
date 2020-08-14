@@ -28,8 +28,14 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public DateTime CalendarDate
         {
-            get => BaseDate.AddDays(_save.CalendarDay);
-            set => _save.CalendarDay = (short)(value.Subtract(BaseDate).TotalDays);
+            get => BaseDate.AddDays(_save.CalendarDay1);
+            set
+            {
+                short calendarValue = (short)value.Subtract(BaseDate).TotalDays;
+                _save.CalendarDay1 = calendarValue;
+                _save.CalendarDay2 = calendarValue;
+                _save.CalendarDay3 = calendarValue;
+            }
         }
 
         public SystemViewModel(ISavePersona5 save)

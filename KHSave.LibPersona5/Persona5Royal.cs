@@ -9,6 +9,7 @@ namespace KHSave.LibPersona5
 
         [Data(Count = 256 * 1024)] public byte[] Data { get; set; }
 
+        [Data(0x0006)] public short CalendarDay1 { get; set; }
         [Data(0x14, Count = 12)] public string ProtagonistLastName { get; set; }
         [Data(Count = 12)] public string ProtagonistFirstName { get; set; }
 
@@ -24,7 +25,8 @@ namespace KHSave.LibPersona5
         [Data] public bool PartyModifierFutaba { get; set; }
         [Data] public bool PartyModifierAkechi { get; set; }
         [Data(0x41d8, Count = 0x1D0, Stride = 0x30)] public Persona[] Compendium { get; set; }
-        public short CalendarDay { get; set; }  // TODO
+        [Data(0xA5F4)] public short CalendarDay2 { get; set; }
+        [Data(0xA5F8)] public short CalendarDay3 { get; set; }
         public short RoomCategory { get; set; } // TODO
         public short RoomMap { get; set; } // TODO
         public float PositionX { get; set; } // TODO
