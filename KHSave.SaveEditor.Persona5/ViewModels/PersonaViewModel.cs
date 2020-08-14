@@ -4,37 +4,32 @@ using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
 using System.Collections.Generic;
+using System.Reflection.Emit;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.Persona5.ViewModels
 {
-    public class PersonaViewModel
+    public class PersonaViewModel : BaseNotifyPropertyChanged
     {
         private readonly Persona _persona;
         private readonly IPersonaList _personaList;
         private readonly ISkillList _skillList;
+        private PersonaEntryViewModel _vm;
 
         public PersonaViewModel(Persona persona, IPersonaList personaList, ISkillList skillList)
         {
             _persona = persona;
             _personaList = personaList;
             _skillList = skillList;
+            _vm = new PersonaEntryViewModel(PersonaId);
         }
 
         public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList => _skillList.SkillList;
 
-        public string Name
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Arcana))
-                    return DemonName;
-                return $"{Arcana} | {DemonName}";
-            }
-        }
-
-        public string DemonName => InfoAttribute.GetInfo(PersonaId);
-        public string Arcana => DemonAttribute.GetArcana(PersonaId);
+        public string Name => _vm.Name;
+        public string DemonName => _vm.SimpleName;
+        public string Arcana => _vm.Arcana;
 
         public bool IsEnabled
         {
@@ -45,7 +40,14 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public Demon PersonaId
         {
             get => (Demon)_persona.Id;
-            set => _persona.Id = (short)value;
+            set
+            {
+                _persona.Id = (short)value;
+                _vm = new PersonaEntryViewModel(PersonaId);
+                OnPropertyChanged(nameof(DemonName));
+                OnPropertyChanged(nameof(Arcana));
+                OnPropertyChanged(nameof(Name));
+            }
         }
 
         public short Level
