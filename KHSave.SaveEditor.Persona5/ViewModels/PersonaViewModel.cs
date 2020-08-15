@@ -1,10 +1,12 @@
 ﻿using KHSave.Attributes;
 using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using System.Windows;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Persona5.ViewModels
@@ -26,6 +28,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList => _skillList.SkillList;
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
         public string Name => _vm.Name;
         public string DemonName => _vm.SimpleName;
@@ -101,49 +105,177 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public Skill Skill0
         {
             get => _persona.Skills[0];
-            set => _persona.Skills[0] = value;
+            set
+            {
+                _persona.Skills[0] = value;
+                OnPropertyChanged(nameof(Skill0));
+                OnPropertyChanged(nameof(SkillData0));
+            }
         }
 
         public Skill Skill1
         {
             get => _persona.Skills[1];
-            set => _persona.Skills[1] = value;
+            set
+            {
+                _persona.Skills[1] = value;
+                OnPropertyChanged(nameof(Skill1));
+                OnPropertyChanged(nameof(SkillData1));
+            }
         }
 
         public Skill Skill2
         {
             get => _persona.Skills[2];
-            set => _persona.Skills[2] = value;
+            set
+            {
+                _persona.Skills[2] = value;
+                OnPropertyChanged(nameof(Skill2));
+                OnPropertyChanged(nameof(SkillData2));
+            }
         }
 
         public Skill Skill3
         {
             get => _persona.Skills[3];
-            set => _persona.Skills[3] = value;
+            set
+            {
+                _persona.Skills[3] = value;
+                OnPropertyChanged(nameof(Skill3));
+                OnPropertyChanged(nameof(SkillData3));
+            }
         }
 
         public Skill Skill4
         {
             get => _persona.Skills[4];
-            set => _persona.Skills[4] = value;
+            set
+            {
+                _persona.Skills[4] = value;
+                OnPropertyChanged(nameof(Skill4));
+                OnPropertyChanged(nameof(SkillData4));
+            }
         }
 
         public Skill Skill5
         {
             get => _persona.Skills[5];
-            set => _persona.Skills[5] = value;
+            set
+            {
+                _persona.Skills[5] = value;
+                OnPropertyChanged(nameof(Skill5));
+                OnPropertyChanged(nameof(SkillData5));
+            }
         }
 
         public Skill Skill6
         {
             get => _persona.Skills[6];
-            set => _persona.Skills[6] = value;
+            set
+            {
+                _persona.Skills[6] = value;
+                OnPropertyChanged(nameof(Skill6));
+                OnPropertyChanged(nameof(SkillData6));
+            }
         }
 
         public Skill Skill7
         {
             get => _persona.Skills[7];
-            set => _persona.Skills[7] = value;
+            set
+            {
+                _persona.Skills[7] = value;
+                OnPropertyChanged(nameof(Skill7));
+                OnPropertyChanged(nameof(SkillData7));
+            }
+        }
+
+        public int SkillData0
+        {
+            get => (int)_persona.Skills[0];
+            set
+            {
+                _persona.Skills[0] = (Skill)value;
+                OnPropertyChanged(nameof(Skill0));
+                OnPropertyChanged(nameof(SkillData0));
+            }
+        }
+
+        public int SkillData1
+        {
+            get => (int)_persona.Skills[1];
+            set
+            {
+                _persona.Skills[1] = (Skill)value;
+                OnPropertyChanged(nameof(Skill1));
+                OnPropertyChanged(nameof(SkillData1));
+            }
+        }
+
+        public int SkillData2
+        {
+            get => (int)_persona.Skills[2];
+            set
+            {
+                _persona.Skills[2] = (Skill)value;
+                OnPropertyChanged(nameof(Skill2));
+                OnPropertyChanged(nameof(SkillData2));
+            }
+        }
+
+        public int SkillData3
+        {
+            get => (int)_persona.Skills[3];
+            set
+            {
+                _persona.Skills[3] = (Skill)value;
+                OnPropertyChanged(nameof(Skill3));
+                OnPropertyChanged(nameof(SkillData3));
+            }
+        }
+
+        public int SkillData4
+        {
+            get => (int)_persona.Skills[4];
+            set
+            {
+                _persona.Skills[4] = (Skill)value;
+                OnPropertyChanged(nameof(Skill4));
+                OnPropertyChanged(nameof(SkillData4));
+            }
+        }
+
+        public int SkillData5
+        {
+            get => (int)_persona.Skills[5];
+            set
+            {
+                _persona.Skills[5] = (Skill)value;
+                OnPropertyChanged(nameof(Skill5));
+                OnPropertyChanged(nameof(SkillData5));
+            }
+        }
+
+        public int SkillData6
+        {
+            get => (int)_persona.Skills[6];
+            set
+            {
+                _persona.Skills[6] = (Skill)value;
+                OnPropertyChanged(nameof(Skill6));
+                OnPropertyChanged(nameof(SkillData6));
+            }
+        }
+
+        public int SkillData7
+        {
+            get => (int)_persona.Skills[7];
+            set
+            {
+                _persona.Skills[7] = (Skill)value;
+                OnPropertyChanged(nameof(Skill7));
+                OnPropertyChanged(nameof(SkillData7));
+            }
         }
     }
 }
