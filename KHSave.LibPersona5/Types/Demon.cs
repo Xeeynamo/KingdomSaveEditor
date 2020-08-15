@@ -110,7 +110,7 @@ namespace KHSave.LibPersona5.Types
         [Magician("Jack Frost")] JackFrost,
         [Lovers] Pixie,
         [Chariot] Cerberus,
-        [Devil] Lili,
+        [Devil] Lilim,
         [Emperor] Eligor,
         [Emperor] Odin,
         [Hanged("Hua Po")] HuaPo,
