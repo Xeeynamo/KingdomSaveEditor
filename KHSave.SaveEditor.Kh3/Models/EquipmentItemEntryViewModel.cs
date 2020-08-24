@@ -33,10 +33,10 @@ namespace KHSave.SaveEditor.Kh3.Models
 
 		public bool Enabled
 		{
-			get => Item.Enabled;
+			get => Item.Enabled != 0;
 			set
 			{
-				Item.Enabled = value;
+				Item.Enabled = (byte)(value ? 1 : 0);
 				OnPropertyChanged();
 			}
 		}
@@ -66,10 +66,10 @@ namespace KHSave.SaveEditor.Kh3.Models
 
 		public bool Enabled
 		{
-			get => Item.Enabled;
+			get => Item.Enabled != 0;
 			set
 			{
-				Item.Enabled = value;
+				Item.Enabled = (byte)(value ? 1 : 0);
 				OnPropertyChanged();
 			}
 		}

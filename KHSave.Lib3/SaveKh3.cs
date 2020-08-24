@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -34,10 +34,6 @@ namespace KHSave.Lib3
         {
             Mapper = MappingConfiguration
                 .DefaultConfiguration()
-                .ForType<TimeSpan>(
-                    x => new TimeSpan(0, 0, 0, x.Reader.ReadInt32(), 0),
-                    x => x.Writer.Write((int)((TimeSpan)x.Item).TotalSeconds)
-                )
                 .Build();
         }
 
@@ -51,7 +47,6 @@ namespace KHSave.Lib3
         [Data(0x14)] public DifficultyType Difficulty { get; set; }
         [Data(0x18)] public WorldType WorldLogo { get; set; }
 
-        [Data(0x20)] public TimeSpan GameTime { get; set; }
         [Data(0x24)] public int TotalExp { get; set; }
         [Data(0x28)] public int Munny { get; set; }
         [Data(0x2C)] public byte Level { get; set; }

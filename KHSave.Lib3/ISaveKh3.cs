@@ -35,7 +35,6 @@ namespace KHSave.Lib3
         DifficultyType Difficulty { get; set; }
         WorldType WorldLogo { get; set; }
 
-        TimeSpan GameTime { get; set; }
         int TotalExp { get; set; }
         int Munny { get; set; }
         byte Level { get; set; }
