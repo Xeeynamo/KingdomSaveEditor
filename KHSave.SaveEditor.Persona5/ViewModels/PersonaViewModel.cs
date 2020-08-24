@@ -54,7 +54,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             }
         }
 
-        public short Level
+        public byte Level
         {
             get => _persona.Level;
             set => _persona.Level = value;

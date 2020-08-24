@@ -9,7 +9,8 @@ namespace KHSave.LibPersona5.Models
 
         [Data(0)] public short Flags { get; set; }
         [Data] public short Id { get; set; }
-        [Data] public short Level { get; set; }
+        [Data] public byte Level { get; set; }
+        [Data] public byte Unknown05 { get; set; }
         [Data] public short Unknown06 { get; set; }
         [Data] public int Experience { get; set; }
         [Data(Count = 8)] public Skill[] Skills{ get; set; }
