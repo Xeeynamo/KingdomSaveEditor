@@ -38,7 +38,10 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         }
 
         public IEnumerable<PersonaEntryViewModel> PersonaList { get; } = PersonaEntryViewModel.GetAll().ToList();
-        public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
+        public IEnumerable<SkillViewModel> SkillList { get; private set; }
+        public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillVanillaList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
+        public KhEnumListModel<EnumIconTypeModel<SkillRoyal>, SkillRoyal> SkillRoyalList { get; } =
+            new KhEnumListModel<EnumIconTypeModel<SkillRoyal>, SkillRoyal>();
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
 
         public void RefreshUi()
@@ -57,6 +60,24 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public void OpenStream(Stream stream)
         {
             Save = SavePersona5.Read(stream);
+            SkillList = Save.IsRoyal
+                ? SkillRoyalList
+                    .Select(x => new SkillViewModel()
+                    {
+                        Name = x.Name,
+                        Value = (Skill)x.Value,
+                        Icon = x.Icon,
+                    })
+                    .ToList()
+                : SkillVanillaList
+                    .Select(x => new SkillViewModel()
+                    {
+                        Name = x.Name,
+                        Value = x.Value,
+                        Icon = x.Icon,
+                    })
+                    .ToList();
+
             RefreshUi();
         }
 

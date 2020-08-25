@@ -27,7 +27,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         }
 
         public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
-        public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillList => _skillList.SkillList;
+        public IEnumerable<SkillViewModel> SkillList => _skillList.SkillList;
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
