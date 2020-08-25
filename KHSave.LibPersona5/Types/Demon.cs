@@ -10,7 +10,7 @@ namespace KHSave.LibPersona5.Types
 
         public DemonAttribute(string name = null, bool royal = false, string tarot = null) : base(name)
         {
-            Royal =
+            Royal = royal;
             Arcana = tarot ?? string.Empty;
         }
 
