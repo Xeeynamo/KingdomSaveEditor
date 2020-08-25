@@ -1,6 +1,7 @@
 ﻿using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Services;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +30,15 @@ namespace KHSave.SaveEditor.Views
                     _foundStream = await Pcsx2MemoryService.CreateStreamFromPcsx2Process(process, cancellationTokenSource.Token);
 
                     // If the search ends, ask to close the current window dialog
-                    Application.Current.Dispatcher.Invoke(() => Close());
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        MessageBox.Show(
+                            "The loaded game in PCSX2 is not supported.",
+                            "Error",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                        Close();
+                    });
 
                 }, cancellationTokenSource.Token);
 
