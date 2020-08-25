@@ -85,8 +85,8 @@ namespace KHSave.Tests
             Assert.Equal(2, save.RoomMap);
 
             Assert.Equal(Demon.JackFrost, (Demon)save.Compendium[(int)Demon.JackFrost].Id);
-            Assert.Equal(Skill.Bufu, save.Compendium[(int)Demon.JackFrost].Skills[0]);
-            Assert.Equal(Skill.IceBreak, save.Compendium[(int)Demon.JackFrost].Skills[1]);
+            Assert.Equal(Skill.Skill20, save.Compendium[(int)Demon.JackFrost].Skills[0]);
+            Assert.Equal(Skill.Skill386, save.Compendium[(int)Demon.JackFrost].Skills[1]);
         }
 
         [Fact]
