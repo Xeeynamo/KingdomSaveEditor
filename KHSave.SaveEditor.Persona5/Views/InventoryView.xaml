@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
     <Grid>
-            
+        <TextBlock>Work in progress</TextBlock>
     </Grid>
 </UserControl>
