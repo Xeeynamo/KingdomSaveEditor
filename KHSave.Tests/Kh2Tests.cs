@@ -95,6 +95,9 @@ namespace KHSave.Tests
             Assert.Equal(Difficulty.Critical, save.Difficulty);
             Assert.Equal(2885291, save.Experience);
             Assert.Equal(60, save.BonusLevel);
+
+            Assert.Equal(544, save.SoraValorKeyblade);
+            Assert.Equal(291, save.SoraValorExp);
         }
 
         [Fact]

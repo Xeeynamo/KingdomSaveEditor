@@ -17,6 +17,9 @@
         <TabItem Header="Characters">
             <views:PlayersView DataContext="{Binding Characters}"/>
         </TabItem>
+        <TabItem Header="Drive forms">
+            <views:DriveFormsView DataContext="{Binding DriveForms}"/>
+        </TabItem>
         <TabItem Header="Room visited">
             <views:RoomVisitedView DataContext="{Binding RoomVisited}"/>
         </TabItem>
