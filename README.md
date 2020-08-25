@@ -15,7 +15,7 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 | Kingdom Hearts 0.2             | PS4          | All    |
 | Kingdom Hearts III             | PS4          | All    |
 | Final Fantasy VII Remake       | PS4          | All    |
-| Persona 5, Persona 5 Royal    | PS3/PS5      | US/EU  |
+| Persona 5, Persona 5 Royal     | PS3/PS4      | US/EU  |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)*
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
