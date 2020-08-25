@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Used when a user wants to request a feature
-title: [GAME NAME] - [BRIEF EXPLAINATION]
+title: GAME NAME - BRIEF EXPLAINATION
 labels: enhancement
 assignees: Xeeynamo
 

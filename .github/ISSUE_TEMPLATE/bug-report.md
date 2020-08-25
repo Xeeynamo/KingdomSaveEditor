@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Used when a user wants to report a bug
-title: [GAME NAME] - [BRIEF EXPLAINATION]
+title: GAME NAME - BRIEF EXPLAINATION
 labels: enhancement
 assignees: Xeeynamo
 
