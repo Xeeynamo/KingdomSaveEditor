@@ -32,7 +32,7 @@ namespace KHSave.SaveEditor.Views
                     // If the search ends, ask to close the current window dialog
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        if (_foundStream == null)
+                        if (_foundStream == null && !cancellationTokenSource.Token.IsCancellationRequested)
                         {
                             MessageBox.Show(
                                 "The loaded game in PCSX2 is not supported.",

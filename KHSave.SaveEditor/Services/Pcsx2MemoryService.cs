@@ -11,8 +11,14 @@ namespace KHSave.SaveEditor.Services
     {
         private const int Pcsx2EmulationBaseAddress = 0x20000000;
         private const int Pcsx2EmulationMemoryLength = 0x2000000;
-        private const int PlayStation2BootFile = 0x155D0;
         private const int BootFileMaximumStringLength = 0x20;
+        private static readonly int[] PlayStation2BootFileOffsets = new int[]
+        {
+            0x12610, // Japan v1.00
+            0x15390, // American 1.60
+            0x15510, // Europe v1.60
+            0x155D0, // Europe v2.00
+        };
 
         private class GameEntry
         {
@@ -63,62 +69,74 @@ namespace KHSave.SaveEditor.Services
             new GameEntry("SLPM_666.75;1", 0x2032BB30, 0x10fc0), // Kingdom Hearts II: Final Mix
         };
 
-        public static async Task<ProcessStream> CreateStreamFromPcsx2Process(Process process, CancellationToken cancellationToken)
+        public static async Task<string> GetPcsx2ApplicationName(Process process, CancellationToken cancellationToken)
         {
             int byteReadCount;
             var data = new byte[BootFileMaximumStringLength];
-            int tryCount = 0;
+
             while (!cancellationToken.IsCancellationRequested)
             {
-                tryCount++;
-
-                using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + PlayStation2BootFile, 0x20))
+                foreach (var offsets in PlayStation2BootFileOffsets)
                 {
-                    byteReadCount = searchStream.Read(data, 0, data.Length);
-                }
+                    using (var searchStream = new ProcessStream(process, Pcsx2EmulationBaseAddress + offsets, 0x20))
+                    {
+                        byteReadCount = searchStream.Read(data, 0, data.Length);
+                    }
 
-                var bootFile = Encoding.ASCII.GetString(data.TakeWhile(b => !b.Equals(0)).ToArray());
+                    var bootFile = Encoding.ASCII.GetString(data.TakeWhile(b => !b.Equals(0)).ToArray());
 
-                // Here the situation becomes weird. We can have 5 possible different scenario:
-                // 1. The emulator is not booted. so the selected portion of memory will be undefined.
-                //    The task can wait for the user to load the game.
-                //    We can impose a quite long sleep, since it takes time from user's interaction.
-                if (byteReadCount == 0)
-                {
-                    await Task.Delay(1000);
-                    continue;
-                }
+                    // Here the situation becomes weird. We can have 5 possible different scenario:
+                    // 1. The emulator is not booted. so the selected portion of memory will be undefined.
+                    //    The task can wait for the user to load the game.
+                    //    We can impose a quite long sleep, since it takes time from user's interaction.
+                    if (byteReadCount == 0)
+                    {
+                        await Task.Delay(1000);
+                        continue;
+                    }
 
-                // 2. The emulator is booted to the bios, which will return "SYS"
-                //    The task can wait for the BIOS to boot the game.
-                //    The boot can happen at any time... or not happen at all.
-                if (bootFile == "SYS")
-                {
-                    await Task.Delay(200);
-                    continue;
-                }
+                    // 2. The emulator is booted to the bios, which will return "SYS"
+                    //    or "LOGO". The task can wait for the BIOS to boot the game.
+                    //    The boot can happen at any time... or not happen at all.
+                    if (bootFile == "SYS" || bootFile == "LOGO")
+                    {
+                        await Task.Delay(200);
+                        continue;
+                    }
 
-                // 3. The game is booting, so the length of bootFile will be 0.
-                //    The task can wait for the game to be booted.
-                //    This operation is usually quite fast.
-                if (bootFile.Length == 0)
-                {
+                    // 3. The game is booting, so the length of bootFile will be 0.
+                    //    The task can wait for the game to be booted.
+                    //    This operation is usually quite fast.
+                    if (bootFile.Length == 0)
+                    {
+                        await Task.Delay(10);
+                        continue;
+                    }
+
+                    // 4. A random string can be found for a fracion of second.
+                    //    Since a game always starts with "SL" or "SC", prevents
+                    //    to consider that random string as something useful.
+                    if (bootFile.StartsWith("SL") || bootFile.StartsWith("SC"))
+                        return bootFile;
+
                     await Task.Delay(10);
-                    continue;
                 }
+            }
 
-                // 4. A non-supported game is booted. It will always start with "SL".
-                //    The task should return null, as the game is not supported.
+            return null;
+        }
+
+        public static async Task<ProcessStream> CreateStreamFromPcsx2Process(Process process, CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                var bootFile = await GetPcsx2ApplicationName(process, cancellationToken);
+                if (cancellationToken.IsCancellationRequested)
+                    return null;
+
                 var game = Games.FirstOrDefault(x => x.BootFile == bootFile);
                 if (game == null)
                     return null;
-
-                // 5. A supported game is booted.
-                //    Returns a valid Stream.
-                // Wait few seconds to give time for the game to boot if PCSX2 was
-                // just opened.
-                if (tryCount > 2)
-                    Thread.Sleep(3000);
 
                 return new ProcessStream(process, game.Offset, (uint)game.Length);
             }
