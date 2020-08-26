@@ -8,17 +8,16 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
     public class PersonaEntryViewModel
     {
         public string Name => ToString();
-        public Demon Value { get; }
+        public int Value { get; }
 
         public string SimpleName { get; }
         public string Arcana { get; }
 
-
-        public PersonaEntryViewModel(Demon demon)
+        public PersonaEntryViewModel(int id, string name, string arcana)
         {
-            Value = demon;
-            SimpleName = InfoAttribute.GetInfo(demon);
-            Arcana = DemonAttribute.GetArcana(demon);
+            Value = id;
+            SimpleName = name;
+            Arcana = arcana;
         }
 
         public override string ToString()
@@ -26,13 +25,6 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             if (string.IsNullOrEmpty(Arcana))
                 return SimpleName;
             return $"{Arcana} | {SimpleName}";
-        }
-
-        public static IEnumerable<PersonaEntryViewModel> GetAll()
-        {
-            var array = Enum.GetValues(typeof(Demon));
-            foreach (var item in array)
-                yield return new PersonaEntryViewModel((Demon)item);
         }
     }
 }

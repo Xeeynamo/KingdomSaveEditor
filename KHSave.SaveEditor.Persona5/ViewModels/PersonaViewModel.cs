@@ -1,11 +1,9 @@
-﻿using KHSave.Attributes;
-using KHSave.LibPersona5.Models;
+﻿using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common;
-using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
 using System.Collections.Generic;
-using System.Reflection.Emit;
+using System.Linq;
 using System.Windows;
 using Xe.Tools;
 
@@ -23,7 +21,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             _persona = persona;
             _personaList = personaList;
             _skillList = skillList;
-            _vm = new PersonaEntryViewModel(PersonaId);
+            _vm = PersonaList.FirstOrDefault(x => x.Value == PersonaId);
         }
 
         public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
@@ -31,9 +29,9 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-        public string Name => _vm.Name;
-        public string DemonName => _vm.SimpleName;
-        public string Arcana => _vm.Arcana;
+        public string Name => _vm?.Name ?? "-";
+        public string DemonName => _vm?.SimpleName;
+        public string Arcana => _vm?.Arcana;
 
         public bool IsEnabled
         {
@@ -41,13 +39,13 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             set => _persona.Flags = (short)(value ? 1 : 0);
         }
 
-        public Demon PersonaId
+        public int PersonaId
         {
-            get => (Demon)_persona.Id;
+            get => _persona.Id;
             set
             {
                 _persona.Id = (short)value;
-                _vm = new PersonaEntryViewModel(PersonaId);
+                _vm = PersonaList.FirstOrDefault(x => x.Value == PersonaId);
                 OnPropertyChanged(nameof(DemonName));
                 OnPropertyChanged(nameof(Arcana));
                 OnPropertyChanged(nameof(Name));

@@ -17,6 +17,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         IPersonaList, ISkillList, IEquipmentList
     {
         private const string DefaultTab = "Characters";
+        private static List<Presets.Persona> Demons;
+        private static List<Presets.Persona> DemonsRoyal;
 
         public ISavePersona5 Save { get; private set; }
 
@@ -37,7 +39,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             }
         }
 
-        public IEnumerable<PersonaEntryViewModel> PersonaList { get; } = PersonaEntryViewModel.GetAll().ToList();
+        public IEnumerable<PersonaEntryViewModel> PersonaList { get; private set; }
         public IEnumerable<SkillViewModel> SkillList { get; private set; }
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillVanillaList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
         public KhEnumListModel<EnumIconTypeModel<SkillRoyal>, SkillRoyal> SkillRoyalList { get; } =
@@ -78,8 +80,29 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
                     })
                     .ToList();
 
+            if (Save.IsRoyal)
+            {
+                if (DemonsRoyal == null)
+                    DemonsRoyal = Presets.GetPersona(true);
+                PersonaList = GetPersona(DemonsRoyal);
+            }
+            else
+            {
+                if (Demons == null)
+                    Demons = Presets.GetPersona(true);
+                PersonaList = GetPersona(Demons);
+            }
+
             RefreshUi();
         }
+
+        private List<PersonaEntryViewModel> GetPersona(List<Presets.Persona> persona) =>
+            persona.Select(x => new PersonaEntryViewModel(
+                x.Id,
+                x.Name,
+                x.Arcana.ToString()
+                ))
+            .ToList();
 
         public void WriteToStream(Stream stream) =>
             SavePersona5.Write(stream, Save);

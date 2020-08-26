@@ -2,7 +2,7 @@
 
 namespace KHSave.LibPersona5
 {
-    public static class Presets
+    public static partial class Presets
     {
         public class Field
         {
