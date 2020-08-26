@@ -32,11 +32,14 @@ namespace KHSave.SaveEditor.Views
                     // If the search ends, ask to close the current window dialog
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        MessageBox.Show(
-                            "The loaded game in PCSX2 is not supported.",
-                            "Error",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
+                        if (_foundStream == null)
+                        {
+                            MessageBox.Show(
+                                "The loaded game in PCSX2 is not supported.",
+                                "Error",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
+                        }
                         Close();
                     });
 
