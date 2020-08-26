@@ -17,7 +17,7 @@
             <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
         </common:TwoEqualColumnsStackPanel>
 
-        <TextBlock Text="Weapon"/>
+        <TextBlock Text="Secondary weapon"/>
         <common:ItemComboBox DataContext="{Binding Weapon}"/>
 
         <DataGrid
