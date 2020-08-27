@@ -1,9 +1,4 @@
-﻿using KHSave.Attributes;
-using KHSave.LibPersona5.Types;
-using System;
-using System.Collections.Generic;
-
-namespace KHSave.SaveEditor.Persona5.ViewModels
+﻿namespace KHSave.SaveEditor.Persona5.ViewModels
 {
     public class PersonaEntryViewModel
     {

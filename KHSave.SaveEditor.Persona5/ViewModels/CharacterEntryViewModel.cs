@@ -4,6 +4,9 @@ using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
+using KHSave.SaveEditor.Persona5.Models;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using Xe.Tools.Wpf.Models;
@@ -33,6 +36,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList =>
             _equipmentList.EquipmentList;
+
+        public IEnumerable<EquipmentModel> Accessories => _equipmentList.Accessories;
 
         public bool IsUnlocked
         {

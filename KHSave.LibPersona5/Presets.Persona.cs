@@ -53,10 +53,7 @@ namespace KHSave.LibPersona5
             var names = File.ReadAllLines("Resources/demon.txt");
             using (var stream = File.OpenRead(isRoyal ? "Resources/demonr.bin" : "Resources/demon.bin"))
             {
-                var length = (stream.ReadByte() << 24) |
-                    (stream.ReadByte() << 16) |
-                    (stream.ReadByte() << 8) |
-                    (stream.ReadByte() << 0);
+                var length = stream.ReadInt32BE();
                 var count = length / 14;
 
                 var persona = Enumerable.Range(0, count)

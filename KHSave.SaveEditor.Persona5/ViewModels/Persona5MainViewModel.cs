@@ -4,6 +4,7 @@ using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Persona5.Interfaces;
+using KHSave.SaveEditor.Persona5.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         private const string DefaultTab = "Characters";
         private static List<Presets.Persona> Demons;
         private static List<Presets.Persona> DemonsRoyal;
+        private Presets.Items _itemsVanilla;
+        private Presets.Items _itemsRoyal;
 
         public ISavePersona5 Save { get; private set; }
 
@@ -44,7 +47,9 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public KhEnumListModel<EnumIconTypeModel<Skill>, Skill> SkillVanillaList { get; } = new KhEnumListModel<EnumIconTypeModel<Skill>, Skill>();
         public KhEnumListModel<EnumIconTypeModel<SkillRoyal>, SkillRoyal> SkillRoyalList { get; } =
             new KhEnumListModel<EnumIconTypeModel<SkillRoyal>, SkillRoyal>();
+
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
+        public IEnumerable<EquipmentModel> Accessories { get; private set; }
 
         public void RefreshUi()
         {
@@ -84,13 +89,21 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             {
                 if (DemonsRoyal == null)
                     DemonsRoyal = Presets.GetPersona(true);
+                if (_itemsRoyal == null)
+                    _itemsRoyal = Presets.GetItems(true);
+
                 PersonaList = GetPersona(DemonsRoyal);
+                ProcessItems(_itemsRoyal);
             }
             else
             {
                 if (Demons == null)
-                    Demons = Presets.GetPersona(true);
+                    Demons = Presets.GetPersona(false);
+                if (_itemsVanilla == null)
+                    _itemsVanilla = Presets.GetItems(false);
+
                 PersonaList = GetPersona(Demons);
+                ProcessItems(_itemsVanilla);
             }
 
             RefreshUi();
@@ -103,6 +116,12 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
                 x.Arcana.ToString()
                 ))
             .ToList();
+
+        private void ProcessItems(Presets.Items items)
+        {
+            Accessories = items.Accessories
+                .Select(x => new EquipmentModel(x, 0x2000, "Accessory"));
+        }
 
         public void WriteToStream(Stream stream) =>
             SavePersona5.Write(stream, Save);

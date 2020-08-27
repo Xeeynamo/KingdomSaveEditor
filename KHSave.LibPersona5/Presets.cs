@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace KHSave.LibPersona5
 {
@@ -12,6 +13,12 @@ namespace KHSave.LibPersona5
             public bool Royal { get; set; }
             public string Description { get; set; }
         }
+
+        private static int ReadInt32BE(this Stream stream) =>
+            (stream.ReadByte() << 24) |
+            (stream.ReadByte() << 16) |
+            (stream.ReadByte() << 8) |
+            (stream.ReadByte() << 0);
 
         private static Field FieldAll    (int category, int map, string description) =>
             new Field { Category = category, Map = map, Vanilla = true, Royal = true, Description = description };

@@ -71,7 +71,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="60"/>
                             </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0" ItemsSource="{Binding EquipmentList}" SelectedValue="{Binding Accessory}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                            <ComboBox Grid.Column="0" ItemsSource="{Binding Accessories}" SelectedValue="{Binding AccessoryId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
                             <TextBox Grid.Column="1" Text="{Binding AccessoryId, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
 
