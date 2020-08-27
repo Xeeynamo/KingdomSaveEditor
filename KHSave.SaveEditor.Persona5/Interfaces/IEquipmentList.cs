@@ -11,5 +11,8 @@ namespace KHSave.SaveEditor.Persona5.Interfaces
 
         IEnumerable<EquipmentModel> Accessories { get; }
         IEnumerable<EquipmentModel> Armors { get; }
+        IEnumerable<EquipmentModel> Outfits { get; }
+        IEnumerable<EquipmentModel> MeleeWeapons { get; }
+        IEnumerable<EquipmentModel> RangeWeapons { get; }
     }
 }

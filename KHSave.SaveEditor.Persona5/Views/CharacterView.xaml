@@ -36,39 +36,16 @@
                     </common:TwoEqualColumnsStackPanel>
                     <common:TwoEqualColumnsStackPanel>
                         <TextBlock Text="Melee Weapon"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="60"/>
-                            </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0" ItemsSource="{Binding EquipmentList}" SelectedValue="{Binding MeleeWeapon}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
-                            <TextBox Grid.Column="1" Text="{Binding MeleeWeaponId, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-                        
+                        <ComboBox ItemsSource="{Binding MeleeWeapons}" SelectedValue="{Binding MeleeWeaponId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
                         <TextBlock Text="Range Weapon"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="60"/>
-                            </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0" ItemsSource="{Binding EquipmentList}" SelectedValue="{Binding RangeWeapon}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
-                            <TextBox Grid.Column="1" Text="{Binding RangeWeaponId, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-
+                        <ComboBox ItemsSource="{Binding RangeWeapons}" SelectedValue="{Binding RangeWeaponId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
                         <TextBlock Text="Protector"/>
                         <ComboBox ItemsSource="{Binding Armors}" SelectedValue="{Binding ProtectorId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
                         <TextBlock Text="Accessory"/>
                         <ComboBox ItemsSource="{Binding Accessories}" SelectedValue="{Binding AccessoryId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
-
                         <TextBlock Text="Outfit"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="60"/>
-                            </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0" ItemsSource="{Binding EquipmentList}" SelectedValue="{Binding Outfit}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
-                            <TextBox Grid.Column="1" Text="{Binding OutfitId, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
+                        <ComboBox ItemsSource="{Binding Outfits}" SelectedValue="{Binding OutfitId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        
                     </common:TwoEqualColumnsStackPanel>
                 </StackPanel>
             </ScrollViewer>

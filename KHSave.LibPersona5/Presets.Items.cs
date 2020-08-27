@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Xe.BinaryMapper;
@@ -13,9 +11,20 @@ namespace KHSave.LibPersona5
 {
     public static partial class Presets
     {
-        public const int ArmorEquipMaleMask = 0x0226;
-        public const int ArmorEquipFemaleMask = 0x01d0;
-        public const int ArmorEquipCatMask = 0x0008;
+        public const int Protagonist = 0x0002;
+        public const int Ryuji = 0x0004;
+        public const int Morgana = 0x0008;
+        public const int Ann = 0x0010;
+        public const int Yusuke = 0x0020;
+        public const int Makoto = 0x0040;
+        public const int Haru = 0x0080;
+        public const int Futaba = 0x0100;
+        public const int Goro = 0x0200;
+        public const int Violet = 0x0400;
+
+        public const int ArmorEquipMaleMask = Protagonist | Ryuji | Yusuke | Goro;
+        public const int ArmorEquipFemaleMask = Ann | Makoto | Haru | Futaba;
+        public const int ArmorEquipCatMask = Morgana;
         public const int ArmorEquipUnisexMask = ArmorEquipMaleMask | ArmorEquipFemaleMask;
         public const int ArmorEquipAllMask = ArmorEquipUnisexMask | ArmorEquipCatMask;
 
@@ -80,6 +89,12 @@ namespace KHSave.LibPersona5
         {
             public int Id { get; set; }
             public string Name { get; set; }
+            [Data] public int Unk00 { get; set; }
+            [Data] public short Unk04 { get; set; }
+            [Data] public short Unk06 { get; set; }
+            [Data] public short Unk08 { get; set; }
+            [Data] public short EquippableFlags { get; set; }
+            [Data(Count = 0x24)] public byte[] Ignore { get; set; }
         }
 
         public class Outfit : IItem
@@ -98,6 +113,12 @@ namespace KHSave.LibPersona5
         {
             public int Id { get; set; }
             public string Name { get; set; }
+            [Data] public int Unk00 { get; set; }
+            [Data] public short Unk04 { get; set; }
+            [Data] public short Unk06 { get; set; }
+            [Data] public short Unk08 { get; set; }
+            [Data] public short EquippableFlags { get; set; }
+            [Data(Count = 0x28)] public byte[] Ignore { get; set; }
         }
 
         public static Items GetItems(bool isRoyal)
@@ -109,6 +130,13 @@ namespace KHSave.LibPersona5
                 {
                     Accessories = GetItems<Accessory>(stream, 0x40, "AccessoryNames"),
                     Armors = GetItems<Armor>(stream, 0x30, "ArmorNames"),
+                    Consumables = GetItems<Consumable>(stream, 0x30, "ConsumableItemNames"),
+                    KeyItems = GetItems<KeyItem>(stream, 0xc, "KeyItemNames"),
+                    Materials = GetItems<Material>(stream, 0x2c, "MaterialNames"),
+                    MeleeWeapons = GetItems<MeleeWeapon>(stream, 0x30, "MeleeWeaponNames"),
+                    Outfits = GetItems<Outfit>(stream, 0x20, "OutfitNames"),
+                    SkillCards = GetItems<SkillCard>(stream, 0x18, "SkillCardNames"),
+                    RangeWeapons = GetItems<RangeWeapon>(stream, 0x34, "RangedWeaponNames"),
                 };
             }
         }

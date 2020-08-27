@@ -17,6 +17,35 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         IRefreshUi, IOpenStream, IWriteToStream,
         IPersonaList, ISkillList, IEquipmentList
     {
+        private static readonly string[] MeleeType = new string[]
+        {
+            "Dagger",
+            "Dagger",
+            "Pole",
+            "MorganaMelee",
+            "AnnMelee",
+            "YusukeMelee",
+            "MakotoMelee",
+            "HaruMelee",
+            "FutabaMelee",
+            "GoroMelee",
+            "VioletMelee",
+        };
+        private static readonly string[] RangeType = new string[]
+        {
+            "RangeJoker",
+            "RangeJoker",
+            "RyujiRange",
+            "MorganaRange",
+            "AnnRange",
+            "YusukeRange",
+            "MakotoRange",
+            "HaruRange",
+            "FutabaRange",
+            "RangeCrow",
+            "VioletRange",
+        };
+
         private const string DefaultTab = "Characters";
         private static List<Presets.Persona> Demons;
         private static List<Presets.Persona> DemonsRoyal;
@@ -51,6 +80,9 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
         public IEnumerable<EquipmentModel> Accessories { get; private set; }
         public IEnumerable<EquipmentModel> Armors { get; private set; }
+        public IEnumerable<EquipmentModel> Outfits { get; private set; }
+        public IEnumerable<EquipmentModel> MeleeWeapons { get; private set; }
+        public IEnumerable<EquipmentModel> RangeWeapons { get; private set; }
 
         public void RefreshUi()
         {
@@ -140,6 +172,23 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
                     return new EquipmentModel(x, 0x1000, armorType);
                 }).ToList();
+            Outfits = items.Outfits
+                .Select(x => new EquipmentModel(x, 0x7000, "Accessory"))
+                .ToList();
+            MeleeWeapons = items.MeleeWeapons
+                .Select(x => new EquipmentModel(x, 0x0000, MeleeType[GetFlagIndex(x.EquippableFlags)]))
+                .ToList();
+            RangeWeapons = items.RangeWeapons
+                .Select(x => new EquipmentModel(x, 0x8000, RangeType[GetFlagIndex(x.EquippableFlags)]))
+                .ToList();
+        }
+
+        private int GetFlagIndex(int mask)
+        {
+            for (var i = 0; i < 16; i++)
+                if ((mask & (1 << i)) != 0)
+                    return i;
+            return default;
         }
 
         public void WriteToStream(Stream stream) =>
