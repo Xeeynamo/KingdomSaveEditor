@@ -13,6 +13,12 @@ namespace KHSave.LibPersona5
 {
     public static partial class Presets
     {
+        public const int ArmorEquipMaleMask = 0x0226;
+        public const int ArmorEquipFemaleMask = 0x01d0;
+        public const int ArmorEquipCatMask = 0x0008;
+        public const int ArmorEquipUnisexMask = ArmorEquipMaleMask | ArmorEquipFemaleMask;
+        public const int ArmorEquipAllMask = ArmorEquipUnisexMask | ArmorEquipCatMask;
+
         public interface IItem
         {
             int Id { get; set; }
@@ -43,6 +49,13 @@ namespace KHSave.LibPersona5
         {
             public int Id { get; set; }
             public string Name { get; set; }
+
+            [Data] public int Unk00 { get; set; }
+            [Data] public short Unk04 { get; set; }
+            [Data] public short Unk06 { get; set; }
+            [Data] public short Unk08 { get; set; }
+            [Data] public short EquippableFlags { get; set; }
+            [Data(Count = 0x24)] public byte[] Ignore { get; set; }
         }
 
         public class Consumable : IItem
@@ -95,6 +108,7 @@ namespace KHSave.LibPersona5
                 return new Items
                 {
                     Accessories = GetItems<Accessory>(stream, 0x40, "AccessoryNames"),
+                    Armors = GetItems<Armor>(stream, 0x30, "ArmorNames"),
                 };
             }
         }
@@ -105,6 +119,7 @@ namespace KHSave.LibPersona5
         {
             var length = stream.ReadInt32BE();
             var count = length / stride;
+            var startPosition = stream.Position;
 
             var names = File.ReadAllLines($"Resources/{namesSource}.txt");
             var items = Enumerable.Range(0, count)
@@ -116,6 +131,11 @@ namespace KHSave.LibPersona5
                 item.Id = i;
                 item.Name = i < items.Count ? names[i] : $"##{i}";
             }
+
+            var nextPosition = startPosition + length;
+            while ((nextPosition % 16) != 0)
+                nextPosition++;
+            stream.Position = nextPosition;
 
             return items;
         }

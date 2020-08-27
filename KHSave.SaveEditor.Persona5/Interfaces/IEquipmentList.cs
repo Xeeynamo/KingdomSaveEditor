@@ -10,5 +10,6 @@ namespace KHSave.SaveEditor.Persona5.Interfaces
         KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; }
 
         IEnumerable<EquipmentModel> Accessories { get; }
+        IEnumerable<EquipmentModel> Armors { get; }
     }
 }

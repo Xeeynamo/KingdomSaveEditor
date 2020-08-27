@@ -38,6 +38,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             _equipmentList.EquipmentList;
 
         public IEnumerable<EquipmentModel> Accessories => _equipmentList.Accessories;
+        public IEnumerable<EquipmentModel> Armors => _equipmentList.Armors;
 
         public bool IsUnlocked
         {
@@ -136,36 +137,13 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             }
         }
 
-        public Equipment Protector
-        {
-            get => _character.Protector;
-            set
-            {
-                _character.Protector = value;
-                OnPropertyChanged(nameof(Protector));
-                OnPropertyChanged(nameof(ProtectorId));
-            }
-        }
-
         public ushort ProtectorId
         {
             get => (ushort)_character.Protector;
             set
             {
                 _character.Protector = (Equipment)value;
-                OnPropertyChanged(nameof(Protector));
-                OnPropertyChanged(nameof(ProtectorId));
-            }
-        }
-
-        public Equipment Accessory
-        {
-            get => _character.Accessory;
-            set
-            {
-                _character.Accessory = value;
-                OnPropertyChanged(nameof(Accessory));
-                OnPropertyChanged(nameof(AccessoryId));
+                OnPropertyChanged();
             }
         }
 
@@ -175,8 +153,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             set
             {
                 _character.Accessory = (Equipment)value;
-                OnPropertyChanged(nameof(Accessory));
-                OnPropertyChanged(nameof(AccessoryId));
+                OnPropertyChanged();
             }
         }
 

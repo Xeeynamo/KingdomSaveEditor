@@ -50,6 +50,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList { get; } = new KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment>();
         public IEnumerable<EquipmentModel> Accessories { get; private set; }
+        public IEnumerable<EquipmentModel> Armors { get; private set; }
 
         public void RefreshUi()
         {
@@ -120,7 +121,25 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         private void ProcessItems(Presets.Items items)
         {
             Accessories = items.Accessories
-                .Select(x => new EquipmentModel(x, 0x2000, "Accessory"));
+                .Select(x => new EquipmentModel(x, 0x2000, "Accessory"))
+                .ToList();
+            Armors = items.Armors
+                .Select(x =>
+                {
+                    var armorType = "Protector";
+                    if ((x.EquippableFlags & Presets.ArmorEquipAllMask) == Presets.ArmorEquipAllMask)
+                        armorType = "Protector";
+                    else if ((x.EquippableFlags & Presets.ArmorEquipUnisexMask) == Presets.ArmorEquipUnisexMask)
+                        armorType = "ProtectorUnisex";
+                    else if ((x.EquippableFlags & Presets.ArmorEquipMaleMask) != 0)
+                        armorType = "ProtectorMale";
+                    else if ((x.EquippableFlags & Presets.ArmorEquipFemaleMask) != 0)
+                        armorType = "ProtectorMale";
+                    else if ((x.EquippableFlags & Presets.ArmorEquipCatMask) != 0)
+                        armorType = "ProtectorCat";
+
+                    return new EquipmentModel(x, 0x1000, armorType);
+                }).ToList();
         }
 
         public void WriteToStream(Stream stream) =>
