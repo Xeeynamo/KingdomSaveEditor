@@ -96,36 +96,13 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             set => _character.CurrentMp = value;
         }
 
-        public Equipment MeleeWeapon
-        {
-            get => _character.MeleeWeapon;
-            set
-            {
-                _character.MeleeWeapon = value;
-                OnPropertyChanged(nameof(MeleeWeapon));
-                OnPropertyChanged(nameof(MeleeWeaponId));
-            }
-        }
-
         public ushort MeleeWeaponId
         {
             get => (ushort)_character.MeleeWeapon;
             set
             {
                 _character.MeleeWeapon = (Equipment)value;
-                OnPropertyChanged(nameof(MeleeWeapon));
-                OnPropertyChanged(nameof(MeleeWeaponId));
-            }
-        }
-
-        public Equipment RangeWeapon
-        {
-            get => _character.RangeWeapon;
-            set
-            {
-                _character.RangeWeapon = value;
-                OnPropertyChanged(nameof(RangeWeapon));
-                OnPropertyChanged(nameof(RangeWeaponId));
+                OnPropertyChanged();
             }
         }
 
@@ -135,8 +112,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             set
             {
                 _character.RangeWeapon = (Equipment)value;
-                OnPropertyChanged(nameof(RangeWeapon));
-                OnPropertyChanged(nameof(RangeWeaponId));
+                OnPropertyChanged();
             }
         }
 
