@@ -30,6 +30,11 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             "FutabaMelee",
             "GoroMelee",
             "VioletMelee",
+            "VioletMelee",
+            "VioletMelee",
+            "VioletMelee",
+            "VioletMelee",
+            "VioletMelee",
         };
         private static readonly string[] RangeType = new string[]
         {
@@ -43,6 +48,11 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             "HaruRange",
             "FutabaRange",
             "RangeCrow",
+            "VioletRange",
+            "VioletRange",
+            "VioletRange",
+            "VioletRange",
+            "VioletRange",
             "VioletRange",
         };
 

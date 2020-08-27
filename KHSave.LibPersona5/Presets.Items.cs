@@ -157,7 +157,7 @@ namespace KHSave.LibPersona5
             {
                 var item = items[i];
                 item.Id = i;
-                item.Name = i < items.Count ? names[i] : $"##{i}";
+                item.Name = i < names.Length ? names[i] : $"##{i}";
             }
 
             var nextPosition = startPosition + length;
