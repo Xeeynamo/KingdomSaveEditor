@@ -26,10 +26,7 @@ namespace KHSave.Lib2
         ICharacter[] Characters { get; }
         IDriveForm[] DriveForms { get; }
 
-        PlayableCharacterType PlayableCharacter { get; set; }
-        PlayableCharacterType CompanionCharacter1 { get; set; }
-        PlayableCharacterType CompanionCharacter2 { get; set; }
-        PlayableCharacterType CompanionCharacter3 { get; set; }
+        PartyMembers[] WorldPartyMembers { get; set; }
         byte[] InventoryCount { get; set; }
 
         int Experience { get; set; }

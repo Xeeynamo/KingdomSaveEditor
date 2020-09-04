@@ -14,6 +14,7 @@ namespace KHSave.Lib2.Types
         [Info] Trinity,
         [Info] Final,
         [Info] Antiform,
-        [Info] Mickey
+        [Info] Mickey,
+        [Info] None = 18,
     }
 }

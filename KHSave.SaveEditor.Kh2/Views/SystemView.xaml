@@ -68,34 +68,6 @@
                 </ComboBox>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
-        <GroupBox Header="Non/Playable characters">
-            <common:TwoEqualColumnsStackPanel>
-                <TextBlock Text="Character 1"/>
-                <ComboBox
-                    ItemsSource="{Binding Pc0}"
-                    SelectedValue="{Binding Pc0.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-                <TextBlock Text="Character 2"/>
-                <ComboBox
-                    ItemsSource="{Binding Pc1}"
-                    SelectedValue="{Binding Pc1.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-                <TextBlock Text="Character 3"/>
-                <ComboBox
-                    ItemsSource="{Binding Pc2}"
-                    SelectedValue="{Binding Pc2.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-                <TextBlock Text="Character 4"/>
-                <ComboBox
-                    ItemsSource="{Binding Pc3}"
-                    SelectedValue="{Binding Pc3.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
-            </common:TwoEqualColumnsStackPanel>
-        </GroupBox>
         <GroupBox Header="Misc">
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Difficulty"/>

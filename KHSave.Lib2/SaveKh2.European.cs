@@ -32,11 +32,7 @@ namespace KHSave.Lib2
             [Data(0x1660, Count = 13, Stride = 0xf4)] public CharacterVanilla[] Characters { get; set; }
             [Data(0x22c4, Count = 9, Stride = 0x28)] public DriveFormVanilla[] DriveForms { get; set; }
 
-
-            [Data(0x244c)] public PlayableCharacterType PlayableCharacter { get; set; }
-            [Data(0x244d)] public PlayableCharacterType CompanionCharacter1 { get; set; }
-            [Data(0x244e)] public PlayableCharacterType CompanionCharacter2 { get; set; }
-            [Data(0x244f)] public PlayableCharacterType CompanionCharacter3 { get; set; }
+            [Data(0x3534, Count = Constants.WorldCount)] public PartyMembers[] WorldPartyMembers { get; set; }
             [Data(0x2488, Count = 280)] public byte[] InventoryCount { get; set; }
             [Data(0x25E8)] public int Experience { get; set; }
             [Data(0x2600)] public CommandType ShortcutCircle { get; set; }

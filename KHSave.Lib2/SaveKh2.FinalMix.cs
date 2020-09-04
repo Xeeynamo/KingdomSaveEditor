@@ -32,10 +32,11 @@ namespace KHSave.Lib2
             [Data(0x24f0, Count = 13, Stride = 0x114)] public CharacterFinalMix[] Characters { get; set; }
             [Data(0x32f4, Count = 10, Stride = 0x38)] public DriveFormFinalMix[] DriveForms { get; set; }
 
-            [Data(0x357c)] public PlayableCharacterType PlayableCharacter { get; set; }
-            [Data(0x357d)] public PlayableCharacterType CompanionCharacter1 { get; set; }
-            [Data(0x357e)] public PlayableCharacterType CompanionCharacter2 { get; set; }
-            [Data(0x357f)] public PlayableCharacterType CompanionCharacter3 { get; set; }
+            [Data(0x3526)] public byte SummonLevel { get; set; }
+            [Data(0x3529)] public byte DriveBarCurrent { get; set; }
+            [Data(0x352a)] public byte DriveBarMax { get; set; }
+
+            [Data(0x3534, Count = Constants.WorldCount)] public PartyMembers[] WorldPartyMembers { get; set; }
             [Data(0x3580, Count = 320)] public byte[] InventoryCount { get; set; }
 
             [Data(0x36E0)] public int Experience { get; set; }
