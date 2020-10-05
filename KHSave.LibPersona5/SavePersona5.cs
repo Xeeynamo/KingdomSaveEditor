@@ -94,16 +94,26 @@ namespace KHSave.LibPersona5
             for (var i = 0; i < count; i++)
             {
                 var ch = arg.Reader.ReadByte();
-                if (ch == 0) break;
-                if (ch != 0x80) throw new NotImplementedException($"Read P5 string: first char {ch:X02}");
-
-                ch = arg.Reader.ReadByte();
-                if (ch >= 0xc1 && ch <= 0xc1 + ('z' - 'a'))
-                    sb.Append((char)(ch - 0xc1 + 'a'));
-                else if (ch >= 0xa1 && ch <= 0xa1 + ('Z' - 'A'))
-                    sb.Append((char)(ch - 0xa1 + 'A'));
+                if (ch == 0)
+                    break;
+                if (ch >= '0' && ch <= '9')
+                    sb.Append((char)ch);
+                else if (ch >= 'A' && ch <= 'Z')
+                    sb.Append((char)ch);
+                else if (ch >= 'a' && ch <= 'z')
+                    sb.Append((char)ch);
+                else if (ch == 0x80)
+                {
+                    ch = arg.Reader.ReadByte();
+                    if (ch >= 0xc1 && ch <= 0xc1 + ('z' - 'a'))
+                        sb.Append((char)(ch - 0xc1 + 'a'));
+                    else if (ch >= 0xa1 && ch <= 0xa1 + ('Z' - 'A'))
+                        sb.Append((char)(ch - 0xa1 + 'A'));
+                    else
+                        throw new NotImplementedException($"Read P5 string: second char {ch:X02}");
+                }
                 else
-                    throw new NotImplementedException($"Read P5 string: second char {ch:X02}");
+                    throw new NotImplementedException($"Read P5 string: first char {ch:X02}");
             }
 
             arg.Reader.BaseStream.Position = dstPosition;
