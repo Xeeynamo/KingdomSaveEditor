@@ -13,13 +13,23 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox
-            Grid.Column="0"
-            ItemsSource="{Binding Items}"
-            SelectedIndex="{Binding SelectedIndex}"
-            SelectedItem="{Binding SelectedItem}"
-            DisplayMemberPath="Name"
-            />
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListBox
+                Grid.Row="0"
+                ItemsSource="{Binding Items}"
+                SelectedIndex="{Binding SelectedIndex}"
+                SelectedItem="{Binding SelectedItem}"
+                DisplayMemberPath="Name"
+                />
+            <Button
+                Grid.Row="1"
+                Content="Unlock all"
+                Command="{Binding UnlockAllCompendiumCommand}"/>
+        </Grid>
         <Grid
             Grid.Column="2" Margin="0 0 10 0" 
             Visibility="{Binding EntryNotVisible}">

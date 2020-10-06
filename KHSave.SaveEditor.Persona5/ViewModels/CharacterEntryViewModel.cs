@@ -21,7 +21,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         private readonly IEquipmentList _equipmentList;
 
         public CharacterEntryViewModel(ISavePersona5 save, Character character, int index, IPersonaList personaList, ISkillList skillList, IEquipmentList equipmentList) :
-            base(character.Persona.Select(x => new PersonaViewModel(x, personaList, skillList)))
+            base(character.Persona.Select((x, i) => new PersonaViewModel(-1, x, personaList, skillList)))
         {
             _save = save;
             _id = (Characters)index;

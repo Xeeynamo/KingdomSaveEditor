@@ -153,11 +153,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         }
 
         private List<PersonaEntryViewModel> GetPersona(List<Presets.Persona> persona) =>
-            persona.Select(x => new PersonaEntryViewModel(
-                x.Id,
-                x.Name,
-                x.Arcana.ToString()
-                ))
+            persona.Select(x => new PersonaEntryViewModel(x))
             .ToList();
 
         private void ProcessItems(Presets.Items items)
