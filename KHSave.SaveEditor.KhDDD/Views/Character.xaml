@@ -11,15 +11,18 @@
         <StackPanel>
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Sora keyblade"/>
-                <ComboBox ItemsSource="{Binding Equipment}"
-                          SelectedValue="{Binding SoraKeyblade}"
-                          DisplayMemberPath="Name"
-                          SelectedValuePath="Value"/>
+                <common:ItemComboBox DataContext="{Binding SoraKeyblade}"/>
                 <TextBlock Text="Riku keyblade"/>
-                <ComboBox ItemsSource="{Binding Equipment}"
-                          SelectedValue="{Binding RikuKeyblade}"
-                          DisplayMemberPath="Name"
-                          SelectedValuePath="Value"/>
+                <common:ItemComboBox DataContext="{Binding RikuKeyblade}"/>
+                <TextBlock Text="Sora Xp"/>
+                <TextBox Text="{Binding SoraXp, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Riku Xp"/>
+                <TextBox Text="{Binding RikuXp, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Sora Level"/>
+                <TextBox Text="{Binding SoraLv, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Riku Level"/>
+                <TextBox Text="{Binding RikuLv, UpdateSourceTrigger=PropertyChanged}"/>
+                
             </common:TwoEqualColumnsStackPanel>
         </StackPanel>
     </ScrollViewer>

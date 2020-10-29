@@ -22,14 +22,16 @@ namespace KHSave.LibDDD
             [Data] public byte SpawnId { get; set; }
             //3 in party and 99 on the bank
             [Data(0x53a0, Count = 102)] public DreamEater[] DreamEaters { get; set; }
-            //SoraXp d1cc-d1ce big endian max value 786680?
+            //SoraXp max value 786680?
+            [Data(0xd1cc)] public UInt32 SoraXp { get; set; }
             [Data(0xd1f0)] public byte SoraLv { get; set; }
-            //RikuXp d248-d24a big endian
+            //RikuXp max value 786680?
+            [Data(0xd248)] public UInt32 RikuXp { get; set; }
             [Data(0xd26c)] public byte RikuLv { get; set; }
             [Data(0xd2c4)] public EquipmentType SoraKeyblade { get; set; }
             [Data(0xd2c6)] public EquipmentType RikuKeyblade { get; set; }
-
-            //Munny d2c8-d2ca big endian max value 999999
+            //Munny max value 999999?
+            [Data(0xd2c8)] public UInt32 Munny { get; set; }
             [Data(0xd2f0, Count = 3)] public Deck[] SoraDecks { get; set; }
             [Data(0xd5fc, Count = 3)] public Deck[] RikuDecks { get; set; }
 

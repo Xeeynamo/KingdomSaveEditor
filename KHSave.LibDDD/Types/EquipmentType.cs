@@ -1,10 +1,12 @@
 ﻿using KHSave.Attributes;
+using KHSave.LibDDD.Attributes;
+using System;
 
 // thank you HOLLOW_DRAGONITE for this list of ID's you made my life a lot easier
 
 namespace KHSave.LibDDD.Types
 {
-    public enum EquipmentType : short
+    public enum EquipmentType : UInt16
     {
         // xx00 - Command Deck Action (not Combat) Commands
         [Info("Jump")] Jump = 0x0100,
@@ -135,13 +137,69 @@ namespace KHSave.LibDDD.Types
         [KeyItem("KEY ITEM 3 (Jikuu Shard 3 Help)")] KeyItem3 = 0x0204,
         [KeyItem("KEY ITEM 4")] KeyItem4 = 0x0304,
 
-        // xx05 - Glosary
+        // xx05 - Glossary
+        [Glossary("Keyblades")] Keyblades = 0x0005,
+        [Glossary("Keyblade Masters")] KeybladeMasters = 0x0105,
+        [Glossary("Master Xehanort")] MasterXehanort = 0x0205,
+        [Glossary("The Keyblade War")] TheKeybladeWar = 0x0305,
+        [Glossary("Heartless")] Heartless = 0x0405,
+        [Glossary("Kingdom Hearts")] KingdomHearts = 0x0505,
+        [Glossary("Nobodies")] Nobodies = 0x0605,
+        [Glossary("Organization XIII")] OrganisationXIII = 0x0705,
+        [Glossary("Seven Princesses")] SevenPrincesses = 0x0805,
+        [Glossary("Recusant's Sigil")] RecusantsSigil = 0x0905,
+        [Glossary("χ-blade")] xblade = 0x0A05,
+        [Glossary("Hearts tied to Sora")] HeartstiedtoSora = 0x0B05,
+        [Glossary("Secret Message")] SecretMessage = 0x0C05,
+        [Glossary("GLOSSARY 14")] GLOSSARY14 = 0x0D05,
 
         // xx06 - Dream Pieces
-
+        [DreamPieces("Fleeting Figment")] FleetingFigment = 0x0006,
+        [DreamPieces("Fleeting Fancy")] FleetingFancy = 0x0106,
+        [DreamPieces("Fleeting Fantasy")] FleetingFantasy = 0x0206,
+        [DreamPieces("Lofty Figment")] LoftyFigment = 0x0306,
+        [DreamPieces("Lofty Fancy")] LoftyFancy = 0x0406,
+        [DreamPieces("Lofty Fantasy")] LoftyFantasy = 0x0506,
+        [DreamPieces("Rampant Figment")] RampantFigment = 0x0606,
+        [DreamPieces("Rampant Fancy")] RampantFancy = 0x0706,
+        [DreamPieces("Rampant Fantasy")] RampantFantasy = 0x0806,
+        [DreamPieces("Dulcet Figment")] DulcetFigment = 0x0906,
+        [DreamPieces("Dulcet Fancy")] DulcetFancy = 0x0A06,
+        [DreamPieces("Dulcet Fantasy")] DulcetFantasy = 0x0B06,
+        [DreamPieces("Malleable Fantasy")] MalleableFantasy = 0x0C06,
+        [DreamPieces("Prickly Fantasy")] PricklyFantasy = 0x0D06,
+        [DreamPieces("Wild Fantasy")] WildFantasy = 0x0E06,
+        [DreamPieces("Epic Fantasy")] EpicFantasy = 0x0F06,
+        [DreamPieces("Charming Fantasy")] CharmingFantasy = 0x1006,
+        [DreamPieces("Brilliant Fantasy")] BrilliantFantasy = 0x1106,
+        [DreamPieces("Intrepid Figment")] IntrepidFigment = 0x1206,
+        [DreamPieces("Intrepid Fancy")] IntrepidFancy = 0x1306,
+        // start assumption
+        [DreamPieces("Intrepid Fantasy")] IntrepidFantasy = 0x1406,
+        [DreamPieces("Savage Fantasy")] SavageFantasy = 0x1506,
+        [DreamPieces("Noble Figment")] NobleFigment = 0x1606,
+        [DreamPieces("Noble Fancy")] NobleFancy = 0x1706,
+        [DreamPieces("Noble Fantasy")] NobleFantasy = 0x1806,
+        [DreamPieces("Grim Figment")] GrimFigment = 0x1906,
+        [DreamPieces("Grim Fancy")] GrimFancy = 0x1A06,
+        [DreamPieces("Grim Fantasy")] GrimFantasy = 0x1B06,
+        [DreamPieces("Vibrant Figment")] VibrantFigment = 0x1C06,
+        [DreamPieces("Vibrant Fancy")] VibrantFancy = 0x1D06,
+        [DreamPieces("Vibrant Fantasy")] VibrantFantasy = 0x1E06,
+        [DreamPieces("Troubling Figment")] TroublingFigment = 0x1F06,
+        [DreamPieces("Troubling Fancy")] TroublingFancy = 0x2006,
+        [DreamPieces("Troubling Fantasy")] TroublingFantasy = 0x2106,
+        [DreamPieces("Wonderous Figment")] WonderousFigment = 0x2206,
+        [DreamPieces("Wonderous Fancy")] WonderousFancy = 0x2306,
+        [DreamPieces("Wonderous Fantasy")] WonderousFantasy = 0x2406,
+        
         // xx07 - Training Toys (Food)
+        
 
         // xx08 - Training Toys (Toys)
+        [TrainingToysToys("Balloon")] Balloon = 0x0008,
+        [TrainingToysToys("Whirligig")] Whirligig = 0x0108,
+        [TrainingToysToys("Fireworks")] Fireworks = 0x0208,
 
         // xx09 - Memento Entries
     }

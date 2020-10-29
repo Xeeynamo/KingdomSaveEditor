@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using KHSave.LibDDD.Model;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
-    class DecksViewModel
+    public class DecksViewModel : GenericListModel<DeckViewModel>
     {
+        public DecksViewModel(Deck[] decks):
+            base(decks.Select(x => new DeckViewModel(x)))
+        {
+
+        }
     }
 }

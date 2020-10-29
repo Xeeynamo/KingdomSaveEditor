@@ -16,12 +16,9 @@
                     SelectedValue="{Binding Difficulty.SelectedValue}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>
-                <TextBlock Text="Playable character"/>
-                <ComboBox
-                    ItemsSource="{Binding Character}"
-                    SelectedValue="{Binding Character.SelectedValue}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <TextBlock Text="Munny"/>
+                <TextBox Text="{Binding Munny, UpdateSourceTrigger=PropertyChanged}"/>
+                
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
         <GroupBox Header="Room modifier">

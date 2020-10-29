@@ -1,6 +1,7 @@
 ﻿using KHSave.LibDDD;
 using KHSave.LibDDD.Types;
 using KHSave.SaveEditor.Common.Models;
+using System;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
@@ -12,12 +13,11 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
         {
             this.save = save;
             Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
-            //Character = new KhEnumListModel<CharacterType>(() => save.PlayableCharacter, x => save.PlayableCharacter = x);
             Worlds = new KhEnumListModel<WorldType>();
         }
 
         public KhEnumListModel<DifficultyType> Difficulty { get; set; }
-        //public KhEnumListModel<CharacterType> Character { get; set; }
+        public UInt32 Munny { get => save.Munny; set => save.Munny = value; }
         public KhEnumListModel<WorldType> Worlds { get; set; }
 
         public WorldType WorldId { get => save.WorldId; set => save.WorldId = value; }

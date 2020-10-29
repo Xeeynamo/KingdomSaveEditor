@@ -12,18 +12,23 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
         private ISaveKhDDD save;
 
         public SystemViewModel System { get; set; }
-        //public CharacterViewModel Character { get; set; }
+        public CharacterViewModel Character { get; set; }
         public DreamEatersViewModel DreamEaters { get; set; }
+        public DecksViewModel SoraDecks { get; set; }
+        public DecksViewModel RikuDecks { get; set; }
 
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
-            //Character = new CharacterViewModel(save.Character);
+            Character = new CharacterViewModel(save.SoraKeyblade, save.RikuKeyblade, save.SoraLv, save.RikuLv, save.SoraXp, save.RikuXp);
             DreamEaters = new DreamEatersViewModel(save.DreamEaters);
+            SoraDecks = new DecksViewModel(save.SoraDecks);
+            RikuDecks = new DecksViewModel(save.RikuDecks);
 
             OnPropertyChanged(nameof(System));
-            //OnPropertyChanged(nameof(Character));
+            OnPropertyChanged(nameof(Character));
             OnPropertyChanged(nameof(DreamEater));
+            OnPropertyChanged(nameof(Deck));
         }
 
         public void OpenStream(Stream stream)

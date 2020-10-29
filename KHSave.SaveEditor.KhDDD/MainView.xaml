@@ -17,8 +17,11 @@
         <TabItem Header="Dream Eaters">
             <views:DreamEaters DataContext="{Binding DreamEaters}"/>
         </TabItem>
-        <TabItem Header="Decks">
-            
+        <TabItem Header="Sora Decks">
+            <views:Decks DataContext="{Binding SoraDecks}"/>
+        </TabItem>
+        <TabItem Header="Riku Decks">
+            <views:Decks DataContext="{Binding RikuDecks}"/>
         </TabItem>
     </TabControl>
 </UserControl>
