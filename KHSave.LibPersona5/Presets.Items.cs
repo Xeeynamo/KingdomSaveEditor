@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Xe.BinaryMapper;
 
 /// <summary>
@@ -123,33 +124,32 @@ namespace KHSave.LibPersona5
 
         public static Items GetItems(bool isRoyal)
         {
-            using (var stream = File.OpenRead(isRoyal ?
-                "Resources/itemr.bin" : "Resources/item.bin"))
+            using (var stream = File.OpenRead(GetResourceFileName("Item.bin", isRoyal)))
             {
                 return new Items
                 {
-                    Accessories = GetItems<Accessory>(stream, 0x40, "AccessoryNames"),
-                    Armors = GetItems<Armor>(stream, 0x30, "ArmorNames"),
-                    Consumables = GetItems<Consumable>(stream, 0x30, "ConsumableItemNames"),
-                    KeyItems = GetItems<KeyItem>(stream, 0xc, "KeyItemNames"),
-                    Materials = GetItems<Material>(stream, 0x2c, "MaterialNames"),
-                    MeleeWeapons = GetItems<MeleeWeapon>(stream, 0x30, "MeleeWeaponNames"),
-                    Outfits = GetItems<Outfit>(stream, 0x20, "OutfitNames"),
-                    SkillCards = GetItems<SkillCard>(stream, 0x18, "SkillCardNames"),
-                    RangeWeapons = GetItems<RangeWeapon>(stream, 0x34, "RangedWeaponNames"),
+                    Accessories = GetItems<Accessory>(stream, 0x40, "AccessoryNames", isRoyal),
+                    Armors = GetItems<Armor>(stream, 0x30, "ArmorNames", isRoyal),
+                    Consumables = GetItems<Consumable>(stream, 0x30, "ConsumableItemNames", isRoyal),
+                    KeyItems = GetItems<KeyItem>(stream, 0xc, "KeyItemNames", isRoyal),
+                    Materials = GetItems<Material>(stream, 0x2c, "MaterialNames", isRoyal),
+                    MeleeWeapons = GetItems<MeleeWeapon>(stream, 0x30, "MeleeWeaponNames", isRoyal),
+                    Outfits = GetItems<Outfit>(stream, 0x20, "OutfitNames", isRoyal),
+                    SkillCards = GetItems<SkillCard>(stream, 0x18, "SkillCardNames", isRoyal),
+                    RangeWeapons = GetItems<RangeWeapon>(stream, 0x34, "RangedWeaponNames", isRoyal),
                 };
             }
         }
 
         private static IEnumerable<TItem> GetItems<TItem>(
-            Stream stream, int stride, string namesSource)
+            Stream stream, int stride, string namesSource, bool isRoyal)
             where TItem : class, IItem
         {
             var length = stream.ReadInt32BE();
             var count = length / stride;
             var startPosition = stream.Position;
 
-            var names = File.ReadAllLines($"Resources/{namesSource}.txt");
+            var names = File.ReadAllLines(GetResourceFileName($"{namesSource}.txt", isRoyal));
             var items = Enumerable.Range(0, count)
                 .Select(i => SavePersona5.Mapper.ReadObject<TItem>(stream))
                 .ToList();

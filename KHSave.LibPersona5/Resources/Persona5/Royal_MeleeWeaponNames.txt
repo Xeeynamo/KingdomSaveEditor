@@ -1,0 +1,296 @@
+BLANK
+Unused
+Rebel Knife
+Kukri
+Arsene's Cane
+Blizz Dagger
+Athame
+RESERVE
+Skinning Knife
+RESERVE
+Stun Dagger
+Killing Scalpel
+RESERVE
+Helper Knife
+Pro Skinning Knife
+RESERVE
+Mega Knife
+Royal Dagger
+RESERVE
+Machete
+Baselard
+RESERVE
+Frenzy Dagger
+Pro Parrying Dagger
+RESERVE
+Misericorde
+Parrying Dagger
+RESERVE
+RESERVE
+Kopis
+Igniter
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Paradise Lost
+RESERVE
+Normal Rod
+Hell Slugger
+Judge Mace
+Heavy Steel Pipe
+RESERVE
+Battle Hammer
+Iron Pipe
+RESERVE
+Heavy Mace
+Spike Rod
+RESERVE
+Bush Hammer
+Demon Pipe
+RESERVE
+Boss Bush Hammer
+Gaea Presser
+RESERVE
+Big Sleep Stick
+Stun Baton
+RESERVE
+Dragon God Pole
+Grand Presser
+Armageddon Rod
+Super Megido Rod
+RESERVE
+RESERVE
+RESERVE
+Fervent Bat
+Ruyi Jingu Bang
+RESERVE
+Sleep Stick
+RESERVE
+RESERVE
+Gang Star
+RESERVE
+Mjolnir
+Bandit Sword
+Headhunter Ladle
+Lunar Cutlass
+Sonic Blade
+Scimitar
+Talwar
+RESERVE
+Sleeper Blade
+Shamshir
+Blood Scimitar
+Resting Sword
+Chief's Cutlass
+RESERVE
+Cosmic Sword
+Damascus Sword
+Hot-Blooded Sword
+Heavy Saber
+RESERVE
+Panic Sword
+RESERVE
+Bright Sword
+RESERVE
+Answerer
+RESERVE
+RESERVE
+Claiomh Solais
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+God Saber
+RESERVE
+RESERVE
+Leather Whip
+RESERVE
+Skin Ripper
+Heat Whip
+Warrior Whip
+Decorative Whip
+Burn Whip
+Hero Whip
+RESERVE
+Whip Sword
+Electromag Whip
+RESERVE
+Mirage Whip
+Strike Tail
+RESERVE
+Great Whip Sword
+Chain Whip
+RESERVE
+Fear of Pain
+Spike Whip
+RESERVE
+Hard Branch
+RESERVE
+RESERVE
+RESERVE
+Guilty Whip
+Goat Leather Whip
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Snow Queen's Whip
+RESERVE
+Naraka Whip
+Katana
+Gunto
+Zandouto
+Yuibitachi
+Murasame
+Antique Gunto
+Seishiki Sword
+Koedo Sword
+Jagato
+Gekkou
+RESERVE
+RESERVE
+Iai Katana
+RESERVE
+Orochito
+Wakizashi
+RESERVE
+Masamune
+Master's Iai Katana
+RESERVE
+Red Demon Blade
+RESERVE
+Kaito Ranma
+RESERVE
+Usumidori
+RESERVE
+RESERVE
+Shikomi Kiseru
+RESERVE
+Senryou Yakusha
+RESERVE
+Brass Knuckles
+Hell Knuckles
+RESERVE
+RESERVE
+Metal Duster
+Old Man's Fist
+Iron Fist
+Mach Punch
+RESERVE
+Demon Fist
+Flash Punch
+RESERVE
+Omega Knuckle
+Bout Gloves
+Sanction
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Bear Gloves
+Clenched Fist
+Sabazios
+RESERVE
+RESERVE
+Vajra
+Disciplinary Whip
+Wicked Iron Pipe
+RESERVE
+Axe
+Mega Axe
+RESERVE
+Crescent Axe
+RESERVE
+Ice Axe
+RESERVE
+Celtis
+Kintaro Axe
+Amazon Axe
+RESERVE
+RESERVE
+RESERVE
+Big Bang Axe
+RESERVE
+RESERVE
+Gilgamesh Axe
+RESERVE
+Fleurs du Mal
+Knuckle Duster
+Delta Knuckle
+Heavy Grip
+Lumina Saber
+Hinokagutsuchi
+Quasar Saber
+Hinokagutsuchi II
+Falchion
+Masquerade Ribbon
+Fundo-Kusari
+Death Axe
+RESERVE
+RESERVE
+Bardiche
+Death Contract
+Black Kogatana
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Envy Chain
+Prophet's Hand
+RESERVE
+Venture Saber
+RESERVE
+Silver Dagger
+Saw Saber
+RESERVE
+RESERVE
+Kasumi Awaken Rapier
+Kasumi Aid Rapier
+Rapier
+RESERVE
+RESERVE
+Sword of Sinai
+Sword of Sinai II
+The Great Thief Stick
+Paradise Lost R
+Imprisoned Mjolnir
+Fine Ruyi Jingu Bang
+Headhunter Ladle EX
+Claiomh Solais R
+Masquerade Ribbon R
+Snow Queen's Whip II
+Dainaraka Whip
+Senryou Yakusha R
+Usumidori R
+Big Bear Gloves
+Gordios
+Unparalleled Vajra
+Death Promise
+Fleurs du Mal R
+Plasma Knife
+Arc Mace
+Megistos Sword
+Barog Whip
+Kaketsushinto
+Meteor Knuckle
+Taiji Axe
+Dread Saber
+White Snow Rapier
+Punish Dagger
+Last Hammer
+Vertical Edge
+Grapnel
+Ten Ichimonji
+Champion
+Crusader
+Guillotine Saber
+Zirah Bouk
+Dark Cutlass
+Mut Cutlass
+Baccarat Knuckle
+Victory Beam
+Decisive Rapier
+Infini-saber

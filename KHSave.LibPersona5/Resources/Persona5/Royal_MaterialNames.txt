@@ -1,0 +1,256 @@
+BLANK
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Glory Staff
+Blessed Trumpet
+Victor Laurel
+Porcelain Teacup
+Silver Cutlery
+Strange Lantern
+Nude Candle Stand
+Shackles
+Locked Collar
+Dull Sword
+Holey Helmet
+Crushed Shield
+Rusted Handcuffs
+Chipped Glass
+Ukiyo-e
+Ink Wash Art
+Hanging Scroll
+Picture Scroll
+Hannya Mask
+Animal Brush
+Fine Washi
+Loose Sash
+Cracked Vase
+Sooty Kettle
+Unsigned Mug
+Plastic Frame
+Crappy Portrait
+Bad Sculpture
+Gold Coin
+Stock Certificate
+Amber Stamp
+Precious Bill
+Rare Coin
+Old Coin
+Leather Case
+Safe Dial
+Money Counter
+Office Calculator
+Inkless Pen
+Unopenable Lock
+Worn Stamp
+Tattered Wallet
+Jewel Mummy
+Gold Uraeus
+Canopic Jar
+Bastet Statue
+Scarab Charm
+Mummy Mask
+Scratched Sword
+Rusted Ankh
+Torn Papyrus
+Ra Mural
+Sekhmet Mural
+Sarcophagus Bit
+Bent Staff
+Pillar Piece
+Moon Stone
+Rare Metal
+Sage Astrolabe
+UFO Drone
+Blade Flashlight
+Rainbow Diode
+Spaceship Stick
+Robot Arm
+Radar Antenna
+Broken Telescope
+Space Food
+Punctured PCB
+Dead Solar Panel
+Warped Wheel
+Luxury Watch
+Gold Earrings
+Damascene Cane
+Silver Monocle
+Ivory Dice
+Dealer Ring
+Magician Bowtie
+Pro Dart
+Card Shuffler
+Dice Shaker
+Gray Cufflinks
+Faded Silk Hat
+Smoked Cigar
+Incomplete Deck
+Coral Pendant
+Pearl Necklace
+Ebony Box
+Marble Chessboard
+Tortoise Hairpin
+Cameo Brooch
+Raden Plate
+Peacock Fan
+Bronze Compass
+Brass Pocket Watch
+Music Box
+Old Kaleidoscope
+Mirror Ball
+Masquerade Mask
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Huge Gold Lump
+Large Gold Lump
+Small Gold Lump
+Grooved Silver
+Hole Silver
+Thin Silver
+Grooved Copper
+Hole Copper
+Thin Copper
+Onyx
+Pearl
+Amethyst
+Turquoise
+Opal
+Topaz
+Garnet
+Aquamarine
+Ruby
+Emerald
+Sapphire
+Diamond
+Jade
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Platinum
+Dead Surgical Light
+Loose Magnetic Tape
+Tangled USB Cord
+Misprinted Poster
+Voice Recorder
+Laser Pointer
+Voltage Converter
+Broken Meter Panel
+Distorted Lens
+Old Projector
+Mini Sound Sensor
+Broken Thermostat
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Silent Horn
+Ripped Uniform Cap
+Broken Baton
+Broken Handcuffs
+Lustrous Iron Ball
+Tidy Prison Uniform
+Prison Officer Badge
+Hi-Fi Megaphone
+Sharp Barbed Wire
+Gold Emblem
+Golden Cap Badge
+Silver Arm Band
+RESERVE
+RESERVE
+RESERVE
+Copper Lump
+Copper Chain
+Copper Hand
+Copper Heart
+Copper Star
+Copper Moon
+Copper Mist
+Silver Lump
+Silver Chain
+Silver Hand
+Silver Heart
+Silver Star
+Silver Moon
+Silver Mist
+Gold Lump
+Gold Chain
+Gold Hand
+Gold Heart
+Gold Star
+Gold Moon
+Gold Mist
+Platinum Lump
+Diamond Lump
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE

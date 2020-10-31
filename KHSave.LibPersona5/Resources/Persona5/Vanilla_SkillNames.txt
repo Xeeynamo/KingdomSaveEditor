@@ -1,0 +1,1000 @@
+Attack
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Agi
+Agilao
+Agidyne
+Maragi
+Maragion
+Maragidyne
+Agi
+Maragi
+BLANK
+BLANK
+Bufu
+Bufula
+Bufudyne
+Mabufu
+Mabufula
+Mabufudyne
+Bufu
+Mabufu
+BLANK
+BLANK
+Garu
+Garula
+Garudyne
+Magaru
+Magarula
+Magarudyne
+Garu
+BLANK
+BLANK
+BLANK
+Zio
+Zionga
+Ziodyne
+Mazio
+Mazionga
+Maziodyne
+Zio
+Mazio
+BLANK
+BLANK
+Hama
+Hamaon
+Mahama
+Mahamaon
+Kouha
+Kouga
+Kougaon
+Makouha
+Makouga
+Makougaon
+Mudo
+Mudoon
+Mamudo
+Mamudoon
+Eiha
+Eiga
+Eigaon
+Maeiha
+Maeiga
+Maeigaon
+Megido
+Megidola
+Megidolaon
+Frei
+Freila
+Freidyne
+Mafrei
+Mafreila
+Mafreidyne
+BLANK
+Dazzler
+Nocturnal Flash
+Pulinpa
+Tentarafoo
+Evil Touch
+Evil Smile
+Makajama
+Makajamaon
+Famine's Breath
+Famine's Scream
+Dormina
+Lullaby
+Taunt
+Wage War
+Ominous Words
+Abysmal Surge
+Marin Karin
+Brain Jack
+Trapped Rat
+BLANK
+Self-destruct
+Self-destruct
+Self-destruct
+Life Drain
+Spirit Drain
+Life Leech
+Spirit Leech
+Spirit Drain
+BLANK
+BLANK
+Foul Breath
+Stagnant Air
+Reverse Rub
+Ghastly Wail
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Inferno
+Blazing Hell
+Low Burn
+Mid Burn
+High Burn
+Low Freeze
+Mid Freeze
+High Freeze
+Low Shock
+Mid Shock
+Diamond Dust
+Ice Age
+High Shock
+Low Dizzy
+Mid Dizzy
+High Dizzy
+Low Confuse
+Mid Confuse
+High Confuse
+Low Fear
+Panta Rhei
+Vacuum Wave
+Mid Fear
+High Fear
+Low Forget
+Mid Forget
+High Forget
+Low Brainwash
+Mid Brainwash
+High Brainwash
+Thunder Reign
+Wild Thunder
+Low Sleep
+Mid Sleep
+High Sleep
+Low Rage
+Mid Rage
+High Rage
+Low Despair
+Mid Despair
+Divine Judgment
+Samsara
+High Despair
+Low All Ail
+Mid All Ail
+High All Ail
+BLANK
+BLANK
+BLANK
+BLANK
+Demonic Decree
+Die For Me!
+BLANK
+BLANK
+BLANK
+BLANK
+Atomic Flare
+Cosmic Flare
+BLANK
+BLANK
+Black Viper
+Morning Star
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Psi
+Psio
+Psiodyne
+Mapsi
+Mapsio
+Mapsiodyne
+BLANK
+Psycho Force
+Psycho Blast
+BLANK
+Lunge
+Assault Dive
+Megaton Raid
+God's Hand
+Lunge
+Lucky Punch
+Miracle Punch
+BLANK
+BLANK
+BLANK
+Cleave
+Giant Slice
+Brave Blade
+Sword Dance
+BLANK
+Hassou Tobi
+Ayamur
+BLANK
+BLANK
+BLANK
+Cornered Fang
+Rising Slash
+Deadly Fury
+BLANK
+Snap
+Triple Down
+One-shot Kill
+Riot Gun
+BLANK
+BLANK
+Vajra Blast
+Vorpal Blade
+BLANK
+BLANK
+BLANK
+Vicious Strike
+Heat Wave
+Gigantomachia
+BLANK
+BLANK
+BLANK
+Rampage
+Swift Strike
+Deathbound
+Agneyastra
+BLANK
+BLANK
+Rising Slash
+Deadly Fury
+BLANK
+Double Fangs
+BLANK
+BLANK
+Tempest Slash
+Myriad Slashes
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Sledgehammer
+Skull Cracker
+Terror Claw
+Headbutt
+Stomach Blow
+Dream Needle
+Hysterical Slap
+Negative Pile
+Brain Shake
+BLANK
+Flash Bomb
+Mind Slice
+Bloodbath
+Memory Blow
+Insatiable Strike
+Dormin Rush
+Oni-Kagura
+Bad Beat
+Brain Buster
+BLANK
+Handgun
+Shotgun
+Slingshot
+Machine Gun
+Assault Rifle
+Revolver
+Grenade Launcher
+Laser Gun
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Attack
+Dia
+Diarama
+Diarahan
+BLANK
+BLANK
+Media
+Mediarama
+Mediarahan
+BLANK
+BLANK
+Recarm
+Samarecarm
+Recarmdra
+BLANK
+BLANK
+Amrita Drop
+Amrita Shower
+BLANK
+Salvation
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Patra
+BLANK
+Energy Shower
+Energy Drop
+Baisudi
+Me Patra
+Mabaisudi
+BLANK
+BLANK
+BLANK
+Tarukaja
+Rakukaja
+Sukukaja
+Heat Riser
+BLANK
+Matarukaja
+Marakukaja
+Masukukaja
+Thermopylae
+BLANK
+Tarunda
+Rakunda
+Sukunda
+Debilitate
+BLANK
+Matarunda
+Marakunda
+Masukunda
+BLANK
+BLANK
+Dekunda
+Dekaja
+BLANK
+BLANK
+BLANK
+Charge
+Concentrate
+BLANK
+BLANK
+BLANK
+Rebellion
+Revolution
+BLANK
+BLANK
+BLANK
+Tetrakarn
+Makarakarn
+Tetraja
+BLANK
+BLANK
+Tetra Break
+Makara Break
+BLANK
+BLANK
+BLANK
+Fire Wall
+Ice Wall
+Elec Wall
+Wind Wall
+BLANK
+Fire Break
+Ice Break
+Wind Break
+Elec Break
+BLANK
+Trafuri
+Traesto
+BLANK
+Nuke Wall
+Psy Wall
+Nuke Break
+Psy Break
+BLANK
+BLANK
+BLANK
+All-out Lv 1
+All-out Lv 2
+All-out Lv 3
+Emergency Escape
+Attack
+Down Shot
+Summon
+Call for Backup
+Outlaw Attack
+Barrage
+Follow Crush
+Follow Claw
+Follow Whip
+Follow Blade
+Follow Knuckle
+Follow Axe
+Follow Saber
+Dispose Item
+Heal Enemy
+Death (Despair)
+Ally1 Follow-Up
+Ally2 Follow-Up
+Ally3 Follow-Up
+Ally4 Follow-Up
+Ally5 Follow-Up
+Ally6 Follow-Up
+Ally7 Follow-Up
+Power Up Enemy
+Power Up Enemy
+Power Up Enemy
+Steal Info
+Sup Matarukaja
+Sup Marakukaja
+Sup Masukukaja
+Sup All Kaja
+Sup Charge
+Sup HP +30%
+Sup SP +10%
+Sup Escape Route
+Sup Third Eye
+Subrecover HP
+Subrecover SP
+Analysis
+Deep Analysis
+Full Analysis
+All-Out Attack
+Dust Flurry
+Tongue Whip
+Whip Strike
+Lustful Slurp
+Libido Boost
+Golden Knife
+Lick
+Gold Medal Spike
+Volleyball Assault
+Maelstrom
+Flame Dance
+Silent Snowscape
+Thunderclap
+Maeiga
+Hunger All
+Ocular Vulcan
+Missile Party
+Fear Gas
+Super VIP Form
+March of the Piggy
+Sphinx Swipe
+Wing Blast
+Rapid Ascent
+Sphinx Dive
+Dreadful Scream
+Bite
+Restore
+The Artist's Grace
+Work Order
+Sacrifice Order
+Selfless Devotion
+Penalty
+Coin Attack
+Severing Slash
+Gatling Gun
+Berserker Dance
+Roulette: HP
+Roulette: SP
+Roulette: Money
+Roulette: Aid 1
+Roulette: Aid 2
+Roulette: Aid 3
+Beast King's Wrath
+Hunting Stance
+Arm of Destruction
+Gryphon's Breath
+Royal Wing Beam
+Cannon Fire
+Cannon Barrage
+Unholy Convergence
+Pyramid Blast
+Tyrant's Fist
+Tyrant's Glare
+Tyrant's Wave
+Fig Seed
+Medicine
+Ointment
+Antibiotic Gel
+Life Stone
+Bead
+Value Medicine
+Medical Kit
+Maka Leaf
+Bead Chain
+Soul Drop
+Snuff Soul
+Chewing Soul
+Soul Food
+Revival Bead
+Balm of Life
+Royel Jelly
+Organic Herb
+Disclose
+Tranquilizer
+Kopi Luwak
+Goho-M
+Vanish Ball
+Soma
+Amrita Soda
+Hiranya
+Muscle Drink
+Odd Morsel
+Rancid Gravy
+Plume of Dusk
+Magic Mirror
+Physical Mirror
+Universe Ring
+Sleipnir
+Obsidian Mirror
+Purifying Water
+Purifying Salt
+Firecracker
+San-zun Tama
+Ice Cube
+Dry Ice
+Pinwheel
+Yashichi
+Ball Lightning
+Tesla Coil
+Smart Bomb
+Segami Rice
+Curse Paper
+Flame Magatama
+Wind Magatama
+Freeze Magatama
+Bolt Magatama
+Homunculus
+Removal Potion
+Kouga Ball
+Makouha Ball
+Eiga Ball
+Maeiga Ball
+Psio Ball
+Mapsi Ball
+Freila Ball
+Mafrei Ball
+Nuke Magatama
+Psy Magatama
+Bless Magatama
+Curse Magatama
+Cooking
+Snack
+Shoes 1
+Shoes 2
+Shoes 3
+Juice Bar 1
+Juice Bar 2
+Juice Bar 3
+Juice Bar 4
+Energy Drink 1
+Energy Drink 2
+Energy Drink 3
+Soda 1
+Soda 2
+Soda 3
+Soda 4
+Ration 1 
+Ration 2
+Ration 3
+Drug Store 1
+Drug Store 2
+Drug Store 3
+Drug Store 4
+Drug Store 5
+Drug Store 6
+Drug Store 7
+Drug Store 8
+Drug Store 9
+Drug Store 10
+Drug Store 11
+Drug Store 12
+Coffee 1
+Coffee 2
+BLANK
+Twins Down Attack
+Caro Rod
+Caro Attack
+Megidolaon
+Rays of Control
+Rays of Control
+Rays of Control
+Rays of Control
+Arrow of Light
+Diffraction Arrow
+Light Edge
+Gathering Light
+Eternal Light
+Holy Change
+Distortion Wave
+Tough Law
+Frail Law
+New Creation
+Distortion Surge
+Arrow of Light
+Manifest Sword
+Manifest Gun
+Manifest Bell
+Sword of Judgment
+Capital Punishment
+Manifest Book
+Distorted Lust
+Gospel
+Distorted Wrath
+Distorted Vanity
+Song of Salvation
+Wrath of God
+Distorted Gluttony
+Distorted Envy
+Song of Placation
+Divine Apex
+Rays of Control
+Distorted Avarice
+Will of the People
+Rays of Control
+Moral Support
+Active Support
+Mental Hack
+Emergency Shift
+Final Guard
+Position Hack
+High Analyze
+Treasure Skimmer
+Subrecover HP EX
+Subrecover SP EX
+BLANK
+BLANK
+BLANK
+BLANK
+Big Bang Order
+Roulette Time
+Trip-Upper
+Lust Sphere
+Down Shot 2
+Down Shot 3
+Down Shot 4
+Electro Attack
+Sinful Shell
+Follow Black
+BLANK
+Madara-Megido
+Curry Raku
+Enemy Benefit
+Diarahan
+Curry Suku
+Decoy Ball
+Super Decoy Ball
+Metabolic Wave
+Laevateinn
+Desperation
+Call of Chaos
+Big Bang Challenge
+Grail Light 2
+Megidola
+Rage Transmission
+Hundred Slaps
+Distorted Pride
+Divine Punishment
+Will of the People
+Wind Cutter
+Shoot Up
+Executive Punch
+Megidolaon
+Vorpal Blade
+Megidolaon
+Big Bang Burger
+Earth Burger
+Mars Burger
+Moon Burger
+Saturn Burger
+Justine Attack
+Caroline Attack
+Curry Makara
+Curry Tetra
+Curry Endure
+Curry Charge
+Curry Concentrate
+Curry Heat Riser
+BLANK
+Cadenza
+Cross Slash
+Door of Hades
+Magatsu Mandala
+Shining Arrows
+Beast Weaver
+Titanomachia
+Abyssal Wings
+Oratario
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Megido
+Megidola
+Megidolaon
+Slam
+Megaton Raid
+One-shot Kill
+Inferno
+Diamond Dust
+BLANK
+BLANK
+Curry 1
+Curry 2
+Reviv-All
+Reviv-All Z
+BLANK
+BLANK
+Wild Talk
+Baton Pass
+Punk Talk
+Pickpocket
+Harisen Recovery
+Protect
+Girl Talk
+Crocodile Tears
+Sexy Technique
+Detective Talk
+Artist Talk
+Negotiating
+Fundraising
+Manipulation
+Mind Control
+Charisma Speech
+Brainiac Talk
+Sabaki
+Kakoi Kuzushi 
+Touryou
+Togo System
+Bullet Hail
+Warning Shot
+Celeb Talk
+Kitty Talk
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Brave Blade
+Assault Dive
+Terror Claw
+Bufudyne
+Psiodyne
+Mazionga
+Maziodyne
+Maeiga
+Maeigaon
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Counter
+Counterstrike
+High Counter
+BLANK
+BLANK
+Endure
+Enduring Soul
+BLANK
+BLANK
+Survival Trick
+Dodge Fire
+Evade Fire
+Dodge Ice
+Evade Ice
+Dodge Wind
+Evade Wind
+Dodge Elec
+Evade Elec
+Dodge Phys
+Evade Phys
+Fire Boost
+Fire Amp
+Ice Boost
+Ice Amp
+Wind Boost
+Wind Amp
+Elec Boost
+Elec Amp
+Angelic Grace
+Divine Grace
+Regenerate 1
+Regenerate 2
+Regenerate 3
+Dodge Bless
+Dodge Curse
+Invigorate 1
+Invigorate 2
+Invigorate 3
+Evade Bless
+Evade Curse
+Attack Master
+Auto-Mataru
+BLANK
+Defense Master
+Auto-Maraku
+BLANK
+Speed Master
+Auto-Masuku
+BLANK
+BLANK
+Fast Heal
+Insta-Heal
+Arms Master
+Spell Master
+BLANK
+Sharp Student
+Apt Pupil
+Ali Dance
+Firm Stance
+BLANK
+Life Aid
+Victory Cry
+Growth 1
+Growth 2
+Growth 3
+Unshaken Will
+BLANK
+Baton Pass
+Soul Touch
+Kakoi Kuzushi
+Resist Fire
+Null Fire
+Repel Fire
+Drain Fire
+BLANK
+Resist Ice
+Null Ice
+Repel Ice
+Drain Ice
+BLANK
+Resist Wind
+Null Wind
+Repel Wind
+Drain Wind
+BLANK
+Resist Elec
+Null Elec
+Repel Elec
+Drain Elec
+BLANK
+Resist Bless
+Null Bless
+Repel Bless
+Drain Bless
+BLANK
+Resist Curse
+Null Curse
+Repel Curse
+Drain Curse
+BLANK
+Resist Phys
+Null Phys
+Repel Phys
+Drain Phys
+BLANK
+Ailment Boost
+Hama Boost
+Mudo Boost
+BLANK
+BLANK
+Dizzy Boost
+Confuse Boost
+Fear Boost
+Forget Boost
+Sleep Boost
+Rage Boost
+Despair Boost
+BLANK
+Brainwash Boost
+BLANK
+Resist Dizzy
+Resist Confuse
+Resist Fear
+Resist Forget
+Resist Sleep
+Resist Rage
+Resist Despair
+BLANK
+Resist Brainwash
+BLANK
+Null Dizzy
+Null Confuse
+Null Fear
+Null Forget
+Null Sleep
+Null Rage
+Null Despair
+BLANK
+Null Brainwash
+BLANK
+Burn Boost
+Freeze Boost
+Shock Boost
+BLANK
+Fortified Moxy
+Adverse Resolve
+Last Stand
+Heat Up
+BLANK
+Touch n' Go
+Climate Decorum
+Ambient Aid
+RESERVE
+Snipe
+Cripple
+Trigger Happy
+Resist Nuke
+Null Nuke
+Repel Nuke
+Drain Nuke
+RESERVE
+Resist Psy
+Null Psy
+Repel Psy
+Drain Psy
+RESERVE
+Nuke Boost
+Nuke Amp
+RESERVE
+Psy Boost
+Psy Amp
+RESERVE
+Dodge Nuke
+Evade Nuke
+RESERVE
+Dodge Psy
+Evade Psy
+RESERVE
+Bless Boost
+Bless Amp
+RESERVE
+Curse Boost
+Curse Amp
+RESERVE
+Magic Ability
+Fortify Spirit
+Almighty Boost
+Almighty Amp
+Zenith Defense
+Soul Chain
+Vanity Copy
+Gluttonous Snuff
+Sloth Defense
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK

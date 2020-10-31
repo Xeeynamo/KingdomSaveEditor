@@ -1,0 +1,651 @@
+BLANK (Unusable) 
+Agi
+Agilao
+Agidyne
+Maragi
+Maragion
+Maragidyne
+Bufu
+Bufula
+Bufudyne
+Mabufu
+Mabufula
+Mabufudyne
+Garu
+Garula
+Garudyne
+Magaru
+Magarula
+Magarudyne
+Zio
+Zionga
+Ziodyne
+Mazio
+Mazionga
+Maziodyne
+Hama
+Hamaon
+Mahama
+Mahamaon
+Kouha
+Kouga
+Kougaon
+Makouha
+Makouga
+Makougaon
+Mudo
+Mudoon
+Mamudo
+Mamudoon
+Eiha
+Eiga
+Eigaon
+Maeiha
+Maeiga
+Maeigaon
+Megido
+Megidola
+Megidolaon
+Frei
+Freila
+Freidyne
+Mafrei
+Mafreila
+Mafreidyne
+Dazzler
+Nocturnal Flash
+Pulinpa
+Tentarafoo
+Evil Touch
+Evil Smile
+Makajama
+Makajamaon
+Famine's Breath
+Famine's Scream
+Dormina
+Lullaby
+Taunt
+Wage War
+Ominous Words
+Abysmal Surge
+Marin Karin
+Brain Jack
+Trapped Rat
+Self-destruct
+Self-destruct
+Self-destruct
+Life Drain
+Spirit Drain
+Life Leech
+Spirit Leech
+Foul Breath
+Stagnant Air
+Ghastly Wail
+Inferno
+Blazing Hell
+Diamond Dust
+Ice Age
+Panta Rhei
+Vacuum Wave
+Thunder Reign
+Wild Thunder
+Divine Judgment
+Samsara
+Demonic Decree
+Die For Me!
+Atomic Flare
+Cosmic Flare
+Black Viper
+Morning Star
+Psi
+Psio
+Psiodyne
+Mapsi
+Mapsio
+Mapsiodyne
+Psycho Force
+Psycho Blast
+Lunge
+Assault Dive
+Megaton Raid
+God's Hand
+Lucky Punch
+Miracle Punch
+Cleave
+Giant Slice
+Brave Blade
+Sword Dance
+Hassou Tobi
+Ayamur
+Cornered Fang
+Rising Slash
+Deadly Fury
+Snap
+Triple Down
+One-shot Kill
+Riot Gun
+Vajra Blast
+Vorpal Blade
+Vicious Strike
+Heat Wave
+Gigantomachia
+Rampage
+Swift Strike
+Deathbound
+Agneyastra
+Double Fangs
+Tempest Slash
+Myriad Slashes
+Sledgehammer
+Skull Cracker
+Terror Claw
+Headbutt
+Stomach Blow
+Dream Needle
+Hysterical Slap
+Negative Pile
+Brain Shake
+Flash Bomb
+Mind Slice
+Bloodbath
+Memory Blow
+Insatiable Strike
+Dormin Rush
+Oni-Kagura
+Bad Beat
+Brain Buster
+Dia
+Diarama
+Diarahan
+Media
+Mediarama
+Mediarahan
+Recarm
+Samarecarm
+Recarmdra
+Amrita Drop
+Amrita Shower
+Mabaisudi
+Salvation
+Patra
+Energy Shower
+Energy Drop
+Baisudi
+Me Patra
+Tarukaja
+Rakukaja
+Sukukaja
+Heat Riser
+Matarukaja
+Marakukaja
+Masukukaja
+Thermopylae
+Tarunda
+Rakunda
+Sukunda
+Debilitate
+Matarunda
+Marakunda
+Masukunda
+Dekunda
+Dekaja
+Charge
+Concentrate
+Rebellion
+Revolution
+Tetrakarn
+Makarakarn
+Tetraja
+Tetra Break
+Makara Break
+Fire Wall
+Ice Wall
+Elec Wall
+Wind Wall
+Fire Break
+Ice Break
+Wind Break
+Elec Break
+BLANK
+BLANK
+Nuke Wall
+Psy Wall
+Nuke Break
+Psy Break
+Counter
+Counterstrike
+High Counter
+Endure
+Enduring Soul
+Dodge Bless
+Dodge Curse
+Survival Trick
+Dodge Fire
+Evade Fire
+Dodge Ice
+Evade Ice
+Dodge Wind
+Evade Wind
+Dodge Elec
+Evade Elec
+Dodge Phys
+Evade Phys
+Fire Boost
+Fire Amp
+Ice Boost
+Ice Amp
+Wind Boost
+Wind Amp
+Elec Boost
+Elec Amp
+Angelic Grace
+Divine Grace
+Regenerate 1
+Regenerate 2
+Regenerate 3
+Invigorate 1
+Invigorate 2
+Invigorate 3
+Attack Master
+Auto-Mataru
+Defense Master
+Auto-Maraku
+Speed Master
+Auto-Masuku
+Fast Heal
+Insta-Heal
+Arms Master
+Spell Master
+Sharp Student
+Apt Pupil
+Ali Dance
+Firm Stance
+Life Aid
+Victory Cry
+Growth 1
+Growth 2
+Growth 3
+Unshaken Will
+Evade Bless
+Evade Curse
+BLANK
+Resist Fire
+Null Fire
+Repel Fire
+Drain Fire
+Resist Ice
+Null Ice
+Repel Ice
+Drain Ice
+Resist Wind
+Null Wind
+Repel Wind
+Drain Wind
+Resist Elec
+Null Elec
+Repel Elec
+Drain Elec
+Resist Bless
+Null Bless
+Repel Bless
+Drain Bless
+Resist Curse
+Null Curse
+Repel Curse
+Drain Curse
+Resist Phys
+Null Phys
+Repel Phys
+Drain Phys
+Ailment Boost
+Hama Boost
+Mudo Boost
+Dizzy Boost
+Confuse Boost
+Fear Boost
+Forget Boost
+Sleep Boost
+Rage Boost
+Despair Boost
+BLANK
+Brainwash Boost
+Resist Dizzy
+Resist Confuse
+Resist Fear
+Resist Forget
+Resist Sleep
+Resist Rage
+Resist Despair
+BLANK
+Resist Brainwash
+Null Dizzy
+Null Confuse
+Null Fear
+Null Forget
+Null Sleep
+Null Rage
+Null Despair
+Null Brainwash
+Burn Boost
+Freeze Boost
+Shock Boost
+Fortified Moxy
+Adverse Resolve
+Last Stand
+Heat Up
+BLANK
+Touch n' Go
+Climate Decorum
+Ambient Aid
+Gun Boost
+Gun Amp
+Trigger Happy
+Resist Nuke
+Null Nuke
+Repel Nuke
+Drain Nuke
+Resist Psy
+Null Psy
+Repel Psy
+Drain Psy
+Nuke Boost
+Nuke Amp
+Psy Boost
+Psy Amp
+Dodge Nuke
+Evade Nuke
+Dodge Psy
+Evade Psy
+Bless Boost
+Bless Amp
+Curse Boost
+Curse Amp
+Magic Ability
+Fortify Spirit
+Almighty Boost
+Almighty Amp
+Zenith Defense
+Soul Chain
+BLANK
+Kill Rush
+Gatling Blow
+Double Shot
+Power Slash
+Death Scythe
+BLANK
+BLANK
+Taunting Aura
+Concealment
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Blank Card
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Crit Atk Up 1
+Crit Atk Up 2
+Crit Atk Up 3
+Crit Atk Up 4
+Crit Atk Up 솂
+BLANK
+BLANK
+BLANK
+SP Recovery 1
+SP Recovery 2
+SP Recovery 3
+SP Recovery 4
+SP Recovery 솂
+BLANK
+BLANK
+BLANK
+Ailment Up 1
+Ailment Up 2
+Ailment Up 3
+Ailment Up 4
+Ailment Up 솂
+BLANK
+BLANK
+BLANK
+Magic Atk Cost 1
+Magic Atk Cost 2
+Magic Atk Cost 3
+Magic Atk Cost 4
+Magic Atk Cost 솂
+BLANK
+BLANK
+BLANK
+Phys HP Cost 1
+Phys HP Cost 2
+Phys HP Cost 3
+Phys HP Cost 4
+Phys HP Cost 솂
+BLANK
+BLANK
+BLANK
+Single-Target Up 1
+Single-Target Up 2
+Single-Target Up 3
+Single-Target Up 4
+Single-Target Up 솂
+BLANK
+BLANK
+BLANK
+Army Might 1
+Mult-Target Up 2
+Mult-Target Up 3
+Mult-Target Up 4
+Mult-Target Up 솂
+BLANK
+BLANK
+BLANK
+Phys Up 1
+Phys Up 2
+Phys Up 3
+Phys Up 4
+Phys Up 솂
+BLANK
+BLANK
+BLANK
+Magic Up 1
+Magic Up 2
+Magic Up 3
+Magic Up 4
+Magic Up 솂
+BLANK
+BLANK
+BLANK
+Baton Pass Up 1
+Baton Pass Up 2
+Baton Pass Up 3
+Baton Pass Up 4
+Baton Pass Up 솂
+BLANK
+BLANK
+BLANK
+Ambush Up 1
+Ambush Up 2
+Ambush Up 3
+Ambush Up 4
+Ambush Up 솂
+BLANK
+BLANK
+BLANK
+1 More Up 1
+1 More Up 2
+1 More Up 3
+1 More Up 4
+1 More Up 솂
+BLANK
+BLANK
+BLANK
+Ailment Multiplier 1
+Ailment Multiplier 2
+Ailment Multiplier 3
+Ailment Multiplier 4
+Ailment Multiplier 솂
+BLANK
+BLANK
+BLANK
+Phys Up (Low)
+Phys Up (Mid)
+Phys Up (High)
+Heal Cost (Low)
+Heal Cost (Mid)
+Heal Cost (High)
+Magic Up (Low)
+Magic Up (Mid)
+Magic Up (High)
+Phys Cost (Low)
+Phys Cost (Mid)
+Phys Cost (High)
+Magic Cost (Low)
+Magic Cost (Mid)
+Magic Cost (High)
+Technical Up (Low)
+Technical Up (Mid)
+Technical Up (High)
+Attack Cost (Low)
+Attack Cost (Mid)
+Attack Cost (High)
+Critical Up (Low)
+Critical Up (Mid)
+Critical Up (High)
+Backup
+Sure Escape
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK

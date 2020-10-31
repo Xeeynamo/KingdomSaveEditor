@@ -1,0 +1,512 @@
+BLANK
+Hip Glasses
+Suspenders
+Fanny Pack
+Hairpin
+Silver Key Ring
+Black Tights
+Dotted Tights
+Headphones
+Black Necktie
+RESERVE
+Breath Ring
+Energy Ring
+Ring of Vitality
+RESERVE
+RESERVE
+RESERVE
+Chakra Choker
+Mind Choker
+Soul Choker
+RESERVE
+RESERVE
+RESERVE
+Red Band
+Blue Band
+Green Band
+Yellow Band
+Lantern Necklace
+RESERVE
+RESERVE
+RESERVE
+Star Bracelet
+Circular Band
+White Band
+Black Band
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Raging Wristband
+Eccentric Belt
+RESERVE
+Magnetic Necklace
+Pick-Me-Up Tie
+Sturdy Suspenders
+Strength Belt
+Wood Clappers
+Hot Water Pouch
+Rubber Gloves
+Shield Goggles
+Calming Mask
+Wooden Clogs
+Notebook
+Well-Fed Cape
+Sleepless Gem
+Calming Cape
+Cape of Hope
+RESERVE
+Brain Guard
+Burn Charm
+Freeze Charm
+Grand Slam Charm
+Shockproof Charm
+RESERVE
+Fearless Cape
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Despair Charm
+RESERVE
+RESERVE
+Revenge Mirror
+Reprisal Mirror
+Retribution Mirror
+Caffeine Patch
+Peaceful Potpourri
+Positivity Calendar
+Designer Shades
+Clarity Cape
+Oil Pack
+Cooling Pack
+Portable Battery
+Dizzy Mask
+Mysterious Mask
+Sinister Mask
+Forgetful Mask
+Drowsy Mask
+Clown Mask
+Corrupting Mask
+Occult Mask
+Ring of Lust
+Ring of Vanity
+Ring of Gluttony
+Ring of Wrath
+Ring of Greed
+Ring of Envy
+Ring of Pride
+Ring of Sorrow
+Crystal of Lust
+Crystal of Vanity
+Crystal of Gluttony
+Crystal of Wrath
+Crystal of Greed
+Crystal of Envy
+Crystal of Pride
+Crystal of Sorrow
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Rakshasa Belt
+Vajra Belt
+Skanda Belt
+Ace Cap
+Willful Belt
+Lure Keychain
+Bravery Sash
+Magic Misanga
+Hades Harp
+Hades Harp R
+Darkness Ring
+Darkness Ring R
+White Headband
+White Headband R
+Black Headband
+Black Headband R
+Red String
+Red String R
+Blazing Horns
+Inferno Horns
+Black Moon
+Black Moon R
+RESERVE
+Graceful Harp
+Graceful Harp R
+Kugelbein
+Kugelbein R
+Shiny Belt
+Shiny Belt R
+Picaresque Hat
+Picaresque Crown
+RESERVE
+RESERVE
+Bold Eyepatch
+Compression Socks
+RESERVE
+Fireproof Choker
+Fireproof Bracelet
+RESERVE
+Iceproof Choker
+Iceproof Bracelet
+RESERVE
+Elecproof Choker
+Elecproof Bracelet
+RESERVE
+Windproof Choker
+Windproof Bracelet
+RESERVE
+Nukeproof Choker
+Nukeproof Bracelet
+RESERVE
+Psyproof Choker
+Psyproof Bracelet
+RESERVE
+Blessproof Choker
+Blessproof Bracelet
+RESERVE
+Curseproof Choker
+Apotropaic Hairpin
+RESERVE
+Angel Badge
+RESERVE
+RESERVE
+Expedite Ring
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Regent
+Queen's Necklace
+Stone of Scone
+Koh-i-Noor
+Orlov
+Emperor's Charm
+Hope Diamond
+Crystal Skull
+Cross-Shaped Charm
+Umi Sachihiko's Belt
+Idaten's Belt
+Hall of Fame Belt
+Thief Mask
+Black Rock
+Skull Charm
+Crimson Necklace
+Silver Ice Necklace
+Jade Wind Necklace
+Purple Bolt Necklace
+Atom Necklace
+Psy Necklace
+Heavenly Necklace
+Night Necklace
+RESERVE
+Menehune Dolls
+Hawaiian Ring
+Forneus Badge
+Train Badge
+PI Badge
+Punch Badge
+Gambla Badge
+Golfer Badge
+Tough Belt
+Dandy Mirror
+Leblanc Charm
+Boss Undies
+2nd Mate Badge
+1st Mate Badge
+Captain Badge
+Regen Patch 1
+Regen Patch 2
+Regen Patch 3
+SP Adhesive 1
+SP Adhesive 2
+SP Adhesive 3
+RESERVE
+RESERVE
+The Victory Cup
+Fish God's Badge
+Omnipotent Orb
+Divine Pillar
+Invisible Veil
+RESERVE
+Attachment Pearl
+Nuisance Belt
+RESERVE
+RESERVE
+RESERVE
+Holy Stone
+Team Glasses
+S.E.E.S. Armband
+Sevens Emblem
+St. Hermelin Badge
+ARM PC
+Midnight Bandana
+Evoker
+Honu Charm
+Tiki Keychain
+Beast Headphones
+Babel Headphones
+Lambs' Pillow
+Gauntlet
+Kuzunoha Tubes
+Featherman Badge
+Fire Augite
+Ice Augite
+Lightning Augite
+Wind Augite
+Psy Augite
+Nuclear Augite
+Cross Augite
+Skeleton Augite
+Healing Augite
+RESERVE
+Ultimate Augite
+RESERVE
+Wing Ring
+Engraved Dog Tag
+Red Ribbon
+Ember Ring
+Flame Ring
+Inferno Ring
+Spiral Ember Ring
+Spiral Flame Ring
+Spiral Inferno Ring
+Frost Ring
+Snow Ring
+Blizzard Ring
+Spiral Frost Ring
+Spiral Snow Ring
+Spiral Blizzard Ring
+Breeze Ring
+Wind Ring
+Gale Ring
+Spiral Breeze Ring
+Spiral Wind Ring
+Spiral Gale Ring
+Static Ring
+Spark Ring
+Thunder Ring
+Spiral Static Ring
+Spiral Spark Ring
+Spiral Thunder Ring
+Holy Ring
+Hallowed Ring
+Spiral Holy Ring
+Spiral Hallowed Ring
+Prayer Ring
+Blessing Ring
+Divine Ring
+Spiral Prayer Ring
+Spiral Blessing Ring
+Spiral Divine Ring
+Death Ring
+Hell Ring
+Spiral Death Ring
+Spiral Hell Ring
+Grudge Ring
+Curse Ring
+Hex Ring
+Spiral Grudge Ring
+Spiral Curse Ring
+Spiral Hex Ring
+Mighty Ring
+Almighty Ring
+Supreme Ring
+Atom Ring
+Nuclear Ring
+Reactor Ring
+Spiral Atom Ring
+Spiral Nuclear Ring
+Spiral Reactor Ring
+Dizzy Bangle
+Spiral Dizzy Bangle
+Addle Bangle
+Spiral Addle Bangle
+Fear Bangle
+Retail Smile Mask
+Forget Bangle
+Spiral Forget Bangle
+Sleep Bangle
+Spiral Sleep Bangle
+Rage Bangle
+Spiral Rage Bangle
+Gloom Bangle
+Spiral Gloom Bangle
+Brainwash Bangle
+Agitation Crown
+Life Sapping Mask
+Spirit Sapping Mask
+Spirit Sense Mirror
+Dark Spirit Mirror
+Spirit Camera
+Dark Flame Band
+Ardhanari Band
+Diamond Dust Lily
+Frozen Crown
+Storm Sculpture
+Vacuum Crown
+Goddess Horn
+Thunder Charm
+Judgment Cross
+Spinning Crown
+Cursed Ribbon
+Crown of Death
+Fire Dragon Horn
+Atomic Crown
+Black Viper Crown
+Astral Crown
+Psy Ring
+Karma Ring
+Mystic Ring
+Spiral Psy Ring
+Spiral Karma Ring
+Spiral Mystic Ring
+-
+Dragon's Heart
+Psycho Blast Crown
+Lunge Belt
+Assault Belt
+Megaton Belt
+God's Hand Belt
+Lucky Belt
+Miracle Belt
+Rush Belt
+Gatling Belt
+Cleave Belt
+Giant Slice Belt
+Brave Belt
+Sword Dance Belt
+Hassou Tobi Belt
+Ayamur Belt
+Cornered Belt
+Rising Slash Belt
+Deadly Fury Belt
+Snap Belt
+Triple Shot Belt
+Special Shot Belt
+Magic Bullet Belt
+Double Shot Belt
+Vajra Blast Belt
+Vorpal Blade Belt
+Vicious Strike Belt
+Heat Wave Belt
+Gigantomachia Belt
+Brawler Belt
+Swift Strike Belt
+Deathbound Belt
+Agneyastra Belt
+Double Fangs Belt
+Power Slash Belt
+Tempest Slash Belt
+Myriad Slash Belt
+Sledgehammer Belt
+Skull Cracker Belt
+Terror Claw Belt
+Headbutt Belt
+RESERVE
+Dream Needle Belt
+Hysterical Slap Belt
+Negative Pile Belt
+Brain Shaker Belt
+Flash Bomb Belt
+Mind Slice Belt
+Bloodbath Belt
+Memory Blow Belt
+RESERVE
+Dormin Rush Belt
+Oni-Kagura Belt
+Bad Beat Belt
+Brain Buster Belt
+Aid Charm
+Cure Charm
+Heal Charm
+Spiral Aid Charm
+Spiral Cure Charm
+Spiral Heal Charm
+Revival Charm
+Rejuvenate Charm
+Rosary of Purity
+Amrita Charm
+Spiral Amrita Charm
+Salvation Crown
+Alluring Belt
+Hidden Ring
+Alarm Charm
+Spiral Energy Charm
+Energy Charm
+Baisudi Charm
+Spiral Alarm Charm
+Spiral Baisudi Charm
+Rasetsu Anklet
+Vajra Anklet
+Cat Brooch
+Heat Riser Anklet
+Spiral Rasetsu Anklet
+Spiral Vajra Anklet
+Spiral Idaten Anklet
+Savior Brooch
+Weak Anklet
+Feeble Anklet
+Stalling Anklet
+Debilitate Anklet
+Spiral Weak Anklet
+Spiral Feeble Anklet
+Spiral Stalling Anklet
+Dekunda Anklet
+Calming Anklet
+Empowering Anklet
+Concentration Anklet
+Rebellion Anklet
+Revolution Anklet
+Magic Mirror Charm
+Phys Mirror Charm
+Immortal Charm
+Wall Break Charm
+Barrier Break Charm
+Anti-Fire Choker
+Anti-Ice Choker
+Anti-Elec Choker
+Anti-Wind Choker
+Fire Breaker Bell
+Ice Breaker Bell
+Wind Breaker Bell
+Elec Breaker Bell
+Anti-Nuke Choker
+Anti-Psy Choker
+Nuke Breaker Bell
+Psy Breaker Bell
+0x1E2
+Regent R
+Queen's Necklace R
+Stone of Scone R
+Koh-i-Noor R
+Orlov R
+Emperor's Charm R
+Hope Diamond R
+Crystal Skull R
+Orichalcum
+Orichalcum R
+Gambler's Ring
+Dazzling Netsuke
+Nuke Brooch
+Starlight Glove
+Moonlight Phones
+Warden's Baton
+Feather Cape
+Demonica Device
+Camera Strap
+Unused Item
+0x1F7
+0x1F8
+0x1F9
+0x1FA
+0x1FB
+0x1FC
+0x1FD
+0x1FE
+0x1FF

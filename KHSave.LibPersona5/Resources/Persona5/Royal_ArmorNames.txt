@@ -1,0 +1,301 @@
+BLANK (Unusable)
+RESERVE
+Dark Undershirt
+Print T-Shirt
+Neckerchief
+Baseball Jacket
+Dress Shirt
+Turtleneck
+Pink Top
+Loose Cutsew
+Formal Shirt
+Light Undershirt
+Chaos Undershirt
+RESERVE
+Sooty Ghastly Gear
+RESERVE
+Shoulder Pads
+Confident Camisole
+Lynx Camo Vest
+Memorial Collar
+Old Cat Collar
+Cat Knight's Collar
+Old Duke's Coat
+Duke's Coat
+RESERVE
+RESERVE
+RESERVE
+Cat Sweater
+Old Angels' Cape
+Angel's Cape
+Old Pajamas
+Succubus Pajamas
+Saint's Tunic
+Robust Apron
+Amulet Shirt
+Breeze Scarf
+Silk Dress
+Fine Silk Dress
+Frost Hood
+Frost Ace Hood
+Survival Vest
+Lady's Dress
+Zen Outfit
+Cone Collar
+Old Ghastly Dress
+Shikigami Dress
+Old Cheongsam
+Fairy Cheongsam
+Old Mythical Scarf
+Mythical Scarf
+RESERVE
+RESERVE
+Cosmic Undies
+Lightning Blouse
+Night Shift Haori
+Rubber Scarf
+Heavensent Dress
+Godsent Dress
+RESERVE
+RESERVE
+Athletic Shirt
+Power Camisole
+RESERVE
+Hard Scarf
+Old Haori
+Dishonored Haori
+Old Coat
+Nekomata Coat
+Old Fiery Apron
+Fiery Apron
+Blood Red Capote
+Bloodied Capote
+Mandala Vest
+Elysian Robe
+Papal Robes
+Id Collar
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Army Vest
+Hard Corset
+RESERVE
+Sparkly Collar
+Old Shroud
+Royal Holy Shroud
+Old Robe
+Arcane Robe
+Old Snakeskin Scarf
+Snakeskin Scarf
+Fairy Knight Armor
+Fairy Hero Armor
+Cool Vest
+Titanium Corset
+Hope Shirt
+Morose Collar
+Tapsuan
+Fine Tapsuan
+RESERVE
+RESERVE
+Gigas Vest
+Maillot
+RESERVE
+Armada Collar
+Old Undershirt
+Lil Devil Undershirt
+Old Shocking Scarf
+Shocking Scarf
+Old Ghillie Vest
+Ghillie Vest
+RESERVE
+RESERVE
+Austere Haori
+Yama Dress
+Rune Vest
+Brave Scarf
+Lucky Robe
+Super Lucky Robe
+RESERVE
+RESERVE
+Fluted Guard
+Panzer Dress
+RESERVE
+Measure Collar
+Old Vest
+Leopard Print Vest
+Old Pure Collar
+Pure Collar
+Old Tights
+Divine Black Tights
+RESERVE
+RESERVE
+Fireman Happi
+Glaring Cape
+Egoist Shirt
+Water Crown
+King Frost Cape
+King Frost Cape EX
+RESERVE
+RESERVE
+Kaiser Vest
+Tomoe's Doumaru
+RESERVE
+Kampff Collar
+Old Wild Lion Scarf
+Wild Lion Scarf
+Old Khamrai Tao
+Khamrai Tao
+Old Primate Vest
+Primate Vest
+RESERVE
+RESERVE
+Demon's Jacket
+Cozy Dress
+Akashic Shirt
+Lyrical Scarf
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Karna's Robe
+Haten Robe
+RESERVE
+Sublime Collar
+Old Sinful Bikini
+Sinful Bikini
+Old Underwear
+Lucky Underwear
+Old Infinity Scarf
+Bottomless Scarf
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Scarf of Mercy
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Immortal Vest
+RESERVE
+Old Black Tights
+Death's Black Tights
+Old Witch's Robe
+Lovely Witch's Robe
+Old Scale Scarf
+Dragon Scale Scarf
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Tantric Oath
+Black Jacket
+Official's Robe
+Tantric Oath R
+RESERVE
+Archangel Bra
+RESERVE
+High Archangel Bra
+RESERVE
+Black Wing Robe
+Black Wing Robe R
+Dark Jacket
+RESERVE
+Official's Robe R
+Black Robe
+RESERVE
+Moonlight Robe R
+Weird Wrap
+Moonlight Robe
+Sirius Armor
+Sirius Armor EX
+Sooty Ladies' Armor
+Sooty Boots
+Sooty Heavy Armor
+Sooty Yorishiro
+Sooty Elder's Armor
+Sooty Cheongsam
+Sooty Men's Armor
+Sooty Cat Armor
+Sooty Ogress' Gear
+Sooty Wolf's Coat
+Sooty Divine Armor
+Sooty Snakeskin
+Sooty Lady's Armor
+Sooty Feather Coat
+Sooty Black Armor
+Sooty Spotted Fur
+Sooty Horn
+Sooty Lady's Armor
+Sooty Lion's Mane
+Sooty Monkey Fur
+Sooty Regalia
+Sooty Lady's Armor
+Sooty Bolt Armor
+Sooty Regalia
+Sooty Dancer's Garb
+Sooty Dark Armor
+Sooty Scale Armor
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+Shining Vest
+Tao Robe
+Philosophical Scarf
+Bodhi Haori
+Divine Guard
+Unio Dress
+Pleroma Collar
+RESERVE
+Gambler's Shirt
+Immovable Shirt
+Vest of Life
+RESERVE
+RESERVE
+Nightwatch Armor
+Golden Vest
+Robe of Hatred
+Space Suit
+Golden Dress
+Starry Wisdom Vest
+0x120
+0x121
+0x122
+0x123
+0x124
+0x125
+0x126
+0x127
+0x128
+0x129
+0x12A
+0x12B
+0x12C

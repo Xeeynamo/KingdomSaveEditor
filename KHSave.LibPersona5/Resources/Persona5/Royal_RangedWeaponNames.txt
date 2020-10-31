@@ -1,0 +1,256 @@
+Blank - INCOMPLETE LIST
+Handgun
+Shotgun
+Slingshot 1
+Submachine Gun
+Rifle 1
+American Gun 1
+Masaharu Gun 1
+Aura Gun 1
+Gun 009
+Handgun
+Gun 00B
+Gun 00C
+Rifle 2
+Gun 014
+Gun 015
+Tkachev
+Governance
+Unmarked Pistol
+Tkachev II
+Tkachev HP
+Makaronov
+Makaronov II
+Governance HP
+Compact
+Eliminator
+Makaronov SP
+Compact HP
+Assassin
+Assassin SP
+Sand Hawk II
+Model Gun
+Levinson M31
+Levinson M31 II
+Granelli M3
+Levinson M31 HP
+Granelli M3 SP
+Heavy Shotgun
+Mad Maximum
+Fireworks
+Mad Maximum II
+Heavy Shotgun II
+Fireworks SP
+Storm Shot
+Pumpkin Bomb
+Big Sleep
+Masterkey
+Orso Nero
+Big Sleep SP
+Storm Shot II
+Fury SP
+Bianchi SBAS II
+Calamity Gun
+Orso Nero SP
+Volley Cannon II
+Smithereens
+Calamity Gun SP
+Kiraihou II
+Smithereens II
+Unmarked Shotgun
+Bianchi SBAS
+Nock Volley
+Hellfire
+Nock Volley SP
+Slingshot
+Unmarked Sling
+Slingshot SP
+Slingshot HP
+Shrike
+Upsilon
+Slingbow II
+Comet 3
+Shrike SP
+Comet 3 II
+Spirit Sling
+Upsilon II
+Stronger
+Northern Light SP
+Intercept
+Stronger SP
+Spirit Sling HP
+Pirate Killer
+Mt. Liang SP
+Dreamstone
+Intercept II
+Sling Cannon
+Sling Cannon II
+Pirate Killer SP
+Utopia HP
+Dreamstone II
+Catnap
+Mount Liang
+Shrike II
+Northern Light
+Shooting Star
+Star Slayer
+Replica SMG
+Tommy Gun
+Unmarked SMG
+Trooper
+MP2 Prototype
+Flare SMG
+Blitz MG
+Sterlidge II
+Trooper SP
+MP2 Prototype II
+Civilian MP
+Hyakka Ryouran
+No Mercy
+Civilian MP II
+Western SMG
+No Mercy II
+Tarantula SP
+MP Victoria
+Antares
+Hien Renhappou
+Western SMG II
+MP Victoria EP
+Honoikazuchi
+H. Renhappou HP
+Phantom Killer II
+Honoikazuchi SP
+Sterlidge
+Brain Shot
+Tommy Gun II
+Flare SMG II
+Tarantula
+Blitz MGSP
+Replica AR
+Black Assault
+AR-M4
+Heavy Assault
+G1 Type
+AR-M4 II
+AR-M4 SP
+Black Assault SP
+Hero AR
+Heavy Assault II
+Blaze Assault
+Annihilator
+Tempest
+AR-X
+Hero AR II
+Cruel Carbine
+Blaze Assault SP
+Annihilator II
+Tempest II
+Cruel Carbine II
+Sharpshooter
+Ryuraihou II
+Sharpshooter II
+Hizutsu HP
+Kuzuryu Gouhou
+G1 Type SP
+Rebel Rifle
+Rebel Rifle SP
+Tempest HP
+Hizutsu
+Ryuraihou
+Heaven's Gate
+Replica Revolver
+Peacemaker
+P Revolver
+PM Sheriff
+PM Sheriff II
+Ling Xing
+P Revolver II
+Peacemaker SP
+Justness
+Justness II
+Evil Roulette
+Wildborn SP
+Artillery
+Evil Roulette II
+Ling Xing II
+Calvary
+Artillery II
+Baptism SP
+Orochi SP
+Cavalry II
+Twilight SP
+Peacemaker HP
+Mirrirmina
+Wildborn
+Baptism
+Orochi
+Twilight
+Judge of the Dead
+Fury
+Volley Cannon
+Kiraihou
+Megido Fire
+GL Replica
+Pawzooka
+Unmarked GL
+GL Mega
+GL Rep
+Scorcher
+GL Replica II
+Multiple GL
+Scorcher SP
+Eraser
+Town Burner HP
+Flame Ocean
+Eraser SP
+Multiple GL II
+Magma Bucket
+Magma Bucket SP
+Flame Ocean II
+Pandemonium SP
+Haru Reserve
+Haru Reserve 2
+Town Burner
+Town Burner SP
+Pandemonium
+Yagrush
+H. Ryouran HP
+Antares II
+Phantom Killer
+Wild Hunt
+Clemont Shot
+Golden Beam
+Gun 222
+Gun 223
+Moebius
+Moebius II
+Sirius
+Sirius SP
+Slingbow
+Star Slayer HP
+Utopia
+Sudarshana
+Sleeper
+Karura II
+From Heaven
+Crimson Gun HP
+Riot Police SP
+Gravity Gun
+Medusan
+Sleeper SP
+R.I.Pistol
+Medusan II
+R.I.Pistol II
+Gravity Gun HP
+Nataraja
+Riot Police
+Sand Hawk
+Karura
+Crimson Gun
+From Heaven II
+Cocytus
+Cocytus SP
+Tyrant Pistol
+Gun 253
+Gun 254
+Gun 255

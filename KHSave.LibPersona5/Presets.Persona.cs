@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibPersona5
@@ -48,10 +49,14 @@ namespace KHSave.LibPersona5
             [Data] public ushort SkillId { get; set; }
         }
 
+        private static string GetResourceFileName(string fileName, bool isRoyal) => Path.Combine(
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+            $"Resources/Persona5/{(isRoyal ? "Royal" : "Vanilla")}_{fileName}");
+
         public static List<Persona> GetPersona(bool isRoyal)
         {
-            var names = File.ReadAllLines("Resources/demon.txt");
-            using (var stream = File.OpenRead(isRoyal ? "Resources/demonr.bin" : "Resources/demon.bin"))
+            var names = File.ReadAllLines(GetResourceFileName("Demon.txt", isRoyal));
+            using (var stream = File.OpenRead(GetResourceFileName("Demon.bin", isRoyal)))
             {
                 var length = stream.ReadInt32BE();
                 var count = length / 14;
@@ -75,7 +80,7 @@ namespace KHSave.LibPersona5
                 for (var i = 0; i < count; i++)
                 {
                     persona[i].Id = i;
-                    persona[i].Name = names[i];
+                    persona[i].Name = i < names.Length ? names[i] : "Unused";
                     persona[i].Skills = skillSets[i].Skills
                         .Where(x => x.Enabled > 0)
                         .Select(x => x.SkillId)
