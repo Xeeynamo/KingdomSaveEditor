@@ -85,29 +85,16 @@
         <GroupBox Header="Shared Abilities">
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Ability 1"/>
-                <ComboBox
-                    ItemsSource="{Binding Abilities}"
-                    SelectedValue="{Binding SharedAbility1}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <local:AbilityView DataContext="{Binding SharedAbility1}"/>
+
                 <TextBlock Text="Ability 2"/>
-                <ComboBox
-                    ItemsSource="{Binding Abilities}"
-                    SelectedValue="{Binding SharedAbility2}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <local:AbilityView DataContext="{Binding SharedAbility2}"/>
+
                 <TextBlock Text="Ability 3"/>
-                <ComboBox
-                    ItemsSource="{Binding Abilities}"
-                    SelectedValue="{Binding SharedAbility3}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <local:AbilityView DataContext="{Binding SharedAbility3}"/>
+
                 <TextBlock Text="Ability 4"/>
-                <ComboBox
-                    ItemsSource="{Binding Abilities}"
-                    SelectedValue="{Binding SharedAbility4}"
-                    DisplayMemberPath="Name"
-                    SelectedValuePath="Value"/>
+                <local:AbilityView DataContext="{Binding SharedAbility4}"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
         <GroupBox Header="Misc">

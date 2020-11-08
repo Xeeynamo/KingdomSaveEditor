@@ -22,10 +22,7 @@ namespace KHSave.Lib1
 
             [Data(0x499, Count = 0x100)] public byte[] InventoryCount { get; set; }
 
-            [Data(0x599)] public AbilityType SharedAbility1 { get; set; }
-            [Data(0x59A)] public AbilityType SharedAbility2 { get; set; }
-            [Data(0x59B)] public AbilityType SharedAbility3 { get; set; }
-            [Data(0x59C)] public AbilityType SharedAbility4 { get; set; }
+            [Data(0x599, Count = 4)] public byte[] SharedAbilities { get; set; }
 
             [Data(0x844)] public CommandType ShortcutCircle { get; set; }
             [Data(0x845)] public CommandType ShortcutTriangle { get; set; }

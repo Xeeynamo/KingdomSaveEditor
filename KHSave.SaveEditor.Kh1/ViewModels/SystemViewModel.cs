@@ -21,6 +21,11 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
             DifficultiesFm = new KhEnumListModel<DifficultyFm>(() => save.Difficulty, x => save.Difficulty = x);
             Worlds = new KhEnumListModel<WorldType>();
+
+            SharedAbility1 = new AbilityViewModel(save.SharedAbilities, 0, getAbilities);
+            SharedAbility2 = new AbilityViewModel(save.SharedAbilities, 1, getAbilities);
+            SharedAbility3 = new AbilityViewModel(save.SharedAbilities, 2, getAbilities);
+            SharedAbility4 = new AbilityViewModel(save.SharedAbilities, 3, getAbilities);
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
@@ -32,10 +37,10 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public KhEnumListModel<DifficultyFm> DifficultiesFm { get; }
         public KhEnumListModel<WorldType> Worlds { get; }
 
-        public AbilityType SharedAbility1 { get => save.SharedAbility1; set => save.SharedAbility1 = value; }
-        public AbilityType SharedAbility2 { get => save.SharedAbility2; set => save.SharedAbility2 = value; }
-        public AbilityType SharedAbility3 { get => save.SharedAbility3; set => save.SharedAbility3 = value; }
-        public AbilityType SharedAbility4 { get => save.SharedAbility4; set => save.SharedAbility4 = value; }
+        public AbilityViewModel SharedAbility1 { get; }
+        public AbilityViewModel SharedAbility2 { get; }
+        public AbilityViewModel SharedAbility3 { get; }
+        public AbilityViewModel SharedAbility4 { get; }
 
         public CommandType ShortcutCircle { get => save.ShortcutCircle; set => save.ShortcutCircle = value; }
         public CommandType ShortcutTriangle { get => save.ShortcutTriangle; set => save.ShortcutTriangle = value; }

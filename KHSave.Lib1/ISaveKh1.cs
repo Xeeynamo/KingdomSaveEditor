@@ -7,10 +7,7 @@ namespace KHSave.Lib1
     public interface ISaveKh1
     {
         uint MagicCode { get; set; }
-        AbilityType SharedAbility1 { get; set; }
-        AbilityType SharedAbility2 { get; set; }
-        AbilityType SharedAbility3 { get; set; }
-        AbilityType SharedAbility4 { get; set; }
+        byte[] SharedAbilities { get; }
         CommandType ShortcutCircle { get; set; }
         CommandType ShortcutTriangle { get; set; }
         CommandType ShortcutSquare { get; set; }
