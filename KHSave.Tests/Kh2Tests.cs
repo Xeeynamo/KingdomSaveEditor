@@ -87,10 +87,10 @@ namespace KHSave.Tests
             Assert.Equal(EquipmentType.ShadowArchive, (EquipmentType)save.Characters[(int)CharacterType.Goofy].Accessories[0]);
             Assert.Equal(EquipmentType.Empty, (EquipmentType)save.Characters[(int)CharacterType.Riku].Armors[0]);
 
-            Assert.Equal(PlayableCharacterType.Sora, save.PlayableCharacter);
-            Assert.Equal(PlayableCharacterType.WorldCharacter, save.CompanionCharacter1);
-            Assert.Equal(PlayableCharacterType.Goofy, save.CompanionCharacter2);
-            Assert.Equal(PlayableCharacterType.Donald, save.CompanionCharacter3);
+            Assert.Equal(PlayableCharacterType.Sora, save.WorldPartyMembers[18].PlayableCharacter);
+            Assert.Equal(PlayableCharacterType.WorldCharacter, save.WorldPartyMembers[18].CompanionCharacter1);
+            Assert.Equal(PlayableCharacterType.Goofy, save.WorldPartyMembers[18].CompanionCharacter2);
+            Assert.Equal(PlayableCharacterType.Donald, save.WorldPartyMembers[18].CompanionCharacter3);
 
             Assert.Equal(Difficulty.Critical, save.Difficulty);
             Assert.Equal(2885291, save.Experience);
