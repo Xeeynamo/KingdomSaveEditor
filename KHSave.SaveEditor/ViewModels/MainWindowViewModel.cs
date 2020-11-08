@@ -204,6 +204,23 @@ namespace KHSave.SaveEditor.ViewModels
 			}, x => true);
         }
 
+        private void Buffered(Stream stream, Action<Stream> call) => Buffered(stream, bufferedStream =>
+        {
+            call(bufferedStream);
+            return true;
+        });
+
+        private T Buffered<T>(Stream stream, Func<Stream, T> call)
+        {
+            var bufferedStream = stream is BufferedStream ? (BufferedStream)stream :
+                new BufferedStream(stream, (int)Math.Min(stream.Length, 1024 * 1024));
+
+            var result = call(bufferedStream);
+            bufferedStream.Flush();
+
+            return result;
+        }
+
         public void Open(string fileName) => CatchException(() =>
         {
             fileDialogManager.InjectFileName(fileName, stream => Open(stream));
@@ -226,7 +243,7 @@ namespace KHSave.SaveEditor.ViewModels
 
             try
             {
-                if (!TryOpen(stream))
+                if (!Buffered(stream, TryOpen))
                     throw CreateUnsupportedSaveExceptiom();
 
                 InvokeRefreshUi();
@@ -243,7 +260,7 @@ namespace KHSave.SaveEditor.ViewModels
 
         private void Save(Stream stream) => CatchException(() =>
         {
-            WriteToStream.WriteToStream(stream);
+            Buffered(stream, WriteToStream.WriteToStream);
             OnPropertyChanged(nameof(Title));
         });
 
