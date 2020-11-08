@@ -17,5 +17,11 @@
     <Setting Name="LastPersona5Tab" Type="System.String" Scope="User">
       <Value Profile="(Default)">Characters</Value>
     </Setting>
+    <Setting Name="Cookie" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AnonymousReporting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

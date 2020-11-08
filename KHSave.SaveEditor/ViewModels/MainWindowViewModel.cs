@@ -44,6 +44,7 @@ using KHSave.Lib1;
 using KHSave.LibBbs;
 using KHSave.SaveEditor.Views;
 using KHSave.LibPersona5;
+using KHSave.SaveEditor.Common.Properties;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -54,6 +55,7 @@ namespace KHSave.SaveEditor.ViewModels
         private readonly IAlertMessage alertMessage;
         private readonly IUpdater updater;
         private readonly ContentFactory contentFactory;
+        private readonly ReporterService reporterService;
         private object dataContext;
         private ContentType _saveKind;
 
@@ -133,6 +135,18 @@ namespace KHSave.SaveEditor.ViewModels
 			}
 		}
 
+        public bool IsAnonymousReporting
+        {
+            get => Settings.Default.AnonymousReporting;
+            set
+            {
+                if (value == true)
+                    reporterService.DeleteCookies();
+                Settings.Default.AnonymousReporting = value;
+                Settings.Default.Save();
+            }
+        }
+
         public MainWindowViewModel(
             IFileDialogManager fileDialogManager,
             IWindowManager windowManager,
@@ -146,6 +160,7 @@ namespace KHSave.SaveEditor.ViewModels
             this.alertMessage = alertMessage;
             this.updater = updater;
             this.contentFactory = contentFactory;
+            this.reporterService = ReporterService.Instance;
             HomeContext = homeContext;
 
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(stream => Open(stream)));
@@ -400,6 +415,7 @@ namespace KHSave.SaveEditor.ViewModels
 
         private void ChangeContent(ContentType contentType, Stream stream = null)
         {
+            reporterService.SendGameName(contentType.ToString());
             contentFactory.LoadIconPack(contentType);
             var contentResponse = contentFactory.Factory(contentType);
 

@@ -79,6 +79,6 @@ If you have more doubts about the GPL license, have a read to the following link
 
 ## Privacy
 
-The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest which changes you will find in a new release.
+The application will have full access to the file you will open by using "File\Open" in order to be able to modify your save game data and it will send the version of the save editor to provide customized messages at the home page to suggest what changes you will find in an eventual new version of this tool.
 
-It is important to state that it does not collect any information if not asked for the explicit authorization of it. The source code can be found on GitHub, so you can have an idea on which data the application have access to.
+Few information such as name of the operating system, name of the game you choose to access to and crash reports will be send for diagnostic purpose and to improve the save editing functionalities. By knowing which games are modified the most, I can take knowledge of it and target them to add new editing features. You can also choose to send those reports anonymously. When not anonymous, a cookie will be send which represents a totally random number generated the very first time you open the Save Editor. The code is open source and there is absolute transparency on [which information are sent](KHSave.SaveEditor\Services\ReporterService.cs).

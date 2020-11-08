@@ -49,8 +49,11 @@
                     Content="_Advanced mode"
                     IsChecked="{Binding IsAdvancedMode}"/>
                 <CheckBox
-                    Content="Automatic _Update checking"
+                    Content="Automatic _Update check"
                     IsChecked="{Binding IsUpdateCheckingEnabled}"/>
+                <CheckBox
+                    Content="Anonymous reporting"
+                    IsChecked="{Binding IsAnonymousReporting}"/>
             </MenuItem>
             <MenuItem Header="_Info">
                 <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}">
@@ -85,6 +88,12 @@
                 </MenuItem>
                 <MenuItem Header="Join Discord server" Command="{Binding OpenLinkCommand}"
                     CommandParameter="https://kse-discord.xee.dev">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Read privacy policy" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://kingdomsaveeditor.xee.dev/#privacy">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>
