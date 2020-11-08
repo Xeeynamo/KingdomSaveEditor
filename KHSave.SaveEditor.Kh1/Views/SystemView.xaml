@@ -104,7 +104,7 @@
 
                 <TextBlock Text="Difficulty"/>
                 <ComboBox
-                    ItemsSource="{Binding DifficultiesFm}"
+                    ItemsSource="{Binding Difficulties}"
                     SelectedValue="{Binding Difficulty}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="Value"/>

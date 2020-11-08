@@ -6,13 +6,15 @@ namespace KHSave.Lib1
 {
     public interface ISaveKh1
     {
+        bool IsFinalMix { get; }
+
         uint MagicCode { get; set; }
         byte[] SharedAbilities { get; }
         CommandType ShortcutCircle { get; set; }
         CommandType ShortcutTriangle { get; set; }
         CommandType ShortcutSquare { get; set; }
         uint Munny { get; set; }
-        DifficultyFm Difficulty { get; set; }
+        byte Difficulty { get; set; }
         PlayableCharacterType PlayableCharacter { get; set; }
         PlayableCharacterType CompanionCharacter1 { get; set; }
         PlayableCharacterType CompanionCharacter2 { get; set; }

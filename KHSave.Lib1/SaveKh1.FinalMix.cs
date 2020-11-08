@@ -9,6 +9,7 @@ namespace KHSave.Lib1
     {
         public class SaveFinalMix : ISaveKh1
         {
+            public bool IsFinalMix => true;
 
             [Data(0, 0x16C00)] public byte[] Data { get; set; }
 
@@ -39,7 +40,7 @@ namespace KHSave.Lib1
             [Data(0x16414)] public int Sound { get; set; }
 
             [Data(0x1641C)] public uint Munny { get; set; }
-            [Data(0x1642C)] public DifficultyFm Difficulty { get; set; }
+            [Data(0x1642C)] public byte Difficulty { get; set; }
 
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);

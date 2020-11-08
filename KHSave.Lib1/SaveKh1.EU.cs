@@ -9,6 +9,8 @@ namespace KHSave.Lib1
     {
         public class SaveEU : ISaveKh1
         {
+            public bool IsFinalMix => false;
+
             [Data(0, 0x16C00)] public byte[] Data { get; set; }
             [Data(0)] public uint MagicCode { get; set; }
             [Data(Count = 10, Stride = 0x74)] public Character[] Characters { get; set; }
@@ -42,7 +44,7 @@ namespace KHSave.Lib1
             [Data(0x16A44)] public int Sound { get; set; }
 
             
-            [Data(0x16418)] public DifficultyFm Difficulty { get; set; }
+            [Data(0x16418)] public byte Difficulty { get; set; }
 
             [Data(0x1641C)] public uint Munny { get; set; }
 
