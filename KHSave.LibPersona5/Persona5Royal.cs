@@ -14,6 +14,7 @@ namespace KHSave.LibPersona5
         [Data(Count = 12)] public string ProtagonistFirstName { get; set; }
 
         [Data(0x48, Count = 10, Stride = 0x2a8)] public Character[] Characters { get; set; }
+        [Data(0x2252, Count = 0x500)] public byte[] InventoryCount { get; set; }
         [Data(0x357c)] public int Money { get; set; }
         [Data(0x3b4c)] public bool PartyModifierKasumi { get; set; }
         [Data(0x3b4d)] public bool PartyModifierRyuji { get; set; }

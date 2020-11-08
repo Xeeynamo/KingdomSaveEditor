@@ -30,6 +30,7 @@ namespace KHSave.LibPersona5
         short RoomCategory { get; set; }
         short RoomMap { get; set; }
         Character[] Characters { get; set; }
+        byte[] InventoryCount { get; }
         Persona[] Compendium { get; set; }
     }
 

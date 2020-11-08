@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KHSave.SaveEditor.Persona5.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="450">
-    <Grid>
-        <TextBlock>Work in progress</TextBlock>
-    </Grid>
+             d:DesignHeight="400" d:DesignWidth="450">
+    <DataGrid ItemsSource="{Binding Items}">
+    </DataGrid>
 </UserControl>

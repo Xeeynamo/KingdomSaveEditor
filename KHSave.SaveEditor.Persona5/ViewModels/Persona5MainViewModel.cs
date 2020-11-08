@@ -15,7 +15,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 {
     public class Persona5MainViewModel : BaseNotifyPropertyChanged,
         IRefreshUi, IOpenStream, IWriteToStream,
-        IPersonaList, ISkillList, IEquipmentList
+        IPersonaList, ISkillList, IEquipmentList,
+        IConsumableList
     {
         private static readonly string[] MeleeType = new string[]
         {
@@ -93,11 +94,12 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public IEnumerable<EquipmentModel> Outfits { get; private set; }
         public IEnumerable<EquipmentModel> MeleeWeapons { get; private set; }
         public IEnumerable<EquipmentModel> RangeWeapons { get; private set; }
+        public IEnumerable<Presets.Consumable> ConsumableItems { get; private set; }
 
         public void RefreshUi()
         {
             Characters = new CharactersViewModel(Save, this, this, this);
-            Inventory = new InventoryViewModel(Save);
+            Inventory = new InventoryViewModel(Save, this);
             Compendium = new CompendiumViewModel(Save, this, this);
             System = new SystemViewModel(Save);
 
@@ -187,6 +189,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             RangeWeapons = items.RangeWeapons
                 .Select(x => new EquipmentModel(x, 0x8000, RangeType[GetFlagIndex(x.EquippableFlags)]))
                 .ToList();
+            ConsumableItems = items.Consumables;
         }
 
         private int GetFlagIndex(int mask)
