@@ -1,5 +1,6 @@
 ﻿using KHSave.Lib1;
 using KHSave.Lib1.Models;
+using KHSave.SaveEditor.Kh1.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -11,14 +12,14 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
     {
         private readonly ISaveKh1 save;
 
-        public PlayersViewModel(ISaveKh1 save) :
-            this(save.Characters)
+        public PlayersViewModel(ISaveKh1 save, IGetAbilities getAbilities) :
+            this(save.Characters, getAbilities)
         {
             this.save = save;
         }
 
-        public PlayersViewModel(IEnumerable<Character> list) :
-            this(list.Select((pc, index) => new PlayerViewModel(pc, index)))
+        public PlayersViewModel(IEnumerable<Character> list, IGetAbilities getAbilities) :
+            this(list.Select((pc, index) => new PlayerViewModel(pc, index, getAbilities)))
         {
 
         }

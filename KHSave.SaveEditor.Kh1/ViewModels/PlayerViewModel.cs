@@ -3,7 +3,10 @@ using KHSave.Lib1.Models;
 using KHSave.Lib1.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh1.Interfaces;
 using KHSave.SaveEditor.Kh1.Service;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace KHSave.SaveEditor.Kh1.ViewModels
@@ -13,7 +16,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         private readonly Character character;
         private readonly int index;
 
-        public PlayerViewModel(Character character, int index)
+        public PlayerViewModel(Character character, int index, IGetAbilities getAbilities)
         {
             this.character = character;
             this.index = index;
@@ -21,6 +24,9 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             Weapon = new ItemComboBoxModel<EquipmentType>(() => character.Weapon, x => character.Weapon = x);
             Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character));
             Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character));
+            Abilities = character.Abilities
+                .Select((_, i) => new AbilityViewModel(character.Abilities, i, getAbilities))
+                .ToList();
         }
 
         public string Name => InfoAttribute.GetInfo((PlayableCharacterType)index);
@@ -29,6 +35,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public ItemComboBoxModel<EquipmentType> Weapon { get; }
         public EquipmentItemsViewModel Accessories { get; }
         public EquipmentItemsViewModel Consumables { get; }
+        public List<AbilityViewModel> Abilities { get; }
         public byte HpCur { get => character.HpCur; set => character.HpCur = value; }
         public byte HpMax { get => character.HpMax; set => character.HpMax = value; }
         public byte MpCur { get => character.MpCur; set => character.MpCur = value; }

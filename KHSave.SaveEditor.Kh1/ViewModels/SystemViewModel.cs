@@ -1,22 +1,24 @@
 ﻿using KHSave.Lib1;
 using KHSave.Lib1.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh1.Interfaces;
 
 namespace KHSave.SaveEditor.Kh1.ViewModels
 {
     public class SystemViewModel
     {
         private readonly ISaveKh1 save;
+        private readonly IGetAbilities _getAbilities;
 
-        public SystemViewModel(ISaveKh1 save)
+        public SystemViewModel(ISaveKh1 save, IGetAbilities getAbilities)
         {
             this.save = save;
+            _getAbilities = getAbilities;
             ShortcutItems = new KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType>(() => default(CommandType), x => { });
             Pc0 = new KhEnumListModel<PlayableCharacterType>(() => save.PlayableCharacter, x => save.PlayableCharacter = x);
             Pc1 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter1, x => save.CompanionCharacter1 = x);
             Pc2 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter2, x => save.CompanionCharacter2 = x);
             Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
-            Abilities = new KhEnumListModel<AbilityType>();
             DifficultiesFm = new KhEnumListModel<DifficultyFm>(() => save.Difficulty, x => save.Difficulty = x);
             Worlds = new KhEnumListModel<WorldType>();
         }
@@ -26,7 +28,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc1 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
-        public KhEnumListModel<AbilityType> Abilities { get; }
+        public KhEnumListModel<AbilityType> Abilities => _getAbilities.Abilities;
         public KhEnumListModel<DifficultyFm> DifficultiesFm { get; }
         public KhEnumListModel<WorldType> Worlds { get; }
 
