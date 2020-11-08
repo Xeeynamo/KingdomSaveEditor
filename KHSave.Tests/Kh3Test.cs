@@ -69,7 +69,6 @@ namespace KHSave.Tests
 				var tempSave = SaveKh3.Read(stream);
 				tempSave.TotalExp = 1234;
 				tempSave.Difficulty = DifficultyType.Normal;
-				tempSave.GameTime = new TimeSpan(12, 34, 56);
 				tempSave.MapPath = "TestPath";
 				tempSave.Shortcuts[0].Triangle = CommandType.SeaBlizzard;
 				tempSave.Magics[0] = CommandType.SeaFire;
@@ -83,7 +82,6 @@ namespace KHSave.Tests
 
 			Assert.Equal(1234, save.TotalExp);
 			Assert.Equal(DifficultyType.Normal, save.Difficulty);
-			Assert.Equal(new TimeSpan(12, 34, 56), save.GameTime);
 			Assert.Equal("TestPath", save.MapPath);
 			Assert.Equal(CommandType.SeaBlizzard, save.Shortcuts[0].Triangle);
 			Assert.Equal(CommandType.SeaFire, save.Magics[0]);
@@ -109,12 +107,17 @@ namespace KHSave.Tests
 			Assert.Equal("rg_03_Lv_Start_01", save.DlcSpawnPoint);
 		}
 
+		[Fact]
+		public void TestChecksum()
+		{
+			File.OpenRead(FilePath).Using(stream => Assert.Equal(0xE5783B63, SaveKh3.CalculateChecksum(stream)));
+		}
+
 		private static void AssertSaveGame(ISaveKh3 save)
 		{
 			Assert.Equal(0x45764053, save.MagicCode);
 			Assert.Equal(DifficultyType.Proud, save.Difficulty);
 			Assert.Equal(WorldType.ScalaAdCaelum, save.WorldLogo);
-			Assert.Equal(new TimeSpan(52, 54, 3), save.GameTime);
 			Assert.Equal(1413899, save.TotalExp);
 			Assert.Equal(223439, save.Munny);
 			Assert.Equal(94, save.Level);

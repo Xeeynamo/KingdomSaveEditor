@@ -156,7 +156,7 @@ namespace KHSave.SaveEditor.ViewModels
                 if (_isProcess)
                     Save(_processStream);
                 else
-                    fileDialogManager.Save(Save);
+                     CatchException(() => fileDialogManager.Save(Save));
             },
                 x => IsFileOpen || _isProcess);
             SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
@@ -205,12 +205,12 @@ namespace KHSave.SaveEditor.ViewModels
 			}, x => true);
         }
 
-        public void Open(string fileName)
+        public void Open(string fileName) => CatchException(() =>
         {
             fileDialogManager.InjectFileName(fileName, stream => Open(stream));
-        }
+        });
 
-        public void OpenPcsx2(Func<Stream, bool> openStream)
+        public void OpenPcsx2(Func<Stream, bool> openStream) => CatchException(() =>
         {
             var process = new AttachToProcessWindow("pcsx2").WaitForProcess();
             if (process != null)
@@ -219,10 +219,10 @@ namespace KHSave.SaveEditor.ViewModels
                 if (stream != null)
                     OpenProcessStream(stream, openStream);
             }
-        }
+        });
 
-        public bool Open(Stream stream)
-		{
+        public bool Open(Stream stream) => CatchException(() =>
+        {
             CloseProcessStream();
 
             try
@@ -240,13 +240,13 @@ namespace KHSave.SaveEditor.ViewModels
             }
 
             return false;
-        }
+        });
 
-        private void Save(Stream stream)
+        private void Save(Stream stream) => CatchException(() =>
         {
             WriteToStream.WriteToStream(stream);
             OnPropertyChanged(nameof(Title));
-        }
+        });
 
         public bool TryOpen(Stream stream) =>
             TryOpenKh1(stream) ||
@@ -352,6 +352,31 @@ namespace KHSave.SaveEditor.ViewModels
             _processStream = null;
 
             OnPropertyChanged(nameof(Title));
+        }
+
+        public static void CatchException(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public static T CatchException<T>(Func<T> action)
+        {
+            try
+            {
+                return action();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return default(T);
+            }
         }
 
         private static Exception CreateUnsupportedSaveExceptiom() =>

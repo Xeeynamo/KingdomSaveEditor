@@ -1,0 +1,256 @@
+Blank
+Generic Gear
+Rebel Knife
+Kukri
+Arsene's Cane
+Blizz Dagger
+Athame
+Steel Kukri
+Skinning Knife
+Corvo
+Kopis
+Killing Scalpel
+Mummy's Kopis
+Quality Kopis
+Pro Skinning Knife
+Blood Corvo
+Dirk
+Parrying Dagger
+Old Dirk
+Machete
+Baselard
+Dual Edge Machete
+Frenzy Dagger
+Pro Parrying Dagger
+Coma Dagger
+Misericorde
+Reserve
+Pro Yamanaji
+Amnesia
+Reserve
+Igniter
+Ritual Athame
+Shock Knife
+Dancing Knife
+Melancholia
+Paradise Lost
+Yamanaji
+Normal Rod
+Mace
+Hell Slugger
+Heavy Steel Pipe
+Steel Pipe
+Battle Hammer
+Iron Pipe
+Quality Steel Pipe
+Heavy Mace
+Spike Rod
+Demon War Hammer
+Bush Hammer
+Demon Pipe
+Megaton Rod
+Boss Bush Hammer
+Gaea Presser
+Lotus Wand
+Big Sleep Stick
+Stun Baton
+Death Crowbar
+Dragon God Pole
+Grand Presser
+Stun Baton
+Super Megido Rod
+The Anchor
+Erasure Hammer
+Genocide Crowbar
+Triple Crown Bat
+Ruyi Jingu Bang
+Wolf Fang Pole
+Sleep Stick
+Super Steel Whip
+Flint Rod
+Reserve
+The Pulverizer
+Mjolnir
+Bandit Sword
+Headhunter Ladle
+Ryozanpaku Sword
+Sonic Blade
+Scimitar
+Talwar
+Bright Saber
+Sleeper Blade
+Shamshir
+Blood Scimitar
+Resting Sword
+Chief's Cutlass
+Quiet Sword
+Cosmic Sword
+Damascus Sword
+Solar Blade
+Heavy Saber
+Master Shamshir
+Panic Sword
+Fury Blade
+Bright Sword
+Reserve
+Answerer
+Mega Flash Sword
+Corona Blade
+Claiomh Solais
+Reserve
+Machete
+Plasma Sword
+Kikouseiken
+Vile Sword
+El Caliente
+God Saber
+Heaven Saber
+Deus Ex Machina
+Leather Whip
+Training Whip
+Skin Ripper
+Heat Whip
+Warrior Whip
+Blaze Whip
+Burn Whip
+Hero Whip
+Tear Whip
+Whip Sword
+Electromag Whip
+Disgrace Whip
+Mirage Whip
+Strike Tail
+White Paper Whip
+Great Whip Sword
+Chain Whip
+Barbed Wire
+Pain and Pain
+Spike Whip
+Love Whip
+Hard Branch
+Coil Whip
+Last Agony
+Law Rope
+Fundo-Kusari
+Goat Leather Whip
+Ingot Chain
+Knout Whip
+Death Knout
+Cat-o-Nine Tails
+Snow Queen's Whip
+Death Match Wire
+Naraka Whip
+Katana
+Gunto
+Reserve
+Imitation Katana
+Unmarked Katana
+Antique Gunto
+Seishiki Sword
+Muramasa
+Jagato
+Imperial Sword
+Kirisame
+Fury Blade
+Iai Katana
+Kunitsuna
+Orochito
+Wakizashi
+Chidori
+Masamune
+Master's Iai Katana
+Monohoshizao
+Red Demon Blade
+Quality Wakizashi
+Reserve
+Musou Masamune
+Usumidori
+Shimobashira
+Shizukuto
+Shikomi Kiseru
+Kyokusui
+Senryou Yakusha
+Ame-no-Murakumo
+Brass Knuckles
+Hell Knuckles
+Heavy Pound
+Super Heavy Grip
+Metal Duster
+Hell Cestus
+Iron Fist
+Mach Punch
+Bagh Naka
+Demon Fist
+Flash Punch
+Fast Puncher
+Omega Knuckle
+Bout Gloves
+Sanction
+Dazzle Fist
+One Inch
+Chrome Duster
+Grief Fist
+Bear Gloves
+Clenched Fist
+Sabazios
+Wrathful Iron Fist
+Sealed Fist
+Vajra
+Reserve
+Reserve
+Reserve
+Axe
+Mega Axe
+Steel Bardiche
+Crescent Axe
+Lethe Axe
+Ice Axe
+Melatonin Axe
+Celtis
+Lunatic Axe
+Amazon Axe
+Rend Celtis
+Dragon Scale Axe
+Perish Great Axe
+Reserve
+Reserve
+Heracles Axe
+Gilgamesh Axe
+Narcolepsy
+Fleurs du Mal
+Reserve
+Delta Knuckle
+Heavy Grip
+Lumina Saber
+Reserve
+Quasar Saber
+Reserve
+Falchion
+Masquerade Ribbon
+Reserve
+Reserve
+Haru Reserve 3
+Haru Reserve 1
+Bardiche
+Death Contract
+Black Kogatana
+Reserve
+Fault Knife
+Quest Item
+Lizard Tail Cutter
+Envy Chain
+Prophet's Hand
+Dependence XX
+Venture Saber
+Slacker Pole
+Silver Dagger
+0x0F6
+0x0F7
+0x0F8
+0x0F9
+0x0FA
+0x0FB
+0x0FC
+0x0FD
+0x0FE
+0x0FF

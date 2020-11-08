@@ -34,19 +34,11 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         {
             this.save = save;
             ShortcutItems = new KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType>(() => default(CommandType), x => { });
-            Pc0 = new KhEnumListModel<PlayableCharacterType>(() => save.PlayableCharacter, x => save.PlayableCharacter = x);
-            Pc1 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter1, x => save.CompanionCharacter1 = x);
-            Pc2 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter2, x => save.CompanionCharacter2 = x);
-            Pc3 = new KhEnumListModel<PlayableCharacterType>(() => save.CompanionCharacter3, x => save.CompanionCharacter3 = x);
             Difficulty = new KhEnumListModel<Difficulty>(() => save.Difficulty, x => save.Difficulty = x);
             Worlds = new KhEnumListModel<WorldType>();
         }
 
         public KhEnumListModel<EnumIconTypeModel<CommandType>, CommandType> ShortcutItems { get; }
-        public KhEnumListModel<PlayableCharacterType> Pc0 { get; }
-        public KhEnumListModel<PlayableCharacterType> Pc1 { get; }
-        public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
-        public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
         public KhEnumListModel<Difficulty> Difficulty { get; }
         public KhEnumListModel<WorldType> Worlds { get; }
         public IEnumerable<RoomViewModel> Rooms => Data.Rooms.Where(x => x.World == WorldId).Select(x => new RoomViewModel(x));

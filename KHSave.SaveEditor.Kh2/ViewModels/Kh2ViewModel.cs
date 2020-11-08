@@ -36,6 +36,8 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public SystemViewModel System { get; private set; }
         public InventoryViewModel Inventory { get; private set; }
         public CharactersViewModel Characters { get; private set; }
+        public DriveFormsViewModel DriveForms { get; private set; }
+        public WorldsViewModel Worlds { get; private set; }
         public RoomVisitedViewModel RoomVisited { get; private set; }
         public ProgressViewModel Progress { get; private set; }
 
@@ -44,12 +46,17 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             System = new SystemViewModel(save);
             Inventory = new InventoryViewModel(save);
             Characters = new CharactersViewModel(save);
+            DriveForms = new DriveFormsViewModel(save);
+            Worlds = new WorldsViewModel(save);
             RoomVisited = new RoomVisitedViewModel(save);
             Progress = new ProgressViewModel(save.StoryProgress);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Characters));
+            OnPropertyChanged(nameof(Characters));
+            OnPropertyChanged(nameof(DriveForms));
+            OnPropertyChanged(nameof(Worlds));
             OnPropertyChanged(nameof(RoomVisited));
             OnPropertyChanged(nameof(Progress));
         }

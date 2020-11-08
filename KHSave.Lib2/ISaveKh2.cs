@@ -6,6 +6,8 @@ namespace KHSave.Lib2
 {
     public interface ISaveKh2
     {
+        bool IsFinalMix { get; }
+
         uint MagicCode { get; set; }
         int Version { get; set; }
         uint Checksum { get; set; }
@@ -22,15 +24,9 @@ namespace KHSave.Lib2
         Difficulty Difficulty { get; set; }
         byte[] PuzzlePieceFlags { get; set; }
         ICharacter[] Characters { get; }
+        IDriveForm[] DriveForms { get; }
 
-        short SoraValorKeyblade { get; set; }
-        short SoraTrinityKeyblade { get; set; }
-        short SoraFinalKeyblade { get; set; }
-
-        PlayableCharacterType PlayableCharacter { get; set; }
-        PlayableCharacterType CompanionCharacter1 { get; set; }
-        PlayableCharacterType CompanionCharacter2 { get; set; }
-        PlayableCharacterType CompanionCharacter3 { get; set; }
+        PartyMembers[] WorldPartyMembers { get; set; }
         byte[] InventoryCount { get; set; }
 
         int Experience { get; set; }

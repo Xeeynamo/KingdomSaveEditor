@@ -26,6 +26,7 @@
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
             <Label Content="A new version of Kingdom Save Editor has been released."/>
             <Label Content="It is recommended to update it to enjoy the latest features and fixes."/>
+            <Label Content="If you installed it from Microsoft Store, it should be automatically updated."/>
             <Label>
                 <Hyperlink
                     NavigateUri="{Binding PageUri}"

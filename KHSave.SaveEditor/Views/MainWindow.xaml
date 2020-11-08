@@ -65,6 +65,12 @@
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="Get from Microsoft Store" Command="{Binding OpenLinkCommand}"
+                    CommandParameter="https://www.microsoft.com/store/productId/9NV4D090M1XD">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource WebURL_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Header="Get the Source Code" Command="{Binding OpenLinkCommand}"
                     CommandParameter="https://github.com/xeeynamo/kh3saveeditor">
                     <MenuItem.Icon>

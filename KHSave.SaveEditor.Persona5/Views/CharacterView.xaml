@@ -8,19 +8,46 @@
              d:DesignHeight="800" d:DesignWidth="450">
     <UserControl.Resources>
         <CollectionViewSource x:Key="AbilityTypes" Source="{Binding AbilityTypes}"/>
+        <DataTemplate x:Key="EquipTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Margin="0 0 3 0" Width="61" Height="20" Source="{Binding Icon}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
     </UserControl.Resources>
     <TabControl>
         <TabItem Header="Stats">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <common:TwoEqualColumnsStackPanel>
-                    <TextBlock Text="Current HP"/>
-                    <TextBox Text="{Binding CurrentHp, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBlock Text="Current MP"/>
-                    <TextBox Text="{Binding CurrentMp, UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel>
+                    <CheckBox Content="Unlocked" IsChecked="{Binding IsUnlocked}"/>
+                    <common:TwoEqualColumnsStackPanel>
+                        <TextBlock Text="Current HP"/>
+                        <TextBox Text="{Binding CurrentHp, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Current MP"/>
+                        <TextBox Text="{Binding CurrentMp, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Experience"/>
-                    <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
-                </common:TwoEqualColumnsStackPanel>
+                        <TextBlock Text="Experience"/>
+                        <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+                    </common:TwoEqualColumnsStackPanel>
+                    <common:TwoEqualColumnsStackPanel>
+                        <TextBlock Text="Melee Weapon"/>
+                        <ComboBox ItemsSource="{Binding MeleeWeapons}" SelectedValue="{Binding MeleeWeaponId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        <TextBlock Text="Range Weapon"/>
+                        <ComboBox ItemsSource="{Binding RangeWeapons}" SelectedValue="{Binding RangeWeaponId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        <TextBlock Text="Protector"/>
+                        <ComboBox ItemsSource="{Binding Armors}" SelectedValue="{Binding ProtectorId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        <TextBlock Text="Accessory"/>
+                        <ComboBox ItemsSource="{Binding Accessories}" SelectedValue="{Binding AccessoryId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        <TextBlock Text="Outfit"/>
+                        <ComboBox ItemsSource="{Binding Outfits}" SelectedValue="{Binding OutfitId}" SelectedValuePath="Value" ItemTemplate="{StaticResource EquipTemplate}"/>
+                        
+                    </common:TwoEqualColumnsStackPanel>
+                </StackPanel>
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Persona">

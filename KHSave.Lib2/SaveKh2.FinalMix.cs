@@ -10,7 +10,9 @@ namespace KHSave.Lib2
     {
         public class SaveFinalMix : ISaveKh2
         {
-		    [Data(0, 0x10FC0)] public byte[] Data { get; set; }
+            public bool IsFinalMix => true;
+
+            [Data(0, 0x10FC0)] public byte[] Data { get; set; }
 
             [Data(0)] public uint MagicCode { get; set; }
             [Data] public int Version { get; set; }
@@ -28,15 +30,13 @@ namespace KHSave.Lib2
             [Data(0x2498)] public Difficulty Difficulty { get; set; }
             [Data(0x24a0, Count = 0x30)] public byte[] PuzzlePieceFlags { get; set; }
             [Data(0x24f0, Count = 13, Stride = 0x114)] public CharacterFinalMix[] Characters { get; set; }
+            [Data(0x32f4, Count = 10, Stride = 0x38)] public DriveFormFinalMix[] DriveForms { get; set; }
 
-            [Data(0x32f4)] public short SoraValorKeyblade { get; set; }
-            [Data(0x339c)] public short SoraTrinityKeyblade { get; set; }
-            [Data(0x33d4)] public short SoraFinalKeyblade { get; set; }
+            [Data(0x3526)] public byte SummonLevel { get; set; }
+            [Data(0x3529)] public byte DriveBarCurrent { get; set; }
+            [Data(0x352a)] public byte DriveBarMax { get; set; }
 
-            [Data(0x357c)] public PlayableCharacterType PlayableCharacter { get; set; }
-            [Data(0x357d)] public PlayableCharacterType CompanionCharacter1 { get; set; }
-            [Data(0x357e)] public PlayableCharacterType CompanionCharacter2 { get; set; }
-            [Data(0x357f)] public PlayableCharacterType CompanionCharacter3 { get; set; }
+            [Data(0x3534, Count = Constants.WorldCount)] public PartyMembers[] WorldPartyMembers { get; set; }
             [Data(0x3580, Count = 320)] public byte[] InventoryCount { get; set; }
 
             [Data(0x36E0)] public int Experience { get; set; }
@@ -91,6 +91,7 @@ namespace KHSave.Lib2
             [Data(0x4275)] public bool NewStatusSummonChickenLittle { get; set; }
 
             ICharacter[] ISaveKh2.Characters => Array.ConvertAll(Characters, x => (ICharacter)x);
+            IDriveForm[] ISaveKh2.DriveForms => Array.ConvertAll(DriveForms, x => (IDriveForm)x);
 
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);

@@ -1,0 +1,387 @@
+BLANK (Unusable)
+Agi
+Agilao
+Agidyne
+Maragi
+Maragion
+Maragidyne
+Bufu
+Bufula
+Bufudyne
+Mabufu
+Mabufula
+Mabufudyne
+Garu
+Garula
+Garudyne
+Magaru
+Magarula
+Magarudyne
+Zio
+Zionga
+Ziodyne
+Mazio
+Mazionga
+Maziodyne
+Hama
+Hamaon
+Mahama
+Mahamaon
+Kouha
+Kouga
+Kougaon
+Makouha
+Makouga
+Makougaon
+Mudo
+Mudoon
+Mamudo
+Mamudoon
+Eiha
+Eiga
+Eigaon
+Maeiha
+Maeiga
+Maeigaon
+Megido
+Megidola
+Megidolaon
+Frei
+Freila
+Freidyne
+Mafrei
+Mafreila
+Mafreidyne
+Dazzler
+Nocturnal Flash
+Pulinpa
+Tentarafoo
+Evil Touch
+Evil Smile
+Makajama
+Makajamaon
+Famine's Breath
+Famine's Scream
+Dormina
+Lullaby
+Taunt
+Wage War
+Ominous Words
+Abysmal Surge
+Marin Karin
+Brain Jack
+Trapped Rat
+Self-destruct
+Self-destruct
+Self-destruct
+Life Drain
+Spirit Drain
+Life Leech
+Spirit Leech
+Foul Breath
+Stagnant Air
+Ghastly Wail
+Inferno
+Blazing Hell
+Diamond Dust
+Ice Age
+Panta Rhei
+Vacuum Wave
+Thunder Reign
+Wild Thunder
+Divine Judgment
+Samsara
+Demonic Decree
+Die For Me!
+Atomic Flare
+Cosmic Flare
+Black Viper
+Morning Star
+Psi
+Psio
+Psiodyne
+Mapsi
+Mapsio
+Mapsiodyne
+Psycho Force
+Psycho Blast
+Lunge
+Assault Dive
+Megaton Raid
+God's Hand
+Lucky Punch
+Miracle Punch
+Cleave
+Giant Slice
+Brave Blade
+Sword Dance
+Hassou Tobi
+Ayamur
+Cornered Fang
+Rising Slash
+Deadly Fury
+Snap
+Triple Down
+One-shot Kill
+Riot Gun
+Vajra Blast
+Vorpal Blade
+Vicious Strike
+Heat Wave
+Gigantomachia
+Rampage
+Swift Strike
+Deathbound
+Agneyastra
+Double Fangs
+Tempest Slash
+Myriad Slashes
+Sledgehammer
+Skull Cracker
+Terror Claw
+Headbutt
+Stomach Blow
+Dream Needle
+Hysterical Slap
+Negative Pile
+Brain Shake
+Flash Bomb
+Mind Slice
+Bloodbath
+Memory Blow
+Insatiable Strike
+Dormin Rush
+Oni-Kagura
+Bad Beat
+Brain Buster
+Dia
+Diarama
+Diarahan
+Media
+Mediarama
+Mediarahan
+Recarm
+Samarecarm
+Recarmdra
+Amrita Drop
+Amrita Shower
+Mabaisudi
+Salvation
+Patra
+Energy Shower
+Energy Drop
+Baisudi
+Me Patra
+Tarukaja
+Rakukaja
+Sukukaja
+Heat Riser
+Matarukaja
+Marakukaja
+Masukukaja
+Thermopylae
+Tarunda
+Rakunda
+Sukunda
+Debilitate
+Matarunda
+Marakunda
+Masukunda
+Dekunda
+Dekaja
+Charge
+Concentrate
+Rebellion
+Revolution
+Tetrakarn
+Makarakarn
+Tetraja
+Tetra Break
+Makara Break
+Fire Wall
+Ice Wall
+Elec Wall
+Wind Wall
+Fire Break
+Ice Break
+Wind Break
+Elec Break
+BLANK
+BLANK
+Nuke Wall
+Psy Wall
+Nuke Break
+Psy Break
+Counter
+Counterstrike
+High Counter
+Endure
+Enduring Soul
+Dodge Bless
+Dodge Curse
+Survival Trick
+Dodge Fire
+Evade Fire
+Dodge Ice
+Evade Ice
+Dodge Wind
+Evade Wind
+Dodge Elec
+Evade Elec
+Dodge Phys
+Evade Phys
+Fire Boost
+Fire Amp
+Ice Boost
+Ice Amp
+Wind Boost
+Wind Amp
+Elec Boost
+Elec Amp
+Angelic Grace
+Divine Grace
+Regenerate 1
+Regenerate 2
+Regenerate 3
+Invigorate 1
+Invigorate 2
+Invigorate 3
+Attack Master
+Auto-Mataru
+Defense Master
+Auto-Maraku
+Speed Master
+Auto-Masuku
+Fast Heal
+Insta-Heal
+Arms Master
+Spell Master
+Sharp Student
+Apt Pupil
+Ali Dance
+Firm Stance
+Life Aid
+Victory Cry
+Growth 1
+Growth 2
+Growth 3
+Unshaken Will
+Evade Bless
+Evade Curse
+BLANK
+Resist Fire
+Null Fire
+Repel Fire
+Drain Fire
+Resist Ice
+Null Ice
+Repel Ice
+Drain Ice
+Resist Wind
+Null Wind
+Repel Wind
+Drain Wind
+Resist Elec
+Null Elec
+Repel Elec
+Drain Elec
+Resist Bless
+Null Bless
+Repel Bless
+Drain Bless
+Resist Curse
+Null Curse
+Repel Curse
+Drain Curse
+Resist Phys
+Null Phys
+Repel Phys
+Drain Phys
+Ailment Boost
+Hama Boost
+Mudo Boost
+Dizzy Boost
+Confuse Boost
+Fear Boost
+Forget Boost
+Sleep Boost
+Rage Boost
+Despair Boost
+BLANK
+Brainwash Boost
+Resist Dizzy
+Resist Confuse
+Resist Fear
+Resist Forget
+Resist Sleep
+Resist Rage
+Resist Despair
+BLANK
+Resist Brainwash
+Null Dizzy
+Null Confuse
+Null Fear
+Null Forget
+Null Sleep
+Null Rage
+Null Despair
+Null Brainwash
+Burn Boost
+Freeze Boost
+Shock Boost
+Fortified Moxy
+Adverse Resolve
+Last Stand
+Heat Up
+BLANK
+Touch n' Go
+Climate Decorum
+Ambient Aid
+Snipe
+Cripple
+Trigger Happy
+Resist Nuke
+Null Nuke
+Repel Nuke
+Drain Nuke
+Resist Psy
+Null Psy
+Repel Psy
+Drain Psy
+Nuke Boost
+Nuke Amp
+Psy Boost
+Psy Amp
+Dodge Nuke
+Evade Nuke
+Dodge Psy
+Evade Psy
+Bless Boost
+Bless Amp
+Curse Boost
+Curse Amp
+Magic Ability
+Fortify Spirit
+Almighty Boost
+Almighty Amp
+Zenith Defense
+Soul Chain
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+BLANK
+Blank Card

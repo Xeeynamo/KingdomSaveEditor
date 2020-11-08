@@ -86,14 +86,14 @@ namespace KHSave.Lib2
             uint checksum;
             using (var tempStream = new MemoryStream())
             {
-                BinaryMapping.WriteObject(tempStream, save);
+                save.Write(tempStream);
                 var rawData = tempStream.SetPosition(0xc).ReadBytes();
                 checksum = CalculateChecksum(tempStream.FromBegin().ReadBytes(8), 8, uint.MaxValue);
                 checksum = CalculateChecksum(rawData, rawData.Length, checksum ^ uint.MaxValue);
             }
 
             save.Checksum = checksum;
-            BinaryMapping.WriteObject(stream.FromBegin(), save);
+            save.Write(stream.FromBegin());
         }
 
         private const int CrcPolynomial = 0x04c11db7;

@@ -20,7 +20,7 @@ namespace KHSave.SaveEditor
             {
                 StartupFileName = args.FirstOrDefault();
 #if DEBUG
-                StartupFileName = StartupFileName ?? "../../../../KHSave.Tests/Saves/ff7remake007";
+                StartupFileName = StartupFileName ?? @"D:\Repository\KH3SaveEditor\KHSave.Tests\Saves\kh2fm.bin";
 #endif
             }
 

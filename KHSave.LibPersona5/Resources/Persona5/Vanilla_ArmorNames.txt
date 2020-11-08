@@ -1,0 +1,301 @@
+Blank
+Thief Clothes
+Dark Undershirt
+Print T-Shirt
+Neckerchief
+Baseball Jacket
+Dress Shirt
+Turtleneck
+Pink Top
+Loose Cutsew
+Formal Shirt
+0x00B
+0x00C
+Gold Breastplate
+Grimy Gear
+Soiled Armor
+Shoulder Pads
+Battle Camisole
+Padded Shirt
+Silk Scarf
+Pauldrons
+Old Camisole
+Ancient Shirt
+Well-worn Scarf
+Burntech
+Magic Camisole
+Lynx Camo Vest
+Cat Sweater
+Old Blouse
+Retro Camisole
+Worn Chainmail
+Guard Bandana
+Survival Vest
+Robust Apron
+Chain Vest
+Breeze Scarf
+Okamoto Vest
+Courbet Apron
+Elegant Shirt
+Flowing Scarf
+Cosmic Undies
+Lady's Dress
+Austere Haori
+E-Collar
+Gaudy Undies
+Scream Dress
+Pollock Vest
+Renoir Scarf
+Acrylic-coated Gear
+Paint-flecked Armor
+0x032
+0x033
+Athletic Shirt
+Power Camisole
+Army Vest
+Camo Collar
+Nouveau Riche Shirt
+Sponge Camisole
+Gilded Vest
+Fancy Collar
+Saint's Tunic
+Glaring Cape
+Reckless Vest
+Water Crown
+Patron Undies
+Accountant Cape
+Bookkeeper Wrap
+Flexible Collar
+Tarnished Gear
+Gold-tainted Armor
+0x046
+0x047
+Plate Vest
+Elysian Robe
+Papal Robes
+Id Collar
+Vest of the Dead
+Rosetta Corset
+Pyramid Jacket
+Bandage Collar
+Retention Vest
+Dogwatch Kimono
+Hope Shirt
+Sparkly Collar
+Sand Gown
+Pyramid Shawl
+Royal Haori
+Magical Scarf
+Dust-crusted Gear
+Timeworn Armor
+0x05A
+0x05B
+Gigas Vest
+Spiked Bra
+Brigandine
+Memorial Collar
+UFO Vest
+Astro Bra
+Space Suit
+Quiet Collar
+Mythril Vest
+Maillot
+Dieting Wrap
+Rubber Scarf
+Moon Man Vest
+Zero-G Undies
+Akashic Shirt
+Solar Wind Scarf
+Spyware-laden Gear
+Fragmented Armor
+0x06E
+0x06F
+Fluted Guard
+Rune Dress
+Ghillie Vest
+Measure Collar
+Gambler Guard
+Tsubofuri Wrap
+Unyielding Vest
+Scam Collar
+Brave Waistcoat
+Yama Dress
+Egoist Shirt
+Morose Collar
+Lucky Waistcoat
+Gambler Dress
+Gambler Shirt
+Gambler Collar
+Seedy Gear
+Smokestained Armor
+0x082
+0x083
+Kaiser Vest
+Kotodama Cape
+Life Jacket
+Killer Collar
+Luxurious Vest
+Aristocrat Cape
+Magellan Robe
+Revelry Collar
+Fireman Happi
+Mizuha Doumaru
+Best Vest
+Insomnia Collar
+Captain's Vest
+Millionaire Doumaru
+Steel Chef Vest
+Gorgeous Collar
+Corrupt Gear
+Classified Armor
+0x096
+0x097
+Karna's Robe
+Titanium Set
+Silver Vest
+Sublime Collar
+Karna's Robe+
+Titanium Set+
+Silver Vest+
+Sublime Collar+
+Demon's Jacket
+Haten Robe
+Soul Vest
+Nekomata Coat
+Demon's Jacket+
+Haten Robe+
+Soul Vest+
+Nekomata Coat+
+Desecrated Gear
+Unholy Armor
+0x0AA
+0x0AB
+Over Guard
+Diva Guard
+Empathy Cape
+Engetsu Collar
+Over Guard+
+Diva Guard+
+Empathy Cape+
+Engetsu Collar+
+Immortal Vest
+Sublime Bikini
+Hero Jin-Baori
+9 Lives Collar
+Immortal Vest+
+Sublime Bikini+
+Hero Jinbaori+
+9-Lives Collar+
+Filth-caked Gear
+Unsanitary Armor
+RESERVE
+RESERVE
+Tantric Oath
+Black Jacket
+Official's Robe
+Fusion Guard M 4
+Silk Dress
+Archangel Bra
+Tapsuan
+Fusion Guard F 4
+King Frost Cape
+Black Wing Robe
+Fusion Guard 3
+Fusion Guard 4
+Frost Hood
+Jack Hood
+Black Robe
+RESERVE
+Empress Guard
+Weird Wrap
+Moonlight Robe
+Lucifer Guard
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+RESERVE
+0x100
+0x101
+0x102
+0x103
+0x104
+0x105
+0x106
+0x107
+0x108
+0x109
+0x10A
+0x10B
+0x10C
+0x10D
+0x10E
+0x10F
+0x110
+0x111
+0x112
+0x113
+0x114
+0x115
+0x116
+0x117
+0x118
+0x119
+0x11A
+0x11B
+0x11C
+0x11D
+0x11E
+0x11F
+0x120
+0x121
+0x122
+0x123
+0x124
+0x125
+0x126
+0x127
+0x128
+0x129
+0x12A
+0x12B
+0x12C

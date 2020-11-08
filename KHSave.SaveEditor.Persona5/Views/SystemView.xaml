@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Persona5.Views.SystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Persona5.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <StackPanel>
+        <TextBlock Text="Room mod"/>
+        <ComboBox
+            ItemsSource="{Binding Rooms}"
+            SelectedValue="{Binding Room}"
+            SelectedValuePath="Id"
+            DisplayMemberPath="Description"/>
+        
+        <TextBlock Text="Current day"/>
+        <DatePicker
+            SelectedDate="{Binding CalendarDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            DisplayDateStart="2011/04/01"
+            DisplayDateEnd="2012/04/01"
+            IsTodayHighlighted="True"
+            />
+    </StackPanel>
+</UserControl>

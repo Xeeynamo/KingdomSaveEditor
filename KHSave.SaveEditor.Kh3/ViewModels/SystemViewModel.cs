@@ -78,8 +78,6 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         public IEnumerable<MapViewModel> Maps { get; }
         public IEnumerable<SpawnModel> PlayableCharacters { get; }
 
-        public string GameTimer => $"{(int)save.GameTime.TotalHours}:{save.GameTime.Minutes:D02}:{save.GameTime.Seconds:D02}";
-
 		public int TotalExp
 		{
 			get => save.TotalExp;

@@ -68,7 +68,8 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Game timer"/>
-                <TextBox IsReadOnly="True" Text="{Binding GameTimer, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox IsReadOnly="True" IsEnabled="False"
+                         Text="Disabled due to file corruption"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2">

@@ -15,9 +15,12 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 | Kingdom Hearts 0.2             | PS4          | All    |
 | Kingdom Hearts III             | PS4          | All    |
 | Final Fantasy VII Remake       | PS4          | All    |
+| Persona 5, Persona 5 Royal     | PS3/PS4      | US/EU  |
 
-[![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)
+[![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)*
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg?style=flat-square)
+
+<sub><sup>*download count does not include download from Microsoft Store.</sup></sub>
 
 ## Donations
 
@@ -33,7 +36,7 @@ You need first to get a decrypted save. There are two ways to achieve it:
 
 2) [Save Wizard](https://www.savewizard.net/): If you do not have a custom firmware, you can obtain a copy of a decrypted save and re-encrypt it using [the following paid software](https://www.savewizard.net/)
 
-Once you get your save, just open it using the KH3SaveEditor from File\Open, then save it with File\Save. If you want to transfer back the file on your Playstation 4, just follow the guide lines of the tool that you used for decryption
+Once you get your save, just open it using Kingdom Save Editor from File\Open, then save it with File\Save. If you want to transfer back the file on your Playstation 4, just follow the guide lines of the tool that you used for decryption
 
 ## How to use it for PS3 games
 
@@ -42,15 +45,15 @@ If you use an emulator such as `RPCS3` you can skip this step as `RPCS3` does no
 
 ### How to use it for PS2 games
 
-The editor works on the raw save data from PS2 save game files. As long as you can extract the save slot from the memory card or from your favourite emulator, you can edit it. A native support for reading the save without extracting it from its container will come at some point.
+The editor works on the raw save data from PS2 save game files. As long as you can extract the save slot from the memory card or from your favourite emulator, you can edit it. PCSX2 saves are supported as long as a memory card is converted as a Folder.
 
 ## Contribution
 
 ### Contribute to make it better
 
-This software is open-source, and every contribution is more than welcome!
+This software is **free and open-source**, and every contribution is more than welcome!
 
-If you want to add missing names, improve it or add new offsets, just clone the repository, do your change, test if it does work and create a pull request: we will review your change (no needs to be scared here) and we will merge it to this repo! Do not be shy on contribute, even for the smallest thing :)
+If you want to add missing names, improve it or add new offsets, just clone the repository, do your change, test if it does work and create a pull request: we will review your change (no needs to be scared here) and we will merge it to this repo! Do not be shy on contribute, even for the smallest thing 😃
 
 ### Issues or feature requestes
 
@@ -66,7 +69,7 @@ The script `pack.bat` uses WinRAR's self-extracting archive to create a single e
 
 ## License
 
-The code itself, the interface and the codes inside it are protected by GPL 3.0 license. In short, that means that for every change you made or code that you take from here, you need to make it open source somewhere, adding the original copyright statement and specify where the original code has been taken.
+The code itself, the interface and the codes inside it are protected by GPL 3.0 license, unless specified differently in the root of a specific folder. In short, that means that for every change you made or code that you take from here, you need to make it open source somewhere, adding the original copyright statement and specify where the original code has been taken.
 
 If you have more doubts about the GPL license, have a read to the following links:
 

@@ -33,11 +33,10 @@ namespace KHSave.Lib3
         [Data] public int FileSize { get; set; }
         [Data] public short MajorVersion { get; set; }
         [Data] public short MinorVersion { get; set; }
-        [Data(0xC)] public int Unknown0000C { get; set; }
+        [Data(0xC)] public uint Checksum { get; set; }
         [Data(0x14)] public DifficultyType Difficulty { get; set; }
         [Data(0x18)] public WorldType WorldLogo { get; set; }
 
-        [Data(0x20)] public TimeSpan GameTime { get; set; }
         [Data(0x24)] public int TotalExp { get; set; }
         [Data(0x28)] public int Munny { get; set; }
         [Data(0x2C)] public byte Level { get; set; }
@@ -93,8 +92,16 @@ namespace KHSave.Lib3
             return magicCode == 0x45764053 && length == 0x94F2F8;
         }
 
-        public void Write(Stream stream) =>
+        public void Write(Stream stream)
+        {
+            using (var tempStream = new MemoryStream())
+            {
+                BinaryMapping.WriteObject(tempStream, this);
+                Checksum = SaveKh3.CalculateChecksum(tempStream);
+            }
+
             SaveKh3.Mapper.WriteObject(stream.SetPosition(0), this);
+        }
 
         internal static SaveKh3u109 ReadInternal(Stream stream) =>
             SaveKh3.Mapper.ReadObject(stream.SetPosition(0), new SaveKh3u109()) as SaveKh3u109;

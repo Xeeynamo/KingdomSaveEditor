@@ -8,10 +8,29 @@ namespace KHSave.LibPersona5
 {
     public interface ISavePersona5
     {
+        bool IsRoyal { get; }
         string ProtagonistLastName { get; set; }
         string ProtagonistFirstName { get; set; }
         int Money { get; set; }
+        bool PartyModifierRyuji { get; set; }
+        bool PartyModifierMorgana { get; set; }
+        bool PartyModifierAnn { get; set; }
+        bool PartyModifierYusuke { get; set; }
+        bool PartyModifierMakoto { get; set; }
+        bool PartyModifierHaru { get; set; }
+        bool PartyModifierFutaba { get; set; }
+        bool PartyModifierAkechi { get; set; }
+        bool PartyModifierKasumi { get; set; }
+        short CalendarDay1 { get; set; } // Visual change on the load screen
+        short CalendarDay2 { get; set; } // Just a visual change
+        short CalendarDay3 { get; set; }
+        float PositionX { get; set; }
+        float PositionY { get; set; }
+        float PositionZ { get; set; }
+        short RoomCategory { get; set; }
+        short RoomMap { get; set; }
         Character[] Characters { get; set; }
+        Persona[] Compendium { get; set; }
     }
 
     public class SavePersona5
@@ -25,6 +44,7 @@ namespace KHSave.LibPersona5
             Mapper = MappingConfiguration
                 .DefaultConfiguration(Encoding.UTF8, true)
                 .ForType<string>(ReadString, WriteString)
+                .ForType<float>(ReadFloat, WriteFloat)
                 .Build();
         }
 
@@ -74,16 +94,26 @@ namespace KHSave.LibPersona5
             for (var i = 0; i < count; i++)
             {
                 var ch = arg.Reader.ReadByte();
-                if (ch == 0) break;
-                if (ch != 0x80) throw new NotImplementedException($"Read P5 string: first char {ch:X02}");
-
-                ch = arg.Reader.ReadByte();
-                if (ch >= 0xc1 && ch <= 0xc1 + ('z' - 'a'))
-                    sb.Append((char)(ch - 0xc1 + 'a'));
-                else if (ch >= 0xa1 && ch <= 0xa1 + ('Z' - 'A'))
-                    sb.Append((char)(ch - 0xa1 + 'A'));
+                if (ch == 0)
+                    break;
+                if (ch >= '0' && ch <= '9')
+                    sb.Append((char)ch);
+                else if (ch >= 'A' && ch <= 'Z')
+                    sb.Append((char)ch);
+                else if (ch >= 'a' && ch <= 'z')
+                    sb.Append((char)ch);
+                else if (ch == 0x80)
+                {
+                    ch = arg.Reader.ReadByte();
+                    if (ch >= 0xc1 && ch <= 0xc1 + ('z' - 'a'))
+                        sb.Append((char)(ch - 0xc1 + 'a'));
+                    else if (ch >= 0xa1 && ch <= 0xa1 + ('Z' - 'A'))
+                        sb.Append((char)(ch - 0xa1 + 'A'));
+                    else
+                        throw new NotImplementedException($"Read P5 string: second char {ch:X02}");
+                }
                 else
-                    throw new NotImplementedException($"Read P5 string: second char {ch:X02}");
+                    throw new NotImplementedException($"Read P5 string: first char {ch:X02}");
             }
 
             arg.Reader.BaseStream.Position = dstPosition;
@@ -113,6 +143,25 @@ namespace KHSave.LibPersona5
             {
                 arg.Writer.Write((short)0);
             }
+        }
+
+        private unsafe static object ReadFloat(MappingReadArgs arg)
+        {
+            var data = (arg.Reader.ReadByte() << 24) |
+                (arg.Reader.ReadByte() << 16) |
+                (arg.Reader.ReadByte() << 8) |
+                arg.Reader.ReadByte();
+            return *(float*)&data;
+        }
+
+        private unsafe static void WriteFloat(MappingWriteArgs arg)
+        {
+            var value = (float)arg.Item;
+            var data = *(int*)&value;
+            arg.Writer.Write((byte)((data >> 24) & 0xff));
+            arg.Writer.Write((byte)((data >> 16) & 0xff));
+            arg.Writer.Write((byte)((data >> 8) & 0xff));
+            arg.Writer.Write((byte)(data & 0xff));
         }
     }
 }
