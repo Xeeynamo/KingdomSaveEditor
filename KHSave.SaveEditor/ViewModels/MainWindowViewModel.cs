@@ -249,8 +249,13 @@ namespace KHSave.SaveEditor.ViewModels
 
         private T Buffered<T>(Stream stream, Func<Stream, T> call)
         {
+            const int DefaultBufferLength = 1024 * 1024;
+            var bufferLength = DefaultBufferLength;
+            if (stream.Length > 0 && stream.Length < DefaultBufferLength)
+                bufferLength = (int)stream.Length;
+
             var bufferedStream = stream is BufferedStream ? (BufferedStream)stream :
-                new BufferedStream(stream, (int)Math.Min(stream.Length, 1024 * 1024));
+                new BufferedStream(stream, bufferLength);
 
             var result = call(bufferedStream);
             bufferedStream.Flush();
