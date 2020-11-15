@@ -167,13 +167,35 @@ namespace KHSave.SaveEditor.ViewModels
             OpenPcsx2Command = new RelayCommand(o => OpenPcsx2(stream => Open(stream)));
             SaveCommand = new RelayCommand(o =>
             {
-                if (_isProcess)
-                    Save(_processStream);
-                else
-                     CatchException(() => fileDialogManager.Save(Save));
+                CatchException(() =>
+                {
+                    if (_isProcess)
+                        Save(_processStream);
+                    else
+                    {
+                        // Create in-memory back-up to recover disastrous savings
+                        var backupStream = new MemoryStream();
+                        if (File.Exists(fileDialogManager.CurrentFileName))
+                        {
+                            using (var originalStream = File.OpenRead(fileDialogManager.CurrentFileName))
+                                originalStream.CopyTo(backupStream);
+                        }
+
+                        try
+                        {
+                            fileDialogManager.Save(Save);
+                        }
+                        catch
+                        {
+                            // Restore back-up before throwing an error
+                            fileDialogManager.Save(stream => backupStream.SetPosition(0).CopyTo(stream));
+                            throw;
+                        }
+                    }
+                });
             },
                 x => IsFileOpen || _isProcess);
-            SaveAsCommand = new RelayCommand(o => fileDialogManager.SaveAs(Save),
+            SaveAsCommand = new RelayCommand(o => CatchException(() => fileDialogManager.SaveAs(Save)),
                 x => IsFileOpen || _isProcess);
             ExitCommand = new RelayCommand(x => Window.Close());
 
@@ -273,11 +295,11 @@ namespace KHSave.SaveEditor.ViewModels
             return false;
         });
 
-        private void Save(Stream stream) => CatchException(() =>
+        private void Save(Stream stream)
         {
             Buffered(stream, WriteToStream.WriteToStream);
             OnPropertyChanged(nameof(Title));
-        });
+        }
 
         public bool TryOpen(Stream stream) =>
             TryOpenKh1(stream) ||
