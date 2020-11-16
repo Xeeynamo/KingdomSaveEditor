@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KHSave.LibDDD
+﻿namespace KHSave.LibDDD
 {
     class Constants
     {

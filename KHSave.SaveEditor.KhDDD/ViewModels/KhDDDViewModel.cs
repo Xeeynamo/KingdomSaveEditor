@@ -1,7 +1,6 @@
 ﻿using KHSave.LibDDD;
 using KHSave.LibDDD.Model;
 using KHSave.SaveEditor.Common.Contracts;
-using KHSave.SaveEditor.Common.Exceptions;
 using System.IO;
 using Xe.Tools;
 

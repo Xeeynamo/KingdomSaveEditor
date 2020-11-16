@@ -1,8 +1,6 @@
 ﻿using KHSave.LibDDD.Types;
 using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Text;
 using Xe.BinaryMapper;
 using KHSave.LibDDD.Model;
 

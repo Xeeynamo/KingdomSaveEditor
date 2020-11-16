@@ -1,7 +1,6 @@
 ﻿using KHSave.LibDDD.Model;
 using KHSave.LibDDD.Types;
 using System;
-using System.IO;
 
 namespace KHSave.LibDDD
 {
