@@ -23,6 +23,7 @@
     <ProjectReference Include="..\KHSave.Lib2\KHSave.Lib2.csproj" />
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
     <ProjectReference Include="..\KHSave.LibBbs\KHSave.LibBbs.csproj" />
+    <ProjectReference Include="..\KHSave.LibDDD\KHSave.LibDDD.csproj" />
     <ProjectReference Include="..\KHSave.LibFf7Remake\KHSave.LibFf7Remake.csproj" />
     <ProjectReference Include="..\KHSave.LibPersona5\KHSave.LibPersona5.csproj" />
     <ProjectReference Include="..\KHSave.LibRecom\KHSave.LibRecom.csproj" />
@@ -66,6 +67,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\khbbs_ventus_eu.DAT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Saves\khddd3ds.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Saves\p5_ps3.DAT">

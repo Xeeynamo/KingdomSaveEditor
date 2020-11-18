@@ -1,6 +1,7 @@
 ﻿using KHSave.LibDDD.Model;
 using KHSave.LibDDD.Types;
 using System;
+using System.IO;
 
 namespace KHSave.LibDDD
 {
@@ -20,5 +21,7 @@ namespace KHSave.LibDDD
         UInt32 Munny { get; set; }
         Deck[] SoraDecks { get; set; }
         Deck[] RikuDecks { get; set; }
+
+        void Write(Stream stream);
     }
 }
