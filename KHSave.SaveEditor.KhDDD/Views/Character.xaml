@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.KhDDD.Views.Character"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhDDD.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer>
+        <StackPanel>
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Sora keyblade"/>
+                <common:ItemComboBox DataContext="{Binding SoraKeyblade}"/>
+                <TextBlock Text="Riku keyblade"/>
+                <common:ItemComboBox DataContext="{Binding RikuKeyblade}"/>
+                <TextBlock Text="Sora Xp"/>
+                <TextBox Text="{Binding SoraXp, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Riku Xp"/>
+                <TextBox Text="{Binding RikuXp, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Sora Level"/>
+                <TextBox Text="{Binding SoraLv, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Riku Level"/>
+                <TextBox Text="{Binding RikuLv, UpdateSourceTrigger=PropertyChanged}"/>
+                
+            </common:TwoEqualColumnsStackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
