@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Unity.Container" Version="5.11.8" />
+    <PackageReference Include="Unity.Container" Version="5.11.9" />
   </ItemGroup>
 
   <ItemGroup>
