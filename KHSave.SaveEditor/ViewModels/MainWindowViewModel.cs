@@ -322,7 +322,6 @@ namespace KHSave.SaveEditor.ViewModels
         private bool Open(IArchiveFactory archiveFactory, Stream stream)
         {
             var archive = archiveFactory.Read(stream);
-            stream.Close();
             return Open(archive);
         }
 
