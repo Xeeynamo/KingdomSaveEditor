@@ -70,5 +70,6 @@ namespace KHSave.Lib1.Types
         [Ability("Leaf Bracer")] LeafBracer = 0x3E,
         [Ability("Evolution")] Evolution = 0x3F,
         [Ability("EXP Zero")] EXPZero = 0x40,
+        [Ability("Combo Master")] ComboMaster = 0x41,
     }
 }
