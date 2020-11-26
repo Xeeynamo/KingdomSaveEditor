@@ -1,4 +1,4 @@
-﻿namespace KHSave.Attributes
+namespace KHSave.Attributes
 {
     public class RecipeAttribute : MogItemAttribute
     {

@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibDDD.Attributes;
 using System;
 
@@ -18,7 +18,7 @@ namespace KHSave.LibDDD.Types
         [Info("Sonic Impact")] SonicImpact = 0x0700,
         [Info("Double Impact")] DoubleImpact = 0x0800,
         [Info("Glide")] Glide = 0x0900,
-        
+
         // xx01 - Abilities
         [Ability("Confusion Block")] ConfusionBlock = 0x0001,
         [Ability("Bind Block")] BindBlock = 0x0101,
@@ -44,7 +44,7 @@ namespace KHSave.LibDDD.Types
         [Ability("Link Critical")] LinkCritical = 0x1401,
         [Ability("Support Boost")] SupportBoost = 0x1501,
         [Ability("Walking Dream")] WalkingDream = 0x1601,
-        
+
         // xx02 - keyblades
         [Keyblade("Kingdom Key")] KingdomKey = 0x0002,
         [Keyblade("Skull Noise (Sora)")] SkullNoiseS = 0x0102,
@@ -192,9 +192,9 @@ namespace KHSave.LibDDD.Types
         [DreamPieces("Wonderous Figment")] WonderousFigment = 0x2206,
         [DreamPieces("Wonderous Fancy")] WonderousFancy = 0x2306,
         [DreamPieces("Wonderous Fantasy")] WonderousFantasy = 0x2406,
-        
+
         // xx07 - Training Toys (Food)
-        
+
 
         // xx08 - Training Toys (Toys)
         [TrainingToysToys("Balloon")] Balloon = 0x0008,

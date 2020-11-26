@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Ff7Remake.Models;
+using KHSave.SaveEditor.Ff7Remake.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

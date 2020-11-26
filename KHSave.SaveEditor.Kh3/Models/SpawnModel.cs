@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Kh3.Models
+namespace KHSave.SaveEditor.Kh3.Models
 {
     public class SpawnModel
     {

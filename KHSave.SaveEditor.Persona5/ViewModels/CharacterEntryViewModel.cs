@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibPersona5;
 using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
@@ -33,7 +33,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public Visibility EntryNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
 
         public string Name => InfoAttribute.GetInfo(_id);
-        
+
         public KhEnumListModel<EnumIconTypeModel<Equipment>, Equipment> EquipmentList =>
             _equipmentList.EquipmentList;
 
@@ -49,31 +49,58 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             {
                 switch (_id)
                 {
-                    case Characters.Joker: return true;
-                    case Characters.Skull: return _save.PartyModifierRyuji;
-                    case Characters.Mona: return _save.PartyModifierMorgana;
-                    case Characters.Panther: return _save.PartyModifierAnn;
-                    case Characters.Fox: return _save.PartyModifierYusuke;
-                    case Characters.Queen: return _save.PartyModifierMakoto;
-                    case Characters.Noir: return _save.PartyModifierHaru;
-                    case Characters.Oracle: return _save.PartyModifierFutaba;
-                    case Characters.Crow: return _save.PartyModifierAkechi;
-                    case Characters.Violet: return _save.PartyModifierKasumi;
-                    default: return false;
+                    case Characters.Joker:
+                        return true;
+                    case Characters.Skull:
+                        return _save.PartyModifierRyuji;
+                    case Characters.Mona:
+                        return _save.PartyModifierMorgana;
+                    case Characters.Panther:
+                        return _save.PartyModifierAnn;
+                    case Characters.Fox:
+                        return _save.PartyModifierYusuke;
+                    case Characters.Queen:
+                        return _save.PartyModifierMakoto;
+                    case Characters.Noir:
+                        return _save.PartyModifierHaru;
+                    case Characters.Oracle:
+                        return _save.PartyModifierFutaba;
+                    case Characters.Crow:
+                        return _save.PartyModifierAkechi;
+                    case Characters.Violet:
+                        return _save.PartyModifierKasumi;
+                    default:
+                        return false;
                 }
             }
             set
             {
                 switch (_id)
                 {
-                    case Characters.Skull: _save.PartyModifierRyuji = value; break;
-                    case Characters.Mona: _save.PartyModifierMorgana = value; break;
-                    case Characters.Panther: _save.PartyModifierAnn = value; break;
-                    case Characters.Fox: _save.PartyModifierYusuke = value; break;
-                    case Characters.Queen: _save.PartyModifierMakoto = value; break;
-                    case Characters.Noir: _save.PartyModifierHaru = value; break;
-                    case Characters.Oracle: _save.PartyModifierFutaba = value; break;
-                    case Characters.Crow: _save.PartyModifierAkechi = value; break;
+                    case Characters.Skull:
+                        _save.PartyModifierRyuji = value;
+                        break;
+                    case Characters.Mona:
+                        _save.PartyModifierMorgana = value;
+                        break;
+                    case Characters.Panther:
+                        _save.PartyModifierAnn = value;
+                        break;
+                    case Characters.Fox:
+                        _save.PartyModifierYusuke = value;
+                        break;
+                    case Characters.Queen:
+                        _save.PartyModifierMakoto = value;
+                        break;
+                    case Characters.Noir:
+                        _save.PartyModifierHaru = value;
+                        break;
+                    case Characters.Oracle:
+                        _save.PartyModifierFutaba = value;
+                        break;
+                    case Characters.Crow:
+                        _save.PartyModifierAkechi = value;
+                        break;
                 }
             }
         }

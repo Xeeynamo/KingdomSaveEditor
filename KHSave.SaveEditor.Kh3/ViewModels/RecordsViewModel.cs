@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -25,11 +25,11 @@ using KHSave.Lib3;
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
     public partial class RecordsViewModel
-	{
-		private readonly ISaveKh3 save;
+    {
+        private readonly ISaveKh3 save;
 
-		public RecordShotlockListModel<RecordShotlockType> Shotlocks { get; }
-		public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
+        public RecordShotlockListModel<RecordShotlockType> Shotlocks { get; }
+        public RecordAttractionListModel<RecordAttractionType> Attractions { get; }
         public IEnumerable<FlantasticModel> Flantastics { get; }
 
         public int VerumRexHighScore { get => save.Records.VerumRexHighScore; set => save.Records.VerumRexHighScore = value; }
@@ -96,9 +96,9 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         }
 
         public RecordsViewModel(ISaveKh3 save)
-		{
-			this.save = save;
-			Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
+        {
+            this.save = save;
+            Shotlocks = new RecordShotlockListModel<RecordShotlockType>(save.RecordShotlocksUseCount, save.Records.ShotlocksHighScore);
             Attractions = new RecordAttractionListModel<RecordAttractionType>(save.RecordAttractionsUseCount, save.Records.AttractionsHighScore);
             Flantastics = GetFlantasticModels(save);
         }

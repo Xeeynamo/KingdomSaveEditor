@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5.Types;
+using KHSave.LibPersona5.Types;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibPersona5.Models
@@ -13,7 +13,7 @@ namespace KHSave.LibPersona5.Models
         [Data] public byte Unknown05 { get; set; }
         [Data] public short Unknown06 { get; set; }
         [Data] public int Experience { get; set; }
-        [Data(Count = 8)] public Skill[] Skills{ get; set; }
+        [Data(Count = 8)] public Skill[] Skills { get; set; }
         [Data] public byte Strength { get; set; }
         [Data] public byte Magic { get; set; }
         [Data] public byte Endurance { get; set; }

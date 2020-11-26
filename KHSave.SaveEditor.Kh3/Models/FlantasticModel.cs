@@ -1,4 +1,4 @@
-﻿using KHSave.Lib3.Models;
+using KHSave.Lib3.Models;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {

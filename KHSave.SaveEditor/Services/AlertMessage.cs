@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.SaveEditor.Common.Exceptions;
 using KHSave.SaveEditor.Interfaces;
 using System;
 using System.Windows;
@@ -40,12 +40,18 @@ namespace KHSave.SaveEditor.Services
         {
             switch (MessageBox.Show(windowManager.CurrentWindow, message, title, buttons, severity))
             {
-                case MessageBoxResult.None: return null;
-                case MessageBoxResult.OK: return true;
-                case MessageBoxResult.Cancel: return null;
-                case MessageBoxResult.Yes: return true;
-                case MessageBoxResult.No: return false;
-                default: return null;
+                case MessageBoxResult.None:
+                    return null;
+                case MessageBoxResult.OK:
+                    return true;
+                case MessageBoxResult.Cancel:
+                    return null;
+                case MessageBoxResult.Yes:
+                    return true;
+                case MessageBoxResult.No:
+                    return false;
+                default:
+                    return null;
             }
         }
     }

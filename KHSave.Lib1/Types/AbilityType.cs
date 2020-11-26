@@ -1,4 +1,4 @@
-﻿// https://pastebin.com/ZH0L3XXi
+// https://pastebin.com/ZH0L3XXi
 using KHSave.Attributes;
 
 namespace KHSave.Lib1.Types

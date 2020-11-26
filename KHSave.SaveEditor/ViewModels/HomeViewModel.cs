@@ -1,4 +1,4 @@
-﻿using Xe.Tools;
+using Xe.Tools;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -27,7 +27,7 @@ namespace KHSave.SaveEditor.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         public int SponsorCount
         {
             get => _sponsorCount;

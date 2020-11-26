@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,10 +20,10 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class PhotoEntry
-	{
-		[Data] public int Length { get; set; }
+    public class PhotoEntry
+    {
+        [Data] public int Length { get; set; }
 
-		[Data(Count = 0x19000)] public byte[] Data { get; set; }
-	}
+        [Data(Count = 0x19000)] public byte[] Data { get; set; }
+    }
 }

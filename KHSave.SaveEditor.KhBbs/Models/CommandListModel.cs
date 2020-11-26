@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibBbs.Models;
 using KHSave.LibBbs.Types;
 using KHSave.SaveEditor.Common.Services;
@@ -21,6 +21,6 @@ namespace KHSave.SaveEditor.KhBbs.Models
         public string Name => InfoAttribute.GetInfo(_commands[_index].Id);
         public ImageSource Icon => IconService.Icon(_commands[_index].Id);
         //public CommandType CommandType => _commands[_index].Id;
-        
+
     }
 }

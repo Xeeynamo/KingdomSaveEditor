@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -28,68 +28,68 @@ using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class PhotosViewModel : GenericListModel<PhotoEntryViewModel>
-	{
-		private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
+    public class PhotosViewModel : GenericListModel<PhotoEntryViewModel>
+    {
+        private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
-		public string Info => $"Photos: {Items.Count}";
+        public string Info => $"Photos: {Items.Count}";
 
-		public RelayCommand ExportAllCommand { get; }
+        public RelayCommand ExportAllCommand { get; }
 
-		public RelayCommand DeleteAllCommand { get; }
+        public RelayCommand DeleteAllCommand { get; }
 
-		public PhotosViewModel(IEnumerable<PhotoEntry> list) :
-			this(list.Select((pc, index) => new PhotoEntryViewModel(pc, index)))
-		{
+        public PhotosViewModel(IEnumerable<PhotoEntry> list) :
+            this(list.Select((pc, index) => new PhotoEntryViewModel(pc, index)))
+        {
 
-		}
+        }
 
-		public PhotosViewModel(IEnumerable<PhotoEntryViewModel> list) :
-			base(list.Where(x => x.Image != null))
-		{
-			ExportAllCommand = new RelayCommand(o =>
-			{
-				FileDialog.OnFolder(folder =>
-				{
-					try
-					{
-						foreach (var item in Items)
-						{
-							item.Export(Path.Combine(folder, $"Kingdom Hearts III - Photo {item.Index}.jpg"));
-						}
-					}
-					catch (Exception e)
-					{
-						MessageBox.Show(Window, $"Unable to export all the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
-							MessageBoxImage.Error);
-					}
-				});
-			}, x => true);
+        public PhotosViewModel(IEnumerable<PhotoEntryViewModel> list) :
+            base(list.Where(x => x.Image != null))
+        {
+            ExportAllCommand = new RelayCommand(o =>
+            {
+                FileDialog.OnFolder(folder =>
+                {
+                    try
+                    {
+                        foreach (var item in Items)
+                        {
+                            item.Export(Path.Combine(folder, $"Kingdom Hearts III - Photo {item.Index}.jpg"));
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(Window, $"Unable to export all the photo due to the following error:\n{e.Message}", "Error", MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                    }
+                });
+            }, x => true);
 
-			DeleteAllCommand = new RelayCommand(o =>
-			{
-				const string msg = "Do you really want to delete all the photos?\nYou still can not save if you change your mind.";
-				var result = MessageBox.Show(Window, msg, "Delete all photos", MessageBoxButton.YesNo,
-					MessageBoxImage.Warning);
+            DeleteAllCommand = new RelayCommand(o =>
+            {
+                const string msg = "Do you really want to delete all the photos?\nYou still can not save if you change your mind.";
+                var result = MessageBox.Show(Window, msg, "Delete all photos", MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
 
-				if (result == MessageBoxResult.Yes)
-				{
-					foreach (var item in Items)
-					{
-						item.Delete();
-					}
-				}
+                if (result == MessageBoxResult.Yes)
+                {
+                    foreach (var item in Items)
+                    {
+                        item.Delete();
+                    }
+                }
 
-				Items.Clear();
-				OnPropertyChanged(nameof(Info));
-				OnPropertyChanged(nameof(Items));
+                Items.Clear();
+                OnPropertyChanged(nameof(Info));
+                OnPropertyChanged(nameof(Items));
 
-			}, x => true);
-		}
+            }, x => true);
+        }
 
-		protected override PhotoEntryViewModel OnNewItem()
-		{
-			throw new System.NotImplementedException();
-		}
-	}
+        protected override PhotoEntryViewModel OnNewItem()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

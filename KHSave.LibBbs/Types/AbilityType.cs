@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibBbs.Attributes;
 
 namespace KHSave.LibBbs.Types

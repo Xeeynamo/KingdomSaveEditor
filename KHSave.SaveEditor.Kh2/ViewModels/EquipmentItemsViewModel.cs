@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2.Types;
+using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Kh2.Service;

@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD.Types;
+using KHSave.LibDDD.Types;
 using System;
 using System.IO;
 using Xe.BinaryMapper;
@@ -10,7 +10,7 @@ using KHSave.LibDDD.Model;
 namespace KHSave.LibDDD
 {
     public partial class SaveKhDDD
-    {    
+    {
         public class SaveKhDDD3DS : ISaveKhDDD
         {
             [Data(0, 0x163FF)] public byte[] Data { get; set; }

@@ -50,7 +50,7 @@ namespace KHSave.SaveEditor.Services
         {
             [JsonProperty("text")]
             public string Text { get; set; }
-            
+
             [JsonProperty("title")]
             public string Title { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace KHSave.LibDDD
+namespace KHSave.LibDDD
 {
     class Constants
     {

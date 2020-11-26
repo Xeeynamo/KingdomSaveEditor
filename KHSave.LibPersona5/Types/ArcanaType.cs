@@ -1,4 +1,4 @@
-﻿namespace KHSave.LibPersona5.Types
+namespace KHSave.LibPersona5.Types
 {
     public enum ArcanaType : byte
     {

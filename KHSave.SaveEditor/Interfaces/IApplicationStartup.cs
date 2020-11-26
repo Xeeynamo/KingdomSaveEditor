@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Interfaces
+namespace KHSave.SaveEditor.Interfaces
 {
     public interface IApplicationStartup
     {

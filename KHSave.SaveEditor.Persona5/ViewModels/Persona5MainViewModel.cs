@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5;
+using KHSave.LibPersona5;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Models;

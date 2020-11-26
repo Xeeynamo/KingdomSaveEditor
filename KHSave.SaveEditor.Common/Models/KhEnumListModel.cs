@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,54 +21,54 @@ using KHSave.Attributes;
 
 namespace KHSave.SaveEditor.Common.Models
 {
-	public class KhEnumListModel<TModel, TEnum, TValue> : GenericEnumListModel<TModel, TEnum, TValue>
-		where TEnum : struct, IConvertible
-		where TModel : GenericEntryModel<string, TValue>
-	{
-		public KhEnumListModel(
-			Func<TValue> valueGetter,
-			Action<TValue> valueSetter,
-			Func<TEnum, TValue> enumValueGetter,
-			Func<TEnum, string> enumNameGetter = null,
-			Func<TModel, bool> filter = null) :
-			base(valueGetter, valueSetter, enumValueGetter, enumNameGetter ?? DefaultNameGetter, filter ?? DefaultFilter)
-		{ }
+    public class KhEnumListModel<TModel, TEnum, TValue> : GenericEnumListModel<TModel, TEnum, TValue>
+        where TEnum : struct, IConvertible
+        where TModel : GenericEntryModel<string, TValue>
+    {
+        public KhEnumListModel(
+            Func<TValue> valueGetter,
+            Action<TValue> valueSetter,
+            Func<TEnum, TValue> enumValueGetter,
+            Func<TEnum, string> enumNameGetter = null,
+            Func<TModel, bool> filter = null) :
+            base(valueGetter, valueSetter, enumValueGetter, enumNameGetter ?? DefaultNameGetter, filter ?? DefaultFilter)
+        { }
 
-		private static string DefaultNameGetter(TEnum value) => InfoAttribute.GetInfo(value);
+        private static string DefaultNameGetter(TEnum value) => InfoAttribute.GetInfo(value);
 
-		private static bool DefaultFilter(TModel model) => Global.CanDisplay(model.Value);
-	}
+        private static bool DefaultFilter(TModel model) => Global.CanDisplay(model.Value);
+    }
 
-	public class KhEnumListModel<TModel, TEnum> : KhEnumListModel<TModel, TEnum, TEnum>
-		where TEnum : struct, IConvertible
-		where TModel : GenericEntryModel<string, TEnum>
-	{
-		public KhEnumListModel(
-			Func<TEnum> valueGetter,
-			Action<TEnum> valueSetter,
-			Func<TEnum, string> enumNameGetter = null,
-			Func<TModel, bool> filter = null) :
-			base(valueGetter, valueSetter, x => x, enumNameGetter, filter)
-		{ }
+    public class KhEnumListModel<TModel, TEnum> : KhEnumListModel<TModel, TEnum, TEnum>
+        where TEnum : struct, IConvertible
+        where TModel : GenericEntryModel<string, TEnum>
+    {
+        public KhEnumListModel(
+            Func<TEnum> valueGetter,
+            Action<TEnum> valueSetter,
+            Func<TEnum, string> enumNameGetter = null,
+            Func<TModel, bool> filter = null) :
+            base(valueGetter, valueSetter, x => x, enumNameGetter, filter)
+        { }
 
-		public KhEnumListModel() :
-			this(() => default(TEnum), x => { })
-		{ }
-	}
+        public KhEnumListModel() :
+            this(() => default(TEnum), x => { })
+        { }
+    }
 
-	public class KhEnumListModel<TEnum> : KhEnumListModel<GenericEntryModel<string, TEnum>, TEnum>
-		where TEnum : struct, IConvertible
-	{
-		public KhEnumListModel(
-			Func<TEnum> valueGetter,
-			Action<TEnum> valueSetter,
-			Func<TEnum, string> enumNameGetter = null,
-			Func<GenericEntryModel<string, TEnum>, bool> filter = null) :
-			base(valueGetter, valueSetter, enumNameGetter, filter)
-		{ }
+    public class KhEnumListModel<TEnum> : KhEnumListModel<GenericEntryModel<string, TEnum>, TEnum>
+        where TEnum : struct, IConvertible
+    {
+        public KhEnumListModel(
+            Func<TEnum> valueGetter,
+            Action<TEnum> valueSetter,
+            Func<TEnum, string> enumNameGetter = null,
+            Func<GenericEntryModel<string, TEnum>, bool> filter = null) :
+            base(valueGetter, valueSetter, enumNameGetter, filter)
+        { }
 
-		public KhEnumListModel() :
-			this(() => default(TEnum), x => { })
-		{ }
-	}
+        public KhEnumListModel() :
+            this(() => default(TEnum), x => { })
+        { }
+    }
 }

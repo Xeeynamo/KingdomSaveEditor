@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD;
+using KHSave.LibDDD;
 using KHSave.LibDDD.Model;
 using KHSave.SaveEditor.Common.Contracts;
 using System.IO;
@@ -32,9 +32,9 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
 
         public void OpenStream(Stream stream)
         {
-            
+
             save = SaveKhDDD.Read<SaveKhDDD.SaveKhDDD3DS>(stream);
-            
+
             RefreshUi();
         }
 

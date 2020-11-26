@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,8 +21,8 @@ using KHSave.SaveEditor.Common.Properties;
 
 namespace KHSave.SaveEditor.Common
 {
-	public static class Global
-	{
+    public static class Global
+    {
         public static bool IsAdvancedMode
         {
             get => Settings.Default.AdvancedMode;
@@ -41,5 +41,5 @@ namespace KHSave.SaveEditor.Common
             return item.GetType() == typeof(string) ||
                 !UnusedAttribute.IsUnused(item);
         }
-	}
+    }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -84,10 +84,14 @@ namespace KHSave.SaveEditor.Common.Services
 
             switch (op)
             {
-                case '=': return count.Count == n;
-                case '>': return count.Count > n;
-                case '<': return count.Count < n;
-                default: return true;
+                case '=':
+                    return count.Count == n;
+                case '>':
+                    return count.Count > n;
+                case '<':
+                    return count.Count < n;
+                default:
+                    return true;
             }
 
 

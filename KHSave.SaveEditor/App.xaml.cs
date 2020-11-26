@@ -10,11 +10,11 @@ using Unity;
 
 namespace KHSave.SaveEditor
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
-	public partial class App : Application
-	{
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
+    {
         private class ApplicationStartup : IApplicationStartup
         {
             public ApplicationStartup(string[] args)

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,11 +20,11 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum AiCombatStyleType : byte
-	{
-		[CombatStyle("Stick By Sora")] StickBySora,
-		[CombatStyle("Be Yourself")] BeYourself,
-		[CombatStyle("Hands Off")] HandsOff,
-		[CombatStyle("Finish the Job")] FinishTheJob,
-	}
+    public enum AiCombatStyleType : byte
+    {
+        [CombatStyle("Stick By Sora")] StickBySora,
+        [CombatStyle("Be Yourself")] BeYourself,
+        [CombatStyle("Hands Off")] HandsOff,
+        [CombatStyle("Finish the Job")] FinishTheJob,
+    }
 }

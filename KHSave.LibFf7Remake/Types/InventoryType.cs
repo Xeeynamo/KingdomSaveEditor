@@ -171,7 +171,7 @@ namespace KHSave.LibFf7Remake.Types
         [Accessory("Tarot Cards")] TarotCards,
         [Accessory("Otherworldly Crystal")] OtherworldlyCrystal,
         [Accessory("Salvation Badge")] SalvationBadge,
-        
+
         [MagicMateria("Healing")] Healing = 10001,
         [MagicMateria("Cleansing")] Cleansing,
         [MagicMateria("Revival")] Revival,

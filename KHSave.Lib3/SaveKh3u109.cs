@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -70,7 +70,7 @@ namespace KHSave.Lib3
         [Data(0xBDE0, 0x100)] public string PlayerCharacter { get; set; }
 
         [Data(0xBF20, 3)] public List<ShortcutGroup> Shortcuts { get; set; }
-        
+
         [Data(0xBF50, 6, 4)] public List<CommandType> Magics { get; set; }
         [Data(0xBF68, 5, 4)] public List<CommandType> Links { get; set; }
 

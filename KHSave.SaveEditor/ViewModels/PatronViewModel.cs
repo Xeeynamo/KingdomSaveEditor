@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Models;
+using KHSave.SaveEditor.Models;
 using System;
 using System.Net.Cache;
 using System.Windows;

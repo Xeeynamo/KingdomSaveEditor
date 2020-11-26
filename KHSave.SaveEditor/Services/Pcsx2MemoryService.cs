@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;

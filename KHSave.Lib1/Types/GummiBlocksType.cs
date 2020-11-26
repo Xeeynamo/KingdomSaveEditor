@@ -1,9 +1,9 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.Lib1.Attributes;
 
 namespace KHSave.Lib1.Types
 {
-    public enum GummiBlocksType: byte
+    public enum GummiBlocksType : byte
     {
         [CockpitGummi("Cure-G", 2, 2, 2, 200, 1)] CureG = 0x1,
         [CockpitGummi("Curaga-G", 2, 2, 2, 200, 1, 500)] CuragaG,
@@ -68,7 +68,7 @@ namespace KHSave.Lib1.Types
         [WeaponGummi("Thundaga-G", 1, 1, 3, 35, 6, 100, 0, 1500)] ThundagaG,
         [WeaponGummi("Comet-G", 1, 1, 2, 30, 8, 100, 0.1f, 500)] CometG,
         [WeaponGummi("Meteor-G", 1, 1, 2, 35, 6, 300, 0.1f, 1500)] MeteorG,
-        [WeaponGummi("Ultima-G", 1, 1, 3, 40, 4, 1000 , 0.1f, 2500)] UltimaG,
+        [WeaponGummi("Ultima-G", 1, 1, 3, 40, 4, 1000, 0.1f, 2500)] UltimaG,
 
 
         //Other Gummi items that aren't blocks

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,11 +21,11 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class ShortcutGroup
-	{
-		[Data] public CommandType Circle { get; set; }
-		[Data] public CommandType Triangle { get; set; }
-		[Data] public CommandType Square { get; set; }
-		[Data] public CommandType Cross { get; set; }
-	}
+    public class ShortcutGroup
+    {
+        [Data] public CommandType Circle { get; set; }
+        [Data] public CommandType Triangle { get; set; }
+        [Data] public CommandType Square { get; set; }
+        [Data] public CommandType Cross { get; set; }
+    }
 }

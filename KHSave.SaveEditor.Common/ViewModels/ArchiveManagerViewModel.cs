@@ -1,4 +1,4 @@
-﻿using KHSave.Archives;
+using KHSave.Archives;
 using KHSave.SaveEditor.Common.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +67,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
                     {
                         stream.Write(selectedEntry.Data, 0, selectedEntry.Data.Length);
                     }
-                }, Filters, $"{SelectedEntry?.Name ?? "empty save"}.bin",  Window);
+                }, Filters, $"{SelectedEntry?.Name ?? "empty save"}.bin", Window);
             }, o => !IsSelectedEmpty);
 
             CopyCommand = new RelayCommand(o =>

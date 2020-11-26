@@ -28,39 +28,39 @@ using KHSave.SaveEditor.Common;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class AbilitiesViewModel : GenericListModel<AbilityEntryViewModel>
-	{
-		public AbilitiesViewModel(IEnumerable<Ability> list)
-			: this(list
+    public class AbilitiesViewModel : GenericListModel<AbilityEntryViewModel>
+    {
+        public AbilitiesViewModel(IEnumerable<Ability> list)
+            : this(list
                   .Select((x, i) => new AbilityEntryViewModel(x, i))
                   .Where(x => Global.CanDisplay(x.Value)))
-		{ }
+        { }
 
-		public AbilitiesViewModel(IEnumerable<AbilityEntryViewModel> list)
-			: base(list)
-		{
-            
-		}
+        public AbilitiesViewModel(IEnumerable<AbilityEntryViewModel> list)
+            : base(list)
+        {
+
+        }
 
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
-		protected override AbilityEntryViewModel OnNewItem()
-		{
-			throw new System.NotImplementedException();
-		}
-	}
+        protected override AbilityEntryViewModel OnNewItem()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 
-	public class AbilityEntryViewModel : EnumIconTypeModel<AbilityType>
-	{
-		private readonly Ability ability;
+    public class AbilityEntryViewModel : EnumIconTypeModel<AbilityType>
+    {
+        private readonly Ability ability;
 
-		public AbilityEntryViewModel(Ability ability, int index)
-		{
-			this.ability = ability;
-			Value = (AbilityType)index;
-		}
+        public AbilityEntryViewModel(Ability ability, int index)
+        {
+            this.ability = ability;
+            Value = (AbilityType)index;
+        }
 
-		public override string Name => InfoAttribute.GetInfo(Value);
+        public override string Name => InfoAttribute.GetInfo(Value);
 
         public string Raw
         {
@@ -79,12 +79,13 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
         }
 
         public bool Unlocked { get => ability.Unlocked; set { ability.Unlocked = value; OnPropertyChanged(nameof(Raw)); } }
-		public bool Active { get => ability.Enabled; set { ability.Enabled = value; OnPropertyChanged(nameof(Raw)); } }
-		public bool Unseen { get => ability.Unseen; set { ability.Unseen = value; OnPropertyChanged(nameof(Raw)); } }
-		public bool Duplicate { get => ability.Flag3; set { ability.Flag3 = value; OnPropertyChanged(nameof(Raw)); } }
+        public bool Active { get => ability.Enabled; set { ability.Enabled = value; OnPropertyChanged(nameof(Raw)); } }
+        public bool Unseen { get => ability.Unseen; set { ability.Unseen = value; OnPropertyChanged(nameof(Raw)); } }
+        public bool Duplicate { get => ability.Flag3; set { ability.Flag3 = value; OnPropertyChanged(nameof(Raw)); } }
 
-		public override string ToString()
-		{
-			return Name;
-		}}
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
 }

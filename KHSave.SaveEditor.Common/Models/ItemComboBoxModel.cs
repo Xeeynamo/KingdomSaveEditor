@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,14 +21,14 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.Common.Models
 {
-	public class ItemComboBoxModel<T> : BaseNotifyPropertyChanged
-		where T : struct, IConvertible
-	{
-		public KhEnumListModel<EnumIconTypeModel<T>, T> ValueSet { get; }
+    public class ItemComboBoxModel<T> : BaseNotifyPropertyChanged
+        where T : struct, IConvertible
+    {
+        public KhEnumListModel<EnumIconTypeModel<T>, T> ValueSet { get; }
 
-		public ItemComboBoxModel(Func<T> getter, Action<T> setter)
-		{
-			ValueSet = new KhEnumListModel<EnumIconTypeModel<T>, T>(getter, setter);
-		}
-	}
+        public ItemComboBoxModel(Func<T> getter, Action<T> setter)
+        {
+            ValueSet = new KhEnumListModel<EnumIconTypeModel<T>, T>(getter, setter);
+        }
+    }
 }

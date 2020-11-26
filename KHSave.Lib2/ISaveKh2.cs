@@ -17,7 +17,7 @@ namespace KHSave.Lib2
         byte Unused0f { get; set; }
 
         Progress[] StoryProgress { get; set; }
-        
+
         byte[] RoomVisitedFlag { get; set; } // There might be a chance that it starts from 0x2300
         int MunnyAmount { get; set; }
         int Timer { get; set; }

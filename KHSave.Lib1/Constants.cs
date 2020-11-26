@@ -1,4 +1,4 @@
-﻿namespace KHSave.Lib1
+namespace KHSave.Lib1
 {
     public class Constants
     {

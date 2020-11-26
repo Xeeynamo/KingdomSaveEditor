@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using KHSave.SaveEditor.Interfaces;
@@ -36,7 +36,7 @@ namespace KHSave.SaveEditor.Services
         {
             var window = _container.Resolve<TWindow>();
             onSetup?.Invoke(window);
-            
+
             var result = Push(window);
             return result == true ? onSuccess?.Invoke(window) ?? true : result;
         }

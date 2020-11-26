@@ -1,4 +1,4 @@
-﻿using KHSave.LibBbs.Models;
+using KHSave.LibBbs.Models;
 using System.Text;
 using Xe.Tools;
 
@@ -44,7 +44,8 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
         {
             if (value == 0xffff)
                 return -1;
-            else return (short)value;
+            else
+                return (short)value;
         }
     }
 }

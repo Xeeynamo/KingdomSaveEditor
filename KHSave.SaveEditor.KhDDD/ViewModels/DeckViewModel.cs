@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD.Model;
+using KHSave.LibDDD.Model;
 using System.Text;
 using Xe.Tools;
 
@@ -13,6 +13,6 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
             this.deck = deck;
         }
 
-        public string Name { get => Encoding.GetEncoding(932).GetString(deck.Name); set => deck.Name = Encoding.GetEncoding(932).GetBytes(value);  }
+        public string Name { get => Encoding.GetEncoding(932).GetString(deck.Name); set => deck.Name = Encoding.GetEncoding(932).GetBytes(value); }
     }
 }

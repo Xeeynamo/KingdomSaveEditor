@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,17 +20,17 @@ using KHSave.Extensions;
 
 namespace KHSave.Attributes
 {
-	public class WorldAttribute : InfoAttribute
-	{
-		public string Id { get; set; }
+    public class WorldAttribute : InfoAttribute
+    {
+        public string Id { get; set; }
 
-		public WorldAttribute(string id, string name) :
-			base(name)
-		{
-			Id = id;
-		}
+        public WorldAttribute(string id, string name) :
+            base(name)
+        {
+            Id = id;
+        }
 
-		public static string GetWorldId(object value) =>
+        public static string GetWorldId(object value) =>
             value.GetAttribute<WorldAttribute>()?.Id;
     }
 }

@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibBbs.Attributes;
 
 namespace KHSave.LibBbs.Types
@@ -330,7 +330,7 @@ namespace KHSave.LibBbs.Types
         [Attack("Bloody Bounce")] BloodyBounce = 0x019F,
         [Info("Avoid Jump")] AvoidJump = 0x01A0,
         [Info("Block")] Block2 = 0x01A1,
-        
+
         //Move abilities into seperate enum for better accessibility
     }
 }

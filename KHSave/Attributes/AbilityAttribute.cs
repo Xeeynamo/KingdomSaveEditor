@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,31 +18,31 @@
 
 namespace KHSave.Attributes
 {
-	public class AbilityAttribute : InfoAttribute
-	{
-		public AbilityAttribute(string name = null) :
-			base(name)
-		{ }
-	}
+    public class AbilityAttribute : InfoAttribute
+    {
+        public AbilityAttribute(string name = null) :
+            base(name)
+        { }
+    }
 
-	public class AbilityActionAttribute : AbilityAttribute
-	{
-		public AbilityActionAttribute(string name = null) :
-			base(name)
-		{ }
-	}
+    public class AbilityActionAttribute : AbilityAttribute
+    {
+        public AbilityActionAttribute(string name = null) :
+            base(name)
+        { }
+    }
 
-	public class AbilityMobilityAttribute : AbilityAttribute
-	{
-		public AbilityMobilityAttribute(string name = null) :
-			base(name)
-		{ }
-	}
+    public class AbilityMobilityAttribute : AbilityAttribute
+    {
+        public AbilityMobilityAttribute(string name = null) :
+            base(name)
+        { }
+    }
 
-	public class AbilitySupportAttribute : AbilityAttribute
-	{
-		public AbilitySupportAttribute(string name = null) :
-			base(name)
-		{ }
-	}
+    public class AbilitySupportAttribute : AbilityAttribute
+    {
+        public AbilitySupportAttribute(string name = null) :
+            base(name)
+        { }
+    }
 }

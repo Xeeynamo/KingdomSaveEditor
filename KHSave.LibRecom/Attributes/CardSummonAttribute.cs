@@ -1,4 +1,4 @@
-﻿namespace KHSave.LibRecom.Attributes
+namespace KHSave.LibRecom.Attributes
 {
     public class CardSummonAttribute : CardMagicAttribute
     {

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,67 +20,67 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum WorldType : byte
-	{
-		[World("bt", "Scala Ad Caelum")]
-		ScalaAdCaelum = 1,
-		
-		[World("dw", "Dark World")]
-		DarkWorld = 3,
+    public enum WorldType : byte
+    {
+        [World("bt", "Scala Ad Caelum")]
+        ScalaAdCaelum = 1,
 
-		[World("he", "Olympus")]
-		Olympus = 4,
+        [World("dw", "Dark World")]
+        DarkWorld = 3,
 
-		[World("ts", "Toy Box")]
-		ToyBox = 5,
+        [World("he", "Olympus")]
+        Olympus = 4,
 
-		[World("ra", "Kingdom of Corona")]
-		KingdomOfCorona = 7,
+        [World("ts", "Toy Box")]
+        ToyBox = 5,
 
-		[World("fz", "Arendelle")]
-		Arendelle = 8,
+        [World("ra", "Kingdom of Corona")]
+        KingdomOfCorona = 7,
 
-		[World("ca", "Caribbean")]
-		Caribbean = 9,
+        [World("fz", "Arendelle")]
+        Arendelle = 8,
 
-		[World("po", "100 Acre Wood")]
-		AcreWood = 10,
+        [World("ca", "Caribbean")]
+        Caribbean = 9,
 
-		[World("mi", "Monstropolis")]
-		Monstropolis = 11,
+        [World("po", "100 Acre Wood")]
+        AcreWood = 10,
 
-		[World("tt", "Twilight Town")]
-		TwilightTown = 12,
+        [World("mi", "Monstropolis")]
+        Monstropolis = 11,
 
-		[World("yt", "The Mysterious Tower")]
-		MysteriousTower = 13,
+        [World("tt", "Twilight Town")]
+        TwilightTown = 12,
 
-		[World("kg", "Keyblade Graveyard")]
-		KeybladeGraveyard = 14,
+        [World("yt", "The Mysterious Tower")]
+        MysteriousTower = 13,
 
-		[World("bx", "San Fransokyo")]
-		SanFransokyo = 19,
+        [World("kg", "Keyblade Graveyard")]
+        KeybladeGraveyard = 14,
 
-		[World("ew", "The Final World")]
-		FinalWorld = 22,
+        [World("bx", "San Fransokyo")]
+        SanFransokyo = 19,
 
-		[World("rg", "Radiant Garden")]
-		RadiantGarden = 24,
+        [World("ew", "The Final World")]
+        FinalWorld = 22,
 
-		[World("dp", "Land of Departure")]
-		LandOfDeparture = 25,
+        [World("rg", "Radiant Garden")]
+        RadiantGarden = 24,
 
-		[World("wm", "World Map")]
-		WorldMap = 28,
+        [World("dp", "Land of Departure")]
+        LandOfDeparture = 25,
 
-		[World("di", "Destiny Island")]
-		DestinyIsland = 0xF0,
+        [World("wm", "World Map")]
+        WorldMap = 28,
 
-		[World("rg", "Radiant Garden")]
-		RadiantGarden2 = 0xF1,
+        [World("di", "Destiny Island")]
+        DestinyIsland = 0xF0,
 
-		[World("gm", "Gummiship")]
-		Gummiship = 0xF2,
+        [World("rg", "Radiant Garden")]
+        RadiantGarden2 = 0xF1,
+
+        [World("gm", "Gummiship")]
+        Gummiship = 0xF2,
 
         [World("dc", "Disney Castle")]
         DisneyCastle = 0xF3,

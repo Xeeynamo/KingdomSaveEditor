@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Ff7Remake.Models
+namespace KHSave.SaveEditor.Ff7Remake.Models
 {
     public class BgmModel
     {

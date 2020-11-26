@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Services;
 using System.Diagnostics;
 using System.Drawing;

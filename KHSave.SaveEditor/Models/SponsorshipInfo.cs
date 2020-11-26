@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Models
+namespace KHSave.SaveEditor.Models
 {
     public class SponsorshipInfo
     {

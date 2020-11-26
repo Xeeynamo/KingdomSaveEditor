@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2.Models;
+using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using System;
 using System.IO;

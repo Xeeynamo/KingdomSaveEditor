@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -22,79 +22,79 @@ using System.Text;
 
 namespace KHSave
 {
-	public static class StreamHelpers
-	{
-		public static T FromBegin<T>(this T stream) where T : Stream => stream.SetPosition(0);
+    public static class StreamHelpers
+    {
+        public static T FromBegin<T>(this T stream) where T : Stream => stream.SetPosition(0);
 
-		public static T SetPosition<T>(this T stream, int position) where T : Stream
+        public static T SetPosition<T>(this T stream, int position) where T : Stream
         {
             stream.Seek(position, SeekOrigin.Begin);
             return stream;
         }
 
-		public static bool ReadFlag(this BinaryReader reader, int offset, int bit)
-		{
-			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
-			return reader.ReadByte().HasFlag(bit);
-		}
+        public static bool ReadFlag(this BinaryReader reader, int offset, int bit)
+        {
+            reader.BaseStream.Seek(offset, SeekOrigin.Begin);
+            return reader.ReadByte().HasFlag(bit);
+        }
 
-		public static int ReadInt32(this BinaryReader reader, int offset)
-		{
-			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
-			return reader.ReadInt32();
-		}
+        public static int ReadInt32(this BinaryReader reader, int offset)
+        {
+            reader.BaseStream.Seek(offset, SeekOrigin.Begin);
+            return reader.ReadInt32();
+        }
 
-		public static byte[] ReadBytes(this Stream stream) =>
+        public static byte[] ReadBytes(this Stream stream) =>
             stream.ReadBytes((int)(stream.Length - stream.Position));
 
-		public static byte[] ReadBytes(this Stream stream, int length)
+        public static byte[] ReadBytes(this Stream stream, int length)
         {
             var data = new byte[length];
             stream.Read(data, 0, length);
             return data;
         }
 
-		public static byte[] ReadAllBytes(this Stream stream)
+        public static byte[] ReadAllBytes(this Stream stream)
         {
             var data = stream.SetPosition(0).ReadBytes();
             stream.Position = 0;
             return data;
         }
 
-		public static string ReadString(this BinaryReader reader, int length)
-		{
-			var data = reader.ReadBytes(length);
-			var terminatorIndex = Array.FindIndex(data, x => x == 0);
-			return Encoding.UTF8.GetString(data, 0, terminatorIndex);
-		}
+        public static string ReadString(this BinaryReader reader, int length)
+        {
+            var data = reader.ReadBytes(length);
+            var terminatorIndex = Array.FindIndex(data, x => x == 0);
+            return Encoding.UTF8.GetString(data, 0, terminatorIndex);
+        }
 
-		public static string ReadString(this BinaryReader reader, int offset, int length)
-		{
-			reader.BaseStream.Seek(offset, SeekOrigin.Begin);
-			return reader.ReadString(length);
-		}
+        public static string ReadString(this BinaryReader reader, int offset, int length)
+        {
+            reader.BaseStream.Seek(offset, SeekOrigin.Begin);
+            return reader.ReadString(length);
+        }
 
-		public static bool HasFlag(this byte c, int offset)
-		{
-			return (c & (1 << offset)) != 0;
-		}
+        public static bool HasFlag(this byte c, int offset)
+        {
+            return (c & (1 << offset)) != 0;
+        }
 
-		public static void Write(this BinaryWriter writer, string str, int length)
-		{
-			var data = Encoding.UTF8.GetBytes(str);
-			if (data.Length <= length)
-			{
-				writer.Write(data, 0, data.Length);
-				int remainsBytes = length = data.Length;
-				if (remainsBytes > 0)
-				{
-					writer.Write(new byte[remainsBytes]);
-				}
-			}
-			else
-			{
-				writer.Write(data, 0, length);
-			}
+        public static void Write(this BinaryWriter writer, string str, int length)
+        {
+            var data = Encoding.UTF8.GetBytes(str);
+            if (data.Length <= length)
+            {
+                writer.Write(data, 0, data.Length);
+                int remainsBytes = length = data.Length;
+                if (remainsBytes > 0)
+                {
+                    writer.Write(new byte[remainsBytes]);
+                }
+            }
+            else
+            {
+                writer.Write(data, 0, length);
+            }
         }
 
         public static void Copy(this Stream source, Stream destination, int length, int bufferSize = 65536)

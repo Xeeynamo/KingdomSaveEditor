@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Services
+namespace KHSave.SaveEditor.Services
 {
     public interface IAppIdentity
     {

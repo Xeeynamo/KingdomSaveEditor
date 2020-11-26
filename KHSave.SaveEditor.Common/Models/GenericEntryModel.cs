@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,12 +20,12 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.Common.Models
 {
-	public class GenericEntryModel<TName, TValue> : BaseNotifyPropertyChanged
-	{
-		public virtual TName Name { get; set; }
+    public class GenericEntryModel<TName, TValue> : BaseNotifyPropertyChanged
+    {
+        public virtual TName Name { get; set; }
 
-		public virtual TValue Value { get; set; }
+        public virtual TValue Value { get; set; }
 
-		public override string ToString() => Name?.ToString() ?? Value?.ToString() ?? "<null>";
-	}
+        public override string ToString() => Name?.ToString() ?? Value?.ToString() ?? "<null>";
+    }
 }

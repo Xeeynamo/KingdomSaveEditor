@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using KHSave.SaveEditor.Interfaces;
@@ -38,7 +38,8 @@ namespace KHSave.SaveEditor.Services
             CurrentFileName = fileName;
             using (var stream = File.OpenRead(fileName))
             {
-                try { onSuccess(stream); }
+                try
+                { onSuccess(stream); }
                 catch
                 {
                     IsFileOpen = false;

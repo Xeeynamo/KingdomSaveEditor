@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5;
+using KHSave.LibPersona5;
 using System.Collections.Generic;
 
 namespace KHSave.SaveEditor.Persona5.Interfaces

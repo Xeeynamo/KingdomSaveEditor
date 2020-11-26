@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD;
+using KHSave.LibDDD;
 using KHSave.LibDDD.Types;
 using System.IO;
 using Xunit;
@@ -44,7 +44,7 @@ namespace KHSave.Tests
             Assert.Equal(EquipmentType.CounterpointS, save.SoraKeyblade);
             Assert.Equal((uint)68040, save.SoraXp);
             Assert.Equal(31, save.SoraLv);
-            
+
             // Riku equipment and stats
             Assert.Equal(EquipmentType.SkullNoiseR, save.RikuKeyblade);
             Assert.Equal((uint)73953, save.RikuXp);

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,27 +20,27 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum ItemType : byte
-	{
-		[Consumable] Consumable,
-		[Consumable("Consumable (same)")] ConsumableMirrored,
-		[Tent] Tent,
-		[Weapon] Weapon,
-		[Armor] Armor,
-		[Accessory] Accessory,
-		[Snack] Snack,
-		[Synthesis] Synthesis,
-		[Food] Food,
-		[KeyItem] KeyItem,
-		[MogItem] Mog,
-		[KeyItem("Gummiphone game")] Type0b,
-		[Info] Untested0c,
-		[KeyItem("Secret Report")] AnsemReport,
-		[Info("Gummi Block")] GummiBlock,
-		[Info("Gummi related?")] GummiRelated,
-		[Info] Untested10,
-		[Info] Untested11,
-		[Info] Untested12,
-		[Info] Untested13,
-	}
+    public enum ItemType : byte
+    {
+        [Consumable] Consumable,
+        [Consumable("Consumable (same)")] ConsumableMirrored,
+        [Tent] Tent,
+        [Weapon] Weapon,
+        [Armor] Armor,
+        [Accessory] Accessory,
+        [Snack] Snack,
+        [Synthesis] Synthesis,
+        [Food] Food,
+        [KeyItem] KeyItem,
+        [MogItem] Mog,
+        [KeyItem("Gummiphone game")] Type0b,
+        [Info] Untested0c,
+        [KeyItem("Secret Report")] AnsemReport,
+        [Info("Gummi Block")] GummiBlock,
+        [Info("Gummi related?")] GummiRelated,
+        [Info] Untested10,
+        [Info] Untested11,
+        [Info] Untested12,
+        [Info] Untested13,
+    }
 }

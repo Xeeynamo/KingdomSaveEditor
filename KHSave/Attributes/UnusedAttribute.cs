@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -22,7 +22,7 @@ using System.Linq;
 
 namespace KHSave.Attributes
 {
-	public class UnusedAttribute : Attribute
+    public class UnusedAttribute : Attribute
     {
         private static CacheService<bool> cache = new CacheService<bool>();
 
@@ -44,5 +44,5 @@ namespace KHSave.Attributes
 
             return true;
         });
-	}
+    }
 }

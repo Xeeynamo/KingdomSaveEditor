@@ -1,4 +1,4 @@
-﻿using KHSave.LibRecom;
+using KHSave.LibRecom;
 using KHSave.LibRecom.Types;
 using Xe.Tools.Models;
 

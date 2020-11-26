@@ -1,4 +1,4 @@
-﻿using KHSave.Archives;
+using KHSave.Archives;
 using System;
 using System.IO;
 using System.Text;

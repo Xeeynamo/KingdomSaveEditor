@@ -1,4 +1,4 @@
-﻿using KHSave.LibRecom;
+using KHSave.LibRecom;
 using KHSave.LibRecom.Models;
 using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.Common.Contracts;

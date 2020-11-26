@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using KHSave.Archives;
 using KHSave.SaveEditor.Common.Contracts;
 

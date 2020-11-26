@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Interfaces;
+using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.ViewModels;
 using System;
@@ -8,12 +8,12 @@ using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Views
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		private readonly MainWindowViewModel context;
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private readonly MainWindowViewModel context;
         private readonly IUpdater updater;
 
         public MainWindow(
@@ -21,8 +21,8 @@ namespace KHSave.SaveEditor.Views
             IApplicationStartup applicationDebug,
             IUpdater updater,
             MainWindowViewModel vm)
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             windowManager.RootWindow = this;
             DataContext = context = vm;
 

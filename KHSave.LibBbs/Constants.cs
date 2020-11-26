@@ -1,4 +1,4 @@
-﻿namespace KHSave.LibBbs
+namespace KHSave.LibBbs
 {
     internal class Constants
     {

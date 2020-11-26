@@ -23,45 +23,45 @@ using KHSave.Lib3;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class Kh3ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
+    public class Kh3ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
     {
         public ISaveKh3 Save { get; private set; }
-		
-        public SystemViewModel KhSystem { get; set; }
-		public InventoryViewModel Inventory { get; set; }
-        public MaterialsViewModel Materials { get; set; }
-		public PlayersViewModel Players { get; set; }
-		public PartyViewModel Party { get; set; }
-		public StoryViewModel Story { get; set; }
-		public ShortcutsViewModel Shortcuts { get; set; }
-		public RecordsViewModel Records { get; set; }
-		public PhotosViewModel Photos { get; set; }
 
-		public Kh3ViewModel()
-		{
+        public SystemViewModel KhSystem { get; set; }
+        public InventoryViewModel Inventory { get; set; }
+        public MaterialsViewModel Materials { get; set; }
+        public PlayersViewModel Players { get; set; }
+        public PartyViewModel Party { get; set; }
+        public StoryViewModel Story { get; set; }
+        public ShortcutsViewModel Shortcuts { get; set; }
+        public RecordsViewModel Records { get; set; }
+        public PhotosViewModel Photos { get; set; }
+
+        public Kh3ViewModel()
+        {
         }
 
-		public void RefreshUi()
-		{
-			KhSystem = new SystemViewModel(Save);
-			Inventory = new InventoryViewModel(Save.Inventory);
-			Materials = new MaterialsViewModel(Save);
-			Players = new PlayersViewModel(Save.Pc);
+        public void RefreshUi()
+        {
+            KhSystem = new SystemViewModel(Save);
+            Inventory = new InventoryViewModel(Save.Inventory);
+            Materials = new MaterialsViewModel(Save);
+            Players = new PlayersViewModel(Save.Pc);
             Party = new PartyViewModel(Save);
-			Story = new StoryViewModel(Save);
-			Shortcuts = new ShortcutsViewModel(Save);
-			Records = new RecordsViewModel(Save);
-			Photos = new PhotosViewModel(Save.Photos);
+            Story = new StoryViewModel(Save);
+            Shortcuts = new ShortcutsViewModel(Save);
+            Records = new RecordsViewModel(Save);
+            Photos = new PhotosViewModel(Save.Photos);
 
-			OnPropertyChanged(nameof(KhSystem));
-			OnPropertyChanged(nameof(Inventory));
-			OnPropertyChanged(nameof(Materials));
-			OnPropertyChanged(nameof(Players));
-			OnPropertyChanged(nameof(Party));
-			OnPropertyChanged(nameof(Story));
-			OnPropertyChanged(nameof(Shortcuts));
-			OnPropertyChanged(nameof(Records));
-			OnPropertyChanged(nameof(Photos));
+            OnPropertyChanged(nameof(KhSystem));
+            OnPropertyChanged(nameof(Inventory));
+            OnPropertyChanged(nameof(Materials));
+            OnPropertyChanged(nameof(Players));
+            OnPropertyChanged(nameof(Party));
+            OnPropertyChanged(nameof(Story));
+            OnPropertyChanged(nameof(Shortcuts));
+            OnPropertyChanged(nameof(Records));
+            OnPropertyChanged(nameof(Photos));
         }
 
         public void OpenStream(Stream stream)

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,11 +21,11 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class AiModel
-	{
-		[Data] public AiCombatStyleType CombatStyle { get; set; }
-		[Data] public AiAbilityType Abilitiy { get; set; }
-		[Data] public AiRecoveryType Recovery { get; set; }
-		[Data] public byte RecoveryTargets { get; set; }
-	}
+    public class AiModel
+    {
+        [Data] public AiCombatStyleType CombatStyle { get; set; }
+        [Data] public AiAbilityType Abilitiy { get; set; }
+        [Data] public AiRecoveryType Recovery { get; set; }
+        [Data] public byte RecoveryTargets { get; set; }
+    }
 }

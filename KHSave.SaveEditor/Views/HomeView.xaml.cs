@@ -106,7 +106,7 @@ namespace KHSave.SaveEditor.Views
             vm.SponsorEndGoal = info.EndGoal;
             vm.SponsorCount = info.Count;
         }
-        
+
         private void SetMessageList(HomeViewModel vm, IEnumerable<Models.ServiceMessage> messages)
         {
             if (messages == null)

@@ -1,4 +1,4 @@
-﻿using KHSave.LibBbs.Models;
+using KHSave.LibBbs.Models;
 using System.Linq;
 using Xe.Tools.Wpf.Models;
 

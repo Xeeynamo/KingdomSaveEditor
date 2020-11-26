@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,10 +18,10 @@
 
 namespace KHSave.Attributes
 {
-	public class LinkAttribute : InfoAttribute
-	{
-		public LinkAttribute(string name = null) :
-			base(name)
-		{ }
-	}
+    public class LinkAttribute : InfoAttribute
+    {
+        public LinkAttribute(string name = null) :
+            base(name)
+        { }
+    }
 }

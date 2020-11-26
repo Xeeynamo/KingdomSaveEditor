@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD.Types;
+using KHSave.LibDDD.Types;
 using KHSave.SaveEditor.Common.Models;
 using System;
 using Xe.Tools;

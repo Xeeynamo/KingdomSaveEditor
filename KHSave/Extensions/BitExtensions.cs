@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -22,25 +22,25 @@ using System.Text;
 
 namespace KHSave.Extensions
 {
-	public static class BitExtensions
-	{
-		public static bool GetFlag(this int value, int bit)
-		{
-			return (value & (1 << bit)) != 0;
-		}
+    public static class BitExtensions
+    {
+        public static bool GetFlag(this int value, int bit)
+        {
+            return (value & (1 << bit)) != 0;
+        }
 
-		public static int SetFlag(this int value, int bit, bool set)
-		{
-			if (set)
-			{
-				value |= 1 << bit;
-			}
-			else
-			{
-				value &= ~(1 << bit);
-			}
+        public static int SetFlag(this int value, int bit, bool set)
+        {
+            if (set)
+            {
+                value |= 1 << bit;
+            }
+            else
+            {
+                value &= ~(1 << bit);
+            }
 
-			return value;
-		}
-	}
+            return value;
+        }
+    }
 }

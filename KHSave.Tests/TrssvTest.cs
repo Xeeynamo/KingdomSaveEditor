@@ -23,17 +23,17 @@ using Xunit;
 
 namespace KHSave.Tests
 {
-	public class TrssvTest
-	{
+    public class TrssvTest
+    {
         private static readonly string FilePath = "Saves/kh02.sav";
         private readonly SaveKh02 save;
 
-		public TrssvTest()
-		{
-			using (var stream = File.OpenRead(FilePath))
-			{
-				save = SaveKh02.Read(stream);
-			}
+        public TrssvTest()
+        {
+            using (var stream = File.OpenRead(FilePath))
+            {
+                save = SaveKh02.Read(stream);
+            }
         }
 
         [Fact]
@@ -46,8 +46,8 @@ namespace KHSave.Tests
         }
 
         [Fact]
-		public void TestRead()
-		{
+        public void TestRead()
+        {
             Assert.True(save.IsVibrationEnable);
             Assert.False(save.InvertCameraVertical);
             Assert.False(save.InvertCameraHorizontal);
@@ -92,5 +92,5 @@ namespace KHSave.Tests
             Assert.Equal(CommandType.Ether, slot.Shortcut2Square);
             Assert.Equal(CommandType.HiPotion, slot.Shortcut2Cross);
         }
-	}
+    }
 }

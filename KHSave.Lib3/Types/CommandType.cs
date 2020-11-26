@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,9 +20,9 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum CommandType : int
-	{
-		[Info] Empty,
+    public enum CommandType : int
+    {
+        [Info] Empty,
         [Command(" ")] Empty_1 = 0x1,
         [Command("Payback Strike")] PaybackStrike = 0x2,
         [Command("Counter Slash")] CounterSlash = 0x3,

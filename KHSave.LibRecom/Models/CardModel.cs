@@ -1,4 +1,4 @@
-﻿using KHSave.LibRecom.Types;
+using KHSave.LibRecom.Types;
 using System.Collections.Generic;
 using System.Linq;
 

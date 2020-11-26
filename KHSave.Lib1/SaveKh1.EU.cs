@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1.Models;
+using KHSave.Lib1.Models;
 using KHSave.Lib1.Types;
 using System.IO;
 using Xe.BinaryMapper;
@@ -35,7 +35,7 @@ namespace KHSave.Lib1
 
             //Gummiships
             [Data(0x241C, Count = 10)] public Gummiship[] Gummiships { get; set; }
-            
+
             //Needs testing
             [Data(0x16A30)] public int AutoLock { get; set; }
             [Data(0x16A34)] public int TargetLock { get; set; }
@@ -43,7 +43,7 @@ namespace KHSave.Lib1
             [Data(0x16A40)] public int Vibration { get; set; }
             [Data(0x16A44)] public int Sound { get; set; }
 
-            
+
             [Data(0x16418)] public byte Difficulty { get; set; }
 
             [Data(0x1641C)] public uint Munny { get; set; }

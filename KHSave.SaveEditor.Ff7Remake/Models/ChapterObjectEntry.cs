@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -66,7 +66,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public string Name => ToString();
 
         public int Index { get => _chapterObject.Index; set { _chapterObject.Index = value; OnPropertyChanged(nameof(Name)); } }
-        
+
         public float Unknown04 { get => _chapterObject.Unknown04; set { _chapterObject.Unknown04 = value; OnPropertyChanged((nameof(Name))); } }
         public int Unknown08 { get => _chapterObject.Unknown08; set { _chapterObject.Unknown08 = value; OnPropertyChanged((nameof(Name))); } }
         public float Unknown0c { get => _chapterObject.Unknown0c; set { _chapterObject.Unknown0c = value; OnPropertyChanged((nameof(Name))); } }

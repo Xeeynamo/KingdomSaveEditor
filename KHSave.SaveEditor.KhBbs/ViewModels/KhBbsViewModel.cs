@@ -1,4 +1,4 @@
-﻿using KHSave.LibBbs;
+using KHSave.LibBbs;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
 using System.IO;

@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Common.Exceptions
+namespace KHSave.SaveEditor.Common.Exceptions
 {
     public class SaveNotSupportedException : VisualException
     {

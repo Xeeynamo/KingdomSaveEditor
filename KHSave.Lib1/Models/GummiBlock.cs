@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1.Types;
+using KHSave.Lib1.Types;
 using System;
 using Xe.BinaryMapper;
 

@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2;
+using KHSave.Lib2;
 using KHSave.Lib2.Types;
 using System.IO;
 using System.Linq;

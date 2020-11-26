@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1;
+using KHSave.Lib1;
 using KHSave.Lib1.Models;
 using KHSave.SaveEditor.Kh1.Interfaces;
 using System.Collections.Generic;

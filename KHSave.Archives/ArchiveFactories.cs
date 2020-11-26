@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -29,10 +29,14 @@ namespace KHSave.Archives
 
         public static bool TryGetFactory(Stream stream, out IArchiveFactory archiveFactory)
         {
-            if (Ps4Kh1.IsValid(stream)) archiveFactory = Ps4Kh1;
-            else if (Ps4Kh2.IsValid(stream)) archiveFactory = Ps4Kh2;
-            else if (Ps4KhRecom.IsValid(stream)) archiveFactory = Ps4KhRecom;
-            else archiveFactory = null;
+            if (Ps4Kh1.IsValid(stream))
+                archiveFactory = Ps4Kh1;
+            else if (Ps4Kh2.IsValid(stream))
+                archiveFactory = Ps4Kh2;
+            else if (Ps4KhRecom.IsValid(stream))
+                archiveFactory = Ps4KhRecom;
+            else
+                archiveFactory = null;
 
             return archiveFactory != null;
         }

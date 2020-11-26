@@ -1,4 +1,4 @@
-﻿using KHSave.LibRecom.Types;
+using KHSave.LibRecom.Types;
 using KHSave.SaveEditor.KhRecom.Models;
 
 namespace KHSave.SaveEditor.KhRecom.Interfaces

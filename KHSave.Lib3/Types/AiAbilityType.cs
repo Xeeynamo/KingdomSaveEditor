@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,10 +20,10 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum AiAbilityType : byte
-	{
-		[CombatStyle("Go Wild")] GoWild,
-		[CombatStyle("Watch MP")] WatchMP,
-		[CombatStyle("Conserve")] Conserve,
-	}
+    public enum AiAbilityType : byte
+    {
+        [CombatStyle("Go Wild")] GoWild,
+        [CombatStyle("Watch MP")] WatchMP,
+        [CombatStyle("Conserve")] Conserve,
+    }
 }

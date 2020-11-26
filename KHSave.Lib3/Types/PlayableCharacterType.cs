@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,23 +18,23 @@
 
 namespace KHSave.Lib3.Types
 {
-	public enum PlayableCharacterType
-	{
-		Sora,
-		Donald,
-		Goofy,
-		Hercules,
-		Woody,
-		Buzz,
-		Rapunzel,
-		Flynn,
-		Sulley,
-		Mike,
-		Marshmallow,
-		Baymax,
-		Jack,
-		Riku,
-		Mickey,
-		Unused
-	}
+    public enum PlayableCharacterType
+    {
+        Sora,
+        Donald,
+        Goofy,
+        Hercules,
+        Woody,
+        Buzz,
+        Rapunzel,
+        Flynn,
+        Sulley,
+        Mike,
+        Marshmallow,
+        Baymax,
+        Jack,
+        Riku,
+        Mickey,
+        Unused
+    }
 }

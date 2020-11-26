@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,12 +20,12 @@ using System;
 
 namespace KHSave.SaveEditor.Common.Exceptions
 {
-	public class ImageTooLargeException : Exception
-	{
-		public ImageTooLargeException(int sizeLimit) :
-			base($"The image is too large and it cannot exceed {sizeLimit} bytes.")
-		{
-			
-		}
-	}
+    public class ImageTooLargeException : Exception
+    {
+        public ImageTooLargeException(int sizeLimit) :
+            base($"The image is too large and it cannot exceed {sizeLimit} bytes.")
+        {
+
+        }
+    }
 }

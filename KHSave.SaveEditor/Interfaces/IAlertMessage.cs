@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.SaveEditor.Common.Exceptions;
 using System;
 
 namespace KHSave.SaveEditor.Interfaces

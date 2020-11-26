@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -76,25 +76,44 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
 
                 switch (_index)
                 {
-                    case 0: return "Chapter 1";
-                    case 1: return "Chapter 2";
-                    case 2: return "Chapter 3,12";
-                    case 3: return "Chapter 4";
-                    case 4: return "Chapter 5";
-                    case 5: return "Chapter 6";
-                    case 6: return "Chapter 7";
-                    case 7: return "Unused";
-                    case 8: return "Ch. 8,9,13,14";
-                    case 9: return "Ch. 10";
-                    case 10: return "Ch. 11";
-                    case 11: return "Unused";
-                    case 12: return "Unused";
-                    case 13: return "?????";
-                    case 14: return "Unused";
-                    case 15: return "Chapter 15";
-                    case 16: return "Ch. 16,17,18";
-                    case 17: return "Unused";
-                    default: return $"Chapter ID {_index}";
+                    case 0:
+                        return "Chapter 1";
+                    case 1:
+                        return "Chapter 2";
+                    case 2:
+                        return "Chapter 3,12";
+                    case 3:
+                        return "Chapter 4";
+                    case 4:
+                        return "Chapter 5";
+                    case 5:
+                        return "Chapter 6";
+                    case 6:
+                        return "Chapter 7";
+                    case 7:
+                        return "Unused";
+                    case 8:
+                        return "Ch. 8,9,13,14";
+                    case 9:
+                        return "Ch. 10";
+                    case 10:
+                        return "Ch. 11";
+                    case 11:
+                        return "Unused";
+                    case 12:
+                        return "Unused";
+                    case 13:
+                        return "?????";
+                    case 14:
+                        return "Unused";
+                    case 15:
+                        return "Chapter 15";
+                    case 16:
+                        return "Ch. 16,17,18";
+                    case 17:
+                        return "Unused";
+                    default:
+                        return $"Chapter ID {_index}";
                 }
             }
         }

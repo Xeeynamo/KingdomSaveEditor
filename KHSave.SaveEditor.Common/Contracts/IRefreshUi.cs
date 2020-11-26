@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.Common.Contracts
+namespace KHSave.SaveEditor.Common.Contracts
 {
     public interface IRefreshUi
     {

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,37 +21,37 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class Ability
-	{
-		[Data] public int Data { get; set; }
+    public class Ability
+    {
+        [Data] public int Data { get; set; }
 
-		public bool Unlocked
-		{
-			get => Data.GetFlag(0);
-			set => Data = BitExtensions.SetFlag(Data, 0, value);
-		}
+        public bool Unlocked
+        {
+            get => Data.GetFlag(0);
+            set => Data = BitExtensions.SetFlag(Data, 0, value);
+        }
 
-		public bool Enabled
-		{
-			get => Data.GetFlag(1);
-			set => Data = BitExtensions.SetFlag(Data, 1, value);
-		}
+        public bool Enabled
+        {
+            get => Data.GetFlag(1);
+            set => Data = BitExtensions.SetFlag(Data, 1, value);
+        }
 
-		public bool Unseen
-		{
-			get => Data.GetFlag(2);
-			set => Data = BitExtensions.SetFlag(Data, 2, value);
-		}
+        public bool Unseen
+        {
+            get => Data.GetFlag(2);
+            set => Data = BitExtensions.SetFlag(Data, 2, value);
+        }
 
-		public bool Flag3
-		{
-			get => Data.GetFlag(3);
-			set => Data = BitExtensions.SetFlag(Data, 3, value);
-		}
+        public bool Flag3
+        {
+            get => Data.GetFlag(3);
+            set => Data = BitExtensions.SetFlag(Data, 3, value);
+        }
 
-		public override string ToString()
-		{
-			return $"{Enabled} {Data:X08}";
-		}
-	}
+        public override string ToString()
+        {
+            return $"{Enabled} {Data:X08}";
+        }
+    }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -48,7 +48,7 @@ namespace Tooling.MemoryWatcher
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
-        
+
         async static Task Run(string configFileName, GameConfiguration game)
         {
             var processName = game.Process;

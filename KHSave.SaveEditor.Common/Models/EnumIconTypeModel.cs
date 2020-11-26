@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -22,9 +22,9 @@ using KHSave.SaveEditor.Common.Services;
 
 namespace KHSave.SaveEditor.Common.Models
 {
-	public class EnumIconTypeModel<T> : GenericEntryModel<string, T>
-		where T : struct, IConvertible
-	{
+    public class EnumIconTypeModel<T> : GenericEntryModel<string, T>
+        where T : struct, IConvertible
+    {
         public ImageSource Icon => IconService.Icon(Value);
 
     }

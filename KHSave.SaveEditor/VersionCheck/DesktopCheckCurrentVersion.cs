@@ -1,10 +1,10 @@
-﻿using KHSave.SaveEditor.Services;
+using KHSave.SaveEditor.Services;
 using Xe.VersionCheck;
 
 namespace KHSave.SaveEditor.VersionCheck
 {
-	public class DesktopCheckCurrentVersion : ICheckCurrentVersion
-	{
+    public class DesktopCheckCurrentVersion : ICheckCurrentVersion
+    {
         private IAppIdentity _appIdentity;
 
         public DesktopCheckCurrentVersion()
@@ -13,5 +13,5 @@ namespace KHSave.SaveEditor.VersionCheck
         }
 
         public string GetCurrentVersion() => _appIdentity.Version;
-	}
+    }
 }

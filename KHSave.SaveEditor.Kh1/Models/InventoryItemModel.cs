@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.Lib1.Types;
 using KHSave.SaveEditor.Common.Services;
 using System.Windows.Media;

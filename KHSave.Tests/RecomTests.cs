@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using KHSave.LibRecom;
 using System.IO;
 using System;

@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common.Properties;
+using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.VersionCheck;
 using Newtonsoft.Json;
@@ -91,7 +91,7 @@ namespace KHSave.SaveEditor.Services
                     catch { }
                 });
 #else
-            return Task.CompletedTask;
+                return Task.CompletedTask;
 #endif
             }
         }

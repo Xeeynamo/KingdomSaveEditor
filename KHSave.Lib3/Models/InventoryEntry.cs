@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,16 +20,16 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class InventoryEntry
-	{
-		[Data] public byte Count { get; set; }
-		[Data] public bool Obtained { get; set; }
-		[Data] public bool Unseen { get; set; }
-		[Data] public bool ShopFlag1 { get; set; }
-		[Data] public bool ShopFlag2 { get; set; }
-		[Data] public bool Flag4 { get; set; }
-		[Data] public bool Flag5 { get; set; }
-		[Data] public bool Flag6 { get; set; }
-		[Data] public bool Flag7 { get; set; }
-	}
+    public class InventoryEntry
+    {
+        [Data] public byte Count { get; set; }
+        [Data] public bool Obtained { get; set; }
+        [Data] public bool Unseen { get; set; }
+        [Data] public bool ShopFlag1 { get; set; }
+        [Data] public bool ShopFlag2 { get; set; }
+        [Data] public bool Flag4 { get; set; }
+        [Data] public bool Flag5 { get; set; }
+        [Data] public bool Flag6 { get; set; }
+        [Data] public bool Flag7 { get; set; }
+    }
 }

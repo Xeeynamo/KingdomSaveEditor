@@ -1,4 +1,4 @@
-﻿using KHSave.LibDDD.Types;
+using KHSave.LibDDD.Types;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibDDD.Model

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models

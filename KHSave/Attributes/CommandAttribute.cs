@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,7 +21,7 @@ namespace KHSave.Attributes
     public class CommandAttribute : InfoAttribute
     {
         public CommandAttribute(string name = null) :
-            base (name)
+            base(name)
         {
 
         }

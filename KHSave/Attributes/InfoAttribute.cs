@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -24,29 +24,29 @@ using System.Linq;
 
 namespace KHSave.Attributes
 {
-	public class InfoAttribute : Attribute
+    public class InfoAttribute : Attribute
     {
         private static CacheService<string> cache = new CacheService<string>();
 
         public string Info { get; }
 
-		public InfoAttribute()
-		{ }
+        public InfoAttribute()
+        { }
 
-		public InfoAttribute(string info)
-		{
-			Info = info;
-		}
+        public InfoAttribute(string info)
+        {
+            Info = info;
+        }
 
         public static string GetInfo(object value) => cache.Get(value, x =>
             value.GetAttribute<InfoAttribute>()?.Info ?? x?.ToString() ?? "<null>");
 
         public static string[] GetItemTypes(object value)
-		{
-			var memberValue = value.ToString();
-			var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
+        {
+            var memberValue = value.ToString();
+            var memberInfo = value.GetType().GetMember(memberValue).FirstOrDefault();
 
-			if (memberInfo != null)
+            if (memberInfo != null)
             {
                 return memberInfo.CustomAttributes
                     .Select(x => GetTypeRecursive(x.AttributeType))
@@ -60,10 +60,10 @@ namespace KHSave.Attributes
                     }).Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
 
-			return new string[0];
-		}
+            return new string[0];
+        }
 
         private static IEnumerable<Type> GetTypeRecursive(Type type) =>
             new Type[] { type, }.Concat(type != null ? GetTypeRecursive(type.BaseType) : new Type[] { });
-	}
+    }
 }

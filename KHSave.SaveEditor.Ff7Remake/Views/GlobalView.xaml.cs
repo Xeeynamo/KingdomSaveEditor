@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Ff7Remake.Views
 {
@@ -7,7 +7,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Views
     /// </summary>
     public partial class GlobalView : UserControl
     {
-        public GlobalView()  
+        public GlobalView()
         {
             InitializeComponent();
         }

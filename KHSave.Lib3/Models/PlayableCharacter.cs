@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,28 +21,28 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class PlayableCharacter
-	{
+    public class PlayableCharacter
+    {
         [Data(0x6)] public byte CurrentWeaponIndex { get; set; }
         [Data(0x80, 3, 8)] public List<WeaponEquipmentItem> Weapons { get; set; }
-		[Data(0x98, 8, 8)] public List<ArmorEquipmentItem> Armors { get; set; }
-		[Data(0xD8, 8, 8)] public List<AccessoryEquipmentItem> Accessories { get; set; }
-		[Data(0x118, 8, 8)] public List<ConsumableEquipmentItem> Items { get; set; }
-		[Data(0x158)] public byte AiCombatStyle { get; set; }
-		[Data(0x158)] public byte AiAbilities { get; set; }
-		[Data(0x158)] public AiModel Ai { get; set; }
-		[Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
-		[Data(0x980)] public byte AtkBoost { get; set; }
-		[Data] public byte MagBoost { get; set; }
-		[Data] public byte DefBoost { get; set; }
-		[Data] public byte ApBoost { get; set; }
-		[Data] public int Hp { get; set; }
-		[Data] public int Mp { get; set; }
-		[Data] public int Focus { get; set; }
+        [Data(0x98, 8, 8)] public List<ArmorEquipmentItem> Armors { get; set; }
+        [Data(0xD8, 8, 8)] public List<AccessoryEquipmentItem> Accessories { get; set; }
+        [Data(0x118, 8, 8)] public List<ConsumableEquipmentItem> Items { get; set; }
+        [Data(0x158)] public byte AiCombatStyle { get; set; }
+        [Data(0x158)] public byte AiAbilities { get; set; }
+        [Data(0x158)] public AiModel Ai { get; set; }
+        [Data(0x160, 512, 4)] public List<Ability> Abilities { get; set; }
+        [Data(0x980)] public byte AtkBoost { get; set; }
+        [Data] public byte MagBoost { get; set; }
+        [Data] public byte DefBoost { get; set; }
+        [Data] public byte ApBoost { get; set; }
+        [Data] public int Hp { get; set; }
+        [Data] public int Mp { get; set; }
+        [Data] public int Focus { get; set; }
 
-		public override string ToString()
-		{
-			return $"HP {Hp} MP {Mp}";
-		}
-	}
+        public override string ToString()
+        {
+            return $"HP {Hp} MP {Mp}";
+        }
+    }
 }

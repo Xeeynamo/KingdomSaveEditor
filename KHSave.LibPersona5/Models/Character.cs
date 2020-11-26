@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5.Types;
+using KHSave.LibPersona5.Types;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibPersona5.Models

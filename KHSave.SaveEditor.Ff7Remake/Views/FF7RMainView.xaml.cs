@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Ff7Remake.Data;
+using KHSave.SaveEditor.Ff7Remake.Data;
 using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Ff7Remake.Views

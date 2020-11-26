@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,11 +20,11 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum DifficultyType : byte
-	{
-		[Info] Beginner,
-		[Info] Normal,
-		[Info] Proud,
-		[Info] Critical
-	}
+    public enum DifficultyType : byte
+    {
+        [Info] Beginner,
+        [Info] Normal,
+        [Info] Proud,
+        [Info] Critical
+    }
 }

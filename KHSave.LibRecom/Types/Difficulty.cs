@@ -1,4 +1,4 @@
-﻿namespace KHSave.LibRecom.Types
+namespace KHSave.LibRecom.Types
 {
     public enum Difficulty : byte
     {

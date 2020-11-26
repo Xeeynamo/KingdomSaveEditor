@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1;
+using KHSave.Lib1;
 using KHSave.Lib1.Types;
 using System.IO;
 using Xunit;

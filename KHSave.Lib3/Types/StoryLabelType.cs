@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -45,7 +45,7 @@ namespace KHSave.Lib3.Types
     }
 
     public enum StoryLabelTypeBx
-	{
+    {
         BX_INIT = 0,
         BX_WORLD_VISIT1 = 10,
         BX_BRIDGE_MISSION1 = 20,

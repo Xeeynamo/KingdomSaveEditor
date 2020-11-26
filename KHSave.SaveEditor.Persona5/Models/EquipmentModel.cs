@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5;
+using KHSave.LibPersona5;
 using KHSave.SaveEditor.Common.Services;
 using System.Windows.Media;
 

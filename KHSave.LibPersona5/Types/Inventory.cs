@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 
 namespace KHSave.LibPersona5.Types
 {

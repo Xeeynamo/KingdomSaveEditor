@@ -1,4 +1,4 @@
-﻿namespace KHSave.Lib2.Types
+namespace KHSave.Lib2.Types
 {
     public enum DriveFormType
     {

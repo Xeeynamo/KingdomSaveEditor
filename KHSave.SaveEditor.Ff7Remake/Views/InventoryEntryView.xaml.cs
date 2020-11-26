@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Windows.Controls;
 
 namespace KHSave.SaveEditor.Ff7Remake.Views

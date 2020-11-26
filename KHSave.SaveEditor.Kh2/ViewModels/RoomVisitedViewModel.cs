@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2;
+using KHSave.Lib2;
 using KHSave.SaveEditor.Kh2.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
                 }
             }
         }
-        
+
         private byte[] _roomVisited;
 
         public RoomVisitedViewModel(ISaveKh2 save)

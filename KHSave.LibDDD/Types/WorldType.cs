@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 
 namespace KHSave.LibDDD.Types
 {
@@ -6,7 +6,7 @@ namespace KHSave.LibDDD.Types
     {
         [World("ex", "ex")] WorldEx,
         [World("de", "Destiny Island")] DestinyIsland,
-        [World("yt", "Mysterious Tower")]MysteriousTower,
+        [World("yt", "Mysterious Tower")] MysteriousTower,
         [World("tw", "Traverse Town")] TraverseTown,
         [World("tm", "Country of the Musketeers")] CountryOfTheMusketeers,
         [World("fa", "Symphony of Sorcery")] SymphonyOfSorcery,

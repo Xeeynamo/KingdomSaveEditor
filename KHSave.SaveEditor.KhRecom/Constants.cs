@@ -1,4 +1,4 @@
-﻿namespace KHSave.SaveEditor.KhRecom
+namespace KHSave.SaveEditor.KhRecom
 {
     public class Constants
     {

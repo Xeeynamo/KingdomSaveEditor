@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -79,7 +79,7 @@ namespace KHSave.LibFf7Remake.Chunks
 
             return new Chunk(header, content);
         }
-        
+
         public void Write(Stream stream)
         {
             BinaryMapping.WriteObject(stream, Header);

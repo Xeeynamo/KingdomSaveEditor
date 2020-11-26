@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,10 +18,10 @@
 
 namespace KHSave.Attributes
 {
-	public class CombatStyleAttribute : InfoAttribute
-	{
-		public CombatStyleAttribute(string name) :
-			base(name)
-		{ }
-	}
+    public class CombatStyleAttribute : InfoAttribute
+    {
+        public CombatStyleAttribute(string name) :
+            base(name)
+        { }
+    }
 }

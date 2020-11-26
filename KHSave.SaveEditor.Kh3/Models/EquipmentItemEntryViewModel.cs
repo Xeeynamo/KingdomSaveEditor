@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -26,117 +26,117 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh3.Models
 {
-	public class EquipmentItemEntryViewModel<T> : BaseNotifyPropertyChanged
-		where T : struct, IConvertible
-	{
-		public EquipmentItem Item { get; }
+    public class EquipmentItemEntryViewModel<T> : BaseNotifyPropertyChanged
+        where T : struct, IConvertible
+    {
+        public EquipmentItem Item { get; }
 
-		public bool Enabled
-		{
-			get => Item.Enabled != 0;
-			set
-			{
-				Item.Enabled = (byte)(value ? 1 : 0);
-				OnPropertyChanged();
-			}
-		}
+        public bool Enabled
+        {
+            get => Item.Enabled != 0;
+            set
+            {
+                Item.Enabled = (byte)(value ? 1 : 0);
+                OnPropertyChanged();
+            }
+        }
 
-		public KhEnumListModel<EnumIconTypeModel<T>, T> ValueSet { get; }
+        public KhEnumListModel<EnumIconTypeModel<T>, T> ValueSet { get; }
 
-		public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ItemType { get; }
+        public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ItemType { get; }
 
-		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
-		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-		public EquipmentItemEntryViewModel(EquipmentItem item)
-		{
-			Item = item;
-			ValueSet = new KhEnumListModel<EnumIconTypeModel<T>, T>(
-				() => (T)(object)item.Id,
-				x => item.Id = (byte)(object)x);
-			ItemType = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(
-				() => item.ItemType,
-				x => item.ItemType = x);
-		}
-	}
+        public EquipmentItemEntryViewModel(EquipmentItem item)
+        {
+            Item = item;
+            ValueSet = new KhEnumListModel<EnumIconTypeModel<T>, T>(
+                () => (T)(object)item.Id,
+                x => item.Id = (byte)(object)x);
+            ItemType = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(
+                () => item.ItemType,
+                x => item.ItemType = x);
+        }
+    }
 
-	public class EquipmentItemEntryViewModel : BaseNotifyPropertyChanged
-	{
-		public EquipmentItem Item { get; }
+    public class EquipmentItemEntryViewModel : BaseNotifyPropertyChanged
+    {
+        public EquipmentItem Item { get; }
 
-		public bool Enabled
-		{
-			get => Item.Enabled != 0;
-			set
-			{
-				Item.Enabled = (byte)(value ? 1 : 0);
-				OnPropertyChanged();
-			}
-		}
+        public bool Enabled
+        {
+            get => Item.Enabled != 0;
+            set
+            {
+                Item.Enabled = (byte)(value ? 1 : 0);
+                OnPropertyChanged();
+            }
+        }
 
-		public object ValueSet { get; private set; }
+        public object ValueSet { get; private set; }
 
-		public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ItemType { get; }
+        public KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType> ItemType { get; }
 
-		public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
-		public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-		public EquipmentItemEntryViewModel(EquipmentItem item)
-		{
-			Item = item;
-			ItemType = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(
-				() => item.ItemType,
-				x => DisplayItemType(item.ItemType = x));
+        public EquipmentItemEntryViewModel(EquipmentItem item)
+        {
+            Item = item;
+            ItemType = new KhEnumListModel<EnumIconTypeModel<ItemType>, ItemType>(
+                () => item.ItemType,
+                x => DisplayItemType(item.ItemType = x));
 
-			DisplayItemType(item.ItemType);
-		}
+            DisplayItemType(item.ItemType);
+        }
 
-		public void DisplayItemType(ItemType itemType)
-		{
-			switch (itemType)
-			{
-				case KHSave.Lib3.Types.ItemType.Consumable:
-				case KHSave.Lib3.Types.ItemType.ConsumableMirrored:
-					ValueSet = NewList<ConsumableType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Tent:
-					ValueSet = NewList<TentType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Weapon:
-					ValueSet = NewList<WeaponType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Armor:
-					ValueSet = NewList<ArmorType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Accessory:
-					ValueSet = NewList<AccessoryType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Snack:
-					ValueSet = NewList<SnackType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Synthesis:
-					ValueSet = NewList<SynthesisType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.Food:
-					ValueSet = NewList<FoodType>();
-					break;
-				case KHSave.Lib3.Types.ItemType.KeyItem:
-					ValueSet = NewList<KeyItemType>();
-					break;
-				default:
-					ValueSet = null;
-					break;
-			}
+        public void DisplayItemType(ItemType itemType)
+        {
+            switch (itemType)
+            {
+                case KHSave.Lib3.Types.ItemType.Consumable:
+                case KHSave.Lib3.Types.ItemType.ConsumableMirrored:
+                    ValueSet = NewList<ConsumableType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Tent:
+                    ValueSet = NewList<TentType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Weapon:
+                    ValueSet = NewList<WeaponType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Armor:
+                    ValueSet = NewList<ArmorType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Accessory:
+                    ValueSet = NewList<AccessoryType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Snack:
+                    ValueSet = NewList<SnackType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Synthesis:
+                    ValueSet = NewList<SynthesisType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.Food:
+                    ValueSet = NewList<FoodType>();
+                    break;
+                case KHSave.Lib3.Types.ItemType.KeyItem:
+                    ValueSet = NewList<KeyItemType>();
+                    break;
+                default:
+                    ValueSet = null;
+                    break;
+            }
 
-			OnPropertyChanged(nameof(ValueSet));
-		}
+            OnPropertyChanged(nameof(ValueSet));
+        }
 
-		private object NewList<T>()
-		where T : struct, IConvertible
-		{
-			return new KhEnumListModel<EnumIconTypeModel<T>, T>(
-				() => (T)(object)Item.Id,
-				x => Item.Id = (byte)(object)x);
-		}
-	}
+        private object NewList<T>()
+        where T : struct, IConvertible
+        {
+            return new KhEnumListModel<EnumIconTypeModel<T>, T>(
+                () => (T)(object)Item.Id,
+                x => Item.Id = (byte)(object)x);
+        }
+    }
 }

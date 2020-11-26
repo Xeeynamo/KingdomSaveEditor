@@ -1,4 +1,4 @@
-﻿using KHSave.LibBbs;
+using KHSave.LibBbs;
 using KHSave.LibBbs.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace KHSave.SaveEditor.KhBbs.ViewModels
     {
         private readonly SaveKhBbs.SaveFinalMix save;
 
-        public CommandListViewModel(SaveKhBbs.SaveFinalMix save) : 
+        public CommandListViewModel(SaveKhBbs.SaveFinalMix save) :
             this(save.CommandList)
         {
             this.save = save;

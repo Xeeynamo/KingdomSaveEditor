@@ -1,4 +1,4 @@
-﻿using KHSave.Archives;
+using KHSave.Archives;
 using KHSave.SaveEditor.Common.ViewModels;
 using System.IO;
 using System.Windows;

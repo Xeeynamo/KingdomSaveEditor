@@ -1,4 +1,4 @@
-﻿using KHSave.LibRecom.Models;
+using KHSave.LibRecom.Models;
 using Xe.BinaryMapper;
 
 namespace KHSave.LibRecom

@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibRecom.Attributes;
 
 namespace KHSave.LibRecom.Types

@@ -1,4 +1,4 @@
-﻿using KHSave.Lib2.Types;
+using KHSave.Lib2.Types;
 
 namespace KHSave.SaveEditor.Kh2.Service
 {

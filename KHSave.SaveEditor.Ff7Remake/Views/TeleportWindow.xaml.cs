@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Ff7Remake.Models;
+using KHSave.SaveEditor.Ff7Remake.Models;
 using KHSave.SaveEditor.Ff7Remake.ViewModels;
 using System.Diagnostics;
 using System.Windows;

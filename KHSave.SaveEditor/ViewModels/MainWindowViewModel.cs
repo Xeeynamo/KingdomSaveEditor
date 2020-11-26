@@ -111,30 +111,30 @@ namespace KHSave.SaveEditor.ViewModels
             }
         }
 
-        public Action<UserControl> OnControlChanged { get; set; } 
+        public Action<UserControl> OnControlChanged { get; set; }
         public IRefreshUi RefreshUi { get; set; }
         public IOpenStream OpenStream { get; set; }
         public IWriteToStream WriteToStream { get; set; }
 
         public bool IsAdvancedMode
-		{
-			get => Global.IsAdvancedMode;
-			set
-			{
-				Global.IsAdvancedMode = value;
-				InvokeRefreshUi();
-			}
-		}
+        {
+            get => Global.IsAdvancedMode;
+            set
+            {
+                Global.IsAdvancedMode = value;
+                InvokeRefreshUi();
+            }
+        }
 
-		public bool IsUpdateCheckingEnabled
-		{
+        public bool IsUpdateCheckingEnabled
+        {
             get => updater.IsAutomaticUpdatesEnabled;
-			set
-			{
+            set
+            {
                 updater.IsAutomaticUpdatesEnabled = value;
                 OnPropertyChanged();
-			}
-		}
+            }
+        }
 
         public bool IsAnonymousReporting
         {
@@ -200,35 +200,35 @@ namespace KHSave.SaveEditor.ViewModels
                 x => IsFileOpen || _isProcess);
             ExitCommand = new RelayCommand(x => Window.Close());
 
-			GetLatestVersionCommand = new RelayCommand(x =>
-			{
-				Task.Run(async () =>
-				{
+            GetLatestVersionCommand = new RelayCommand(x =>
+            {
+                Task.Run(async () =>
+                {
                     var found = await updater.ForceCheckLastVersionAsync();
-					if (found == false)
-					{
-						Application.Current.Dispatcher.Invoke(() =>
+                    if (found == false)
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
                             alertMessage.Info("You are up to date :)", "Check update"));
-					}
-				});
-			});
+                    }
+                });
+            });
 
             OpenLinkCommand = new RelayCommand(url => Process.Start(new ProcessStartInfo(url as string)));
 
             AboutCommand = new RelayCommand(x =>
-			{
-				var contributors = string.Join("\n", (new string[]
-				{
-					"Keytotruth, additional coding and offsets",
-					"Rikux3, Kingdom Hearts 1 Final Mix support",
-					"Troopah, for providing the icons",
-					"Sonicshadowsilver2, for story flags and records offsets",
+            {
+                var contributors = string.Join("\n", (new string[]
+                {
+                    "Keytotruth, additional coding and offsets",
+                    "Rikux3, Kingdom Hearts 1 Final Mix support",
+                    "Troopah, for providing the icons",
+                    "Sonicshadowsilver2, for story flags and records offsets",
                     "13th Vessel for the complete story flag list",
                     "TALESIOFIFREAK, for the ability list and DLC inventory",
                     "SilverCam, for the gummiship inventory items",
                     "Luseu, to have provided the majority of FF7R offsets",
-				}).Select(name => $" - {name}")
-				.ToList());
+                }).Select(name => $" - {name}")
+                .ToList());
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 var assemblyName = assembly.GetName();
@@ -238,8 +238,8 @@ namespace KHSave.SaveEditor.ViewModels
                 };
                 aboutDialog.Author += "\n\nContributors and special thanks:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
 
-				aboutDialog.ShowDialog();
-			}, x => true);
+                aboutDialog.ShowDialog();
+            }, x => true);
         }
 
         private void Buffered(Stream stream, Action<Stream> call) => Buffered(stream, bufferedStream =>
@@ -369,7 +369,7 @@ namespace KHSave.SaveEditor.ViewModels
         }
 
         public bool TryOpenKh1(Stream stream) => TryOpen(SaveKh1.IsValid, stream, ContentType.KingdomHearts);
-        public bool TryOpenKh2(Stream stream) => TryOpen(SaveKh2.IsValid,  stream, ContentType.KingdomHearts2);
+        public bool TryOpenKh2(Stream stream) => TryOpen(SaveKh2.IsValid, stream, ContentType.KingdomHearts2);
         public bool TryOpenKhBbs(Stream stream) => TryOpen(SaveKhBbs.IsValid, stream, ContentType.KingdomHeartsBbs);
         public bool TryOpenKhDDD(Stream stream) => TryOpen(SaveKhDDD.IsValid, stream, ContentType.KingdomHeartsDDD);
         public bool TryOpenKhRecom(Stream stream) => TryOpen(SaveKhRecom.IsValid, stream, ContentType.KingdomHeartsRecom);

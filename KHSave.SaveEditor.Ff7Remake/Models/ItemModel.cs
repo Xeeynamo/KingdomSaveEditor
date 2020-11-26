@@ -1,4 +1,4 @@
-﻿using KHSave.SaveEditor.Common.Services;
+using KHSave.SaveEditor.Common.Services;
 using KHSave.SaveEditor.Ff7Remake.Data;
 using System.Collections.Generic;
 using System.Linq;

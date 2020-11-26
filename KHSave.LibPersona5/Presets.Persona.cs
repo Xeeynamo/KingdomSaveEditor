@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5.Types;
+using KHSave.LibPersona5.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;

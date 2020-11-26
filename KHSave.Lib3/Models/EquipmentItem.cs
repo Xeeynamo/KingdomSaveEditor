@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -21,47 +21,47 @@ using Xe.BinaryMapper;
 
 namespace KHSave.Lib3.Models
 {
-	public class EquipmentItem
-	{
-		[Data] public byte Id { get; set; }
-		[Data] public ItemType ItemType { get; set; }
+    public class EquipmentItem
+    {
+        [Data] public byte Id { get; set; }
+        [Data] public ItemType ItemType { get; set; }
 
-		[Data(4)] public byte Enabled { get; set; }
-	}
+        [Data(4)] public byte Enabled { get; set; }
+    }
 
-	public class WeaponEquipmentItem : EquipmentItem
-	{
-		public WeaponType WeaponId
-		{
-			get => (WeaponType)Id;
-			set => Id = (byte)value;
-		}
-	}
+    public class WeaponEquipmentItem : EquipmentItem
+    {
+        public WeaponType WeaponId
+        {
+            get => (WeaponType)Id;
+            set => Id = (byte)value;
+        }
+    }
 
-	public class ArmorEquipmentItem : EquipmentItem
-	{
-		public ArmorType ArmorId
-		{
-			get => (ArmorType)Id;
-			set => Id = (byte)value;
-		}
-	}
+    public class ArmorEquipmentItem : EquipmentItem
+    {
+        public ArmorType ArmorId
+        {
+            get => (ArmorType)Id;
+            set => Id = (byte)value;
+        }
+    }
 
-	public class AccessoryEquipmentItem : EquipmentItem
-	{
-		public AccessoryType AccessoryId
-		{
-			get => (AccessoryType)Id;
-			set => Id = (byte)value;
-		}
-	}
+    public class AccessoryEquipmentItem : EquipmentItem
+    {
+        public AccessoryType AccessoryId
+        {
+            get => (AccessoryType)Id;
+            set => Id = (byte)value;
+        }
+    }
 
-	public class ConsumableEquipmentItem : EquipmentItem
-	{
-		public ConsumableType ConsumableId
-		{
-			get => (ConsumableType)Id;
-			set => Id = (byte)value;
-		}
-	}
+    public class ConsumableEquipmentItem : EquipmentItem
+    {
+        public ConsumableType ConsumableId
+        {
+            get => (ConsumableType)Id;
+            set => Id = (byte)value;
+        }
+    }
 }

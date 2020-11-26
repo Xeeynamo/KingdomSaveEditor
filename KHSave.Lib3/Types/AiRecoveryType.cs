@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -20,10 +20,10 @@ using KHSave.Attributes;
 
 namespace KHSave.Lib3.Types
 {
-	public enum AiRecoveryType : byte
-	{
-		[CombatStyle("Use As Needed")] UseAsNeeded,
-		[CombatStyle("Use in Emergencies")] UseInEmergencies,
-		[CombatStyle("Use Like Crazy")] UseLikeCrazy,
-	}
+    public enum AiRecoveryType : byte
+    {
+        [CombatStyle("Use As Needed")] UseAsNeeded,
+        [CombatStyle("Use in Emergencies")] UseInEmergencies,
+        [CombatStyle("Use Like Crazy")] UseLikeCrazy,
+    }
 }

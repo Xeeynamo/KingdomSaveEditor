@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 
 namespace KHSave.LibPersona5
@@ -20,11 +20,11 @@ namespace KHSave.LibPersona5
             (stream.ReadByte() << 8) |
             (stream.ReadByte() << 0);
 
-        private static Field FieldAll    (int category, int map, string description) =>
+        private static Field FieldAll(int category, int map, string description) =>
             new Field { Category = category, Map = map, Vanilla = true, Royal = true, Description = description };
         private static Field FieldVanilla(int category, int map, string description) =>
             new Field { Category = category, Map = map, Vanilla = true, Royal = false, Description = description };
-        private static Field FieldRoyal  (int category, int map, string description) =>
+        private static Field FieldRoyal(int category, int map, string description) =>
             new Field { Category = category, Map = map, Vanilla = false, Royal = true, Description = description };
 
         public static List<Field> Fields = new List<Field>

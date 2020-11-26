@@ -1,4 +1,4 @@
-﻿// https://pastebin.com/dfARF8ui
+// https://pastebin.com/dfARF8ui
 using KHSave.Attributes;
 
 namespace KHSave.Lib1.Types

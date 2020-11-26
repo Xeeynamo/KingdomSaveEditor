@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -24,33 +24,33 @@ using Xe.Tools.Wpf.Models;
 
 namespace KHSave.SaveEditor.Kh3.ViewModels
 {
-	public class PlayersViewModel : GenericListModel<PlayerViewModel>
-	{
-		public PlayersViewModel(IEnumerable<PlayableCharacter> list) :
-			base(list.Select((pc, index) => new PlayerViewModel(pc, index)))
-		{
+    public class PlayersViewModel : GenericListModel<PlayerViewModel>
+    {
+        public PlayersViewModel(IEnumerable<PlayableCharacter> list) :
+            base(list.Select((pc, index) => new PlayerViewModel(pc, index)))
+        {
 
-		}
+        }
 
-		public PlayersViewModel(IEnumerable<PlayerViewModel> list) :
-			base(list)
-		{
+        public PlayersViewModel(IEnumerable<PlayerViewModel> list) :
+            base(list)
+        {
 
-		}
+        }
 
-		public Visibility PlayerVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
-		public Visibility PlayerNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility PlayerVisible => IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility PlayerNotVisible => !IsItemSelected ? Visibility.Visible : Visibility.Collapsed;
 
-		protected override void OnSelectedItem(PlayerViewModel item)
-		{
-			base.OnSelectedItem(item);
-			OnPropertyChanged(nameof(PlayerVisible));
-			OnPropertyChanged(nameof(PlayerNotVisible));
-		}
+        protected override void OnSelectedItem(PlayerViewModel item)
+        {
+            base.OnSelectedItem(item);
+            OnPropertyChanged(nameof(PlayerVisible));
+            OnPropertyChanged(nameof(PlayerNotVisible));
+        }
 
-		protected override PlayerViewModel OnNewItem()
-		{
-			throw new System.NotImplementedException();
-		}
-	}
+        protected override PlayerViewModel OnNewItem()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

@@ -1,4 +1,4 @@
-﻿using KHSave.Attributes;
+using KHSave.Attributes;
 using KHSave.LibFf7Remake.Types;
 using System;
 using System.Collections.Generic;

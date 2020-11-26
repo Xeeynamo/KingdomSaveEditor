@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -18,11 +18,11 @@
 
 namespace KHSave.Attributes
 {
-	public class WeaponAttribute : InfoAttribute
-	{
-		public WeaponAttribute(string name = null) :
-			base(name)
-		{ }
+    public class WeaponAttribute : InfoAttribute
+    {
+        public WeaponAttribute(string name = null) :
+            base(name)
+        { }
     }
 
     public class WeaponCloudAttribute : WeaponAttribute

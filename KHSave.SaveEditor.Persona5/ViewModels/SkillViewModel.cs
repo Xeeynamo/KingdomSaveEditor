@@ -1,4 +1,4 @@
-﻿using KHSave.LibPersona5.Types;
+using KHSave.LibPersona5.Types;
 using System.Windows.Media;
 
 namespace KHSave.SaveEditor.Persona5.ViewModels

@@ -1,4 +1,4 @@
-﻿/*
+/*
     Kingdom Save Editor
     Copyright (C) 2020 Luciano Ciccariello
 
@@ -40,7 +40,7 @@ namespace KHSave.Archives
             [Data(0x50)] public int Length { get; set; }
             [Data(0x54)] public int SomeKindOfFlag { get; set; }
 
-            public DateTime DateCreated{ get => Map(RawDateCreated); set => RawDateCreated = Map(value); }
+            public DateTime DateCreated { get => Map(RawDateCreated); set => RawDateCreated = Map(value); }
             public DateTime DateModified { get => Map(RawDateModified); set => RawDateModified = Map(value); }
 
             public byte[] Data { get; set; }
