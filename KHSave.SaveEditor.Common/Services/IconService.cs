@@ -13,6 +13,7 @@ namespace KHSave.SaveEditor.Common.Services
         {
             KingdomHearts2,
             KingdomHeartsBbs,
+            KingdomHeartsDdd,
             FF7Remake,
             Persona5,
         }
@@ -89,6 +90,25 @@ namespace KHSave.SaveEditor.Common.Services
                 ["CommandStyleLevel1"] = "khbbs-icon-commandstyle-lvl1",
                 ["CommandStyleLevel2"] = "khbbs-icon-commandstyle-lvl2",
                 ["CommandStyleOther"] = "khbbs-icon-commandstyle-other",
+            },
+            [IconPack.KingdomHeartsDdd] = new Dictionary<string, string>()
+            // ps: worst KH game ever
+            {
+                ["Attack"] = "khddd-command-attack",
+                ["Movement"] = "khddd-command-movement",
+                ["Defense"] = "khddd-command-defense",
+                ["Reprisal"] = "khddd-command-reprisal",
+                ["FlowMotion"] = "khddd-command-flow",
+                ["Magic"] = "khddd-command-magic",
+                ["Consumable"] = "khddd-command-consumable",
+                ["AbilityStats"] = "khddd-ability-stats",
+                ["AbilitySupport"] = "khddd-ability-support",
+                ["AbilitySpirits"] = "khddd-ability-spirits",
+                ["Keyblade"] = "khddd-item-keyblade",
+                ["DreamPieces"] = "khddd-item-dreampiece",
+                ["Recipe"] = "khddd-item-recipe",
+                ["TrainingFood"] = "khddd-item-toy",
+                ["TrainingToys"] = "khddd-item-toy",
             },
             [IconPack.FF7Remake] = new Dictionary<string, string>()
             {
@@ -167,7 +187,8 @@ namespace KHSave.SaveEditor.Common.Services
         public static void UseIconPack(IconPack iconPack)
         {
             Icons = IconPacks[iconPack].Concat(IconsDefault)
-                .ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.Value}.png"));
+                .GroupBy(x => x.Key)
+                .ToDictionary(x => x.Key, x => new Uri($"pack://application:,,,/KHSave.SaveEditor;component/Images/{x.First().Value}.png"));
         }
 
         public static ImageSource Icon(object item)

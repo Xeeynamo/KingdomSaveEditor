@@ -92,9 +92,11 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.KingdomHearts3:
                     iconPack = IconService.IconPack.KingdomHearts2;
                     break;
-                case ContentType.KingdomHeartsDDD:
                 case ContentType.KingdomHeartsBbs:
                     iconPack = IconService.IconPack.KingdomHeartsBbs;
+                    break;
+                case ContentType.KingdomHeartsDDD:
+                    iconPack = IconService.IconPack.KingdomHeartsDdd;
                     break;
                 case ContentType.FinalFantasy7Remake:
                     iconPack = IconService.IconPack.FF7Remake;
