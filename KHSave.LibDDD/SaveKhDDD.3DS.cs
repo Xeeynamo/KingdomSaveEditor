@@ -21,15 +21,15 @@ namespace KHSave.LibDDD
             //3 in party and 99 on the bank
             [Data(0x53a0, Count = 102)] public DreamEater[] DreamEaters { get; set; }
             //SoraXp max value 786680?
-            [Data(0xd1cc)] public UInt32 SoraXp { get; set; }
+            [Data(0xd1cc)] public uint SoraXp { get; set; }
             [Data(0xd1f0)] public byte SoraLv { get; set; }
             //RikuXp max value 786680?
-            [Data(0xd248)] public UInt32 RikuXp { get; set; }
+            [Data(0xd248)] public uint RikuXp { get; set; }
             [Data(0xd26c)] public byte RikuLv { get; set; }
             [Data(0xd2c4)] public EquipmentType SoraKeyblade { get; set; }
             [Data(0xd2c6)] public EquipmentType RikuKeyblade { get; set; }
             //Munny max value 999999?
-            [Data(0xd2c8)] public UInt32 Munny { get; set; }
+            [Data(0xd2c8)] public uint Munny { get; set; }
             [Data(0xd2f0, Count = 3)] public Deck[] SoraDecks { get; set; }
             [Data(0xd5fc, Count = 3)] public Deck[] RikuDecks { get; set; }
 

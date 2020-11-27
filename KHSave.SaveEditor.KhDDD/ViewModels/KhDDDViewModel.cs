@@ -19,7 +19,7 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
-            Character = new CharacterViewModel(save.SoraKeyblade, save.RikuKeyblade, save.SoraLv, save.RikuLv, save.SoraXp, save.RikuXp);
+            Character = new CharacterViewModel(save);
             DreamEaters = new DreamEatersViewModel(save.DreamEaters);
             SoraDecks = new DecksViewModel(save.SoraDecks);
             RikuDecks = new DecksViewModel(save.RikuDecks);
