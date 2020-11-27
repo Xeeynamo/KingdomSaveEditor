@@ -7,42 +7,60 @@
              xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <DataGrid
-        ItemsSource="{Binding}"
-        AutoGenerateColumns="False"
-        GridLinesVisibility="None">
-        <DataGrid.Columns>
-            <DataGridTemplateColumn Header="Command" Width="3*">
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <ComboBox
-                            ItemsSource="{Binding Commands}"
-                            SelectedValue="{Binding Id}"
-                            SelectedValuePath="Value">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image
-                                            Margin="0 0 3 0"
-                                            Width="16" Height="16"
-                                            Source="{Binding Icon}"/>
-                                        <TextBlock Text="{Binding Name}" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
-            <DataGridTextColumn
-                Header="Flag1" Width="1*"
-                Binding="{Binding Unk02}"/>
-            <DataGridTextColumn
-                Header="Flag2" Width="1*"
-                Binding="{Binding Unk03}"/>
-            <DataGridTextColumn
-                Header="Amount" Width="1*"
-                Binding="{Binding Amount}"/>
-        </DataGrid.Columns>
-     </DataGrid>
+    <Grid DataContext="{Binding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid
+            ItemsSource="{Binding Items}"
+            AutoGenerateColumns="False"
+            IsReadOnly="False"
+            GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Command" Width="3*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding Commands}"
+                                SelectedValue="{Binding Id}"
+                                SelectedValuePath="Value">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image
+                                                Margin="0 0 3 0"
+                                                Width="16" Height="16"
+                                                Source="{Binding Icon}"/>
+                                            <TextBlock Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Header="Flag1" Width="1*"
+                    Binding="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn
+                    Header="Flag2" Width="1*"
+                    Binding="{Binding Unk03, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn
+                    Header="Amount" Width="1*"
+                    Binding="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1" Margin="0 5 5 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"
+                Source="{StaticResource Search_16x}"/>
+            <TextBox Grid.Column="2"
+                Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </Grid>
 </UserControl>
