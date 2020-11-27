@@ -18,7 +18,7 @@
             IsReadOnly="False"
             GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Command" Width="3*">
+                <DataGridTemplateColumn Header="Command" Width="9*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox
@@ -40,15 +40,35 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
                 <DataGridTextColumn
-                    Header="Flag1" Width="1*"
-                    Binding="{Binding Unk02, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn
-                    Header="Flag2" Width="1*"
-                    Binding="{Binding Unk03, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn
-                    Header="Amount" Width="1*"
+                    Header="Amount" Width="3*"
                     Binding="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <DataGridTemplateColumn Header="Sora decks equip" Width="4*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding IsSoraEquippedDeck1}" />
+                                <CheckBox IsChecked="{Binding IsSoraEquippedDeck2}" />
+                                <CheckBox IsChecked="{Binding IsSoraEquippedDeck3}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Riku decks equip" Width="4*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding IsRikuEquippedDeck1}" />
+                                <CheckBox IsChecked="{Binding IsRikuEquippedDeck2}" />
+                                <CheckBox IsChecked="{Binding IsRikuEquippedDeck3}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1" Margin="0 5 5 5">

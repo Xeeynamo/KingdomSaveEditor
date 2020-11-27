@@ -58,9 +58,77 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
             }
         }
 
-        public byte Unk02 { get => _commandEntry.Unk02; set => _commandEntry.Unk02 = value; }
+        public bool IsSoraEquippedDeck1
+        {
+            get => (_commandEntry.SoraEquipFlags & 1) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.SoraEquipFlags |= 1;
+                else
+                    _commandEntry.SoraEquipFlags = (byte)(_commandEntry.SoraEquipFlags & ~1);
+            }
+        }
 
-        public byte Unk03 { get => _commandEntry.Unk03; set => _commandEntry.Unk03 = value; }
+        public bool IsSoraEquippedDeck2
+        {
+            get => (_commandEntry.SoraEquipFlags & 2) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.SoraEquipFlags |= 2;
+                else
+                    _commandEntry.SoraEquipFlags = (byte)(_commandEntry.SoraEquipFlags & ~2);
+            }
+        }
+
+        public bool IsSoraEquippedDeck3
+        {
+            get => (_commandEntry.SoraEquipFlags & 4) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.SoraEquipFlags |= 4;
+                else
+                    _commandEntry.SoraEquipFlags = (byte)(_commandEntry.SoraEquipFlags & ~4);
+            }
+        }
+
+        public bool IsRikuEquippedDeck1
+        {
+            get => (_commandEntry.RikuEquipFlags & 1) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.RikuEquipFlags |= 1;
+                else
+                    _commandEntry.RikuEquipFlags = (byte)(_commandEntry.RikuEquipFlags & ~1);
+            }
+        }
+
+        public bool IsRikuEquippedDeck2
+        {
+            get => (_commandEntry.RikuEquipFlags & 2) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.RikuEquipFlags |= 2;
+                else
+                    _commandEntry.RikuEquipFlags = (byte)(_commandEntry.RikuEquipFlags & ~2);
+            }
+        }
+
+        public bool IsRikuEquippedDeck3
+        {
+            get => (_commandEntry.RikuEquipFlags & 4) != 0;
+            set
+            {
+                if (value)
+                    _commandEntry.RikuEquipFlags |= 4;
+                else
+                    _commandEntry.RikuEquipFlags = (byte)(_commandEntry.RikuEquipFlags & ~4);
+            }
+        }
 
         public int Count
         {
