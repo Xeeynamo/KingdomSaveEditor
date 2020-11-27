@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.KhDDD.MainView"
+<UserControl x:Class="KHSave.SaveEditor.KhDDD.MainView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,13 +6,16 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.KhDDD"
              xmlns:views="clr-namespace:KHSave.SaveEditor.KhDDD.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="400">
     <TabControl>
         <TabItem Header="System">
             <views:SystemView DataContext="{Binding System}"/>
         </TabItem>
         <TabItem Header="Character">
             <views:Character DataContext="{Binding Character}"/>
+        </TabItem>
+        <TabItem Header="Commands">
+            <views:CommandsView DataContext="{Binding Commands}"/>
         </TabItem>
         <TabItem Header="Dream Eaters">
             <views:DreamEaters DataContext="{Binding DreamEaters}"/>

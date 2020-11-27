@@ -1,13 +1,14 @@
 using KHSave.LibDDD;
 using KHSave.LibDDD.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.KhDDD.Interfaces;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
     public class CharacterViewModel : BaseNotifyPropertyChanged
     {
-        public CharacterViewModel(ISaveKhDDD save)
+        public CharacterViewModel(ISaveKhDDD save, IResourceGetter resourceGetter)
         {
             _save = save;
             SoraKeyblade = new ItemComboBoxModel<EquipmentType>(

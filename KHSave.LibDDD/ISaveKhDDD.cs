@@ -12,6 +12,7 @@ namespace KHSave.LibDDD
         byte RoomId { get; set; }
         byte SpawnId { get; set; }
         DreamEater[] DreamEaters { get; set; }
+        CommandEntry[] CommandInventory { get; }
         UInt32 SoraXp { get; set; }
         byte SoraLv { get; set; }
         UInt32 RikuXp { get; set; }

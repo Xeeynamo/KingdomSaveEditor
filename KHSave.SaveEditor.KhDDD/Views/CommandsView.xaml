@@ -1,0 +1,48 @@
+<UserControl x:Class="KHSave.SaveEditor.KhDDD.Views.CommandsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.KhDDD.Views"
+             xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <DataGrid
+        ItemsSource="{Binding}"
+        AutoGenerateColumns="False"
+        GridLinesVisibility="None">
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Header="Command" Width="3*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <ComboBox
+                            ItemsSource="{Binding Commands}"
+                            SelectedValue="{Binding Id}"
+                            SelectedValuePath="Value">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image
+                                            Margin="0 0 3 0"
+                                            Width="16" Height="16"
+                                            Source="{Binding Icon}"/>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn
+                Header="Flag1" Width="1*"
+                Binding="{Binding Unk02}"/>
+            <DataGridTextColumn
+                Header="Flag2" Width="1*"
+                Binding="{Binding Unk03}"/>
+            <DataGridTextColumn
+                Header="Amount" Width="1*"
+                Binding="{Binding Amount}"/>
+        </DataGrid.Columns>
+     </DataGrid>
+</UserControl>

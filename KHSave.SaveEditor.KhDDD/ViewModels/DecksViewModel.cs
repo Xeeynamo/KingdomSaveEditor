@@ -8,8 +8,6 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
     {
         public DecksViewModel(Deck[] decks) :
             base(decks.Select(x => new DeckViewModel(x)))
-        {
-
-        }
+        { }
     }
 }
