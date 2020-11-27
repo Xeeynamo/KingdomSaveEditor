@@ -7,7 +7,7 @@ namespace KHSave.LibDDD.Attributes
         public TrainingToysAttribute(string info) : base(info)
         { }
     }
-    
+
     public class TrainingFoodAttribute : InfoAttribute
     {
         public TrainingFoodAttribute(string info) : base(info)
