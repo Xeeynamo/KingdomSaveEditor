@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.WorldView"
+<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.WorldView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh2.Views" xmlns:common="clr-namespace:KHSave.SaveEditor.Common.Controls;assembly=KHSave.SaveEditor.Common"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300">
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <GroupBox Header="Party members">
             <common:TwoEqualColumnsStackPanel>
                 <TextBlock Text="Character 1"/>
@@ -35,5 +39,36 @@
                     SelectedValuePath="Value"/>
             </common:TwoEqualColumnsStackPanel>
         </GroupBox>
-    </StackPanel>
+
+        <DataGrid
+            Margin="0 5 10 5"
+            Grid.Row="1"
+            Grid.Column="2"
+            AutoGenerateColumns="False"
+            IsReadOnly="False"
+            ItemsSource="{Binding Scripts}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Name"
+                    Width="*"
+                    IsReadOnly="True"
+                    Binding="{Binding Name, Mode=OneWay}"/>
+                <DataGridTextColumn
+                    Header="Map"
+                    Width="*"
+                    IsReadOnly="False"
+                    Binding="{Binding Map, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn
+                    Header="Battle"
+                    Width="*"
+                    IsReadOnly="False"
+                    Binding="{Binding Battle, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn
+                    Header="Event"
+                    Width="*"
+                    IsReadOnly="False"
+                    Binding="{Binding Event, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

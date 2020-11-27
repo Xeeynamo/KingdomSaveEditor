@@ -21,8 +21,7 @@ namespace KHSave.Lib2
             [Data] public byte RoomId { get; set; }
             [Data] public byte SpawnId { get; set; }
             [Data] public byte Unused0f { get; set; }
-
-
+            [Data(0x13, Count = 64 * 19, Stride = 3)] public PlaceScriptVanilla[] PlaceScripts { get; set; }
             [Data(0xe50, Count = 20, Stride = 0x20)] public Progress[] StoryProgress { get; set; }
             [Data(0x14b8, Count = 8 * Constants.WorldCount)] public byte[] RoomVisitedFlag { get; set; }
             [Data(0x1600)] public int MunnyAmount { get; set; }
@@ -63,6 +62,7 @@ namespace KHSave.Lib2
             public bool NewStatusSummonPeterPan { get; set; }
             public bool NewStatusSummonChickenLittle { get; set; }
 
+            IPlaceScript[] ISaveKh2.PlaceScripts => Array.ConvertAll(PlaceScripts, x => (IPlaceScript)x);
             ICharacter[] ISaveKh2.Characters => Array.ConvertAll(Characters, x => (ICharacter)x);
             IDriveForm[] ISaveKh2.DriveForms => Array.ConvertAll(DriveForms, x => (IDriveForm)x);
 

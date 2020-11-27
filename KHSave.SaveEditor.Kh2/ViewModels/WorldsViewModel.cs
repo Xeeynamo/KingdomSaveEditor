@@ -2,6 +2,7 @@ using KHSave.Attributes;
 using KHSave.Lib2;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -31,6 +32,10 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Pc3 = new KhEnumListModel<PlayableCharacterType>(
                 () => save.WorldPartyMembers[index].CompanionCharacter3,
                 x => save.WorldPartyMembers[index].CompanionCharacter3 = x);
+
+            Scripts = Enumerable.Range(0, 64)
+                .Select(x => new MapScriptModel(_world, x, _save.PlaceScripts[(int)_world * 64 + x]))
+                .ToList();
         }
 
         public string Name => WorldAttribute.GetWorldId(_world);
@@ -39,6 +44,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<PlayableCharacterType> Pc1 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc2 { get; }
         public KhEnumListModel<PlayableCharacterType> Pc3 { get; }
+        public List<MapScriptModel> Scripts { get; }
     }
 
     public class WorldsViewModel : GenericListModel<WorldViewModel>

@@ -21,7 +21,7 @@ namespace KHSave.Lib2
             [Data] public byte RoomId { get; set; }
             [Data] public byte SpawnId { get; set; }
             [Data] public byte Unused0f { get; set; }
-
+            [Data(0x10, Count = 64 * 19, Stride = 6)] public PlaceScriptFinalMix[] PlaceScripts { get; set; }
             [Data(0x1c90, Count = 20, Stride = 0x20)] public Progress[] StoryProgress { get; set; }
             // 3e8 of what?
             [Data(0x22f8, Count = 8 * Constants.WorldCount)] public byte[] RoomVisitedFlag { get; set; } // There might be a chance that it starts from 0x2300
@@ -90,6 +90,7 @@ namespace KHSave.Lib2
             [Data(0x4274)] public bool NewStatusSummonPeterPan { get; set; }
             [Data(0x4275)] public bool NewStatusSummonChickenLittle { get; set; }
 
+            IPlaceScript[] ISaveKh2.PlaceScripts => Array.ConvertAll(PlaceScripts, x => (IPlaceScript)x);
             ICharacter[] ISaveKh2.Characters => Array.ConvertAll(Characters, x => (ICharacter)x);
             IDriveForm[] ISaveKh2.DriveForms => Array.ConvertAll(DriveForms, x => (IDriveForm)x);
 

@@ -15,7 +15,7 @@ namespace KHSave.Lib2
         byte RoomId { get; set; }
         byte SpawnId { get; set; }
         byte Unused0f { get; set; }
-
+        IPlaceScript[] PlaceScripts { get; }
         Progress[] StoryProgress { get; set; }
 
         byte[] RoomVisitedFlag { get; set; } // There might be a chance that it starts from 0x2300
