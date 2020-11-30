@@ -33,17 +33,25 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream, IResourceGetter
     {
-        private static readonly KeyValuePair<EquipmentType, string>[] _abilities =
-            new KeyValuePair<EquipmentType, string>[]
+        private static readonly List<EnumIconTypeModel<EquipmentType>> _abilities =
+            new EnumIconTypeModel<EquipmentType>[]
             {
-                new KeyValuePair<EquipmentType, string>(EquipmentType.Empty, "Empty")
+                new EnumIconTypeModel<EquipmentType>()
+                {
+                    Name = "Empty",
+                    Value = EquipmentType.Empty
+                }
             }
             .Concat(
                 Enum.GetValues(typeof(EquipmentType))
                     .Cast<EquipmentType>()
                     .Where(x => InfoAttribute.GetItemTypes(x).Any(v => v == "Ability"))
-                    .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
-            ).ToArray();
+                    .Select(x => new EnumIconTypeModel<EquipmentType>
+                    {
+                        Name = InfoAttribute.GetInfo(x),
+                        Value = x,
+                    })
+            ).ToList();
 
         private ISaveKh2 save;
 
@@ -62,7 +70,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments { get; } =
             new KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType>();
 
-        public IEnumerable<KeyValuePair<EquipmentType, string>> Abilities => _abilities;
+        public IEnumerable<EnumIconTypeModel<EquipmentType>> Abilities => _abilities;
 
         public void RefreshUi()
         {

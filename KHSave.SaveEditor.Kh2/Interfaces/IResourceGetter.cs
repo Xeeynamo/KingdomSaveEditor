@@ -8,6 +8,6 @@ namespace KHSave.SaveEditor.Kh2.Interfaces
     {
         KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments { get; }
 
-        IEnumerable<KeyValuePair<EquipmentType, string>> Abilities { get; }
+        IEnumerable<EnumIconTypeModel<EquipmentType>> Abilities { get; }
     }
 }

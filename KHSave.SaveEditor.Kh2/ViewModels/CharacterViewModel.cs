@@ -24,7 +24,6 @@ using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Kh2.Interfaces;
 using KHSave.SaveEditor.Kh2.Models;
 using KHSave.SaveEditor.Kh2.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -46,9 +45,8 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             Armors = new EquipmentItemsViewModel(EquipmentManagerFactory.ForArmor(character), resourceGetter);
             Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character), resourceGetter);
             Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character), resourceGetter);
-            Abilities = character.Abilities.Select((_, i) => new AbilityModel(i, character.Abilities)).ToList();
+            Abilities = character.Abilities.Select((_, i) => new AbilityModel(i, character.Abilities, resourceGetter)).ToList();
         }
-        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _resourceGetter.Abilities;
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
 

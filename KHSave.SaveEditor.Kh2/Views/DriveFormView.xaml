@@ -58,16 +58,31 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox Margin="3 0 0 0"
-                                Style="{StaticResource KhCheckboxStyle}" IsChecked="{Binding Active}"/>
+                                Style="{StaticResource KhCheckboxStyle}"
+                                IsChecked="{Binding Active, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridComboBoxColumn
-                    Header="Ability" Width="*"
-                    ItemsSource="{Binding Source={StaticResource AbilityTypes}}"
-                    SelectedValueBinding="{Binding AbilityType}"
-                    SelectedValuePath="Key"
-                    DisplayMemberPath="Value"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding Abilities, Mode=OneTime}"
+                                SelectedValue="{Binding AbilityType, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedValuePath="Value">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Margin="0 0 3 0" Width="16" Height="16"
+                                                Source="{Binding Icon}"/>
+                                            <TextBlock Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

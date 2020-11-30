@@ -72,6 +72,9 @@ namespace KHSave.SaveEditor.Common.Services
                 ["Weapon"] = "kh2-icon-weapon",
                 ["Armor"] = "kh2-equip-armor",
                 ["Accessory"] = "kh2-equip-accessory",
+                ["AbilityAction"] = "khbbs-icon-ability-status",
+                ["AbilityMobility"] = "khbbs-icon-ability-price",
+                ["AbilitySupport"] = "kh2-ability-support",
             },
             [IconPack.KingdomHeartsBbs] = new Dictionary<string, string>()
             {

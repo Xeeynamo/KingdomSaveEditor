@@ -22,7 +22,6 @@ using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Kh2.Interfaces;
 using KHSave.SaveEditor.Kh2.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -42,10 +41,10 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
             _driveForm = driveForm;
             _type = type;
             _resourceGetter = resourceGetter;
-            Abilities = _driveForm.Abilities.Select((_, i) => new AbilityModel(i, _driveForm.Abilities)).ToList();
+            Abilities = _driveForm.Abilities.Select((_, i) => new AbilityModel(i, _driveForm.Abilities, resourceGetter)).ToList();
         }
 
-        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _resourceGetter.Abilities;
+        public IEnumerable<EnumIconTypeModel<EquipmentType>> AbilityTypes => _resourceGetter.Abilities;
         public EquipmentType Weapon { get => _driveForm.Weapon; set => _driveForm.Weapon = value; }
         public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments => _resourceGetter.Equipments;
 
