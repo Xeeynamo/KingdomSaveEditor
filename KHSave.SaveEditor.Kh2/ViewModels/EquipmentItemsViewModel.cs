@@ -1,9 +1,9 @@
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Interfaces;
 using KHSave.SaveEditor.Kh2.Service;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using Xe.Tools;
 
@@ -17,12 +17,13 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         {
             private readonly EquipmentItemsViewModel _vm;
             private readonly uint _index;
+            private readonly IResourceGetter _resourceGetter;
 
-            internal EquipmentItemViewModel(EquipmentItemsViewModel vm, uint index)
+            internal EquipmentItemViewModel(EquipmentItemsViewModel vm, uint index, IResourceGetter resourceGetter)
             {
                 _vm = vm;
                 _index = index;
-                ValueSet = new KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType>(() => Equipment, value => Equipment = value);
+                _resourceGetter = resourceGetter;
             }
 
             public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
@@ -39,7 +40,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
                 set => _vm.SetEquipment(_index, value);
             }
 
-            public IEnumerable<EnumIconTypeModel<EquipmentType>> ValueSet { get; }
+            public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> ValueSet => _resourceGetter.Equipments;
 
             public void InvalidateEnabled()
             {
@@ -48,17 +49,17 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         }
 
 
-        public EquipmentItemsViewModel(IEquipmentManager equipmentManager)
+        public EquipmentItemsViewModel(IEquipmentManager equipmentManager, IResourceGetter resourceGetter)
         {
             this.equipmentManager = equipmentManager;
-            Equipment1 = new EquipmentItemViewModel(this, 0);
-            Equipment2 = new EquipmentItemViewModel(this, 1);
-            Equipment3 = new EquipmentItemViewModel(this, 2);
-            Equipment4 = new EquipmentItemViewModel(this, 3);
-            Equipment5 = new EquipmentItemViewModel(this, 4);
-            Equipment6 = new EquipmentItemViewModel(this, 5);
-            Equipment7 = new EquipmentItemViewModel(this, 6);
-            Equipment8 = new EquipmentItemViewModel(this, 7);
+            Equipment1 = new EquipmentItemViewModel(this, 0, resourceGetter);
+            Equipment2 = new EquipmentItemViewModel(this, 1, resourceGetter);
+            Equipment3 = new EquipmentItemViewModel(this, 2, resourceGetter);
+            Equipment4 = new EquipmentItemViewModel(this, 3, resourceGetter);
+            Equipment5 = new EquipmentItemViewModel(this, 4, resourceGetter);
+            Equipment6 = new EquipmentItemViewModel(this, 5, resourceGetter);
+            Equipment7 = new EquipmentItemViewModel(this, 6, resourceGetter);
+            Equipment8 = new EquipmentItemViewModel(this, 7, resourceGetter);
         }
 
         public EquipmentItemViewModel Equipment1 { get; private set; }

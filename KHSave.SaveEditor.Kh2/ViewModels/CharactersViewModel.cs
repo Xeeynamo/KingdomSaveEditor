@@ -18,6 +18,7 @@
 
 using KHSave.Lib2;
 using KHSave.Lib2.Models;
+using KHSave.SaveEditor.Kh2.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -29,16 +30,10 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
     {
         private readonly ISaveKh2 save;
 
-        public CharactersViewModel(ISaveKh2 save) :
-            this(save.Characters)
+        public CharactersViewModel(ISaveKh2 save, IResourceGetter resourceGetter) :
+            this(save.Characters.Select((pc, index) => new CharacterViewModel(pc, index, resourceGetter)))
         {
             this.save = save;
-        }
-
-        public CharactersViewModel(IEnumerable<ICharacter> list) :
-            this(list.Select((pc, index) => new CharacterViewModel(pc, index)))
-        {
-
         }
 
         public CharactersViewModel(IEnumerable<CharacterViewModel> list) :

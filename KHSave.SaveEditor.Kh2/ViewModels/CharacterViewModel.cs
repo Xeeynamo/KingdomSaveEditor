@@ -21,6 +21,7 @@ using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Interfaces;
 using KHSave.SaveEditor.Kh2.Models;
 using KHSave.SaveEditor.Kh2.Service;
 using System;
@@ -32,39 +33,29 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class CharacterViewModel
     {
-        private static readonly KeyValuePair<EquipmentType, string>[] _abilityTypes =
-            new KeyValuePair<EquipmentType, string>[]
-            {
-                new KeyValuePair<EquipmentType, string>(EquipmentType.Empty, "Empty")
-            }
-            .Concat(
-                Enum.GetValues(typeof(EquipmentType))
-                    .Cast<EquipmentType>()
-                    .Where(x => InfoAttribute.GetItemTypes(x).Any(v => v == "Ability"))
-                    .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
-            ).ToArray();
-
         private readonly ICharacter character;
         private readonly int index;
+        private readonly IResourceGetter _resourceGetter;
 
-        public CharacterViewModel(ICharacter character, int index)
+        public CharacterViewModel(ICharacter character, int index, IResourceGetter resourceGetter)
         {
             this.character = character;
             this.index = index;
+            _resourceGetter = resourceGetter;
 
-            Weapon = new ItemComboBoxModel<EquipmentType>(() => character.Weapon, x => character.Weapon = x);
-            Armors = new EquipmentItemsViewModel(EquipmentManagerFactory.ForArmor(character));
-            Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character));
-            Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character));
+            Armors = new EquipmentItemsViewModel(EquipmentManagerFactory.ForArmor(character), resourceGetter);
+            Accessories = new EquipmentItemsViewModel(EquipmentManagerFactory.ForAccessory(character), resourceGetter);
+            Consumables = new EquipmentItemsViewModel(EquipmentManagerFactory.ForConsumable(character), resourceGetter);
             Abilities = character.Abilities.Select((_, i) => new AbilityModel(i, character.Abilities)).ToList();
         }
-        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _abilityTypes;
+        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _resourceGetter.Abilities;
 
         public string Name => InfoAttribute.GetInfo((CharacterType)index);
 
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
 
-        public ItemComboBoxModel<EquipmentType> Weapon { get; }
+        public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments => _resourceGetter.Equipments;
+        public EquipmentType Weapon { get => character.Weapon; set => character.Weapon = value; }
         public EquipmentItemsViewModel Armors { get; }
         public EquipmentItemsViewModel Accessories { get; }
         public EquipmentItemsViewModel Consumables { get; }

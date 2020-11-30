@@ -20,7 +20,20 @@
                         <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="Weapon"/>
-                        <common:ItemComboBox DataContext="{Binding Weapon}"/>
+                        <ComboBox
+                            ItemsSource="{Binding Equipments}"
+                            SelectedValue="{Binding Weapon}"
+                            SelectedValuePath="Value">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                                            Source="{Binding Icon}"/>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
 
                         <TextBlock Text="HP current"/>
                         <TextBox Text="{Binding HpCur, UpdateSourceTrigger=PropertyChanged}"/>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.PlayerEquipmentView"
+<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.PlayerEquipmentView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,9 +17,21 @@
             VerticalAlignment="Center" Margin="0 0 3 0"
             Visibility="{Binding AdvancedVisibility}"
             IsChecked="{Binding Enabled}"/>
-        <controls:ItemComboBox
+        <ComboBox
             Grid.Column="1"
             IsEnabled="{Binding Enabled}"
-            DataContext="{Binding}"/>
+            ItemsSource="{Binding ValueSet}"
+            SelectedValue="{Binding Equipment}"
+            SelectedValuePath="Value">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0 0 3 0" Width="16" Height="16"
+                            Source="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </UserControl>

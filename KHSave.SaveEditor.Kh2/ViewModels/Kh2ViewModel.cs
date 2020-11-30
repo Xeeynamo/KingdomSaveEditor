@@ -16,17 +16,35 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using KHSave.Attributes;
 using KHSave.Lib2;
+using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Exceptions;
+using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream
+    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream, IResourceGetter
     {
+        private static readonly KeyValuePair<EquipmentType, string>[] _abilities =
+            new KeyValuePair<EquipmentType, string>[]
+            {
+                new KeyValuePair<EquipmentType, string>(EquipmentType.Empty, "Empty")
+            }
+            .Concat(
+                Enum.GetValues(typeof(EquipmentType))
+                    .Cast<EquipmentType>()
+                    .Where(x => InfoAttribute.GetItemTypes(x).Any(v => v == "Ability"))
+                    .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
+            ).ToArray();
+
         private ISaveKh2 save;
 
         public Kh2ViewModel()
@@ -41,12 +59,17 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         public RoomVisitedViewModel RoomVisited { get; private set; }
         public ProgressViewModel Progress { get; private set; }
 
+        public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments { get; } =
+            new KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType>();
+
+        public IEnumerable<KeyValuePair<EquipmentType, string>> Abilities => _abilities;
+
         public void RefreshUi()
         {
             System = new SystemViewModel(save);
             Inventory = new InventoryViewModel(save);
-            Characters = new CharactersViewModel(save);
-            DriveForms = new DriveFormsViewModel(save);
+            Characters = new CharactersViewModel(save, this);
+            DriveForms = new DriveFormsViewModel(save, this);
             Worlds = new WorldsViewModel(save);
             RoomVisited = new RoomVisitedViewModel(save);
             Progress = new ProgressViewModel(save.StoryProgress);

@@ -16,11 +16,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using KHSave.Attributes;
 using KHSave.Lib2;
 using KHSave.Lib2.Models;
 using KHSave.Lib2.Types;
 using KHSave.SaveEditor.Common.Models;
+using KHSave.SaveEditor.Kh2.Interfaces;
 using KHSave.SaveEditor.Kh2.Models;
 using System;
 using System.Collections.Generic;
@@ -33,31 +33,21 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
 {
     public class DriveFormViewModel : BaseNotifyPropertyChanged
     {
-        private static readonly KeyValuePair<EquipmentType, string>[] _abilityTypes =
-            new KeyValuePair<EquipmentType, string>[]
-            {
-                new KeyValuePair<EquipmentType, string>(EquipmentType.Empty, "Empty")
-            }
-            .Concat(
-                Enum.GetValues(typeof(EquipmentType))
-                    .Cast<EquipmentType>()
-                    .Where(x => InfoAttribute.GetItemTypes(x).Any(v => v == "Ability"))
-                    .Select(x => new KeyValuePair<EquipmentType, string>(x, InfoAttribute.GetInfo(x)))
-            ).ToArray();
-
         private readonly IDriveForm _driveForm;
         private readonly DriveFormType _type;
+        private readonly IResourceGetter _resourceGetter;
 
-        public DriveFormViewModel(IDriveForm driveForm, DriveFormType type)
+        public DriveFormViewModel(IDriveForm driveForm, DriveFormType type, IResourceGetter resourceGetter)
         {
             _driveForm = driveForm;
             _type = type;
-            Weapon = new ItemComboBoxModel<EquipmentType>(() => _driveForm.Weapon, x => _driveForm.Weapon = x);
+            _resourceGetter = resourceGetter;
             Abilities = _driveForm.Abilities.Select((_, i) => new AbilityModel(i, _driveForm.Abilities)).ToList();
         }
 
-        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _abilityTypes;
-        public ItemComboBoxModel<EquipmentType> Weapon { get; }
+        public IEnumerable<KeyValuePair<EquipmentType, string>> AbilityTypes => _resourceGetter.Abilities;
+        public EquipmentType Weapon { get => _driveForm.Weapon; set => _driveForm.Weapon = value; }
+        public KhEnumListModel<EnumIconTypeModel<EquipmentType>, EquipmentType> Equipments => _resourceGetter.Equipments;
 
         public string Name => _type.ToString();
         public byte Level { get => _driveForm.Level; set => _driveForm.Level = value; }
@@ -69,8 +59,8 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
     {
         private readonly ISaveKh2 save;
 
-        public DriveFormsViewModel(ISaveKh2 save) :
-            this(save.DriveForms.Select((x, index) => new DriveFormViewModel(x, GetDriveFormType(index, save.IsFinalMix))))
+        public DriveFormsViewModel(ISaveKh2 save, IResourceGetter resourceGetter) :
+            this(save.DriveForms.Select((x, index) => new DriveFormViewModel(x, GetDriveFormType(index, save.IsFinalMix), resourceGetter)))
         {
             this.save = save;
         }
