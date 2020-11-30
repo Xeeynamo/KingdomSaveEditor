@@ -25,7 +25,22 @@ namespace KHSave.SaveEditor.Common.Models
     public class EnumIconTypeModel<T> : GenericEntryModel<string, T>
         where T : struct, IConvertible
     {
-        public ImageSource Icon => IconService.Icon(Value);
+        private bool _isIconRetrieved;
+        private ImageSource _icon;
+
+        public ImageSource Icon
+        {
+            get
+            {
+                if (!_isIconRetrieved)
+                {
+                    _icon = IconService.Icon(Value);
+                    _isIconRetrieved = true;
+                }
+
+                return _icon;
+            }
+        }
 
     }
 }
