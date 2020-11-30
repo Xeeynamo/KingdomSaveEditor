@@ -45,7 +45,12 @@ locations:
   x: 44326.51
   y: 4669.091
   z: -4716.46
-  z: 308.146
+- chapter: 9
+  oob: true
+  description: "Colliseum Battle Doors"
+  x: 44231.576
+  y: 1744.123
+  z: -6116
 - chapter: 14
   oob: true
   description: "Human Experiments Room"
