@@ -1,4 +1,4 @@
-﻿<Application x:Class="KHSave.SaveEditor.App"
+<Application x:Class="KHSave.SaveEditor.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:KHSave.SaveEditor">
@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Xe.Tools.Wpf;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="StyledControls.xaml"/>
                 <ResourceDictionary>
                     <DrawingImage x:Key="FundIcon">
                         <DrawingImage.Drawing>

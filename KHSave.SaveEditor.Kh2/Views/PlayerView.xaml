@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.PlayerView"
+<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.PlayerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -100,7 +100,9 @@
                 <DataGrid
                     Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
                     AutoGenerateColumns="False"
-                    ItemsSource="{Binding Abilities}">
+                    ItemsSource="{Binding Abilities}"
+                    GridLinesVisibility="None"
+                    HeadersVisibility="None">
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
                             <Setter Property="Height" Value="24" />
@@ -108,9 +110,14 @@
                         </Style>
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>
-                        <DataGridCheckBoxColumn
-                            Header="Active" Width="Auto"
-                            Binding="{Binding Active}"/>
+                        <DataGridTemplateColumn Header="Active" Width="24">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Margin="3 0 0 0"
+                                Style="{StaticResource KhCheckboxStyle}" IsChecked="{Binding Active}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridComboBoxColumn
                             Header="Ability" Width="*"
                             ItemsSource="{Binding Source={StaticResource AbilityTypes}}"

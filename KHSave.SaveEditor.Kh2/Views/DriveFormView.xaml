@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.DriveFormView"
+<UserControl x:Class="KHSave.SaveEditor.Kh2.Views.DriveFormView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,21 +9,31 @@
     <UserControl.Resources>
         <CollectionViewSource x:Key="AbilityTypes" Source="{Binding AbilityTypes}"/>
     </UserControl.Resources>
-    <StackPanel>
-        <common:TwoEqualColumnsStackPanel>
-            <TextBlock Text="Level"/>
-            <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Exp. to next level"/>
-            <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
-        </common:TwoEqualColumnsStackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <common:TwoEqualColumnsStackPanel>
+                <TextBlock Text="Level"/>
+                <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Exp. to next level"/>
+                <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>
+            </common:TwoEqualColumnsStackPanel>
 
-        <TextBlock Text="Secondary weapon"/>
-        <common:ItemComboBox DataContext="{Binding Weapon}"/>
+            <TextBlock Text="Secondary weapon"/>
+            <common:ItemComboBox DataContext="{Binding Weapon}"/>
+        </StackPanel>
 
-        <DataGrid
+        <DataGrid Grid.Row="2"
             Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
             AutoGenerateColumns="False"
-            ItemsSource="{Binding Abilities}">
+            ItemsSource="{Binding Abilities}"
+            GridLinesVisibility="None"
+            HeadersVisibility="None">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Height" Value="24" />
@@ -31,9 +41,14 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn
-                    Header="Active" Width="Auto"
-                    Binding="{Binding Active}"/>
+                <DataGridTemplateColumn Header="Active" Width="24">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="3 0 0 0"
+                                Style="{StaticResource KhCheckboxStyle}" IsChecked="{Binding Active}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridComboBoxColumn
                     Header="Ability" Width="*"
                     ItemsSource="{Binding Source={StaticResource AbilityTypes}}"
@@ -42,5 +57,5 @@
                     DisplayMemberPath="Value"/>
             </DataGrid.Columns>
         </DataGrid>
-    </StackPanel>
+    </Grid>
 </UserControl>

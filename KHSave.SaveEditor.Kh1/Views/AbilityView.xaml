@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KHSave.SaveEditor.Kh1.Views.AbilityView"
+<UserControl x:Class="KHSave.SaveEditor.Kh1.Views.AbilityView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,27 +6,6 @@
              xmlns:local="clr-namespace:KHSave.SaveEditor.Kh1.Views"
              mc:Ignorable="d" 
              d:DesignHeight="22" d:DesignWidth="160">
-    <UserControl.Resources>
-        <Style TargetType="{x:Type CheckBox}" x:Key="KhCheckboxStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type CheckBox}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image x:Name="checkboxImage" Width="18"
-                                   Source="pack://application:,,,/KHSave.SaveEditor;component/Images/kh2-icon-ability.png"/>
-                            <ContentPresenter/>
-                        </StackPanel>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="checkboxImage" Property="Source"
-                                        Value="pack://application:,,,/KHSave.SaveEditor;component/Images/kh2-icon-ability-equipped.png"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -35,10 +14,11 @@
         </Grid.ColumnDefinitions>
 
         <CheckBox Grid.Column="0" VerticalAlignment="Center"
-            Style="{StaticResource KhCheckboxStyle}" IsChecked="{Binding IsEnabled}"/>
+            Style="{StaticResource KhCheckboxStyle}"
+                  IsChecked="{Binding IsEnabled, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox Grid.Column="2"
             ItemsSource="{Binding AbilityList}"
-            SelectedValue="{Binding Ability}"
+            SelectedValue="{Binding Ability, UpdateSourceTrigger=PropertyChanged}"
             DisplayMemberPath="Name"
             SelectedValuePath="Value"/>
     </Grid>
