@@ -18,4 +18,4 @@ jobs:
         with:
           submodules: recursive
       - name: Execute test suite
-        run: dotnet test
+        run: dotnet test KHSave.Tests
