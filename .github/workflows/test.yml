@@ -8,12 +8,14 @@ on:
     types: [assigned, opened, synchronize, reopened]
 
 jobs:
-  run-fixtool:
+  run-tests:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/dotnet/core/sdk:3.1
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Execute test suite
         run: dotnet test
