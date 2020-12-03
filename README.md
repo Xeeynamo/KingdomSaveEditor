@@ -20,7 +20,7 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)*
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg)
-![Tests status](https://github.com/xeeynamo/kh3saveeditor/workflows/Run%20tests/badge.svg)
+![Tests status](https://github.com/xeeynamo/kh3saveeditor/workflows/Tests/badge.svg)
 
 <sub><sup>*download count does not include download from Microsoft Store.</sup></sub>
 
