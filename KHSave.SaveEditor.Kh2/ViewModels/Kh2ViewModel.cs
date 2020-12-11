@@ -31,7 +31,7 @@ using Xe.Tools;
 
 namespace KHSave.SaveEditor.Kh2.ViewModels
 {
-    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream, IResourceGetter
+    public class Kh2ViewModel : BaseNotifyPropertyChanged, IRefreshUi, IOpenStream, IWriteToStream, IGetSave, IResourceGetter
     {
         private static readonly List<EnumIconTypeModel<EquipmentType>> _abilities =
             new EnumIconTypeModel<EquipmentType>[]
@@ -106,5 +106,7 @@ namespace KHSave.SaveEditor.Kh2.ViewModels
         }
 
         public void WriteToStream(Stream stream) => SaveKh2.Write(stream, save);
+
+        public object GetSave() => save;
     }
 }

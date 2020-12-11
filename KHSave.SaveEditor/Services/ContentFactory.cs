@@ -38,6 +38,7 @@ namespace KHSave.SaveEditor.Services
         public IOpenStream OpenStream { get; set; }
         public IWriteToStream WriteToStream { get; set; }
         public IRefreshUi RefreshUi { get; set; }
+        public IGetSave GetSave { get; set; }
     }
 
     public class ContentFactory
@@ -143,7 +144,8 @@ namespace KHSave.SaveEditor.Services
                 Control = control,
                 OpenStream = context,
                 WriteToStream = context,
-                RefreshUi = context
+                RefreshUi = context,
+                GetSave = context as IGetSave,
             };
         }
     }

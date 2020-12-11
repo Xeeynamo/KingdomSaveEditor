@@ -96,6 +96,7 @@ namespace KHSave.SaveEditor.ViewModels
         public RelayCommand OpenPcsx2Command { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand SaveAsCommand { get; }
+        public RelayCommand ImportCommand { get; }
         public RelayCommand ExitCommand { get; }
         public RelayCommand GetLatestVersionCommand { get; }
         public RelayCommand OpenLinkCommand { get; }
@@ -115,6 +116,7 @@ namespace KHSave.SaveEditor.ViewModels
         public IRefreshUi RefreshUi { get; set; }
         public IOpenStream OpenStream { get; set; }
         public IWriteToStream WriteToStream { get; set; }
+        public IGetSave GetSave { get; private set; }
 
         public bool IsAdvancedMode
         {
@@ -198,6 +200,28 @@ namespace KHSave.SaveEditor.ViewModels
                 x => IsFileOpen || _isProcess);
             SaveAsCommand = new RelayCommand(o => CatchException(() => fileDialogManager.SaveAs(Save)),
                 x => IsFileOpen || _isProcess);
+            ImportCommand = new RelayCommand(o => CatchException(() =>
+            {
+                new FileDialogManager(windowManager)
+                    .Open(stream =>
+                    {
+                        if (GetSave == null)
+                            throw new Exception("The game you decided to operate with is not within the supported game list that supports import transfer.");
+
+                        switch (TransferService.Transfer(GetSave.GetSave(), stream))
+                        {
+                            case TransferService.Result.Success:
+                                RefreshUi.RefreshUi();
+                                break;
+                            case TransferService.Result.GameNotSupported:
+                                throw new Exception("The game you decided to operate with is NOT within the supported game list that supports import transfer.");
+                            case TransferService.Result.SourceNotCompatible:
+                                throw new Exception("The game you selected is different than the save you have currently opened, therefore it is not possible to import it.");
+                            case TransferService.Result.InternalError:
+                                throw new Exception("Oh well, this was not supposed to happen... you might want to report this. Sorry 😅");
+                        }
+                    });
+            }), x => (IsFileOpen || _isProcess) && IsTransferSupported());
             ExitCommand = new RelayCommand(x => Window.Close());
 
             GetLatestVersionCommand = new RelayCommand(x =>
@@ -240,6 +264,17 @@ namespace KHSave.SaveEditor.ViewModels
 
                 aboutDialog.ShowDialog();
             }, x => true);
+        }
+
+        private bool IsTransferSupported()
+        {
+            switch (SaveKind)
+            {
+                case ContentType.KingdomHearts2:
+                    return true;
+                default:
+                    return false;
+            }
         }
 
         private void Buffered(Stream stream, Action<Stream> call) => Buffered(stream, bufferedStream =>
@@ -450,12 +485,14 @@ namespace KHSave.SaveEditor.ViewModels
 
             RefreshUi = contentResponse.RefreshUi;
             WriteToStream = contentResponse.WriteToStream;
+            GetSave = contentResponse.GetSave;
 
             if (stream != null)
                 contentResponse.OpenStream.OpenStream(stream);
 
             OnPropertyChanged(nameof(SaveCommand));
             OnPropertyChanged(nameof(SaveAsCommand));
+            OnPropertyChanged(nameof(ImportCommand));
             OnControlChanged?.Invoke(contentResponse.Control);
         }
     }

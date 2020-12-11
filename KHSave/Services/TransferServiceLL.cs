@@ -11,23 +11,18 @@ namespace KHSave.Services
         public static Dictionary<Type, Action<object, object, PropertyInfo>> DefaultMappings =
             new Dictionary<Type, Action<object, object, PropertyInfo>>()
             {
-                [typeof(byte[])] = new Action<object, object, PropertyInfo>((dst, src, prop) =>
-                {
-                    var srcValue = prop.GetValue(src) as byte[];
-                    var dstValue = prop.GetValue(dst) as byte[];
-                    if (dstValue != null)
-                        Array.Copy(srcValue, dstValue, Math.Min(srcValue.Length, dstValue.Length));
-                    else
-                        dstValue = srcValue;
-
-                    prop.SetValue(dst, dstValue);
-                }),
+                [typeof(byte[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<byte>(dst, src, prop)),
+                [typeof(short[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<short>(dst, src, prop)),
+                [typeof(ushort[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<ushort>(dst, src, prop)),
+                [typeof(int[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<int>(dst, src, prop)),
+                [typeof(uint[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<uint>(dst, src, prop)),
+                [typeof(float[])] = new Action<object, object, PropertyInfo>((dst, src, prop) => CopyArray<float>(dst, src, prop)),
             };
 
         public static void CopySave<T>(object dst, object src, Dictionary<Type, Action<object, object, PropertyInfo>> mappings) where T : class =>
             CopySave(typeof(T), dst, src, mappings);
 
-        private static void CopySave(Type type, object dst, object src, Dictionary<Type, Action<object, object, PropertyInfo>> mappings)
+        public static void CopySave(Type type, object dst, object src, Dictionary<Type, Action<object, object, PropertyInfo>> mappings)
         {
             foreach (var property in type.GetProperties().Where(x => x.GetMethod != null))
             {
@@ -63,6 +58,18 @@ namespace KHSave.Services
                     CopySave(property.PropertyType, property.GetValue(dst), property.GetValue(src), mappings);
                 }
             }
+        }
+
+        public static void CopyArray<T>(object dst, object src, PropertyInfo prop)
+        {
+            var srcValue = prop.GetValue(src) as T[];
+            var dstValue = prop.GetValue(dst) as T[];
+            if (dstValue != null)
+                Array.Copy(srcValue, dstValue, Math.Min(srcValue.Length, dstValue.Length));
+            else
+                dstValue = srcValue;
+
+            prop.SetValue(dst, dstValue);
         }
     }
 }

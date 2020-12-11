@@ -42,6 +42,12 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
+                <MenuItem Header="Import from different region/edition..." Command="{Binding ImportCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource Import_16x}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
                 <MenuItem Header="E_xit" Command="{Binding ExitCommand}"/>
             </MenuItem>
             <MenuItem Header="_Options">
