@@ -20,7 +20,7 @@ namespace KHSave.SaveEditor.Services
             Result result;
             if (dstSave is ISaveKh2 && (result = Transfer(dstSave, srcSaveStream, SaveKh2.IsValid, SaveKh2.Read)) != Result.GameNotSupported)
                 return result;
-            
+
             return Result.GameNotSupported;
         }
 
