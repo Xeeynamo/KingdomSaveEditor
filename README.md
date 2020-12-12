@@ -30,24 +30,7 @@ My GitHub is open to a [sponsor program](https://github.com/sponsors/Xeeynamo). 
 
 ## User guide
 
-### How to use it for PS4 games
-
-You need first to get a decrypted save. There are two ways to achieve it:
-
-1) [Playstation 4 Save Mounter](https://github.com/ChendoChap/Playstation-4-Save-Mounter): If you have a PS4 with a HEN or Custom Firmware, you may want to use [this free and fast tool](https://github.com/ChendoChap/Playstation-4-Save-Mounter)
-
-2) [Save Wizard](https://www.savewizard.net/): If you do not have a custom firmware, you can obtain a copy of a decrypted save and re-encrypt it using [the following paid software](https://www.savewizard.net/)
-
-Once you get your save, just open it using Kingdom Save Editor from File\Open, then save it with File\Save. If you want to transfer back the file on your Playstation 4, just follow the guide lines of the tool that you used for decryption
-
-## How to use it for PS3 games
-
-Decrypt your PS3 save game using the software `BruteForce Savedata` and modify the save from the KH3SaveEditor. Once you completed your changes, you need to save and encrypt the save back. It would be ideal to implement an encrypt/decrypt feature in the editor and it will come at some point.
-If you use an emulator such as `RPCS3` you can skip this step as `RPCS3` does not encrypt save data
-
-### How to use it for PS2 games
-
-The editor works on the raw save data from PS2 save game files. As long as you can extract the save slot from the memory card or from your favourite emulator, you can edit it. PCSX2 saves are supported as long as a memory card is converted as a Folder.
+You need to decrypt your save before opening it with Kingdom Save Editor. Please refer to [this guide](docs/decryption.md) to know how to decrypt your save.
 
 ## Contribution
 
