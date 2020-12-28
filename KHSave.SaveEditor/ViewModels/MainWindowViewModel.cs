@@ -294,7 +294,8 @@ namespace KHSave.SaveEditor.ViewModels
                 new BufferedStream(stream, bufferLength);
 
             var result = call(bufferedStream);
-            bufferedStream.Flush();
+            if (bufferedStream.CanWrite)
+                bufferedStream.Flush();
 
             return result;
         }
@@ -357,6 +358,7 @@ namespace KHSave.SaveEditor.ViewModels
         private bool Open(IArchiveFactory archiveFactory, Stream stream)
         {
             var archive = archiveFactory.Read(stream);
+            stream.Close();
             return Open(archive);
         }
 
