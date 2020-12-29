@@ -6,7 +6,7 @@ namespace KHSave.Lib2.Models
     {
         EquipmentType Weapon { get; set; }
         byte Level { get; set; }
-        byte Unknown { get; set; }
+        byte AbilityLevel { get; set; }
         int Experience { get; set; }
         ushort[] Abilities { get; set; }
     }
