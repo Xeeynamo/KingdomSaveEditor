@@ -29,11 +29,9 @@ namespace KHSave.Lib2.Models
         [Data(Count = 8)] public short[] Accessories { get; set; }
         [Data(Count = 8)] public short[] Items { get; set; }
         [Data(Count = 8)] public short[] ItemAutoReload { get; set; }
-
-        [Data(0x54, Count = 0x48)] public ushort[] Abilities { get; set; }
-
-        [Data(0xf4)] public BattleStyleType BattleStyle { get; set; }
-        [Data(0xfc)] public AbilityStyleType AbilityStyle1 { get; set; }
+        [Data(Count = 0x50)] public ushort[] Abilities { get; set; }
+        [Data] public BattleStyleType BattleStyle { get; set; }
+        [Data] public AbilityStyleType AbilityStyle1 { get; set; }
         [Data] public AbilityStyleType AbilityStyle2 { get; set; }
         [Data] public AbilityStyleType AbilityStyle3 { get; set; }
         [Data] public AbilityStyleType AbilityStyle4 { get; set; }
