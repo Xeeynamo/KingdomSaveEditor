@@ -202,6 +202,11 @@ namespace KHSave.SaveEditor.ViewModels
                 x => IsFileOpen || _isProcess);
             ImportCommand = new RelayCommand(o => CatchException(() =>
             {
+                MessageBox.Show(
+                    "This functionality allows you to import a Kingdom Hearts II save of a region over another region.\n\n" +
+                    "Note that this will not import the whole save but only the known values, therefore some content of " +
+                    "your old save will still be present (eg. Gummiship, Journal, Minigames).");
+
                 new FileDialogManager(windowManager)
                     .Open(stream =>
                     {
