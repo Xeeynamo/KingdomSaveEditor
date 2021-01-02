@@ -25,10 +25,12 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             System = new SystemViewModel(Save);
             Inventory = new InventoryViewModel(Save);
             Players = new PlayersViewModel(Save);
+            GummiShips = new GummiShipsViewModel(Save.Gummiships);
 
             OnPropertyChanged(nameof(System));
             OnPropertyChanged(nameof(Inventory));
             OnPropertyChanged(nameof(Players));
+            OnPropertyChanged(nameof(GummiShips));
         }
 
         public void OpenStream(Stream stream)
