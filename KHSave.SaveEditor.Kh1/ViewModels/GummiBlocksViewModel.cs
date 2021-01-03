@@ -13,7 +13,7 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         public GummiBlocksViewModel(GummiBlock[] gummiBlocks) :
             base(gummiBlocks.Select(x => new GummiBlockViewModel(x)))
         {
-            
+
         }
     }
 }
