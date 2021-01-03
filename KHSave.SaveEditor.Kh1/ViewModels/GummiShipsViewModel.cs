@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1;
+using KHSave.Lib1;
 using KHSave.Lib1.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +18,11 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
         {
             this.save = save;
         }*/
-        
+
         public GummiShipsViewModel(Gummiship[] gummiships) :
             base(gummiships.Select(x => new GummiShipViewModel(x)))
         {
-            
+
         }
 
         /*public GummiShipsViewModel(IEnumerable<Gummiship> list) :
