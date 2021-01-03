@@ -12,6 +12,6 @@ namespace KHSave.Lib1.Models
         [Data(Count = 10)] public byte[] ShipName { get; set; }
         [Data(Count = 22)] public byte[] Unk02 { get; set; }
         [Data(Count = 200)] public GummiBlock[] GummiBlocks { get; set; }
-        [Data(Count = 1466)] public byte[] Unk03 { get; set; }
+        [Data(Count = 1444)] public byte[] Unk03 { get; set; }
     }
 }

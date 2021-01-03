@@ -16,7 +16,7 @@
                 <TextBox Text="{Binding BlocksUsed}" IsEnabled="False"/>
 
             </common:TwoEqualColumnsStackPanel>
-            <local:GummiBlocksView/>
+            <local:GummiBlocksView Margin="0 10 0 0"/>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
