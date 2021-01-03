@@ -1,4 +1,4 @@
-﻿using KHSave.Lib1.Models;
+using KHSave.Lib1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,6 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
             //this.gummiblocks = gummiBlocks;
         }
 
-       
+
     }
 }
