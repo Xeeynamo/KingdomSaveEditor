@@ -7,9 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ComboBox ItemsSource="{Binding GummiBlocks}"
-                  SelectedValue="{Binding GummiBlock}"
-                  />
-        <local:GummiBlockView/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Column="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"
+            SelectedItem="{Binding SelectedItem}"
+            DisplayMemberPath="BlockID"
+            />
+        <Grid Grid.Column="2">
+            <local:GummiBlockView/>
+        </Grid>
     </Grid>
 </UserControl>

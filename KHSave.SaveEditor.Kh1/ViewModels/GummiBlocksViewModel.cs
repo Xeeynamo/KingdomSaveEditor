@@ -10,15 +10,10 @@ namespace KHSave.SaveEditor.Kh1.ViewModels
 {
     public class GummiBlocksViewModel : GenericListModel<GummiBlockViewModel>
     {
-
-        //private readonly GummiBlock[] gummiblocks;
-
         public GummiBlocksViewModel(GummiBlock[] gummiBlocks) :
             base(gummiBlocks.Select(x => new GummiBlockViewModel(x)))
         {
-            //this.gummiblocks = gummiBlocks;
+            
         }
-
-
     }
 }
