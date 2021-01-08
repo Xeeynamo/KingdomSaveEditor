@@ -1,12 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net5-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
     <ApplicationIcon>Icon1.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
     <StartupObject />
     <UseWpf>true</UseWpf>
     <Version>1.14.5</Version>
+    <Version>1.14.3</Version>
     <RepositoryUrl>https://github.com/xeeynamo/kh3saveeditor</RepositoryUrl>
     <PackageProjectUrl>http://kingdomsaveeditor.xee.dev/</PackageProjectUrl>
     <AssemblyVersion>1.14.5</AssemblyVersion>
@@ -20,7 +22,6 @@
     <Authors>Luciano (Xeeynamo) Ciccariello</Authors>
     <Product>Kingdom Save Editor</Product>
     <PackageLicenseExpression>GPL3</PackageLicenseExpression>
-    <LangVersion>7</LangVersion>
     <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
   <Target Name="_CheckForGenerateAppxPackageOnBuild" />
