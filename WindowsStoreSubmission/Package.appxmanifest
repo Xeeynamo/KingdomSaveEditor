@@ -9,7 +9,7 @@
   <Identity
     Name="58821Xeeynamo.KingdomSaveEditor"
     Publisher="CN=2A5D56DD-5C5B-454C-9458-F4672BBA118C"
-    Version="1.14.3.0" />
+    Version="1.14.4.0" />
 
   <Properties>
     <DisplayName>Kingdom Save Editor</DisplayName>
