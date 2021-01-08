@@ -18,6 +18,7 @@ namespace KHSave.SaveEditor.Services
             0x15390, // American 1.60
             0x15510, // Europe v1.60
             0x155D0, // Europe v2.00
+            0x15B90, // Every other BIOS from v2.20 or above
         };
 
         private class GameEntry
