@@ -12,7 +12,7 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 | Kingdom Hearts Re: CoM         | PS2/PS4      | All    |
 | Kingdom Hearts II              | PS2/PS3/PS4  | US/EU/FM |
 | Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4  | FM     |
-| Kingdom Hearts: Dream Drop Distance | 3DS/PS4 | 3DS    |
+| Kingdom Hearts: Dream Drop Distance | 3DS     | All    |
 | Kingdom Hearts 0.2             | PS4          | All    |
 | Kingdom Hearts III             | PS4          | All    |
 | Final Fantasy VII Remake       | PS4          | All    |
