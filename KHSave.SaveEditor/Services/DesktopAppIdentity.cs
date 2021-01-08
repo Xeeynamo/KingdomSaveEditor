@@ -12,10 +12,15 @@ namespace KHSave.SaveEditor.Services
         {
             _assembly = Assembly.GetExecutingAssembly();
             _fvi = FileVersionInfo.GetVersionInfo(_assembly.Location);
+
+            // https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-behind-the-scenes#installation
+            IsMicrosoftStore = _assembly.Location.Contains("/WindowsApps/");
         }
 
         public string Name => _fvi.ProductName;
 
         public string Version => _fvi.ProductVersion;
+
+        public bool IsMicrosoftStore { get; }
     }
 }

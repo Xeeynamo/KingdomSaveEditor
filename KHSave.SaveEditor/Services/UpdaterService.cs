@@ -12,6 +12,7 @@ namespace KHSave.SaveEditor.Services
     public class UpdaterService : IUpdater
     {
         private readonly IWindowManager windowManager;
+        private readonly IAppIdentity _appIdentity;
 
         private bool IsItTimeForCheckingNewVersion
         {
@@ -41,6 +42,7 @@ namespace KHSave.SaveEditor.Services
         public UpdaterService(IWindowManager windowManager)
         {
             this.windowManager = windowManager;
+            _appIdentity = new DesktopAppIdentity();
         }
 
         public Task<bool> AutomaticallyCheckLastVersionAsync()
@@ -53,6 +55,9 @@ namespace KHSave.SaveEditor.Services
 
         public async Task<bool> ForceCheckLastVersionAsync()
         {
+            if (_appIdentity.IsMicrosoftStore)
+                return false;
+
             UpdateLastTimeForCheckingNewVersion();
             var checkCurrentVersion = new DesktopCheckCurrentVersion();
             var checkLastVersion = new GithubCheckLatestVersion("xeeynamo", "kh3saveeditor");

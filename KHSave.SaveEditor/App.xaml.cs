@@ -57,6 +57,7 @@ namespace KHSave.SaveEditor
                 .RegisterInstance<IApplicationStartup>(new ApplicationStartup(e.Args))
                 .RegisterSingleton<IAlertMessage, AlertMessage>()
                 .RegisterSingleton<IUpdater, UpdaterService>()
+                .RegisterSingleton<IAppIdentity, DesktopAppIdentity>()
                 ;
 
             container.Resolve<MainWindow>().Show();

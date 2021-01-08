@@ -55,6 +55,7 @@ namespace KHSave.SaveEditor.ViewModels
         private readonly IWindowManager windowManager;
         private readonly IAlertMessage alertMessage;
         private readonly IUpdater updater;
+        private readonly IAppIdentity _appIdentity;
         private readonly ContentFactory contentFactory;
         private readonly ReporterService reporterService;
         private object dataContext;
@@ -78,6 +79,9 @@ namespace KHSave.SaveEditor.ViewModels
                 return IsFileOpen ? $"{fileDialogManager.CurrentFileName} | {OriginalTitle}" : OriginalTitle;
             }
         }
+
+        public Visibility UpdateVisibility => _appIdentity.IsMicrosoftStore ?
+            Visibility.Collapsed : Visibility.Visible;
 
         public bool IsFileOpen => SaveKind != ContentType.Unload && fileDialogManager.IsFileOpen;
 
@@ -155,6 +159,7 @@ namespace KHSave.SaveEditor.ViewModels
             IWindowManager windowManager,
             IAlertMessage alertMessage,
             IUpdater updater,
+            IAppIdentity appIdentity,
             ContentFactory contentFactory,
             HomeViewModel homeContext)
         {
@@ -162,6 +167,7 @@ namespace KHSave.SaveEditor.ViewModels
             this.windowManager = windowManager;
             this.alertMessage = alertMessage;
             this.updater = updater;
+            _appIdentity = appIdentity;
             this.contentFactory = contentFactory;
             this.reporterService = ReporterService.Instance;
             HomeContext = homeContext;

@@ -62,12 +62,14 @@
                     IsChecked="{Binding IsAnonymousReporting}"/>
             </MenuItem>
             <MenuItem Header="_Info">
-                <MenuItem Header="Get _latest version" Command="{Binding GetLatestVersionCommand}">
+                <MenuItem
+                    Header="Get _latest version"
+                    Command="{Binding GetLatestVersionCommand}"
+                    Visibility="{Binding UpdateVisibility}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource Download_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <Separator/>
                 <MenuItem Header="Go to Home Page" Command="{Binding OpenLinkCommand}"
                     CommandParameter="https://kingdomsaveeditor.xee.dev">
                     <MenuItem.Icon>
