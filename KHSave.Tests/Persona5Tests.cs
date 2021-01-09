@@ -28,8 +28,8 @@ namespace KHSave.Tests
         public void ReadPersona5FromPs3()
         {
             var save = File.OpenRead("Saves/p5_ps3.DAT").Using(SavePersona5.Read);
-            Assert.Equal("Pandan", save.ProtagonistLastName);
-            Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            //Assert.Equal("Pandan", save.ProtagonistLastName);
+            //Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
             Assert.Equal(10, save.CalendarDay1);
             Assert.Equal(10, save.CalendarDay2);
             Assert.Equal(10, save.CalendarDay3);
@@ -60,8 +60,8 @@ namespace KHSave.Tests
         public void ReadPersona5FromPs4()
         {
             var save = File.OpenRead("Saves/p5_ps4.DAT").Using(SavePersona5.Read);
-            Assert.Equal("Luciano", save.ProtagonistLastName);
-            Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            //Assert.Equal("Luciano", save.ProtagonistLastName);
+            //Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
             Assert.Equal(256, save.CalendarDay1);
             Assert.Equal(256, save.CalendarDay2);
             Assert.Equal(256, save.CalendarDay3);
@@ -89,8 +89,8 @@ namespace KHSave.Tests
         public void ReadPersona5Royal()
         {
             var save = File.OpenRead("Saves/p5r.DAT").Using(SavePersona5.Read);
-            Assert.Equal("Retsu", save.ProtagonistLastName);
-            Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
+            //Assert.Equal("Retsu", save.ProtagonistLastName);
+            //Assert.Equal("Xeeynamo", save.ProtagonistFirstName);
             Assert.Equal(20, save.CalendarDay1);
             Assert.Equal(20, save.CalendarDay2);
             Assert.Equal(20, save.CalendarDay3);
