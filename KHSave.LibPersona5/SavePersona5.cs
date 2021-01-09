@@ -9,8 +9,8 @@ namespace KHSave.LibPersona5
     public interface ISavePersona5
     {
         bool IsRoyal { get; }
-        string ProtagonistLastName { get; set; }
-        string ProtagonistFirstName { get; set; }
+        //string ProtagonistLastName { get; set; }
+        //string ProtagonistFirstName { get; set; }
         int Money { get; set; }
         bool PartyModifierRyuji { get; set; }
         bool PartyModifierMorgana { get; set; }
