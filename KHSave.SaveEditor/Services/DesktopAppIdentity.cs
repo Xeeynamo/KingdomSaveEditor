@@ -1,10 +1,18 @@
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 
 namespace KHSave.SaveEditor.Services
 {
     public class DesktopAppIdentity : IAppIdentity
     {
+        private static readonly string[] WindowsStorePathList = new[]
+        {
+            "\\WindowsApps\\",
+            "/WindowsApps/",
+            "58821Xeeynamo.KingdomSaveEditor_",
+        };
+
         private static Assembly _assembly;
         private static FileVersionInfo _fvi;
 
@@ -14,7 +22,7 @@ namespace KHSave.SaveEditor.Services
             _fvi = FileVersionInfo.GetVersionInfo(_assembly.Location);
 
             // https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-behind-the-scenes#installation
-            IsMicrosoftStore = _assembly.Location.Contains("/WindowsApps/");
+            IsMicrosoftStore = WindowsStorePathList.Any(x => _assembly.Location.Contains(x));
         }
 
         public string Name => _fvi.ProductName;
