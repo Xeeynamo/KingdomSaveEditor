@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows;
-using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.VersionCheck;
 using KHSave.SaveEditor.Views;
@@ -20,7 +19,7 @@ namespace KHSave.SaveEditor.Services
             {
                 try
                 {
-                    return Settings.Default.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
+                    return Common.Global.LastUpdateCheck.AddDays(1) < DateTime.UtcNow;
                 }
                 catch
                 {
@@ -31,12 +30,8 @@ namespace KHSave.SaveEditor.Services
 
         public bool IsAutomaticUpdatesEnabled
         {
-            get => Settings.Default.IsUpdateCheckingEnabled;
-            set
-            {
-                Settings.Default.IsUpdateCheckingEnabled = value;
-                Settings.Default.Save();
-            }
+            get => Common.Global.IsUpdateCheckingEnabled;
+            set => Common.Global.IsUpdateCheckingEnabled = value;
         }
 
         public UpdaterService(IWindowManager windowManager)
@@ -75,10 +70,7 @@ namespace KHSave.SaveEditor.Services
             return false;
         }
 
-        private void UpdateLastTimeForCheckingNewVersion()
-        {
-            Settings.Default.LastUpdateCheck = DateTime.UtcNow;
-            Settings.Default.Save();
-        }
+        private void UpdateLastTimeForCheckingNewVersion() =>
+            Common.Global.LastUpdateCheck = DateTime.UtcNow;
     }
 }

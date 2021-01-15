@@ -45,7 +45,6 @@ using KHSave.LibBbs;
 using KHSave.LibDDD;
 using KHSave.SaveEditor.Views;
 using KHSave.LibPersona5;
-using KHSave.SaveEditor.Common.Properties;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -144,13 +143,12 @@ namespace KHSave.SaveEditor.ViewModels
 
         public bool IsAnonymousReporting
         {
-            get => Settings.Default.AnonymousReporting;
+            get => Global.AnonymousReporting;
             set
             {
                 if (value == true)
                     reporterService.DeleteCookies();
-                Settings.Default.AnonymousReporting = value;
-                Settings.Default.Save();
+                Global.AnonymousReporting = value;
             }
         }
 

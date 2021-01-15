@@ -1,11 +1,6 @@
-using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.VersionCheck;
-using Newtonsoft.Json;
 using System;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace KHSave.SaveEditor.Services
@@ -41,29 +36,23 @@ namespace KHSave.SaveEditor.Services
                     cookie = GetCookie()
                 });
 
-                Settings.Default.Cookie = string.Empty;
-                Settings.Default.Save();
+                Common.Global.Cookie = string.Empty;
             }
 
             private static string GetCookie()
             {
-                if (Settings.Default.AnonymousReporting)
+                if (Common.Global.AnonymousReporting)
                     return AnonymousCookie;
 
-                var cookie = Settings.Default.Cookie;
+                var cookie = Common.Global.Cookie;
                 if (string.IsNullOrEmpty(cookie))
                     cookie = GenerateCookie();
 
                 return cookie;
             }
 
-            private static string GenerateCookie()
-            {
-                var cookie = Settings.Default.Cookie = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
-                Settings.Default.Save();
-
-                return cookie;
-            }
+            private static string GenerateCookie() =>
+                Common.Global.Cookie = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
 
             private static Task Send(string endpoint, object obj)
             {

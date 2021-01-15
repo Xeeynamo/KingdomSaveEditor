@@ -24,15 +24,6 @@ namespace KHSave.SaveEditor.Services
 
         public DesktopAppIdentity()
         {
-            var assembly;
-            MessageBox.Show($"BaseDir: {AppContext.BaseDirectory}");
-            MessageBox.Show($"ManifestModuleName: {assembly.ManifestModule}");
-            var assemblyLocation = Path.Combine(AppContext.BaseDirectory, assembly.ManifestModule.ToString())
-                .Replace(".dll", ".exe");
-            MessageBox.Show($"Location: {assemblyLocation}");
-            _fvi = FileVersionInfo.GetVersionInfo(assemblyLocation);
-            MessageBox.Show($"FileVersionInfo: {_fvi}");
-
             // https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-behind-the-scenes#installation
             IsMicrosoftStore = WindowsStorePathList.Any(x => AppContext.BaseDirectory.Contains(x));
         }

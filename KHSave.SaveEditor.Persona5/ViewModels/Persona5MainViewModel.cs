@@ -2,7 +2,6 @@ using KHSave.LibPersona5;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.SaveEditor.Common.Models;
-using KHSave.SaveEditor.Common.Properties;
 using KHSave.SaveEditor.Persona5.Interfaces;
 using KHSave.SaveEditor.Persona5.Models;
 using System.Collections.Generic;
@@ -74,12 +73,8 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public Visibility AdvancedVisibility => Common.Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public string CurrentTabId
         {
-            get => Settings.Default.LastPersona5Tab ?? DefaultTab;
-            set
-            {
-                Settings.Default.LastPersona5Tab = value;
-                Settings.Default.Save();
-            }
+            get => Common.Global.LastPersona5Tab ?? DefaultTab;
+            set => Common.Global.LastPersona5Tab = value;
         }
 
         public IEnumerable<PersonaEntryViewModel> PersonaList { get; private set; }

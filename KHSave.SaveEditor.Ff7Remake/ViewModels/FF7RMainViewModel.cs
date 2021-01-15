@@ -18,7 +18,6 @@
 
 using KHSave.LibFf7Remake;
 using KHSave.SaveEditor.Common.Contracts;
-using KHSave.SaveEditor.Common.Properties;
 using System.IO;
 using System.Windows;
 using Xe.Tools;
@@ -47,12 +46,8 @@ namespace KHSave.SaveEditor.Ff7Remake.ViewModels
         public Visibility AdvancedVisibility => Common.Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public string CurrentTabId
         {
-            get => Settings.Default.LastFF7RTab ?? DefaultTab;
-            set
-            {
-                Settings.Default.LastFF7RTab = value;
-                Settings.Default.Save();
-            }
+            get => Common.Global.LastFF7RTab ?? DefaultTab;
+            set => Common.Global.LastFF7RTab = value;
         }
 
         public void RefreshUi()
