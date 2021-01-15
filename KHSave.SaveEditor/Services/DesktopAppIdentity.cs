@@ -1,6 +1,9 @@
+using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows;
 
 namespace KHSave.SaveEditor.Services
 {
@@ -13,16 +16,25 @@ namespace KHSave.SaveEditor.Services
             "58821Xeeynamo.KingdomSaveEditor_",
         };
 
-        private static Assembly _assembly;
-        private static FileVersionInfo _fvi;
+        private static readonly Assembly _assembly = Assembly.GetExecutingAssembly();
+        private static readonly string _assemblyLocation = Path
+            .Combine(AppContext.BaseDirectory, _assembly.ManifestModule.ToString())
+                .Replace(".dll", ".exe");
+        private static readonly FileVersionInfo _fvi = FileVersionInfo.GetVersionInfo(_assemblyLocation);
 
         public DesktopAppIdentity()
         {
-            _assembly = Assembly.GetExecutingAssembly();
-            _fvi = FileVersionInfo.GetVersionInfo(_assembly.Location);
+            var assembly;
+            MessageBox.Show($"BaseDir: {AppContext.BaseDirectory}");
+            MessageBox.Show($"ManifestModuleName: {assembly.ManifestModule}");
+            var assemblyLocation = Path.Combine(AppContext.BaseDirectory, assembly.ManifestModule.ToString())
+                .Replace(".dll", ".exe");
+            MessageBox.Show($"Location: {assemblyLocation}");
+            _fvi = FileVersionInfo.GetVersionInfo(assemblyLocation);
+            MessageBox.Show($"FileVersionInfo: {_fvi}");
 
             // https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-behind-the-scenes#installation
-            IsMicrosoftStore = WindowsStorePathList.Any(x => _assembly.Location.Contains(x));
+            IsMicrosoftStore = WindowsStorePathList.Any(x => AppContext.BaseDirectory.Contains(x));
         }
 
         public string Name => _fvi.ProductName;
