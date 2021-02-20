@@ -21,6 +21,13 @@
     <PackageId>KHSave.SaveEditor</PackageId>
     <Authors>Luciano (Xeeynamo) Ciccariello</Authors>
     <Product>Kingdom Save Editor</Product>
+
+    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>True</PublishSingleFile>
+    <PublishReadyToRun>True</PublishReadyToRun>
+    <PublishTrimmed>False</PublishTrimmed>
+      
     <PackageLicenseExpression>GPL3</PackageLicenseExpression>
     <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>

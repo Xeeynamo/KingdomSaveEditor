@@ -25,62 +25,67 @@ namespace KHSave.SaveEditor.Common
 {
     internal class Settings : ApplicationSettingsBase
     {
-        T Get<T>([CallerMemberName] string propertyName = null) => (T)this[propertyName];
+        T Get<T>(T defaultValue, [CallerMemberName] string propertyName = null)
+        {
+            try
+            {
+                var value = this[propertyName];
+                return value == null ? defaultValue : (T)value;
+            }
+            catch
+            {
+                return defaultValue;
+            }
+        }
+
         void Set<T>(T value, [CallerMemberName] string propertyName = null) => this[propertyName] = value;
 
         [UserScopedSetting]
-        [DefaultSettingValue("false")]
         public bool AdvancedMode
         {
-            get => Get<bool>();
+            get => Get(false);
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("true")]
         public bool IsUpdateCheckingEnabled
         {
-            get => Get<bool>();
+            get => Get(true);
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("0000-00-00")]
         public DateTime LastUpdateCheck
         {
-            get => Get<DateTime>();
+            get => Get(DateTime.Now);
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("Materia")]
         public string LastFF7RTab
         {
-            get => Get<string>();
+            get => Get("Materia");
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("Characters")]
         public string LastPersona5Tab
         {
-            get => Get<string>();
+            get => Get("Characters");
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("")]
         public string Cookie
         {
-            get => Get<string>();
+            get => Get("");
             set => Set(value);
         }
 
         [UserScopedSetting]
-        [DefaultSettingValue("false")]
         public bool AnonymousReporting
         {
-            get => Get<bool>();
+            get => Get(false);
             set => Set(value);
         }
     }
