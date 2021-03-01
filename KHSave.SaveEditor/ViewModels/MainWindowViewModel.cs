@@ -64,7 +64,7 @@ namespace KHSave.SaveEditor.ViewModels
         private string _processTitleName;
         private ProcessStream _processStream;
 
-        private string OriginalTitle => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+        private string OriginalTitle => AppContext.BaseDirectory;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
