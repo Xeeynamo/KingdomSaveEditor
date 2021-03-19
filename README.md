@@ -40,7 +40,7 @@ This software is **free and open-source**, and every contribution is more than w
 
 If you want to add missing names, improve it or add new offsets, just clone the repository, do your change, test if it does work and create a pull request: we will review your change (no needs to be scared here) and we will merge it to this repo! Do not be shy on contribute, even for the smallest thing 😃
 
-### Issues or feature requestes
+### Issues or feature requests
 
 For every issue or feature request, please refer to [the issue page on GitHub](https://github.com/Xeeynamo/KH3SaveEditor/issues). Be as detailed as possible when creating an issue as it will help me to dig into the problem.
 
