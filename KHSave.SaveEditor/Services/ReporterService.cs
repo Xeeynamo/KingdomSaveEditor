@@ -1,6 +1,10 @@
 using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.VersionCheck;
+using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KHSave.SaveEditor.Services
@@ -64,18 +68,16 @@ namespace KHSave.SaveEditor.Services
                 {
                     try
                     {
-                        using (var client = new HttpClient())
-                        {
-                            var content = new StringContent(
-                                    JsonConvert.SerializeObject(obj),
-                                    Encoding.UTF8,
-                                    "application/json");
-                            content.Headers.Add("kse-os", Os);
-                            content.Headers.Add("kse-ver", Ver);
-                            content.Headers.Add("kse-cookie", GetCookie());
+                        using var client = new HttpClient();
+                        var content = new StringContent(
+                            JsonConvert.SerializeObject(obj),
+                            Encoding.UTF8,
+                            "application/json");
+                        content.Headers.Add("kse-os", Os);
+                        content.Headers.Add("kse-ver", Ver);
+                        content.Headers.Add("kse-cookie", GetCookie());
 
-                            var result = await client.PostAsync($"https://api.xee.dev/v1/khsaveeditor/{endpoint}", content);
-                        }
+                        var result = await client.PostAsync($"https://api.xee.dev/v1/khsaveeditor/{endpoint}", content);
                     }
                     catch { }
                 });
