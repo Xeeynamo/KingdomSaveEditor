@@ -18,7 +18,11 @@ namespace KHSave.SaveEditor.Ff7Remake.Views
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = e.Uri.AbsoluteUri,
+                UseShellExecute = true
+            });
             e.Handled = true;
         }
     }

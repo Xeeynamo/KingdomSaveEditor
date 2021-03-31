@@ -246,7 +246,11 @@ namespace KHSave.SaveEditor.ViewModels
                 });
             });
 
-            OpenLinkCommand = new RelayCommand(url => Process.Start(new ProcessStartInfo(url as string)));
+            OpenLinkCommand = new RelayCommand(url => Process.Start(new ProcessStartInfo()
+            {
+                FileName = url as string,
+                UseShellExecute = true
+            }));
 
             AboutCommand = new RelayCommand(x =>
             {
