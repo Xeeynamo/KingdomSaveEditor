@@ -23,13 +23,14 @@ namespace KHSave.Archives
 {
     public static class ArchiveFactories
     {
-        public static IArchiveFactory Ps4Kh1 = new Ps4Kh1Factory();
-        public static IArchiveFactory Ps4Kh2 = new Ps4Kh2Factory();
-        public static IArchiveFactory Ps4KhRecom = new Ps4KhRecomFactory();
-        public static IArchiveFactory Ps4KhDdd = new Ps4KhDddFactory();
-        public static IArchiveFactory PcKh1 = new PcKh1Factory();
-        public static IArchiveFactory PcKh2 = new PcKh2Factory();
-        public static IArchiveFactory PcKhRecom = new PcKhRecomFactory();
+        public static readonly IArchiveFactory Ps4Kh1 = new Ps4Kh1Factory();
+        public static readonly IArchiveFactory Ps4Kh2 = new Ps4Kh2Factory();
+        public static readonly IArchiveFactory Ps4KhRecom = new Ps4KhRecomFactory();
+        public static readonly IArchiveFactory Ps4KhDdd = new Ps4KhDddFactory();
+        public static readonly IArchiveFactory PcKh1 = new PcKh1Factory();
+        public static readonly IArchiveFactory PcKh2 = new PcKh2Factory();
+        public static readonly IArchiveFactory PcKhRecom = new PcKhRecomFactory();
+        public static readonly IArchiveFactory PcKhDdd = new PcKhDddFactory();
 
 
         public static bool TryGetFactory(Stream stream, out IArchiveFactory archiveFactory)
@@ -48,6 +49,8 @@ namespace KHSave.Archives
                 archiveFactory = PcKh2;
             else if (PcKhRecom.IsValid(stream))
                 archiveFactory = PcKhRecom;
+            else if (PcKhDdd.IsValid(stream))
+                archiveFactory = PcKhDdd;
             else
                 archiveFactory = null;
 
