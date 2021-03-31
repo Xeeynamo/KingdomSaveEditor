@@ -6,17 +6,17 @@ This is the repository for a Windows application that allows to modify decrypted
 
 If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer) to make it work.
 
-| Game                           | Console      | Region |
-|--------------------------------| -------------|--------|
-| Kingdom Hearts I               | PS2/PS3/PS4  | All    |
-| Kingdom Hearts Re: CoM         | PS2/PS4      | All    |
-| Kingdom Hearts II              | PS2/PS3/PS4  | US/EU/FM |
-| Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4  | FM     |
-| Kingdom Hearts: Dream Drop Distance | 3DS     | All    |
-| Kingdom Hearts 0.2             | PS4          | All    |
-| Kingdom Hearts III             | PS4          | All    |
-| Final Fantasy VII Remake       | PS4          | All    |
-| Persona 5, Persona 5 Royal     | PS3/PS4      | US/EU  |
+| Game                           | Console         | Region |
+|--------------------------------| ----------------|--------|
+| Kingdom Hearts I               | PS2/PS3/PS4/PC  | All    |
+| Kingdom Hearts Re: CoM         | PS2/PS4/PC      | All    |
+| Kingdom Hearts II              | PS2/PS3/PS4/PC  | US/EU/FM |
+| Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4/PC  | FM     |
+| Kingdom Hearts: Dream Drop Distance | 3DS/PC     | All    |
+| Kingdom Hearts 0.2             | PS4             | All    |
+| Kingdom Hearts III             | PS4             | All    |
+| Final Fantasy VII Remake       | PS4             | All    |
+| Persona 5, Persona 5 Royal     | PS3/PS4         | US/EU  |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)*
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg)
