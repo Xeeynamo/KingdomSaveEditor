@@ -30,6 +30,7 @@ namespace KHSave.Archives
         public static readonly IArchiveFactory PcKh1 = new PcKh1Factory();
         public static readonly IArchiveFactory PcKh2 = new PcKh2Factory();
         public static readonly IArchiveFactory PcKhRecom = new PcKhRecomFactory();
+        public static readonly IArchiveFactory PcKhBbs = new PcKhBbsactory();
         public static readonly IArchiveFactory PcKhDdd = new PcKhDddFactory();
 
 
@@ -49,6 +50,8 @@ namespace KHSave.Archives
                 archiveFactory = PcKh2;
             else if (PcKhRecom.IsValid(stream))
                 archiveFactory = PcKhRecom;
+            else if (PcKhBbs.IsValid(stream))
+                archiveFactory = PcKhBbs;
             else if (PcKhDdd.IsValid(stream))
                 archiveFactory = PcKhDdd;
             else
