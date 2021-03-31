@@ -8,7 +8,6 @@
     <StartupObject />
     <UseWpf>true</UseWpf>
     <Version>1.14.5</Version>
-    <Version>1.14.3</Version>
     <RepositoryUrl>https://github.com/xeeynamo/kh3saveeditor</RepositoryUrl>
     <PackageProjectUrl>http://kingdomsaveeditor.xee.dev/</PackageProjectUrl>
     <AssemblyVersion>1.14.5</AssemblyVersion>
