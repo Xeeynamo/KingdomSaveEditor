@@ -64,7 +64,7 @@ namespace KHSave.SaveEditor.ViewModels
         private string _processTitleName;
         private ProcessStream _processStream;
 
-        private string OriginalTitle => AppContext.BaseDirectory;
+        private string OriginalTitle => "Kingdom Save Editor";
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
