@@ -49,7 +49,7 @@ namespace KHSave.Archives
             [Data] public int Attr { get; set; }
             [Data(Count = 32)] public string Name { get; set; }
             [Data] public int Offset { get; set; }
-            
+
             public byte[] Data { get; set; }
 
             public DateTime DateCreated { get => Map(Created); set => throw new NotImplementedException(); }
@@ -83,7 +83,7 @@ namespace KHSave.Archives
                 .Select(x => BinaryMapping.ReadObject<Ps2FileEntry>(stream, (int)stream.Position))
                 .ToArray();
 
-            foreach(var entry in entries)
+            foreach (var entry in entries)
             {
                 stream.Position = entry.Offset;
                 entry.Data = new byte[entry.Size];
