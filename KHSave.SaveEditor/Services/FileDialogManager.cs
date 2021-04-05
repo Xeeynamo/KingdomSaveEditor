@@ -19,6 +19,8 @@ namespace KHSave.SaveEditor.Services
             .AddPatterns("Kingdom Hearts 0.2", ";ue4savegame*.sav")
             .AddPatterns("Kingdom Hearts III", ";__data__slot*.bin")
             .AddPatterns("Final Fantasy VII REMAKE", ";ff7remake*")
+            .AddExtensions("PS2 Save Archive", "psu", "cbs")
+            .AddExtensions("PS2 Single Archive (PS3)", "psv")
             ;
 
         private readonly IWindowManager _windowManager;
