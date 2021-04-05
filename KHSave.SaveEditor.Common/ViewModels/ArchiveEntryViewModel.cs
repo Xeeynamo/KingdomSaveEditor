@@ -37,6 +37,14 @@ namespace KHSave.SaveEditor.Common.ViewModels
             OnPropertyChanged(nameof(Name));
         }
 
+        public void Rename(string newname)
+        {
+            ArchiveEntry.Name = newname;
+
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(FileName));
+        }
+
         public void Erase()
         {
             ArchiveEntry.Name = string.Empty;
@@ -45,6 +53,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
             ArchiveEntry.Data = new byte[0];
 
             OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(FileName));
         }
 
         public override string ToString() => Name;

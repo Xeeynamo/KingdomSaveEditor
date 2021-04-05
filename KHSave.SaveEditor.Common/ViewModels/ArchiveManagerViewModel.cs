@@ -80,6 +80,14 @@ namespace KHSave.SaveEditor.Common.ViewModels
 
             }, o => IsSelected);
 
+            RenameCommand = new RelayCommand(o =>
+            {
+                SingleInputDialog sid = new() { Description = "Please enter a name for the save slot", Text = SelectedEntry?.Name ?? string.Empty };
+                sid.ShowDialog();
+                if (sid.DialogResult == true && !string.IsNullOrEmpty(sid.Text))
+                    Entries.SelectedValue?.Rename(sid.Text);
+            }, o => !IsSelectedEmpty);
+
             DeleteCommand = new RelayCommand(o =>
             {
                 Entries.SelectedValue?.Erase();
@@ -93,6 +101,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
         public RelayCommand ExportCommand { get; }
         public RelayCommand CopyCommand { get; }
         public RelayCommand PasteCommand { get; }
+        public RelayCommand RenameCommand { get; }
         public RelayCommand DeleteCommand { get; }
 
         public IArchive Archive { get; }
@@ -110,6 +119,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
                 OnPropertyChanged(nameof(ExportCommand));
                 OnPropertyChanged(nameof(CopyCommand));
                 OnPropertyChanged(nameof(PasteCommand));
+                OnPropertyChanged(nameof(RenameCommand));
                 OnPropertyChanged(nameof(DeleteCommand));
             }
         }
