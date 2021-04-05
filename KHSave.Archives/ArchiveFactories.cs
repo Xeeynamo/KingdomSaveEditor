@@ -33,6 +33,10 @@ namespace KHSave.Archives
         public static readonly IArchiveFactory PcKhBbs = new PcKhBbsactory();
         public static readonly IArchiveFactory PcKhDdd = new PcKhDddFactory();
 
+        public static readonly IArchiveFactory Ps2Psu = new Ps2PsuFactory();
+        public static readonly IArchiveFactory Ps2Cbs = new Ps2CbsFactory();
+
+        public static readonly IArchiveFactory Ps3Psv = new Ps3PsvFactory();
 
         public static bool TryGetFactory(Stream stream, out IArchiveFactory archiveFactory)
         {
@@ -54,6 +58,12 @@ namespace KHSave.Archives
                 archiveFactory = PcKhBbs;
             else if (PcKhDdd.IsValid(stream))
                 archiveFactory = PcKhDdd;
+            else if (Ps2Psu.IsValid(stream))
+                archiveFactory = Ps2Psu;
+            else if (Ps2Cbs.IsValid(stream))
+                archiveFactory = Ps2Cbs;
+            else if (Ps3Psv.IsValid(stream))
+                archiveFactory = Ps3Psv;
             else
                 archiveFactory = null;
 
