@@ -19,7 +19,7 @@ namespace KHSave.LibDDD
             [Data] public byte RoomId { get; set; }
             [Data] public byte SpawnId { get; set; }
             //3 in party and 99 on the bank
-            [Data(0x53a0, Count = 102)] public DreamEater[] DreamEaters { get; set; }  
+            [Data(0x53a0, Count = 102)] public DreamEater[] DreamEaters { get; set; }
 
             [Data(0xBFE0, Count = 511)] public CommandEntry[] CommandInventory { get; set; }
 
