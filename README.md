@@ -14,7 +14,7 @@ If you use Windows 7 SP1 or Windows 8.1, you just need [.NET Framework 4.7.2](ht
 | Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4/PC  | FM     |
 | Kingdom Hearts: Dream Drop Distance | 3DS/PC     | All    |
 | Kingdom Hearts 0.2             | PS4             | All    |
-| Kingdom Hearts III             | PS4             | All    |
+| Kingdom Hearts III             | PS4\pc            | All    |
 | Final Fantasy VII Remake       | PS4             | All    |
 | Persona 5, Persona 5 Royal     | PS3/PS4         | US/EU  |
 
