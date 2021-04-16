@@ -57,7 +57,7 @@ namespace KHSave.LibDDD
             {
                 case Constants.MagicCode3DSEu:
                     return ReadVersion(stream);
-                    
+
                 default:
                     throw new NotSupportedException("The version is not supported.");
             }
@@ -68,7 +68,7 @@ namespace KHSave.LibDDD
             {
                 case Constants.Version3DS:
                     return Read<SaveKhDDD3DS>(stream);
-               
+
                 case Constants.VersionPS4:
                     return Read<SaveKhDDDPS4>(stream);
 
