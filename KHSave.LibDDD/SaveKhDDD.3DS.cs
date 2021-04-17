@@ -20,10 +20,10 @@ namespace KHSave.LibDDD
             [Data] public byte SpawnId { get; set; }
             //3 in party and 99 on the bank
             [Data(0x53a0, Count = 102)] public DreamEater[] DreamEaters { get; set; }
-            //SoraXp max value 786680?
 
             [Data(0xBFE0, Count = 511)] public CommandEntry[] CommandInventory { get; set; }
 
+            //SoraXp max value 786680?
             [Data(0xd1cc)] public uint SoraXp { get; set; }
             [Data(0xd1f0)] public byte SoraLv { get; set; }
             //RikuXp max value 786680?
