@@ -30,8 +30,11 @@ namespace KHSave.LibDDD
             [Data(0xd2ea)] public EquipmentType RikuKeyblade { get; set; }
             //Munny max value 999999?
             [Data(0xd2ec)] public uint Munny { get; set; }
-            [Data(0xd314, Count = 3)] public Deck[] SoraDecks { get; set; }
-            [Data(0xd620, Count = 3)] public Deck[] RikuDecks { get; set; }
+            [Data(0xd314, Count = 3)] public DeckPS4[] SoraDecks { get; set; }
+            [Data(0xd620, Count = 3)] public DeckPS4[] RikuDecks { get; set; }
+
+            IDeck[] ISaveKhDDD.SoraDecks => Array.ConvertAll(SoraDecks, x => (IDeck)x);
+            IDeck[] ISaveKhDDD.RikuDecks => Array.ConvertAll(SoraDecks, x => (IDeck)x);
 
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);

@@ -6,9 +6,9 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
     public class DeckViewModel : BaseNotifyPropertyChanged
     {
-        private readonly Deck deck;
+        private readonly IDeck deck;
 
-        public DeckViewModel(Deck deck)
+        public DeckViewModel(IDeck deck)
         {
             this.deck = deck;
         }

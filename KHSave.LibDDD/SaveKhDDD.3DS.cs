@@ -36,6 +36,9 @@ namespace KHSave.LibDDD
             [Data(0xd2f0, Count = 3)] public Deck[] SoraDecks { get; set; }
             [Data(0xd5fc, Count = 3)] public Deck[] RikuDecks { get; set; }
 
+            IDeck[] ISaveKhDDD.SoraDecks => Array.ConvertAll(SoraDecks, x => (IDeck)x);
+            IDeck[] ISaveKhDDD.RikuDecks => Array.ConvertAll(SoraDecks, x => (IDeck)x);
+
             public void Write(Stream stream) =>
                 BinaryMapping.WriteObject(stream.FromBegin(), this);
         }

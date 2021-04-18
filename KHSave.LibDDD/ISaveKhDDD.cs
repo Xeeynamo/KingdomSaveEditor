@@ -20,8 +20,8 @@ namespace KHSave.LibDDD
         EquipmentType SoraKeyblade { get; set; }
         EquipmentType RikuKeyblade { get; set; }
         UInt32 Munny { get; set; }
-        Deck[] SoraDecks { get; set; }
-        Deck[] RikuDecks { get; set; }
+        IDeck[] SoraDecks { get; }
+        IDeck[] RikuDecks { get; }
 
         void Write(Stream stream);
     }

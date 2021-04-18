@@ -2,7 +2,7 @@ using Xe.BinaryMapper;
 
 namespace KHSave.LibDDD.Model
 {
-    public class Deck
+    public class Deck : IDeck
     {
         [Data(Count = 220)] public byte[] Unk01 { get; set; }
         [Data(Count = 16)] public byte[] Name { get; set; }
