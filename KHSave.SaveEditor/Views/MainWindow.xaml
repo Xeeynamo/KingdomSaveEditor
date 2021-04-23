@@ -100,7 +100,7 @@
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Report bug or missing features" Command="{Binding OpenLinkCommand}"
+                <MenuItem Header="Report bug or missing features" Command="{Binding OpenGitHubIssueLinkCommand}"
                     CommandParameter="https://github.com/Xeeynamo/KingdomSaveEditor/issues">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>

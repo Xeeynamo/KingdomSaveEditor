@@ -43,6 +43,8 @@ using KHSave.LibBbs;
 using KHSave.LibDDD;
 using KHSave.SaveEditor.Views;
 using KHSave.LibPersona5;
+using System.Net.Http;
+using System.Net;
 
 namespace KHSave.SaveEditor.ViewModels
 {
@@ -102,6 +104,7 @@ namespace KHSave.SaveEditor.ViewModels
         public RelayCommand ExitCommand { get; }
         public RelayCommand GetLatestVersionCommand { get; }
         public RelayCommand OpenLinkCommand { get; }
+        public RelayCommand OpenGitHubIssueLinkCommand { get; }
 
         public object DataContext
         {
@@ -249,6 +252,21 @@ namespace KHSave.SaveEditor.ViewModels
                 FileName = url as string,
                 UseShellExecute = true
             }));
+
+            OpenGitHubIssueLinkCommand = new RelayCommand(async url =>
+            {
+                using var client = new HttpClient(new HttpClientHandler
+                {
+                    AllowAutoRedirect = false,
+                    AutomaticDecompression = DecompressionMethods.All,
+                });
+                using var response = await client.GetAsync(url as string, HttpCompletionOption.ResponseHeadersRead);
+                if (IsIssueSectionClosed(response))
+                    MessageBox.Show("The bug report section is temporarily closed as some users written toxic comments in it and due to spam.",
+                        "Bug report section temporarily closed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else
+                    OpenLinkCommand.Execute(url);
+            });
         }
 
         private bool IsTransferSupported()
@@ -492,5 +510,10 @@ namespace KHSave.SaveEditor.ViewModels
                     "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private static bool IsIssueSectionClosed(HttpResponseMessage response) =>
+            (int)response.StatusCode >= 300 && (int)response.StatusCode < 400 &&
+            response.Headers.TryGetValues("Location", out var location) &&
+            location.Any() && location.First().EndsWith("/pulls");
     }
 }
