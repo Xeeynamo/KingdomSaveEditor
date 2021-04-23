@@ -18,7 +18,8 @@ namespace KHSave.SaveEditor.Services
             .AddExtensions("Kingdom Hearts 1.5/2.5 ReMIX", "DAT")
             .AddPatterns("Kingdom Hearts 0.2", ";ue4savegame*.sav")
             .AddPatterns("Kingdom Hearts III", ";__data__slot*.bin")
-            .AddPatterns("Final Fantasy VII REMAKE", ";ff7remake*")
+            .AddPatterns("Kingdom Hearts PC ports saves", "png")
+            .AddExtensions("Final Fantasy VII REMAKE", ";ff7remake*")
             .AddExtensions("PS2 Save Archive", "psu", "cbs")
             .AddExtensions("PS2 Single Archive (PS3)", "psv")
             ;
