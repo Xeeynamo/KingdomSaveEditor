@@ -95,13 +95,13 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Get the Source Code" Command="{Binding OpenLinkCommand}"
-                    CommandParameter="https://github.com/xeeynamo/kh3saveeditor">
+                    CommandParameter="https://github.com/Xeeynamo/KingdomSaveEditor">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Report bug or missing features" Command="{Binding OpenLinkCommand}"
-                    CommandParameter="https://github.com/xeeynamo/kh3saveeditor/issues">
+                    CommandParameter="https://github.com/Xeeynamo/KingdomSaveEditor/issues">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>
