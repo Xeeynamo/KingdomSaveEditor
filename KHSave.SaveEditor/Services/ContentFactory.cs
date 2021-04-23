@@ -50,34 +50,20 @@ namespace KHSave.SaveEditor.Services
             this.container = container;
         }
 
-        public ContentResponse Factory(ContentType saveType)
+        public ContentResponse Factory(ContentType saveType) => saveType switch
         {
-            switch (saveType)
-            {
-                case ContentType.Unload:
-                    return FactoryView<HomeView, HomeViewModel>();
-                case ContentType.KingdomHearts:
-                    return FactoryEditorView<Kh1.MainView, Kh1ViewModel>();
-                case ContentType.KingdomHearts2:
-                    return FactoryEditorView<Kh2.MainView, Kh2ViewModel>();
-                case ContentType.KingdomHeartsBbs:
-                    return FactoryEditorView<KhBbs.MainView, KhBbsViewModel>();
-                case ContentType.KingdomHeartsDDD:
-                    return FactoryEditorView<KhDDD.MainView, KhDDDViewModel>();
-                case ContentType.KingdomHeartsRecom:
-                    return FactoryEditorView<KhRecom.MainView, KhRecomViewModel>();
-                case ContentType.KingdomHearts02:
-                    return FactoryEditorView<Kh02.MainView, Kh02ViewModel>();
-                case ContentType.KingdomHearts3:
-                    return FactoryEditorView<Kh3.MainView, Kh3ViewModel>();
-                case ContentType.FinalFantasy7Remake:
-                    return FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>();
-                case ContentType.Persona5:
-                    return FactoryEditorView<Persona5.Views.Persona5MainView, Persona5MainViewModel>();
-                default:
-                    throw new Exception($"Factory for {saveType} not yet implemented.");
-            }
-        }
+            ContentType.Unload => FactoryView<HomeView, HomeViewModel>(),
+            ContentType.KingdomHearts => FactoryEditorView<Kh1.MainView, Kh1ViewModel>(),
+            ContentType.KingdomHearts2 => FactoryEditorView<Kh2.MainView, Kh2ViewModel>(),
+            ContentType.KingdomHeartsBbs => FactoryEditorView<KhBbs.MainView, KhBbsViewModel>(),
+            ContentType.KingdomHeartsDDD => FactoryEditorView<KhDDD.MainView, KhDDDViewModel>(),
+            ContentType.KingdomHeartsRecom => FactoryEditorView<KhRecom.MainView, KhRecomViewModel>(),
+            ContentType.KingdomHearts02 => FactoryEditorView<Kh02.MainView, Kh02ViewModel>(),
+            ContentType.KingdomHearts3 => FactoryEditorView<Kh3.MainView, Kh3ViewModel>(),
+            ContentType.FinalFantasy7Remake => FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>(),
+            ContentType.Persona5 => FactoryEditorView<Persona5.Views.Persona5MainView, Persona5MainViewModel>(),
+            _ => throw new Exception($"Factory for {saveType} not yet implemented."),
+        };
 
         public void LoadIconPack(ContentType saveType)
         {

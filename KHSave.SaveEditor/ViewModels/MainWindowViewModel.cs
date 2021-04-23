@@ -494,21 +494,31 @@ namespace KHSave.SaveEditor.ViewModels
 
         private void ChangeContent(ContentType contentType, Stream stream = null)
         {
-            reporterService.SendGameName(contentType.ToString());
-            contentFactory.LoadIconPack(contentType);
-            var contentResponse = contentFactory.Factory(contentType);
+            try
+            {
+                reporterService.SendGameName(contentType.ToString());
+                contentFactory.LoadIconPack(contentType);
+                var contentResponse = contentFactory.Factory(contentType);
 
-            RefreshUi = contentResponse.RefreshUi;
-            WriteToStream = contentResponse.WriteToStream;
-            GetSave = contentResponse.GetSave;
+                RefreshUi = contentResponse.RefreshUi;
+                WriteToStream = contentResponse.WriteToStream;
+                GetSave = contentResponse.GetSave;
 
-            if (stream != null)
-                contentResponse.OpenStream.OpenStream(stream);
+                if (stream != null)
+                    contentResponse.OpenStream.OpenStream(stream);
 
-            OnPropertyChanged(nameof(SaveCommand));
-            OnPropertyChanged(nameof(SaveAsCommand));
-            OnPropertyChanged(nameof(ImportCommand));
-            OnControlChanged?.Invoke(contentResponse.Control);
+                OnPropertyChanged(nameof(SaveCommand));
+                OnPropertyChanged(nameof(SaveAsCommand));
+                OnPropertyChanged(nameof(ImportCommand));
+                OnControlChanged?.Invoke(contentResponse.Control);
+            }
+            catch (Exception ex)
+            {
+                ReporterService.Instance.SendCrashReport(ex);
+                MessageBox.Show(
+                    $"An unhandled error has occurred:\n{ex.Message}\n\n{ex.StackTrace}",
+                    "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
