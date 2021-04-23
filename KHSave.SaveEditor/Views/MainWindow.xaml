@@ -62,6 +62,18 @@
                     IsChecked="{Binding IsAnonymousReporting}"/>
             </MenuItem>
             <MenuItem Header="_Info">
+                <MenuItem IsEnabled="False">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource UIAbout_16x}"/>
+                    </MenuItem.Icon>
+                    <MenuItem.Header>
+                        <TextBlock Foreground="Black">
+                            <Run Text="Version: "/>
+                            <Run Text="{Binding CurrentVersion, Mode=OneTime}"/>
+                        </TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+                <Separator/>
                 <MenuItem
                     Header="Get _latest version"
                     Command="{Binding GetLatestVersionCommand}"
@@ -104,12 +116,6 @@
                     CommandParameter="https://kingdomsaveeditor.xee.dev/#privacy">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="_About" Command="{Binding AboutCommand}">
-                    <MenuItem.Icon>
-                        <Image Source="{StaticResource UIAbout_16x}"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>

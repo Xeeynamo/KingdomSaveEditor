@@ -19,12 +19,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using Xe.Tools;
 using Xe.Tools.Wpf.Commands;
-using Xe.Tools.Wpf.Dialogs;
 using KHSave.SaveEditor.Common;
 using KHSave.SaveEditor.Common.Contracts;
 using KHSave.Trssv;
@@ -65,6 +63,7 @@ namespace KHSave.SaveEditor.ViewModels
         private ProcessStream _processStream;
 
         private string OriginalTitle => "Kingdom Save Editor";
+        public string CurrentVersion { get; } = new DesktopAppIdentity().Version;
 
         private Window Window => Application.Current.Windows.OfType<Window>().FirstOrDefault(x => x.IsActive);
 
@@ -103,7 +102,6 @@ namespace KHSave.SaveEditor.ViewModels
         public RelayCommand ExitCommand { get; }
         public RelayCommand GetLatestVersionCommand { get; }
         public RelayCommand OpenLinkCommand { get; }
-        public RelayCommand AboutCommand { get; }
 
         public object DataContext
         {
@@ -251,32 +249,6 @@ namespace KHSave.SaveEditor.ViewModels
                 FileName = url as string,
                 UseShellExecute = true
             }));
-
-            AboutCommand = new RelayCommand(x =>
-            {
-                var contributors = string.Join("\n", (new string[]
-                {
-                    "Keytotruth, additional coding and offsets",
-                    "Rikux3, Kingdom Hearts 1 Final Mix support",
-                    "Troopah, for providing the icons",
-                    "Sonicshadowsilver2, for story flags and records offsets",
-                    "13th Vessel for the complete story flag list",
-                    "TALESIOFIFREAK, for the ability list and DLC inventory",
-                    "SilverCam, for the gummiship inventory items",
-                    "Luseu, to have provided the majority of FF7R offsets",
-                }).Select(name => $" - {name}")
-                .ToList());
-
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                var assemblyName = assembly.GetName();
-                var aboutDialog = new AboutDialog(assembly)
-                {
-                    Version = $"{assemblyName.Version.Major}.{assemblyName.Version.Minor}.{assemblyName.Version.Build}"
-                };
-                aboutDialog.Author += "\n\nContributors and special thanks:\n" + contributors + "\n - Every other contributor on GitHub repo\n";
-
-                aboutDialog.ShowDialog();
-            }, x => true);
         }
 
         private bool IsTransferSupported()
