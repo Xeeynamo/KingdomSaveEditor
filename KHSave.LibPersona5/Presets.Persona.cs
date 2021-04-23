@@ -50,7 +50,7 @@ namespace KHSave.LibPersona5
         }
 
         private static string GetResourceFileName(string fileName, bool isRoyal) => Path.Combine(
-            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+            AppContext.BaseDirectory,
             $"Resources/Persona5/{(isRoyal ? "Royal" : "Vanilla")}_{fileName}");
 
         public static List<Persona> GetPersona(bool isRoyal)
