@@ -2,6 +2,7 @@ using KHSave.SaveEditor.Ff7Remake.Data;
 using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.Views;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -38,15 +39,23 @@ namespace KHSave.SaveEditor
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
+            try
+            {
+                base.OnStartup(e);
+                Initialize(e);
+            }
+            catch (Exception ex)
+            {
+                CaptureException(ex);
+            }
+        }
 
+        private void Initialize(StartupEventArgs e)
+        {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             DispatcherUnhandledException += (sender, args) =>
             {
-                ReporterService.Instance.SendCrashReport(args.Exception);
-                MessageBox.Show(
-                    $"An unhandled error has occurred:\n{args.Exception.Message}\n\n{args.Exception.StackTrace}",
-                    "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);
+                CaptureException(args.Exception);
                 args.Handled = true;
             };
 
@@ -64,6 +73,14 @@ namespace KHSave.SaveEditor
                 ;
 
             container.Resolve<MainWindow>().Show();
+        }
+
+        private static void CaptureException(Exception ex)
+        {
+            ReporterService.Instance.SendCrashReport(ex);
+            MessageBox.Show(
+                $"An unhandled error has occurred:\n{ex.Message}\n\n{ex.StackTrace}",
+                "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
