@@ -31,7 +31,7 @@ namespace KHSave.LibDDD
             [Data(0xd1cc)] public uint SoraXp { get; set; }
             [Data(0xd1e0)] public ushort SoraDroplets { get; set; }
             [Data(0xd1f0)] public byte SoraLv { get; set; }
-            
+
             //RikuXp max value 786680?
             [Data(0xd248)] public uint RikuXp { get; set; }
             [Data(0xd25c)] public ushort RikuDroplets { get; set; }
