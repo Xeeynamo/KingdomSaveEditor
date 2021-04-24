@@ -12,7 +12,7 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
         public SystemViewModel(ISaveKhDDD save)
         {
             this.save = save;
-            Difficulty = new KhEnumListModel<DifficultyType>(() => save.Difficulty, x => save.Difficulty = x);
+            Difficulty = new KhEnumListModel<DifficultyType>(() => save.DifficultyLoading, x => save.DifficultyLoading = x);
             Worlds = new KhEnumListModel<WorldType>();
         }
 
