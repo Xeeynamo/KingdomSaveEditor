@@ -30,9 +30,14 @@ namespace KHSave.Archives
             private static int Map(DateTime dateTime) => (int)((dateTime.Ticks - UnixTimeBase) / TimeSpan.TicksPerSecond);
         }
 
-        private const string _hiddenEntryName = "NONAME";
+        private const int PngHeaderLength = 0x70;
+        private const int EncryptedLength = 0xF0;
+        private const int KeyLength = 0x10;
+        private const int KeyOffset = EncryptedLength - KeyLength;
+        private const int EntryLength = 0x158;
 
         private readonly int _stride;
+        private readonly byte[] _encryptionKey;
 
         private byte[] _pngHeader;
         private byte[] _pngFooter;
@@ -41,6 +46,7 @@ namespace KHSave.Archives
         {
             MaxEntryCount = entryCount;
             _stride = stride;
+            _encryptionKey = new byte[KeyLength];
             Entries = new List<IArchiveEntry>(MaxEntryCount);
         }
 
@@ -49,40 +55,35 @@ namespace KHSave.Archives
             MaxEntryCount = entryCount;
             _stride = stride;
 
-            _pngHeader = new byte[0x1C8];
-            stream.Read(_pngHeader, 0, 0x1C8);
+            _pngHeader = new byte[PngHeaderLength];
+            stream.Read(_pngHeader);
 
-            var entries = Enumerable.Range(0, (entryCount - 1))
-                .Select(x => BinaryMapping.ReadObject<Entry>(stream, (int)stream.Position))
-                .ToList();
+            var entryData = new byte[entryCount * EntryLength];
+            stream.Read(entryData);
 
-            //if you open an empty save file, there's also no data in here
-            //need to check this better
-            var hiddenEntry = new Entry()
-            {
-                Name = _hiddenEntryName,
-            };
+            _encryptionKey = new byte[KeyLength];
+            Array.Copy(entryData, KeyOffset, _encryptionKey, 0, KeyLength);
+            for (var i = 0; i < EncryptedLength; i++)
+                entryData[i] ^= _encryptionKey[i & 15];
 
-            hiddenEntry.Data = new byte[_stride];
-            stream.Read(hiddenEntry.Data, 0, _stride);
+            var entryStream = new MemoryStream(entryData);
+            Entries = Enumerable.Range(0, entryCount)
+                .Select(i => BinaryMapping.ReadObject<Entry>(entryStream, i * EntryLength))
+                .ToArray();
 
             var baseOffset = stream.Position;
-            foreach (var entry in entries)
+            foreach (var entry in Entries.Cast<Entry>())
             {
                 entry.Data = new byte[entry.Length];
-                stream.Read(entry.Data, 0, (int)entry.Length);
+                stream.Read(entry.Data, 0, entry.Length);
 
                 baseOffset += _stride;
                 stream.Position = baseOffset;
             }
-            entries.Insert(0, hiddenEntry);
 
-            Entries = entries.ToArray();
-
-            var len = stream.Length - stream.Position;
-
-            _pngFooter = new byte[len];
-            stream.Read(_pngFooter, 0, (int)len);
+            var remainingByteCount = stream.Length - stream.Position;
+            _pngFooter = new byte[remainingByteCount];
+            stream.Read(_pngFooter);
         }
 
         public string Name { get; internal set; } = "Kingdom Hearts PC Save Archive";
@@ -115,13 +116,15 @@ namespace KHSave.Archives
 
             stream.Position = 0;
             stream.Write(_pngHeader);
-            foreach (var entry in entries)
-            {
-                if (entry.Name == _hiddenEntryName)
-                    continue;
 
-                BinaryMapping.WriteObject(stream, entry, (int)stream.Position);
-            }
+            var entryData = new byte[entries.Count * EntryLength];
+            using var entryStream = new MemoryStream(entryData);
+            foreach (var entry in entries)
+                BinaryMapping.WriteObject(entryStream, entry, (int)entryStream.Position);
+
+            for (var i = 0; i < EncryptedLength; i++)
+                entryData[i] ^= _encryptionKey[i & 15];
+            stream.Write(entryData);
 
             var baseOffset = (int)stream.Position;
             foreach (var entry in entries)
