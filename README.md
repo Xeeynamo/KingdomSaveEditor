@@ -49,6 +49,7 @@ The script `pack.bat` uses WinRAR's self-extracting archive to create a single e
 * Rikux3 for the incredible support of Kingdom Hearts 1 and Birth By Sleep Final Mix, the PC release of Kingdom Hearts games, the CBS PSU and PSV support
 * Keytotruth for additional coding and offset findings for Kingdom Hearts III
 * Delta-47 for the incredible support of Dream Drop Distance for 3DS, PS4 and PC and the European/Japanese support for Kingdom Hearts 1
+* Skiller for the multiple offsets and values for Persona 5 / Royal and the tips for fix a Kingdom Hearts III checksum and decrypt the 1.5+2.5 ReMIX PC encrypted header
 * Troopah to provide the icons used in the very first version of the editor
 * Sonicshadowsilver2 for the early findings of story flags and records offsets for Kingdom Hearts III
 * 13th Vessel to have found the complete story flags list for Kingdom Hearts III
