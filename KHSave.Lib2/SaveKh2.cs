@@ -88,7 +88,9 @@ namespace KHSave.Lib2
             {
                 save.Write(tempStream);
                 var rawData = tempStream.SetPosition(0xc).ReadBytes();
+                // Calculate checksum of Magiccode and Version.
                 checksum = CalculateChecksum(tempStream.FromBegin().ReadBytes(8), 8, uint.MaxValue);
+                // Calculate checksum of the rest of the gamedata.
                 checksum = CalculateChecksum(rawData, rawData.Length, checksum ^ uint.MaxValue);
             }
 

@@ -6,7 +6,7 @@ namespace KHSave.SaveEditor.KhDDD.ViewModels
 {
     public class DecksViewModel : GenericListModel<DeckViewModel>
     {
-        public DecksViewModel(Deck[] decks) :
+        public DecksViewModel(IDeck[] decks) :
             base(decks.Select(x => new DeckViewModel(x)))
         { }
     }

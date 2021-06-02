@@ -23,7 +23,7 @@ namespace KHSave.Archives.Factories
     public class Ps4KhDddFactory : IArchiveFactory
     {
         private const int EntryCount = 100;
-        private const int Stride = 0x2cc00;
+        private const int Stride = 0x16600;
         private const int Size = 0x8bfc00;
 
         public string Name => "PS4 KHDDD";
