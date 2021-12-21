@@ -27,10 +27,10 @@ namespace KHSave.LibFf7Remake.Types
         [Info("Tifa")] Tifa = SaveFf7Remake.Tifa,
         [Info("Aerith")] Aerith = SaveFf7Remake.Aerith,
         [Info("Red XIII")] Red13 = SaveFf7Remake.Red13,
-        [Info("5")] Unused5, // Cait Sith
-        [Info("6")] Unused6, // Cid
-        [Info("7")] Unused7, // Yuffie
-        [Info("8")] Unused8, // Vincent
+        [Info("Yuffie")] Yuffie = SaveFf7Remake.Yuffie,
+        [Info("Sonon")] Sonon = SaveFf7Remake.Sonon,
+        [Info("7")] Unused7,
+        [Info("8")] Unused8,
         [Info("None")] None = SaveFf7Remake.Unequipped,
     }
 }

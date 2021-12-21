@@ -52,4 +52,18 @@ namespace KHSave.Attributes
             base(name)
         { }
     }
+
+    public class WeaponYuffieAttribute : WeaponAttribute
+    {
+        public WeaponYuffieAttribute(string name = null) :
+            base(name)
+        { }
+    }
+
+    public class WeaponSononAttribute : WeaponAttribute
+    {
+        public WeaponSononAttribute(string name = null) :
+            base(name)
+        { }
+    }
 }
