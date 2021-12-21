@@ -11,7 +11,7 @@
         <TextBlock
             Margin="0 0 0 5"
             Visibility="{Binding AsWeaponVisibility}"
-            Text="{Binding Index, StringFormat=Equipment index index: {0}}"/>
+            Text="{Binding Index, StringFormat=Equipment index: {0}}"/>
         
         <TextBlock Text="Character" Visibility="{Binding AdvancedVisibility}"/>
         <ComboBox

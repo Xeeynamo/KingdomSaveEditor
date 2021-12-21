@@ -126,6 +126,8 @@ namespace KHSave.LibFf7Remake.Types
         [WeaponTifa("Purple Pain")] PurplePain,
         [WeaponTifa("Sonic Strikers")] SonicStrikers,
 
+        [WeaponYuffie("4-Point Shuriken")] FourPointShuriken = 3423,
+
         [WeaponAerith("Guard Stick")] GuardStick = 4001,
         [WeaponAerith("Silver Staff")] SilverStaff,
         [WeaponAerith("Bladed Staff")] BladedStaff,
@@ -134,6 +136,8 @@ namespace KHSave.LibFf7Remake.Types
         [WeaponAerith("Arcane Scepter")] ArcaneScepter,
 
         [Weapon("Mythril Collar")] MythrilCollar = 5001,
+
+        [WeaponSonon("Marshalist's Staff")] MarshalistStaff = 8181,
 
         [Armor("Bronze Bangle")] BronzeBangle = 9001,
         [Armor("Iron Bangle")] IronBangle,

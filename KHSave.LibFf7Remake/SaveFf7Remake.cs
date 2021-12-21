@@ -38,6 +38,7 @@ namespace KHSave.LibFf7Remake
         public const int Red13 = 4;
         public const int Yuffie = 5;
         public const int Sonon = 6;
+        public const int LastKnownCharacter = Sonon;
         public const int Unequipped = 9;
 
         private SaveFf7Remake(List<Chunk> chunks)

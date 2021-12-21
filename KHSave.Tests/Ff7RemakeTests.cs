@@ -32,9 +32,6 @@ namespace KHSave.Tests
             var outStream = new MemoryStream();
             save.Write(outStream);
 
-            using var debugStream = File.OpenWrite("D:\\_ff7_save_dump.bin");
-            save.Write(debugStream);
-
             return outStream;
         }));
 

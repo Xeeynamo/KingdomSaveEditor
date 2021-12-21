@@ -17,6 +17,7 @@
 */
 
 using KHSave.Attributes;
+using KHSave.LibFf7Remake;
 using KHSave.LibFf7Remake.Models;
 using KHSave.LibFf7Remake.Types;
 using KHSave.SaveEditor.Common;
@@ -56,7 +57,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public Visibility AsWeaponVisibility => IsWeapon ? Visibility.Visible : Visibility.Collapsed;
         public Visibility ItemTypeVisibility => Global.IsAdvancedMode || Character == CharacterType.None ? Visibility.Visible : Visibility.Collapsed;
-        public bool IsVisible => Global.IsAdvancedMode || Character <= CharacterType.Red13 || Character == CharacterType.None;
+        public bool IsVisible => Global.IsAdvancedMode || Character <= (CharacterType)SaveFf7Remake.LastKnownCharacter || Character == CharacterType.None;
 
         public IEnumerable<ItemModel> EquipmentType { get; }
         public KhEnumListModel<CharacterType> CharacterTypes { get; }
