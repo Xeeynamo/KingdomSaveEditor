@@ -11,7 +11,7 @@
 | Kingdom Hearts: Dream Drop Distance | 3DS/PC     | All    |
 | Kingdom Hearts 0.2             | PS4             | All    |
 | Kingdom Hearts III             | PS4 only        | All    |
-| Final Fantasy VII Remake       | PS4 only        | All    |
+| Final Fantasy VII Remake       | PS4/PC          | All    |
 | Persona 5, Persona 5 Royal     | PS3/PS4         | US/EU  |
 
 [![Download](https://img.shields.io/github/downloads/xeeynamo/kh3saveeditor/total.svg?)](https://github.com/Xeeynamo/KH3SaveEditor/releases)*
