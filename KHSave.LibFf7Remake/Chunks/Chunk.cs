@@ -30,6 +30,12 @@ namespace KHSave.LibFf7Remake.Chunks
         [Data] public int NextChunkOffset { get; set; }
         [Data] public int Unused08 { get; set; }
         [Data] public int Unused0c { get; set; }
+
+        public bool IsTail =>
+            NextChunkOffset == 0 &&
+            Unknown00 == 4 &&
+            Unknown01 == 0 &&
+            Unknown02 == 1;
     }
 
     public class ChunkContent
@@ -42,6 +48,13 @@ namespace KHSave.LibFf7Remake.Chunks
 
     public class Chunk
     {
+        public enum Type
+        {
+            RESD = 0x0004ffe8,
+            LOSD = 0x660e8,
+            TAIL = 0
+        }
+
         public const int HeaderLength = 0x10;
         public const int ContentHeaderLength = 0x18;
         public const int TotalHeaderLength = HeaderLength + ContentHeaderLength;
@@ -49,7 +62,7 @@ namespace KHSave.LibFf7Remake.Chunks
         public ChunkHeader Header { get; }
         public ChunkContent Content { get; }
 
-        public bool IsLastChunk => Header.NextChunkOffset == 0;
+        public bool IsLastChunk => Header.IsTail;
         public bool IsEmpty => Content.ChunkLength == 0;
 
         public Chunk(ChunkHeader header, ChunkContent content)
@@ -58,21 +71,15 @@ namespace KHSave.LibFf7Remake.Chunks
             Content = content;
         }
 
-        public static Chunk Read(Stream stream)
+        public static Chunk Read(Stream stream, Type type)
         {
             var header = BinaryMapping.ReadObject<ChunkHeader>(stream);
-            ChunkContent content;
+            if (header.IsTail)
+                return new Chunk(header, null);
 
-            if (header.NextChunkOffset > 0)
-            {
-                content = BinaryMapping.ReadObject<ChunkContent>(stream);
-                if (content.ChunkLength > ContentHeaderLength)
-                    content.RawData = stream.ReadBytes(content.ChunkLength - ContentHeaderLength);
-                else
-                    content.RawData = new byte[0];
-            }
-            else
-                content = null;
+            var content = BinaryMapping.ReadObject<ChunkContent>(stream);
+            var expectedSize = (int)type;
+            content.RawData = stream.ReadBytes(expectedSize);
 
             if (header.NextChunkOffset > 0)
                 stream.Position = header.NextChunkOffset;
@@ -87,7 +94,6 @@ namespace KHSave.LibFf7Remake.Chunks
             {
                 BinaryMapping.WriteObject(stream, Content);
                 stream.Write(Content.RawData, 0, Content.RawData.Length);
-                stream.Position = Header.NextChunkOffset;
             }
         }
 

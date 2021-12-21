@@ -52,7 +52,7 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         public MateriaViewModel Materia { get; }
 
         public string Name => InfoAttribute.GetInfo(_characterType);
-        public bool IsUnused => _characterType >= CharacterType.Unused5;
+        public bool IsUnused => _characterType >= CharacterType.Unused7;
 
         public byte Level { get => _character.Level; set => _character.Level = value; }
         public bool IsUnlocked { get => _character.IsUnlocked; set => _character.IsUnlocked = value; }

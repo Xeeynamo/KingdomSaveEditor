@@ -23,7 +23,7 @@ namespace KHSave.LibFf7Remake.Chunks
 {
     public class ChunkCommon
     {
-        [Data(Count = 0x00050008)] public byte[] Data { get; set; }
+        [Data(Count = 0x4FFE8)] public byte[] Data { get; set; }
 
         [Data(0)] public byte CurrentChapterChunk { get; set; }
         [Data] public byte Unk01 { get; set; }

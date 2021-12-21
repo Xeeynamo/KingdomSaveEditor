@@ -12,10 +12,8 @@ namespace KHSave.Tests
         [Fact]
         public void TestIsValid()
         {
-            using (var stream = File.OpenRead(FilePath))
-            {
-                Assert.True(SaveFf7Remake.IsValid(stream));
-            }
+            using var stream = File.OpenRead(FilePath);
+            Assert.True(SaveFf7Remake.IsValid(stream));
         }
 
         [Fact]
@@ -23,14 +21,19 @@ namespace KHSave.Tests
             File.OpenRead(FilePath).Using(stream =>
                 AssertSaveGame(SaveFf7Remake.Read(stream)));
 
-        [Fact]
-        public void TestWriteBackTheSameExactFile() =>
-        File.OpenRead(FilePath).Using(stream => Helpers.AssertStream(stream, inStream =>
+        [Theory]
+        [InlineData("Saves/ff7remake000")]
+        [InlineData("Saves/ff7remake007")]
+        public void TestWriteBackTheSameExactFile(string filePath) =>
+        File.OpenRead(filePath).Using(stream => Helpers.AssertStream(stream, inStream =>
         {
             var save = SaveFf7Remake.Read(inStream);
 
             var outStream = new MemoryStream();
             save.Write(outStream);
+
+            using var debugStream = File.OpenWrite("D:\\_ff7_save_dump.bin");
+            save.Write(debugStream);
 
             return outStream;
         }));

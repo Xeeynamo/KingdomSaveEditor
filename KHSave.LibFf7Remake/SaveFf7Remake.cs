@@ -119,21 +119,18 @@ namespace KHSave.LibFf7Remake
         {
             var chunk = GetChunk(type, index);
             if ((chunk?.Content?.RawData?.Length ?? 0) == 0)
-                return default(T);
+                return default;
 
-            using (var stream = new MemoryStream(chunk.Content.RawData))
-                return BinaryMapping.ReadObject<T>(stream);
+            using var stream = new MemoryStream(chunk.Content.RawData);
+            return BinaryMapping.ReadObject<T>(stream);
         }
 
         private void WriteChunk<T>(T item, int type, int index = -1)
             where T : class
         {
             var chunk = GetChunk(type, index);
-            using (var stream = new MemoryStream())
-            {
-                BinaryMapping.WriteObject(stream, item);
-                chunk.Content.RawData = stream.GetBuffer();
-            }
+            using var stream = new MemoryStream(chunk.Content.RawData);
+            BinaryMapping.WriteObject(stream, item);
         }
 
         public static bool IsValid(Stream stream)
@@ -149,19 +146,40 @@ namespace KHSave.LibFf7Remake
                 stream.ReadByte() == 0x53 && stream.ReadByte() == 0x44;
         }
 
+        private static readonly Chunk.Type[] ReadPattern = new[]
+        {
+            Chunk.Type.RESD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.RESD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.LOSD,
+            Chunk.Type.TAIL,
+        };
+
         public static SaveFf7Remake Read(Stream stream)
         {
-            var chunks = new List<Chunk>();
             stream.SetPosition(0);
-
-            while (true)
-            {
-                var chunk = Chunk.Read(stream);
-                chunks.Add(chunk);
-                if (chunk.IsLastChunk)
-                    break;
-            }
-
+            var chunks = ReadPattern
+                .Select(x => Chunk.Read(stream, x))
+                .ToList();
             return new SaveFf7Remake(chunks);
         }
     }
