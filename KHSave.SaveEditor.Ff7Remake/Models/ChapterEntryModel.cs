@@ -71,50 +71,32 @@ namespace KHSave.SaveEditor.Ff7Remake.Models
         {
             get
             {
-                if (_index == SaveFf7Remake.ChapterCount)
-                    return "Current?";
-
-                switch (_index)
+                var chunkIdDesc = _index switch
                 {
-                    case 0:
-                        return "Chapter 1";
-                    case 1:
-                        return "Chapter 2";
-                    case 2:
-                        return "Chapter 3,12";
-                    case 3:
-                        return "Chapter 4";
-                    case 4:
-                        return "Chapter 5";
-                    case 5:
-                        return "Chapter 6";
-                    case 6:
-                        return "Chapter 7";
-                    case 7:
-                        return "Unused";
-                    case 8:
-                        return "Ch. 8,9,13,14";
-                    case 9:
-                        return "Ch. 10";
-                    case 10:
-                        return "Ch. 11";
-                    case 11:
-                        return "Unused";
-                    case 12:
-                        return "Unused";
-                    case 13:
-                        return "?????";
-                    case 14:
-                        return "Unused";
-                    case 15:
-                        return "Chapter 15";
-                    case 16:
-                        return "Ch. 16,17,18";
-                    case 17:
-                        return "Unused";
-                    default:
-                        return $"Chapter ID {_index}";
-                }
+                    0 => "Chapter 1",
+                    1 => "Chapter 2",
+                    2 => "Chapter 3,12",
+                    3 => "Chapter 4",
+                    4 => "Chapter 5",
+                    5 => "Chapter 6",
+                    6 => "Chapter 7",
+                    7 => "Unused",
+                    8 => "Ch. 8,9,13,14",
+                    9 => "Ch. 10",
+                    10 => "Ch. 11",
+                    11 => "Unused",
+                    12 => "Unused",
+                    13 => "?????",
+                    14 => "Unused",
+                    15 => "Chapter 15",
+                    16 => "Ch. 16,17,18",
+                    17 => "Unused",
+                    18 => "DLC Chapter 1",
+                    19 => "DLC Chapter 2",
+                    _ => "",
+                };
+
+                return $"#{_index:D02} {chunkIdDesc}";
             }
         }
 
