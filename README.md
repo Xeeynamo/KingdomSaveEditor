@@ -18,7 +18,7 @@
 ![Last commit](https://img.shields.io/github/last-commit/xeeynamo/kh3saveeditor.svg)
 ![Tests status](https://github.com/xeeynamo/kh3saveeditor/workflows/Tests/badge.svg)
 
-<sub><sup>*download count does not include download from Microsoft Store.</sup></sub>
+<sub><sup>*download count does not include downloads from the Microsoft Store.</sup></sub>
 
 ## Donations
 
@@ -35,14 +35,6 @@ You need to decrypt your save before opening it with Kingdom Save Editor. Please
 This software is **free and open-source**, and every contribution is more than welcome!
 
 If you want to add missing names, improve it or add new offsets, just clone the repository, do your change, test if it does work and create a pull request: we will review your change (no needs to be scared here) and we will merge it to this repo! Do not be shy on contribute, even for the smallest thing 😃
-
-### Build guide
-
-The project is structured into libraries and GUI. Libraries are written in .Net Core and they are cross-platform (eg. Linux and MacOS are supported). Although, the GUI is heavily depentant from Windows and you need Visual Studio 2019 or later.
-
-When you clone this repository, remember to launch the script `setup.bat` if you are on Windows or `setup.sh` if you are on Linux, to set-up the minimum requirements to build the project.
-
-The script `pack.bat` uses WinRAR's self-extracting archive to create a single executable file ready to be distributed.
 
 ## Special thanks
 
