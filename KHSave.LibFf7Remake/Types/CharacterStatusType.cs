@@ -22,10 +22,11 @@ namespace KHSave.LibFf7Remake.Types
 {
     public enum CharacterStatusType : byte
     {
-        [Info("Un-discovered")] Undiscovered,
+        [Info("Hidden")] Hidden,
         [Info("In party")] InParty,
         [Info("Out party")] OutParty,
         [Info("3")] Unk3,
         [Info("4")] Unk4,
+        [Info("Guest")] Guest,
     }
 }
