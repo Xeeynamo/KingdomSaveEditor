@@ -1,0 +1,14 @@
+PackageIdentifier: "Xeeynamo.KingdomSaveEditor"
+PackageVersion: "1.15.1"
+PackageLocale: "en-US"
+Publisher: "Xeeynamo"
+PackageName: "KingdomSaveEditor"
+License: "GPL-3.0"
+ShortDescription: "General purpose videogame save editor."
+Installers: 
+ - Architecture: "x86"
+   InstallerType: "zip"
+   InstallerUrl: "https://github.com/Xeeynamo/KingdomSaveEditor/releases/download/v1.15.1/KingdomSaveEditor-15.1.zip"
+   InstallerSha256: ce21fb501677b555cb3cd0e1e2f16de900eba4a5d03da48d64a721e2cff21e0b
+ManifestType: "singleton"
+ManifestVersion: "1.0.0"
