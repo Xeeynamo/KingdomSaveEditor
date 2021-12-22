@@ -28,7 +28,6 @@ namespace KHSave.LibFf7Remake
 {
     public class SaveFf7Remake
     {
-        public const bool _EnableLastChapter = false;
         public const int ChapterCount = 18;
         public const int CharacterCount = 8;
         public const int Cloud = 0;
@@ -44,20 +43,35 @@ namespace KHSave.LibFf7Remake
         private SaveFf7Remake(List<Chunk> chunks)
         {
             Chunks = chunks.ToArray();
-            if (_EnableLastChapter)
-                Chapters = new ChunkChapter[ChapterCount + 1];
-            else
-                Chapters = new ChunkChapter[ChapterCount];
+            Chapters = new ChunkChapter[21];
             ReimportChunks();
         }
 
         public SaveFf7Remake Write(Stream stream)
         {
-            WriteChunk(ChunkCommon, 0, 0);
-            for (var i = 0; i < ChapterCount; i++)
-                WriteChunk(Chapters[i], 1, i);
-            if (_EnableLastChapter)
-                WriteChunk(Chapters[ChapterCount], 3);
+            WriteChunk(ChunkCommon, 0);
+            WriteChunk(Chapters[0], 1);
+            WriteChunk(Chapters[1], 2);
+            WriteChunk(Chapters[2], 3);
+            WriteChunk(Chapters[3], 4);
+            WriteChunk(Chapters[4], 5);
+            WriteChunk(Chapters[5], 6);
+            WriteChunk(Chapters[6], 7);
+            WriteChunk(Chapters[7], 8);
+            WriteChunk(Chapters[8], 9);
+            WriteChunk(Chapters[9], 10);
+            WriteChunk(Chapters[10], 11);
+            WriteChunk(Chapters[11], 12);
+            WriteChunk(Chapters[12], 13);
+            WriteChunk(Chapters[13], 14);
+            WriteChunk(Chapters[14], 15);
+            WriteChunk(Chapters[15], 16);
+            WriteChunk(Chapters[16], 17);
+            WriteChunk(Chapters[17], 18);
+            WriteChunk(ChunkCommonPrev, 19);
+            WriteChunk(Chapters[18], 20);
+            WriteChunk(Chapters[19], 21);
+            WriteChunk(Chapters[20], 22);
 
             foreach (var chunk in Chunks)
                 chunk.Write(stream);
@@ -66,6 +80,7 @@ namespace KHSave.LibFf7Remake
         }
 
         public ChunkCommon ChunkCommon { get; private set; }
+        public ChunkCommon ChunkCommonPrev { get; private set; }
 
         public Chunk[] Chunks { get; private set; }
 
@@ -87,38 +102,35 @@ namespace KHSave.LibFf7Remake
 
         public void ReimportChunks()
         {
-            ChunkCommon = ReadChunk<ChunkCommon>(0, 0);
-            for (var i = 0; i < ChapterCount; i++)
-            {
-                var chapter = ReadChunk<ChunkChapter>(1, i);
-                if (chapter == null)
-                    chapter = new ChunkChapter();
-
-                Chapters[i] = chapter;
-            }
-
-            if (_EnableLastChapter)
-                Chapters[ChapterCount] = ReadChunk<ChunkChapter>(3);
+            ChunkCommon = ReadChunk<ChunkCommon>(0);
+            Chapters[0] = ReadChunk<ChunkChapter>(1);
+            Chapters[1] = ReadChunk<ChunkChapter>(2);
+            Chapters[2] = ReadChunk<ChunkChapter>(3);
+            Chapters[3] = ReadChunk<ChunkChapter>(4);
+            Chapters[4] = ReadChunk<ChunkChapter>(5);
+            Chapters[5] = ReadChunk<ChunkChapter>(6);
+            Chapters[6] = ReadChunk<ChunkChapter>(7);
+            Chapters[7] = ReadChunk<ChunkChapter>(8);
+            Chapters[8] = ReadChunk<ChunkChapter>(9);
+            Chapters[9] = ReadChunk<ChunkChapter>(10);
+            Chapters[10] = ReadChunk<ChunkChapter>(11);
+            Chapters[11] = ReadChunk<ChunkChapter>(12);
+            Chapters[12] = ReadChunk<ChunkChapter>(13);
+            Chapters[13] = ReadChunk<ChunkChapter>(14);
+            Chapters[14] = ReadChunk<ChunkChapter>(15);
+            Chapters[15] = ReadChunk<ChunkChapter>(16);
+            Chapters[16] = ReadChunk<ChunkChapter>(17);
+            Chapters[17] = ReadChunk<ChunkChapter>(18);
+            ChunkCommonPrev = ReadChunk<ChunkCommon>(19);
+            Chapters[18] = ReadChunk<ChunkChapter>(20);
+            Chapters[19] = ReadChunk<ChunkChapter>(21);
+            Chapters[20] = ReadChunk<ChunkChapter>(22);
         }
 
-        private Chunk GetChunk(int type, int index = -1)
-        {
-            var chunk = Chunks.FirstOrDefault(x =>
-                x.Header.Unknown00 == type &&
-                (index == -1 || x.Header.Unknown01 == index));
-            if (chunk == null)
-                return null;//throw new ArgumentException($"Unable to find the chunk ({type}, {index}).");
-
-            if (chunk.Content == null)
-                throw new ArgumentException($"The chunk ({type}, {index}) does not contain any data.");
-
-            return chunk;
-        }
-
-        private T ReadChunk<T>(int type, int index = -1)
+        private T ReadChunk<T>(int index)
             where T : class
         {
-            var chunk = GetChunk(type, index);
+            var chunk = Chunks[index];
             if ((chunk?.Content?.RawData?.Length ?? 0) == 0)
                 return default;
 
@@ -126,10 +138,10 @@ namespace KHSave.LibFf7Remake
             return BinaryMapping.ReadObject<T>(stream);
         }
 
-        private void WriteChunk<T>(T item, int type, int index = -1)
+        private void WriteChunk<T>(T item, int index)
             where T : class
         {
-            var chunk = GetChunk(type, index);
+            var chunk = Chunks[index];
             using var stream = new MemoryStream(chunk.Content.RawData);
             BinaryMapping.WriteObject(stream, item);
         }
