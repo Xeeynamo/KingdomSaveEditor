@@ -161,190 +161,190 @@ items:
   icon: Consumable
 - id: 100
   name: Sector 5 Reactor Keycard
-  icon: Key
+  icon: KeyItem
 - id: 102
   name: Tournament Entry Form
-  icon: Key
+  icon: KeyItem
 - id: 103
   name: Madam M's Endorsement
-  icon: Key
+  icon: KeyItem
 - id: 104
   name: Andrea's Endorsement
-  icon: Key
+  icon: KeyItem
 - id: 111
   name: Shinra ID Card
-  icon: Key
+  icon: KeyItem
 - id: 115
   name: Grappling Gun
-  icon: Key
+  icon: KeyItem
 - id: 116
   name: Grappling Gun
-  icon: Key
+  icon: KeyItem
 - id: 117
   name: Key to the Sewers
-  icon: Key
+  icon: KeyItem
 - id: 118
   name: Moogle Medal
-  icon: Key
+  icon: KeyItem
 - id: 119
   name: Sam's Coin
-  icon: Key
+  icon: KeyItem
 - id: 120
   name: Shinra Keycard
-  icon: Key
+  icon: KeyItem
 - id: 121
   name: Hojo's Research Lab Keycard
-  icon: Key
+  icon: KeyItem
 - id: 122
   name: Combat Analyzer
-  icon: Key
+  icon: KeyItem
 - id: 123
   name: Watch Security Key
-  icon: Key
+  icon: KeyItem
 - id: 124
   name: Handmade Necklace
-  icon: Key
+  icon: KeyItem
 - id: 126
   name: Behemoth Horn
-  icon: Key
+  icon: KeyItem
 - id: 127
   name: Medicinal Flowers
-  icon: Key
+  icon: KeyItem
 - id: 132
   name: Sam's Delivery Lifetime Pass
-  icon: Key
+  icon: KeyItem
 - id: 139
   name: Madam M's Requests
-  icon: Key
+  icon: KeyItem
 - id: 140
   name: Sam's Requests
-  icon: Key
+  icon: KeyItem
 - id: 141
   name: The Sauce
-  icon: Key
+  icon: KeyItem
 - id: 142
   name: Medicine Voucher
-  icon: Key
+  icon: KeyItem
 - id: 143
   name: VIP Card
-  icon: Key
+  icon: KeyItem
 - id: 144
   name: Yellow Flower
-  icon: Key
+  icon: KeyItem
 - id: 148
   name: Graveyard Key
-  icon: Key
+  icon: KeyItem
 - id: 149
   name: Guardian Angel's Calling Cards
-  icon: Key
+  icon: KeyItem
 - id: 150
   name: Vitalabrew
-  icon: Key
+  icon: KeyItem
 - id: 151
   name: Crimson Spike
-  icon: Key
+  icon: KeyItem
 - id: 152
   name: Bottle of Antiemetic
-  icon: Key
+  icon: KeyItem
 - id: 153
   name: Deodorizing Tablets
-  icon: Key
+  icon: KeyItem
 - id: 154
   name: Packets of Antacid
-  icon: Key
+  icon: KeyItem
 - id: 155
   name: Moogle Membership Card
-  icon: Key
+  icon: KeyItem
 - id: 156
   name: Gysahl Greens
-  icon: Key
+  icon: KeyItem
 - id: 157
   name: Doctor's List
-  icon: Key
+  icon: KeyItem
 - id: 158
   name: Moogle's Mortar
-  icon: Key
+  icon: KeyItem
 - id: 159
   name: Map to the Hideout
-  icon: Key
+  icon: KeyItem
 - id: 160
   name: Ruby Tiara
-  icon: Key
+  icon: KeyItem
 - id: 161
   name: Diamond Tiara
-  icon: Key
+  icon: KeyItem
 - id: 162
   name: Emerald Tiara
-  icon: Key
+  icon: KeyItem
 - id: 163
   name: Johnny's Wallet
-  icon: Key
+  icon: KeyItem
 - id: 164
   name: Corneo Vault Key
-  icon: Key
+  icon: KeyItem
 - id: 165
   name: Shinra Keycard
-  icon: Key
+  icon: KeyItem
 - id: 166
   name: Shinra Keycard
-  icon: Key
+  icon: KeyItem
 - id: 167
   name: Shinra Keycard
-  icon: Key
+  icon: KeyItem
 - id: 168
   name: Shinra Executive Keycard
-  icon: Key
+  icon: KeyItem
 - id: 169
   name: Letter from the Guardian Angel
-  icon: Key
+  icon: KeyItem
 - id: 170
   name: Andrea's Earrings
-  icon: Key
+  icon: KeyItem
 - id: 171
   name: Real Calling Card
-  icon: Key
+  icon: KeyItem
 - id: 172
   name: Fake Calling Card
-  icon: Key
+  icon: KeyItem
 - id: 173
   name: Corneo Vault Note
-  icon: Key
+  icon: KeyItem
 - id: 174
   name: Condor Coin
-  icon: Key
+  icon: KeyItem
 - id: 175
   name: Da-chao Beans
-  icon: Key
+  icon: KeyItem
 - id: 176
   name: Interplate ID Card
-  icon: Key
+  icon: KeyItem
 - id: 177
   name: Shinra Employee ID Card
-  icon: Key
+  icon: KeyItem
 - id: 178
   name: The Happy Turtle Newsletter 1
-  icon: Key
+  icon: KeyItem
 - id: 179
   name: The Happy Turtle Newsletter 2
-  icon: Key
+  icon: KeyItem
 - id: 180
   name: The Happy Turtle Newsletter 3
-  icon: Key
+  icon: KeyItem
 - id: 181
   name: The Happy Turtle Newsletter 4
-  icon: Key
+  icon: KeyItem
 - id: 182
   name: The Happy Turtle Newsletter 5
-  icon: Key
+  icon: KeyItem
 - id: 183
   name: The Happy Turtle Newsletter 6
-  icon: Key
+  icon: KeyItem
 - id: 184
   name: List of Flyer Clues
-  icon: Key
+  icon: KeyItem
 - id: 185
   name: Note from Zhijie
-  icon: Key
+  icon: KeyItem
 - id: 256
   name: 1. The Prelude (hidden)
   icon: Track
