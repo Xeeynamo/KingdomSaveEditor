@@ -1,5 +1,83 @@
 name: Final Fantasy VII Remake
 items:
+- id: 1
+  name: Potion
+  icon: Consumable
+- id: 2
+  name: Hi-Potion
+  icon: Consumable
+- id: 3
+  name: Ether
+  icon: Consumable
+- id: 4
+  name: Turbo Ether
+  icon: Consumable
+- id: 5
+  name: Elixir
+  icon: Consumable
+- id: 6
+  name: Phoenix Down
+  icon: Consumable
+- id: 7
+  name: Antidote
+  icon: Consumable
+- id: 8
+  name: Echo Mist
+  icon: Consumable
+- id: 9
+  name: Adrenaline
+  icon: Consumable
+- id: 10
+  name: Sedative
+  icon: Consumable
+- id: 11
+  name: Remedy
+  icon: Consumable
+- id: 12
+  name: Celeris
+  icon: Consumable
+- id: 13
+  name: Grenade
+  icon: Consumable
+- id: 14
+  name: Spiderweb
+  icon: Consumable
+- id: 15
+  name: Hazardous Material
+  icon: Consumable
+- id: 16
+  name: Big Bomber
+  icon: Consumable
+- id: 17
+  name: Molotov Cocktail
+  icon: Consumable
+- id: 18
+  name: Orb of Gravity
+  icon: Consumable
+- id: 19
+  name: Smelling Salts
+  icon: Consumable
+- id: 20
+  name: Gil
+  icon: Money
+- id: 21
+  name: Maiden's Kiss
+  icon: Consumable
+- id: 22
+  name: Mega-Potion
+  icon: Consumable
+- id: 31
+  name: AI Programming Core
+  icon: Consumable
+- id: 32
+  name: Fuzzy Wuzzy
+  icon: Consumable
+- id: 33
+  name: Mr. Cuddlesworth
+  icon: Consumable
+- id: 34
+  name: Armor Core
+  icon: Consumable
 - id: 50
   name: Fire damage (general)
   icon: Consumable
@@ -81,14 +159,194 @@ items:
 - id: 76
   name: Maiden's Kiss (All)
   icon: Consumable
+- id: 100
+  name: Sector 5 Reactor Keycard
+  icon: Key
+- id: 102
+  name: Tournament Entry Form
+  icon: Key
+- id: 103
+  name: Madam M's Endorsement
+  icon: Key
+- id: 104
+  name: Andrea's Endorsement
+  icon: Key
+- id: 111
+  name: Shinra ID Card
+  icon: Key
+- id: 115
+  name: Grappling Gun
+  icon: Key
+- id: 116
+  name: Grappling Gun
+  icon: Key
+- id: 117
+  name: Key to the Sewers
+  icon: Key
+- id: 118
+  name: Moogle Medal
+  icon: Key
+- id: 119
+  name: Sam's Coin
+  icon: Key
+- id: 120
+  name: Shinra Keycard
+  icon: Key
+- id: 121
+  name: Hojo's Research Lab Keycard
+  icon: Key
+- id: 122
+  name: Combat Analyzer
+  icon: Key
+- id: 123
+  name: Watch Security Key
+  icon: Key
+- id: 124
+  name: Handmade Necklace
+  icon: Key
 - id: 126
   name: Behemoth Horn
-  icon: Consumable
+  icon: Key
 - id: 127
   name: Medicinal Flowers
-  icon: Consumable
+  icon: Key
+- id: 132
+  name: Sam's Delivery Lifetime Pass
+  icon: Key
+- id: 139
+  name: Madam M's Requests
+  icon: Key
+- id: 140
+  name: Sam's Requests
+  icon: Key
+- id: 141
+  name: The Sauce
+  icon: Key
+- id: 142
+  name: Medicine Voucher
+  icon: Key
+- id: 143
+  name: VIP Card
+  icon: Key
+- id: 144
+  name: Yellow Flower
+  icon: Key
+- id: 148
+  name: Graveyard Key
+  icon: Key
+- id: 149
+  name: Guardian Angel's Calling Cards
+  icon: Key
+- id: 150
+  name: Vitalabrew
+  icon: Key
+- id: 151
+  name: Crimson Spike
+  icon: Key
+- id: 152
+  name: Bottle of Antiemetic
+  icon: Key
+- id: 153
+  name: Deodorizing Tablets
+  icon: Key
+- id: 154
+  name: Packets of Antacid
+  icon: Key
+- id: 155
+  name: Moogle Membership Card
+  icon: Key
+- id: 156
+  name: Gysahl Greens
+  icon: Key
+- id: 157
+  name: Doctor's List
+  icon: Key
+- id: 158
+  name: Moogle's Mortar
+  icon: Key
+- id: 159
+  name: Map to the Hideout
+  icon: Key
+- id: 160
+  name: Ruby Tiara
+  icon: Key
+- id: 161
+  name: Diamond Tiara
+  icon: Key
+- id: 162
+  name: Emerald Tiara
+  icon: Key
+- id: 163
+  name: Johnny's Wallet
+  icon: Key
+- id: 164
+  name: Corneo Vault Key
+  icon: Key
+- id: 165
+  name: Shinra Keycard
+  icon: Key
+- id: 166
+  name: Shinra Keycard
+  icon: Key
+- id: 167
+  name: Shinra Keycard
+  icon: Key
+- id: 168
+  name: Shinra Executive Keycard
+  icon: Key
+- id: 169
+  name: Letter from the Guardian Angel
+  icon: Key
+- id: 170
+  name: Andrea's Earrings
+  icon: Key
+- id: 171
+  name: Real Calling Card
+  icon: Key
+- id: 172
+  name: Fake Calling Card
+  icon: Key
+- id: 173
+  name: Corneo Vault Note
+  icon: Key
+- id: 174
+  name: Condor Coin
+  icon: Key
+- id: 175
+  name: Da-chao Beans
+  icon: Key
+- id: 176
+  name: Interplate ID Card
+  icon: Key
+- id: 177
+  name: Shinra Employee ID Card
+  icon: Key
+- id: 178
+  name: The Happy Turtle Newsletter 1
+  icon: Key
+- id: 179
+  name: The Happy Turtle Newsletter 2
+  icon: Key
+- id: 180
+  name: The Happy Turtle Newsletter 3
+  icon: Key
+- id: 181
+  name: The Happy Turtle Newsletter 4
+  icon: Key
+- id: 182
+  name: The Happy Turtle Newsletter 5
+  icon: Key
+- id: 183
+  name: The Happy Turtle Newsletter 6
+  icon: Key
+- id: 184
+  name: List of Flyer Clues
+  icon: Key
+- id: 185
+  name: Note from Zhijie
+  icon: Key
 - id: 256
-  name: 1. The Prelude (#2?)
+  name: 1. The Prelude (hidden)
   icon: Track
 - id: 257
   name: 1. The Prelude
@@ -363,11 +621,329 @@ items:
 - id: 383
   name: "Legacy: Planet's Protection"
   icon: Recipe
+- id: 500
+  name: Secrets of the Ninja Vol. I
+  icon: Recipe
+- id: 501
+  name: Secrets of the Ninja Vol. II
+  icon: Recipe
+- id: 502
+  name: Secrets of the Ninja Vol. III
+  icon: Recipe
+- id: 503
+  name: Secrets of the Ninja Vol. IV
+  icon: Recipe
+- id: 504
+  name: Secrets of the Ninja Vol. V
+  icon: Recipe
+- id: 505
+  name: Secrets of the Ninja Vol. VI
+  icon: Recipe
+- id: 506
+  name: Secrets of the Ninja Vol. VII
+  icon: Recipe
+- id: 507
+  name: Secrets of the Ninja Vol. VIII
+  icon: Recipe
+- id: 508
+  name: Secrets of the Ninja Vol. IX
+  icon: Recipe
+- id: 509
+  name: Secrets of the Ninja Vol. X
+  icon: Recipe
+- id: 510
+  name: Secrets of the Ninja Vol. XI
+  icon: Recipe
+- id: 511
+  name: Secrets of the Ninja Vol. XII
+  icon: Recipe
+- id: 512
+  name: Secrets of the Ninja Vol. XIII
+  icon: Recipe
+- id: 513
+  name: Secrets of the Ninja Vol. XIV
+  icon: Recipe
+- id: 514
+  name: Secrets of the Staff Vol. I
+  icon: Recipe
+- id: 515
+  name: Secrets of the Staff Vol. II
+  icon: Recipe
+- id: 516
+  name: Secrets of the Staff Vol. III
+  icon: Recipe
+- id: 517
+  name: Secrets of the Staff Vol. IV
+  icon: Recipe
+- id: 518
+  name: Secrets of the Staff Vol. V
+  icon: Recipe
+- id: 519
+  name: Secrets of the Staff Vol. VI
+  icon: Recipe
+- id: 520
+  name: Secrets of the Staff Vol. VII
+  icon: Recipe
+- id: 521
+  name: Secrets of the Staff Vol. VIII
+  icon: Recipe
+- id: 522
+  name: Secrets of the Staff Vol. IX
+  icon: Recipe
+- id: 523
+  name: Secrets of the Staff Vol. X
+  icon: Recipe
+- id: 524
+  name: Secrets of the Staff Vol. XI
+  icon: Recipe
+- id: 525
+  name: Secrets of the Staff Vol. XII
+  icon: Recipe
+- id: 526
+  name: Secrets of the Staff Vol. XIII
+  icon: Recipe
+- id: 527
+  name: Secrets of the Staff Vol. XIV
+  icon: Recipe
+- id: 528
+  name: Starter Board
+  icon: Recipe
+- id: 529
+  name: Sorcerer Board I
+  icon: Recipe
+- id: 530
+  name: Battalion Board I
+  icon: Recipe
+- id: 531
+  name: Assassin Board I
+  icon: Recipe
+- id: 532
+  name: Sorcerer Board II
+  icon: Recipe
+- id: 533
+  name: Battalion Board II
+  icon: Recipe
+- id: 534
+  name: Assassin Board II
+  icon: Recipe
+- id: 535
+  name: Assassin Board III
+  icon: Recipe
+- id: 536
+  name: Battalion Board III
+  icon: Recipe
+- id: 537
+  name: Grandmaster Board
+  icon: Recipe
+- id: 538
+  name: Security Officer (Vanguard)
+  icon: Recipe
+- id: 539
+  name: Elite Security Officer (Vanguard)
+  icon: Recipe
+- id: 540
+  name: Helitrooper (Vanguard)
+  icon: Recipe
+- id: 541
+  name: Elite Helitrooper (Vanguard)
+  icon: Recipe
+- id: 542
+  name: Shock Trooper (Vanguard)
+  icon: Recipe
+- id: 543
+  name: Cutter (Vanguard)
+  icon: Recipe
+- id: 544
+  name: Guard Dog (Vanguard)
+  icon: Recipe
+- id: 545
+  name: Security Officer Barracks (Vanguard)
+  icon: Recipe
+- id: 546
+  name: Grenadier (Ranged)
+  icon: Recipe
+- id: 547
+  name: Elite Grenadier (Ranged)
+  icon: Recipe
+- id: 548
+  name: Elite Shock Trooper (Ranged)
+  icon: Recipe
+- id: 549
+  name: Sweeper (Ranged)
+  icon: Recipe
+- id: 550
+  name: Slug-Ray (Ranged)
+  icon: Recipe
+- id: 551
+  name: Monodrive (Ranged)
+  icon: Recipe
+- id: 552
+  name: Sentry Ray (Ranged)
+  icon: Recipe
+- id: 553
+  name: Missile Launcher (Ranged)
+  icon: Recipe
+- id: 554
+  name: Grenadier Barracks (Ranged)
+  icon: Recipe
+- id: 555
+  name: Slug-Ray Facility (Ranged)
+  icon: Recipe
+- id: 556
+  name: Riot Trooper (Defense)
+  icon: Recipe
+- id: 557
+  name: Elite Riot Trooper (Defense)
+  icon: Recipe
+- id: 558
+  name: Blast-Ray (Defense)
+  icon: Recipe
+- id: 559
+  name: Armored Shock Trooper (Defense)
+  icon: Recipe
+- id: 560
+  name: Helicopter (Defense)
+  icon: Recipe
+- id: 561
+  name: Sentry Gun Prototype (Defense)
+  icon: Recipe
+- id: 562
+  name: Sentry Gun (Defense)
+  icon: Recipe
+- id: 563
+  name: Sledgeworm (Defense)
+  icon: Recipe
+- id: 564
+  name: M.O.T.H. Unit (Defense)
+  icon: Recipe
+- id: 565
+  name: Riot Trooper Barracks (Defense)
+  icon: Recipe
+- id: 1001
+  name: Buster Sword
+  icon: WeaponCloud
+- id: 1002
+  name: Iron Blade
+  icon: WeaponCloud
+- id: 1003
+  name: Hardedge
+  icon: WeaponCloud
+- id: 1004
+  name: Mythril Saber
+  icon: WeaponCloud
+- id: 1005
+  name: Twin Stinger
+  icon: WeaponCloud
+- id: 1006
+  name: Nail Bat
+  icon: WeaponCloud
+- id: 1871
+  name: Steel Reaper
+  icon: WeaponYuffie
+- id: 2001
+  name: Gatling Gun
+  icon: WeaponBarret
+- id: 2002
+  name: Light Machine Gun
+  icon: WeaponBarret
+- id: 2003
+  name: Steel Pincers
+  icon: WeaponBarret
+- id: 2004
+  name: Big Bertha
+  icon: WeaponBarret
+- id: 2005
+  name: EKG Cannon
+  icon: WeaponBarret
+- id: 2006
+  name: Wrecking Ball
+  icon: WeaponBarret
+- id: 3001
+  name: Leather Gloves
+  icon: WeaponTifa
+- id: 3002
+  name: Metal Knuckles
+  icon: WeaponTifa
+- id: 3003
+  name: Feathered Gloves
+  icon: WeaponTifa
+- id: 3004
+  name: Mythril Claws
+  icon: WeaponTifa
+- id: 3005
+  name: Purple Pain
+  icon: WeaponTifa
+- id: 3006
+  name: Sonic Strikers
+  icon: WeaponTifa
+- id: 3423
+  name: 4-Point Shuriken
+  icon: WeaponYuffie
+- id: 3431
+  name: Indurate Staff
+  icon: WeaponSonos
+- id: 3686
+  name: $Item_E_ACC_7008
+  icon: Weapon
+- id: 3934
+  name: Cacstar
+  icon: WeaponYuffie
+- id: 4001
+  name: Guard Stick
+  icon: WeaponAerith
+- id: 4002
+  name: Silver Staff
+  icon: WeaponAerith
+- id: 4003
+  name: Bladed Staff
+  icon: WeaponAerith
+- id: 4004
+  name: Mythril Rod
+  icon: WeaponAerith
+- id: 4005
+  name: Reinforced Staff
+  icon: WeaponAerith
+- id: 4006
+  name: Arcane Scepter
+  icon: WeaponAerith
+- id: 5001
+  name: Mythril Collar
+  icon: Weapon
+- id: 6001
+  name: $Item_W_FLG_0001
+  icon: Weapon
+- id: 6608
+  name: Boomerang
+  icon: WeaponYuffie
+- id: 8181
+  name: Marshalist's Staff
+  icon: WeaponSonos
+- id: 9001
+  name: Bronze Bangle
+  icon: Armor
+- id: 9002
+  name: Iron Bangle
+  icon: Armor
+- id: 9003
+  name: Titanium Bangle
+  icon: Armor
+- id: 9004
+  name: Gothic Bangle
+  icon: Armor
 - id: 9005
   name: Cog Bangle
   icon: Armor
 - id: 9006
   name: Chain Bangle
+  icon: Armor
+- id: 9007
+  name: Leather Bracer
+  icon: Armor
+- id: 9008
+  name: Studded Bracer
+  icon: Armor
+- id: 9009
+  name: Heavy-Duty Bracer
   icon: Armor
 - id: 9010
   name: Supreme Bracer
@@ -375,35 +951,113 @@ items:
 - id: 9011
   name: Iron Maiden
   icon: Armor
+- id: 9012
+  name: Mesmeric Armlet
+  icon: Armor
+- id: 9013
+  name: Mythril Armlet
+  icon: Armor
+- id: 9014
+  name: Sorcerer's Armlet
+  icon: Armor
 - id: 9015
   name: Rune Armlet
   icon: Armor
 - id: 9016
   name: Astral Cuff
   icon: Armor
-- id: 9040
+- id: 9017
+  name: Power Wristguards
+  icon: Accessory
+- id: 9018
+  name: Bulletproof Vest
+  icon: Accessory
+- id: 9019
+  name: Earrings
+  icon: Accessory
+- id: 9020
+  name: Talisman
+  icon: Accessory
+- id: 9021
+  name: Headband
+  icon: Accessory
+- id: 9022
+  name: Star Pendant
+  icon: Accessory
+- id: 9023
+  name: Fury Ring
+  icon: Accessory
+- id: 9024
+  name: Revival Earrings
+  icon: Accessory
+- id: 9025
+  name: Whistlewind Scarf
+  icon: Accessory
+- id: 9026
+  name: Mythical Amulet
+  icon: Accessory
+- id: 9027
+  name: Healing Carcanet
+  icon: Accessory
+- id: 9028
+  name: Clarity Pendant
+  icon: Accessory
+- id: 9029
+  name: Transference Module
+  icon: Accessory
+- id: 9030
+  name: Spectral Cogwheel
+  icon: Accessory
+- id: 9031
+  name: Moogle's Amulet
+  icon: Accessory
+- id: 9032
+  name: Enfeeblement Ring
+  icon: Accessory
+- id: 9033
+  name: Crescent Moon Charm
+  icon: Accessory
+- id: 9034
+  name: Champion Belt
+  icon: Accessory
+- id: 9035
+  name: Protective Boots
+  icon: Accessory
+- id: 9036
+  name: Circlet
+  icon: Accessory
+- id: 9037
+  name: Tarot Cards
+  icon: Accessory
+- id: 9038
+  name: Otherworldly Crystal
+  icon: Accessory
+- id: 9039
   name: Salvation Badge
   icon: Accessory
-- id: 9041
+- id: 9040
   name: Star Bracelet
-  icon: Armor
-- id: 9042
+  icon: Accessory
+- id: 9041
   name: Caliginous Bracelet
-  icon: Armor
-- id: 9043
+  icon: Accessory
+- id: 9042
   name: Magician's Bracelet
-  icon: Armor
-- id: 9044
+  icon: Accessory
+- id: 9043
   name: Geometric Bracelet
-  icon: Armor
-- id: 9045
+  icon: Accessory
+- id: 9044
   name: Force Bracelet
-  icon: Armor
+  icon: Accessory
+- id: 9045
+  name: Seraphic Earrings
+  icon: Accessory
 - id: 9050
   name: Enchanted Ring
   icon: Accessory
 - id: 9051
-  name: Supernatural Wristguard
+  name: Supernatural Wristguards
   icon: Accessory
 - id: 9052
   name: Survival Vest
@@ -430,5 +1084,218 @@ items:
   name: Mako Crystal
   icon: Accessory
 - id: 9060
-  name: Gotterdammerung
+  name: Götterdämmerung
   icon: Accessory
+- id: 9061
+  name: Ninja Armlet
+  icon: Accessory
+- id: 9062
+  name: Chthonian Armlet
+  icon: Accessory
+- id: 9063
+  name: Volant Armlet
+  icon: Accessory
+- id: 9064
+  name: Firebird Armlet
+  icon: Accessory
+- id: 9065
+  name: Kindred Cord
+  icon: Accessory
+- id: 9066
+  name: Ribbon
+  icon: Accessory
+- id: 9067
+  name: Gozu Drive
+  icon: Accessory
+- id: 9068
+  name: Mezu Drive
+  icon: Accessory
+- id: 9069
+  name: $Item_E_ACC_7001
+  icon: Accessory
+- id: 9070
+  name: $Item_E_ACC_7002
+  icon: Accessory
+- id: 9071
+  name: $Item_E_ACC_7003
+  icon: Accessory
+- id: 9072
+  name: $Item_E_ACC_7004
+  icon: Accessory
+- id: 9073
+  name: $Item_E_ACC_7005
+  icon: Accessory
+- id: 9074
+  name: $Item_E_ACC_7006
+  icon: Accessory
+- id: 9075
+  name: $Item_E_ACC_7007
+  icon: Accessory
+- id: 9076
+  name: $Item_E_ARM_7001
+  icon: Accessory
+- id: 9579
+  name: Djinn Staff
+  icon: WeaponSonos
+- id: 10001
+  name: Healing Materia
+  icon: MagicMateria
+- id: 10002
+  name: Cleansing Materia
+  icon: MagicMateria
+- id: 10003
+  name: Revival Materia
+  icon: MagicMateria
+- id: 10004
+  name: Fire Materia
+  icon: MagicMateria
+- id: 10005
+  name: Ice Materia
+  icon: MagicMateria
+- id: 10006
+  name: Lightning Materia
+  icon: MagicMateria
+- id: 10007
+  name: Wind Materia
+  icon: MagicMateria
+- id: 10008
+  name: Poison Materia
+  icon: MagicMateria
+- id: 10009
+  name: Binding Materia
+  icon: MagicMateria
+- id: 10010
+  name: Time Materia
+  icon: MagicMateria
+- id: 10011
+  name: Barrier Materia
+  icon: MagicMateria
+- id: 10012
+  name: Subversion Materia
+  icon: MagicMateria
+- id: 11001
+  name: Magnify Materia
+  icon: SupportMateria
+- id: 11002
+  name: Elemental Materia
+  icon: SupportMateria
+- id: 11003
+  name: Warding Materia
+  icon: SupportMateria
+- id: 11004
+  name: HP Absorption Materia
+  icon: SupportMateria
+- id: 11005
+  name: MP Absorption Materia
+  icon: SupportMateria
+- id: 11006
+  name: Synergy Materia
+  icon: SupportMateria
+- id: 11007
+  name: AP Up Materia
+  icon: SupportMateria
+- id: 11008
+  name: Ninja Cannonball Materia
+  icon: CommandMateria
+- id: 12001
+  name: Steal Materia
+  icon: CommandMateria
+- id: 12002
+  name: Assess Materia
+  icon: CommandMateria
+- id: 12003
+  name: Enemy Skill Materia
+  icon: CommandMateria
+- id: 12004
+  name: Chakra Materia
+  icon: CommandMateria
+- id: 12005
+  name: Prayer Materia
+  icon: CommandMateria
+- id: 12006
+  name: ATB Boost Materia
+  icon: CommandMateria
+- id: 13001
+  name: HP Up Materia
+  icon: CompleteMateria
+- id: 13002
+  name: MP Up Materia
+  icon: CompleteMateria
+- id: 13003
+  name: Magic Up Materia
+  icon: CompleteMateria
+- id: 13004
+  name: Luck Up Materia
+  icon: CompleteMateria
+- id: 13005
+  name: Gil Up Materia
+  icon: CompleteMateria
+- id: 13006
+  name: EXP Up Materia
+  icon: CompleteMateria
+- id: 13007
+  name: Item Master Materia
+  icon: CompleteMateria
+- id: 13008
+  name: ATB Stagger Materia
+  icon: CompleteMateria
+- id: 13009
+  name: First Strike Materia
+  icon: CompleteMateria
+- id: 13010
+  name: Steadfast Block Materia
+  icon: CompleteMateria
+- id: 13011
+  name: Skill Master Materia
+  icon: CompleteMateria
+- id: 13012
+  name: Deadly Dodge Materia
+  icon: CompleteMateria
+- id: 13013
+  name: Parry Materia
+  icon: CompleteMateria
+- id: 13014
+  name: ATB Assist Materia
+  icon: CompleteMateria
+- id: 13015
+  name: Auto-Cure Materia
+  icon: CompleteMateria
+- id: 13016
+  name: Provoke Materia
+  icon: CompleteMateria
+- id: 13017
+  name: Pedometer Materia
+  icon: CompleteMateria
+- id: 13018
+  name: Refocus Materia
+  icon: CompleteMateria
+- id: 14001
+  name: Chocobo & Moogle Materia
+  icon: SummonMateria
+- id: 14002
+  name: Shiva Materia
+  icon: SummonMateria
+- id: 14003
+  name: Ifrit Materia
+  icon: SummonMateria
+- id: 14004
+  name: Leviathan Materia
+  icon: SummonMateria
+- id: 14005
+  name: Bahamut Materia
+  icon: SummonMateria
+- id: 14006
+  name: Fat Chocobo Materia
+  icon: SummonMateria
+- id: 14007
+  name: Carbuncle Materia
+  icon: SummonMateria
+- id: 14008
+  name: Cactuar Materia
+  icon: SummonMateria
+- id: 14009
+  name: Chocobo Chick Materia
+  icon: SummonMateria
+- id: 14010
+  name: Ramuh Materia
+  icon: SummonMateria
