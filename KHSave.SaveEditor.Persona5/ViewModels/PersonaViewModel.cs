@@ -95,10 +95,10 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             set => _persona.Level = value;
         }
 
-        public short Unknown06
+        public Trait Trait
         {
-            get => _persona.Unknown06;
-            set => _persona.Unknown06 = value;
+            get => _persona.Trait;
+            set => _persona.Trait = value;
         }
 
         public int Experience
