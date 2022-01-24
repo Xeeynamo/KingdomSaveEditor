@@ -116,8 +116,11 @@ namespace KHSave.SaveEditor.Views
             if (messages == null)
                 return;
 
+            var identity = new DesktopAppIdentity();
+            var denyDownloads = identity.IsMicrosoftStore;
+
             messageList.Children.Clear();
-            foreach (var message in messages)
+            foreach (var message in messages.Where(x => denyDownloads == false || IsDownloadNewVersion(x) == false))
             {
                 messageList.Children.Add(new Separator
                 {
@@ -135,6 +138,15 @@ namespace KHSave.SaveEditor.Views
                     IsItalic = message.IsItalic,
                 });
             }
+        }
+
+        private static bool IsDownloadNewVersion(Models.ServiceMessage message)
+        {
+            if (message.Title == "Download new version")
+                return true;
+            if (message.Url.StartsWith("https://github.com/Xeeynamo/KH3SaveEditor/releases"))
+                return true;
+            return false;
         }
     }
 }
