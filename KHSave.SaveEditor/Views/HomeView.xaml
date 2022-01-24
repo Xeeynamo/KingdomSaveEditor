@@ -137,6 +137,7 @@
                     TextWrapping="Wrap"
                     Text="{Binding SponsorHeaderInfo}"/>
                 <ProgressBar
+                    Visibility="Collapsed"
                     Margin="0 0 0 3"
                     Height="10"
                     Minimum="{Binding SponsorStartGoal}"
