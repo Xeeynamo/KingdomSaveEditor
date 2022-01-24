@@ -44,7 +44,7 @@
                 <TextBlock Text="Level"/>
                 <TextBox Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Trait ID"/>
-                <TextBox Text="{Binding Trait, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox ItemsSource="{Binding Traits}" SelectedValue="{Binding Trait}" DisplayMemberPath="Name" SelectedValuePath="Value"/>
 
                 <TextBlock Text="Experience"/>
                 <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}"/>

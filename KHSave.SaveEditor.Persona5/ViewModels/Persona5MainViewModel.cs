@@ -15,7 +15,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
     public class Persona5MainViewModel : BaseNotifyPropertyChanged,
         IRefreshUi, IOpenStream, IWriteToStream,
         IPersonaList, ISkillList, IEquipmentList,
-        IConsumableList
+        IConsumableList, ITraitList
     {
         private static readonly string[] MeleeType = new string[]
         {
@@ -90,12 +90,13 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public IEnumerable<EquipmentModel> MeleeWeapons { get; private set; }
         public IEnumerable<EquipmentModel> RangeWeapons { get; private set; }
         public IEnumerable<Presets.Consumable> ConsumableItems { get; private set; }
+        public KhEnumListModel<Trait> TraitList { get; } = new KhEnumListModel<Trait>();
 
         public void RefreshUi()
         {
-            Characters = new CharactersViewModel(Save, this, this, this);
+            Characters = new CharactersViewModel(Save, this, this, this, this);
             Inventory = new InventoryViewModel(Save, this);
-            Compendium = new CompendiumViewModel(Save, this, this);
+            Compendium = new CompendiumViewModel(Save, this, this, this);
             System = new SystemViewModel(Save);
 
             OnPropertyChanged(nameof(SimpleVisibility));

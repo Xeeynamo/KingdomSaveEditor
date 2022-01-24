@@ -22,8 +22,9 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         public CompendiumViewModel(
             ISavePersona5 save,
             IPersonaList personaList,
-            ISkillList skillList) :
-            this(save.Compendium.Select((x, i) => new PersonaViewModel(i, x, personaList, skillList)))
+            ISkillList skillList,
+            ITraitList traitList) :
+            this(save.Compendium.Select((x, i) => new PersonaViewModel(i, x, personaList, skillList, traitList)))
         {
             _save = save;
             UnlockAllCompendiumCommand = new RelayCommand(_ =>

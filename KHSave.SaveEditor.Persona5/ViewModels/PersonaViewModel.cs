@@ -1,6 +1,7 @@
 using KHSave.LibPersona5.Models;
 using KHSave.LibPersona5.Types;
 using KHSave.SaveEditor.Common;
+using KHSave.SaveEditor.Common.Models;
 using KHSave.SaveEditor.Persona5.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,16 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
         private readonly Persona _persona;
         private readonly IPersonaList _personaList;
         private readonly ISkillList _skillList;
+        private readonly ITraitList _traitList;
         private PersonaEntryViewModel _vm;
 
-        public PersonaViewModel(int compendiumIndex, Persona persona, IPersonaList personaList, ISkillList skillList)
+        public PersonaViewModel(int compendiumIndex, Persona persona, IPersonaList personaList, ISkillList skillList, ITraitList traitList)
         {
             _compendiumIndex = compendiumIndex;
             _persona = persona;
             _personaList = personaList;
             _skillList = skillList;
+            _traitList = traitList;
             _vm = PersonaList.FirstOrDefault(x => x.Value == PersonaId);
             ResetPersonaCommand = new RelayCommand(_ =>
             {
@@ -62,6 +65,7 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
 
         public IEnumerable<PersonaEntryViewModel> PersonaList => _personaList.PersonaList;
         public IEnumerable<SkillViewModel> SkillList => _skillList.SkillList;
+        public KhEnumListModel<Trait> Traits => _traitList.TraitList;
         public Visibility SimpleVisibility => Global.IsAdvancedMode ? Visibility.Collapsed : Visibility.Visible;
         public Visibility AdvancedVisibility => Global.IsAdvancedMode ? Visibility.Visible : Visibility.Collapsed;
         public RelayCommand ResetPersonaCommand { get; }

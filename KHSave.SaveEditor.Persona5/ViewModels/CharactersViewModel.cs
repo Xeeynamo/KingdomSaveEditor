@@ -15,8 +15,9 @@ namespace KHSave.SaveEditor.Persona5.ViewModels
             ISavePersona5 save,
             IPersonaList personaList,
             ISkillList skillList,
-            IEquipmentList equipmentList) :
-            this(save.Characters.Select((_, i) => new CharacterEntryViewModel(save, save.Characters[i], i, personaList, skillList, equipmentList)))
+            IEquipmentList equipmentList,
+            ITraitList traitList) :
+            this(save.Characters.Select((_, i) => new CharacterEntryViewModel(save, save.Characters[i], i, personaList, skillList, equipmentList, traitList)))
         {
             _save = save;
         }
