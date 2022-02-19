@@ -13,7 +13,6 @@ namespace KHSave.Lib2.Types
         ValorForm,
         WisdomForm,
         Talk = 10,
-        LimitForm = 673,
         MasterForm,
         FinalForm,
         Antiform,
@@ -38,5 +37,6 @@ namespace KHSave.Lib2.Types
         [Consumable("Mega-Potion")] MegaPotion = 0xf2,
         [Consumable("Mega-Ether")] MegaEther = 0xf3,
         [Consumable("Megalixir")] Megalixir = 0xf4,
+        LimitForm = 673
     }
 }
