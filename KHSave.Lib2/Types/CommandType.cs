@@ -13,6 +13,7 @@ namespace KHSave.Lib2.Types
         ValorForm,
         WisdomForm,
         Talk = 10,
+        LimitForm = 673,
         MasterForm,
         FinalForm,
         Antiform,
