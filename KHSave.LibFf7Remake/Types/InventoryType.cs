@@ -144,6 +144,8 @@ namespace KHSave.LibFf7Remake.Types
         [Armor("Titanium Bangle")] TitaniumBangle,
         [Armor("Gothic Bangle")] GothicBangle,
 
+        [Armor("Link Bangle")] LinkBangle = 9006,
+
         [Armor("Leather Bracer")] LeatherBracer = 9007,
         [Armor("Studder Bracer")] StudderBracer,
         [Armor("Heavy-Duty Bracer")] HeavyDutyBracer,
@@ -175,6 +177,8 @@ namespace KHSave.LibFf7Remake.Types
         [Accessory("Tarot Cards")] TarotCards,
         [Accessory("Otherworldly Crystal")] OtherworldlyCrystal,
         [Accessory("Salvation Badge")] SalvationBadge,
+
+        [Accessory("Gotterdammerung")] Gotterdammerung = 9060,
 
         [MagicMateria("Healing")] Healing = 10001,
         [MagicMateria("Cleansing")] Cleansing,
