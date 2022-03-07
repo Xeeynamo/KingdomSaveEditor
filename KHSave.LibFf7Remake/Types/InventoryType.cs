@@ -144,7 +144,7 @@ namespace KHSave.LibFf7Remake.Types
         [Armor("Titanium Bangle")] TitaniumBangle,
         [Armor("Gothic Bangle")] GothicBangle,
 
-        [Armor("Link Bangle")] LinkBangle = 9006,
+        [Armor("Chain Bangle")] ChainBangle = 9006,
 
         [Armor("Leather Bracer")] LeatherBracer = 9007,
         [Armor("Studder Bracer")] StudderBracer,
