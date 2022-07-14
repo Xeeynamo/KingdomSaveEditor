@@ -2,6 +2,7 @@ using KHSave.SaveEditor.Interfaces;
 using KHSave.SaveEditor.Services;
 using KHSave.SaveEditor.ViewModels;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,7 +34,8 @@ namespace KHSave.SaveEditor.Views
             };
             context.SaveKind = ContentType.Unload;
 
-            if (!string.IsNullOrEmpty(applicationDebug.StartupFileName))
+            if (!string.IsNullOrEmpty(applicationDebug.StartupFileName) &&
+                File.Exists(applicationDebug.StartupFileName))
                 context.Open(applicationDebug.StartupFileName);
 
             this.updater = updater;
