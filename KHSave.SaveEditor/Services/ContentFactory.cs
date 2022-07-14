@@ -14,6 +14,8 @@ using KHSave.SaveEditor.Views;
 using System;
 using System.Windows.Controls;
 using Unity;
+using KHSave.LibPersona3.Models;
+using KHSave.SaveEditor.Persona3.ViewModels;
 
 namespace KHSave.SaveEditor.Services
 {
@@ -29,6 +31,7 @@ namespace KHSave.SaveEditor.Services
         KingdomHearts02,
         KingdomHearts3,
         FinalFantasy7Remake,
+        Persona3,
         Persona5,
     }
 
@@ -61,6 +64,7 @@ namespace KHSave.SaveEditor.Services
             ContentType.KingdomHearts02 => FactoryEditorView<Kh02.MainView, Kh02ViewModel>(),
             ContentType.KingdomHearts3 => FactoryEditorView<Kh3.MainView, Kh3ViewModel>(),
             ContentType.FinalFantasy7Remake => FactoryEditorView<Ff7Remake.Views.FF7RMainView, FF7RMainViewModel>(),
+            ContentType.Persona3 => FactoryEditorView<Persona3.Views.Persona3MainView, Persona3MainViewModel>(),
             ContentType.Persona5 => FactoryEditorView<Persona5.Views.Persona5MainView, Persona5MainViewModel>(),
             _ => throw new Exception($"Factory for {saveType} not yet implemented."),
         };
@@ -88,6 +92,7 @@ namespace KHSave.SaveEditor.Services
                 case ContentType.FinalFantasy7Remake:
                     iconPack = IconService.IconPack.FF7Remake;
                     break;
+                case ContentType.Persona3:
                 case ContentType.Persona5:
                     iconPack = IconService.IconPack.Persona5;
                     break;

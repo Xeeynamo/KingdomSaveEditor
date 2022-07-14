@@ -50,6 +50,7 @@
     <ProjectReference Include="..\KHSave.Lib3\KHSave.Lib3.csproj" />
     <ProjectReference Include="..\KHSave.LibBbs\KHSave.LibBbs.csproj" />
     <ProjectReference Include="..\KHSave.LibFf7Remake\KHSave.LibFf7Remake.csproj" />
+    <ProjectReference Include="..\KHSave.LibPersona3\KHSave.LibPersona3.csproj" />
     <ProjectReference Include="..\KHSave.LibPersona5\KHSave.LibPersona5.csproj" />
     <ProjectReference Include="..\KHSave.LibRecom\KHSave.LibRecom.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
@@ -61,6 +62,7 @@
     <ProjectReference Include="..\KHSave.SaveEditor.KhBbs\KHSave.SaveEditor.KhBbs.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.KhDDD\KHSave.SaveEditor.KhDDD.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.KhRecom\KHSave.SaveEditor.KhRecom.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.Persona3\KHSave.SaveEditor.Persona3.csproj" />
     <ProjectReference Include="..\KHSave.SaveEditor.Persona5\KHSave.SaveEditor.Persona5.csproj" />
     <ProjectReference Include="..\Xe.ReleaseUpdater\Xe.VersionCheck\Xe.VersionCheck.csproj" />
     <ProjectReference Include="..\XeEngine.Tools.Public\Xe.Tools.Wpf\Xe.Tools.Wpf.csproj" />

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KHSave.LibPersona3\KHSave.LibPersona3.csproj" />
+    <ProjectReference Include="..\KHSave.SaveEditor.Common\KHSave.SaveEditor.Common.csproj" />
+    <ProjectReference Include="..\KHSave\KHSave.csproj" />
+  </ItemGroup>
+
+</Project>

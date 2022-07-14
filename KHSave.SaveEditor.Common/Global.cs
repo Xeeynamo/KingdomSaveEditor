@@ -69,6 +69,13 @@ namespace KHSave.SaveEditor.Common
         }
 
         [UserScopedSetting]
+        public string LastPersona3Tab
+        {
+            get => Get("Characters");
+            set => Set(value);
+        }
+
+        [UserScopedSetting]
         public string LastPersona5Tab
         {
             get => Get("Characters");
@@ -130,6 +137,16 @@ namespace KHSave.SaveEditor.Common
             set
             {
                 Settings.LastFF7RTab = value;
+                Settings.Save();
+            }
+        }
+
+        public static string LastPersona3Tab
+        {
+            get => Settings.LastPersona3Tab;
+            set
+            {
+                Settings.LastPersona3Tab = value;
                 Settings.Save();
             }
         }
