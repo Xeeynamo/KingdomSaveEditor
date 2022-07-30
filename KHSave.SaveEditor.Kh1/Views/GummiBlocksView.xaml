@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="KHSave.SaveEditor.Kh1.Views.GummiBlocksView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KHSave.SaveEditor.Kh1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Column="0"
+            ItemsSource="{Binding Items}"
+            SelectedIndex="{Binding SelectedIndex}"
+            SelectedItem="{Binding SelectedItem}"
+            DisplayMemberPath="BlockID"
+            />
+        <Grid Grid.Column="2">
+            <local:GummiBlockView/>
+        </Grid>
+    </Grid>
+</UserControl>
